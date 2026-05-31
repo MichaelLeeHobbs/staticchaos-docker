@@ -2387,7 +2387,7 @@ void do_mset( CHAR_DATA *ch, char *argument )
 	    return;
 	}
 
-	max = 1000;
+	max = class_table[victim->class].body;	/* per-class cap, not 1000 */
 
 	if ( value < 1 || value > max )
 	{
@@ -2407,7 +2407,7 @@ void do_mset( CHAR_DATA *ch, char *argument )
 	  return;
 	}
 
-    max = 1000;
+    max = class_table[victim->class].mind;	/* per-class cap, not 1000 */
     if ( value < 1 || value > max )
     {
       sprintf( buf, "Mind range is 1 to %d.\n\r", max );
@@ -2425,7 +2425,7 @@ void do_mset( CHAR_DATA *ch, char *argument )
 	  return;
 	}
 
-    max = 1000;
+    max = class_table[victim->class].spirit;	/* per-class cap, not 1000 */
     if ( value < 1 || value > max )
     { sprintf( buf, "Spirit range is 1 to %d.\n\r", max );
       send_to_char( buf, ch );
@@ -2442,7 +2442,7 @@ void do_mset( CHAR_DATA *ch, char *argument )
 	  return;
 	}
 
-    max = 1000;
+    max = class_table[victim->class].will;	/* per-class cap, not 1000 */
     if ( value < 1 || value > max )
     { sprintf( buf, "Willpower range is 1 to %d.\n\r", max );
       send_to_char( buf, ch );

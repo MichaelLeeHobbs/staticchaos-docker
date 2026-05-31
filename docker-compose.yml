@@ -1,0 +1,26 @@
+services:
+  mud:
+    build: .
+    image: staticchaos
+    container_name: staticchaos
+    # Host port is configurable: `MUD_PORT=4010 docker compose up`.
+    # Container always listens on 4000 (the MUD requires a port > 1024).
+    ports:
+      - "${MUD_PORT:-4000}:4000"
+    # Persist mutable game data across rebuilds. Named volumes are seeded from
+    # the image on first run (so the a-z player dirs and existing data come
+    # along), then survive `docker compose up --build`.
+    volumes:
+      - player:/mud/player
+      - notes:/mud/notes
+      - finger:/mud/finger
+      - log:/mud/log
+    stdin_open: true
+    tty: true
+    restart: unless-stopped
+
+volumes:
+  player:
+  notes:
+  finger:
+  log:

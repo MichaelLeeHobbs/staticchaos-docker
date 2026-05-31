@@ -1,0 +1,8 @@
+.git
+.gitignore
+.gitattributes
+**/*.o
+src/chaosium
+*.log
+log/*.log
+README.docker.md

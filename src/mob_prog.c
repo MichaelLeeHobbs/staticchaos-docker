@@ -918,10 +918,15 @@ char *mprog_process_if( char *ifchck, char *com_list, CHAR_DATA *mob,
 		       CHAR_DATA *rndm )
 {
 
- char null[ 1 ];
+ /* MUST be static: this empty-string sentinel is returned to the caller from
+  * several branches below. As a plain local it was the address of a stack frame
+  * that no longer exists after return -- mprog_driver then fed that dangling
+  * pointer to mprog_next_command(), crashing the server (e.g. when the Mayor's
+  * entry MOBprog hit an IF). gcc warned: "returns address of local variable". */
+ static char null[ 1 ];
  char buf[ MAX_INPUT_LENGTH ];
- char *morebuf = '\0';
- char    *cmnd = '\0';
+ char *morebuf = NULL;
+ char    *cmnd = NULL;
  bool loopdone = FALSE;
  bool     flag = FALSE;
  int  legal;

@@ -2227,6 +2227,113 @@ void do_sset( CHAR_DATA *ch, char *argument )
 
 
 
+/* map a stance name (prefix) to its index, or 0 if unknown */
+static int sstance_lookup( const char *name )
+{
+    if ( !str_prefix( name, "lion"    ) ) return STANCE_LION;
+    if ( !str_prefix( name, "lynx"    ) ) return STANCE_LYNX;
+    if ( !str_prefix( name, "snake"   ) ) return STANCE_SNAKE;
+    if ( !str_prefix( name, "badger"  ) ) return STANCE_BADGER;
+    if ( !str_prefix( name, "ferret"  ) ) return STANCE_FERRET;
+    if ( !str_prefix( name, "hawk"    ) ) return STANCE_HAWK;
+    if ( !str_prefix( name, "eagle"   ) ) return STANCE_EAGLE;
+    if ( !str_prefix( name, "vulture" ) ) return STANCE_VULTURE;
+    if ( !str_prefix( name, "sparrow" ) ) return STANCE_SPARROW;
+    if ( !str_prefix( name, "stork"   ) ) return STANCE_STORK;
+    return 0;
+}
+
+/* Immortal: set a player's stance proficiencies (which the normal game only
+ * raises through combat). 200 = "mastered" (unlocks the advanced stances). */
+void do_sstance( CHAR_DATA *ch, char *argument )
+{
+    char arg1 [MAX_INPUT_LENGTH];
+    char arg2 [MAX_INPUT_LENGTH];
+    char arg3 [MAX_INPUT_LENGTH];
+    CHAR_DATA *victim;
+    int value;
+    int stance;
+    int i;
+
+    argument = one_argument( argument, arg1 );
+    argument = one_argument( argument, arg2 );
+    argument = one_argument( argument, arg3 );
+
+    if ( arg1[0] == '\0' || arg2[0] == '\0' || arg3[0] == '\0' )
+    {
+	send_to_char( "Syntax: sstance <victim> <stance> <value>\n\r",	ch );
+	send_to_char( "or:     sstance <victim> all     <value>\n\r",	ch );
+	send_to_char( "or:     sstance <victim> auto    <stance|off>\n\r",ch );
+	send_to_char( "Stances: lion lynx snake badger ferret hawk eagle vulture sparrow stork\n\r", ch );
+	send_to_char( "Value 0 to 1000 (200 = mastered, unlocks advanced stances).\n\r", ch );
+	return;
+    }
+
+    if ( ( victim = get_char_world( ch, arg1 ) ) == NULL )
+    {
+	send_to_char( "They aren't here.\n\r", ch );
+	return;
+    }
+
+    if ( IS_NPC(victim) )
+    {
+	send_to_char( "Not on NPC's.\n\r", ch );
+	return;
+    }
+
+    /* sstance <victim> auto <stance|off> -- set which stance auto-engages */
+    if ( !str_cmp( arg2, "auto" ) )
+    {
+	if ( !str_cmp( arg3, "off" ) || !str_cmp( arg3, "none" ) || !str_cmp( arg3, "0" ) )
+	{
+	    victim->pcdata->stances[0] = 0;
+	    send_to_char( "Autostance cleared.\n\r", ch );
+	    return;
+	}
+	if ( ( stance = sstance_lookup( arg3 ) ) == 0 )
+	{
+	    send_to_char( "No such stance.\n\r", ch );
+	    return;
+	}
+	victim->pcdata->stances[0] = stance;
+	send_to_char( "Autostance set.\n\r", ch );
+	return;
+    }
+
+    if ( !is_number( arg3 ) )
+    {
+	send_to_char( "Value must be numeric.\n\r", ch );
+	return;
+    }
+    value = atoi( arg3 );
+    if ( value < 0 || value > 1000 )
+    {
+	send_to_char( "Value range is 0 to 1000 (200 = mastered).\n\r", ch );
+	return;
+    }
+
+    /* sstance <victim> all <value> -- set every stance at once */
+    if ( !str_cmp( arg2, "all" ) )
+    {
+	for ( i = 1; i <= MAX_STANCES; i++ )
+	    victim->pcdata->stances[i] = value;
+	send_to_char( "All stances set.\n\r", ch );
+	return;
+    }
+
+    if ( ( stance = sstance_lookup( arg2 ) ) == 0 )
+    {
+	send_to_char( "No such stance (use a stance name, 'all', or 'auto').\n\r", ch );
+	return;
+    }
+
+    victim->pcdata->stances[stance] = value;
+    send_to_char( "Stance set.\n\r", ch );
+    return;
+}
+
+
+
 void do_mset( CHAR_DATA *ch, char *argument )
 {
     char arg1 [MAX_INPUT_LENGTH];

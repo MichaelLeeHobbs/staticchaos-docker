@@ -451,6 +451,7 @@ const	struct	cmd_type	cmd_table	[] =
     { "slay",		do_slay,	POS_DEAD,    L_DEI,  LOG_ALWAYS	},
     { "snoop",		do_snoop,	POS_DEAD,    L_DEI,  LOG_NORMAL	},
     { "sset",		do_sset,	POS_DEAD,    L_DEI,  LOG_ALWAYS },
+    { "sstance",	do_sstance,	POS_DEAD,    L_DEI,  LOG_ALWAYS },
     { "tard",		do_tard,	POS_DEAD,    L_DEI,  LOG_ALWAYS },
     { "token",		do_token,	POS_DEAD,    L_DEI,  LOG_ALWAYS },
     { "transfer",	do_transfer,	POS_DEAD,   L_HERO,  LOG_ALWAYS	},

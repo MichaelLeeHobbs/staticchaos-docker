@@ -351,15 +351,15 @@ bool mprog_do_ifchck( char *ifchck, CHAR_DATA *mob, CHAR_DATA *actor,
     {
       switch ( arg[1] )  /* arg should be "$*" so just get the letter */
 	{
-	case 'i': return IS_AFFECTED( mob, AFF_CHARM );
+	case 'i': return IS_AFFECTED( mob, AFF_CHARM ) ? TRUE : FALSE;
 	case 'n': if ( actor )
-	             return IS_AFFECTED( actor, AFF_CHARM );
+	             return IS_AFFECTED( actor, AFF_CHARM ) ? TRUE : FALSE;
 	          else return -1;
 	case 't': if ( vict )
-	             return IS_AFFECTED( vict, AFF_CHARM );
+	             return IS_AFFECTED( vict, AFF_CHARM ) ? TRUE : FALSE;
 	          else return -1;
 	case 'r': if ( rndm )
-	             return IS_AFFECTED( rndm, AFF_CHARM );
+	             return IS_AFFECTED( rndm, AFF_CHARM ) ? TRUE : FALSE;
 	          else return -1;
 	default:
 	  bug ( "Mob: %d bad argument to 'ischarmed'",

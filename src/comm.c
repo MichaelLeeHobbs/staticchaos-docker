@@ -3077,7 +3077,7 @@ void act( const char *format, CHAR_DATA *ch, const void *arg1,
 
 void colorize( char *newbuf, const char *buf, bool color )
 {
-  char tempbuf[10];
+  char tempbuf[32];   /* was [10]; the reset code (C_CLEAR + C_WHITE) overran it */
   const char *current;
   bool def = FALSE;
   bool clear = FALSE;

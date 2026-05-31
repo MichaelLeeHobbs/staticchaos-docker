@@ -106,8 +106,13 @@ required a handful of minimal, documented changes — each is commented in-place
 > `crypt` macro in `merc.h`, linking `-lcrypt`, and including `<crypt.h>` — at the cost of
 > invalidating the existing plaintext passwords in the bundled/old player files.
 
-No source changes were needed for 64-bit: a 64-bit build runs correctly (full login, world load,
-character creation, and persistence all verified).
+4. **`src/Makefile` — 32-bit build (`-m32`)**
+   - The server is compiled 32-bit. This code assumes `sizeof(int) == sizeof(pointer) == 4`; a 64-bit
+     build links and boots and handles login fine, but **crashes during gameplay** (e.g. combat) when a
+     truncated pointer is dereferenced, taking the whole process down. Building 32-bit is the standard,
+     reliable fix for Diku/Merc-era code. The Dockerfile installs `gcc-multilib` + `libc6-dev-i386` for
+     this. (Symptom if you ever revert to 64-bit: players get "remote host closed the connection" mid-play
+     and the container's `RestartCount` climbs.)
 
 ## Verified working
 

@@ -7,11 +7,15 @@
 # (-fcommon, -lcrypt) we made.
 FROM debian:bullseye-slim
 
-# build-essential provides gcc + make. (No libcrypt: passwords are plaintext
-# on Linux in this codebase -- see merc.h -- so crypt() is never linked.)
+# build-essential provides gcc + make. gcc-multilib + libc6-dev-i386 provide the
+# 32-bit toolchain and libs: the server is built -m32 because this code assumes
+# 32-bit pointers and crashes during gameplay when built 64-bit (see src/Makefile).
+# (No libcrypt: passwords are plaintext on Linux in this codebase -- see merc.h.)
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
         build-essential \
+        gcc-multilib \
+        libc6-dev-i386 \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /mud

@@ -992,7 +992,7 @@ void do_train( CHAR_DATA *ch, char *argument )
     int *pAbility;
     char *pOutput;
     int cost, statcheck;
-    int scost[4];
+    int scost[4] = {0};
     int max = 0;
     int num, lcost;
     bool multi = FALSE;
@@ -2279,7 +2279,7 @@ void do_humiliate( CHAR_DATA *ch, char *argument )
   { send_to_char( "Huh?\n\r", ch );
     return;
   }
-  if ( !ch->pcdata->humiliate || ch->pcdata->humiliate == "" )
+  if ( !ch->pcdata->humiliate || ch->pcdata->humiliate[0] == '\0' )
   { send_to_char( "You haven't set your humiliation yet.\n\r", ch );
     return;
   }

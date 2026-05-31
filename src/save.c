@@ -1155,7 +1155,7 @@ void fread_char( CHAR_DATA *ch, FILE *fp )
 	/* Make sure old chars have this field - Kahn */
 	if ( !ch->pcdata->pagelen )
 	    ch->pcdata->pagelen = 20;
-	if ( !ch->prompt || ch->prompt == '\0' )
+	if ( !ch->prompt || ch->prompt[0] == '\0' )
 	    ch->prompt = str_dup( "<%h %m %v> " );
 	if ( !ch->pcdata->bamfin || ch->pcdata->bamfin[0] == '\0' )
 	  ch->pcdata->bamfin = str_dup( "has joined the chaos." );

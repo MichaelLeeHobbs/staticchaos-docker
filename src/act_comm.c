@@ -1511,7 +1511,7 @@ void do_mtalk( CHAR_DATA *ch, char *argument )
   { send_to_char( "You aren't in a minion.\n\r", ch );
     return;
   }
-  if ( !ch->pcdata->mmaster || ch->pcdata->mmaster == '\0' )
+  if ( !ch->pcdata->mmaster || ch->pcdata->mmaster[0] == '\0' )
   { send_to_char( "You aren't in a minion.\n\r", ch );
     return;
   }
@@ -1580,7 +1580,7 @@ void do_mjoin( CHAR_DATA *ch, char *argument )
   { send_to_char( "But you aren't the master of a minion.\n\r", ch );
     return;
   }
-  if ( !ch->pcdata->mname || ch->pcdata->mname == '\0' )
+  if ( !ch->pcdata->mname || ch->pcdata->mname[0] == '\0' )
   { send_to_char( "You should probably name your minion first.\n\r", ch );
     return;
   }
@@ -1632,7 +1632,7 @@ void do_maccept( CHAR_DATA *ch, char *argument )
   { send_to_char( "But they haven't offered you a place in a minion.\n\r", ch );
     return;
   }
-  if ( !ch->pcdata->temp || ch->pcdata->temp == '\0' )
+  if ( !ch->pcdata->temp || ch->pcdata->temp[0] == '\0' )
   { send_to_char( "But you haven't been offered membership to a minion.\n\r", ch );
     return;
   }

@@ -2817,7 +2817,7 @@ void do_finger( CHAR_DATA *ch, char *argument )
   char *status = "none";
   char *rating = "none";
   char *courage = "none";
-  int kills[4];
+  int kills[4] = {0};
   int i, level = 0, stat = 0, ostat = 0, ratio = 0, clan = 0, rank = 0, line = 0, cnum = 0;
 
   argument = one_argument( argument, arg );

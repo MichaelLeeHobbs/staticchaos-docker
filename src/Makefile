@@ -8,7 +8,14 @@ NOCRYPT =
 #   64-bit build, pointers stored in/cast through int get truncated and the server
 #   crashes during gameplay (combat, etc.). Compiling 32-bit is the standard,
 #   reliable fix for Diku/Merc-era code. Needs gcc-multilib + libc6-dev-i386.
-C_FLAGS = -O -Wall -fcommon -m32 $(PROF) $(NOCRYPT)
+# These warning categories are benign-by-design in this 1990s code and not worth
+# churning the source over: dead bookkeeping vars, the "??" in emote text read as
+# trigraphs, cosmetic indentation, int*/socklen_t* mismatch on socket calls, and
+# gcc's worst-case sprintf sizing (real overflows were fixed; the rest are bounded
+# by short game data like names/area-names). Everything else is fixed in code.
+WSUPPRESS = -Wno-unused-but-set-variable -Wno-trigraphs -Wno-misleading-indentation \
+            -Wno-pointer-sign -Wno-format-overflow
+C_FLAGS = -O -Wall -fcommon -m32 $(WSUPPRESS) $(PROF) $(NOCRYPT)
 # -rdynamic exports symbol names so the SIGSEGV backtrace handler in comm.c can
 # print readable function names in crash dumps.
 L_FLAGS = -O -m32 -rdynamic $(PROF)
@@ -26,7 +33,10 @@ chaosium: $(O_FILES)
 	rm -f chaosium 
 	$(CC) $(L_FLAGS) -o chaosium $(O_FILES) $(LIBS)
 
-.c.o: merc.h
+# Pattern rule (not the old ".c.o: merc.h" suffix rule, which make warns about
+# and silently drops the merc.h prerequisite). This builds each .o from its .c
+# and correctly rebuilds everything when merc.h changes.
+%.o: %.c merc.h
 	$(CC) -c $(C_FLAGS) $<
 
 clean:

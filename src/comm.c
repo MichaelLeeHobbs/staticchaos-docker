@@ -48,6 +48,10 @@
 #include <string.h>
 #include <time.h>
 
+#if defined(linux)
+#include <execinfo.h>   /* backtrace() for the crash handler below */
+#endif
+
 #include "merc.h"
 
 
@@ -653,6 +657,26 @@ void game_loop_mac_msdos( void )
 
 
 
+#if defined(linux)
+/* On a fatal signal, dump a symbolized backtrace to stderr (docker logs) before
+ * dying, so crashes during play can be diagnosed. Then re-raise so the process
+ * still terminates and the container's restart policy brings it back. */
+static void sc_crash_handler( int sig )
+{
+    void *frames[64];
+    int   n;
+
+    fprintf( stderr, "\n=== SC CRASH: fatal signal %d -- backtrace ===\n", sig );
+    n = backtrace( frames, 64 );
+    backtrace_symbols_fd( frames, n, 2 );
+    fprintf( stderr, "=== SC CRASH END ===\n" );
+    fflush( stderr );
+
+    signal( sig, SIG_DFL );
+    raise( sig );
+}
+#endif
+
 #if defined(unix)
 void game_loop_unix( int control )
 {
@@ -660,6 +684,11 @@ void game_loop_unix( int control )
     struct timeval last_time;
 
     signal( SIGPIPE, SIG_IGN );
+#if defined(linux)
+    signal( SIGSEGV, sc_crash_handler );
+    signal( SIGABRT, sc_crash_handler );
+    signal( SIGBUS,  sc_crash_handler );
+#endif
     gettimeofday( &last_time, NULL );
     current_time = (time_t) last_time.tv_sec;
 

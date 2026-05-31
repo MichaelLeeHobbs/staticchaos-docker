@@ -9,7 +9,9 @@ NOCRYPT =
 #   crashes during gameplay (combat, etc.). Compiling 32-bit is the standard,
 #   reliable fix for Diku/Merc-era code. Needs gcc-multilib + libc6-dev-i386.
 C_FLAGS = -O -Wall -fcommon -m32 $(PROF) $(NOCRYPT)
-L_FLAGS = -O -m32 $(PROF)
+# -rdynamic exports symbol names so the SIGSEGV backtrace handler in comm.c can
+# print readable function names in crash dumps.
+L_FLAGS = -O -m32 -rdynamic $(PROF)
 # math routines (act_info.c, etc.) need libm. crypt() is macro'd to plaintext
 # on Linux in merc.h (original Static Chaos behavior), so no libcrypt is linked.
 LIBS    = -lm

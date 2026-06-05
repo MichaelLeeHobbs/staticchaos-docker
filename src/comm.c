@@ -1862,13 +1862,17 @@ void nanny( DESCRIPTOR_DATA *d, char *argument )
 {
     DESCRIPTOR_DATA *d_old;
     DESCRIPTOR_DATA *blargh;
+#if 0   /* dnext: only used by the disabled multiplay check below */
     DESCRIPTOR_DATA *dnext;
+#endif
     NEWLOCK_DATA *plock;
     char buf[MAX_STRING_LENGTH];
     char arg1[MAX_INPUT_LENGTH];
     char arg2[MAX_INPUT_LENGTH];
     CHAR_DATA *ch;
+#if 0   /* vch: only used by the disabled multiplay check below */
     CHAR_DATA *vch;
+#endif
     CHAR_DATA *adminchar;
     char *pwdnew;
     char *p;
@@ -1921,12 +1925,20 @@ void nanny( DESCRIPTOR_DATA *d, char *argument )
 
         /*
          * One character per IP, period.
+         *
+         * DISABLED for this private family server.  This 1996-era rule
+         * blocked two *different* characters sharing one IP to stop PvP/
+         * economy multiplay -- meaningless behind a home NAT where the
+         * whole household shares one public IP.  Same-*character* double
+         * login is still blocked separately by check_playing() below, so
+         * disabling this does not allow logging a character in twice.
          */
+#if 0
         for ( vch = char_list; vch != NULL; vch = vch->next )
         {
           if ( IS_NPC(vch) )
             continue;
-    
+
           /* Admin privilege */
           if ( !str_prefix( "67.163", ch->pcdata->host ) )
             break;
@@ -1960,6 +1972,7 @@ void nanny( DESCRIPTOR_DATA *d, char *argument )
             return;
           }
         }
+#endif
 
 
 	/* Sorcerers back in for testing

@@ -71,14 +71,18 @@ Node scripts (in `tools/`) parse the `.are` files into navigable references unde
 pnpm install                 # installs md-to-pdf (for the PDF step)
 
 pnpm run build:world         # world.json, WORLD-MAP.md, <area>.md, WORLD-ATLAS.md
-pnpm run build:items         # items.json + ITEMS.md   (equipment catalogue)
+pnpm run build:items         # items.json + ITEMS.md       (equipment catalogue)
 pnpm run build:bestiary      # bestiary.json + BESTIARY.md
-pnpm run build:data          # all three of the above
+pnpm run build:spawns        # spawns.json + SPAWNS.md     (where to find mobs/items)
+pnpm run build:shops         # shops.json + SHOPS.md       (economy)
+pnpm run build:classes       # classes.json + CLASSES.md   (class/skill/spell ref)
+pnpm run build:browser       # world-browser.html          (offline searchable browser)
+pnpm run build:data          # all of the above
 
 # One-time browser provision for PDF rendering (md-to-pdf uses puppeteer):
 npx @puppeteer/browsers install chrome@149.0.7827.22 --path ~/.cache/puppeteer
 
-pnpm run build:pdf           # WORLD-ATLAS.pdf, ITEMS.pdf, BESTIARY.pdf
+pnpm run build:pdf           # PDFs of ATLAS, ITEMS, BESTIARY, SPAWNS, SHOPS, CLASSES
 pnpm run build               # build:data + build:pdf
 ```
 
@@ -92,10 +96,15 @@ Outputs (all under `world-maps/`):
 | `WORLD-ATLAS.md` / `.pdf` | Print-friendly atlas of every area/room/exit |
 | `ITEMS.md` / `.pdf`, `items.json` | Equipment catalogue: type, wear slot, stat affects, flags |
 | `BESTIARY.md` / `.pdf`, `bestiary.json` | Every mob: level, behaviour flags, where it appears |
+| `SPAWNS.md` / `.pdf`, `spawns.json` | "Where do I find X" — mob/item placement + hunting guide |
+| `SHOPS.md` / `.pdf`, `shops.json` | Shops: keeper, location, trades, markups, stock |
+| `CLASSES.md` / `.pdf`, `classes.json` | Classes (stat caps) + every skill/spell's learn level |
+| `world-browser.html` | Self-contained offline browser — search & click-through |
 
 The shared parser lives in `tools/lib/area.mjs` (Reader + section parsers + flag decoders,
-matching `src/db.c`). The PDF Chrome version (`chrome@…`) must match whatever
-`puppeteer-core` pins; if `build:pdf` reports "Could not find Chrome (ver. X)", install that X.
+matching `src/db.c`); `build-classes.mjs` reads the `class_table`/`skill_table` from
+`src/const.c`. The PDF Chrome version (`chrome@…`) must match whatever `puppeteer-core` pins;
+if `build:pdf` reports "Could not find Chrome (ver. X)", install that X.
 
 ## How it runs
 

@@ -178,7 +178,45 @@ function parseObjects(block) {
   });
 }
 
-/* ---- one area file -> { id, file, name, rooms, mobiles, objects } ---- */
+/* ---- resets (M/O/P/G/E/D/R; see db.c load_resets) ----
+ * Line shape: "<cmd> <if_flag> <arg1> <arg2> [<arg3>]" (arg3 omitted for G/R).
+ *   M arg1=mob  arg2=limit arg3=room     O arg1=obj arg3=room
+ *   G arg1=obj (to last mob)             E arg1=obj arg3=wear-loc (on last mob)
+ *   P arg1=obj (into last container)     D/R door/randomise (ignored here)
+ */
+function parseResets(block) {
+  if (!block) return [];
+  const out = [];
+  for (const raw of block.split('\n')) {
+    const line = raw.trim();
+    if (!line || line.startsWith('*')) continue;
+    const cmd = line[0];
+    if (cmd === 'S') break;
+    if (!'MOPGEDR'.includes(cmd)) continue;
+    const n = line.slice(1).trim().split(/\s+/).map((x) => parseInt(x, 10));
+    const [, arg1, arg2, arg3] = n;            // n[0] = if_flag
+    out.push({ command: cmd, arg1: arg1 || 0, arg2: arg2 || 0, arg3: (cmd === 'G' || cmd === 'R') ? 0 : (arg3 || 0) });
+  }
+  return out;
+}
+
+/* ---- shops (see db.c load_shops): keeper, 5 buy-types, profit buy/sell, hours ---- */
+function parseShops(block) {
+  if (!block) return [];
+  const out = [];
+  for (const raw of block.split('\n')) {
+    const line = raw.trim();
+    if (!line || line.startsWith('*')) continue;
+    const n = line.split(/\s+/).map((x) => parseInt(x, 10));
+    if (!n.length || Number.isNaN(n[0])) continue;
+    const keeper = n[0];
+    if (keeper === 0) break;
+    out.push({ keeper, buyTypes: n.slice(1, 6).filter(Boolean), profitBuy: n[6] || 0, profitSell: n[7] || 0, openHour: n[8] || 0, closeHour: n[9] || 0 });
+  }
+  return out;
+}
+
+/* ---- one area file -> { id, file, name, rooms, mobiles, objects, resets, shops } ---- */
 export function parseAreaFile(file) {
   const id = path.basename(file).replace(/\.are$/i, '');
   const lines = fs.readFileSync(file, 'utf8').split('\n');
@@ -193,6 +231,8 @@ export function parseAreaFile(file) {
     rooms: parseRooms(sectionSlice(lines, ['#ROOMDATA', '#ROOMS'])),
     mobiles: parseMobiles(sectionSlice(lines, ['#MOBILES'])),
     objects: parseObjects(sectionSlice(lines, ['#OBJECTS'])),
+    resets: parseResets(sectionSlice(lines, ['#RESETS'])),
+    shops: parseShops(sectionSlice(lines, ['#SHOPS'])),
   };
 }
 

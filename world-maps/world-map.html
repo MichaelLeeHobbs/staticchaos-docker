@@ -57,6 +57,12 @@ window.addEventListener('resize', () => { W = window.innerWidth; H = window.inne
 let sim = null, view = null, nodeById = new Map();
 let layoutMode = 'force';
 const lbl = s => { s = String(s==null?'':s); return s.length > 16 ? s.slice(0,15)+'…' : s; };
+// place an exit label 30% along the edge from its source (+ small perpendicular
+// nudge) so a reciprocal pair (e.g. N one way / S the other) doesn't overlap.
+function elPos(d){
+  const f = 0.3, dx = d.target.x - d.source.x, dy = d.target.y - d.source.y, L = Math.hypot(dx,dy) || 1;
+  return { x: d.source.x + dx*f - dy/L*6, y: d.source.y + dy*f + dx/L*6 };
+}
 
 function clearView(){ if (sim) sim.stop(); g.selectAll('*').remove(); nodeById = new Map(); hideDetail(); }
 function resetZoom(k){ svg.transition().duration(450).call(zoom.transform, d3.zoomIdentity.translate(W/2,H/2).scale(k||0.6)); }
@@ -79,7 +85,7 @@ function start(nodes, links, opts){
 
   function ticked(){
     link.attr('x1',d=>d.source.x).attr('y1',d=>d.source.y).attr('x2',d=>d.target.x).attr('y2',d=>d.target.y);
-    if (elabel) elabel.attr('x',d=>(d.source.x+d.target.x)/2).attr('y',d=>(d.source.y+d.target.y)/2);
+    if (elabel) elabel.attr('x',d=>elPos(d).x).attr('y',d=>elPos(d).y);
     node.attr('transform', d => 'translate('+d.x+','+d.y+')');
   }
 

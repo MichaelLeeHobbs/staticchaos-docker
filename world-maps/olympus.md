@@ -2,7 +2,11 @@
 
 [← back to world map](WORLD-MAP.md) · 50 rooms · vnums 901–954
 
-Dashed nodes are exits that leave this area.
+Grey dashed nodes leave the area; green dashed nodes (`▸ Part X`) continue on another sub-map below.
+
+_This area is split into 4 sub-maps for legibility._
+
+## Map — Part A (24 rooms: #901–#924)
 
 ```mermaid
 graph LR
@@ -30,32 +34,6 @@ graph LR
   R922["Cell<br/>#922"]
   R923["Stairway<br/>#923"]
   R924["Bakery<br/>#924"]
-  R925["Residence<br/>#925"]
-  R926["Residence<br/>#926"]
-  R927["Mystic Shop<br/>#927"]
-  R928["Ares Street<br/>#928"]
-  R929["Guest Quarters<br/>#929"]
-  R930["Storage Room<br/>#930"]
-  R931["Guest Quarters<br/>#931"]
-  R932["Storage Room<br/>#932"]
-  R933["Stable<br/>#933"]
-  R934["Ares Street<br/>#934"]
-  R935["Armoury<br/>#935"]
-  R936["Weapon Shop<br/>#936"]
-  R937["Smithy<br/>#937"]
-  R938["The Planning Room<br/>#938"]
-  R939["Second Floor<br/>#939"]
-  R940["Northern Hall<br/>#940"]
-  R941["Southern Hall<br/>#941"]
-  R942["Western Hall<br/>#942"]
-  R943["Eastern Hall<br/>#943"]
-  R944["Bed Room<br/>#944"]
-  R945["Bed Room<br/>#945"]
-  R946["Bed Room<br/>#946"]
-  R947["Bed Room<br/>#947"]
-  R948["Hall of Gods<br/>#948"]
-  R951["The Portal<br/>#951"]
-  R954["The Believer<br/>#954"]
   R901 -->|S| X324
   R901 -->|U| R902
   R902 -->|U| R903
@@ -68,14 +46,14 @@ graph LR
   R905 -->|S| R904
   R905 -->|W| R924
   R906 -->|N| R907
-  R906 -->|E| R925
+  R906 -->|E| X925
   R906 -->|S| R905
-  R906 -->|W| R926
+  R906 -->|W| X926
   R907 -->|N| R908
   R907 -->|S| R906
-  R907 -->|W| R927
+  R907 -->|W| X927
   R908 -->|N| R909
-  R908 -->|E| R928
+  R908 -->|E| X928
   R908 -->|S| R907
   R909 -->|N| R910
   R909 -->|E| R915
@@ -88,18 +66,18 @@ graph LR
   R911 -->|W| R912
   R912 -->|N| R913
   R912 -->|E| R911
-  R912 -->|S| R930
-  R912 -->|W| R929
+  R912 -->|S| X930
+  R912 -->|W| X929
   R913 -->|N| R914
   R913 -->|S| R912
   R914 -->|S| R913
   R915 -->|E| R916
   R915 -->|W| R909
   R916 -->|N| R917
-  R916 -->|E| R931
-  R916 -->|S| R932
+  R916 -->|E| X931
+  R916 -->|S| X932
   R916 -->|W| R915
-  R917 -->|N| R933
+  R917 -->|N| X933
   R917 -->|S| R916
   R918 -->|N| R919
   R918 -->|U| R910
@@ -111,18 +89,65 @@ graph LR
   R921 -->|E| R919
   R922 -->|W| R919
   R923 -->|S| R910
-  R923 -->|U| R939
+  R923 -->|U| X939
   R924 -->|E| R905
-  R925 -->|W| R906
-  R926 -->|E| R906
-  R927 -->|E| R907
+  X324["The steep foothills<br/>plains #324"]:::ext
+  X925["▸ Part B: Residence<br/>#925"]:::part
+  X926["▸ Part B: Residence<br/>#926"]:::part
+  X927["▸ Part B: Mystic Shop<br/>#927"]:::part
+  X928["▸ Part C: Ares Street<br/>#928"]:::part
+  X930["▸ Part B: Storage Room<br/>#930"]:::part
+  X929["▸ Part B: Guest Quarters<br/>#929"]:::part
+  X931["▸ Part B: Guest Quarters<br/>#931"]:::part
+  X932["▸ Part B: Storage Room<br/>#932"]:::part
+  X933["▸ Part B: Stable<br/>#933"]:::part
+  X939["▸ Part D: Second Floor<br/>#939"]:::part
+  classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
+```
+
+## Map — Part B (8 rooms: #925–#933)
+
+```mermaid
+graph LR
+  R925["Residence<br/>#925"]
+  R926["Residence<br/>#926"]
+  R927["Mystic Shop<br/>#927"]
+  R929["Guest Quarters<br/>#929"]
+  R930["Storage Room<br/>#930"]
+  R931["Guest Quarters<br/>#931"]
+  R932["Storage Room<br/>#932"]
+  R933["Stable<br/>#933"]
+  R925 -->|W| X906
+  R926 -->|E| X906
+  R927 -->|E| X907
+  R929 -->|E| X912
+  R930 -->|N| X912
+  R931 -->|W| X916
+  R932 -->|N| X916
+  R933 -->|S| X917
+  X906["▸ Part A: Zeus Street<br/>#906"]:::part
+  X907["▸ Part A: Zeus Street<br/>#907"]:::part
+  X912["▸ Part A: Western Wing<br/>#912"]:::part
+  X916["▸ Part A: Eastern Wing<br/>#916"]:::part
+  X917["▸ Part A: Eastern Wing<br/>#917"]:::part
+  classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
+```
+
+## Map — Part C (7 rooms: #928–#954)
+
+```mermaid
+graph LR
+  R928["Ares Street<br/>#928"]
+  R934["Ares Street<br/>#934"]
+  R935["Armoury<br/>#935"]
+  R936["Weapon Shop<br/>#936"]
+  R937["Smithy<br/>#937"]
+  R938["The Planning Room<br/>#938"]
+  R954["The Believer<br/>#954"]
   R928 -->|E| R934
-  R928 -->|W| R908
-  R929 -->|E| R912
-  R930 -->|N| R912
-  R931 -->|W| R916
-  R932 -->|N| R916
-  R933 -->|S| R917
+  R928 -->|W| X908
   R934 -->|N| R937
   R934 -->|E| R936
   R934 -->|S| R935
@@ -133,12 +158,33 @@ graph LR
   R937 -->|W| R938
   R938 -->|N| R954
   R938 -->|E| R937
+  R954 -->|S| R938
+  X908["▸ Part A: Zeus Street<br/>#908"]:::part
+  classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
+```
+
+## Map — Part D (11 rooms: #939–#951)
+
+```mermaid
+graph LR
+  R939["Second Floor<br/>#939"]
+  R940["Northern Hall<br/>#940"]
+  R941["Southern Hall<br/>#941"]
+  R942["Western Hall<br/>#942"]
+  R943["Eastern Hall<br/>#943"]
+  R944["Bed Room<br/>#944"]
+  R945["Bed Room<br/>#945"]
+  R946["Bed Room<br/>#946"]
+  R947["Bed Room<br/>#947"]
+  R948["Hall of Gods<br/>#948"]
+  R951["The Portal<br/>#951"]
   R939 -->|N| R940
   R939 -->|E| R943
   R939 -->|S| R941
   R939 -->|W| R942
   R939 -->|U| R948
-  R939 -->|D| R923
+  R939 -->|D| X923
   R940 -->|N| R947
   R940 -->|S| R939
   R941 -->|N| R939
@@ -154,9 +200,9 @@ graph LR
   R948 -->|N| R951
   R948 -->|D| R939
   R951 -->|S| R948
-  R954 -->|S| R938
-  X324["The steep foothills<br/>plains #324"]:::ext
+  X923["▸ Part A: Stairway<br/>#923"]:::part
   classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
 ```
 
 ## Rooms

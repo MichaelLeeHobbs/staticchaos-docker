@@ -281,6 +281,92 @@ export const actList = (a) => decodeBits(a, ACT_BITS);
 export const applyName = (loc) => APPLY[loc] || `apply${loc}`;
 export const affectStr = (a) => `${a.mod >= 0 ? '+' : ''}${a.mod} ${applyName(a.loc)}`;
 
+/* ------------------------------------------------------------------ */
+/* Area map partitioning + Mermaid generation                         */
+/* ------------------------------------------------------------------ */
+
+const LETTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+export function partLetter(i) {
+  return i < 26 ? LETTERS[i] : LETTERS[Math.floor(i / 26) - 1] + LETTERS[i % 26];
+}
+
+/*
+ * Split an area's rooms into connected sub-maps of at most `maxSize` rooms.
+ * Areas at/under `threshold` stay whole. Each part is grown best-first (by
+ * vnum) from the lowest-vnum unplaced room over the *undirected* exit graph,
+ * so parts are connected, vnum-local neighbourhoods. Parts are returned as
+ * arrays of room objects, each sorted by vnum, ordered by their lowest vnum.
+ */
+export function partitionArea(roomsInArea, { maxSize = 24, threshold = 30 } = {}) {
+  if (roomsInArea.length <= threshold) return [[...roomsInArea].sort((a, b) => a.vnum - b.vnum)];
+  const byVnum = new Map(roomsInArea.map((r) => [r.vnum, r]));
+  const inArea = new Set(byVnum.keys());
+  const adj = new Map([...inArea].map((v) => [v, new Set()]));
+  for (const r of roomsInArea) for (const to of Object.values(r.exits)) {
+    if (inArea.has(to)) { adj.get(r.vnum).add(to); adj.get(to).add(r.vnum); }   // undirected
+  }
+  const unplaced = new Set([...inArea].sort((a, b) => a - b));
+  const parts = [];
+  while (unplaced.size) {
+    const seed = unplaced.values().next().value;          // lowest remaining vnum
+    const part = [];
+    const frontier = new Set([seed]);
+    while (frontier.size && part.length < maxSize) {
+      const v = Math.min(...frontier);                    // best-first by vnum -> compact, local
+      frontier.delete(v);
+      if (!unplaced.has(v)) continue;
+      unplaced.delete(v); part.push(v);
+      for (const n of adj.get(v)) if (unplaced.has(n)) frontier.add(n);
+    }
+    parts.push(part.map((v) => byVnum.get(v)));
+  }
+  // Coalesce tiny fragments (isolated rooms / dead-ends with no in-area exits)
+  // into shared bins so we don't emit one-room sub-maps. Real slices (>= MIN)
+  // are left intact. Bins are filled first-fit-decreasing up to maxSize.
+  const MIN = 6;
+  const keep = parts.filter((p) => p.length >= MIN);
+  const bins = [];
+  for (const p of parts.filter((p) => p.length < MIN).sort((a, b) => b.length - a.length)) {
+    let bin = bins.find((b) => b.length + p.length <= maxSize);
+    if (!bin) { bin = []; bins.push(bin); }
+    bin.push(...p);
+  }
+  return [...keep, ...bins]
+    .map((p) => p.sort((a, b) => a.vnum - b.vnum))
+    .sort((a, b) => a[0].vnum - b[0].vnum);
+}
+
+/*
+ * Build the Mermaid diagram(s) for one area. Returns [{ letter, rooms,
+ * mermaid }] -- one entry if the area is small, several if it was split.
+ * `allRooms` is the global vnum->room map (rooms carry `.area`), used to
+ * label exits that leave the part: a sibling part (▸ Part X) or another area.
+ */
+export function areaDiagrams(areaId, roomsInArea, allRooms, opts = {}) {
+  const parts = partitionArea(roomsInArea, opts);
+  const multi = parts.length > 1;
+  const partOf = new Map();
+  parts.forEach((p, i) => p.forEach((r) => partOf.set(r.vnum, i)));
+  return parts.map((part, pi) => {
+    const inPart = new Set(part.map((r) => r.vnum));
+    const lines = ['graph LR'];
+    for (const r of part) lines.push(`  R${r.vnum}["${mlabel(r.name)}<br/>#${r.vnum}"]`);
+    const ext = new Map();
+    for (const r of part) for (const [dir, to] of Object.entries(r.exits)) {
+      if (inPart.has(to)) { lines.push(`  R${r.vnum} -->|${dir}| R${to}`); continue; }
+      const dest = allRooms.get(to);
+      if (dest && dest.area === areaId) ext.set(to, { label: `▸ Part ${partLetter(partOf.get(to))}: ${mlabel(dest.name)}<br/>#${to}`, cls: 'part' });
+      else if (dest) ext.set(to, { label: `${mlabel(dest.name)}<br/>${dest.area} #${to}`, cls: 'ext' });
+      else ext.set(to, { label: `?? broken<br/>#${to}`, cls: 'ext' });
+      lines.push(`  R${r.vnum} -->|${dir}| X${to}`);
+    }
+    for (const [to, { label, cls }] of ext) lines.push(`  X${to}["${label}"]:::${cls}`);
+    lines.push('  classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;');
+    lines.push('  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;');
+    return { letter: multi ? partLetter(pi) : '', rooms: part, mermaid: lines.join('\n') };
+  });
+}
+
 // human description of an item's value[] block, by type
 export function itemValueStr(o) {
   const v = o.values;

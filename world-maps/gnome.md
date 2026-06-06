@@ -2,7 +2,11 @@
 
 [← back to world map](WORLD-MAP.md) · 89 rooms · vnums 1501–1590
 
-Dashed nodes are exits that leave this area.
+Grey dashed nodes leave the area; green dashed nodes (`▸ Part X`) continue on another sub-map below.
+
+_This area is split into 5 sub-maps for legibility._
+
+## Map — Part A (24 rooms: #1501–#1524)
 
 ```mermaid
 graph LR
@@ -30,71 +34,6 @@ graph LR
   R1522["The Field of Mice's Dreams<br/>#1522"]
   R1523["The Dark Cave<br/>#1523"]
   R1524["Darker Cave<br/>#1524"]
-  R1526["A Dusty Path<br/>#1526"]
-  R1527["The Iron Gateway<br/>#1527"]
-  R1528["A Long Hallway<br/>#1528"]
-  R1529["A Long Hallway<br/>#1529"]
-  R1530["The Barracks<br/>#1530"]
-  R1531["A Small Storage Room<br/>#1531"]
-  R1532["A Small Storage Room<br/>#1532"]
-  R1533["A Small Storage Room<br/>#1533"]
-  R1534["The Mess Hall<br/>#1534"]
-  R1535["A Small Room<br/>#1535"]
-  R1536["A Small Unused Room<br/>#1536"]
-  R1537["Dark Hallway<br/>#1537"]
-  R1538["Torture Chamber<br/>#1538"]
-  R1539["Dark Hallway<br/>#1539"]
-  R1540["Dark Hallway<br/>#1540"]
-  R1541["Prison Cell<br/>#1541"]
-  R1542["Prison Cell<br/>#1542"]
-  R1543["Prison Cell<br/>#1543"]
-  R1544["Prison Cell<br/>#1544"]
-  R1545["End of the Dark Hallway<br/>#1545"]
-  R1546["A Ladder<br/>#1546"]
-  R1547["Lair<br/>#1547"]
-  R1548["A Damp Hallway<br/>#1548"]
-  R1549["A Damp Hallway<br/>#1549"]
-  R1550["A Damp Hallway<br/>#1550"]
-  R1551["A Damp Hallway<br/>#1551"]
-  R1552["A Damp Hallway<br/>#1552"]
-  R1553["A Damp Hallway<br/>#1553"]
-  R1554["A Damp Hallway<br/>#1554"]
-  R1555["A Damp Hallway<br/>#1555"]
-  R1556["The End of the Hallway<br/>#1556"]
-  R1557["The Altar<br/>#1557"]
-  R1558["The Chief's House<br/>#1558"]
-  R1559["The Unused Path<br/>#1559"]
-  R1560["The Overgrown Path<br/>#1560"]
-  R1561["The Clearing<br/>#1561"]
-  R1562["Entrance to the Mine Shaft<br/>#1562"]
-  R1563["Mine Shaft<br/>#1563"]
-  R1564["Mine Shaft<br/>#1564"]
-  R1565["Mine Shaft<br/>#1565"]
-  R1566["Walkway<br/>#1566"]
-  R1567["Walkway<br/>#1567"]
-  R1568["The Grand Hall<br/>#1568"]
-  R1569["The Throne Room<br/>#1569"]
-  R1570["The Treasury<br/>#1570"]
-  R1571["Guarded Room<br/>#1571"]
-  R1572["Guarded Room<br/>#1572"]
-  R1573["Hobgoblin Armory<br/>#1573"]
-  R1574["Mine Shaft<br/>#1574"]
-  R1575["Entrance to a Dungeon<br/>#1575"]
-  R1576["A Dungeon<br/>#1576"]
-  R1577["A Jail Cell<br/>#1577"]
-  R1578["The Jail Cell<br/>#1578"]
-  R1579["The Jail Cell<br/>#1579"]
-  R1580["The Jail Cell<br/>#1580"]
-  R1581["The Jail Cell<br/>#1581"]
-  R1582["Small Mine Shaft<br/>#1582"]
-  R1583["Hobgoblin Barracks<br/>#1583"]
-  R1584["Hobgoblin Barracks<br/>#1584"]
-  R1585["Mess Hall<br/>#1585"]
-  R1586["A Store Room<br/>#1586"]
-  R1587["The Kitchen<br/>#1587"]
-  R1588["A Small Mine Shaft<br/>#1588"]
-  R1589["Hermit's Lair<br/>#1589"]
-  R1590["A Hole<br/>#1590"]
   R1501 -->|N| X3503
   R1501 -->|E| R1502
   R1502 -->|N| R1509
@@ -105,14 +44,14 @@ graph LR
   R1503 -->|S| R1507
   R1503 -->|W| R1502
   R1504 -->|N| R1512
-  R1504 -->|E| R1559
+  R1504 -->|E| X1559
   R1504 -->|S| R1513
   R1504 -->|W| R1503
   R1505 -->|N| R1506
   R1505 -->|E| R1511
   R1505 -->|S| R1503
   R1505 -->|W| R1510
-  R1506 -->|N| R1526
+  R1506 -->|N| X1526
   R1506 -->|S| R1505
   R1507 -->|N| R1503
   R1507 -->|S| R1508
@@ -146,8 +85,43 @@ graph LR
   R1523 -->|N| R1524
   R1523 -->|W| R1522
   R1524 -->|S| R1523
-  R1526 -->|N| R1558
-  R1526 -->|S| R1506
+  X3503["City Entrance<br/>midennir #3503"]:::ext
+  X1559["▸ Part E: The Unused Path<br/>#1559"]:::part
+  X1526["▸ Part B: A Dusty Path<br/>#1526"]:::part
+  classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
+```
+
+## Map — Part B (24 rooms: #1526–#1549)
+
+```mermaid
+graph LR
+  R1526["A Dusty Path<br/>#1526"]
+  R1527["The Iron Gateway<br/>#1527"]
+  R1528["A Long Hallway<br/>#1528"]
+  R1529["A Long Hallway<br/>#1529"]
+  R1530["The Barracks<br/>#1530"]
+  R1531["A Small Storage Room<br/>#1531"]
+  R1532["A Small Storage Room<br/>#1532"]
+  R1533["A Small Storage Room<br/>#1533"]
+  R1534["The Mess Hall<br/>#1534"]
+  R1535["A Small Room<br/>#1535"]
+  R1536["A Small Unused Room<br/>#1536"]
+  R1537["Dark Hallway<br/>#1537"]
+  R1538["Torture Chamber<br/>#1538"]
+  R1539["Dark Hallway<br/>#1539"]
+  R1540["Dark Hallway<br/>#1540"]
+  R1541["Prison Cell<br/>#1541"]
+  R1542["Prison Cell<br/>#1542"]
+  R1543["Prison Cell<br/>#1543"]
+  R1544["Prison Cell<br/>#1544"]
+  R1545["End of the Dark Hallway<br/>#1545"]
+  R1546["A Ladder<br/>#1546"]
+  R1547["Lair<br/>#1547"]
+  R1548["A Damp Hallway<br/>#1548"]
+  R1549["A Damp Hallway<br/>#1549"]
+  R1526 -->|N| X1558
+  R1526 -->|S| X1506
   R1526 -->|W| R1527
   R1527 -->|E| R1526
   R1527 -->|W| R1528
@@ -193,12 +167,32 @@ graph LR
   R1547 -->|U| R1546
   R1548 -->|N| R1547
   R1548 -->|E| R1549
-  R1548 -->|W| R1551
-  R1549 -->|S| R1550
+  R1548 -->|W| X1551
+  R1549 -->|S| X1550
   R1549 -->|W| R1548
-  R1550 -->|N| R1549
+  X1558["▸ Part D: The Chief's House<br/>#1558"]:::part
+  X1506["▸ Part A: A Road in the Village<br/>#1506"]:::part
+  X1551["▸ Part C: A Damp Hallway<br/>#1551"]:::part
+  X1550["▸ Part C: A Damp Hallway<br/>#1550"]:::part
+  classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
+```
+
+## Map — Part C (8 rooms: #1550–#1557)
+
+```mermaid
+graph LR
+  R1550["A Damp Hallway<br/>#1550"]
+  R1551["A Damp Hallway<br/>#1551"]
+  R1552["A Damp Hallway<br/>#1552"]
+  R1553["A Damp Hallway<br/>#1553"]
+  R1554["A Damp Hallway<br/>#1554"]
+  R1555["A Damp Hallway<br/>#1555"]
+  R1556["The End of the Hallway<br/>#1556"]
+  R1557["The Altar<br/>#1557"]
+  R1550 -->|N| X1549
   R1550 -->|S| R1555
-  R1551 -->|E| R1548
+  R1551 -->|E| X1548
   R1551 -->|S| R1552
   R1552 -->|N| R1551
   R1552 -->|S| R1553
@@ -212,9 +206,77 @@ graph LR
   R1556 -->|E| R1557
   R1556 -->|S| R1554
   R1557 -->|W| R1556
-  R1558 -->|S| R1526
+  X1549["▸ Part B: A Damp Hallway<br/>#1549"]:::part
+  X1548["▸ Part B: A Damp Hallway<br/>#1548"]:::part
+  classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
+```
+
+## Map — Part D (9 rooms: #1558–#1590)
+
+```mermaid
+graph LR
+  R1558["The Chief's House<br/>#1558"]
+  R1583["Hobgoblin Barracks<br/>#1583"]
+  R1584["Hobgoblin Barracks<br/>#1584"]
+  R1585["Mess Hall<br/>#1585"]
+  R1586["A Store Room<br/>#1586"]
+  R1587["The Kitchen<br/>#1587"]
+  R1588["A Small Mine Shaft<br/>#1588"]
+  R1589["Hermit's Lair<br/>#1589"]
+  R1590["A Hole<br/>#1590"]
+  R1558 -->|S| X1526
+  R1583 -->|N| R1584
+  R1583 -->|E| R1585
+  R1583 -->|S| X1564
+  R1584 -->|S| R1583
+  R1585 -->|N| R1586
+  R1585 -->|E| R1587
+  R1585 -->|W| R1583
+  R1586 -->|S| R1585
+  R1587 -->|W| R1585
+  R1588 -->|N| R1589
+  R1588 -->|S| X1582
+  R1588 -->|D| R1590
+  R1589 -->|S| R1588
+  R1590 -->|U| R1588
+  X1526["▸ Part B: A Dusty Path<br/>#1526"]:::part
+  X1564["▸ Part E: Mine Shaft<br/>#1564"]:::part
+  X1582["▸ Part E: Small Mine Shaft<br/>#1582"]:::part
+  classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
+```
+
+## Map — Part E (24 rooms: #1559–#1582)
+
+```mermaid
+graph LR
+  R1559["The Unused Path<br/>#1559"]
+  R1560["The Overgrown Path<br/>#1560"]
+  R1561["The Clearing<br/>#1561"]
+  R1562["Entrance to the Mine Shaft<br/>#1562"]
+  R1563["Mine Shaft<br/>#1563"]
+  R1564["Mine Shaft<br/>#1564"]
+  R1565["Mine Shaft<br/>#1565"]
+  R1566["Walkway<br/>#1566"]
+  R1567["Walkway<br/>#1567"]
+  R1568["The Grand Hall<br/>#1568"]
+  R1569["The Throne Room<br/>#1569"]
+  R1570["The Treasury<br/>#1570"]
+  R1571["Guarded Room<br/>#1571"]
+  R1572["Guarded Room<br/>#1572"]
+  R1573["Hobgoblin Armory<br/>#1573"]
+  R1574["Mine Shaft<br/>#1574"]
+  R1575["Entrance to a Dungeon<br/>#1575"]
+  R1576["A Dungeon<br/>#1576"]
+  R1577["A Jail Cell<br/>#1577"]
+  R1578["The Jail Cell<br/>#1578"]
+  R1579["The Jail Cell<br/>#1579"]
+  R1580["The Jail Cell<br/>#1580"]
+  R1581["The Jail Cell<br/>#1581"]
+  R1582["Small Mine Shaft<br/>#1582"]
   R1559 -->|E| R1560
-  R1559 -->|W| R1504
+  R1559 -->|W| X1504
   R1560 -->|E| R1561
   R1560 -->|W| R1559
   R1561 -->|N| R1562
@@ -225,7 +287,7 @@ graph LR
   R1563 -->|E| R1564
   R1563 -->|S| R1574
   R1563 -->|W| R1562
-  R1564 -->|N| R1583
+  R1564 -->|N| X1583
   R1564 -->|E| R1565
   R1564 -->|S| R1573
   R1564 -->|W| R1563
@@ -260,24 +322,13 @@ graph LR
   R1579 -->|N| R1576
   R1580 -->|E| R1576
   R1581 -->|E| R1575
-  R1582 -->|N| R1588
+  R1582 -->|N| X1588
   R1582 -->|S| R1563
-  R1583 -->|N| R1584
-  R1583 -->|E| R1585
-  R1583 -->|S| R1564
-  R1584 -->|S| R1583
-  R1585 -->|N| R1586
-  R1585 -->|E| R1587
-  R1585 -->|W| R1583
-  R1586 -->|S| R1585
-  R1587 -->|W| R1585
-  R1588 -->|N| R1589
-  R1588 -->|S| R1582
-  R1588 -->|D| R1590
-  R1589 -->|S| R1588
-  R1590 -->|U| R1588
-  X3503["City Entrance<br/>midennir #3503"]:::ext
+  X1504["▸ Part A: A Dusty Path<br/>#1504"]:::part
+  X1583["▸ Part D: Hobgoblin Barracks<br/>#1583"]:::part
+  X1588["▸ Part D: A Small Mine Shaft<br/>#1588"]:::part
   classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
 ```
 
 ## Rooms

@@ -2,7 +2,11 @@
 
 [← back to world map](WORLD-MAP.md) · 177 rooms · vnums 7001–7445
 
-Dashed nodes are exits that leave this area.
+Grey dashed nodes leave the area; green dashed nodes (`▸ Part X`) continue on another sub-map below.
+
+_This area is split into 10 sub-maps for legibility._
+
+## Map — Part A (24 rooms: #7001–#7029)
 
 ```mermaid
 graph LR
@@ -25,172 +29,19 @@ graph LR
   R7017["The sewer junction<br/>#7017"]
   R7018["The ordinary junction<br/>#7018"]
   R7021["A quiet pipe junction<br/>#7021"]
-  R7022["The odd room with smooth walls<br/>#7022"]
   R7024["The sewer<br/>#7024"]
   R7025["Another intersection<br/>#7025"]
   R7026["A junction<br/>#7026"]
   R7028["The sewer junction<br/>#7028"]
   R7029["The Triple Junction<br/>#7029"]
-  R7030["The Quadruple Junction Under the Dump<br/>#7030"]
-  R7031["A triple junction<br/>#7031"]
-  R7034["A bend in the sewer pipe<br/>#7034"]
-  R7035["The sewer pipe bend<br/>#7035"]
-  R7036["The pit<br/>#7036"]
-  R7037["The round room<br/>#7037"]
-  R7038["The three way junction<br/>#7038"]
-  R7039["The Sewer Store Room<br/>#7039"]
-  R7041["The Shaft<br/>#7041"]
-  R7043["The Sewer Entrance<br/>#7043"]
-  R7044["The junction going three ways<br/>#7044"]
-  R7045["The Sewer Room<br/>#7045"]
-  R7046["The Sewer room<br/>#7046"]
-  R7047["The Pool in the Sewer<br/>#7047"]
-  R7048["The Sewers<br/>#7048"]
-  R7049["The junction<br/>#7049"]
-  R7050["The small room<br/>#7050"]
-  R7051["The Sewer pipe<br/>#7051"]
-  R7052["The Grand Sewer<br/>#7052"]
-  R7053["The South end of the Grand Pipe<br/>#7053"]
-  R7055["The Edge of The Water Sewer<br/>#7055"]
-  R7056["The Dark hallway<br/>#7056"]
-  R7057["The dark passageway<br/>#7057"]
-  R7058["The dark passageway<br/>#7058"]
-  R7059["The dark passageway<br/>#7059"]
-  R7060["The dark passageway<br/>#7060"]
-  R7061["The Watery Sewer Bend<br/>#7061"]
-  R7062["The Watery sewer<br/>#7062"]
-  R7063["The Watery sewer<br/>#7063"]
-  R7064["The Watery Sewer Junction<br/>#7064"]
-  R7065["The Watery sewer<br/>#7065"]
-  R7066["The Watery sewer junction<br/>#7066"]
-  R7067["The Watery sewer<br/>#7067"]
-  R7068["The Watery sewer bend<br/>#7068"]
-  R7069["A ledge by the dark pool<br/>#7069"]
-  R7070["A ledge by the dark pool<br/>#7070"]
-  R7099["The fissure under the ledge<br/>#7099"]
-  R7101["Under the mudhole<br/>#7101"]
-  R7102["Under the Dark Pit<br/>#7102"]
-  R7103["A muddy bend in the sewer system<br/>#7103"]
-  R7104["A junction in the sewer pipes<br/>#7104"]
-  R7105["Down the old well<br/>#7105"]
-  R7106["The northwestern corner of the ledge<br/>#7106"]
-  R7107["The narrow ledge<br/>#7107"]
-  R7108["The narrow ledge<br/>#7108"]
-  R7109["The narrow ledge<br/>#7109"]
-  R7110["The narrow ledge<br/>#7110"]
-  R7111["The southwestern corner of the ledge<br/>#7111"]
-  R7112["An odd intersection<br/>#7112"]
-  R7113["The narrow ledge going east to west<br/>#7113"]
-  R7114["Mid-air<br/>#7114"]
-  R7115["The Broad ledge<br/>#7115"]
-  R7116["The northeastern corner of the ledge<br/>#7116"]
-  R7117["The narrow eastern ledge<br/>#7117"]
-  R7118["The narrow eastern ledge<br/>#7118"]
-  R7119["The narrow eastern ledge<br/>#7119"]
-  R7120["The narrow eastern ledge<br/>#7120"]
-  R7121["The southeastern corner of the ledge<br/>#7121"]
-  R7122["Under the pit<br/>#7122"]
-  R7123["Under The Shaft<br/>#7123"]
-  R7129["The sewer line.<br/>#7129"]
-  R7130["The sewer pipe.<br/>#7130"]
-  R7190["Mid-air<br/>#7190"]
-  R7199["The Edge of the Water<br/>#7199"]
-  R7200["The Treasury<br/>#7200"]
-  R7201["The inner Lair<br/>#7201"]
-  R7202["The Lair<br/>#7202"]
-  R7203["The Lair<br/>#7203"]
-  R7204["The Lair<br/>#7204"]
-  R7205["The Lair<br/>#7205"]
-  R7206["The lair.<br/>#7206"]
-  R7207["The lair.<br/>#7207"]
-  R7208["The lair entrance.<br/>#7208"]
-  R7209["The crawlway.<br/>#7209"]
-  R7210["The four-way junction.<br/>#7210"]
-  R7211["The small cave.<br/>#7211"]
-  R7212["The sewer drain.<br/>#7212"]
-  R7213["The sewer drain.<br/>#7213"]
-  R7214["The drain end.<br/>#7214"]
-  R7215["The half-wet drain.<br/>#7215"]
-  R7216["Under water in the sewer.<br/>#7216"]
-  R7217["The half-dry drain.<br/>#7217"]
-  R7218["The very small room.<br/>#7218"]
-  R7219["A dry sewer drain.<br/>#7219"]
-  R7220["A boring drain.<br/>#7220"]
-  R7221["The sewer drain.<br/>#7221"]
-  R7222["The sewer drain.<br/>#7222"]
-  R7223["The sewer bend.<br/>#7223"]
-  R7224["The sewer junction<br/>#7224"]
-  R7225["The sewer<br/>#7225"]
-  R7229["The strange sewer<br/>#7229"]
-  R7230["The damp sewer<br/>#7230"]
-  R7231["The strange sewer<br/>#7231"]
-  R7232["The sewer<br/>#7232"]
-  R7233["The sewer drain<br/>#7233"]
-  R7234["The rat's lair<br/>#7234"]
-  R7279["The Wall of the Abyss<br/>#7279"]
-  R7280["The entrance.<br/>#7280"]
-  R7281["The corridor.<br/>#7281"]
-  R7282["The Realm of lost souls<br/>#7282"]
-  R7283["The T-crossing<br/>#7283"]
-  R7284["The firedeath<br/>#7284"]
-  R7285["The tortureroom.<br/>#7285"]
-  R7286["The hells yard<br/>#7286"]
-  R7301["The Entrance to the Realm of silence<br/>#7301"]
-  R7399["On the walls of the Abyss<br/>#7399"]
-  R7400["Cave entrance<br/>#7400"]
-  R7401["Cave tunnel<br/>#7401"]
-  R7402["Cave room<br/>#7402"]
-  R7403["Cave T-cross<br/>#7403"]
-  R7404["Cave turning-point<br/>#7404"]
-  R7405["The secret room<br/>#7405"]
-  R7406["The mudhole<br/>#7406"]
-  R7407["Tunnel<br/>#7407"]
-  R7408["The long tunnel<br/>#7408"]
-  R7409["The hot room<br/>#7409"]
-  R7410["The small room<br/>#7410"]
-  R7411["The stalagmite cave<br/>#7411"]
-  R7412["The stalagmite tunnel<br/>#7412"]
-  R7413["The spongy room<br/>#7413"]
-  R7414["The stalagmite T-cross<br/>#7414"]
-  R7415["The blind end room<br/>#7415"]
-  R7416["The treasure room<br/>#7416"]
-  R7417["The square lair<br/>#7417"]
-  R7418["The square lair<br/>#7418"]
-  R7419["The square lair<br/>#7419"]
-  R7420["The lair end<br/>#7420"]
-  R7421["East tunnel<br/>#7421"]
-  R7422["North tunnel<br/>#7422"]
-  R7423["The L-shaped room.<br/>#7423"]
-  R7424["The Circular hall.<br/>#7424"]
-  R7425["Dusty tunnel<br/>#7425"]
-  R7426["The crossing<br/>#7426"]
-  R7427["The L-shaped room<br/>#7427"]
-  R7428["Dragons lair<br/>#7428"]
-  R7429["The burned room<br/>#7429"]
-  R7430["The wind tunnel<br/>#7430"]
-  R7431["The glittering room<br/>#7431"]
-  R7432["The secret passageroom<br/>#7432"]
-  R7433["End of long tunnel<br/>#7433"]
-  R7434["Stair-room<br/>#7434"]
-  R7435["Dark tunnel<br/>#7435"]
-  R7436["Entrance to lair<br/>#7436"]
-  R7437["North-eastern part of Basilisks cave<br/>#7437"]
-  R7438["South-eastern part of basilisks cave<br/>#7438"]
-  R7439["North-western part of basilisks cave<br/>#7439"]
-  R7440["South-western part of basilisks cave<br/>#7440"]
-  R7441["The small cave<br/>#7441"]
-  R7442["The northern end of the pool<br/>#7442"]
-  R7443["The pool<br/>#7443"]
-  R7444["The south end of the pool<br/>#7444"]
-  R7445["The pool<br/>#7445"]
   R7001 -->|S| R7002
   R7002 -->|N| R7001
   R7002 -->|E| R7007
   R7002 -->|S| R7003
   R7003 -->|N| R7002
-  R7003 -->|D| R7101
+  R7003 -->|D| X7101
   R7004 -->|E| R7009
-  R7004 -->|D| R7102
+  R7004 -->|D| X7102
   R7005 -->|E| R7011
   R7005 -->|S| R7006
   R7006 -->|N| R7005
@@ -217,55 +68,92 @@ graph LR
   R7014 -->|N| R7013
   R7014 -->|W| R7008
   R7015 -->|E| R7028
-  R7015 -->|D| R7105
+  R7015 -->|D| X7105
   R7016 -->|E| R7021
   R7016 -->|S| R7017
   R7017 -->|N| R7016
   R7017 -->|S| R7018
   R7017 -->|W| R7009
   R7018 -->|N| R7017
-  R7018 -->|E| R7031
+  R7018 -->|E| X7031
   R7018 -->|W| R7010
   R7021 -->|N| R7011
   R7021 -->|E| R7029
   R7021 -->|W| R7016
-  R7022 -->|D| R7112
-  R7024 -->|E| R7037
+  R7024 -->|E| X7037
   R7024 -->|S| R7025
   R7024 -->|W| R7011
   R7025 -->|N| R7024
-  R7025 -->|E| R7038
+  R7025 -->|E| X7038
   R7025 -->|S| R7026
   R7026 -->|N| R7025
   R7026 -->|S| R7028
   R7026 -->|W| R7013
   R7028 -->|N| R7026
-  R7028 -->|E| R7034
+  R7028 -->|E| X7034
   R7028 -->|W| R7015
-  R7029 -->|E| R7035
-  R7029 -->|S| R7030
+  R7029 -->|E| X7035
+  R7029 -->|S| X7030
   R7029 -->|W| R7021
-  R7030 -->|N| R7029
+  X7101["▸ Part E: Under the mudhole<br/>#7101"]:::part
+  X7102["▸ Part E: Under the Dark Pit<br/>#7102"]:::part
+  X7105["▸ Part C: Down the old well<br/>#7105"]:::part
+  X7031["▸ Part B: A triple junction<br/>#7031"]:::part
+  X7037["▸ Part B: The round room<br/>#7037"]:::part
+  X7038["▸ Part B: The three way junction<br/>#7038"]:::part
+  X7034["▸ Part C: A bend in the sewer pipe<br/>#7034"]:::part
+  X7035["▸ Part C: The sewer pipe bend<br/>#7035"]:::part
+  X7030["▸ Part B: The Quadruple Junction Under the Dump<br/>#7030"]:::part
+  classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
+```
+
+## Map — Part B (24 rooms: #7022–#7060)
+
+```mermaid
+graph LR
+  R7022["The odd room with smooth walls<br/>#7022"]
+  R7030["The Quadruple Junction Under the Dump<br/>#7030"]
+  R7031["A triple junction<br/>#7031"]
+  R7036["The pit<br/>#7036"]
+  R7037["The round room<br/>#7037"]
+  R7038["The three way junction<br/>#7038"]
+  R7039["The Sewer Store Room<br/>#7039"]
+  R7041["The Shaft<br/>#7041"]
+  R7043["The Sewer Entrance<br/>#7043"]
+  R7044["The junction going three ways<br/>#7044"]
+  R7045["The Sewer Room<br/>#7045"]
+  R7046["The Sewer room<br/>#7046"]
+  R7047["The Pool in the Sewer<br/>#7047"]
+  R7048["The Sewers<br/>#7048"]
+  R7049["The junction<br/>#7049"]
+  R7050["The small room<br/>#7050"]
+  R7051["The Sewer pipe<br/>#7051"]
+  R7052["The Grand Sewer<br/>#7052"]
+  R7053["The South end of the Grand Pipe<br/>#7053"]
+  R7056["The Dark hallway<br/>#7056"]
+  R7057["The dark passageway<br/>#7057"]
+  R7058["The dark passageway<br/>#7058"]
+  R7059["The dark passageway<br/>#7059"]
+  R7060["The dark passageway<br/>#7060"]
+  R7022 -->|D| X7112
+  R7030 -->|N| X7029
   R7030 -->|E| R7036
   R7030 -->|S| R7031
   R7030 -->|W| R7022
   R7030 -->|U| X3030
   R7031 -->|N| R7030
   R7031 -->|E| R7044
-  R7031 -->|W| R7018
-  R7034 -->|S| R7035
-  R7034 -->|W| R7028
-  R7035 -->|N| R7034
-  R7035 -->|W| R7029
+  R7031 -->|W| X7018
   R7036 -->|W| R7030
-  R7036 -->|D| R7122
+  R7036 -->|D| X7122
   R7037 -->|E| R7050
   R7038 -->|E| R7045
   R7038 -->|S| R7039
-  R7038 -->|W| R7025
+  R7038 -->|W| X7025
   R7039 -->|N| R7038
   R7041 -->|S| R7043
-  R7041 -->|D| R7123
+  R7041 -->|D| X7123
   R7043 -->|N| R7041
   R7043 -->|S| R7044
   R7044 -->|N| R7043
@@ -281,7 +169,7 @@ graph LR
   R7049 -->|N| R7048
   R7049 -->|E| R7060
   R7049 -->|W| R7044
-  R7050 -->|E| R7055
+  R7050 -->|E| X7055
   R7050 -->|S| R7051
   R7051 -->|N| R7050
   R7051 -->|S| R7052
@@ -290,8 +178,6 @@ graph LR
   R7052 -->|S| R7053
   R7053 -->|N| R7052
   R7053 -->|W| R7047
-  R7055 -->|E| R7061
-  R7055 -->|W| R7050
   R7056 -->|S| R7057
   R7056 -->|W| R7052
   R7057 -->|N| R7056
@@ -301,8 +187,71 @@ graph LR
   R7059 -->|N| R7058
   R7059 -->|S| R7060
   R7060 -->|N| R7059
-  R7060 -->|E| R7068
+  R7060 -->|E| X7068
   R7060 -->|W| R7049
+  X7112["▸ Part E: An odd intersection<br/>#7112"]:::part
+  X7029["▸ Part A: The Triple Junction<br/>#7029"]:::part
+  X3030["The Dump<br/>midgaard #3030"]:::ext
+  X7018["▸ Part A: The ordinary junction<br/>#7018"]:::part
+  X7122["▸ Part E: Under the pit<br/>#7122"]:::part
+  X7025["▸ Part A: Another intersection<br/>#7025"]:::part
+  X7123["▸ Part E: Under The Shaft<br/>#7123"]:::part
+  X7055["▸ Part D: The Edge of The Water Sewer<br/>#7055"]:::part
+  X7068["▸ Part D: The Watery sewer bend<br/>#7068"]:::part
+  classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
+```
+
+## Map — Part C (7 rooms: #7034–#7399)
+
+```mermaid
+graph LR
+  R7034["A bend in the sewer pipe<br/>#7034"]
+  R7035["The sewer pipe bend<br/>#7035"]
+  R7105["Down the old well<br/>#7105"]
+  R7130["The sewer pipe.<br/>#7130"]
+  R7279["The Wall of the Abyss<br/>#7279"]
+  R7301["The Entrance to the Realm of silence<br/>#7301"]
+  R7399["On the walls of the Abyss<br/>#7399"]
+  R7034 -->|S| R7035
+  R7034 -->|W| X7028
+  R7035 -->|N| R7034
+  R7035 -->|W| X7029
+  R7105 -->|U| X7015
+  R7105 -->|D| X0
+  R7279 -->|U| X7111
+  R7279 -->|D| R7399
+  R7301 -->|N| X0
+  R7301 -->|U| X0
+  R7399 -->|U| R7279
+  X7028["▸ Part A: The sewer junction<br/>#7028"]:::part
+  X7029["▸ Part A: The Triple Junction<br/>#7029"]:::part
+  X7015["▸ Part A: The old well<br/>#7015"]:::part
+  X0["?? broken<br/>#0"]:::ext
+  X7111["▸ Part E: The southwestern corner of the ledge<br/>#7111"]:::part
+  classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
+```
+
+## Map — Part D (13 rooms: #7055–#7199)
+
+```mermaid
+graph LR
+  R7055["The Edge of The Water Sewer<br/>#7055"]
+  R7061["The Watery Sewer Bend<br/>#7061"]
+  R7062["The Watery sewer<br/>#7062"]
+  R7063["The Watery sewer<br/>#7063"]
+  R7064["The Watery Sewer Junction<br/>#7064"]
+  R7065["The Watery sewer<br/>#7065"]
+  R7066["The Watery sewer junction<br/>#7066"]
+  R7067["The Watery sewer<br/>#7067"]
+  R7068["The Watery sewer bend<br/>#7068"]
+  R7069["A ledge by the dark pool<br/>#7069"]
+  R7070["A ledge by the dark pool<br/>#7070"]
+  R7099["The fissure under the ledge<br/>#7099"]
+  R7199["The Edge of the Water<br/>#7199"]
+  R7055 -->|E| R7061
+  R7055 -->|W| X7050
   R7061 -->|S| R7062
   R7061 -->|W| R7055
   R7062 -->|N| R7061
@@ -320,7 +269,7 @@ graph LR
   R7067 -->|N| R7066
   R7067 -->|S| R7068
   R7068 -->|N| R7067
-  R7068 -->|W| R7060
+  R7068 -->|W| X7060
   R7069 -->|S| R7070
   R7069 -->|W| R7064
   R7070 -->|N| R7069
@@ -328,17 +277,50 @@ graph LR
   R7070 -->|D| R7099
   R7099 -->|U| R7070
   R7099 -->|D| R7199
+  R7199 -->|U| R7099
+  X7050["▸ Part B: The small room<br/>#7050"]:::part
+  X7060["▸ Part B: The dark passageway<br/>#7060"]:::part
+  classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
+```
+
+## Map — Part E (24 rooms: #7101–#7190)
+
+```mermaid
+graph LR
+  R7101["Under the mudhole<br/>#7101"]
+  R7102["Under the Dark Pit<br/>#7102"]
+  R7103["A muddy bend in the sewer system<br/>#7103"]
+  R7104["A junction in the sewer pipes<br/>#7104"]
+  R7106["The northwestern corner of the ledge<br/>#7106"]
+  R7107["The narrow ledge<br/>#7107"]
+  R7108["The narrow ledge<br/>#7108"]
+  R7109["The narrow ledge<br/>#7109"]
+  R7110["The narrow ledge<br/>#7110"]
+  R7111["The southwestern corner of the ledge<br/>#7111"]
+  R7112["An odd intersection<br/>#7112"]
+  R7113["The narrow ledge going east to west<br/>#7113"]
+  R7114["Mid-air<br/>#7114"]
+  R7115["The Broad ledge<br/>#7115"]
+  R7116["The northeastern corner of the ledge<br/>#7116"]
+  R7117["The narrow eastern ledge<br/>#7117"]
+  R7118["The narrow eastern ledge<br/>#7118"]
+  R7119["The narrow eastern ledge<br/>#7119"]
+  R7120["The narrow eastern ledge<br/>#7120"]
+  R7121["The southeastern corner of the ledge<br/>#7121"]
+  R7122["Under the pit<br/>#7122"]
+  R7123["Under The Shaft<br/>#7123"]
+  R7129["The sewer line.<br/>#7129"]
+  R7190["Mid-air<br/>#7190"]
   R7101 -->|E| R7103
   R7102 -->|E| R7104
-  R7102 -->|U| R7004
-  R7102 -->|D| R7400
+  R7102 -->|U| X7004
+  R7102 -->|D| X7400
   R7103 -->|S| R7104
   R7103 -->|W| R7101
   R7104 -->|N| R7103
   R7104 -->|E| R7112
   R7104 -->|W| R7102
-  R7105 -->|U| R7015
-  R7105 -->|D| X0
   R7106 -->|E| R7113
   R7106 -->|S| R7107
   R7107 -->|N| R7106
@@ -356,7 +338,7 @@ graph LR
   R7111 -->|N| R7110
   R7111 -->|E| R7115
   R7111 -->|S| R7112
-  R7111 -->|D| R7279
+  R7111 -->|D| X7279
   R7112 -->|N| R7111
   R7112 -->|E| R7122
   R7112 -->|W| R7104
@@ -369,7 +351,7 @@ graph LR
   R7115 -->|W| R7111
   R7116 -->|S| R7117
   R7116 -->|W| R7113
-  R7116 -->|D| R7280
+  R7116 -->|D| X7280
   R7117 -->|S| R7118
   R7117 -->|W| R7114
   R7118 -->|S| R7119
@@ -384,10 +366,48 @@ graph LR
   R7122 -->|E| X0
   R7122 -->|W| R7112
   R7123 -->|W| R7120
-  R7123 -->|U| R7041
+  R7123 -->|U| X7041
   R7129 -->|N| R7115
-  R7129 -->|D| R7221
-  R7199 -->|U| R7099
+  R7129 -->|D| X7221
+  X7004["▸ Part A: The Dark Pit<br/>#7004"]:::part
+  X7400["▸ Part I: Cave entrance<br/>#7400"]:::part
+  X7279["▸ Part C: The Wall of the Abyss<br/>#7279"]:::part
+  X7280["▸ Part H: The entrance.<br/>#7280"]:::part
+  X0["?? broken<br/>#0"]:::ext
+  X7041["▸ Part B: The Shaft<br/>#7041"]:::part
+  X7221["▸ Part F: The sewer drain.<br/>#7221"]:::part
+  classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
+```
+
+## Map — Part F (24 rooms: #7200–#7223)
+
+```mermaid
+graph LR
+  R7200["The Treasury<br/>#7200"]
+  R7201["The inner Lair<br/>#7201"]
+  R7202["The Lair<br/>#7202"]
+  R7203["The Lair<br/>#7203"]
+  R7204["The Lair<br/>#7204"]
+  R7205["The Lair<br/>#7205"]
+  R7206["The lair.<br/>#7206"]
+  R7207["The lair.<br/>#7207"]
+  R7208["The lair entrance.<br/>#7208"]
+  R7209["The crawlway.<br/>#7209"]
+  R7210["The four-way junction.<br/>#7210"]
+  R7211["The small cave.<br/>#7211"]
+  R7212["The sewer drain.<br/>#7212"]
+  R7213["The sewer drain.<br/>#7213"]
+  R7214["The drain end.<br/>#7214"]
+  R7215["The half-wet drain.<br/>#7215"]
+  R7216["Under water in the sewer.<br/>#7216"]
+  R7217["The half-dry drain.<br/>#7217"]
+  R7218["The very small room.<br/>#7218"]
+  R7219["A dry sewer drain.<br/>#7219"]
+  R7220["A boring drain.<br/>#7220"]
+  R7221["The sewer drain.<br/>#7221"]
+  R7222["The sewer drain.<br/>#7222"]
+  R7223["The sewer bend.<br/>#7223"]
   R7200 -->|E| R7201
   R7201 -->|S| R7202
   R7201 -->|W| R7200
@@ -435,13 +455,31 @@ graph LR
   R7220 -->|E| R7221
   R7221 -->|E| R7222
   R7221 -->|W| R7220
-  R7221 -->|U| R7129
+  R7221 -->|U| X7129
   R7222 -->|E| R7223
   R7222 -->|W| R7221
-  R7223 -->|N| R7224
+  R7223 -->|N| X7224
   R7223 -->|W| R7222
+  X7129["▸ Part E: The sewer line.<br/>#7129"]:::part
+  X7224["▸ Part G: The sewer junction<br/>#7224"]:::part
+  classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
+```
+
+## Map — Part G (8 rooms: #7224–#7234)
+
+```mermaid
+graph LR
+  R7224["The sewer junction<br/>#7224"]
+  R7225["The sewer<br/>#7225"]
+  R7229["The strange sewer<br/>#7229"]
+  R7230["The damp sewer<br/>#7230"]
+  R7231["The strange sewer<br/>#7231"]
+  R7232["The sewer<br/>#7232"]
+  R7233["The sewer drain<br/>#7233"]
+  R7234["The rat's lair<br/>#7234"]
   R7224 -->|N| R7225
-  R7224 -->|S| R7223
+  R7224 -->|S| X7223
   R7224 -->|W| R7229
   R7225 -->|S| R7224
   R7229 -->|E| R7224
@@ -455,10 +493,24 @@ graph LR
   R7233 -->|E| R7234
   R7233 -->|S| R7232
   R7234 -->|W| R7233
-  R7279 -->|U| R7111
-  R7279 -->|D| R7399
+  X7223["▸ Part F: The sewer bend.<br/>#7223"]:::part
+  classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
+```
+
+## Map — Part H (7 rooms: #7280–#7286)
+
+```mermaid
+graph LR
+  R7280["The entrance.<br/>#7280"]
+  R7281["The corridor.<br/>#7281"]
+  R7282["The Realm of lost souls<br/>#7282"]
+  R7283["The T-crossing<br/>#7283"]
+  R7284["The firedeath<br/>#7284"]
+  R7285["The tortureroom.<br/>#7285"]
+  R7286["The hells yard<br/>#7286"]
   R7280 -->|N| R7281
-  R7280 -->|U| R7116
+  R7280 -->|U| X7116
   R7281 -->|E| R7282
   R7281 -->|S| R7280
   R7282 -->|N| R7283
@@ -469,11 +521,41 @@ graph LR
   R7285 -->|S| R7286
   R7286 -->|N| R7285
   R7286 -->|W| R7283
-  R7301 -->|N| X0
-  R7301 -->|U| X0
-  R7399 -->|U| R7279
+  X7116["▸ Part E: The northeastern corner of the ledge<br/>#7116"]:::part
+  classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
+```
+
+## Map — Part I (24 rooms: #7400–#7423)
+
+```mermaid
+graph LR
+  R7400["Cave entrance<br/>#7400"]
+  R7401["Cave tunnel<br/>#7401"]
+  R7402["Cave room<br/>#7402"]
+  R7403["Cave T-cross<br/>#7403"]
+  R7404["Cave turning-point<br/>#7404"]
+  R7405["The secret room<br/>#7405"]
+  R7406["The mudhole<br/>#7406"]
+  R7407["Tunnel<br/>#7407"]
+  R7408["The long tunnel<br/>#7408"]
+  R7409["The hot room<br/>#7409"]
+  R7410["The small room<br/>#7410"]
+  R7411["The stalagmite cave<br/>#7411"]
+  R7412["The stalagmite tunnel<br/>#7412"]
+  R7413["The spongy room<br/>#7413"]
+  R7414["The stalagmite T-cross<br/>#7414"]
+  R7415["The blind end room<br/>#7415"]
+  R7416["The treasure room<br/>#7416"]
+  R7417["The square lair<br/>#7417"]
+  R7418["The square lair<br/>#7418"]
+  R7419["The square lair<br/>#7419"]
+  R7420["The lair end<br/>#7420"]
+  R7421["East tunnel<br/>#7421"]
+  R7422["North tunnel<br/>#7422"]
+  R7423["The L-shaped room.<br/>#7423"]
   R7400 -->|N| R7401
-  R7400 -->|U| R7102
+  R7400 -->|U| X7102
   R7401 -->|N| R7402
   R7401 -->|S| R7400
   R7402 -->|E| R7403
@@ -503,7 +585,7 @@ graph LR
   R7412 -->|N| R7411
   R7412 -->|W| R7413
   R7413 -->|E| R7412
-  R7413 -->|W| R7445
+  R7413 -->|W| X7445
   R7414 -->|N| R7417
   R7414 -->|E| R7415
   R7414 -->|S| R7411
@@ -525,11 +607,45 @@ graph LR
   R7421 -->|W| R7418
   R7422 -->|N| R7423
   R7422 -->|S| R7419
-  R7422 -->|W| R7436
-  R7423 -->|E| R7424
+  R7422 -->|W| X7436
+  R7423 -->|E| X7424
   R7423 -->|S| R7422
+  X7102["▸ Part E: Under the Dark Pit<br/>#7102"]:::part
+  X7445["▸ Part J: The pool<br/>#7445"]:::part
+  X7436["▸ Part J: Entrance to lair<br/>#7436"]:::part
+  X7424["▸ Part J: The Circular hall.<br/>#7424"]:::part
+  classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
+```
+
+## Map — Part J (22 rooms: #7424–#7445)
+
+```mermaid
+graph LR
+  R7424["The Circular hall.<br/>#7424"]
+  R7425["Dusty tunnel<br/>#7425"]
+  R7426["The crossing<br/>#7426"]
+  R7427["The L-shaped room<br/>#7427"]
+  R7428["Dragons lair<br/>#7428"]
+  R7429["The burned room<br/>#7429"]
+  R7430["The wind tunnel<br/>#7430"]
+  R7431["The glittering room<br/>#7431"]
+  R7432["The secret passageroom<br/>#7432"]
+  R7433["End of long tunnel<br/>#7433"]
+  R7434["Stair-room<br/>#7434"]
+  R7435["Dark tunnel<br/>#7435"]
+  R7436["Entrance to lair<br/>#7436"]
+  R7437["North-eastern part of Basilisks cave<br/>#7437"]
+  R7438["South-eastern part of basilisks cave<br/>#7438"]
+  R7439["North-western part of basilisks cave<br/>#7439"]
+  R7440["South-western part of basilisks cave<br/>#7440"]
+  R7441["The small cave<br/>#7441"]
+  R7442["The northern end of the pool<br/>#7442"]
+  R7443["The pool<br/>#7443"]
+  R7444["The south end of the pool<br/>#7444"]
+  R7445["The pool<br/>#7445"]
   R7424 -->|E| R7425
-  R7424 -->|W| R7423
+  R7424 -->|W| X7423
   R7425 -->|E| R7426
   R7425 -->|W| R7424
   R7426 -->|N| R7431
@@ -555,7 +671,7 @@ graph LR
   R7435 -->|N| R7434
   R7435 -->|S| R7436
   R7436 -->|N| R7435
-  R7436 -->|E| R7422
+  R7436 -->|E| X7422
   R7436 -->|S| R7437
   R7437 -->|N| R7436
   R7437 -->|S| R7438
@@ -577,11 +693,14 @@ graph LR
   R7444 -->|N| R7442
   R7444 -->|E| R7445
   R7445 -->|N| R7443
-  R7445 -->|E| R7413
+  R7445 -->|E| X7413
   R7445 -->|W| R7444
-  X3030["The Dump<br/>midgaard #3030"]:::ext
+  X7423["▸ Part I: The L-shaped room.<br/>#7423"]:::part
   X0["?? broken<br/>#0"]:::ext
+  X7422["▸ Part I: North tunnel<br/>#7422"]:::part
+  X7413["▸ Part I: The spongy room<br/>#7413"]:::part
   classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
 ```
 
 ## Rooms

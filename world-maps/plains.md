@@ -2,7 +2,11 @@
 
 [← back to world map](WORLD-MAP.md) · 44 rooms · vnums 300–345
 
-Dashed nodes are exits that leave this area.
+Grey dashed nodes leave the area; green dashed nodes (`▸ Part X`) continue on another sub-map below.
+
+_This area is split into 3 sub-maps for legibility._
+
+## Map — Part A (24 rooms: #300–#324)
 
 ```mermaid
 graph LR
@@ -29,27 +33,7 @@ graph LR
   R320["Grassy plains<br/>#320"]
   R321["Grassy plains<br/>#321"]
   R322["Grassy foothills<br/>#322"]
-  R323["The steep foothills<br/>#323"]
   R324["The steep foothills<br/>#324"]
-  R325["The steep foothills<br/>#325"]
-  R326["The pool in the foothills<br/>#326"]
-  R327["The foothills<br/>#327"]
-  R330["In front of hut in foothills<br/>#330"]
-  R331["Hermit's hut<br/>#331"]
-  R332["The ancient path<br/>#332"]
-  R333["The ancient path<br/>#333"]
-  R334["The ancient path<br/>#334"]
-  R335["The ancient path<br/>#335"]
-  R336["The wooden bridge<br/>#336"]
-  R337["The ancient path<br/>#337"]
-  R338["Grassy plains<br/>#338"]
-  R339["The Stones of G'harne<br/>#339"]
-  R340["Dark smelly tunnels<br/>#340"]
-  R341["Dead end of tunnel<br/>#341"]
-  R342["Dark smelly tunnels<br/>#342"]
-  R343["Dark smelly tunnels<br/>#343"]
-  R344["The Hall of G'harne<br/>#344"]
-  R345["Steep slope<br/>#345"]
   R300 -->|N| R315
   R300 -->|E| R301
   R300 -->|S| X3904
@@ -68,7 +52,7 @@ graph LR
   R305 -->|E| R321
   R305 -->|S| R304
   R305 -->|W| R320
-  R306 -->|N| R326
+  R306 -->|N| X326
   R306 -->|E| R307
   R306 -->|S| R305
   R307 -->|E| R308
@@ -77,18 +61,18 @@ graph LR
   R308 -->|W| R307
   R309 -->|E| R310
   R309 -->|S| R308
-  R309 -->|W| R326
-  R310 -->|N| R327
+  R309 -->|W| X326
+  R310 -->|N| X327
   R310 -->|E| R311
   R310 -->|W| R309
   R311 -->|E| R312
   R311 -->|W| R310
   R312 -->|N| R313
-  R312 -->|S| R332
+  R312 -->|S| X332
   R312 -->|W| R311
   R313 -->|N| R314
   R313 -->|S| R312
-  R313 -->|W| R327
+  R313 -->|W| X327
   R314 -->|N| X5550
   R314 -->|S| R313
   R315 -->|N| R320
@@ -98,44 +82,104 @@ graph LR
   R315 -->|U| X2400
   R316 -->|N| R318
   R316 -->|E| R300
-  R317 -->|E| R338
-  R317 -->|S| R345
+  R317 -->|E| X338
+  R317 -->|S| X345
   R317 -->|W| R303
   R318 -->|N| R319
   R318 -->|E| R315
   R318 -->|S| R316
-  R319 -->|N| R330
+  R319 -->|N| X330
   R319 -->|E| R320
   R319 -->|S| R318
   R320 -->|N| R322
   R320 -->|E| R305
   R320 -->|S| R315
   R320 -->|W| R319
-  R321 -->|S| R338
+  R321 -->|S| X338
   R321 -->|W| R305
   R322 -->|N| R324
   R322 -->|S| R320
-  R322 -->|W| R330
-  R323 -->|N| X7800
-  R323 -->|E| R324
-  R323 -->|S| R330
+  R322 -->|W| X330
   R324 -->|N| X901
-  R324 -->|E| R325
+  R324 -->|E| X325
   R324 -->|S| R322
-  R324 -->|W| R323
+  R324 -->|W| X323
+  X3904["The long dusty trail following the north wall.<br/>moria #3904"]:::ext
+  X326["▸ Part B: The pool in the foothills<br/>#326"]:::part
+  X327["▸ Part B: The foothills<br/>#327"]:::part
+  X332["▸ Part C: The ancient path<br/>#332"]:::part
+  X5550["Village street<br/>ofcol #5550"]:::ext
+  X2400["Entrance to Ultima<br/>ultima #2400"]:::ext
+  X338["▸ Part B: Grassy plains<br/>#338"]:::part
+  X345["▸ Part B: Steep slope<br/>#345"]:::part
+  X330["▸ Part B: In front of hut in foothills<br/>#330"]:::part
+  X901["Mountain<br/>olympus #901"]:::ext
+  X325["▸ Part B: The steep foothills<br/>#325"]:::part
+  X323["▸ Part B: The steep foothills<br/>#323"]:::part
+  classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
+```
+
+## Map — Part B (8 rooms: #323–#345)
+
+```mermaid
+graph LR
+  R323["The steep foothills<br/>#323"]
+  R325["The steep foothills<br/>#325"]
+  R326["The pool in the foothills<br/>#326"]
+  R327["The foothills<br/>#327"]
+  R330["In front of hut in foothills<br/>#330"]
+  R331["Hermit's hut<br/>#331"]
+  R338["Grassy plains<br/>#338"]
+  R345["Steep slope<br/>#345"]
+  R323 -->|N| X7800
+  R323 -->|E| X324
+  R323 -->|S| R330
   R325 -->|E| R326
-  R325 -->|W| R324
-  R326 -->|E| R309
-  R326 -->|S| R306
+  R325 -->|W| X324
+  R326 -->|E| X309
+  R326 -->|S| X306
   R326 -->|W| R325
-  R327 -->|E| R313
-  R327 -->|S| R310
+  R327 -->|E| X313
+  R327 -->|S| X310
   R330 -->|N| R323
-  R330 -->|E| R322
-  R330 -->|S| R319
+  R330 -->|E| X322
+  R330 -->|S| X319
   R330 -->|W| R331
   R331 -->|E| R330
-  R332 -->|N| R312
+  R338 -->|N| X321
+  R338 -->|W| X317
+  X7800["A Path from the Plains<br/>valley #7800"]:::ext
+  X324["▸ Part A: The steep foothills<br/>#324"]:::part
+  X309["▸ Part A: Path in the foothills<br/>#309"]:::part
+  X306["▸ Part A: Path in the foothills<br/>#306"]:::part
+  X313["▸ Part A: Road to Ofcol<br/>#313"]:::part
+  X310["▸ Part A: Path in the foothills<br/>#310"]:::part
+  X322["▸ Part A: Grassy foothills<br/>#322"]:::part
+  X319["▸ Part A: Grassy plains<br/>#319"]:::part
+  X321["▸ Part A: Grassy plains<br/>#321"]:::part
+  X317["▸ Part A: Grassy plains<br/>#317"]:::part
+  classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
+```
+
+## Map — Part C (12 rooms: #332–#344)
+
+```mermaid
+graph LR
+  R332["The ancient path<br/>#332"]
+  R333["The ancient path<br/>#333"]
+  R334["The ancient path<br/>#334"]
+  R335["The ancient path<br/>#335"]
+  R336["The wooden bridge<br/>#336"]
+  R337["The ancient path<br/>#337"]
+  R339["The Stones of G'harne<br/>#339"]
+  R340["Dark smelly tunnels<br/>#340"]
+  R341["Dead end of tunnel<br/>#341"]
+  R342["Dark smelly tunnels<br/>#342"]
+  R343["Dark smelly tunnels<br/>#343"]
+  R344["The Hall of G'harne<br/>#344"]
+  R332 -->|N| X312
   R332 -->|S| R333
   R333 -->|N| R332
   R333 -->|S| R334
@@ -147,8 +191,6 @@ graph LR
   R336 -->|W| R335
   R337 -->|E| R339
   R337 -->|W| R336
-  R338 -->|N| R321
-  R338 -->|W| R317
   R339 -->|W| R337
   R339 -->|D| R340
   R340 -->|S| R341
@@ -160,12 +202,9 @@ graph LR
   R343 -->|E| R342
   R343 -->|W| R344
   R344 -->|E| R343
-  X3904["The long dusty trail following the north wall.<br/>moria #3904"]:::ext
-  X5550["Village street<br/>ofcol #5550"]:::ext
-  X2400["Entrance to Ultima<br/>ultima #2400"]:::ext
-  X7800["A Path from the Plains<br/>valley #7800"]:::ext
-  X901["Mountain<br/>olympus #901"]:::ext
+  X312["▸ Part A: The path intersection<br/>#312"]:::part
   classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
 ```
 
 ## Rooms

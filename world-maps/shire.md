@@ -2,7 +2,11 @@
 
 [← back to world map](WORLD-MAP.md) · 58 rooms · vnums 1100–1157
 
-Dashed nodes are exits that leave this area.
+Grey dashed nodes leave the area; green dashed nodes (`▸ Part X`) continue on another sub-map below.
+
+_This area is split into 3 sub-maps for legibility._
+
+## Map — Part A (24 rooms: #1100–#1123)
 
 ```mermaid
 graph LR
@@ -30,40 +34,6 @@ graph LR
   R1121["The Grocer's Delight<br/>#1121"]
   R1122["Bywater Road<br/>#1122"]
   R1123["Entrance to Watermill<br/>#1123"]
-  R1124["The Watermill<br/>#1124"]
-  R1125["Rear of watermill<br/>#1125"]
-  R1126["Took Hill<br/>#1126"]
-  R1127["Northern end of grassy field<br/>#1127"]
-  R1128["A grassy field<br/>#1128"]
-  R1129["Southern end of grassy field<br/>#1129"]
-  R1130["Western end of grassy field<br/>#1130"]
-  R1131["Brandywine Bridge<br/>#1131"]
-  R1132["Delving Lane<br/>#1132"]
-  R1133["Delving Lane<br/>#1133"]
-  R1134["Delving Lane<br/>#1134"]
-  R1135["Bag End<br/>#1135"]
-  R1136["Bedroom<br/>#1136"]
-  R1137["Pantry<br/>#1137"]
-  R1138["A grassy field<br/>#1138"]
-  R1139["Pig pen<br/>#1139"]
-  R1140["A stony path<br/>#1140"]
-  R1141["Gamgee Residence<br/>#1141"]
-  R1142["A barn<br/>#1142"]
-  R1143["A chicken coop<br/>#1143"]
-  R1144["The Green Dragon<br/>#1144"]
-  R1145["Shiriff Post of Delving Lane<br/>#1145"]
-  R1146["A dark tunnel<br/>#1146"]
-  R1147["A dark tunnel<br/>#1147"]
-  R1148["A dark tunnel<br/>#1148"]
-  R1149["A three way intersection<br/>#1149"]
-  R1150["End of a dark tunnel<br/>#1150"]
-  R1151["A dark tunnel<br/>#1151"]
-  R1152["A dark tunnel<br/>#1152"]
-  R1153["Shiriff Post of the Lower Shire<br/>#1153"]
-  R1154["A halfling hole<br/>#1154"]
-  R1155["A halfling hole<br/>#1155"]
-  R1156["End of a dark tunnel<br/>#1156"]
-  R1157["The Inn of the Green Dragon<br/>#1157"]
   R1100 -->|N| R1101
   R1100 -->|S| X6000
   R1101 -->|N| R1102
@@ -104,36 +74,63 @@ graph LR
   R1118 -->|S| R1119
   R1118 -->|W| R1120
   R1119 -->|N| R1118
-  R1120 -->|N| R1131
+  R1120 -->|N| X1131
   R1120 -->|E| R1118
   R1120 -->|S| R1121
   R1120 -->|W| R1122
   R1121 -->|N| R1120
   R1122 -->|E| R1120
   R1122 -->|S| R1123
-  R1122 -->|W| R1126
+  R1122 -->|W| X1126
   R1123 -->|N| R1122
-  R1123 -->|S| R1124
-  R1124 -->|N| R1123
+  R1123 -->|S| X1124
+  X6000["The edge of the forest<br/>haon #6000"]:::ext
+  X1131["▸ Part B: Brandywine Bridge<br/>#1131"]:::part
+  X1126["▸ Part C: Took Hill<br/>#1126"]:::part
+  X1124["▸ Part B: The Watermill<br/>#1124"]:::part
+  classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
+```
+
+## Map — Part B (24 rooms: #1124–#1156)
+
+```mermaid
+graph LR
+  R1124["The Watermill<br/>#1124"]
+  R1125["Rear of watermill<br/>#1125"]
+  R1131["Brandywine Bridge<br/>#1131"]
+  R1132["Delving Lane<br/>#1132"]
+  R1133["Delving Lane<br/>#1133"]
+  R1134["Delving Lane<br/>#1134"]
+  R1135["Bag End<br/>#1135"]
+  R1136["Bedroom<br/>#1136"]
+  R1137["Pantry<br/>#1137"]
+  R1138["A grassy field<br/>#1138"]
+  R1139["Pig pen<br/>#1139"]
+  R1140["A stony path<br/>#1140"]
+  R1141["Gamgee Residence<br/>#1141"]
+  R1146["A dark tunnel<br/>#1146"]
+  R1147["A dark tunnel<br/>#1147"]
+  R1148["A dark tunnel<br/>#1148"]
+  R1149["A three way intersection<br/>#1149"]
+  R1150["End of a dark tunnel<br/>#1150"]
+  R1151["A dark tunnel<br/>#1151"]
+  R1152["A dark tunnel<br/>#1152"]
+  R1153["Shiriff Post of the Lower Shire<br/>#1153"]
+  R1154["A halfling hole<br/>#1154"]
+  R1155["A halfling hole<br/>#1155"]
+  R1156["End of a dark tunnel<br/>#1156"]
+  R1124 -->|N| X1123
   R1124 -->|S| R1125
   R1125 -->|N| R1124
   R1125 -->|D| R1146
-  R1126 -->|E| R1122
-  R1126 -->|W| R1128
-  R1127 -->|S| R1128
-  R1128 -->|N| R1127
-  R1128 -->|E| R1126
-  R1128 -->|S| R1129
-  R1128 -->|W| R1130
-  R1129 -->|N| R1128
-  R1130 -->|E| R1128
   R1131 -->|N| R1132
-  R1131 -->|S| R1120
+  R1131 -->|S| X1120
   R1132 -->|N| R1133
-  R1132 -->|E| R1144
+  R1132 -->|E| X1144
   R1132 -->|S| R1131
   R1133 -->|N| R1134
-  R1133 -->|E| R1145
+  R1133 -->|E| X1145
   R1133 -->|S| R1132
   R1133 -->|W| R1138
   R1134 -->|N| R1135
@@ -144,7 +141,7 @@ graph LR
   R1136 -->|E| R1135
   R1137 -->|W| R1135
   R1137 -->|D| R1156
-  R1138 -->|N| R1142
+  R1138 -->|N| X1142
   R1138 -->|E| R1133
   R1138 -->|S| R1139
   R1139 -->|N| R1138
@@ -152,12 +149,6 @@ graph LR
   R1140 -->|N| R1141
   R1140 -->|E| R1139
   R1141 -->|S| R1140
-  R1142 -->|N| R1143
-  R1142 -->|S| R1138
-  R1143 -->|S| R1142
-  R1144 -->|W| R1132
-  R1144 -->|U| R1157
-  R1145 -->|W| R1133
   R1146 -->|E| R1147
   R1146 -->|U| R1125
   R1147 -->|E| R1148
@@ -181,10 +172,52 @@ graph LR
   R1155 -->|E| R1152
   R1156 -->|S| R1152
   R1156 -->|U| R1137
-  R1157 -->|D| R1144
-  X6000["The edge of the forest<br/>haon #6000"]:::ext
+  X1123["▸ Part A: Entrance to Watermill<br/>#1123"]:::part
+  X1120["▸ Part A: Bywater Road<br/>#1120"]:::part
+  X1144["▸ Part C: The Green Dragon<br/>#1144"]:::part
+  X1145["▸ Part C: Shiriff Post of Delving Lane<br/>#1145"]:::part
+  X1142["▸ Part C: A barn<br/>#1142"]:::part
   X3001["The Temple Of Midgaard<br/>midgaard #3001"]:::ext
   classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
+```
+
+## Map — Part C (10 rooms: #1126–#1157)
+
+```mermaid
+graph LR
+  R1126["Took Hill<br/>#1126"]
+  R1127["Northern end of grassy field<br/>#1127"]
+  R1128["A grassy field<br/>#1128"]
+  R1129["Southern end of grassy field<br/>#1129"]
+  R1130["Western end of grassy field<br/>#1130"]
+  R1142["A barn<br/>#1142"]
+  R1143["A chicken coop<br/>#1143"]
+  R1144["The Green Dragon<br/>#1144"]
+  R1145["Shiriff Post of Delving Lane<br/>#1145"]
+  R1157["The Inn of the Green Dragon<br/>#1157"]
+  R1126 -->|E| X1122
+  R1126 -->|W| R1128
+  R1127 -->|S| R1128
+  R1128 -->|N| R1127
+  R1128 -->|E| R1126
+  R1128 -->|S| R1129
+  R1128 -->|W| R1130
+  R1129 -->|N| R1128
+  R1130 -->|E| R1128
+  R1142 -->|N| R1143
+  R1142 -->|S| X1138
+  R1143 -->|S| R1142
+  R1144 -->|W| X1132
+  R1144 -->|U| R1157
+  R1145 -->|W| X1133
+  R1157 -->|D| R1144
+  X1122["▸ Part A: Bywater Road<br/>#1122"]:::part
+  X1138["▸ Part B: A grassy field<br/>#1138"]:::part
+  X1132["▸ Part B: Delving Lane<br/>#1132"]:::part
+  X1133["▸ Part B: Delving Lane<br/>#1133"]:::part
+  classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
 ```
 
 ## Rooms

@@ -2,7 +2,11 @@
 
 [← back to world map](WORLD-MAP.md) · 43 rooms · vnums 3801–3899
 
-Dashed nodes are exits that leave this area.
+Grey dashed nodes leave the area; green dashed nodes (`▸ Part X`) continue on another sub-map below.
+
+_This area is split into 3 sub-maps for legibility._
+
+## Map — Part A (24 rooms: #3801–#3824)
 
 ```mermaid
 graph LR
@@ -30,25 +34,6 @@ graph LR
   R3822["A Bedroom<br/>#3822"]
   R3823["A Stairway<br/>#3823"]
   R3824["A Meeting Room<br/>#3824"]
-  R3825["At the Bottom of the Stairs<br/>#3825"]
-  R3826["The Firedrake's Lair<br/>#3826"]
-  R3827["The Treasure Room<br/>#3827"]
-  R3828["The Leader's Quarters<br/>#3828"]
-  R3829["A Rough Tunnel<br/>#3829"]
-  R3830["A T-Intersection in the Tunnels<br/>#3830"]
-  R3831["A Large Cage<br/>#3831"]
-  R3832["A Bend in the Tunnels<br/>#3832"]
-  R3833["A T-Intersection in the Tunnels<br/>#3833"]
-  R3834["An End of the Tunnel<br/>#3834"]
-  R3835["An End of the Tunnel<br/>#3835"]
-  R3836["The Tunnel<br/>#3836"]
-  R3837["An End of the Tunnel<br/>#3837"]
-  R3838["A Small Shrine<br/>#3838"]
-  R3839["On the Other Side of the Dimensional Portal<br/>#3839"]
-  R3840["The Living Room of Icaza and Hatchet<br/>#3840"]
-  R3841["Hatchet's Study<br/>#3841"]
-  R3842["Icaza's Study<br/>#3842"]
-  R3899["Icaza's and Hatchet's Bedroom<br/>#3899"]
   R3801 -->|S| R3802
   R3801 -->|U| X3026
   R3802 -->|N| R3801
@@ -95,10 +80,38 @@ graph LR
   R3822 -->|W| R3814
   R3823 -->|S| R3814
   R3823 -->|U| R3824
-  R3823 -->|D| R3825
+  R3823 -->|D| X3825
   R3824 -->|D| R3823
+  X3026["The Dark Alley<br/>midgaard #3026"]:::ext
+  X3825["▸ Part B: At the Bottom of the Stairs<br/>#3825"]:::part
+  classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
+```
+
+## Map — Part B (18 rooms: #3825–#3842)
+
+```mermaid
+graph LR
+  R3825["At the Bottom of the Stairs<br/>#3825"]
+  R3826["The Firedrake's Lair<br/>#3826"]
+  R3827["The Treasure Room<br/>#3827"]
+  R3828["The Leader's Quarters<br/>#3828"]
+  R3829["A Rough Tunnel<br/>#3829"]
+  R3830["A T-Intersection in the Tunnels<br/>#3830"]
+  R3831["A Large Cage<br/>#3831"]
+  R3832["A Bend in the Tunnels<br/>#3832"]
+  R3833["A T-Intersection in the Tunnels<br/>#3833"]
+  R3834["An End of the Tunnel<br/>#3834"]
+  R3835["An End of the Tunnel<br/>#3835"]
+  R3836["The Tunnel<br/>#3836"]
+  R3837["An End of the Tunnel<br/>#3837"]
+  R3838["A Small Shrine<br/>#3838"]
+  R3839["On the Other Side of the Dimensional Portal<br/>#3839"]
+  R3840["The Living Room of Icaza and Hatchet<br/>#3840"]
+  R3841["Hatchet's Study<br/>#3841"]
+  R3842["Icaza's Study<br/>#3842"]
   R3825 -->|S| R3826
-  R3825 -->|U| R3823
+  R3825 -->|U| X3823
   R3826 -->|N| R3825
   R3826 -->|E| R3827
   R3826 -->|S| R3829
@@ -132,8 +145,18 @@ graph LR
   R3840 -->|S| R3842
   R3841 -->|S| R3840
   R3842 -->|N| R3840
-  X3026["The Dark Alley<br/>midgaard #3026"]:::ext
+  X3823["▸ Part A: A Stairway<br/>#3823"]:::part
   classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
+```
+
+## Map — Part C (1 rooms: #3899–#3899)
+
+```mermaid
+graph LR
+  R3899["Icaza's and Hatchet's Bedroom<br/>#3899"]
+  classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
 ```
 
 ## Rooms

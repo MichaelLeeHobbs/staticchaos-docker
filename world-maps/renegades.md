@@ -2,7 +2,9 @@
 
 [← back to world map](WORLD-MAP.md) · 11 rooms · vnums 9950–9960
 
-Dashed nodes are exits that leave this area.
+Grey dashed nodes leave the area; green dashed nodes (`▸ Part X`) continue on another sub-map below.
+
+## Map
 
 ```mermaid
 graph LR
@@ -40,6 +42,7 @@ graph LR
   R9960 -->|W| R9956
   X851["The Nexus of Clans<br/>apoc #851"]:::ext
   classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
 ```
 
 ## Rooms

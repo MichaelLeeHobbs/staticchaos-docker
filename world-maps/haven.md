@@ -2,7 +2,11 @@
 
 [← back to world map](WORLD-MAP.md) · 33 rooms · vnums 1801–1833
 
-Dashed nodes are exits that leave this area.
+Grey dashed nodes leave the area; green dashed nodes (`▸ Part X`) continue on another sub-map below.
+
+_This area is split into 2 sub-maps for legibility._
+
+## Map — Part A (24 rooms: #1801–#1833)
 
 ```mermaid
 graph LR
@@ -24,18 +28,9 @@ graph LR
   R1816["The Chanting Room<br/>#1816"]
   R1817["The Furnace<br/>#1817"]
   R1818["The Arboretum<br/>#1818"]
-  R1819["The Snow Queen's Chamber<br/>#1819"]
   R1820["The Master Herbal's Room<br/>#1820"]
   R1821["The Guard's Dining Hall<br/>#1821"]
   R1822["The Vat Room<br/>#1822"]
-  R1823["The Frost Giant Guard Quarters<br/>#1823"]
-  R1824["The White Dragon's Lair<br/>#1824"]
-  R1825["The Blue Dragon's Lair<br/>#1825"]
-  R1826["The connecting tunnel<br/>#1826"]
-  R1827["The Great Door<br/>#1827"]
-  R1828["The Snow Queen's Entry Hall<br/>#1828"]
-  R1829["Another Mirrored Room<br/>#1829"]
-  R1830["Another Mirrored Room<br/>#1830"]
   R1831["The Snow-filled Land<br/>#1831"]
   R1832["The Snow-filled Land<br/>#1832"]
   R1833["The Snow-filled Land<br/>#1833"]
@@ -70,38 +65,17 @@ graph LR
   R1815 -->|S| R1818
   R1816 -->|N| R1818
   R1816 -->|E| R1813
-  R1817 -->|N| R1827
+  R1817 -->|N| X1827
   R1817 -->|S| R1814
   R1818 -->|N| R1815
   R1818 -->|E| R1820
   R1818 -->|S| R1816
   R1820 -->|W| R1818
   R1820 -->|D| R1815
-  R1821 -->|N| R1823
+  R1821 -->|N| X1823
   R1821 -->|E| R1822
   R1821 -->|S| R1812
   R1822 -->|W| R1821
-  R1823 -->|N| R1826
-  R1823 -->|S| R1821
-  R1824 -->|N| R1825
-  R1824 -->|S| R1826
-  R1825 -->|D| R1822
-  R1826 -->|N| R1824
-  R1826 -->|S| R1823
-  R1827 -->|N| R1828
-  R1827 -->|S| R1817
-  R1828 -->|N| R1829
-  R1828 -->|E| R1829
-  R1828 -->|S| R1827
-  R1828 -->|W| R1829
-  R1829 -->|N| R1830
-  R1829 -->|E| R1828
-  R1829 -->|S| R1828
-  R1829 -->|W| R1828
-  R1830 -->|N| R1819
-  R1830 -->|E| R1830
-  R1830 -->|S| R1829
-  R1830 -->|W| R1830
   R1831 -->|N| R1832
   R1831 -->|E| R1806
   R1831 -->|S| R1833
@@ -115,7 +89,51 @@ graph LR
   R1833 -->|S| R1807
   R1833 -->|W| R1832
   X3200["Under the Bridge<br/>midgaard #3200"]:::ext
+  X1827["▸ Part B: The Great Door<br/>#1827"]:::part
+  X1823["▸ Part B: The Frost Giant Guard Quarters<br/>#1823"]:::part
   classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
+```
+
+## Map — Part B (9 rooms: #1819–#1830)
+
+```mermaid
+graph LR
+  R1819["The Snow Queen's Chamber<br/>#1819"]
+  R1823["The Frost Giant Guard Quarters<br/>#1823"]
+  R1824["The White Dragon's Lair<br/>#1824"]
+  R1825["The Blue Dragon's Lair<br/>#1825"]
+  R1826["The connecting tunnel<br/>#1826"]
+  R1827["The Great Door<br/>#1827"]
+  R1828["The Snow Queen's Entry Hall<br/>#1828"]
+  R1829["Another Mirrored Room<br/>#1829"]
+  R1830["Another Mirrored Room<br/>#1830"]
+  R1823 -->|N| R1826
+  R1823 -->|S| X1821
+  R1824 -->|N| R1825
+  R1824 -->|S| R1826
+  R1825 -->|D| X1822
+  R1826 -->|N| R1824
+  R1826 -->|S| R1823
+  R1827 -->|N| R1828
+  R1827 -->|S| X1817
+  R1828 -->|N| R1829
+  R1828 -->|E| R1829
+  R1828 -->|S| R1827
+  R1828 -->|W| R1829
+  R1829 -->|N| R1830
+  R1829 -->|E| R1828
+  R1829 -->|S| R1828
+  R1829 -->|W| R1828
+  R1830 -->|N| R1819
+  R1830 -->|E| R1830
+  R1830 -->|S| R1829
+  R1830 -->|W| R1830
+  X1821["▸ Part A: The Guard's Dining Hall<br/>#1821"]:::part
+  X1822["▸ Part A: The Vat Room<br/>#1822"]:::part
+  X1817["▸ Part A: The Furnace<br/>#1817"]:::part
+  classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
 ```
 
 ## Rooms

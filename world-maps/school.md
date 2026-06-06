@@ -2,7 +2,11 @@
 
 [← back to world map](WORLD-MAP.md) · 59 rooms · vnums 3700–3760
 
-Dashed nodes are exits that leave this area.
+Grey dashed nodes leave the area; green dashed nodes (`▸ Part X`) continue on another sub-map below.
+
+_This area is split into 4 sub-maps for legibility._
+
+## Map — Part A (24 rooms: #3700–#3744)
 
 ```mermaid
 graph LR
@@ -23,52 +27,17 @@ graph LR
   R3715["A Cage<br/>#3715"]
   R3716["A Cage<br/>#3716"]
   R3717["A Room in Mud School<br/>#3717"]
-  R3718["The Store in Mud School<br/>#3718"]
   R3719["A Room in Mud School<br/>#3719"]
-  R3720["The Darkened Room<br/>#3720"]
   R3721["The End of Mud School!<br/>#3721"]
   R3722["South Wall of Arena<br/>#3722"]
-  R3723["South Wall of Arena<br/>#3723"]
-  R3724["South West Corner of Arena<br/>#3724"]
-  R3725["South Wall of Arena<br/>#3725"]
-  R3726["South East Corner of Arena<br/>#3726"]
-  R3727["West Wall of Arena<br/>#3727"]
-  R3728["Arena<br/>#3728"]
   R3729["Arena<br/>#3729"]
-  R3730["Arena<br/>#3730"]
-  R3731["East Wall of Arena<br/>#3731"]
-  R3732["West Wall of Arena<br/>#3732"]
-  R3733["Arena<br/>#3733"]
   R3734["Center of Arena<br/>#3734"]
-  R3735["Arena<br/>#3735"]
-  R3736["East Wall of Arena<br/>#3736"]
-  R3737["West Wall of Arena<br/>#3737"]
-  R3738["Arena<br/>#3738"]
   R3739["Arena<br/>#3739"]
-  R3740["Arena<br/>#3740"]
-  R3741["East Wall of Arena<br/>#3741"]
-  R3742["North West Corner of Arena<br/>#3742"]
-  R3743["North Wall of Arena<br/>#3743"]
   R3744["North Wall of Arena<br/>#3744"]
-  R3745["North Wall of Arena<br/>#3745"]
-  R3746["North East Corner of Arena<br/>#3746"]
-  R3748["The Center of the Dungeon<br/>#3748"]
-  R3749["The North West Corner of the Dungeon<br/>#3749"]
-  R3750["The North Wall of the Dungeon<br/>#3750"]
-  R3751["The North East Corner of the Dungeon<br/>#3751"]
-  R3752["The West Wall of the Dungeon<br/>#3752"]
-  R3753["The East Wall of the Dungeon<br/>#3753"]
-  R3754["The South West Corner of the Dungeon<br/>#3754"]
-  R3755["The South Wall of the Dungeon<br/>#3755"]
-  R3756["The South East Corner of the Dungeon<br/>#3756"]
-  R3757["A Room in Mud School<br/>#3757"]
-  R3758["Furey's Training Room<br/>#3758"]
-  R3759["Hatchet's Guild Room<br/>#3759"]
-  R3760["A Safe Room<br/>#3760"]
-  R3700 -->|N| R3757
+  R3700 -->|N| X3757
   R3700 -->|S| R3744
   R3700 -->|D| X3001
-  R3701 -->|S| R3757
+  R3701 -->|S| X3757
   R3701 -->|W| R3702
   R3702 -->|N| R3703
   R3702 -->|E| R3701
@@ -97,20 +66,108 @@ graph LR
   R3715 -->|N| R3712
   R3716 -->|W| R3712
   R3717 -->|E| R3719
-  R3717 -->|S| R3718
+  R3717 -->|S| X3718
   R3717 -->|U| R3712
-  R3718 -->|N| R3717
-  R3719 -->|N| R3720
+  R3719 -->|N| X3720
   R3719 -->|E| R3721
   R3719 -->|W| R3717
-  R3720 -->|S| R3719
   R3721 -->|N| R3722
   R3722 -->|N| R3729
-  R3722 -->|E| R3725
-  R3722 -->|W| R3723
-  R3722 -->|U| R3760
+  R3722 -->|E| X3725
+  R3722 -->|W| X3723
+  R3722 -->|U| X3760
+  R3729 -->|N| R3734
+  R3729 -->|E| X3730
+  R3729 -->|S| R3722
+  R3729 -->|W| X3728
+  R3729 -->|U| X3760
+  R3734 -->|N| R3739
+  R3734 -->|E| X3735
+  R3734 -->|S| R3729
+  R3734 -->|W| X3733
+  R3734 -->|U| X3760
+  R3734 -->|D| X3748
+  R3739 -->|N| R3744
+  R3739 -->|E| X3740
+  R3739 -->|S| R3734
+  R3739 -->|W| X3738
+  R3739 -->|U| X3760
+  R3744 -->|E| X3745
+  R3744 -->|S| R3739
+  R3744 -->|W| X3743
+  R3744 -->|U| X3760
+  X3757["▸ Part B: A Room in Mud School<br/>#3757"]:::part
+  X3001["The Temple Of Midgaard<br/>midgaard #3001"]:::ext
+  X3718["▸ Part B: The Store in Mud School<br/>#3718"]:::part
+  X3720["▸ Part B: The Darkened Room<br/>#3720"]:::part
+  X3725["▸ Part C: South Wall of Arena<br/>#3725"]:::part
+  X3723["▸ Part C: South Wall of Arena<br/>#3723"]:::part
+  X3760["▸ Part C: A Safe Room<br/>#3760"]:::part
+  X3730["▸ Part C: Arena<br/>#3730"]:::part
+  X3728["▸ Part C: Arena<br/>#3728"]:::part
+  X3735["▸ Part C: Arena<br/>#3735"]:::part
+  X3733["▸ Part C: Arena<br/>#3733"]:::part
+  X3748["▸ Part D: The Center of the Dungeon<br/>#3748"]:::part
+  X3740["▸ Part C: Arena<br/>#3740"]:::part
+  X3738["▸ Part C: Arena<br/>#3738"]:::part
+  X3745["▸ Part C: North Wall of Arena<br/>#3745"]:::part
+  X3743["▸ Part C: North Wall of Arena<br/>#3743"]:::part
+  classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
+```
+
+## Map — Part B (5 rooms: #3718–#3759)
+
+```mermaid
+graph LR
+  R3718["The Store in Mud School<br/>#3718"]
+  R3720["The Darkened Room<br/>#3720"]
+  R3757["A Room in Mud School<br/>#3757"]
+  R3758["Furey's Training Room<br/>#3758"]
+  R3759["Hatchet's Guild Room<br/>#3759"]
+  R3718 -->|N| X3717
+  R3720 -->|S| X3719
+  R3757 -->|N| X3701
+  R3757 -->|E| R3759
+  R3757 -->|S| X3700
+  R3757 -->|W| R3758
+  R3758 -->|E| R3757
+  R3759 -->|W| R3757
+  X3717["▸ Part A: A Room in Mud School<br/>#3717"]:::part
+  X3719["▸ Part A: A Room in Mud School<br/>#3719"]:::part
+  X3701["▸ Part A: A Room in Mud School<br/>#3701"]:::part
+  X3700["▸ Part A: Entrance to Mud School<br/>#3700"]:::part
+  classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
+```
+
+## Map — Part C (21 rooms: #3723–#3760)
+
+```mermaid
+graph LR
+  R3723["South Wall of Arena<br/>#3723"]
+  R3724["South West Corner of Arena<br/>#3724"]
+  R3725["South Wall of Arena<br/>#3725"]
+  R3726["South East Corner of Arena<br/>#3726"]
+  R3727["West Wall of Arena<br/>#3727"]
+  R3728["Arena<br/>#3728"]
+  R3730["Arena<br/>#3730"]
+  R3731["East Wall of Arena<br/>#3731"]
+  R3732["West Wall of Arena<br/>#3732"]
+  R3733["Arena<br/>#3733"]
+  R3735["Arena<br/>#3735"]
+  R3736["East Wall of Arena<br/>#3736"]
+  R3737["West Wall of Arena<br/>#3737"]
+  R3738["Arena<br/>#3738"]
+  R3740["Arena<br/>#3740"]
+  R3741["East Wall of Arena<br/>#3741"]
+  R3742["North West Corner of Arena<br/>#3742"]
+  R3743["North Wall of Arena<br/>#3743"]
+  R3745["North Wall of Arena<br/>#3745"]
+  R3746["North East Corner of Arena<br/>#3746"]
+  R3760["A Safe Room<br/>#3760"]
   R3723 -->|N| R3728
-  R3723 -->|E| R3722
+  R3723 -->|E| X3722
   R3723 -->|W| R3724
   R3723 -->|U| R3760
   R3724 -->|N| R3727
@@ -118,7 +175,7 @@ graph LR
   R3724 -->|U| R3760
   R3725 -->|N| R3730
   R3725 -->|E| R3726
-  R3725 -->|W| R3722
+  R3725 -->|W| X3722
   R3725 -->|U| R3760
   R3726 -->|N| R3731
   R3726 -->|W| R3725
@@ -128,19 +185,14 @@ graph LR
   R3727 -->|S| R3724
   R3727 -->|U| R3760
   R3728 -->|N| R3733
-  R3728 -->|E| R3729
+  R3728 -->|E| X3729
   R3728 -->|S| R3723
   R3728 -->|W| R3727
   R3728 -->|U| R3760
-  R3729 -->|N| R3734
-  R3729 -->|E| R3730
-  R3729 -->|S| R3722
-  R3729 -->|W| R3728
-  R3729 -->|U| R3760
   R3730 -->|N| R3735
   R3730 -->|E| R3731
   R3730 -->|S| R3725
-  R3730 -->|W| R3729
+  R3730 -->|W| X3729
   R3730 -->|U| R3760
   R3731 -->|N| R3736
   R3731 -->|S| R3726
@@ -151,20 +203,14 @@ graph LR
   R3732 -->|S| R3727
   R3732 -->|U| R3760
   R3733 -->|N| R3738
-  R3733 -->|E| R3734
+  R3733 -->|E| X3734
   R3733 -->|S| R3728
   R3733 -->|W| R3732
   R3733 -->|U| R3760
-  R3734 -->|N| R3739
-  R3734 -->|E| R3735
-  R3734 -->|S| R3729
-  R3734 -->|W| R3733
-  R3734 -->|U| R3760
-  R3734 -->|D| R3748
   R3735 -->|N| R3740
   R3735 -->|E| R3736
   R3735 -->|S| R3730
-  R3735 -->|W| R3734
+  R3735 -->|W| X3734
   R3735 -->|U| R3760
   R3736 -->|N| R3741
   R3736 -->|S| R3731
@@ -175,19 +221,14 @@ graph LR
   R3737 -->|S| R3732
   R3737 -->|U| R3760
   R3738 -->|N| R3743
-  R3738 -->|E| R3739
+  R3738 -->|E| X3739
   R3738 -->|S| R3733
   R3738 -->|W| R3737
   R3738 -->|U| R3760
-  R3739 -->|N| R3744
-  R3739 -->|E| R3740
-  R3739 -->|S| R3734
-  R3739 -->|W| R3738
-  R3739 -->|U| R3760
   R3740 -->|N| R3745
   R3740 -->|E| R3741
   R3740 -->|S| R3735
-  R3740 -->|W| R3739
+  R3740 -->|W| X3739
   R3740 -->|U| R3760
   R3741 -->|N| R3746
   R3741 -->|S| R3736
@@ -196,26 +237,46 @@ graph LR
   R3742 -->|E| R3743
   R3742 -->|S| R3737
   R3742 -->|U| R3760
-  R3743 -->|E| R3744
+  R3743 -->|E| X3744
   R3743 -->|S| R3738
   R3743 -->|W| R3742
   R3743 -->|U| R3760
-  R3744 -->|E| R3745
-  R3744 -->|S| R3739
-  R3744 -->|W| R3743
-  R3744 -->|U| R3760
   R3745 -->|E| R3746
   R3745 -->|S| R3740
-  R3745 -->|W| R3744
+  R3745 -->|W| X3744
   R3745 -->|U| R3760
   R3746 -->|S| R3741
   R3746 -->|W| R3745
   R3746 -->|U| R3760
+  R3760 -->|U| X3001
+  X3722["▸ Part A: South Wall of Arena<br/>#3722"]:::part
+  X3729["▸ Part A: Arena<br/>#3729"]:::part
+  X3734["▸ Part A: Center of Arena<br/>#3734"]:::part
+  X3739["▸ Part A: Arena<br/>#3739"]:::part
+  X3744["▸ Part A: North Wall of Arena<br/>#3744"]:::part
+  X3001["The Temple Of Midgaard<br/>midgaard #3001"]:::ext
+  classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
+```
+
+## Map — Part D (9 rooms: #3748–#3756)
+
+```mermaid
+graph LR
+  R3748["The Center of the Dungeon<br/>#3748"]
+  R3749["The North West Corner of the Dungeon<br/>#3749"]
+  R3750["The North Wall of the Dungeon<br/>#3750"]
+  R3751["The North East Corner of the Dungeon<br/>#3751"]
+  R3752["The West Wall of the Dungeon<br/>#3752"]
+  R3753["The East Wall of the Dungeon<br/>#3753"]
+  R3754["The South West Corner of the Dungeon<br/>#3754"]
+  R3755["The South Wall of the Dungeon<br/>#3755"]
+  R3756["The South East Corner of the Dungeon<br/>#3756"]
   R3748 -->|N| R3750
   R3748 -->|E| R3753
   R3748 -->|S| R3755
   R3748 -->|W| R3752
-  R3748 -->|U| R3734
+  R3748 -->|U| X3734
   R3749 -->|E| R3750
   R3749 -->|S| R3752
   R3750 -->|E| R3751
@@ -236,15 +297,9 @@ graph LR
   R3755 -->|W| R3754
   R3756 -->|N| R3753
   R3756 -->|W| R3755
-  R3757 -->|N| R3701
-  R3757 -->|E| R3759
-  R3757 -->|S| R3700
-  R3757 -->|W| R3758
-  R3758 -->|E| R3757
-  R3759 -->|W| R3757
-  R3760 -->|U| X3001
-  X3001["The Temple Of Midgaard<br/>midgaard #3001"]:::ext
+  X3734["▸ Part A: Center of Arena<br/>#3734"]:::part
   classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
 ```
 
 ## Rooms

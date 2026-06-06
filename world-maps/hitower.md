@@ -2,11 +2,83 @@
 
 [← back to world map](WORLD-MAP.md) · 184 rooms · vnums 1200–1499
 
-Dashed nodes are exits that leave this area.
+Grey dashed nodes leave the area; green dashed nodes (`▸ Part X`) continue on another sub-map below.
+
+_This area is split into 9 sub-maps for legibility._
+
+## Map — Part A (20 rooms: #1200–#1499)
 
 ```mermaid
 graph LR
   R1200["The Chat Room<br/>#1200"]
+  R1325["The stagnant pool<br/>#1325"]
+  R1326["A dark passage<br/>#1326"]
+  R1327["A dark cell<br/>#1327"]
+  R1328["The Jailor's office<br/>#1328"]
+  R1329["Below the stagnant pool<br/>#1329"]
+  R1354["An empty classroom<br/>#1354"]
+  R1386["A laboratory<br/>#1386"]
+  R1388["The Mad Alchemist's workroom<br/>#1388"]
+  R1390["The pentagram chamber<br/>#1390"]
+  R1392["Inside the Energy Field<br/>#1392"]
+  R1394["An empty room<br/>#1394"]
+  R1395["The charm master's chamber<br/>#1395"]
+  R1397["The animal pens<br/>#1397"]
+  R1404["A hallway<br/>#1404"]
+  R1410["A store room<br/>#1410"]
+  R1411["The golem chamber<br/>#1411"]
+  R1471["A study<br/>#1471"]
+  R1472["A closet<br/>#1472"]
+  R1499["Skylar's Hideout<br/>#1499"]
+  R1325 -->|N| X1322
+  R1325 -->|D| R1329
+  R1326 -->|E| X1322
+  R1327 -->|S| X1323
+  R1328 -->|W| X1324
+  R1354 -->|E| X1351
+  R1386 -->|N| X1384
+  R1386 -->|E| R1388
+  R1388 -->|W| R1386
+  R1390 -->|N| X1387
+  R1390 -->|S| R1392
+  R1392 -->|E| X5113
+  R1392 -->|W| X7428
+  R1392 -->|U| X938
+  R1394 -->|W| X1391
+  R1395 -->|N| R1397
+  R1395 -->|W| X1393
+  R1397 -->|S| R1395
+  R1404 -->|E| X1400
+  R1404 -->|W| X1405
+  R1410 -->|S| X1409
+  R1411 -->|N| X1409
+  R1471 -->|N| X1469
+  R1472 -->|E| X1469
+  R1499 -->|D| X0
+  X1322["▸ Part B: A damp intersection<br/>#1322"]:::part
+  X1323["▸ Part B: A dark passage<br/>#1323"]:::part
+  X1324["▸ Part B: A dark passage<br/>#1324"]:::part
+  X1351["▸ Part C: A hallway<br/>#1351"]:::part
+  X1384["▸ Part E: A hallway<br/>#1384"]:::part
+  X1387["▸ Part E: A hallway<br/>#1387"]:::part
+  X5113["Main Chamber<br/>drow #5113"]:::ext
+  X7428["Dragons lair<br/>sewer #7428"]:::ext
+  X938["The Planning Room<br/>olympus #938"]:::ext
+  X1391["▸ Part E: A hallway<br/>#1391"]:::part
+  X1393["▸ Part E: A hallway<br/>#1393"]:::part
+  X1400["▸ Part E: A hallway<br/>#1400"]:::part
+  X1405["▸ Part E: A hallway<br/>#1405"]:::part
+  X1409["▸ Part E: The golem master's workshop<br/>#1409"]:::part
+  X1469["▸ Part H: The chamber of the white light<br/>#1469"]:::part
+  X0["?? broken<br/>#0"]:::ext
+  classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
+```
+
+## Map — Part B (24 rooms: #1300–#1324)
+
+```mermaid
+graph LR
   R1300["Entrance to the Shadow Grove<br/>#1300"]
   R1301["The Shadow Grove<br/>#1301"]
   R1302["The Shadow Grove<br/>#1302"]
@@ -31,165 +103,6 @@ graph LR
   R1322["A damp intersection<br/>#1322"]
   R1323["A dark passage<br/>#1323"]
   R1324["A dark passage<br/>#1324"]
-  R1325["The stagnant pool<br/>#1325"]
-  R1326["A dark passage<br/>#1326"]
-  R1327["A dark cell<br/>#1327"]
-  R1328["The Jailor's office<br/>#1328"]
-  R1329["Below the stagnant pool<br/>#1329"]
-  R1330["The hallway<br/>#1330"]
-  R1331["A bend in the hallway<br/>#1331"]
-  R1332["A store room<br/>#1332"]
-  R1333["A broom closet<br/>#1333"]
-  R1334["A hallway<br/>#1334"]
-  R1335["Guardians chamber<br/>#1335"]
-  R1336["A guest bedroom<br/>#1336"]
-  R1337["A guest bedroom<br/>#1337"]
-  R1338["A hallway<br/>#1338"]
-  R1339["The burnt room<br/>#1339"]
-  R1340["A hallway<br/>#1340"]
-  R1341["A culdesac<br/>#1341"]
-  R1342["The Apprentice's Barracks<br/>#1342"]
-  R1343["A hallway<br/>#1343"]
-  R1344["The Apprentice's barracks<br/>#1344"]
-  R1345["A hallway<br/>#1345"]
-  R1346["The apprentice's workshop<br/>#1346"]
-  R1347["A bend in the hallway<br/>#1347"]
-  R1348["The hallway<br/>#1348"]
-  R1349["A classroom<br/>#1349"]
-  R1350["A hallway<br/>#1350"]
-  R1351["A hallway<br/>#1351"]
-  R1352["An empty classroom<br/>#1352"]
-  R1353["A bend in the hallway<br/>#1353"]
-  R1354["An empty classroom<br/>#1354"]
-  R1355["A hallway<br/>#1355"]
-  R1356["A hallway<br/>#1356"]
-  R1357["The Amphitheater<br/>#1357"]
-  R1358["A hallway<br/>#1358"]
-  R1359["The training room<br/>#1359"]
-  R1360["A bend in the hallway<br/>#1360"]
-  R1361["A dueling room<br/>#1361"]
-  R1362["A hallway<br/>#1362"]
-  R1363["A hallway<br/>#1363"]
-  R1364["The spellmaster's lounge<br/>#1364"]
-  R1365["A bedroom<br/>#1365"]
-  R1366["A hallway<br/>#1366"]
-  R1367["The study<br/>#1367"]
-  R1368["Below the stairs<br/>#1368"]
-  R1369["Atop the stairway<br/>#1369"]
-  R1370["A hallway<br/>#1370"]
-  R1371["A small office<br/>#1371"]
-  R1372["A hallway<br/>#1372"]
-  R1373["The master scribe's workshop<br/>#1373"]
-  R1374["A hallway<br/>#1374"]
-  R1375["A store room<br/>#1375"]
-  R1376["A bend in the hallway<br/>#1376"]
-  R1377["A hallway<br/>#1377"]
-  R1378["A hallway<br/>#1378"]
-  R1379["A store room<br/>#1379"]
-  R1380["A hallway<br/>#1380"]
-  R1381["A very hot room<br/>#1381"]
-  R1382["The master Enchanter's chamber<br/>#1382"]
-  R1383["A bend in the hallway<br/>#1383"]
-  R1384["A hallway<br/>#1384"]
-  R1385["A hallway<br/>#1385"]
-  R1386["A laboratory<br/>#1386"]
-  R1387["A hallway<br/>#1387"]
-  R1388["The Mad Alchemist's workroom<br/>#1388"]
-  R1389["A bend in the hallway<br/>#1389"]
-  R1390["The pentagram chamber<br/>#1390"]
-  R1391["A hallway<br/>#1391"]
-  R1392["Inside the Energy Field<br/>#1392"]
-  R1393["A hallway<br/>#1393"]
-  R1394["An empty room<br/>#1394"]
-  R1395["The charm master's chamber<br/>#1395"]
-  R1396["A hallway<br/>#1396"]
-  R1397["The animal pens<br/>#1397"]
-  R1398["The end of the hallway<br/>#1398"]
-  R1399["Atop the stairway<br/>#1399"]
-  R1400["A hallway<br/>#1400"]
-  R1401["A store room<br/>#1401"]
-  R1402["The master spellbinder's chamber<br/>#1402"]
-  R1403["The spellbinder's cache<br/>#1403"]
-  R1404["A hallway<br/>#1404"]
-  R1405["A hallway<br/>#1405"]
-  R1406["A bend in the hallway<br/>#1406"]
-  R1407["A hallway<br/>#1407"]
-  R1408["A hallway<br/>#1408"]
-  R1409["The golem master's workshop<br/>#1409"]
-  R1410["A store room<br/>#1410"]
-  R1411["The golem chamber<br/>#1411"]
-  R1412["It is very dark here...<br/>#1412"]
-  R1413["A hallway<br/>#1413"]
-  R1414["A bend in the hallway<br/>#1414"]
-  R1415["A hallway<br/>#1415"]
-  R1416["A hallway<br/>#1416"]
-  R1417["The master of illusion's chamber<br/>#1417"]
-  R1418["A bedroom<br/>#1418"]
-  R1419["A hallway<br/>#1419"]
-  R1420["The meditation chamber<br/>#1420"]
-  R1421["A bend in the hallway<br/>#1421"]
-  R1422["A hallway<br/>#1422"]
-  R1423["A dark room<br/>#1423"]
-  R1424["A dark room<br/>#1424"]
-  R1425["The Necromancer's Lair<br/>#1425"]
-  R1426["A hallway<br/>#1426"]
-  R1427["A hallway<br/>#1427"]
-  R1428["The end of the hallway<br/>#1428"]
-  R1429["A corridor<br/>#1429"]
-  R1430["A corridor<br/>#1430"]
-  R1431["A bend in the corridor<br/>#1431"]
-  R1432["A corridor<br/>#1432"]
-  R1433["An intersection<br/>#1433"]
-  R1434["A corridor<br/>#1434"]
-  R1435["The scrying chamber<br/>#1435"]
-  R1436["A corridor<br/>#1436"]
-  R1437["The entrance to the library<br/>#1437"]
-  R1438["In the library<br/>#1438"]
-  R1439["In the library<br/>#1439"]
-  R1440["In the library<br/>#1440"]
-  R1441["In the library<br/>#1441"]
-  R1442["In the library<br/>#1442"]
-  R1443["In the library<br/>#1443"]
-  R1444["Between the shelves<br/>#1444"]
-  R1445["The reading room<br/>#1445"]
-  R1446["A corridor<br/>#1446"]
-  R1447["The end of the corridor<br/>#1447"]
-  R1448["The arched entrance<br/>#1448"]
-  R1449["The landing<br/>#1449"]
-  R1450["An intersection<br/>#1450"]
-  R1451["A grey tiled hallway<br/>#1451"]
-  R1452["A grey tiled hallway<br/>#1452"]
-  R1453["The antechamber<br/>#1453"]
-  R1454["The main chamber<br/>#1454"]
-  R1455["The study<br/>#1455"]
-  R1456["A closet<br/>#1456"]
-  R1457["A bedroom<br/>#1457"]
-  R1458["A dark hallway<br/>#1458"]
-  R1459["A dark hallway<br/>#1459"]
-  R1460["The end of the hallway<br/>#1460"]
-  R1461["The chamber of darkness<br/>#1461"]
-  R1462["It is very dark here...<br/>#1462"]
-  R1463["Torture chamber<br/>#1463"]
-  R1464["The inner chamber<br/>#1464"]
-  R1465["A bright hallway<br/>#1465"]
-  R1466["A bright hallway<br/>#1466"]
-  R1467["An antechamber<br/>#1467"]
-  R1469["The chamber of the white light<br/>#1469"]
-  R1470["The meditation chamber<br/>#1470"]
-  R1471["A study<br/>#1471"]
-  R1472["A closet<br/>#1472"]
-  R1473["A wide hallway<br/>#1473"]
-  R1474["A wide hallway<br/>#1474"]
-  R1475["A wide hallway<br/>#1475"]
-  R1476["The entranceway<br/>#1476"]
-  R1477["The audience chamber<br/>#1477"]
-  R1478["A dressing room<br/>#1478"]
-  R1479["The library<br/>#1479"]
-  R1480["The altar<br/>#1480"]
-  R1481["The treasury<br/>#1481"]
-  R1482["A passage<br/>#1482"]
-  R1483["In the light<br/>#1483"]
-  R1499["Skylar's Hideout<br/>#1499"]
   R1300 -->|N| R1308
   R1300 -->|S| X6137
   R1301 -->|N| R1307
@@ -239,7 +152,7 @@ graph LR
   R1314 -->|E| R1318
   R1314 -->|S| R1313
   R1314 -->|W| R1319
-  R1315 -->|E| R1330
+  R1315 -->|E| X1330
   R1315 -->|W| R1313
   R1316 -->|E| R1313
   R1316 -->|W| R1320
@@ -252,22 +165,57 @@ graph LR
   R1321 -->|D| R1322
   R1322 -->|N| R1323
   R1322 -->|E| R1324
-  R1322 -->|S| R1325
-  R1322 -->|W| R1326
+  R1322 -->|S| X1325
+  R1322 -->|W| X1326
   R1322 -->|U| R1321
-  R1323 -->|N| R1327
+  R1323 -->|N| X1327
   R1323 -->|S| R1322
-  R1324 -->|E| R1328
+  R1324 -->|E| X1328
   R1324 -->|W| R1322
-  R1325 -->|N| R1322
-  R1325 -->|D| R1329
-  R1326 -->|E| R1322
-  R1327 -->|S| R1323
-  R1328 -->|W| R1324
+  X6137["At the end of the trail through the deep, dark f<br/>haon #6137"]:::ext
+  X2201["The Tower Gates<br/>draconia #2201"]:::ext
+  X9301["Inside a Tavern<br/>galaxy #9301"]:::ext
+  X1330["▸ Part C: The hallway<br/>#1330"]:::part
+  X1325["▸ Part A: The stagnant pool<br/>#1325"]:::part
+  X1326["▸ Part A: A dark passage<br/>#1326"]:::part
+  X1327["▸ Part A: A dark cell<br/>#1327"]:::part
+  X1328["▸ Part A: The Jailor's office<br/>#1328"]:::part
+  classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
+```
+
+## Map — Part C (24 rooms: #1330–#1353)
+
+```mermaid
+graph LR
+  R1330["The hallway<br/>#1330"]
+  R1331["A bend in the hallway<br/>#1331"]
+  R1332["A store room<br/>#1332"]
+  R1333["A broom closet<br/>#1333"]
+  R1334["A hallway<br/>#1334"]
+  R1335["Guardians chamber<br/>#1335"]
+  R1336["A guest bedroom<br/>#1336"]
+  R1337["A guest bedroom<br/>#1337"]
+  R1338["A hallway<br/>#1338"]
+  R1339["The burnt room<br/>#1339"]
+  R1340["A hallway<br/>#1340"]
+  R1341["A culdesac<br/>#1341"]
+  R1342["The Apprentice's Barracks<br/>#1342"]
+  R1343["A hallway<br/>#1343"]
+  R1344["The Apprentice's barracks<br/>#1344"]
+  R1345["A hallway<br/>#1345"]
+  R1346["The apprentice's workshop<br/>#1346"]
+  R1347["A bend in the hallway<br/>#1347"]
+  R1348["The hallway<br/>#1348"]
+  R1349["A classroom<br/>#1349"]
+  R1350["A hallway<br/>#1350"]
+  R1351["A hallway<br/>#1351"]
+  R1352["An empty classroom<br/>#1352"]
+  R1353["A bend in the hallway<br/>#1353"]
   R1330 -->|N| R1332
   R1330 -->|E| R1331
   R1330 -->|S| R1333
-  R1330 -->|W| R1315
+  R1330 -->|W| X1315
   R1331 -->|N| R1334
   R1331 -->|E| R1336
   R1331 -->|S| R1335
@@ -311,14 +259,48 @@ graph LR
   R1350 -->|W| R1352
   R1351 -->|N| R1350
   R1351 -->|S| R1353
-  R1351 -->|W| R1354
+  R1351 -->|W| X1354
   R1352 -->|E| R1350
   R1353 -->|N| R1351
-  R1353 -->|E| R1355
-  R1354 -->|E| R1351
+  R1353 -->|E| X1355
+  X1315["▸ Part B: The Hallway<br/>#1315"]:::part
+  X1354["▸ Part A: An empty classroom<br/>#1354"]:::part
+  X1355["▸ Part D: A hallway<br/>#1355"]:::part
+  classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
+```
+
+## Map — Part D (24 rooms: #1355–#1378)
+
+```mermaid
+graph LR
+  R1355["A hallway<br/>#1355"]
+  R1356["A hallway<br/>#1356"]
+  R1357["The Amphitheater<br/>#1357"]
+  R1358["A hallway<br/>#1358"]
+  R1359["The training room<br/>#1359"]
+  R1360["A bend in the hallway<br/>#1360"]
+  R1361["A dueling room<br/>#1361"]
+  R1362["A hallway<br/>#1362"]
+  R1363["A hallway<br/>#1363"]
+  R1364["The spellmaster's lounge<br/>#1364"]
+  R1365["A bedroom<br/>#1365"]
+  R1366["A hallway<br/>#1366"]
+  R1367["The study<br/>#1367"]
+  R1368["Below the stairs<br/>#1368"]
+  R1369["Atop the stairway<br/>#1369"]
+  R1370["A hallway<br/>#1370"]
+  R1371["A small office<br/>#1371"]
+  R1372["A hallway<br/>#1372"]
+  R1373["The master scribe's workshop<br/>#1373"]
+  R1374["A hallway<br/>#1374"]
+  R1375["A store room<br/>#1375"]
+  R1376["A bend in the hallway<br/>#1376"]
+  R1377["A hallway<br/>#1377"]
+  R1378["A hallway<br/>#1378"]
   R1355 -->|E| R1356
   R1355 -->|S| R1357
-  R1355 -->|W| R1353
+  R1355 -->|W| X1353
   R1356 -->|E| R1358
   R1356 -->|S| R1359
   R1356 -->|W| R1355
@@ -362,85 +344,147 @@ graph LR
   R1376 -->|S| R1377
   R1377 -->|N| R1376
   R1377 -->|S| R1378
-  R1377 -->|W| R1379
+  R1377 -->|W| X1379
   R1378 -->|N| R1377
-  R1378 -->|S| R1380
-  R1378 -->|W| R1381
-  R1379 -->|E| R1377
+  R1378 -->|S| X1380
+  R1378 -->|W| X1381
+  X1353["▸ Part C: A bend in the hallway<br/>#1353"]:::part
+  X1379["▸ Part E: A store room<br/>#1379"]:::part
+  X1380["▸ Part E: A hallway<br/>#1380"]:::part
+  X1381["▸ Part E: A very hot room<br/>#1381"]:::part
+  classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
+```
+
+## Map — Part E (24 rooms: #1379–#1412)
+
+```mermaid
+graph LR
+  R1379["A store room<br/>#1379"]
+  R1380["A hallway<br/>#1380"]
+  R1381["A very hot room<br/>#1381"]
+  R1382["The master Enchanter's chamber<br/>#1382"]
+  R1383["A bend in the hallway<br/>#1383"]
+  R1384["A hallway<br/>#1384"]
+  R1385["A hallway<br/>#1385"]
+  R1387["A hallway<br/>#1387"]
+  R1389["A bend in the hallway<br/>#1389"]
+  R1391["A hallway<br/>#1391"]
+  R1393["A hallway<br/>#1393"]
+  R1396["A hallway<br/>#1396"]
+  R1398["The end of the hallway<br/>#1398"]
+  R1399["Atop the stairway<br/>#1399"]
+  R1400["A hallway<br/>#1400"]
+  R1401["A store room<br/>#1401"]
+  R1402["The master spellbinder's chamber<br/>#1402"]
+  R1403["The spellbinder's cache<br/>#1403"]
+  R1405["A hallway<br/>#1405"]
+  R1406["A bend in the hallway<br/>#1406"]
+  R1407["A hallway<br/>#1407"]
+  R1408["A hallway<br/>#1408"]
+  R1409["The golem master's workshop<br/>#1409"]
+  R1412["It is very dark here...<br/>#1412"]
+  R1379 -->|E| X1377
   R1379 -->|S| R1381
-  R1380 -->|N| R1378
+  R1380 -->|N| X1378
   R1380 -->|S| R1383
   R1381 -->|N| R1379
-  R1381 -->|E| R1378
+  R1381 -->|E| X1378
   R1381 -->|S| R1382
   R1381 -->|U| R1412
   R1382 -->|N| R1381
   R1383 -->|N| R1380
   R1383 -->|E| R1384
   R1384 -->|E| R1385
-  R1384 -->|S| R1386
+  R1384 -->|S| X1386
   R1384 -->|W| R1383
   R1385 -->|E| R1387
   R1385 -->|W| R1384
-  R1386 -->|N| R1384
-  R1386 -->|E| R1388
   R1387 -->|E| R1389
-  R1387 -->|S| R1390
+  R1387 -->|S| X1390
   R1387 -->|W| R1385
-  R1388 -->|W| R1386
   R1389 -->|N| R1391
   R1389 -->|W| R1387
-  R1390 -->|N| R1387
-  R1390 -->|S| R1392
   R1391 -->|N| R1393
-  R1391 -->|E| R1394
+  R1391 -->|E| X1394
   R1391 -->|S| R1389
-  R1392 -->|E| X5113
-  R1392 -->|W| X7428
-  R1392 -->|U| X938
   R1393 -->|N| R1396
-  R1393 -->|E| R1395
+  R1393 -->|E| X1395
   R1393 -->|S| R1391
-  R1394 -->|W| R1391
-  R1395 -->|N| R1397
-  R1395 -->|W| R1393
   R1396 -->|N| R1398
   R1396 -->|S| R1393
-  R1397 -->|S| R1395
   R1398 -->|S| R1396
   R1398 -->|U| R1399
   R1399 -->|W| R1400
   R1399 -->|D| R1398
   R1400 -->|N| R1401
   R1400 -->|E| R1399
-  R1400 -->|W| R1404
+  R1400 -->|W| X1404
   R1401 -->|S| R1400
   R1401 -->|W| R1402
   R1402 -->|E| R1401
   R1402 -->|W| R1403
   R1403 -->|E| R1402
   R1403 -->|S| R1405
-  R1404 -->|E| R1400
-  R1404 -->|W| R1405
   R1405 -->|N| R1403
-  R1405 -->|E| R1404
+  R1405 -->|E| X1404
   R1405 -->|W| R1406
   R1406 -->|E| R1405
   R1406 -->|S| R1407
   R1407 -->|N| R1406
   R1407 -->|S| R1408
   R1408 -->|N| R1407
-  R1408 -->|S| R1413
+  R1408 -->|S| X1413
   R1408 -->|W| R1409
-  R1409 -->|N| R1410
+  R1409 -->|N| X1410
   R1409 -->|E| R1408
-  R1409 -->|S| R1411
+  R1409 -->|S| X1411
   R1409 -->|D| R1412
-  R1410 -->|S| R1409
-  R1411 -->|N| R1409
   R1412 -->|U| R1409
   R1412 -->|D| R1381
-  R1413 -->|N| R1408
+  X1377["▸ Part D: A hallway<br/>#1377"]:::part
+  X1378["▸ Part D: A hallway<br/>#1378"]:::part
+  X1386["▸ Part A: A laboratory<br/>#1386"]:::part
+  X1390["▸ Part A: The pentagram chamber<br/>#1390"]:::part
+  X1394["▸ Part A: An empty room<br/>#1394"]:::part
+  X1395["▸ Part A: The charm master's chamber<br/>#1395"]:::part
+  X1404["▸ Part A: A hallway<br/>#1404"]:::part
+  X1413["▸ Part F: A hallway<br/>#1413"]:::part
+  X1410["▸ Part A: A store room<br/>#1410"]:::part
+  X1411["▸ Part A: The golem chamber<br/>#1411"]:::part
+  classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
+```
+
+## Map — Part F (24 rooms: #1413–#1436)
+
+```mermaid
+graph LR
+  R1413["A hallway<br/>#1413"]
+  R1414["A bend in the hallway<br/>#1414"]
+  R1415["A hallway<br/>#1415"]
+  R1416["A hallway<br/>#1416"]
+  R1417["The master of illusion's chamber<br/>#1417"]
+  R1418["A bedroom<br/>#1418"]
+  R1419["A hallway<br/>#1419"]
+  R1420["The meditation chamber<br/>#1420"]
+  R1421["A bend in the hallway<br/>#1421"]
+  R1422["A hallway<br/>#1422"]
+  R1423["A dark room<br/>#1423"]
+  R1424["A dark room<br/>#1424"]
+  R1425["The Necromancer's Lair<br/>#1425"]
+  R1426["A hallway<br/>#1426"]
+  R1427["A hallway<br/>#1427"]
+  R1428["The end of the hallway<br/>#1428"]
+  R1429["A corridor<br/>#1429"]
+  R1430["A corridor<br/>#1430"]
+  R1431["A bend in the corridor<br/>#1431"]
+  R1432["A corridor<br/>#1432"]
+  R1433["An intersection<br/>#1433"]
+  R1434["A corridor<br/>#1434"]
+  R1435["The scrying chamber<br/>#1435"]
+  R1436["A corridor<br/>#1436"]
+  R1413 -->|N| X1408
   R1413 -->|S| R1414
   R1414 -->|N| R1413
   R1414 -->|E| R1415
@@ -485,15 +529,36 @@ graph LR
   R1432 -->|S| R1433
   R1433 -->|N| R1432
   R1433 -->|E| R1434
-  R1433 -->|S| R1446
+  R1433 -->|S| X1446
   R1433 -->|W| R1436
   R1434 -->|E| R1435
   R1434 -->|W| R1433
   R1435 -->|W| R1434
   R1436 -->|E| R1433
-  R1436 -->|W| R1437
+  R1436 -->|W| X1437
+  X1408["▸ Part E: A hallway<br/>#1408"]:::part
+  X0["?? broken<br/>#0"]:::ext
+  X1446["▸ Part H: A corridor<br/>#1446"]:::part
+  X1437["▸ Part G: The entrance to the library<br/>#1437"]:::part
+  classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
+```
+
+## Map — Part G (9 rooms: #1437–#1445)
+
+```mermaid
+graph LR
+  R1437["The entrance to the library<br/>#1437"]
+  R1438["In the library<br/>#1438"]
+  R1439["In the library<br/>#1439"]
+  R1440["In the library<br/>#1440"]
+  R1441["In the library<br/>#1441"]
+  R1442["In the library<br/>#1442"]
+  R1443["In the library<br/>#1443"]
+  R1444["Between the shelves<br/>#1444"]
+  R1445["The reading room<br/>#1445"]
   R1437 -->|N| R1439
-  R1437 -->|E| R1436
+  R1437 -->|E| X1436
   R1437 -->|S| R1440
   R1437 -->|W| R1438
   R1438 -->|N| R1441
@@ -521,7 +586,40 @@ graph LR
   R1444 -->|N| R1445
   R1444 -->|E| R1443
   R1445 -->|S| R1444
-  R1446 -->|N| R1433
+  X1436["▸ Part F: A corridor<br/>#1436"]:::part
+  classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
+```
+
+## Map — Part H (24 rooms: #1446–#1470)
+
+```mermaid
+graph LR
+  R1446["A corridor<br/>#1446"]
+  R1447["The end of the corridor<br/>#1447"]
+  R1448["The arched entrance<br/>#1448"]
+  R1449["The landing<br/>#1449"]
+  R1450["An intersection<br/>#1450"]
+  R1451["A grey tiled hallway<br/>#1451"]
+  R1452["A grey tiled hallway<br/>#1452"]
+  R1453["The antechamber<br/>#1453"]
+  R1454["The main chamber<br/>#1454"]
+  R1455["The study<br/>#1455"]
+  R1456["A closet<br/>#1456"]
+  R1457["A bedroom<br/>#1457"]
+  R1458["A dark hallway<br/>#1458"]
+  R1459["A dark hallway<br/>#1459"]
+  R1460["The end of the hallway<br/>#1460"]
+  R1461["The chamber of darkness<br/>#1461"]
+  R1462["It is very dark here...<br/>#1462"]
+  R1463["Torture chamber<br/>#1463"]
+  R1464["The inner chamber<br/>#1464"]
+  R1465["A bright hallway<br/>#1465"]
+  R1466["A bright hallway<br/>#1466"]
+  R1467["An antechamber<br/>#1467"]
+  R1469["The chamber of the white light<br/>#1469"]
+  R1470["The meditation chamber<br/>#1470"]
+  R1446 -->|N| X1433
   R1446 -->|S| R1447
   R1447 -->|N| R1446
   R1447 -->|S| R1448
@@ -529,7 +627,7 @@ graph LR
   R1448 -->|U| R1449
   R1449 -->|U| R1450
   R1449 -->|D| R1448
-  R1450 -->|N| R1473
+  R1450 -->|N| X1473
   R1450 -->|E| R1458
   R1450 -->|S| R1451
   R1450 -->|W| R1465
@@ -568,13 +666,34 @@ graph LR
   R1467 -->|W| R1469
   R1469 -->|N| R1470
   R1469 -->|E| R1467
-  R1469 -->|S| R1471
-  R1469 -->|W| R1472
+  R1469 -->|S| X1471
+  R1469 -->|W| X1472
   R1470 -->|S| R1469
-  R1471 -->|N| R1469
-  R1472 -->|E| R1469
+  X1433["▸ Part F: An intersection<br/>#1433"]:::part
+  X1473["▸ Part I: A wide hallway<br/>#1473"]:::part
+  X1471["▸ Part A: A study<br/>#1471"]:::part
+  X1472["▸ Part A: A closet<br/>#1472"]:::part
+  classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
+```
+
+## Map — Part I (11 rooms: #1473–#1483)
+
+```mermaid
+graph LR
+  R1473["A wide hallway<br/>#1473"]
+  R1474["A wide hallway<br/>#1474"]
+  R1475["A wide hallway<br/>#1475"]
+  R1476["The entranceway<br/>#1476"]
+  R1477["The audience chamber<br/>#1477"]
+  R1478["A dressing room<br/>#1478"]
+  R1479["The library<br/>#1479"]
+  R1480["The altar<br/>#1480"]
+  R1481["The treasury<br/>#1481"]
+  R1482["A passage<br/>#1482"]
+  R1483["In the light<br/>#1483"]
   R1473 -->|N| R1474
-  R1473 -->|S| R1450
+  R1473 -->|S| X1450
   R1474 -->|N| R1475
   R1474 -->|S| R1473
   R1475 -->|N| R1476
@@ -593,16 +712,10 @@ graph LR
   R1481 -->|W| R1480
   R1482 -->|W| R1483
   R1483 -->|U| X3001
-  R1499 -->|D| X0
-  X6137["At the end of the trail through the deep, dark f<br/>haon #6137"]:::ext
-  X2201["The Tower Gates<br/>draconia #2201"]:::ext
-  X9301["Inside a Tavern<br/>galaxy #9301"]:::ext
-  X5113["Main Chamber<br/>drow #5113"]:::ext
-  X7428["Dragons lair<br/>sewer #7428"]:::ext
-  X938["The Planning Room<br/>olympus #938"]:::ext
-  X0["?? broken<br/>#0"]:::ext
+  X1450["▸ Part H: An intersection<br/>#1450"]:::part
   X3001["The Temple Of Midgaard<br/>midgaard #3001"]:::ext
   classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
 ```
 
 ## Rooms

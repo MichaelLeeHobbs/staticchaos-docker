@@ -2,7 +2,11 @@
 
 [← back to world map](WORLD-MAP.md) · 44 rooms · vnums 2201–2244
 
-Dashed nodes are exits that leave this area.
+Grey dashed nodes leave the area; green dashed nodes (`▸ Part X`) continue on another sub-map below.
+
+_This area is split into 3 sub-maps for legibility._
+
+## Map — Part A (24 rooms: #2201–#2226)
 
 ```mermaid
 graph LR
@@ -25,31 +29,11 @@ graph LR
   R2217["bedroom<br/>#2217"]
   R2218["Entrance to the Crypt<br/>#2218"]
   R2219["Crypt<br/>#2219"]
-  R2220["The Lair<br/>#2220"]
-  R2221["A Lair<br/>#2221"]
   R2222["The Crypt Ends<br/>#2222"]
   R2223["Entrance to the Great Hall<br/>#2223"]
   R2224["The Great Hall<br/>#2224"]
   R2225["A Narrow Passageway<br/>#2225"]
   R2226["Lair<br/>#2226"]
-  R2227["Underground Tunnel<br/>#2227"]
-  R2228["Underground Tunnel<br/>#2228"]
-  R2229["The Great Hall Ends.<br/>#2229"]
-  R2230["THE Lair<br/>#2230"]
-  R2231["The End...<br/>#2231"]
-  R2232["Stairwell<br/>#2232"]
-  R2233["Wine cellar<br/>#2233"]
-  R2234["Tunnel<br/>#2234"]
-  R2235["A cave opening<br/>#2235"]
-  R2236["The End of the tunnel<br/>#2236"]
-  R2237["The Bridge<br/>#2237"]
-  R2238["A small opening<br/>#2238"]
-  R2239["Clearing<br/>#2239"]
-  R2240["A path<br/>#2240"]
-  R2241["A cave opening<br/>#2241"]
-  R2242["The path continues<br/>#2242"]
-  R2243["The top of the mountain<br/>#2243"]
-  R2244["Well<br/>#2244"]
   R2201 -->|N| R2202
   R2201 -->|E| X1304
   R2202 -->|N| R2203
@@ -89,26 +73,48 @@ graph LR
   R2218 -->|W| R2219
   R2219 -->|E| R2218
   R2219 -->|W| R2222
-  R2220 -->|S| R2235
-  R2221 -->|N| R2241
   R2222 -->|E| R2219
-  R2222 -->|W| R2232
+  R2222 -->|W| X2232
   R2223 -->|E| R2224
   R2223 -->|W| R2205
   R2224 -->|N| R2225
-  R2224 -->|E| R2229
+  R2224 -->|E| X2229
   R2225 -->|N| R2226
   R2225 -->|S| R2224
   R2226 -->|S| R2225
-  R2226 -->|D| R2227
-  R2227 -->|N| R2228
-  R2227 -->|U| R2226
-  R2228 -->|S| R2227
-  R2229 -->|E| R2230
-  R2229 -->|W| R2224
-  R2230 -->|W| R2229
+  R2226 -->|D| X2227
+  X1304["The Shadow Grove<br/>hitower #1304"]:::ext
+  X2232["▸ Part B: Stairwell<br/>#2232"]:::part
+  X2229["▸ Part C: The Great Hall Ends.<br/>#2229"]:::part
+  X2227["▸ Part C: Underground Tunnel<br/>#2227"]:::part
+  classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
+```
+
+## Map — Part B (16 rooms: #2220–#2244)
+
+```mermaid
+graph LR
+  R2220["The Lair<br/>#2220"]
+  R2221["A Lair<br/>#2221"]
+  R2231["The End...<br/>#2231"]
+  R2232["Stairwell<br/>#2232"]
+  R2233["Wine cellar<br/>#2233"]
+  R2234["Tunnel<br/>#2234"]
+  R2235["A cave opening<br/>#2235"]
+  R2236["The End of the tunnel<br/>#2236"]
+  R2237["The Bridge<br/>#2237"]
+  R2238["A small opening<br/>#2238"]
+  R2239["Clearing<br/>#2239"]
+  R2240["A path<br/>#2240"]
+  R2241["A cave opening<br/>#2241"]
+  R2242["The path continues<br/>#2242"]
+  R2243["The top of the mountain<br/>#2243"]
+  R2244["Well<br/>#2244"]
+  R2220 -->|S| R2235
+  R2221 -->|N| R2241
   R2231 -->|S| R2243
-  R2232 -->|E| R2222
+  R2232 -->|E| X2222
   R2232 -->|D| R2233
   R2233 -->|E| R2234
   R2233 -->|U| R2232
@@ -119,7 +125,7 @@ graph LR
   R2235 -->|S| R2234
   R2236 -->|S| R2237
   R2236 -->|W| R2234
-  R2236 -->|U| R2202
+  R2236 -->|U| X2202
   R2237 -->|N| R2236
   R2237 -->|S| R2238
   R2238 -->|N| R2237
@@ -136,8 +142,30 @@ graph LR
   R2242 -->|D| R2240
   R2243 -->|N| R2231
   R2243 -->|D| R2242
-  X1304["The Shadow Grove<br/>hitower #1304"]:::ext
+  X2222["▸ Part A: The Crypt Ends<br/>#2222"]:::part
+  X2202["▸ Part A: The Foyer<br/>#2202"]:::part
   classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
+```
+
+## Map — Part C (4 rooms: #2227–#2230)
+
+```mermaid
+graph LR
+  R2227["Underground Tunnel<br/>#2227"]
+  R2228["Underground Tunnel<br/>#2228"]
+  R2229["The Great Hall Ends.<br/>#2229"]
+  R2230["THE Lair<br/>#2230"]
+  R2227 -->|N| R2228
+  R2227 -->|U| X2226
+  R2228 -->|S| R2227
+  R2229 -->|E| R2230
+  R2229 -->|W| X2224
+  R2230 -->|W| R2229
+  X2226["▸ Part A: Lair<br/>#2226"]:::part
+  X2224["▸ Part A: The Great Hall<br/>#2224"]:::part
+  classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
 ```
 
 ## Rooms

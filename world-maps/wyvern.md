@@ -2,7 +2,11 @@
 
 [← back to world map](WORLD-MAP.md) · 61 rooms · vnums 1601–1720
 
-Dashed nodes are exits that leave this area.
+Grey dashed nodes leave the area; green dashed nodes (`▸ Part X`) continue on another sub-map below.
+
+_This area is split into 4 sub-maps for legibility._
+
+## Map — Part A (24 rooms: #1601–#1633)
 
 ```mermaid
 graph LR
@@ -30,45 +34,8 @@ graph LR
   R1631["Base of the Eastern Tower<br/>#1631"]
   R1632["The Common Room<br/>#1632"]
   R1633["Servant's Quarters<br/>#1633"]
-  R1634["A Large Murky Cellar<br/>#1634"]
-  R1635["On the First Staircase<br/>#1635"]
-  R1636["Second Level of the Eastern Tower<br/>#1636"]
-  R1637["The Elegant Hall<br/>#1637"]
-  R1638["The Shaman's Room<br/>#1638"]
-  R1639["The Library<br/>#1639"]
-  R1640["Second Level of the Western Tower<br/>#1640"]
-  R1641["On the Balcony<br/>#1641"]
-  R1642["The Spiral Stairs<br/>#1642"]
-  R1643["Third Level of Western Tower<br/>#1643"]
-  R1644["It's too dark to see anything!<br/>#1644"]
-  R1645["The Armory<br/>#1645"]
-  R1646["The Officer's Quarters<br/>#1646"]
-  R1647["Third Level of Eastern Tower<br/>#1647"]
-  R1648["Turret of the Eastern Tower<br/>#1648"]
-  R1649["On the Catwalk<br/>#1649"]
-  R1650["Turret of the Western Tower<br/>#1650"]
-  R1651["On the Other Side<br/>#1651"]
-  R1652["The Chamber<br/>#1652"]
-  R1701["Main Eastern Road<br/>#1701"]
-  R1702["Crossroads to the Wilderness<br/>#1702"]
-  R1703["Trading Post<br/>#1703"]
-  R1704["Trail north of crossroads<br/>#1704"]
-  R1705["Trail south of forest<br/>#1705"]
-  R1706["Entrance to the forest<br/>#1706"]
-  R1707["Trail in Dark Oak Forest<br/>#1707"]
-  R1708["Junction in Dark Forest<br/>#1708"]
-  R1709["Path to Centaur Village<br/>#1709"]
-  R1710["The East side of the Centaur Clearing<br/>#1710"]
-  R1711["West side of the Centaur Clearing<br/>#1711"]
-  R1712["A Centaur's Hut<br/>#1712"]
-  R1713["A Centaur's Hut<br/>#1713"]
-  R1714["A Centaur's Hut<br/>#1714"]
-  R1715["A Centaur's Hut<br/>#1715"]
-  R1716["Entrance to a Large Hut<br/>#1716"]
-  R1717["Back of a Large Hut<br/>#1717"]
-  R1720["Eastern Path in Dark Forest<br/>#1720"]
   R1601 -->|E| R1602
-  R1601 -->|W| R1702
+  R1601 -->|W| X1702
   R1602 -->|E| R1603
   R1602 -->|W| R1601
   R1603 -->|E| R1604
@@ -111,13 +78,52 @@ graph LR
   R1631 -->|N| R1632
   R1631 -->|S| R1633
   R1631 -->|W| R1626
-  R1631 -->|U| R1635
+  R1631 -->|U| X1635
   R1632 -->|S| R1631
-  R1632 -->|D| R1634
+  R1632 -->|D| X1634
   R1633 -->|N| R1631
-  R1634 -->|U| R1632
+  X1702["▸ Part D: Crossroads to the Wilderness<br/>#1702"]:::part
+  X1635["▸ Part C: On the First Staircase<br/>#1635"]:::part
+  X1634["▸ Part B: A Large Murky Cellar<br/>#1634"]:::part
+  classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
+```
+
+## Map — Part B (1 rooms: #1634–#1634)
+
+```mermaid
+graph LR
+  R1634["A Large Murky Cellar<br/>#1634"]
+  R1634 -->|U| X1632
+  X1632["▸ Part A: The Common Room<br/>#1632"]:::part
+  classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
+```
+
+## Map — Part C (18 rooms: #1635–#1652)
+
+```mermaid
+graph LR
+  R1635["On the First Staircase<br/>#1635"]
+  R1636["Second Level of the Eastern Tower<br/>#1636"]
+  R1637["The Elegant Hall<br/>#1637"]
+  R1638["The Shaman's Room<br/>#1638"]
+  R1639["The Library<br/>#1639"]
+  R1640["Second Level of the Western Tower<br/>#1640"]
+  R1641["On the Balcony<br/>#1641"]
+  R1642["The Spiral Stairs<br/>#1642"]
+  R1643["Third Level of Western Tower<br/>#1643"]
+  R1644["It's too dark to see anything!<br/>#1644"]
+  R1645["The Armory<br/>#1645"]
+  R1646["The Officer's Quarters<br/>#1646"]
+  R1647["Third Level of Eastern Tower<br/>#1647"]
+  R1648["Turret of the Eastern Tower<br/>#1648"]
+  R1649["On the Catwalk<br/>#1649"]
+  R1650["Turret of the Western Tower<br/>#1650"]
+  R1651["On the Other Side<br/>#1651"]
+  R1652["The Chamber<br/>#1652"]
   R1635 -->|U| R1636
-  R1635 -->|D| R1631
+  R1635 -->|D| X1631
   R1636 -->|W| R1637
   R1636 -->|D| R1635
   R1637 -->|N| R1638
@@ -151,10 +157,37 @@ graph LR
   R1651 -->|E| R1650
   R1651 -->|W| R1652
   R1652 -->|E| R1651
+  X1631["▸ Part A: Base of the Eastern Tower<br/>#1631"]:::part
+  classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
+```
+
+## Map — Part D (18 rooms: #1701–#1720)
+
+```mermaid
+graph LR
+  R1701["Main Eastern Road<br/>#1701"]
+  R1702["Crossroads to the Wilderness<br/>#1702"]
+  R1703["Trading Post<br/>#1703"]
+  R1704["Trail north of crossroads<br/>#1704"]
+  R1705["Trail south of forest<br/>#1705"]
+  R1706["Entrance to the forest<br/>#1706"]
+  R1707["Trail in Dark Oak Forest<br/>#1707"]
+  R1708["Junction in Dark Forest<br/>#1708"]
+  R1709["Path to Centaur Village<br/>#1709"]
+  R1710["The East side of the Centaur Clearing<br/>#1710"]
+  R1711["West side of the Centaur Clearing<br/>#1711"]
+  R1712["A Centaur's Hut<br/>#1712"]
+  R1713["A Centaur's Hut<br/>#1713"]
+  R1714["A Centaur's Hut<br/>#1714"]
+  R1715["A Centaur's Hut<br/>#1715"]
+  R1716["Entrance to a Large Hut<br/>#1716"]
+  R1717["Back of a Large Hut<br/>#1717"]
+  R1720["Eastern Path in Dark Forest<br/>#1720"]
   R1701 -->|E| R1702
   R1701 -->|W| X5267
   R1702 -->|N| R1704
-  R1702 -->|E| R1601
+  R1702 -->|E| X1601
   R1702 -->|S| R1703
   R1702 -->|W| R1701
   R1703 -->|N| R1702
@@ -188,7 +221,9 @@ graph LR
   R1717 -->|E| R1716
   R1720 -->|W| R1708
   X5267["A valley in the dark dwarf forest<br/>thalos #5267"]:::ext
+  X1601["▸ Part A: Rough East-West Path<br/>#1601"]:::part
   classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
 ```
 
 ## Rooms

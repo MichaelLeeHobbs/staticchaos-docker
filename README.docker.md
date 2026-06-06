@@ -88,8 +88,11 @@ pnpm run build               # build:data + build:pdf + build:pdf:maps
 ```
 
 `build:pdf:maps` needs `@mermaid-js/mermaid-cli` (a dev dep) and the same puppeteer Chrome.
-It pre-renders every Mermaid block to SVG (raising Mermaid's 500-edge cap for big areas
-like `hitower`/`ultima`/`sewer`) and prints them to `WORLD-MAPS.pdf` in A3 landscape.
+It pre-renders every Mermaid block to SVG (raising Mermaid's 500-edge cap) and prints them
+to `WORLD-MAPS.pdf` in A3 landscape. Areas over ~30 rooms are auto-split into connected
+sub-maps of ≤24 rooms (`partitionArea` in `tools/lib/area.mjs`) so each fits a page legibly;
+exits to a sibling sub-map show as green `▸ Part X` stubs, exits leaving the area as grey
+stubs. The same split is applied to the per-area `.md` files.
 
 Outputs (all under `world-maps/`):
 

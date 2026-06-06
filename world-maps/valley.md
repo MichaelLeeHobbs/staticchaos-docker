@@ -2,7 +2,11 @@
 
 [← back to world map](WORLD-MAP.md) · 84 rooms · vnums 7800–7883
 
-Dashed nodes are exits that leave this area.
+Grey dashed nodes leave the area; green dashed nodes (`▸ Part X`) continue on another sub-map below.
+
+_This area is split into 5 sub-maps for legibility._
+
+## Map — Part A (24 rooms: #7800–#7823)
 
 ```mermaid
 graph LR
@@ -30,75 +34,15 @@ graph LR
   R7821["The Valley of the Elves<br/>#7821"]
   R7822["The Edge of the Valley<br/>#7822"]
   R7823["The Edge of the Valley<br/>#7823"]
-  R7824["The Edge of the Valley<br/>#7824"]
-  R7825["The Edge of the Valley<br/>#7825"]
-  R7826["A Trail Leading from the Valley<br/>#7826"]
-  R7827["Along the Trail<br/>#7827"]
-  R7828["A Bend in the Trail<br/>#7828"]
-  R7829["A Smaller Valley<br/>#7829"]
-  R7830["A Trail in the Valley<br/>#7830"]
-  R7831["A Trail in the Valley<br/>#7831"]
-  R7832["A Trail in the Valley<br/>#7832"]
-  R7833["A Trail in the Valley<br/>#7833"]
-  R7834["The Elf Home<br/>#7834"]
-  R7835["The Kitchen<br/>#7835"]
-  R7836["A Trail in the Valley<br/>#7836"]
-  R7837["A Trail in the Valley<br/>#7837"]
-  R7838["The Living Room<br/>#7838"]
-  R7839["The Storage Room<br/>#7839"]
-  R7840["A Trail in the Valley<br/>#7840"]
-  R7841["A Trail in the Valley<br/>#7841"]
-  R7842["A Trail in the Valley<br/>#7842"]
-  R7843["A Trail in the Valley<br/>#7843"]
-  R7844["A Trail in the Valley<br/>#7844"]
-  R7845["The Elders' Room<br/>#7845"]
-  R7846["The Storage Room<br/>#7846"]
-  R7847["The Sleeping Quarters<br/>#7847"]
-  R7848["Study<br/>#7848"]
-  R7849["Along a Windy Trail on the Rim of the Valley<br/>#7849"]
-  R7850["Along a Windy Trail on the Rim of the Valley<br/>#7850"]
-  R7851["Along a Windy Trail on the Rim of the Valley<br/>#7851"]
-  R7852["Along a Windy Trail on the Rim of the Valley<br/>#7852"]
-  R7853["Along a Windy Trail on the Rim of the Valley<br/>#7853"]
-  R7854["Along a Windy Trail on the Rim of the Valley<br/>#7854"]
-  R7855["Along a Windy Trail on the Rim of the Valley<br/>#7855"]
-  R7856["Along a Windy Trail on the Rim of the Valley<br/>#7856"]
-  R7857["Along a Windy Trail on the Rim of the Valley<br/>#7857"]
-  R7858["On the Rope Bridge<br/>#7858"]
-  R7859["Along a Windy Trail on the Rim of the Valley<br/>#7859"]
-  R7860["Along a Windy Trail on the Rim of the Valley<br/>#7860"]
-  R7861["Along a Windy Trail on the Rim of the Valley<br/>#7861"]
-  R7862["Along a Windy Trail on the Rim of the Valley<br/>#7862"]
-  R7863["Along a Windy Trail on the Rim of the Valley<br/>#7863"]
-  R7864["Along a Windy Trail on the Rim of the Valley<br/>#7864"]
-  R7865["Along a Windy Trail on the Rim of the Valley<br/>#7865"]
-  R7866["Along a Windy Trail on the Rim of the Valley<br/>#7866"]
-  R7867["Along a Windy Trail on the Rim of the Valley<br/>#7867"]
-  R7868["A Bend in the Trail<br/>#7868"]
-  R7869["A Bend in the Trail<br/>#7869"]
-  R7870["The Small Valley<br/>#7870"]
-  R7871["The Small Valley<br/>#7871"]
-  R7872["The Small Valley<br/>#7872"]
-  R7873["The Small Valley<br/>#7873"]
-  R7874["The Small Valley<br/>#7874"]
-  R7875["The Small Valley<br/>#7875"]
-  R7876["The Small Valley<br/>#7876"]
-  R7877["The Small Valley<br/>#7877"]
-  R7878["Inside the Small Shack<br/>#7878"]
-  R7879["Beneath the Small Shack<br/>#7879"]
-  R7880["The Den of the Pyrohydra<br/>#7880"]
-  R7881["The Workroom<br/>#7881"]
-  R7882["The Storage Room<br/>#7882"]
-  R7883["WAY Far Down into the Valley<br/>#7883"]
   R7800 -->|N| R7801
   R7800 -->|S| X323
   R7801 -->|N| R7804
   R7801 -->|E| R7803
   R7801 -->|S| R7800
   R7801 -->|W| R7802
-  R7802 -->|N| R7867
+  R7802 -->|N| X7867
   R7802 -->|E| R7801
-  R7803 -->|N| R7849
+  R7803 -->|N| X7849
   R7803 -->|W| R7801
   R7804 -->|S| R7801
   R7804 -->|D| R7805
@@ -129,7 +73,7 @@ graph LR
   R7813 -->|N| R7818
   R7813 -->|E| R7814
   R7813 -->|S| R7808
-  R7813 -->|U| R7863
+  R7813 -->|U| X7863
   R7814 -->|N| R7819
   R7814 -->|E| R7815
   R7814 -->|S| R7809
@@ -145,37 +89,76 @@ graph LR
   R7817 -->|N| R7822
   R7817 -->|S| R7812
   R7817 -->|W| R7816
-  R7817 -->|U| R7853
+  R7817 -->|U| X7853
   R7818 -->|E| R7819
   R7818 -->|S| R7813
   R7819 -->|N| R7823
   R7819 -->|E| R7820
   R7819 -->|S| R7814
   R7819 -->|W| R7818
-  R7820 -->|N| R7824
+  R7820 -->|N| X7824
   R7820 -->|E| R7821
   R7820 -->|S| R7815
   R7820 -->|W| R7819
-  R7821 -->|N| R7825
+  R7821 -->|N| X7825
   R7821 -->|E| R7822
   R7821 -->|S| R7816
   R7821 -->|W| R7820
   R7822 -->|S| R7817
   R7822 -->|W| R7821
-  R7823 -->|E| R7824
+  R7823 -->|E| X7824
   R7823 -->|S| R7819
+  X323["The steep foothills<br/>plains #323"]:::ext
+  X7867["▸ Part D: Along a Windy Trail on the Rim of the Valley<br/>#7867"]:::part
+  X7849["▸ Part D: Along a Windy Trail on the Rim of the Valley<br/>#7849"]:::part
+  X7863["▸ Part D: Along a Windy Trail on the Rim of the Valley<br/>#7863"]:::part
+  X7853["▸ Part D: Along a Windy Trail on the Rim of the Valley<br/>#7853"]:::part
+  X7824["▸ Part B: The Edge of the Valley<br/>#7824"]:::part
+  X7825["▸ Part B: The Edge of the Valley<br/>#7825"]:::part
+  classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
+```
+
+## Map — Part B (24 rooms: #7824–#7848)
+
+```mermaid
+graph LR
+  R7824["The Edge of the Valley<br/>#7824"]
+  R7825["The Edge of the Valley<br/>#7825"]
+  R7826["A Trail Leading from the Valley<br/>#7826"]
+  R7827["Along the Trail<br/>#7827"]
+  R7828["A Bend in the Trail<br/>#7828"]
+  R7829["A Smaller Valley<br/>#7829"]
+  R7830["A Trail in the Valley<br/>#7830"]
+  R7831["A Trail in the Valley<br/>#7831"]
+  R7832["A Trail in the Valley<br/>#7832"]
+  R7833["A Trail in the Valley<br/>#7833"]
+  R7834["The Elf Home<br/>#7834"]
+  R7835["The Kitchen<br/>#7835"]
+  R7836["A Trail in the Valley<br/>#7836"]
+  R7837["A Trail in the Valley<br/>#7837"]
+  R7838["The Living Room<br/>#7838"]
+  R7839["The Storage Room<br/>#7839"]
+  R7840["A Trail in the Valley<br/>#7840"]
+  R7841["A Trail in the Valley<br/>#7841"]
+  R7842["A Trail in the Valley<br/>#7842"]
+  R7843["A Trail in the Valley<br/>#7843"]
+  R7844["A Trail in the Valley<br/>#7844"]
+  R7845["The Elders' Room<br/>#7845"]
+  R7846["The Storage Room<br/>#7846"]
+  R7848["Study<br/>#7848"]
   R7824 -->|N| R7826
   R7824 -->|E| R7825
-  R7824 -->|S| R7820
-  R7824 -->|W| R7823
-  R7825 -->|S| R7821
+  R7824 -->|S| X7820
+  R7824 -->|W| X7823
+  R7825 -->|S| X7821
   R7825 -->|W| R7824
   R7826 -->|N| R7827
   R7826 -->|S| R7824
-  R7826 -->|U| R7858
+  R7826 -->|U| X7858
   R7827 -->|E| R7828
   R7827 -->|S| R7826
-  R7827 -->|W| R7868
+  R7827 -->|W| X7868
   R7828 -->|N| R7829
   R7828 -->|W| R7827
   R7829 -->|N| R7834
@@ -214,17 +197,62 @@ graph LR
   R7843 -->|W| R7842
   R7844 -->|S| R7840
   R7844 -->|W| R7843
-  R7845 -->|N| R7847
+  R7845 -->|N| X7847
   R7845 -->|E| R7846
   R7846 -->|N| R7848
   R7846 -->|W| R7845
-  R7847 -->|E| R7848
-  R7847 -->|S| R7845
   R7848 -->|S| R7846
-  R7848 -->|W| R7847
+  R7848 -->|W| X7847
   R7848 -->|D| R7839
+  X7820["▸ Part A: The Valley of the Elves<br/>#7820"]:::part
+  X7823["▸ Part A: The Edge of the Valley<br/>#7823"]:::part
+  X7821["▸ Part A: The Valley of the Elves<br/>#7821"]:::part
+  X7858["▸ Part D: On the Rope Bridge<br/>#7858"]:::part
+  X7868["▸ Part E: A Bend in the Trail<br/>#7868"]:::part
+  X7847["▸ Part C: The Sleeping Quarters<br/>#7847"]:::part
+  classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
+```
+
+## Map — Part C (1 rooms: #7847–#7847)
+
+```mermaid
+graph LR
+  R7847["The Sleeping Quarters<br/>#7847"]
+  R7847 -->|E| X7848
+  R7847 -->|S| X7845
+  X7848["▸ Part B: Study<br/>#7848"]:::part
+  X7845["▸ Part B: The Elders' Room<br/>#7845"]:::part
+  classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
+```
+
+## Map — Part D (20 rooms: #7849–#7883)
+
+```mermaid
+graph LR
+  R7849["Along a Windy Trail on the Rim of the Valley<br/>#7849"]
+  R7850["Along a Windy Trail on the Rim of the Valley<br/>#7850"]
+  R7851["Along a Windy Trail on the Rim of the Valley<br/>#7851"]
+  R7852["Along a Windy Trail on the Rim of the Valley<br/>#7852"]
+  R7853["Along a Windy Trail on the Rim of the Valley<br/>#7853"]
+  R7854["Along a Windy Trail on the Rim of the Valley<br/>#7854"]
+  R7855["Along a Windy Trail on the Rim of the Valley<br/>#7855"]
+  R7856["Along a Windy Trail on the Rim of the Valley<br/>#7856"]
+  R7857["Along a Windy Trail on the Rim of the Valley<br/>#7857"]
+  R7858["On the Rope Bridge<br/>#7858"]
+  R7859["Along a Windy Trail on the Rim of the Valley<br/>#7859"]
+  R7860["Along a Windy Trail on the Rim of the Valley<br/>#7860"]
+  R7861["Along a Windy Trail on the Rim of the Valley<br/>#7861"]
+  R7862["Along a Windy Trail on the Rim of the Valley<br/>#7862"]
+  R7863["Along a Windy Trail on the Rim of the Valley<br/>#7863"]
+  R7864["Along a Windy Trail on the Rim of the Valley<br/>#7864"]
+  R7865["Along a Windy Trail on the Rim of the Valley<br/>#7865"]
+  R7866["Along a Windy Trail on the Rim of the Valley<br/>#7866"]
+  R7867["Along a Windy Trail on the Rim of the Valley<br/>#7867"]
+  R7883["WAY Far Down into the Valley<br/>#7883"]
   R7849 -->|E| R7850
-  R7849 -->|S| R7803
+  R7849 -->|S| X7803
   R7849 -->|D| R7883
   R7850 -->|N| R7851
   R7850 -->|W| R7849
@@ -237,7 +265,7 @@ graph LR
   R7852 -->|D| R7883
   R7853 -->|N| R7854
   R7853 -->|S| R7852
-  R7853 -->|D| R7817
+  R7853 -->|D| X7817
   R7854 -->|S| R7853
   R7854 -->|W| R7855
   R7854 -->|D| R7883
@@ -252,7 +280,7 @@ graph LR
   R7857 -->|D| R7883
   R7858 -->|E| R7857
   R7858 -->|W| R7859
-  R7858 -->|D| R7826
+  R7858 -->|D| X7826
   R7859 -->|E| R7858
   R7859 -->|W| R7860
   R7859 -->|D| R7883
@@ -267,7 +295,7 @@ graph LR
   R7862 -->|D| R7883
   R7863 -->|N| R7862
   R7863 -->|S| R7864
-  R7863 -->|D| R7813
+  R7863 -->|D| X7813
   R7864 -->|N| R7863
   R7864 -->|E| R7865
   R7864 -->|D| R7883
@@ -277,11 +305,39 @@ graph LR
   R7866 -->|N| R7865
   R7866 -->|E| R7867
   R7866 -->|D| R7883
-  R7867 -->|S| R7802
+  R7867 -->|S| X7802
   R7867 -->|W| R7866
   R7867 -->|D| R7883
+  X7803["▸ Part A: A Small Trail<br/>#7803"]:::part
+  X7817["▸ Part A: The Edge of the Valley<br/>#7817"]:::part
+  X7826["▸ Part B: A Trail Leading from the Valley<br/>#7826"]:::part
+  X7813["▸ Part A: The Edge of the Valley<br/>#7813"]:::part
+  X7802["▸ Part A: A Small Trail<br/>#7802"]:::part
+  classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
+```
+
+## Map — Part E (15 rooms: #7868–#7882)
+
+```mermaid
+graph LR
+  R7868["A Bend in the Trail<br/>#7868"]
+  R7869["A Bend in the Trail<br/>#7869"]
+  R7870["The Small Valley<br/>#7870"]
+  R7871["The Small Valley<br/>#7871"]
+  R7872["The Small Valley<br/>#7872"]
+  R7873["The Small Valley<br/>#7873"]
+  R7874["The Small Valley<br/>#7874"]
+  R7875["The Small Valley<br/>#7875"]
+  R7876["The Small Valley<br/>#7876"]
+  R7877["The Small Valley<br/>#7877"]
+  R7878["Inside the Small Shack<br/>#7878"]
+  R7879["Beneath the Small Shack<br/>#7879"]
+  R7880["The Den of the Pyrohydra<br/>#7880"]
+  R7881["The Workroom<br/>#7881"]
+  R7882["The Storage Room<br/>#7882"]
   R7868 -->|N| R7869
-  R7868 -->|E| R7827
+  R7868 -->|E| X7827
   R7869 -->|S| R7868
   R7869 -->|W| R7870
   R7870 -->|N| R7871
@@ -311,8 +367,9 @@ graph LR
   R7880 -->|W| R7881
   R7881 -->|E| R7880
   R7882 -->|W| R7880
-  X323["The steep foothills<br/>plains #323"]:::ext
+  X7827["▸ Part B: Along the Trail<br/>#7827"]:::part
   classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
 ```
 
 ## Rooms

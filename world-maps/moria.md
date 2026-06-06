@@ -2,7 +2,11 @@
 
 [← back to world map](WORLD-MAP.md) · 121 rooms · vnums 3900–4172
 
-Dashed nodes are exits that leave this area.
+Grey dashed nodes leave the area; green dashed nodes (`▸ Part X`) continue on another sub-map below.
+
+_This area is split into 8 sub-maps for legibility._
+
+## Map — Part A (9 rooms: #3900–#3908)
 
 ```mermaid
 graph LR
@@ -15,6 +19,36 @@ graph LR
   R3906["Northeast corner of dusty trail.<br/>#3906"]
   R3907["East trail around Midgaard<br/>#3907"]
   R3908["East trail around Midgaard<br/>#3908"]
+  R3900 -->|N| R3901
+  R3900 -->|S| X3052
+  R3901 -->|N| R3902
+  R3901 -->|S| R3900
+  R3902 -->|E| R3903
+  R3902 -->|S| R3901
+  R3903 -->|E| R3904
+  R3903 -->|W| R3902
+  R3904 -->|N| X300
+  R3904 -->|E| R3905
+  R3904 -->|W| R3903
+  R3905 -->|E| R3906
+  R3905 -->|W| R3904
+  R3906 -->|S| R3907
+  R3906 -->|W| R3905
+  R3907 -->|N| R3906
+  R3907 -->|S| R3908
+  R3908 -->|N| R3907
+  R3908 -->|S| X3053
+  X3052["Outside the West Gate of Midgaard<br/>midgaard #3052"]:::ext
+  X300["Path in the plains<br/>plains #300"]:::ext
+  X3053["Outside the East Gate of Midgaard<br/>midgaard #3053"]:::ext
+  classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
+```
+
+## Map — Part B (24 rooms: #4000–#4030)
+
+```mermaid
+graph LR
   R4000["The hills<br/>#4000"]
   R4001["The hills<br/>#4001"]
   R4002["End of the path<br/>#4002"]
@@ -39,113 +73,6 @@ graph LR
   R4028["The smelly tunnel<br/>#4028"]
   R4029["The cave<br/>#4029"]
   R4030["The light cave<br/>#4030"]
-  R4031["The valley<br/>#4031"]
-  R4032["The foothills<br/>#4032"]
-  R4033["The intersection in the foothills<br/>#4033"]
-  R4034["The grassy area of the foothills<br/>#4034"]
-  R4035["The foothills end<br/>#4035"]
-  R4036["The plains<br/>#4036"]
-  R4037["The foothills path<br/>#4037"]
-  R4038["Base of the mountain<br/>#4038"]
-  R4039["A trail up the mountain<br/>#4039"]
-  R4040["The mountain top.<br/>#4040"]
-  R4041["The lion's den<br/>#4041"]
-  R4042["The level foothills<br/>#4042"]
-  R4043["The cave entrance<br/>#4043"]
-  R4044["The hill giant cave<br/>#4044"]
-  R4050["The tunnel<br/>#4050"]
-  R4051["The tunnel<br/>#4051"]
-  R4052["The tunnel<br/>#4052"]
-  R4053["The tunnel<br/>#4053"]
-  R4054["The light cave<br/>#4054"]
-  R4055["The maze<br/>#4055"]
-  R4056["The light cave<br/>#4056"]
-  R4057["The maze<br/>#4057"]
-  R4058["The maze<br/>#4058"]
-  R4059["The tunnel<br/>#4059"]
-  R4060["The tunnel<br/>#4060"]
-  R4061["The light cave<br/>#4061"]
-  R4062["The maze<br/>#4062"]
-  R4063["The maze<br/>#4063"]
-  R4064["The tunnel<br/>#4064"]
-  R4065["The maze<br/>#4065"]
-  R4066["The maze<br/>#4066"]
-  R4067["The maze<br/>#4067"]
-  R4068["The large cave<br/>#4068"]
-  R4069["The large cave<br/>#4069"]
-  R4070["The large cave<br/>#4070"]
-  R4071["The large cave<br/>#4071"]
-  R4072["The tunnel<br/>#4072"]
-  R4073["End of tunnel<br/>#4073"]
-  R4074["The hole<br/>#4074"]
-  R4100["The tunnel<br/>#4100"]
-  R4101["The long tunnel<br/>#4101"]
-  R4102["The long tunnel<br/>#4102"]
-  R4103["The long tunnel<br/>#4103"]
-  R4104["The long tunnel<br/>#4104"]
-  R4105["The golden cave<br/>#4105"]
-  R4106["The golden cave<br/>#4106"]
-  R4107["The passage<br/>#4107"]
-  R4108["The golden cave<br/>#4108"]
-  R4109["The golden cave<br/>#4109"]
-  R4110["The tunnel<br/>#4110"]
-  R4111["The tunnel<br/>#4111"]
-  R4112["The tunnel<br/>#4112"]
-  R4113["The passage<br/>#4113"]
-  R4114["The golden cave<br/>#4114"]
-  R4115["The dark passage.<br/>#4115"]
-  R4116["The passage<br/>#4116"]
-  R4117["The secret chamber<br/>#4117"]
-  R4118["The cave<br/>#4118"]
-  R4119["The cave<br/>#4119"]
-  R4120["The passage<br/>#4120"]
-  R4121["The secret tunnel<br/>#4121"]
-  R4122["The secret chamber<br/>#4122"]
-  R4123["The cave<br/>#4123"]
-  R4124["The cave<br/>#4124"]
-  R4125["The passage<br/>#4125"]
-  R4150["The dark hole<br/>#4150"]
-  R4151["The small passage<br/>#4151"]
-  R4152["The tunnel<br/>#4152"]
-  R4153["The large tunnel<br/>#4153"]
-  R4154["The large tunnel<br/>#4154"]
-  R4155["The large tunnel<br/>#4155"]
-  R4156["The long tunnel<br/>#4156"]
-  R4157["The wet tunnel<br/>#4157"]
-  R4158["The small maze<br/>#4158"]
-  R4159["The small maze<br/>#4159"]
-  R4160["In the tunnel at the inscription<br/>#4160"]
-  R4161["The wet tunnel<br/>#4161"]
-  R4162["The small maze<br/>#4162"]
-  R4163["The small maze<br/>#4163"]
-  R4164["The entrance to the small maze<br/>#4164"]
-  R4165["In the water<br/>#4165"]
-  R4166["The wet maze<br/>#4166"]
-  R4167["The wet maze<br/>#4167"]
-  R4168["The end of the tunnel<br/>#4168"]
-  R4169["In the water<br/>#4169"]
-  R4170["In the water<br/>#4170"]
-  R4171["End of maze<br/>#4171"]
-  R4172["At the sand bar<br/>#4172"]
-  R3900 -->|N| R3901
-  R3900 -->|S| X3052
-  R3901 -->|N| R3902
-  R3901 -->|S| R3900
-  R3902 -->|E| R3903
-  R3902 -->|S| R3901
-  R3903 -->|E| R3904
-  R3903 -->|W| R3902
-  R3904 -->|N| X300
-  R3904 -->|E| R3905
-  R3904 -->|W| R3903
-  R3905 -->|E| R3906
-  R3905 -->|W| R3904
-  R3906 -->|S| R3907
-  R3906 -->|W| R3905
-  R3907 -->|N| R3906
-  R3907 -->|S| R3908
-  R3908 -->|N| R3907
-  R3908 -->|S| X3053
   R4000 -->|N| R4001
   R4000 -->|S| X3500
   R4001 -->|N| R4002
@@ -175,15 +102,15 @@ graph LR
   R4019 -->|N| R4026
   R4019 -->|S| R4015
   R4020 -->|N| R4027
-  R4020 -->|D| R4064
+  R4020 -->|D| X4064
   R4021 -->|E| R4022
-  R4021 -->|D| R4115
+  R4021 -->|D| X4115
   R4022 -->|N| R4023
   R4022 -->|E| R4024
   R4022 -->|W| R4021
   R4023 -->|E| R4016
   R4023 -->|S| R4022
-  R4024 -->|S| R4059
+  R4024 -->|S| X4059
   R4024 -->|W| R4022
   R4025 -->|E| R4026
   R4025 -->|S| R4018
@@ -196,11 +123,38 @@ graph LR
   R4027 -->|W| R4026
   R4028 -->|N| R4030
   R4028 -->|S| R4026
-  R4029 -->|N| R4031
+  R4029 -->|N| X4031
   R4029 -->|S| R4027
   R4030 -->|S| R4028
+  X3500["The Plains<br/>midennir #3500"]:::ext
+  X4064["▸ Part E: The tunnel<br/>#4064"]:::part
+  X4115["▸ Part F: The dark passage.<br/>#4115"]:::part
+  X4059["▸ Part D: The tunnel<br/>#4059"]:::part
+  X4031["▸ Part C: The valley<br/>#4031"]:::part
+  classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
+```
+
+## Map — Part C (14 rooms: #4031–#4044)
+
+```mermaid
+graph LR
+  R4031["The valley<br/>#4031"]
+  R4032["The foothills<br/>#4032"]
+  R4033["The intersection in the foothills<br/>#4033"]
+  R4034["The grassy area of the foothills<br/>#4034"]
+  R4035["The foothills end<br/>#4035"]
+  R4036["The plains<br/>#4036"]
+  R4037["The foothills path<br/>#4037"]
+  R4038["Base of the mountain<br/>#4038"]
+  R4039["A trail up the mountain<br/>#4039"]
+  R4040["The mountain top.<br/>#4040"]
+  R4041["The lion's den<br/>#4041"]
+  R4042["The level foothills<br/>#4042"]
+  R4043["The cave entrance<br/>#4043"]
+  R4044["The hill giant cave<br/>#4044"]
   R4031 -->|N| R4032
-  R4031 -->|S| R4029
+  R4031 -->|S| X4029
   R4032 -->|N| R4033
   R4032 -->|S| R4031
   R4033 -->|N| R4034
@@ -227,6 +181,40 @@ graph LR
   R4043 -->|E| R4042
   R4043 -->|W| R4044
   R4044 -->|E| R4043
+  X4029["▸ Part B: The cave<br/>#4029"]:::part
+  X7114["Mid-air<br/>sewer #7114"]:::ext
+  classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
+```
+
+## Map — Part D (24 rooms: #4050–#4113)
+
+```mermaid
+graph LR
+  R4050["The tunnel<br/>#4050"]
+  R4051["The tunnel<br/>#4051"]
+  R4052["The tunnel<br/>#4052"]
+  R4053["The tunnel<br/>#4053"]
+  R4054["The light cave<br/>#4054"]
+  R4055["The maze<br/>#4055"]
+  R4056["The light cave<br/>#4056"]
+  R4059["The tunnel<br/>#4059"]
+  R4060["The tunnel<br/>#4060"]
+  R4061["The light cave<br/>#4061"]
+  R4100["The tunnel<br/>#4100"]
+  R4101["The long tunnel<br/>#4101"]
+  R4102["The long tunnel<br/>#4102"]
+  R4103["The long tunnel<br/>#4103"]
+  R4104["The long tunnel<br/>#4104"]
+  R4105["The golden cave<br/>#4105"]
+  R4106["The golden cave<br/>#4106"]
+  R4107["The passage<br/>#4107"]
+  R4108["The golden cave<br/>#4108"]
+  R4109["The golden cave<br/>#4109"]
+  R4110["The tunnel<br/>#4110"]
+  R4111["The tunnel<br/>#4111"]
+  R4112["The tunnel<br/>#4112"]
+  R4113["The passage<br/>#4113"]
   R4050 -->|E| R4051
   R4050 -->|S| R4053
   R4051 -->|E| R4052
@@ -241,22 +229,90 @@ graph LR
   R4055 -->|W| R4054
   R4056 -->|N| R4054
   R4056 -->|S| R4061
-  R4057 -->|E| R4058
-  R4057 -->|S| R4062
-  R4058 -->|S| R4063
-  R4058 -->|W| R4057
-  R4059 -->|N| R4024
+  R4059 -->|N| X4024
   R4059 -->|E| R4060
   R4060 -->|E| R4061
   R4060 -->|W| R4059
   R4061 -->|N| R4056
   R4061 -->|W| R4060
+  R4100 -->|N| R4052
+  R4100 -->|W| R4101
+  R4101 -->|E| R4100
+  R4101 -->|W| R4102
+  R4102 -->|E| R4101
+  R4102 -->|W| R4103
+  R4103 -->|E| R4102
+  R4103 -->|S| R4106
+  R4103 -->|W| R4104
+  R4104 -->|E| R4103
+  R4104 -->|W| X4152
+  R4105 -->|S| R4108
+  R4105 -->|W| R4106
+  R4106 -->|N| R4103
+  R4106 -->|E| R4105
+  R4106 -->|S| R4109
+  R4107 -->|S| R4113
+  R4107 -->|W| R4108
+  R4108 -->|N| R4105
+  R4108 -->|E| R4107
+  R4108 -->|W| R4109
+  R4109 -->|N| R4106
+  R4109 -->|E| R4108
+  R4109 -->|S| X4114
+  R4110 -->|W| R4111
+  R4111 -->|E| R4110
+  R4111 -->|W| R4112
+  R4112 -->|E| R4111
+  R4112 -->|W| R4113
+  R4113 -->|N| R4107
+  R4113 -->|E| R4112
+  R4113 -->|S| X4116
+  X4024["▸ Part B: The damp tunnel<br/>#4024"]:::part
+  X4152["▸ Part E: The tunnel<br/>#4152"]:::part
+  X4114["▸ Part F: The golden cave<br/>#4114"]:::part
+  X4116["▸ Part G: The passage<br/>#4116"]:::part
+  classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
+```
+
+## Map — Part E (24 rooms: #4057–#4171)
+
+```mermaid
+graph LR
+  R4057["The maze<br/>#4057"]
+  R4058["The maze<br/>#4058"]
+  R4062["The maze<br/>#4062"]
+  R4063["The maze<br/>#4063"]
+  R4064["The tunnel<br/>#4064"]
+  R4065["The maze<br/>#4065"]
+  R4066["The maze<br/>#4066"]
+  R4067["The maze<br/>#4067"]
+  R4068["The large cave<br/>#4068"]
+  R4069["The large cave<br/>#4069"]
+  R4070["The large cave<br/>#4070"]
+  R4071["The large cave<br/>#4071"]
+  R4072["The tunnel<br/>#4072"]
+  R4073["End of tunnel<br/>#4073"]
+  R4074["The hole<br/>#4074"]
+  R4152["The tunnel<br/>#4152"]
+  R4153["The large tunnel<br/>#4153"]
+  R4154["The large tunnel<br/>#4154"]
+  R4157["The wet tunnel<br/>#4157"]
+  R4158["The small maze<br/>#4158"]
+  R4162["The small maze<br/>#4162"]
+  R4166["The wet maze<br/>#4166"]
+  R4167["The wet maze<br/>#4167"]
+  R4171["End of maze<br/>#4171"]
+  R4057 -->|E| R4058
+  R4057 -->|S| R4062
+  R4058 -->|S| R4063
+  R4058 -->|W| R4057
   R4062 -->|N| R4057
   R4062 -->|E| R4065
   R4063 -->|N| R4058
   R4063 -->|E| R4064
   R4064 -->|W| R4063
-  R4064 -->|U| R4020
+  R4064 -->|U| X4020
   R4065 -->|E| R4066
   R4065 -->|W| R4062
   R4066 -->|E| R4067
@@ -279,43 +335,90 @@ graph LR
   R4073 -->|W| R4072
   R4074 -->|N| R4072
   R4074 -->|D| R4171
-  R4100 -->|N| R4052
-  R4100 -->|W| R4101
-  R4101 -->|E| R4100
-  R4101 -->|W| R4102
-  R4102 -->|E| R4101
-  R4102 -->|W| R4103
-  R4103 -->|E| R4102
-  R4103 -->|S| R4106
-  R4103 -->|W| R4104
-  R4104 -->|E| R4103
-  R4104 -->|W| R4152
-  R4105 -->|S| R4108
-  R4105 -->|W| R4106
-  R4106 -->|N| R4103
-  R4106 -->|E| R4105
-  R4106 -->|S| R4109
-  R4107 -->|S| R4113
-  R4107 -->|W| R4108
-  R4108 -->|N| R4105
-  R4108 -->|E| R4107
-  R4108 -->|W| R4109
-  R4109 -->|N| R4106
-  R4109 -->|E| R4108
-  R4109 -->|S| R4114
-  R4110 -->|W| R4111
-  R4111 -->|E| R4110
-  R4111 -->|W| R4112
-  R4112 -->|E| R4111
-  R4112 -->|W| R4113
-  R4113 -->|N| R4107
-  R4113 -->|E| R4112
-  R4113 -->|S| R4116
-  R4114 -->|N| R4109
+  R4152 -->|E| X4104
+  R4152 -->|S| R4153
+  R4153 -->|N| R4152
+  R4153 -->|E| R4154
+  R4153 -->|S| R4157
+  R4154 -->|E| X4155
+  R4154 -->|W| R4153
+  R4157 -->|N| R4153
+  R4157 -->|E| R4158
+  R4157 -->|S| X4161
+  R4158 -->|E| X4159
+  R4158 -->|S| R4162
+  R4158 -->|W| R4157
+  R4162 -->|N| R4158
+  R4162 -->|E| X4163
+  R4162 -->|S| R4166
+  R4166 -->|N| R4162
+  R4166 -->|E| R4167
+  R4166 -->|S| X4170
+  R4167 -->|E| X4168
+  R4167 -->|S| R4171
+  R4167 -->|W| R4166
+  R4171 -->|N| R4167
+  R4171 -->|U| R4074
+  X4020["▸ Part B: The hole<br/>#4020"]:::part
+  X4104["▸ Part D: The long tunnel<br/>#4104"]:::part
+  X4155["▸ Part H: The large tunnel<br/>#4155"]:::part
+  X4161["▸ Part F: The wet tunnel<br/>#4161"]:::part
+  X4159["▸ Part H: The small maze<br/>#4159"]:::part
+  X4163["▸ Part H: The small maze<br/>#4163"]:::part
+  X4170["▸ Part F: In the water<br/>#4170"]:::part
+  X4168["▸ Part H: The end of the tunnel<br/>#4168"]:::part
+  classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
+```
+
+## Map — Part F (7 rooms: #4114–#4172)
+
+```mermaid
+graph LR
+  R4114["The golden cave<br/>#4114"]
+  R4115["The dark passage.<br/>#4115"]
+  R4161["The wet tunnel<br/>#4161"]
+  R4165["In the water<br/>#4165"]
+  R4169["In the water<br/>#4169"]
+  R4170["In the water<br/>#4170"]
+  R4172["At the sand bar<br/>#4172"]
+  R4114 -->|N| X4109
   R4114 -->|W| R4115
   R4115 -->|E| R4114
-  R4115 -->|U| R4021
-  R4116 -->|N| R4113
+  R4115 -->|U| X4021
+  R4161 -->|N| X4157
+  R4161 -->|S| R4165
+  R4165 -->|N| R4161
+  R4165 -->|S| R4169
+  R4169 -->|N| R4165
+  R4169 -->|E| R4170
+  R4170 -->|N| X4166
+  R4170 -->|E| R4172
+  R4170 -->|W| R4169
+  R4172 -->|W| R4170
+  X4109["▸ Part D: The golden cave<br/>#4109"]:::part
+  X4021["▸ Part B: The hole<br/>#4021"]:::part
+  X4157["▸ Part E: The wet tunnel<br/>#4157"]:::part
+  X4166["▸ Part E: The wet maze<br/>#4166"]:::part
+  classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
+```
+
+## Map — Part G (10 rooms: #4116–#4125)
+
+```mermaid
+graph LR
+  R4116["The passage<br/>#4116"]
+  R4117["The secret chamber<br/>#4117"]
+  R4118["The cave<br/>#4118"]
+  R4119["The cave<br/>#4119"]
+  R4120["The passage<br/>#4120"]
+  R4121["The secret tunnel<br/>#4121"]
+  R4122["The secret chamber<br/>#4122"]
+  R4123["The cave<br/>#4123"]
+  R4124["The cave<br/>#4124"]
+  R4125["The passage<br/>#4125"]
+  R4116 -->|N| X4113
   R4116 -->|S| R4120
   R4117 -->|S| R4122
   R4118 -->|S| R4123
@@ -336,66 +439,50 @@ graph LR
   R4124 -->|W| R4125
   R4125 -->|N| R4120
   R4125 -->|E| R4124
+  X4113["▸ Part D: The passage<br/>#4113"]:::part
+  classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
+```
+
+## Map — Part H (9 rooms: #4150–#4168)
+
+```mermaid
+graph LR
+  R4150["The dark hole<br/>#4150"]
+  R4151["The small passage<br/>#4151"]
+  R4155["The large tunnel<br/>#4155"]
+  R4156["The long tunnel<br/>#4156"]
+  R4159["The small maze<br/>#4159"]
+  R4160["In the tunnel at the inscription<br/>#4160"]
+  R4163["The small maze<br/>#4163"]
+  R4164["The entrance to the small maze<br/>#4164"]
+  R4168["The end of the tunnel<br/>#4168"]
   R4150 -->|S| R4151
   R4151 -->|N| R4150
   R4151 -->|S| R4156
   R4151 -->|W| R4155
-  R4152 -->|E| R4104
-  R4152 -->|S| R4153
-  R4153 -->|N| R4152
-  R4153 -->|E| R4154
-  R4153 -->|S| R4157
-  R4154 -->|E| R4155
-  R4154 -->|W| R4153
   R4155 -->|E| R4151
-  R4155 -->|W| R4154
+  R4155 -->|W| X4154
   R4156 -->|N| R4151
   R4156 -->|S| R4160
-  R4157 -->|N| R4153
-  R4157 -->|E| R4158
-  R4157 -->|S| R4161
-  R4158 -->|E| R4159
-  R4158 -->|S| R4162
-  R4158 -->|W| R4157
   R4159 -->|S| R4163
-  R4159 -->|W| R4158
+  R4159 -->|W| X4158
   R4160 -->|N| R4156
   R4160 -->|S| R4164
-  R4161 -->|N| R4157
-  R4161 -->|S| R4165
-  R4162 -->|N| R4158
-  R4162 -->|E| R4163
-  R4162 -->|S| R4166
   R4163 -->|N| R4159
   R4163 -->|E| R4164
-  R4163 -->|W| R4162
+  R4163 -->|W| X4162
   R4164 -->|N| R4160
   R4164 -->|S| R4168
   R4164 -->|W| R4163
-  R4165 -->|N| R4161
-  R4165 -->|S| R4169
-  R4166 -->|N| R4162
-  R4166 -->|E| R4167
-  R4166 -->|S| R4170
-  R4167 -->|E| R4168
-  R4167 -->|S| R4171
-  R4167 -->|W| R4166
   R4168 -->|N| R4164
-  R4168 -->|W| R4167
-  R4169 -->|N| R4165
-  R4169 -->|E| R4170
-  R4170 -->|N| R4166
-  R4170 -->|E| R4172
-  R4170 -->|W| R4169
-  R4171 -->|N| R4167
-  R4171 -->|U| R4074
-  R4172 -->|W| R4170
-  X3052["Outside the West Gate of Midgaard<br/>midgaard #3052"]:::ext
-  X300["Path in the plains<br/>plains #300"]:::ext
-  X3053["Outside the East Gate of Midgaard<br/>midgaard #3053"]:::ext
-  X3500["The Plains<br/>midennir #3500"]:::ext
-  X7114["Mid-air<br/>sewer #7114"]:::ext
+  R4168 -->|W| X4167
+  X4154["▸ Part E: The large tunnel<br/>#4154"]:::part
+  X4158["▸ Part E: The small maze<br/>#4158"]:::part
+  X4162["▸ Part E: The small maze<br/>#4162"]:::part
+  X4167["▸ Part E: The wet maze<br/>#4167"]:::part
   classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
 ```
 
 ## Rooms

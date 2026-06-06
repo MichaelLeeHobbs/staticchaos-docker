@@ -2,7 +2,11 @@
 
 [← back to world map](WORLD-MAP.md) · 185 rooms · vnums 2400–2584
 
-Dashed nodes are exits that leave this area.
+Grey dashed nodes leave the area; green dashed nodes (`▸ Part X`) continue on another sub-map below.
+
+_This area is split into 9 sub-maps for legibility._
+
+## Map — Part A (24 rooms: #2400–#2423)
 
 ```mermaid
 graph LR
@@ -30,167 +34,6 @@ graph LR
   R2421["Library Office<br/>#2421"]
   R2422["Library<br/>#2422"]
   R2423["Library<br/>#2423"]
-  R2424["Library<br/>#2424"]
-  R2425["Library<br/>#2425"]
-  R2426["Library<br/>#2426"]
-  R2427["Library<br/>#2427"]
-  R2428["The Library Moongate<br/>#2428"]
-  R2429["Library<br/>#2429"]
-  R2430["Library<br/>#2430"]
-  R2431["Library<br/>#2431"]
-  R2432["Library<br/>#2432"]
-  R2433["Library<br/>#2433"]
-  R2434["Library<br/>#2434"]
-  R2435["Web<br/>#2435"]
-  R2436["Library<br/>#2436"]
-  R2437["The Center of the Tavern<br/>#2437"]
-  R2438["The Northwest Corner of the Tavern<br/>#2438"]
-  R2439["The North Wall of the Tavern<br/>#2439"]
-  R2440["The Northeast Corner of the Tavern<br/>#2440"]
-  R2441["The West Wall of the Tavern<br/>#2441"]
-  R2442["The East Wall of the Tavern<br/>#2442"]
-  R2443["The Southwest Corner of the Tavern<br/>#2443"]
-  R2444["The South Wall of the Tavern<br/>#2444"]
-  R2445["The Southeast Corner of the Tavern<br/>#2445"]
-  R2446["Cellar<br/>#2446"]
-  R2447["Cellar<br/>#2447"]
-  R2448["Cellar<br/>#2448"]
-  R2449["Cellar<br/>#2449"]
-  R2450["The Britain Moongate<br/>#2450"]
-  R2451["Cellar<br/>#2451"]
-  R2452["Cellar<br/>#2452"]
-  R2453["Cellar<br/>#2453"]
-  R2454["Cellar<br/>#2454"]
-  R2455["The Yew Entrance<br/>#2455"]
-  R2456["In Front of the Courthouse<br/>#2456"]
-  R2457["Justice Row<br/>#2457"]
-  R2458["Under the Stone Arch<br/>#2458"]
-  R2459["Bonfire<br/>#2459"]
-  R2460["Pub<br/>#2460"]
-  R2461["Justice Row<br/>#2461"]
-  R2462["Justice Row<br/>#2462"]
-  R2463["The Audience Room<br/>#2463"]
-  R2464["The Bench<br/>#2464"]
-  R2465["Prison<br/>#2465"]
-  R2466["Prison<br/>#2466"]
-  R2467["Prison Cell<br/>#2467"]
-  R2468["Prison Cell<br/>#2468"]
-  R2469["Yew Forest<br/>#2469"]
-  R2470["Yew Forest<br/>#2470"]
-  R2471["Yew Forest<br/>#2471"]
-  R2472["Yew Forest<br/>#2472"]
-  R2473["Yew Forest<br/>#2473"]
-  R2474["Yew Forest<br/>#2474"]
-  R2475["Yew Forest<br/>#2475"]
-  R2476["Yew Forest<br/>#2476"]
-  R2477["Yew Forest<br/>#2477"]
-  R2478["Yew Forest<br/>#2478"]
-  R2479["Yew Forest<br/>#2479"]
-  R2480["Yew Forest<br/>#2480"]
-  R2481["Yew Forest<br/>#2481"]
-  R2482["Yew Forest<br/>#2482"]
-  R2483["Yew Forest<br/>#2483"]
-  R2484["The Yew Moongate<br/>#2484"]
-  R2485["Dungeon Entrance<br/>#2485"]
-  R2486["The Dungeon<br/>#2486"]
-  R2487["The Dungeon<br/>#2487"]
-  R2488["The Dungeon<br/>#2488"]
-  R2489["The Dungeon<br/>#2489"]
-  R2490["The Dungeon<br/>#2490"]
-  R2491["The Dungeon<br/>#2491"]
-  R2492["The Dungeon<br/>#2492"]
-  R2493["The Dungeon<br/>#2493"]
-  R2494["The Dungeon<br/>#2494"]
-  R2495["The Dungeon<br/>#2495"]
-  R2496["The Dungeon<br/>#2496"]
-  R2497["The Dungeon<br/>#2497"]
-  R2498["The Dungeon<br/>#2498"]
-  R2499["The Dungeon<br/>#2499"]
-  R2500["The Dungeon<br/>#2500"]
-  R2501["The Dungeon Moongate<br/>#2501"]
-  R2502["Minoc<br/>#2502"]
-  R2503["The Armourer<br/>#2503"]
-  R2504["Minoc's Fountain<br/>#2504"]
-  R2505["The Weaponsmith<br/>#2505"]
-  R2506["The Boatseller<br/>#2506"]
-  R2507["Sacrifice Street<br/>#2507"]
-  R2508["Sacrifice Street<br/>#2508"]
-  R2509["Sacrifice Street<br/>#2509"]
-  R2510["Forge<br/>#2510"]
-  R2511["Residence<br/>#2511"]
-  R2512["Residence<br/>#2512"]
-  R2513["The Beach<br/>#2513"]
-  R2514["The Beach<br/>#2514"]
-  R2515["The Beach<br/>#2515"]
-  R2516["The Beach<br/>#2516"]
-  R2517["The Beach<br/>#2517"]
-  R2518["The Whirlpool<br/>#2518"]
-  R2519["The Whirlpool<br/>#2519"]
-  R2520["The Whirlpool<br/>#2520"]
-  R2521["The Whirlpool<br/>#2521"]
-  R2522["The Whirlpool<br/>#2522"]
-  R2523["The Whirlpool<br/>#2523"]
-  R2524["The Whirlpool<br/>#2524"]
-  R2525["The Whirlpool<br/>#2525"]
-  R2526["The Whirlpool<br/>#2526"]
-  R2527["The Minoc Moongate<br/>#2527"]
-  R2528["A Campfire<br/>#2528"]
-  R2529["Between the Tents<br/>#2529"]
-  R2530["In front of the Grand Tent<br/>#2530"]
-  R2531["A Small Tent<br/>#2531"]
-  R2532["A Small Tent<br/>#2532"]
-  R2533["The Treasure Tent<br/>#2533"]
-  R2534["The Grand Tent<br/>#2534"]
-  R2535["The Map Tent<br/>#2535"]
-  R2536["Dupre's Tent<br/>#2536"]
-  R2537["A Small Tent<br/>#2537"]
-  R2538["Desert Entrance<br/>#2538"]
-  R2539["A Small Tent<br/>#2539"]
-  R2540["The Desert<br/>#2540"]
-  R2541["The Desert<br/>#2541"]
-  R2542["The Desert<br/>#2542"]
-  R2543["The Desert Moongate<br/>#2543"]
-  R2544["The Desert Moongate<br/>#2544"]
-  R2545["The Desert<br/>#2545"]
-  R2546["The Desert<br/>#2546"]
-  R2547["The Desert Moongate<br/>#2547"]
-  R2548["The Dragon Cave<br/>#2548"]
-  R2549["The Shrine of Spirituality<br/>#2549"]
-  R2550["The Place of Ultimate Evil<br/>#2550"]
-  R2551["The Place of Ultimate Evil<br/>#2551"]
-  R2552["The Place of Ultimate Evil<br/>#2552"]
-  R2553["The Place of Ultimate Evil<br/>#2553"]
-  R2554["The Place of Ultimate Evil<br/>#2554"]
-  R2555["The Place of Ultimate Evil<br/>#2555"]
-  R2556["The Graveyard<br/>#2556"]
-  R2557["The Graveyard<br/>#2557"]
-  R2558["The Graveyard<br/>#2558"]
-  R2559["The Graveyard<br/>#2559"]
-  R2560["The Graveyard<br/>#2560"]
-  R2561["The Graveyard<br/>#2561"]
-  R2562["Lord British's Castle Entrance<br/>#2562"]
-  R2563["Castle Fountain<br/>#2563"]
-  R2564["A staircase<br/>#2564"]
-  R2565["Hallways<br/>#2565"]
-  R2566["Hallway<br/>#2566"]
-  R2567["The Throne Room<br/>#2567"]
-  R2568["Batlin's Room<br/>#2568"]
-  R2569["The Altar of Honesty<br/>#2569"]
-  R2570["The Altar of Compassion<br/>#2570"]
-  R2571["The Altar of Valor<br/>#2571"]
-  R2572["The Altar of Justice<br/>#2572"]
-  R2573["The Altar of Sacrifice<br/>#2573"]
-  R2574["The Altar of Honour<br/>#2574"]
-  R2575["The Altar of Spirituality<br/>#2575"]
-  R2576["The Altar of Humility<br/>#2576"]
-  R2577["The Enlightenment<br/>#2577"]
-  R2578["In the Warp<br/>#2578"]
-  R2579["In the Warp<br/>#2579"]
-  R2580["In the Warp<br/>#2580"]
-  R2581["The Enlightenment<br/>#2581"]
-  R2582["In the Warp<br/>#2582"]
-  R2583["In the Warp<br/>#2583"]
-  R2584["The Lagoon<br/>#2584"]
   R2400 -->|S| R2401
   R2400 -->|D| X315
   R2401 -->|N| R2400
@@ -224,7 +67,7 @@ graph LR
   R2414 -->|W| R2404
   R2415 -->|N| R2414
   R2416 -->|E| R2417
-  R2416 -->|W| R2436
+  R2416 -->|W| X2436
   R2417 -->|E| R2418
   R2417 -->|W| R2416
   R2418 -->|E| R2419
@@ -238,8 +81,43 @@ graph LR
   R2422 -->|E| R2421
   R2422 -->|W| R2423
   R2423 -->|E| R2422
-  R2423 -->|S| R2424
-  R2424 -->|N| R2423
+  R2423 -->|S| X2424
+  X315["Gallow hill<br/>plains #315"]:::ext
+  X2436["▸ Part B: Library<br/>#2436"]:::part
+  X2424["▸ Part B: Library<br/>#2424"]:::part
+  classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
+```
+
+## Map — Part B (24 rooms: #2424–#2447)
+
+```mermaid
+graph LR
+  R2424["Library<br/>#2424"]
+  R2425["Library<br/>#2425"]
+  R2426["Library<br/>#2426"]
+  R2427["Library<br/>#2427"]
+  R2428["The Library Moongate<br/>#2428"]
+  R2429["Library<br/>#2429"]
+  R2430["Library<br/>#2430"]
+  R2431["Library<br/>#2431"]
+  R2432["Library<br/>#2432"]
+  R2433["Library<br/>#2433"]
+  R2434["Library<br/>#2434"]
+  R2435["Web<br/>#2435"]
+  R2436["Library<br/>#2436"]
+  R2437["The Center of the Tavern<br/>#2437"]
+  R2438["The Northwest Corner of the Tavern<br/>#2438"]
+  R2439["The North Wall of the Tavern<br/>#2439"]
+  R2440["The Northeast Corner of the Tavern<br/>#2440"]
+  R2441["The West Wall of the Tavern<br/>#2441"]
+  R2442["The East Wall of the Tavern<br/>#2442"]
+  R2443["The Southwest Corner of the Tavern<br/>#2443"]
+  R2444["The South Wall of the Tavern<br/>#2444"]
+  R2445["The Southeast Corner of the Tavern<br/>#2445"]
+  R2446["Cellar<br/>#2446"]
+  R2447["Cellar<br/>#2447"]
+  R2424 -->|N| X2423
   R2424 -->|E| R2425
   R2425 -->|E| R2426
   R2425 -->|W| R2424
@@ -264,7 +142,7 @@ graph LR
   R2434 -->|S| R2433
   R2435 -->|N| R2436
   R2435 -->|S| R2434
-  R2436 -->|E| R2416
+  R2436 -->|E| X2416
   R2436 -->|S| R2435
   R2437 -->|N| R2439
   R2437 -->|E| R2442
@@ -292,17 +170,54 @@ graph LR
   R2445 -->|N| R2442
   R2445 -->|W| R2444
   R2446 -->|E| R2447
-  R2446 -->|S| R2449
+  R2446 -->|S| X2449
   R2446 -->|U| R2443
-  R2447 -->|E| R2448
-  R2447 -->|S| R2450
+  R2447 -->|E| X2448
+  R2447 -->|S| X2450
   R2447 -->|W| R2446
+  X2423["▸ Part A: Library<br/>#2423"]:::part
+  X2416["▸ Part A: Library<br/>#2416"]:::part
+  X2449["▸ Part C: Cellar<br/>#2449"]:::part
+  X2448["▸ Part C: Cellar<br/>#2448"]:::part
+  X2450["▸ Part C: The Britain Moongate<br/>#2450"]:::part
+  classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
+```
+
+## Map — Part C (24 rooms: #2448–#2471)
+
+```mermaid
+graph LR
+  R2448["Cellar<br/>#2448"]
+  R2449["Cellar<br/>#2449"]
+  R2450["The Britain Moongate<br/>#2450"]
+  R2451["Cellar<br/>#2451"]
+  R2452["Cellar<br/>#2452"]
+  R2453["Cellar<br/>#2453"]
+  R2454["Cellar<br/>#2454"]
+  R2455["The Yew Entrance<br/>#2455"]
+  R2456["In Front of the Courthouse<br/>#2456"]
+  R2457["Justice Row<br/>#2457"]
+  R2458["Under the Stone Arch<br/>#2458"]
+  R2459["Bonfire<br/>#2459"]
+  R2460["Pub<br/>#2460"]
+  R2461["Justice Row<br/>#2461"]
+  R2462["Justice Row<br/>#2462"]
+  R2463["The Audience Room<br/>#2463"]
+  R2464["The Bench<br/>#2464"]
+  R2465["Prison<br/>#2465"]
+  R2466["Prison<br/>#2466"]
+  R2467["Prison Cell<br/>#2467"]
+  R2468["Prison Cell<br/>#2468"]
+  R2469["Yew Forest<br/>#2469"]
+  R2470["Yew Forest<br/>#2470"]
+  R2471["Yew Forest<br/>#2471"]
   R2448 -->|S| R2451
-  R2448 -->|W| R2447
-  R2449 -->|N| R2446
+  R2448 -->|W| X2447
+  R2449 -->|N| X2446
   R2449 -->|E| R2450
   R2449 -->|S| R2452
-  R2450 -->|N| R2447
+  R2450 -->|N| X2447
   R2450 -->|E| R2451
   R2450 -->|S| R2453
   R2450 -->|W| R2449
@@ -344,24 +259,65 @@ graph LR
   R2466 -->|E| R2464
   R2467 -->|S| R2466
   R2468 -->|S| R2465
-  R2469 -->|N| R2478
+  R2469 -->|N| X2478
   R2469 -->|E| R2470
-  R2469 -->|S| R2479
-  R2469 -->|W| R2473
-  R2470 -->|N| R2477
+  R2469 -->|S| X2479
+  R2469 -->|W| X2473
+  R2470 -->|N| X2477
   R2470 -->|E| R2471
   R2470 -->|S| R2455
   R2470 -->|W| R2469
-  R2471 -->|N| R2476
-  R2471 -->|E| R2472
-  R2471 -->|S| R2481
+  R2471 -->|N| X2476
+  R2471 -->|E| X2472
+  R2471 -->|S| X2481
   R2471 -->|W| R2470
+  X2447["▸ Part B: Cellar<br/>#2447"]:::part
+  X2446["▸ Part B: Cellar<br/>#2446"]:::part
+  X2478["▸ Part D: Yew Forest<br/>#2478"]:::part
+  X2479["▸ Part D: Yew Forest<br/>#2479"]:::part
+  X2473["▸ Part D: Yew Forest<br/>#2473"]:::part
+  X2477["▸ Part D: Yew Forest<br/>#2477"]:::part
+  X2476["▸ Part D: Yew Forest<br/>#2476"]:::part
+  X2472["▸ Part D: Yew Forest<br/>#2472"]:::part
+  X2481["▸ Part D: Yew Forest<br/>#2481"]:::part
+  classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
+```
+
+## Map — Part D (24 rooms: #2472–#2495)
+
+```mermaid
+graph LR
+  R2472["Yew Forest<br/>#2472"]
+  R2473["Yew Forest<br/>#2473"]
+  R2474["Yew Forest<br/>#2474"]
+  R2475["Yew Forest<br/>#2475"]
+  R2476["Yew Forest<br/>#2476"]
+  R2477["Yew Forest<br/>#2477"]
+  R2478["Yew Forest<br/>#2478"]
+  R2479["Yew Forest<br/>#2479"]
+  R2480["Yew Forest<br/>#2480"]
+  R2481["Yew Forest<br/>#2481"]
+  R2482["Yew Forest<br/>#2482"]
+  R2483["Yew Forest<br/>#2483"]
+  R2484["The Yew Moongate<br/>#2484"]
+  R2485["Dungeon Entrance<br/>#2485"]
+  R2486["The Dungeon<br/>#2486"]
+  R2487["The Dungeon<br/>#2487"]
+  R2488["The Dungeon<br/>#2488"]
+  R2489["The Dungeon<br/>#2489"]
+  R2490["The Dungeon<br/>#2490"]
+  R2491["The Dungeon<br/>#2491"]
+  R2492["The Dungeon<br/>#2492"]
+  R2493["The Dungeon<br/>#2493"]
+  R2494["The Dungeon<br/>#2494"]
+  R2495["The Dungeon<br/>#2495"]
   R2472 -->|N| R2475
   R2472 -->|E| R2473
   R2472 -->|S| R2482
-  R2472 -->|W| R2471
+  R2472 -->|W| X2471
   R2473 -->|N| R2474
-  R2473 -->|E| R2469
+  R2473 -->|E| X2469
   R2473 -->|S| R2483
   R2473 -->|W| R2472
   R2474 -->|N| R2483
@@ -374,17 +330,17 @@ graph LR
   R2475 -->|W| R2476
   R2476 -->|N| R2481
   R2476 -->|E| R2475
-  R2476 -->|S| R2471
+  R2476 -->|S| X2471
   R2476 -->|W| R2477
   R2477 -->|N| R2480
   R2477 -->|E| R2476
-  R2477 -->|S| R2470
+  R2477 -->|S| X2470
   R2477 -->|W| R2478
   R2478 -->|N| R2479
   R2478 -->|E| R2477
-  R2478 -->|S| R2469
+  R2478 -->|S| X2469
   R2478 -->|W| R2474
-  R2479 -->|N| R2469
+  R2479 -->|N| X2469
   R2479 -->|E| R2480
   R2479 -->|S| R2478
   R2479 -->|W| R2483
@@ -392,7 +348,7 @@ graph LR
   R2480 -->|E| R2481
   R2480 -->|S| R2477
   R2480 -->|W| R2479
-  R2481 -->|N| R2471
+  R2481 -->|N| X2471
   R2481 -->|E| R2482
   R2481 -->|S| R2476
   R2481 -->|W| R2480
@@ -424,18 +380,54 @@ graph LR
   R2492 -->|E| R2493
   R2492 -->|S| R2488
   R2492 -->|W| R2491
-  R2493 -->|N| R2497
+  R2493 -->|N| X2497
   R2493 -->|W| R2492
-  R2494 -->|N| R2498
+  R2494 -->|N| X2498
   R2494 -->|S| R2490
-  R2495 -->|N| R2499
-  R2495 -->|E| R2496
+  R2495 -->|N| X2499
+  R2495 -->|E| X2496
   R2495 -->|S| R2491
+  X2471["▸ Part C: Yew Forest<br/>#2471"]:::part
+  X2469["▸ Part C: Yew Forest<br/>#2469"]:::part
+  X2470["▸ Part C: Yew Forest<br/>#2470"]:::part
+  X2497["▸ Part F: The Dungeon<br/>#2497"]:::part
+  X2498["▸ Part F: The Dungeon<br/>#2498"]:::part
+  X2499["▸ Part F: The Dungeon<br/>#2499"]:::part
+  X2496["▸ Part E: The Dungeon<br/>#2496"]:::part
+  classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
+```
+
+## Map — Part E (24 rooms: #2496–#2584)
+
+```mermaid
+graph LR
+  R2496["The Dungeon<br/>#2496"]
+  R2500["The Dungeon<br/>#2500"]
+  R2501["The Dungeon Moongate<br/>#2501"]
+  R2502["Minoc<br/>#2502"]
+  R2503["The Armourer<br/>#2503"]
+  R2504["Minoc's Fountain<br/>#2504"]
+  R2505["The Weaponsmith<br/>#2505"]
+  R2506["The Boatseller<br/>#2506"]
+  R2507["Sacrifice Street<br/>#2507"]
+  R2508["Sacrifice Street<br/>#2508"]
+  R2509["Sacrifice Street<br/>#2509"]
+  R2510["Forge<br/>#2510"]
+  R2511["Residence<br/>#2511"]
+  R2512["Residence<br/>#2512"]
+  R2513["The Beach<br/>#2513"]
+  R2514["The Beach<br/>#2514"]
+  R2515["The Beach<br/>#2515"]
+  R2516["The Beach<br/>#2516"]
+  R2517["The Beach<br/>#2517"]
+  R2518["The Whirlpool<br/>#2518"]
+  R2519["The Whirlpool<br/>#2519"]
+  R2520["The Whirlpool<br/>#2520"]
+  R2521["The Whirlpool<br/>#2521"]
+  R2584["The Lagoon<br/>#2584"]
   R2496 -->|N| R2500
-  R2496 -->|W| R2495
-  R2497 -->|S| R2493
-  R2498 -->|S| R2494
-  R2499 -->|S| R2495
+  R2496 -->|W| X2495
   R2500 -->|E| R2501
   R2500 -->|S| R2496
   R2501 -->|W| R2500
@@ -475,35 +467,102 @@ graph LR
   R2518 -->|E| R2519
   R2518 -->|S| R2584
   R2518 -->|W| R2520
-  R2519 -->|N| R2522
+  R2519 -->|N| X2522
   R2519 -->|E| R2520
-  R2519 -->|S| R2525
+  R2519 -->|S| X2525
   R2519 -->|W| R2518
-  R2520 -->|N| R2523
+  R2520 -->|N| X2523
   R2520 -->|E| R2518
-  R2520 -->|S| R2526
+  R2520 -->|S| X2526
   R2520 -->|W| R2519
-  R2521 -->|N| R2524
-  R2521 -->|E| R2522
+  R2521 -->|N| X2524
+  R2521 -->|E| X2522
   R2521 -->|S| R2518
-  R2521 -->|W| R2523
+  R2521 -->|W| X2523
+  R2584 -->|N| R2518
+  R2584 -->|E| R2513
+  X2495["▸ Part D: The Dungeon<br/>#2495"]:::part
+  X2522["▸ Part G: The Whirlpool<br/>#2522"]:::part
+  X2525["▸ Part G: The Whirlpool<br/>#2525"]:::part
+  X2523["▸ Part G: The Whirlpool<br/>#2523"]:::part
+  X2526["▸ Part G: The Whirlpool<br/>#2526"]:::part
+  X2524["▸ Part G: The Whirlpool<br/>#2524"]:::part
+  classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
+```
+
+## Map — Part F (6 rooms: #2497–#2548)
+
+```mermaid
+graph LR
+  R2497["The Dungeon<br/>#2497"]
+  R2498["The Dungeon<br/>#2498"]
+  R2499["The Dungeon<br/>#2499"]
+  R2545["The Desert<br/>#2545"]
+  R2547["The Desert Moongate<br/>#2547"]
+  R2548["The Dragon Cave<br/>#2548"]
+  R2497 -->|S| X2493
+  R2498 -->|S| X2494
+  R2499 -->|S| X2495
+  R2545 -->|N| R2548
+  R2545 -->|E| X2546
+  R2547 -->|W| X2546
+  R2547 -->|U| X1
+  R2548 -->|S| R2545
+  X2493["▸ Part D: The Dungeon<br/>#2493"]:::part
+  X2494["▸ Part D: The Dungeon<br/>#2494"]:::part
+  X2495["▸ Part D: The Dungeon<br/>#2495"]:::part
+  X2546["▸ Part G: The Desert<br/>#2546"]:::part
+  X1["The Void<br/>limbo #1"]:::ext
+  classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
+```
+
+## Map — Part G (24 rooms: #2522–#2546)
+
+```mermaid
+graph LR
+  R2522["The Whirlpool<br/>#2522"]
+  R2523["The Whirlpool<br/>#2523"]
+  R2524["The Whirlpool<br/>#2524"]
+  R2525["The Whirlpool<br/>#2525"]
+  R2526["The Whirlpool<br/>#2526"]
+  R2527["The Minoc Moongate<br/>#2527"]
+  R2528["A Campfire<br/>#2528"]
+  R2529["Between the Tents<br/>#2529"]
+  R2530["In front of the Grand Tent<br/>#2530"]
+  R2531["A Small Tent<br/>#2531"]
+  R2532["A Small Tent<br/>#2532"]
+  R2533["The Treasure Tent<br/>#2533"]
+  R2534["The Grand Tent<br/>#2534"]
+  R2535["The Map Tent<br/>#2535"]
+  R2536["Dupre's Tent<br/>#2536"]
+  R2537["A Small Tent<br/>#2537"]
+  R2538["Desert Entrance<br/>#2538"]
+  R2539["A Small Tent<br/>#2539"]
+  R2540["The Desert<br/>#2540"]
+  R2541["The Desert<br/>#2541"]
+  R2542["The Desert<br/>#2542"]
+  R2543["The Desert Moongate<br/>#2543"]
+  R2544["The Desert Moongate<br/>#2544"]
+  R2546["The Desert<br/>#2546"]
   R2522 -->|N| R2525
   R2522 -->|E| R2523
-  R2522 -->|S| R2519
-  R2522 -->|W| R2521
+  R2522 -->|S| X2519
+  R2522 -->|W| X2521
   R2523 -->|N| R2526
-  R2523 -->|E| R2521
-  R2523 -->|S| R2520
+  R2523 -->|E| X2521
+  R2523 -->|S| X2520
   R2523 -->|W| R2522
   R2524 -->|N| R2527
   R2524 -->|E| R2525
-  R2524 -->|S| R2521
+  R2524 -->|S| X2521
   R2524 -->|W| R2526
-  R2525 -->|N| R2519
+  R2525 -->|N| X2519
   R2525 -->|E| R2526
   R2525 -->|S| R2522
   R2525 -->|W| R2524
-  R2526 -->|N| R2520
+  R2526 -->|N| X2520
   R2526 -->|E| R2524
   R2526 -->|S| R2523
   R2526 -->|W| R2525
@@ -540,17 +599,51 @@ graph LR
   R2542 -->|E| R2543
   R2542 -->|W| R2541
   R2543 -->|W| R2542
-  R2543 -->|U| R2549
+  R2543 -->|U| X2549
   R2544 -->|S| R2540
   R2544 -->|U| X1
-  R2545 -->|N| R2548
-  R2545 -->|E| R2546
-  R2546 -->|E| R2547
+  R2546 -->|E| X2547
   R2546 -->|S| R2542
-  R2546 -->|W| R2545
-  R2547 -->|W| R2546
-  R2547 -->|U| X1
-  R2548 -->|S| R2545
+  R2546 -->|W| X2545
+  X2519["▸ Part E: The Whirlpool<br/>#2519"]:::part
+  X2521["▸ Part E: The Whirlpool<br/>#2521"]:::part
+  X2520["▸ Part E: The Whirlpool<br/>#2520"]:::part
+  X2549["▸ Part H: The Shrine of Spirituality<br/>#2549"]:::part
+  X1["The Void<br/>limbo #1"]:::ext
+  X2547["▸ Part F: The Desert Moongate<br/>#2547"]:::part
+  X2545["▸ Part F: The Desert<br/>#2545"]:::part
+  classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
+```
+
+## Map — Part H (24 rooms: #2549–#2572)
+
+```mermaid
+graph LR
+  R2549["The Shrine of Spirituality<br/>#2549"]
+  R2550["The Place of Ultimate Evil<br/>#2550"]
+  R2551["The Place of Ultimate Evil<br/>#2551"]
+  R2552["The Place of Ultimate Evil<br/>#2552"]
+  R2553["The Place of Ultimate Evil<br/>#2553"]
+  R2554["The Place of Ultimate Evil<br/>#2554"]
+  R2555["The Place of Ultimate Evil<br/>#2555"]
+  R2556["The Graveyard<br/>#2556"]
+  R2557["The Graveyard<br/>#2557"]
+  R2558["The Graveyard<br/>#2558"]
+  R2559["The Graveyard<br/>#2559"]
+  R2560["The Graveyard<br/>#2560"]
+  R2561["The Graveyard<br/>#2561"]
+  R2562["Lord British's Castle Entrance<br/>#2562"]
+  R2563["Castle Fountain<br/>#2563"]
+  R2564["A staircase<br/>#2564"]
+  R2565["Hallways<br/>#2565"]
+  R2566["Hallway<br/>#2566"]
+  R2567["The Throne Room<br/>#2567"]
+  R2568["Batlin's Room<br/>#2568"]
+  R2569["The Altar of Honesty<br/>#2569"]
+  R2570["The Altar of Compassion<br/>#2570"]
+  R2571["The Altar of Valor<br/>#2571"]
+  R2572["The Altar of Justice<br/>#2572"]
   R2549 -->|N| R2554
   R2549 -->|S| R2557
   R2549 -->|U| R2562
@@ -600,7 +693,27 @@ graph LR
   R2569 -->|N| R2570
   R2570 -->|N| R2571
   R2571 -->|N| R2572
-  R2572 -->|N| R2573
+  R2572 -->|N| X2573
+  X2573["▸ Part I: The Altar of Sacrifice<br/>#2573"]:::part
+  classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
+```
+
+## Map — Part I (11 rooms: #2573–#2583)
+
+```mermaid
+graph LR
+  R2573["The Altar of Sacrifice<br/>#2573"]
+  R2574["The Altar of Honour<br/>#2574"]
+  R2575["The Altar of Spirituality<br/>#2575"]
+  R2576["The Altar of Humility<br/>#2576"]
+  R2577["The Enlightenment<br/>#2577"]
+  R2578["In the Warp<br/>#2578"]
+  R2579["In the Warp<br/>#2579"]
+  R2580["In the Warp<br/>#2580"]
+  R2581["The Enlightenment<br/>#2581"]
+  R2582["In the Warp<br/>#2582"]
+  R2583["In the Warp<br/>#2583"]
   R2573 -->|N| R2574
   R2574 -->|N| R2575
   R2575 -->|N| R2576
@@ -611,11 +724,8 @@ graph LR
   R2580 -->|U| R2581
   R2581 -->|U| R2582
   R2582 -->|U| R2583
-  R2584 -->|N| R2518
-  R2584 -->|E| R2513
-  X315["Gallow hill<br/>plains #315"]:::ext
-  X1["The Void<br/>limbo #1"]:::ext
   classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
 ```
 
 ## Rooms

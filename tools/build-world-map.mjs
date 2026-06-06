@@ -15,7 +15,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { parseAreaFile, loadAreaList, mlabel, cell, DIR_WORD } from './lib/area.mjs';
+import { parseAreaFile, loadAreaList, mlabel, cell, DIR_WORD, areaDiagrams } from './lib/area.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const AREA_DIR = path.join(ROOT, 'area');
@@ -133,29 +133,19 @@ function writeOverview(world, areas, crossArea, reachableByArea, inboundAreas) {
   fs.writeFileSync(path.join(OUT, 'WORLD-MAP.md'), out.join('\n') + '\n');
 }
 
-function areaMermaid(area, rooms) {
-  const inArea = [...rooms.values()].filter((r) => r.area === area.id);
-  const lines = ['graph LR'];
-  for (const r of inArea) lines.push(`  R${r.vnum}["${mlabel(r.name)}<br/>#${r.vnum}"]`);
-  const ext = new Map();
-  for (const r of inArea) for (const [dir, to] of Object.entries(r.exits)) {
-    const dest = rooms.get(to);
-    if (dest && dest.area === area.id) { lines.push(`  R${r.vnum} -->|${dir}| R${to}`); }
-    else { ext.set(to, dest ? `${mlabel(dest.name)}<br/>${dest.area} #${to}` : `?? broken<br/>#${to}`); lines.push(`  R${r.vnum} -->|${dir}| X${to}`); }
-  }
-  for (const [to, label] of ext) lines.push(`  X${to}["${label}"]:::ext`);
-  lines.push('  classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;');
-  return lines.join('\n');
-}
-
 function writeAreaPages(areas, rooms) {
   for (const a of areas) {
     const inArea = [...rooms.values()].filter((r) => r.area === a.id).sort((x, y) => x.vnum - y.vnum);
+    const diagrams = areaDiagrams(a.id, inArea, rooms);
     const out = [];
     out.push(`# ${a.name}  \`(${a.id})\``, '');
     out.push(`[← back to world map](WORLD-MAP.md) · ${inArea.length} rooms · vnums ${a.vnumMin}–${a.vnumMax}`, '');
-    out.push('Dashed nodes are exits that leave this area.', '');
-    out.push('```mermaid', areaMermaid(a, rooms), '```', '');
+    out.push('Grey dashed nodes leave the area; green dashed nodes (`▸ Part X`) continue on another sub-map below.', '');
+    if (diagrams.length > 1) out.push(`_This area is split into ${diagrams.length} sub-maps for legibility._`, '');
+    for (const d of diagrams) {
+      out.push(d.letter ? `## Map — Part ${d.letter} (${d.rooms.length} rooms: #${d.rooms[0].vnum}–#${d.rooms[d.rooms.length - 1].vnum})` : '## Map', '');
+      out.push('```mermaid', d.mermaid, '```', '');
+    }
     out.push('## Rooms', '', '| VNUM | Name | Exits |', '|---:|---|---|');
     for (const r of inArea) {
       const ex = Object.entries(r.exits).map(([d, to]) => `${d}→${to}`).join(' ') || '—';

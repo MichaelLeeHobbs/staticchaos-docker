@@ -2,7 +2,11 @@
 
 [← back to world map](WORLD-MAP.md) · 45 rooms · vnums 3500–3584
 
-Dashed nodes are exits that leave this area.
+Grey dashed nodes leave the area; green dashed nodes (`▸ Part X`) continue on another sub-map below.
+
+_This area is split into 3 sub-maps for legibility._
+
+## Map — Part A (7 rooms: #3500–#3556)
 
 ```mermaid
 graph LR
@@ -10,6 +14,38 @@ graph LR
   R3501["The Lane<br/>#3501"]
   R3502["The Cross Roads<br/>#3502"]
   R3503["City Entrance<br/>#3503"]
+  R3554["A Small Alcove<br/>#3554"]
+  R3555["A Tunnel in the Mountains<br/>#3555"]
+  R3556["The Goblin Headquarters<br/>#3556"]
+  R3500 -->|N| X4000
+  R3500 -->|S| R3501
+  R3501 -->|N| R3500
+  R3501 -->|S| R3502
+  R3502 -->|N| R3501
+  R3502 -->|S| X5261
+  R3502 -->|W| R3503
+  R3502 -->|D| X6500
+  R3503 -->|E| R3502
+  R3503 -->|S| X1501
+  R3503 -->|W| X3053
+  R3554 -->|W| X3553
+  R3555 -->|N| X3553
+  R3555 -->|S| R3556
+  R3556 -->|N| R3555
+  X4000["The hills<br/>moria #4000"]:::ext
+  X5261["The dwarf forest<br/>thalos #5261"]:::ext
+  X6500["Path to Dwarven Village<br/>dwarven #6500"]:::ext
+  X1501["Entrance to Gnome Village<br/>gnome #1501"]:::ext
+  X3053["Outside the East Gate of Midgaard<br/>midgaard #3053"]:::ext
+  X3553["▸ Part B: A Tunnel in the Mountains<br/>#3553"]:::part
+  classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
+```
+
+## Map — Part B (24 rooms: #3504–#3553)
+
+```mermaid
+graph LR
   R3504["The South Bridge<br/>#3504"]
   R3505["The Trail to Miden'nir<br/>#3505"]
   R3506["The Miden'nir<br/>#3506"]
@@ -34,40 +70,12 @@ graph LR
   R3551["The Deep in the Forest of Miden'nir<br/>#3551"]
   R3552["A Tunnel in the Mountains<br/>#3552"]
   R3553["A Tunnel in the Mountains<br/>#3553"]
-  R3554["A Small Alcove<br/>#3554"]
-  R3555["A Tunnel in the Mountains<br/>#3555"]
-  R3556["The Goblin Headquarters<br/>#3556"]
-  R3570["The Front of the Inn<br/>#3570"]
-  R3571["North of the Inn<br/>#3571"]
-  R3572["South of the Inn<br/>#3572"]
-  R3573["Behind the Inn<br/>#3573"]
-  R3574["The Woodsman Inn<br/>#3574"]
-  R3575["The Ambush Point<br/>#3575"]
-  R3576["The Bar<br/>#3576"]
-  R3577["The Bard's Table<br/>#3577"]
-  R3578["Garbage dump<br/>#3578"]
-  R3579["A Quieter Section of the Inn<br/>#3579"]
-  R3581["On the Trail of the Horsemen<br/>#3581"]
-  R3582["On the Trail of the Horsemen<br/>#3582"]
-  R3583["On the Trail of the Horsemen<br/>#3583"]
-  R3584["A Dead End Trail<br/>#3584"]
-  R3500 -->|N| X4000
-  R3500 -->|S| R3501
-  R3501 -->|N| R3500
-  R3501 -->|S| R3502
-  R3502 -->|N| R3501
-  R3502 -->|S| X5261
-  R3502 -->|W| R3503
-  R3502 -->|D| X6500
-  R3503 -->|E| R3502
-  R3503 -->|S| X1501
-  R3503 -->|W| X3053
   R3504 -->|N| X3030
   R3504 -->|S| R3505
   R3505 -->|N| R3504
   R3505 -->|E| R3506
   R3505 -->|S| R3507
-  R3505 -->|W| R3570
+  R3505 -->|W| X3570
   R3506 -->|E| R3550
   R3506 -->|S| R3509
   R3506 -->|W| R3505
@@ -126,14 +134,37 @@ graph LR
   R3552 -->|N| R3551
   R3552 -->|S| R3553
   R3553 -->|N| R3552
-  R3553 -->|E| R3554
-  R3553 -->|S| R3555
-  R3554 -->|W| R3553
-  R3555 -->|N| R3553
-  R3555 -->|S| R3556
-  R3556 -->|N| R3555
+  R3553 -->|E| X3554
+  R3553 -->|S| X3555
+  X3030["The Dump<br/>midgaard #3030"]:::ext
+  X3570["▸ Part C: The Front of the Inn<br/>#3570"]:::part
+  X0["?? broken<br/>#0"]:::ext
+  X3554["▸ Part A: A Small Alcove<br/>#3554"]:::part
+  X3555["▸ Part A: A Tunnel in the Mountains<br/>#3555"]:::part
+  classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
+```
+
+## Map — Part C (14 rooms: #3570–#3584)
+
+```mermaid
+graph LR
+  R3570["The Front of the Inn<br/>#3570"]
+  R3571["North of the Inn<br/>#3571"]
+  R3572["South of the Inn<br/>#3572"]
+  R3573["Behind the Inn<br/>#3573"]
+  R3574["The Woodsman Inn<br/>#3574"]
+  R3575["The Ambush Point<br/>#3575"]
+  R3576["The Bar<br/>#3576"]
+  R3577["The Bard's Table<br/>#3577"]
+  R3578["Garbage dump<br/>#3578"]
+  R3579["A Quieter Section of the Inn<br/>#3579"]
+  R3581["On the Trail of the Horsemen<br/>#3581"]
+  R3582["On the Trail of the Horsemen<br/>#3582"]
+  R3583["On the Trail of the Horsemen<br/>#3583"]
+  R3584["A Dead End Trail<br/>#3584"]
   R3570 -->|N| R3571
-  R3570 -->|E| R3505
+  R3570 -->|E| X3505
   R3570 -->|S| R3572
   R3570 -->|W| R3574
   R3571 -->|S| R3570
@@ -159,14 +190,9 @@ graph LR
   R3583 -->|N| R3582
   R3583 -->|W| R3584
   R3584 -->|E| R3583
-  X4000["The hills<br/>moria #4000"]:::ext
-  X5261["The dwarf forest<br/>thalos #5261"]:::ext
-  X6500["Path to Dwarven Village<br/>dwarven #6500"]:::ext
-  X1501["Entrance to Gnome Village<br/>gnome #1501"]:::ext
-  X3053["Outside the East Gate of Midgaard<br/>midgaard #3053"]:::ext
-  X3030["The Dump<br/>midgaard #3030"]:::ext
-  X0["?? broken<br/>#0"]:::ext
+  X3505["▸ Part B: The Trail to Miden'nir<br/>#3505"]:::part
   classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
 ```
 
 ## Rooms

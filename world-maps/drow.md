@@ -2,7 +2,11 @@
 
 [← back to world map](WORLD-MAP.md) · 51 rooms · vnums 5100–5150
 
-Dashed nodes are exits that leave this area.
+Grey dashed nodes leave the area; green dashed nodes (`▸ Part X`) continue on another sub-map below.
+
+_This area is split into 3 sub-maps for legibility._
+
+## Map — Part A (24 rooms: #5100–#5123)
 
 ```mermaid
 graph LR
@@ -30,33 +34,6 @@ graph LR
   R5121["City street<br/>#5121"]
   R5122["Slave Chamber<br/>#5122"]
   R5123["City street<br/>#5123"]
-  R5124["4th house<br/>#5124"]
-  R5125["Throne Room<br/>#5125"]
-  R5126["Entrance Way<br/>#5126"]
-  R5127["Hallway<br/>#5127"]
-  R5128["Long Hallway<br/>#5128"]
-  R5129["Long Hallway<br/>#5129"]
-  R5130["Long Hallway<br/>#5130"]
-  R5131["Long Hallway<br/>#5131"]
-  R5132["Long Hallway<br/>#5132"]
-  R5133["Warrior's Barracks<br/>#5133"]
-  R5134["Long Hallway<br/>#5134"]
-  R5135["Grand Stairway<br/>#5135"]
-  R5136["Grand Hallway<br/>#5136"]
-  R5137["Mage's Barracks<br/>#5137"]
-  R5138["Grand Hallway<br/>#5138"]
-  R5139["Cleric's Barracks<br/>#5139"]
-  R5140["Grand Stairway<br/>#5140"]
-  R5141["Main Chamber<br/>#5141"]
-  R5142["Eastern side of Chamber<br/>#5142"]
-  R5143["Sacrificial Pit<br/>#5143"]
-  R5144["Western side of Chamber<br/>#5144"]
-  R5145["The Altar<br/>#5145"]
-  R5146["Slave Cells<br/>#5146"]
-  R5147["Slave Pen<br/>#5147"]
-  R5148["Dais<br/>#5148"]
-  R5149["The Treasury<br/>#5149"]
-  R5150["Weaponsmaster's Chamber<br/>#5150"]
   R5100 -->|W| R5101
   R5100 -->|U| X5270
   R5101 -->|N| R5123
@@ -99,7 +76,7 @@ graph LR
   R5117 -->|W| R5114
   R5118 -->|S| R5106
   R5119 -->|S| R5117
-  R5119 -->|D| R5126
+  R5119 -->|D| X5126
   R5120 -->|S| R5121
   R5121 -->|N| R5120
   R5121 -->|E| R5123
@@ -107,21 +84,70 @@ graph LR
   R5121 -->|W| R5117
   R5122 -->|N| R5121
   R5122 -->|E| R5101
-  R5123 -->|N| R5124
+  R5123 -->|N| X5124
   R5123 -->|S| R5101
   R5123 -->|W| R5121
+  X5270["Down the path into a dead end<br/>thalos #5270"]:::ext
+  X5126["▸ Part C: Entrance Way<br/>#5126"]:::part
+  X5124["▸ Part B: 4th house<br/>#5124"]:::part
+  classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
+```
+
+## Map — Part B (3 rooms: #5124–#5150)
+
+```mermaid
+graph LR
+  R5124["4th house<br/>#5124"]
+  R5125["Throne Room<br/>#5125"]
+  R5150["Weaponsmaster's Chamber<br/>#5150"]
   R5124 -->|E| R5125
-  R5124 -->|S| R5123
+  R5124 -->|S| X5123
   R5125 -->|W| R5124
+  R5150 -->|S| X5129
+  X5123["▸ Part A: City street<br/>#5123"]:::part
+  X5129["▸ Part C: Long Hallway<br/>#5129"]:::part
+  classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
+```
+
+## Map — Part C (24 rooms: #5126–#5149)
+
+```mermaid
+graph LR
+  R5126["Entrance Way<br/>#5126"]
+  R5127["Hallway<br/>#5127"]
+  R5128["Long Hallway<br/>#5128"]
+  R5129["Long Hallway<br/>#5129"]
+  R5130["Long Hallway<br/>#5130"]
+  R5131["Long Hallway<br/>#5131"]
+  R5132["Long Hallway<br/>#5132"]
+  R5133["Warrior's Barracks<br/>#5133"]
+  R5134["Long Hallway<br/>#5134"]
+  R5135["Grand Stairway<br/>#5135"]
+  R5136["Grand Hallway<br/>#5136"]
+  R5137["Mage's Barracks<br/>#5137"]
+  R5138["Grand Hallway<br/>#5138"]
+  R5139["Cleric's Barracks<br/>#5139"]
+  R5140["Grand Stairway<br/>#5140"]
+  R5141["Main Chamber<br/>#5141"]
+  R5142["Eastern side of Chamber<br/>#5142"]
+  R5143["Sacrificial Pit<br/>#5143"]
+  R5144["Western side of Chamber<br/>#5144"]
+  R5145["The Altar<br/>#5145"]
+  R5146["Slave Cells<br/>#5146"]
+  R5147["Slave Pen<br/>#5147"]
+  R5148["Dais<br/>#5148"]
+  R5149["The Treasury<br/>#5149"]
   R5126 -->|N| R5127
-  R5126 -->|U| R5119
+  R5126 -->|U| X5119
   R5127 -->|N| R5135
   R5127 -->|E| R5128
   R5127 -->|S| R5126
   R5127 -->|W| R5131
   R5128 -->|E| R5129
   R5128 -->|W| R5127
-  R5129 -->|N| R5150
+  R5129 -->|N| X5150
   R5129 -->|E| R5130
   R5129 -->|W| R5128
   R5130 -->|E| R5134
@@ -164,9 +190,10 @@ graph LR
   R5148 -->|S| R5145
   R5148 -->|W| R5149
   R5149 -->|E| R5148
-  R5150 -->|S| R5129
-  X5270["Down the path into a dead end<br/>thalos #5270"]:::ext
+  X5119["▸ Part A: Entrance to the Temple of Lloth<br/>#5119"]:::part
+  X5150["▸ Part B: Weaponsmaster's Chamber<br/>#5150"]:::part
   classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
 ```
 
 ## Rooms

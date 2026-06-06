@@ -2,7 +2,9 @@
 
 [← back to world map](WORLD-MAP.md) · 8 rooms · vnums 5550–5577
 
-Dashed nodes are exits that leave this area.
+Grey dashed nodes leave the area; green dashed nodes (`▸ Part X`) continue on another sub-map below.
+
+## Map
 
 ```mermaid
 graph LR
@@ -31,6 +33,7 @@ graph LR
   X314["Outside Ofcol<br/>plains #314"]:::ext
   X601["The Big Intersection<br/>ofcol2 #601"]:::ext
   classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
 ```
 
 ## Rooms

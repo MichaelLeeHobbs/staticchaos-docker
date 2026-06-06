@@ -24,6 +24,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { execFileSync } from 'node:child_process';
 import { mdToPdf } from 'md-to-pdf';
+import { parseAreaFile, loadAreaList, areaDiagrams } from './lib/area.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const OUT = path.join(ROOT, 'world-maps');
@@ -52,23 +53,35 @@ async function main() {
   fs.rmSync(TMP, { recursive: true, force: true });
   fs.mkdirSync(TMP, { recursive: true });
 
-  const world = JSON.parse(fs.readFileSync(path.join(OUT, 'world.json'), 'utf8'));
+  // parse every area -> global room map (for cross-part / cross-area labels)
+  const AREA_DIR = path.join(ROOT, 'area');
+  const areas = [];
+  const allRooms = new Map();
+  for (const f of loadAreaList(AREA_DIR)) {
+    const a = parseAreaFile(path.join(AREA_DIR, f));
+    if (!a.rooms.length) continue;
+    for (const r of a.rooms) { r.area = a.id; allRooms.set(r.vnum, r); }
+    areas.push({ id: a.id, name: a.name, rooms: a.rooms, min: Math.min(...a.rooms.map((r) => r.vnum)) });
+  }
+  areas.sort((x, y) => x.min - y.min);
 
-  // ---- assemble one markdown with every diagram ----
-  const parts = ['# Static Chaos — World Maps', ''];
+  // ---- assemble one markdown with every diagram (large areas split into parts) ----
+  const md = ['# Static Chaos — World Maps', ''];
   const overview = mermaidBlock(fs.readFileSync(path.join(OUT, 'WORLD-MAP.md'), 'utf8'));
-  if (overview) parts.push('## World overview (area connectivity)', '', '```mermaid', overview.trimEnd(), '```', '');
+  if (overview) md.push('## World overview (area connectivity)', '', '```mermaid', overview.trimEnd(), '```', '');
   let count = overview ? 1 : 0;
-  for (const a of world.areas) {
-    const f = path.join(OUT, `${a.id}.md`);
-    if (!fs.existsSync(f)) continue;
-    const block = mermaidBlock(fs.readFileSync(f, 'utf8'));
-    if (!block) continue;
-    parts.push('<div style="page-break-before: always"></div>', '', `## ${a.name}  (${a.id}) — ${a.roomCount} rooms`, '', '```mermaid', block.trimEnd(), '```', '');
-    count++;
+  for (const a of areas) {
+    const diagrams = areaDiagrams(a.id, a.rooms, allRooms);
+    for (const d of diagrams) {
+      const title = d.letter
+        ? `${a.name} (${a.id}) — Part ${d.letter}  ·  ${d.rooms.length} rooms (#${d.rooms[0].vnum}–#${d.rooms[d.rooms.length - 1].vnum})`
+        : `${a.name} (${a.id}) — ${a.rooms.length} rooms`;
+      md.push('<div style="page-break-before: always"></div>', '', `## ${title}`, '', '```mermaid', d.mermaid, '```', '');
+      count++;
+    }
   }
   const combined = path.join(TMP, 'maps.md');
-  fs.writeFileSync(combined, parts.join('\n') + '\n');
+  fs.writeFileSync(combined, md.join('\n') + '\n');
 
   // ---- mermaid + puppeteer config ----
   const mmCfg = path.join(TMP, 'mermaid.json');

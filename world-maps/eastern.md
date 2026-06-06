@@ -2,7 +2,11 @@
 
 [← back to world map](WORLD-MAP.md) · 47 rooms · vnums 5001–5070
 
-Dashed nodes are exits that leave this area.
+Grey dashed nodes leave the area; green dashed nodes (`▸ Part X`) continue on another sub-map below.
+
+_This area is split into 2 sub-maps for legibility._
+
+## Map — Part A (24 rooms: #5001–#5027)
 
 ```mermaid
 graph LR
@@ -29,30 +33,7 @@ graph LR
   R5021["Fungus temple<br/>#5021"]
   R5022["Sloping passage<br/>#5022"]
   R5023["Sloping passage<br/>#5023"]
-  R5024["The Great Eastern Desert<br/>#5024"]
-  R5025["The Great Eastern Desert<br/>#5025"]
-  R5026["The Great Eastern Desert<br/>#5026"]
   R5027["The Great Eastern Desert<br/>#5027"]
-  R5028["The Great Eastern Desert<br/>#5028"]
-  R5029["The Great Eastern Desert<br/>#5029"]
-  R5030["The Great Eastern Desert<br/>#5030"]
-  R5031["The Great Eastern Desert<br/>#5031"]
-  R5032["The Great Eastern Desert<br/>#5032"]
-  R5056["A nomad camp<br/>#5056"]
-  R5057["Inside a small tent<br/>#5057"]
-  R5058["Beside the camels<br/>#5058"]
-  R5059["The warrior's tent.<br/>#5059"]
-  R5060["The main tent<br/>#5060"]
-  R5061["The main tent<br/>#5061"]
-  R5062["Upon a small hill.<br/>#5062"]
-  R5063["The wind-swept ledge<br/>#5063"]
-  R5064["The cave mouth<br/>#5064"]
-  R5065["The mysterious lair.<br/>#5065"]
-  R5066["A wide tunnel<br/>#5066"]
-  R5067["A narrower tunnel<br/>#5067"]
-  R5068["A narrow crack<br/>#5068"]
-  R5069["A small cavern.<br/>#5069"]
-  R5070["A small shaft<br/>#5070"]
   R5001 -->|E| R5002
   R5001 -->|W| X3205
   R5002 -->|N| R5008
@@ -105,9 +86,48 @@ graph LR
   R5022 -->|D| R5023
   R5023 -->|N| R5005
   R5023 -->|U| R5022
+  R5027 -->|N| X5024
+  R5027 -->|E| X5028
+  R5027 -->|S| X5030
+  R5027 -->|W| R5007
+  X3205["On the River<br/>midgaard #3205"]:::ext
+  X5024["▸ Part B: The Great Eastern Desert<br/>#5024"]:::part
+  X5028["▸ Part B: The Great Eastern Desert<br/>#5028"]:::part
+  X5030["▸ Part B: The Great Eastern Desert<br/>#5030"]:::part
+  classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
+```
+
+## Map — Part B (23 rooms: #5024–#5070)
+
+```mermaid
+graph LR
+  R5024["The Great Eastern Desert<br/>#5024"]
+  R5025["The Great Eastern Desert<br/>#5025"]
+  R5026["The Great Eastern Desert<br/>#5026"]
+  R5028["The Great Eastern Desert<br/>#5028"]
+  R5029["The Great Eastern Desert<br/>#5029"]
+  R5030["The Great Eastern Desert<br/>#5030"]
+  R5031["The Great Eastern Desert<br/>#5031"]
+  R5032["The Great Eastern Desert<br/>#5032"]
+  R5056["A nomad camp<br/>#5056"]
+  R5057["Inside a small tent<br/>#5057"]
+  R5058["Beside the camels<br/>#5058"]
+  R5059["The warrior's tent.<br/>#5059"]
+  R5060["The main tent<br/>#5060"]
+  R5061["The main tent<br/>#5061"]
+  R5062["Upon a small hill.<br/>#5062"]
+  R5063["The wind-swept ledge<br/>#5063"]
+  R5064["The cave mouth<br/>#5064"]
+  R5065["The mysterious lair.<br/>#5065"]
+  R5066["A wide tunnel<br/>#5066"]
+  R5067["A narrower tunnel<br/>#5067"]
+  R5068["A narrow crack<br/>#5068"]
+  R5069["A small cavern.<br/>#5069"]
+  R5070["A small shaft<br/>#5070"]
   R5024 -->|N| R5030
   R5024 -->|E| R5025
-  R5024 -->|S| R5027
+  R5024 -->|S| X5027
   R5024 -->|W| R5026
   R5025 -->|N| R5056
   R5025 -->|E| R5026
@@ -117,19 +137,15 @@ graph LR
   R5026 -->|E| R5024
   R5026 -->|S| R5029
   R5026 -->|W| R5025
-  R5027 -->|N| R5024
-  R5027 -->|E| R5028
-  R5027 -->|S| R5030
-  R5027 -->|W| R5007
   R5028 -->|N| R5025
   R5028 -->|E| R5029
   R5028 -->|S| R5031
-  R5028 -->|W| R5027
+  R5028 -->|W| X5027
   R5029 -->|N| R5026
   R5029 -->|E| R5062
   R5029 -->|S| R5032
   R5029 -->|W| R5028
-  R5030 -->|N| R5027
+  R5030 -->|N| X5027
   R5030 -->|E| R5031
   R5030 -->|S| R5024
   R5030 -->|W| R5032
@@ -168,9 +184,11 @@ graph LR
   R5069 -->|N| R5070
   R5069 -->|E| R5068
   R5070 -->|S| R5069
-  R5070 -->|U| R5009
-  X3205["On the River<br/>midgaard #3205"]:::ext
+  R5070 -->|U| X5009
+  X5027["▸ Part A: The Great Eastern Desert<br/>#5027"]:::part
+  X5009["▸ Part A: At the foot of the rubble<br/>#5009"]:::part
   classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
 ```
 
 ## Rooms

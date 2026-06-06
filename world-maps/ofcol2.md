@@ -2,7 +2,11 @@
 
 [← back to world map](WORLD-MAP.md) · 100 rooms · vnums 600–699
 
-Dashed nodes are exits that leave this area.
+Grey dashed nodes leave the area; green dashed nodes (`▸ Part X`) continue on another sub-map below.
+
+_This area is split into 6 sub-maps for legibility._
+
+## Map — Part A (24 rooms: #600–#631)
 
 ```mermaid
 graph LR
@@ -23,6 +27,77 @@ graph LR
   R614["Fields<br/>#614"]
   R615["Fields<br/>#615"]
   R616["The Shed<br/>#616"]
+  R625["Impy Way<br/>#625"]
+  R626["Big House<br/>#626"]
+  R627["Bedroom<br/>#627"]
+  R628["Kitchen<br/>#628"]
+  R629["Big House<br/>#629"]
+  R630["Bedroom<br/>#630"]
+  R631["Kitchen<br/>#631"]
+  R600 -->|E| R616
+  R601 -->|N| R625
+  R601 -->|E| X666
+  R601 -->|S| R602
+  R601 -->|W| X5553
+  R602 -->|N| R601
+  R602 -->|E| R604
+  R602 -->|S| R605
+  R602 -->|W| R603
+  R603 -->|E| R602
+  R604 -->|W| R602
+  R605 -->|N| R602
+  R605 -->|E| R607
+  R605 -->|S| R608
+  R605 -->|W| R606
+  R606 -->|E| R605
+  R607 -->|W| R605
+  R608 -->|N| R605
+  R608 -->|E| R610
+  R608 -->|S| R611
+  R608 -->|W| R609
+  R609 -->|E| R608
+  R610 -->|W| R608
+  R611 -->|N| R608
+  R611 -->|E| X668
+  R611 -->|W| R612
+  R612 -->|N| R616
+  R612 -->|E| R611
+  R612 -->|S| R613
+  R612 -->|W| R615
+  R613 -->|N| R612
+  R613 -->|W| R614
+  R614 -->|N| R615
+  R614 -->|E| R613
+  R615 -->|E| R612
+  R615 -->|S| R614
+  R616 -->|S| R612
+  R616 -->|W| R600
+  R625 -->|N| X632
+  R625 -->|E| R626
+  R625 -->|S| R601
+  R625 -->|W| R629
+  R626 -->|E| R628
+  R626 -->|W| R625
+  R626 -->|U| R627
+  R627 -->|D| R626
+  R628 -->|W| R626
+  R629 -->|E| R625
+  R629 -->|W| R631
+  R629 -->|U| R630
+  R630 -->|D| R629
+  R631 -->|E| R629
+  X666["▸ Part E: Raff Way<br/>#666"]:::part
+  X5553["The small alley<br/>ofcol #5553"]:::ext
+  X668["▸ Part B: Dirt Road<br/>#668"]:::part
+  X632["▸ Part C: Impy Way<br/>#632"]:::part
+  classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
+```
+
+## Map — Part B (9 rooms: #617–#668)
+
+```mermaid
+graph LR
   R617["Slaughterhouse<br/>#617"]
   R618["Dirt Road<br/>#618"]
   R619["Chicken Coop<br/>#619"]
@@ -31,13 +106,33 @@ graph LR
   R622["Grass Field<br/>#622"]
   R623["Grass Field<br/>#623"]
   R624["Pig Sty<br/>#624"]
-  R625["Impy Way<br/>#625"]
-  R626["Big House<br/>#626"]
-  R627["Bedroom<br/>#627"]
-  R628["Kitchen<br/>#628"]
-  R629["Big House<br/>#629"]
-  R630["Bedroom<br/>#630"]
-  R631["Kitchen<br/>#631"]
+  R668["Dirt Road<br/>#668"]
+  R617 -->|W| R668
+  R618 -->|N| R668
+  R618 -->|E| R620
+  R618 -->|S| R619
+  R618 -->|W| R621
+  R619 -->|N| R618
+  R620 -->|W| R618
+  R621 -->|N| R622
+  R621 -->|E| R618
+  R621 -->|S| R623
+  R621 -->|W| R624
+  R622 -->|S| R621
+  R623 -->|N| R621
+  R624 -->|E| R621
+  R668 -->|E| R617
+  R668 -->|S| R618
+  R668 -->|W| X611
+  X611["▸ Part A: The End of Impy Way<br/>#611"]:::part
+  classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
+```
+
+## Map — Part C (24 rooms: #632–#655)
+
+```mermaid
+graph LR
   R632["Impy Way<br/>#632"]
   R633["House<br/>#633"]
   R634["Bedroom<br/>#634"]
@@ -62,119 +157,9 @@ graph LR
   R653["Small House<br/>#653"]
   R654["Small House<br/>#654"]
   R655["Small House<br/>#655"]
-  R656["Small House<br/>#656"]
-  R657["Small House<br/>#657"]
-  R658["Small House<br/>#658"]
-  R659["Small House<br/>#659"]
-  R660["Small House<br/>#660"]
-  R661["Small House<br/>#661"]
-  R662["Small House<br/>#662"]
-  R663["Small House<br/>#663"]
-  R664["Small House<br/>#664"]
-  R665["Small House<br/>#665"]
-  R666["Raff Way<br/>#666"]
-  R667["Raff Way<br/>#667"]
-  R668["Dirt Road<br/>#668"]
-  R669["The Temple of Ofcol<br/>#669"]
-  R670["The Anteroom to the Temple of Ofcol<br/>#670"]
-  R671["The Anteroom to the Temple of Ofcol<br/>#671"]
-  R672["The Anteroom to the Temple of Ofcol<br/>#672"]
-  R673["The Anteroom to the Temple of Ofcol<br/>#673"]
-  R674["A Hallway of the Golden Citadel<br/>#674"]
-  R675["A Hallway of the Golden Citadel<br/>#675"]
-  R676["A Hallway of the Golden Citadel<br/>#676"]
-  R677["A Hallway of the Golden Citadel<br/>#677"]
-  R678["A Hallway of the Golden Citadel<br/>#678"]
-  R679["A Hallway of the Golden Citadel<br/>#679"]
-  R680["A Hallway of the Golden Citadel<br/>#680"]
-  R681["A Hallway of the Golden Citadel<br/>#681"]
-  R682["A Hallway of the Golden Citadel<br/>#682"]
-  R683["A Hallway of the Golden Citadel<br/>#683"]
-  R684["A Hallway of the Golden Citadel<br/>#684"]
-  R685["A Hallway of the Golden Citadel<br/>#685"]
-  R686["An Upper Chamber of the Golden Citadel<br/>#686"]
-  R687["An Upper Chamber of the Golden Citadel<br/>#687"]
-  R688["The Hall of the DragonLords<br/>#688"]
-  R689["An Upper Chamber of the Golden Citadel<br/>#689"]
-  R690["An Upper Chamber of the Golden Citadel<br/>#690"]
-  R691["A Top Chamber of the Golden Citadel<br/>#691"]
-  R692["A Top Chamber of the Golden Citadel<br/>#692"]
-  R693["The Dragon Chamber<br/>#693"]
-  R694["A Top Chamber of the Golden Citadel<br/>#694"]
-  R695["A Top Chamber of the Golden Citadel<br/>#695"]
-  R696["Above the Dragon Chamber<br/>#696"]
-  R697["In the Shaft from the Dragon Chamber<br/>#697"]
-  R698["Inside the Entrance to the Golden Citadel<br/>#698"]
-  R699["Outside the Entrance to the Golden Citadel<br/>#699"]
-  R600 -->|E| R616
-  R601 -->|N| R625
-  R601 -->|E| R666
-  R601 -->|S| R602
-  R601 -->|W| X5553
-  R602 -->|N| R601
-  R602 -->|E| R604
-  R602 -->|S| R605
-  R602 -->|W| R603
-  R603 -->|E| R602
-  R604 -->|W| R602
-  R605 -->|N| R602
-  R605 -->|E| R607
-  R605 -->|S| R608
-  R605 -->|W| R606
-  R606 -->|E| R605
-  R607 -->|W| R605
-  R608 -->|N| R605
-  R608 -->|E| R610
-  R608 -->|S| R611
-  R608 -->|W| R609
-  R609 -->|E| R608
-  R610 -->|W| R608
-  R611 -->|N| R608
-  R611 -->|E| R668
-  R611 -->|W| R612
-  R612 -->|N| R616
-  R612 -->|E| R611
-  R612 -->|S| R613
-  R612 -->|W| R615
-  R613 -->|N| R612
-  R613 -->|W| R614
-  R614 -->|N| R615
-  R614 -->|E| R613
-  R615 -->|E| R612
-  R615 -->|S| R614
-  R616 -->|S| R612
-  R616 -->|W| R600
-  R617 -->|W| R668
-  R618 -->|N| R668
-  R618 -->|E| R620
-  R618 -->|S| R619
-  R618 -->|W| R621
-  R619 -->|N| R618
-  R620 -->|W| R618
-  R621 -->|N| R622
-  R621 -->|E| R618
-  R621 -->|S| R623
-  R621 -->|W| R624
-  R622 -->|S| R621
-  R623 -->|N| R621
-  R624 -->|E| R621
-  R625 -->|N| R632
-  R625 -->|E| R626
-  R625 -->|S| R601
-  R625 -->|W| R629
-  R626 -->|E| R628
-  R626 -->|W| R625
-  R626 -->|U| R627
-  R627 -->|D| R626
-  R628 -->|W| R626
-  R629 -->|E| R625
-  R629 -->|W| R631
-  R629 -->|U| R630
-  R630 -->|D| R629
-  R631 -->|E| R629
   R632 -->|N| R637
   R632 -->|E| R633
-  R632 -->|S| R625
+  R632 -->|S| X625
   R632 -->|W| R635
   R633 -->|S| R634
   R633 -->|W| R632
@@ -209,43 +194,105 @@ graph LR
   R647 -->|E| R648
   R647 -->|S| R655
   R647 -->|W| R646
-  R648 -->|N| R656
-  R648 -->|E| R657
-  R648 -->|S| R658
+  R648 -->|N| X656
+  R648 -->|E| X657
+  R648 -->|S| X658
   R648 -->|W| R647
-  R649 -->|N| R659
+  R649 -->|N| X659
   R649 -->|E| R642
-  R649 -->|S| R660
+  R649 -->|S| X660
   R649 -->|W| R650
-  R650 -->|N| R661
+  R650 -->|N| X661
   R650 -->|E| R649
-  R650 -->|S| R662
+  R650 -->|S| X662
   R650 -->|W| R651
-  R651 -->|N| R663
+  R651 -->|N| X663
   R651 -->|E| R650
-  R651 -->|S| R664
-  R651 -->|W| R665
+  R651 -->|S| X664
+  R651 -->|W| X665
   R652 -->|S| R646
   R653 -->|N| R646
   R654 -->|S| R647
   R655 -->|N| R647
-  R656 -->|S| R648
-  R657 -->|W| R648
-  R658 -->|N| R648
-  R659 -->|S| R649
-  R660 -->|N| R649
-  R661 -->|S| R650
-  R662 -->|N| R650
-  R663 -->|S| R651
-  R664 -->|N| R651
-  R665 -->|E| R651
+  X625["▸ Part A: Impy Way<br/>#625"]:::part
+  X656["▸ Part D: Small House<br/>#656"]:::part
+  X657["▸ Part D: Small House<br/>#657"]:::part
+  X658["▸ Part D: Small House<br/>#658"]:::part
+  X659["▸ Part D: Small House<br/>#659"]:::part
+  X660["▸ Part D: Small House<br/>#660"]:::part
+  X661["▸ Part D: Small House<br/>#661"]:::part
+  X662["▸ Part D: Small House<br/>#662"]:::part
+  X663["▸ Part D: Small House<br/>#663"]:::part
+  X664["▸ Part D: Small House<br/>#664"]:::part
+  X665["▸ Part D: Small House<br/>#665"]:::part
+  classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
+```
+
+## Map — Part D (10 rooms: #656–#665)
+
+```mermaid
+graph LR
+  R656["Small House<br/>#656"]
+  R657["Small House<br/>#657"]
+  R658["Small House<br/>#658"]
+  R659["Small House<br/>#659"]
+  R660["Small House<br/>#660"]
+  R661["Small House<br/>#661"]
+  R662["Small House<br/>#662"]
+  R663["Small House<br/>#663"]
+  R664["Small House<br/>#664"]
+  R665["Small House<br/>#665"]
+  R656 -->|S| X648
+  R657 -->|W| X648
+  R658 -->|N| X648
+  R659 -->|S| X649
+  R660 -->|N| X649
+  R661 -->|S| X650
+  R662 -->|N| X650
+  R663 -->|S| X651
+  R664 -->|N| X651
+  R665 -->|E| X651
+  X648["▸ Part C: End of Swiftest Way<br/>#648"]:::part
+  X649["▸ Part C: Swiftest Way<br/>#649"]:::part
+  X650["▸ Part C: Swiftest Way<br/>#650"]:::part
+  X651["▸ Part C: The end of Swiftest Way<br/>#651"]:::part
+  classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
+```
+
+## Map — Part E (24 rooms: #666–#699)
+
+```mermaid
+graph LR
+  R666["Raff Way<br/>#666"]
+  R667["Raff Way<br/>#667"]
+  R669["The Temple of Ofcol<br/>#669"]
+  R670["The Anteroom to the Temple of Ofcol<br/>#670"]
+  R671["The Anteroom to the Temple of Ofcol<br/>#671"]
+  R672["The Anteroom to the Temple of Ofcol<br/>#672"]
+  R673["The Anteroom to the Temple of Ofcol<br/>#673"]
+  R674["A Hallway of the Golden Citadel<br/>#674"]
+  R675["A Hallway of the Golden Citadel<br/>#675"]
+  R676["A Hallway of the Golden Citadel<br/>#676"]
+  R677["A Hallway of the Golden Citadel<br/>#677"]
+  R678["A Hallway of the Golden Citadel<br/>#678"]
+  R679["A Hallway of the Golden Citadel<br/>#679"]
+  R680["A Hallway of the Golden Citadel<br/>#680"]
+  R681["A Hallway of the Golden Citadel<br/>#681"]
+  R682["A Hallway of the Golden Citadel<br/>#682"]
+  R683["A Hallway of the Golden Citadel<br/>#683"]
+  R684["A Hallway of the Golden Citadel<br/>#684"]
+  R685["A Hallway of the Golden Citadel<br/>#685"]
+  R686["An Upper Chamber of the Golden Citadel<br/>#686"]
+  R687["An Upper Chamber of the Golden Citadel<br/>#687"]
+  R688["The Hall of the DragonLords<br/>#688"]
+  R698["Inside the Entrance to the Golden Citadel<br/>#698"]
+  R699["Outside the Entrance to the Golden Citadel<br/>#699"]
   R666 -->|E| R667
-  R666 -->|W| R601
+  R666 -->|W| X601
   R667 -->|E| R699
   R667 -->|W| R666
-  R668 -->|E| R617
-  R668 -->|S| R618
-  R668 -->|W| R611
   R669 -->|N| R670
   R669 -->|E| R672
   R669 -->|S| R673
@@ -258,10 +305,10 @@ graph LR
   R671 -->|U| R687
   R672 -->|E| R680
   R672 -->|W| R669
-  R672 -->|U| R689
+  R672 -->|U| X689
   R673 -->|N| R669
   R673 -->|S| R684
-  R673 -->|U| R690
+  R673 -->|U| X690
   R674 -->|E| R675
   R674 -->|S| R677
   R675 -->|E| R676
@@ -292,25 +339,51 @@ graph LR
   R685 -->|N| R682
   R685 -->|W| R684
   R686 -->|S| R688
-  R686 -->|U| R691
+  R686 -->|U| X691
   R686 -->|D| R670
   R687 -->|E| R688
-  R687 -->|U| R692
+  R687 -->|U| X692
   R687 -->|D| R671
   R688 -->|N| R686
-  R688 -->|E| R689
-  R688 -->|S| R690
+  R688 -->|E| X689
+  R688 -->|S| X690
   R688 -->|W| R687
-  R689 -->|W| R688
+  R698 -->|E| R679
+  R698 -->|W| R699
+  R699 -->|E| R698
+  R699 -->|W| R667
+  X601["▸ Part A: The Big Intersection<br/>#601"]:::part
+  X689["▸ Part F: An Upper Chamber of the Golden Citadel<br/>#689"]:::part
+  X690["▸ Part F: An Upper Chamber of the Golden Citadel<br/>#690"]:::part
+  X691["▸ Part F: A Top Chamber of the Golden Citadel<br/>#691"]:::part
+  X692["▸ Part F: A Top Chamber of the Golden Citadel<br/>#692"]:::part
+  classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
+```
+
+## Map — Part F (9 rooms: #689–#697)
+
+```mermaid
+graph LR
+  R689["An Upper Chamber of the Golden Citadel<br/>#689"]
+  R690["An Upper Chamber of the Golden Citadel<br/>#690"]
+  R691["A Top Chamber of the Golden Citadel<br/>#691"]
+  R692["A Top Chamber of the Golden Citadel<br/>#692"]
+  R693["The Dragon Chamber<br/>#693"]
+  R694["A Top Chamber of the Golden Citadel<br/>#694"]
+  R695["A Top Chamber of the Golden Citadel<br/>#695"]
+  R696["Above the Dragon Chamber<br/>#696"]
+  R697["In the Shaft from the Dragon Chamber<br/>#697"]
+  R689 -->|W| X688
   R689 -->|U| R694
-  R689 -->|D| R672
-  R690 -->|N| R688
+  R689 -->|D| X672
+  R690 -->|N| X688
   R690 -->|U| R695
-  R690 -->|D| R673
+  R690 -->|D| X673
   R691 -->|S| R693
-  R691 -->|D| R686
+  R691 -->|D| X686
   R692 -->|E| R693
-  R692 -->|D| R687
+  R692 -->|D| X687
   R693 -->|N| R691
   R693 -->|E| R694
   R693 -->|S| R695
@@ -323,12 +396,13 @@ graph LR
   R696 -->|U| R697
   R696 -->|D| R693
   R697 -->|D| R696
-  R698 -->|E| R679
-  R698 -->|W| R699
-  R699 -->|E| R698
-  R699 -->|W| R667
-  X5553["The small alley<br/>ofcol #5553"]:::ext
+  X688["▸ Part E: The Hall of the DragonLords<br/>#688"]:::part
+  X672["▸ Part E: The Anteroom to the Temple of Ofcol<br/>#672"]:::part
+  X673["▸ Part E: The Anteroom to the Temple of Ofcol<br/>#673"]:::part
+  X686["▸ Part E: An Upper Chamber of the Golden Citadel<br/>#686"]:::part
+  X687["▸ Part E: An Upper Chamber of the Golden Citadel<br/>#687"]:::part
   classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
 ```
 
 ## Rooms

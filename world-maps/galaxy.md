@@ -2,7 +2,11 @@
 
 [← back to world map](WORLD-MAP.md) · 61 rooms · vnums 9301–9371
 
-Dashed nodes are exits that leave this area.
+Grey dashed nodes leave the area; green dashed nodes (`▸ Part X`) continue on another sub-map below.
+
+_This area is split into 3 sub-maps for legibility._
+
+## Map — Part A (24 rooms: #9301–#9331)
 
 ```mermaid
 graph LR
@@ -27,46 +31,9 @@ graph LR
   R9323["Corner of the Galaxy<br/>#9323"]
   R9324["Lost in Space<br/>#9324"]
   R9325["Black Hole<br/>#9325"]
-  R9326["The Homes of the Pleiades<br/>#9326"]
   R9327["Western Side of the Temple<br/>#9327"]
   R9328["Orion's Hunting Lodge<br/>#9328"]
-  R9329["Northern Side of the Temple<br/>#9329"]
-  R9330["The Offering Chamber<br/>#9330"]
   R9331["The Entrance of the Ancient Temple<br/>#9331"]
-  R9332["Hercules' Mighty Throne<br/>#9332"]
-  R9333["Eastern Side of the Temple<br/>#9333"]
-  R9334["Perseus' Chamber<br/>#9334"]
-  R9339["On the Mystic Chains<br/>#9339"]
-  R9342["On a Hill<br/>#9342"]
-  R9343["Inside a Spanish Bull-Ring<br/>#9343"]
-  R9344["Inside a study<br/>#9344"]
-  R9345["Along the seashore<br/>#9345"]
-  R9346["Within the Deep Jungle<br/>#9346"]
-  R9347["Inside a Luxurious Bedroom<br/>#9347"]
-  R9348["The Supreme Court<br/>#9348"]
-  R9349["In the Dry Desert<br/>#9349"]
-  R9350["In the Woods<br/>#9350"]
-  R9351["On a Mountain Peak<br/>#9351"]
-  R9352["Inside a Waterfall<br/>#9352"]
-  R9353["Inside a Gigantic Clam<br/>#9353"]
-  R9354["End of the Mystic Chains<br/>#9354"]
-  R9355["On the Draco<br/>#9355"]
-  R9356["Tail of the Draco<br/>#9356"]
-  R9357["Path of the Draco<br/>#9357"]
-  R9358["Near the Legs of Draco<br/>#9358"]
-  R9359["On the Back of Draco<br/>#9359"]
-  R9360["Between the Wings of Draco<br/>#9360"]
-  R9361["Near the Arms of Draco<br/>#9361"]
-  R9362["On the Neck of Draco<br/>#9362"]
-  R9363["Approaching the Head of Draco<br/>#9363"]
-  R9364["At the Entrance of the Great Dipper<br/>#9364"]
-  R9365["Cassiopeia's Throne<br/>#9365"]
-  R9366["Along the Path of the Dipper<br/>#9366"]
-  R9367["Cepheus' Throne<br/>#9367"]
-  R9368["Along the path of the Dipper<br/>#9368"]
-  R9369["Along the path of the Dipper<br/>#9369"]
-  R9370["End of the Dipper<br/>#9370"]
-  R9371["The Polar Star<br/>#9371"]
   R9301 -->|W| X1306
   R9301 -->|D| R9302
   R9302 -->|N| R9303
@@ -118,33 +85,69 @@ graph LR
   R9324 -->|N| R9325
   R9324 -->|E| R9306
   R9324 -->|S| R9323
-  R9326 -->|E| R9329
-  R9326 -->|S| R9327
-  R9327 -->|N| R9326
-  R9327 -->|E| R9330
+  R9327 -->|N| X9326
+  R9327 -->|E| X9330
   R9327 -->|S| R9328
   R9328 -->|N| R9327
   R9328 -->|E| R9331
+  R9331 -->|N| X9330
+  R9331 -->|E| X9334
+  R9331 -->|S| R9308
+  R9331 -->|W| R9328
+  X1306["The Shadow Grove<br/>hitower #1306"]:::ext
+  X9326["▸ Part B: The Homes of the Pleiades<br/>#9326"]:::part
+  X9330["▸ Part B: The Offering Chamber<br/>#9330"]:::part
+  X9334["▸ Part B: Perseus' Chamber<br/>#9334"]:::part
+  classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
+```
+
+## Map — Part B (24 rooms: #9326–#9358)
+
+```mermaid
+graph LR
+  R9326["The Homes of the Pleiades<br/>#9326"]
+  R9329["Northern Side of the Temple<br/>#9329"]
+  R9330["The Offering Chamber<br/>#9330"]
+  R9332["Hercules' Mighty Throne<br/>#9332"]
+  R9333["Eastern Side of the Temple<br/>#9333"]
+  R9334["Perseus' Chamber<br/>#9334"]
+  R9339["On the Mystic Chains<br/>#9339"]
+  R9342["On a Hill<br/>#9342"]
+  R9343["Inside a Spanish Bull-Ring<br/>#9343"]
+  R9344["Inside a study<br/>#9344"]
+  R9345["Along the seashore<br/>#9345"]
+  R9346["Within the Deep Jungle<br/>#9346"]
+  R9347["Inside a Luxurious Bedroom<br/>#9347"]
+  R9348["The Supreme Court<br/>#9348"]
+  R9349["In the Dry Desert<br/>#9349"]
+  R9350["In the Woods<br/>#9350"]
+  R9351["On a Mountain Peak<br/>#9351"]
+  R9352["Inside a Waterfall<br/>#9352"]
+  R9353["Inside a Gigantic Clam<br/>#9353"]
+  R9354["End of the Mystic Chains<br/>#9354"]
+  R9355["On the Draco<br/>#9355"]
+  R9356["Tail of the Draco<br/>#9356"]
+  R9357["Path of the Draco<br/>#9357"]
+  R9358["Near the Legs of Draco<br/>#9358"]
+  R9326 -->|E| R9329
+  R9326 -->|S| X9327
   R9329 -->|E| R9332
   R9329 -->|S| R9330
   R9329 -->|W| R9326
   R9330 -->|N| R9329
   R9330 -->|E| R9333
-  R9330 -->|S| R9331
-  R9330 -->|W| R9327
+  R9330 -->|S| X9331
+  R9330 -->|W| X9327
   R9330 -->|U| R9339
   R9330 -->|D| X5250
-  R9331 -->|N| R9330
-  R9331 -->|E| R9334
-  R9331 -->|S| R9308
-  R9331 -->|W| R9328
   R9332 -->|S| R9333
   R9332 -->|W| R9329
   R9333 -->|N| R9332
   R9333 -->|S| R9334
   R9333 -->|W| R9330
   R9334 -->|N| R9333
-  R9334 -->|W| R9331
+  R9334 -->|W| X9331
   R9339 -->|N| R9348
   R9339 -->|E| R9351
   R9339 -->|S| R9342
@@ -179,10 +182,35 @@ graph LR
   R9356 -->|S| R9355
   R9357 -->|N| R9358
   R9357 -->|S| R9356
-  R9358 -->|N| R9359
+  R9358 -->|N| X9359
   R9358 -->|S| R9357
+  X9327["▸ Part A: Western Side of the Temple<br/>#9327"]:::part
+  X9331["▸ Part A: The Entrance of the Ancient Temple<br/>#9331"]:::part
+  X5250["The Temple of Thalos<br/>thalos #5250"]:::ext
+  X9359["▸ Part C: On the Back of Draco<br/>#9359"]:::part
+  classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
+```
+
+## Map — Part C (13 rooms: #9359–#9371)
+
+```mermaid
+graph LR
+  R9359["On the Back of Draco<br/>#9359"]
+  R9360["Between the Wings of Draco<br/>#9360"]
+  R9361["Near the Arms of Draco<br/>#9361"]
+  R9362["On the Neck of Draco<br/>#9362"]
+  R9363["Approaching the Head of Draco<br/>#9363"]
+  R9364["At the Entrance of the Great Dipper<br/>#9364"]
+  R9365["Cassiopeia's Throne<br/>#9365"]
+  R9366["Along the Path of the Dipper<br/>#9366"]
+  R9367["Cepheus' Throne<br/>#9367"]
+  R9368["Along the path of the Dipper<br/>#9368"]
+  R9369["Along the path of the Dipper<br/>#9369"]
+  R9370["End of the Dipper<br/>#9370"]
+  R9371["The Polar Star<br/>#9371"]
   R9359 -->|E| R9360
-  R9359 -->|S| R9358
+  R9359 -->|S| X9358
   R9360 -->|E| R9361
   R9360 -->|W| R9359
   R9361 -->|S| R9362
@@ -208,9 +236,9 @@ graph LR
   R9370 -->|N| R9369
   R9370 -->|S| R9371
   R9371 -->|N| R9370
-  X1306["The Shadow Grove<br/>hitower #1306"]:::ext
-  X5250["The Temple of Thalos<br/>thalos #5250"]:::ext
+  X9358["▸ Part B: Near the Legs of Draco<br/>#9358"]:::part
   classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
 ```
 
 ## Rooms

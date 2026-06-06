@@ -2,7 +2,11 @@
 
 [← back to world map](WORLD-MAP.md) · 80 rooms · vnums 5200–5280
 
-Dashed nodes are exits that leave this area.
+Grey dashed nodes leave the area; green dashed nodes (`▸ Part X`) continue on another sub-map below.
+
+_This area is split into 5 sub-maps for legibility._
+
+## Map — Part A (24 rooms: #5200–#5223)
 
 ```mermaid
 graph LR
@@ -30,6 +34,101 @@ graph LR
   R5221["The smithy<br/>#5221"]
   R5222["The tapestry stand<br/>#5222"]
   R5223["A back alley<br/>#5223"]
+  R5200 -->|E| X5256
+  R5200 -->|W| R5201
+  R5201 -->|N| X5239
+  R5201 -->|E| R5200
+  R5201 -->|S| X5255
+  R5201 -->|W| R5202
+  R5202 -->|N| X5236
+  R5202 -->|E| R5201
+  R5202 -->|S| X5232
+  R5202 -->|W| R5203
+  R5203 -->|N| R5204
+  R5203 -->|E| R5202
+  R5203 -->|S| R5206
+  R5203 -->|W| X5250
+  R5204 -->|N| R5211
+  R5204 -->|S| R5203
+  R5204 -->|W| R5205
+  R5205 -->|E| R5204
+  R5205 -->|S| X5250
+  R5206 -->|N| R5203
+  R5206 -->|S| R5212
+  R5207 -->|N| X5225
+  R5207 -->|S| R5220
+  R5207 -->|W| R5208
+  R5208 -->|N| R5222
+  R5208 -->|E| R5207
+  R5208 -->|S| R5217
+  R5209 -->|E| X5243
+  R5209 -->|S| R5210
+  R5209 -->|W| X5228
+  R5210 -->|N| R5209
+  R5210 -->|E| X5244
+  R5210 -->|S| R5211
+  R5210 -->|W| X5226
+  R5211 -->|N| R5210
+  R5211 -->|E| X5237
+  R5211 -->|S| R5204
+  R5211 -->|W| X5227
+  R5212 -->|N| R5206
+  R5212 -->|E| X5232
+  R5212 -->|S| R5213
+  R5212 -->|W| R5221
+  R5213 -->|N| R5212
+  R5213 -->|E| X5230
+  R5213 -->|S| R5214
+  R5213 -->|W| R5219
+  R5214 -->|N| R5213
+  R5214 -->|E| X5251
+  R5214 -->|S| X5229
+  R5214 -->|W| R5218
+  R5215 -->|N| R5216
+  R5215 -->|E| R5218
+  R5215 -->|U| X5247
+  R5216 -->|N| R5217
+  R5216 -->|S| R5215
+  R5217 -->|N| R5208
+  R5217 -->|E| R5220
+  R5217 -->|S| R5216
+  R5218 -->|E| R5214
+  R5218 -->|W| R5215
+  R5219 -->|E| R5213
+  R5220 -->|N| R5207
+  R5220 -->|W| R5217
+  R5221 -->|E| R5212
+  R5222 -->|N| R5223
+  R5222 -->|E| X5225
+  R5222 -->|S| R5208
+  R5223 -->|N| X5224
+  R5223 -->|S| R5222
+  X5256["▸ Part E: A trail at the end of the dwarf forest<br/>#5256"]:::part
+  X5239["▸ Part D: A back alley<br/>#5239"]:::part
+  X5255["▸ Part C: A back alley<br/>#5255"]:::part
+  X5236["▸ Part B: A collapsed home<br/>#5236"]:::part
+  X5232["▸ Part B: The city hall<br/>#5232"]:::part
+  X5250["▸ Part B: The Temple of Thalos<br/>#5250"]:::part
+  X5225["▸ Part B: The jewelery stand<br/>#5225"]:::part
+  X5243["▸ Part D: A back alley<br/>#5243"]:::part
+  X5228["▸ Part B: A back alley<br/>#5228"]:::part
+  X5244["▸ Part D: An upright house<br/>#5244"]:::part
+  X5226["▸ Part B: A ruined clay dwelling<br/>#5226"]:::part
+  X5237["▸ Part B: A tall dwelling<br/>#5237"]:::part
+  X5227["▸ Part B: A collapsed stone dwelling<br/>#5227"]:::part
+  X5230["▸ Part B: The Tavern of the Sun<br/>#5230"]:::part
+  X5251["▸ Part C: A back alley<br/>#5251"]:::part
+  X5229["▸ Part B: An abandoned shop<br/>#5229"]:::part
+  X5247["▸ Part B: The south-west watchtower<br/>#5247"]:::part
+  X5224["▸ Part B: Under the watchtower<br/>#5224"]:::part
+  classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
+```
+
+## Map — Part B (19 rooms: #5224–#5280)
+
+```mermaid
+graph LR
   R5224["Under the watchtower<br/>#5224"]
   R5225["The jewelery stand<br/>#5225"]
   R5226["A ruined clay dwelling<br/>#5226"]
@@ -41,26 +140,130 @@ graph LR
   R5232["The city hall<br/>#5232"]
   R5233["East wing of the city hall<br/>#5233"]
   R5234["The private gardens and courtyard of Thalos<br/>#5234"]
-  R5235["A small guard house<br/>#5235"]
   R5236["A collapsed home<br/>#5236"]
   R5237["A tall dwelling<br/>#5237"]
   R5238["A small shack<br/>#5238"]
+  R5245["On the second floor<br/>#5245"]
+  R5246["The north-west watchtower<br/>#5246"]
+  R5247["The south-west watchtower<br/>#5247"]
+  R5250["The Temple of Thalos<br/>#5250"]
+  R5280["A dark bend in the forest<br/>#5280"]
+  R5224 -->|E| R5228
+  R5224 -->|S| X5223
+  R5224 -->|U| R5246
+  R5225 -->|S| X5207
+  R5225 -->|W| X5222
+  R5226 -->|E| X5210
+  R5227 -->|E| X5211
+  R5228 -->|E| X5209
+  R5228 -->|W| R5224
+  R5229 -->|N| X5214
+  R5230 -->|W| X5213
+  R5231 -->|N| R5232
+  R5231 -->|E| R5234
+  R5232 -->|N| X5202
+  R5232 -->|E| R5233
+  R5232 -->|S| R5231
+  R5232 -->|W| X5212
+  R5233 -->|S| R5234
+  R5233 -->|W| R5232
+  R5234 -->|N| R5233
+  R5234 -->|W| R5231
+  R5236 -->|S| X5202
+  R5237 -->|E| R5238
+  R5237 -->|W| X5211
+  R5237 -->|U| R5245
+  R5238 -->|W| R5237
+  R5246 -->|D| R5224
+  R5247 -->|D| X5215
+  R5250 -->|N| X5205
+  R5250 -->|E| X5203
+  R5280 -->|S| X2300
+  R5280 -->|W| X5273
+  X5223["▸ Part A: A back alley<br/>#5223"]:::part
+  X5207["▸ Part A: The market place<br/>#5207"]:::part
+  X5222["▸ Part A: The tapestry stand<br/>#5222"]:::part
+  X5210["▸ Part A: A Side Street<br/>#5210"]:::part
+  X5211["▸ Part A: A Side Street<br/>#5211"]:::part
+  X5209["▸ Part A: A Side Street<br/>#5209"]:::part
+  X5214["▸ Part A: A side street<br/>#5214"]:::part
+  X5213["▸ Part A: A side street<br/>#5213"]:::part
+  X5202["▸ Part A: Main Street<br/>#5202"]:::part
+  X5212["▸ Part A: A side street<br/>#5212"]:::part
+  X5215["▸ Part A: Under a ruined watchtower<br/>#5215"]:::part
+  X5205["▸ Part A: A Garden Path<br/>#5205"]:::part
+  X5203["▸ Part A: A Garden Path<br/>#5203"]:::part
+  X2300["The dark woods<br/>mahntor #2300"]:::ext
+  X5273["▸ Part E: A dim trail in the dwarf forest<br/>#5273"]:::part
+  classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
+```
+
+## Map — Part C (6 rooms: #5235–#5255)
+
+```mermaid
+graph LR
+  R5235["A small guard house<br/>#5235"]
+  R5251["A back alley<br/>#5251"]
+  R5252["Under a ruined watchtower<br/>#5252"]
+  R5253["A back alley<br/>#5253"]
+  R5254["The south-east watchtower<br/>#5254"]
+  R5255["A back alley<br/>#5255"]
+  R5235 -->|E| R5255
+  R5251 -->|E| R5252
+  R5251 -->|W| X5214
+  R5252 -->|N| R5253
+  R5252 -->|W| R5251
+  R5252 -->|U| R5254
+  R5253 -->|N| R5255
+  R5253 -->|S| R5252
+  R5254 -->|D| R5252
+  R5255 -->|N| X5201
+  R5255 -->|S| R5253
+  R5255 -->|W| R5235
+  X5214["▸ Part A: A side street<br/>#5214"]:::part
+  X5201["▸ Part A: Main Street<br/>#5201"]:::part
+  classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
+```
+
+## Map — Part D (7 rooms: #5239–#5248)
+
+```mermaid
+graph LR
   R5239["A back alley<br/>#5239"]
   R5240["A back alley<br/>#5240"]
   R5241["Under a watchtower<br/>#5241"]
   R5242["A bath house<br/>#5242"]
   R5243["A back alley<br/>#5243"]
   R5244["An upright house<br/>#5244"]
-  R5245["On the second floor<br/>#5245"]
-  R5246["The north-west watchtower<br/>#5246"]
-  R5247["The south-west watchtower<br/>#5247"]
   R5248["The north-east watchtower<br/>#5248"]
-  R5250["The Temple of Thalos<br/>#5250"]
-  R5251["A back alley<br/>#5251"]
-  R5252["Under a ruined watchtower<br/>#5252"]
-  R5253["A back alley<br/>#5253"]
-  R5254["The south-east watchtower<br/>#5254"]
-  R5255["A back alley<br/>#5255"]
+  R5239 -->|N| R5240
+  R5239 -->|S| X5201
+  R5240 -->|N| R5241
+  R5240 -->|S| R5239
+  R5241 -->|S| R5240
+  R5241 -->|W| R5243
+  R5241 -->|U| R5248
+  R5242 -->|N| R5243
+  R5242 -->|W| R5244
+  R5243 -->|E| R5241
+  R5243 -->|S| R5242
+  R5243 -->|W| X5209
+  R5244 -->|E| R5242
+  R5244 -->|W| X5210
+  R5248 -->|D| R5241
+  X5201["▸ Part A: Main Street<br/>#5201"]:::part
+  X5209["▸ Part A: A Side Street<br/>#5209"]:::part
+  X5210["▸ Part A: A Side Street<br/>#5210"]:::part
+  classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
+```
+
+## Map — Part E (24 rooms: #5256–#5279)
+
+```mermaid
+graph LR
   R5256["A trail at the end of the dwarf forest<br/>#5256"]
   R5257["A trail at the end of the dwarf forest<br/>#5257"]
   R5258["The dwarf forest<br/>#5258"]
@@ -85,135 +288,8 @@ graph LR
   R5277["A trail in the dwarf forest<br/>#5277"]
   R5278["A trail in the dwarf forest<br/>#5278"]
   R5279["The bend in the trail in the dwarf forest<br/>#5279"]
-  R5280["A dark bend in the forest<br/>#5280"]
-  R5200 -->|E| R5256
-  R5200 -->|W| R5201
-  R5201 -->|N| R5239
-  R5201 -->|E| R5200
-  R5201 -->|S| R5255
-  R5201 -->|W| R5202
-  R5202 -->|N| R5236
-  R5202 -->|E| R5201
-  R5202 -->|S| R5232
-  R5202 -->|W| R5203
-  R5203 -->|N| R5204
-  R5203 -->|E| R5202
-  R5203 -->|S| R5206
-  R5203 -->|W| R5250
-  R5204 -->|N| R5211
-  R5204 -->|S| R5203
-  R5204 -->|W| R5205
-  R5205 -->|E| R5204
-  R5205 -->|S| R5250
-  R5206 -->|N| R5203
-  R5206 -->|S| R5212
-  R5207 -->|N| R5225
-  R5207 -->|S| R5220
-  R5207 -->|W| R5208
-  R5208 -->|N| R5222
-  R5208 -->|E| R5207
-  R5208 -->|S| R5217
-  R5209 -->|E| R5243
-  R5209 -->|S| R5210
-  R5209 -->|W| R5228
-  R5210 -->|N| R5209
-  R5210 -->|E| R5244
-  R5210 -->|S| R5211
-  R5210 -->|W| R5226
-  R5211 -->|N| R5210
-  R5211 -->|E| R5237
-  R5211 -->|S| R5204
-  R5211 -->|W| R5227
-  R5212 -->|N| R5206
-  R5212 -->|E| R5232
-  R5212 -->|S| R5213
-  R5212 -->|W| R5221
-  R5213 -->|N| R5212
-  R5213 -->|E| R5230
-  R5213 -->|S| R5214
-  R5213 -->|W| R5219
-  R5214 -->|N| R5213
-  R5214 -->|E| R5251
-  R5214 -->|S| R5229
-  R5214 -->|W| R5218
-  R5215 -->|N| R5216
-  R5215 -->|E| R5218
-  R5215 -->|U| R5247
-  R5216 -->|N| R5217
-  R5216 -->|S| R5215
-  R5217 -->|N| R5208
-  R5217 -->|E| R5220
-  R5217 -->|S| R5216
-  R5218 -->|E| R5214
-  R5218 -->|W| R5215
-  R5219 -->|E| R5213
-  R5220 -->|N| R5207
-  R5220 -->|W| R5217
-  R5221 -->|E| R5212
-  R5222 -->|N| R5223
-  R5222 -->|E| R5225
-  R5222 -->|S| R5208
-  R5223 -->|N| R5224
-  R5223 -->|S| R5222
-  R5224 -->|E| R5228
-  R5224 -->|S| R5223
-  R5224 -->|U| R5246
-  R5225 -->|S| R5207
-  R5225 -->|W| R5222
-  R5226 -->|E| R5210
-  R5227 -->|E| R5211
-  R5228 -->|E| R5209
-  R5228 -->|W| R5224
-  R5229 -->|N| R5214
-  R5230 -->|W| R5213
-  R5231 -->|N| R5232
-  R5231 -->|E| R5234
-  R5232 -->|N| R5202
-  R5232 -->|E| R5233
-  R5232 -->|S| R5231
-  R5232 -->|W| R5212
-  R5233 -->|S| R5234
-  R5233 -->|W| R5232
-  R5234 -->|N| R5233
-  R5234 -->|W| R5231
-  R5235 -->|E| R5255
-  R5236 -->|S| R5202
-  R5237 -->|E| R5238
-  R5237 -->|W| R5211
-  R5237 -->|U| R5245
-  R5238 -->|W| R5237
-  R5239 -->|N| R5240
-  R5239 -->|S| R5201
-  R5240 -->|N| R5241
-  R5240 -->|S| R5239
-  R5241 -->|S| R5240
-  R5241 -->|W| R5243
-  R5241 -->|U| R5248
-  R5242 -->|N| R5243
-  R5242 -->|W| R5244
-  R5243 -->|E| R5241
-  R5243 -->|S| R5242
-  R5243 -->|W| R5209
-  R5244 -->|E| R5242
-  R5244 -->|W| R5210
-  R5246 -->|D| R5224
-  R5247 -->|D| R5215
-  R5248 -->|D| R5241
-  R5250 -->|N| R5205
-  R5250 -->|E| R5203
-  R5251 -->|E| R5252
-  R5251 -->|W| R5214
-  R5252 -->|N| R5253
-  R5252 -->|W| R5251
-  R5252 -->|U| R5254
-  R5253 -->|N| R5255
-  R5253 -->|S| R5252
-  R5254 -->|D| R5252
-  R5255 -->|N| R5201
-  R5255 -->|S| R5253
-  R5255 -->|W| R5235
   R5256 -->|E| R5257
-  R5256 -->|W| R5200
+  R5256 -->|W| X5200
   R5257 -->|E| R5258
   R5257 -->|W| R5256
   R5258 -->|N| R5259
@@ -251,7 +327,7 @@ graph LR
   R5272 -->|N| R5273
   R5272 -->|S| R5271
   R5273 -->|N| R5274
-  R5273 -->|E| R5280
+  R5273 -->|E| X5280
   R5273 -->|S| R5272
   R5274 -->|N| R5275
   R5274 -->|S| R5273
@@ -264,14 +340,14 @@ graph LR
   R5278 -->|E| R5277
   R5278 -->|W| R5279
   R5279 -->|E| R5278
-  R5280 -->|S| X2300
-  R5280 -->|W| R5273
+  X5200["▸ Part A: The Grand Gate of Thalos<br/>#5200"]:::part
   X3502["The Cross Roads<br/>midennir #3502"]:::ext
   X1701["Main Eastern Road<br/>wyvern #1701"]:::ext
   X9201["A Mountain Path<br/>canyon #9201"]:::ext
   X5100["City Entrance<br/>drow #5100"]:::ext
-  X2300["The dark woods<br/>mahntor #2300"]:::ext
+  X5280["▸ Part B: A dark bend in the forest<br/>#5280"]:::part
   classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
 ```
 
 ## Rooms

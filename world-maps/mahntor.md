@@ -2,7 +2,11 @@
 
 [← back to world map](WORLD-MAP.md) · 100 rooms · vnums 2300–2399
 
-Dashed nodes are exits that leave this area.
+Grey dashed nodes leave the area; green dashed nodes (`▸ Part X`) continue on another sub-map below.
+
+_This area is split into 5 sub-maps for legibility._
+
+## Map — Part A (24 rooms: #2300–#2323)
 
 ```mermaid
 graph LR
@@ -30,82 +34,6 @@ graph LR
   R2321["The rocky shoreline<br/>#2321"]
   R2322["The rocky shore<br/>#2322"]
   R2323["The edge of the sea<br/>#2323"]
-  R2324["The Blood Sea Portal<br/>#2324"]
-  R2325["The edge of the sea<br/>#2325"]
-  R2326["Floating in blue light<br/>#2326"]
-  R2327["The swampy path<br/>#2327"]
-  R2328["The swampy path<br/>#2328"]
-  R2329["The swampy path<br/>#2329"]
-  R2330["The turn in the swampy path<br/>#2330"]
-  R2331["The swampy path<br/>#2331"]
-  R2332["Lost in the Mist<br/>#2332"]
-  R2333["Lost in the Mist<br/>#2333"]
-  R2334["Lost in the Mist<br/>#2334"]
-  R2335["Lost in the Mist<br/>#2335"]
-  R2336["Lost in the Mist<br/>#2336"]
-  R2337["Lost in the Mist<br/>#2337"]
-  R2338["Lost in the Mist<br/>#2338"]
-  R2339["The solid path<br/>#2339"]
-  R2340["A forested path<br/>#2340"]
-  R2341["The gate before the Ogre Village<br/>#2341"]
-  R2342["Among the crude huts<br/>#2342"]
-  R2343["Inside the gates<br/>#2343"]
-  R2344["Among the crude huts<br/>#2344"]
-  R2345["The gathering place<br/>#2345"]
-  R2346["The firepit before the lodge<br/>#2346"]
-  R2347["The village dump<br/>#2347"]
-  R2348["The entryway to the lodge<br/>#2348"]
-  R2349["The throne room<br/>#2349"]
-  R2350["The chieftain's room<br/>#2350"]
-  R2351["The frigid wastelands<br/>#2351"]
-  R2352["The frigid wastelands<br/>#2352"]
-  R2353["The Glacier Temple<br/>#2353"]
-  R2354["The frigid wastelands<br/>#2354"]
-  R2355["The frigid wastelands<br/>#2355"]
-  R2356["The frigid wastelands<br/>#2356"]
-  R2357["The frigid wastelands<br/>#2357"]
-  R2358["The frigid wastelands<br/>#2358"]
-  R2359["The frigid wastelands<br/>#2359"]
-  R2360["The edge of the frigid wastes<br/>#2360"]
-  R2361["On the cliffside<br/>#2361"]
-  R2362["Before the gates of Mahn-Tor<br/>#2362"]
-  R2363["The city streets of Mahn-Tor<br/>#2363"]
-  R2364["Inside the gates of Mahn-Tor<br/>#2364"]
-  R2365["The city streets of Mahn-Tor<br/>#2365"]
-  R2366["The city streets of Mahn-Tor<br/>#2366"]
-  R2367["The Square of Mahn-Tor<br/>#2367"]
-  R2368["The streets of Mahn-Tor<br/>#2368"]
-  R2369["The Inn of the Broken Horn<br/>#2369"]
-  R2370["The Mahn-Tor Equipment Shop<br/>#2370"]
-  R2371["The Mahn-Tor General Store<br/>#2371"]
-  R2372["Gorak's Training Room<br/>#2372"]
-  R2373["Darkoth's Dark Study<br/>#2373"]
-  R2374["Tyrgoth's Inner Sanctum<br/>#2374"]
-  R2375["The road to the Keep of Mahn-Tor<br/>#2375"]
-  R2376["A small guard house<br/>#2376"]
-  R2377["Before the Keep of Mahn-Tor<br/>#2377"]
-  R2378["A small guard house<br/>#2378"]
-  R2379["The entryway to the Keep of Mahn-Tor<br/>#2379"]
-  R2380["The Hall<br/>#2380"]
-  R2381["The Grand Hall<br/>#2381"]
-  R2382["The Great Hall<br/>#2382"]
-  R2383["Standing before the throne<br/>#2383"]
-  R2384["The Great Hall<br/>#2384"]
-  R2385["The secret hallway<br/>#2385"]
-  R2386["Entry to the Royal Chambers<br/>#2386"]
-  R2387["The Guard Post<br/>#2387"]
-  R2388["The guarded hall<br/>#2388"]
-  R2389["The guarded hall<br/>#2389"]
-  R2390["Sumaron's Sanctum<br/>#2390"]
-  R2391["Amyrok's Arcane Study<br/>#2391"]
-  R2392["The guarded hall<br/>#2392"]
-  R2393["The Harem Room<br/>#2393"]
-  R2394["Nasturn's Humble Abode<br/>#2394"]
-  R2395["The main living room<br/>#2395"]
-  R2396["The Master Bedroom<br/>#2396"]
-  R2397["The end of the guarded hall<br/>#2397"]
-  R2398["Dorgar's Dismal Domicile<br/>#2398"]
-  R2399["Belrak's Green Room<br/>#2399"]
   R2300 -->|N| X5280
   R2300 -->|S| R2301
   R2301 -->|N| R2300
@@ -118,7 +46,7 @@ graph LR
   R2304 -->|S| R2305
   R2304 -->|W| R2302
   R2305 -->|N| R2304
-  R2305 -->|E| R2327
+  R2305 -->|E| X2327
   R2305 -->|S| R2306
   R2306 -->|N| R2305
   R2306 -->|W| R2307
@@ -163,24 +91,158 @@ graph LR
   R2320 -->|S| R2323
   R2320 -->|U| R2317
   R2321 -->|E| R2322
-  R2321 -->|S| R2324
+  R2321 -->|S| X2324
   R2321 -->|W| R2320
   R2321 -->|U| R2318
-  R2322 -->|S| R2325
+  R2322 -->|S| X2325
   R2322 -->|W| R2321
   R2322 -->|U| R2319
   R2323 -->|N| R2320
-  R2323 -->|E| R2324
-  R2324 -->|N| R2321
+  R2323 -->|E| X2324
+  X5280["A dark bend in the forest<br/>thalos #5280"]:::ext
+  X2327["▸ Part C: The swampy path<br/>#2327"]:::part
+  X2324["▸ Part B: The Blood Sea Portal<br/>#2324"]:::part
+  X2325["▸ Part B: The edge of the sea<br/>#2325"]:::part
+  classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
+```
+
+## Map — Part B (24 rooms: #2324–#2371)
+
+```mermaid
+graph LR
+  R2324["The Blood Sea Portal<br/>#2324"]
+  R2325["The edge of the sea<br/>#2325"]
+  R2326["Floating in blue light<br/>#2326"]
+  R2351["The frigid wastelands<br/>#2351"]
+  R2352["The frigid wastelands<br/>#2352"]
+  R2353["The Glacier Temple<br/>#2353"]
+  R2354["The frigid wastelands<br/>#2354"]
+  R2355["The frigid wastelands<br/>#2355"]
+  R2356["The frigid wastelands<br/>#2356"]
+  R2357["The frigid wastelands<br/>#2357"]
+  R2358["The frigid wastelands<br/>#2358"]
+  R2359["The frigid wastelands<br/>#2359"]
+  R2360["The edge of the frigid wastes<br/>#2360"]
+  R2361["On the cliffside<br/>#2361"]
+  R2362["Before the gates of Mahn-Tor<br/>#2362"]
+  R2363["The city streets of Mahn-Tor<br/>#2363"]
+  R2364["Inside the gates of Mahn-Tor<br/>#2364"]
+  R2365["The city streets of Mahn-Tor<br/>#2365"]
+  R2366["The city streets of Mahn-Tor<br/>#2366"]
+  R2367["The Square of Mahn-Tor<br/>#2367"]
+  R2368["The streets of Mahn-Tor<br/>#2368"]
+  R2369["The Inn of the Broken Horn<br/>#2369"]
+  R2370["The Mahn-Tor Equipment Shop<br/>#2370"]
+  R2371["The Mahn-Tor General Store<br/>#2371"]
+  R2324 -->|N| X2321
   R2324 -->|E| R2325
   R2324 -->|S| R2326
-  R2324 -->|W| R2323
-  R2325 -->|N| R2322
+  R2324 -->|W| X2323
+  R2325 -->|N| X2322
   R2325 -->|W| R2324
   R2326 -->|N| R2324
   R2326 -->|S| R2353
+  R2351 -->|N| R2353
+  R2351 -->|E| R2352
+  R2351 -->|S| R2355
+  R2351 -->|W| R2354
+  R2352 -->|N| R2357
+  R2352 -->|E| R2354
+  R2352 -->|S| R2358
+  R2352 -->|W| R2351
+  R2353 -->|N| R2326
+  R2353 -->|S| R2351
+  R2354 -->|N| R2359
+  R2354 -->|E| R2351
+  R2354 -->|S| R2356
+  R2354 -->|W| R2352
+  R2355 -->|N| R2351
+  R2355 -->|E| R2356
+  R2355 -->|S| R2357
+  R2355 -->|W| R2356
+  R2356 -->|N| R2354
+  R2356 -->|E| R2355
+  R2356 -->|S| R2359
+  R2356 -->|W| R2355
+  R2357 -->|N| R2355
+  R2357 -->|E| R2358
+  R2357 -->|S| R2352
+  R2357 -->|W| R2359
+  R2358 -->|N| R2352
+  R2358 -->|E| R2359
+  R2358 -->|S| R2360
+  R2358 -->|W| R2357
+  R2359 -->|N| R2356
+  R2359 -->|E| R2357
+  R2359 -->|S| R2354
+  R2359 -->|W| R2358
+  R2360 -->|N| R2358
+  R2360 -->|U| R2361
+  R2361 -->|U| R2362
+  R2361 -->|D| R2360
+  R2362 -->|S| R2364
+  R2362 -->|D| R2361
+  R2363 -->|E| R2364
+  R2363 -->|S| R2366
+  R2364 -->|N| R2362
+  R2364 -->|E| R2365
+  R2364 -->|S| R2367
+  R2364 -->|W| R2363
+  R2365 -->|S| R2368
+  R2365 -->|W| R2364
+  R2366 -->|N| R2363
+  R2366 -->|E| R2367
+  R2366 -->|S| R2369
+  R2367 -->|N| R2364
+  R2367 -->|E| R2368
+  R2367 -->|S| R2370
+  R2367 -->|W| R2366
+  R2368 -->|N| R2365
+  R2368 -->|E| X2375
+  R2368 -->|S| R2371
+  R2368 -->|W| R2367
+  R2369 -->|N| R2366
+  R2370 -->|N| R2367
+  R2371 -->|N| R2368
+  X2321["▸ Part A: The rocky shoreline<br/>#2321"]:::part
+  X2323["▸ Part A: The edge of the sea<br/>#2323"]:::part
+  X2322["▸ Part A: The rocky shore<br/>#2322"]:::part
+  X2375["▸ Part D: The road to the Keep of Mahn-Tor<br/>#2375"]:::part
+  classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
+```
+
+## Map — Part C (24 rooms: #2327–#2350)
+
+```mermaid
+graph LR
+  R2327["The swampy path<br/>#2327"]
+  R2328["The swampy path<br/>#2328"]
+  R2329["The swampy path<br/>#2329"]
+  R2330["The turn in the swampy path<br/>#2330"]
+  R2331["The swampy path<br/>#2331"]
+  R2332["Lost in the Mist<br/>#2332"]
+  R2333["Lost in the Mist<br/>#2333"]
+  R2334["Lost in the Mist<br/>#2334"]
+  R2335["Lost in the Mist<br/>#2335"]
+  R2336["Lost in the Mist<br/>#2336"]
+  R2337["Lost in the Mist<br/>#2337"]
+  R2338["Lost in the Mist<br/>#2338"]
+  R2339["The solid path<br/>#2339"]
+  R2340["A forested path<br/>#2340"]
+  R2341["The gate before the Ogre Village<br/>#2341"]
+  R2342["Among the crude huts<br/>#2342"]
+  R2343["Inside the gates<br/>#2343"]
+  R2344["Among the crude huts<br/>#2344"]
+  R2345["The gathering place<br/>#2345"]
+  R2346["The firepit before the lodge<br/>#2346"]
+  R2347["The village dump<br/>#2347"]
+  R2348["The entryway to the lodge<br/>#2348"]
+  R2349["The throne room<br/>#2349"]
+  R2350["The chieftain's room<br/>#2350"]
   R2327 -->|E| R2328
-  R2327 -->|W| R2305
+  R2327 -->|W| X2305
   R2328 -->|E| R2329
   R2328 -->|W| R2327
   R2329 -->|E| R2330
@@ -243,73 +305,44 @@ graph LR
   R2349 -->|N| R2350
   R2349 -->|S| R2348
   R2350 -->|S| R2349
-  R2351 -->|N| R2353
-  R2351 -->|E| R2352
-  R2351 -->|S| R2355
-  R2351 -->|W| R2354
-  R2352 -->|N| R2357
-  R2352 -->|E| R2354
-  R2352 -->|S| R2358
-  R2352 -->|W| R2351
-  R2353 -->|N| R2326
-  R2353 -->|S| R2351
-  R2354 -->|N| R2359
-  R2354 -->|E| R2351
-  R2354 -->|S| R2356
-  R2354 -->|W| R2352
-  R2355 -->|N| R2351
-  R2355 -->|E| R2356
-  R2355 -->|S| R2357
-  R2355 -->|W| R2356
-  R2356 -->|N| R2354
-  R2356 -->|E| R2355
-  R2356 -->|S| R2359
-  R2356 -->|W| R2355
-  R2357 -->|N| R2355
-  R2357 -->|E| R2358
-  R2357 -->|S| R2352
-  R2357 -->|W| R2359
-  R2358 -->|N| R2352
-  R2358 -->|E| R2359
-  R2358 -->|S| R2360
-  R2358 -->|W| R2357
-  R2359 -->|N| R2356
-  R2359 -->|E| R2357
-  R2359 -->|S| R2354
-  R2359 -->|W| R2358
-  R2360 -->|N| R2358
-  R2360 -->|U| R2361
-  R2361 -->|U| R2362
-  R2361 -->|D| R2360
-  R2362 -->|S| R2364
-  R2362 -->|D| R2361
-  R2363 -->|E| R2364
-  R2363 -->|S| R2366
-  R2364 -->|N| R2362
-  R2364 -->|E| R2365
-  R2364 -->|S| R2367
-  R2364 -->|W| R2363
-  R2365 -->|S| R2368
-  R2365 -->|W| R2364
-  R2366 -->|N| R2363
-  R2366 -->|E| R2367
-  R2366 -->|S| R2369
-  R2367 -->|N| R2364
-  R2367 -->|E| R2368
-  R2367 -->|S| R2370
-  R2367 -->|W| R2366
-  R2368 -->|N| R2365
-  R2368 -->|E| R2375
-  R2368 -->|S| R2371
-  R2368 -->|W| R2367
-  R2369 -->|N| R2366
-  R2370 -->|N| R2367
-  R2371 -->|N| R2368
+  X2305["▸ Part A: The dark forest path<br/>#2305"]:::part
+  classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
+```
+
+## Map — Part D (24 rooms: #2372–#2395)
+
+```mermaid
+graph LR
+  R2372["Gorak's Training Room<br/>#2372"]
+  R2373["Darkoth's Dark Study<br/>#2373"]
+  R2374["Tyrgoth's Inner Sanctum<br/>#2374"]
+  R2375["The road to the Keep of Mahn-Tor<br/>#2375"]
+  R2376["A small guard house<br/>#2376"]
+  R2377["Before the Keep of Mahn-Tor<br/>#2377"]
+  R2378["A small guard house<br/>#2378"]
+  R2379["The entryway to the Keep of Mahn-Tor<br/>#2379"]
+  R2380["The Hall<br/>#2380"]
+  R2381["The Grand Hall<br/>#2381"]
+  R2382["The Great Hall<br/>#2382"]
+  R2383["Standing before the throne<br/>#2383"]
+  R2384["The Great Hall<br/>#2384"]
+  R2385["The secret hallway<br/>#2385"]
+  R2386["Entry to the Royal Chambers<br/>#2386"]
+  R2387["The Guard Post<br/>#2387"]
+  R2388["The guarded hall<br/>#2388"]
+  R2389["The guarded hall<br/>#2389"]
+  R2390["Sumaron's Sanctum<br/>#2390"]
+  R2391["Amyrok's Arcane Study<br/>#2391"]
+  R2392["The guarded hall<br/>#2392"]
+  R2393["The Harem Room<br/>#2393"]
+  R2394["Nasturn's Humble Abode<br/>#2394"]
+  R2395["The main living room<br/>#2395"]
   R2372 -->|E| R2388
   R2373 -->|E| R2389
   R2374 -->|E| R2392
   R2375 -->|E| R2377
-  R2375 -->|W| R2368
+  R2375 -->|W| X2368
   R2376 -->|S| R2377
   R2377 -->|N| R2376
   R2377 -->|E| R2379
@@ -350,22 +383,40 @@ graph LR
   R2391 -->|W| R2389
   R2392 -->|N| R2389
   R2392 -->|E| R2394
-  R2392 -->|S| R2397
+  R2392 -->|S| X2397
   R2392 -->|W| R2374
   R2393 -->|N| R2386
-  R2393 -->|E| R2396
+  R2393 -->|E| X2396
   R2394 -->|W| R2392
-  R2395 -->|S| R2396
+  R2395 -->|S| X2396
   R2395 -->|W| R2386
-  R2396 -->|N| R2395
-  R2396 -->|W| R2393
-  R2397 -->|N| R2392
+  X2368["▸ Part B: The streets of Mahn-Tor<br/>#2368"]:::part
+  X2397["▸ Part E: The end of the guarded hall<br/>#2397"]:::part
+  X2396["▸ Part E: The Master Bedroom<br/>#2396"]:::part
+  classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
+```
+
+## Map — Part E (4 rooms: #2396–#2399)
+
+```mermaid
+graph LR
+  R2396["The Master Bedroom<br/>#2396"]
+  R2397["The end of the guarded hall<br/>#2397"]
+  R2398["Dorgar's Dismal Domicile<br/>#2398"]
+  R2399["Belrak's Green Room<br/>#2399"]
+  R2396 -->|N| X2395
+  R2396 -->|W| X2393
+  R2397 -->|N| X2392
   R2397 -->|E| R2398
   R2397 -->|W| R2399
   R2398 -->|W| R2397
   R2399 -->|E| R2397
-  X5280["A dark bend in the forest<br/>thalos #5280"]:::ext
+  X2395["▸ Part D: The main living room<br/>#2395"]:::part
+  X2393["▸ Part D: The Harem Room<br/>#2393"]:::part
+  X2392["▸ Part D: The guarded hall<br/>#2392"]:::part
   classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
 ```
 
 ## Rooms

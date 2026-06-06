@@ -2,7 +2,11 @@
 
 [← back to world map](WORLD-MAP.md) · 50 rooms · vnums 6500–6554
 
-Dashed nodes are exits that leave this area.
+Grey dashed nodes leave the area; green dashed nodes (`▸ Part X`) continue on another sub-map below.
+
+_This area is split into 3 sub-maps for legibility._
+
+## Map — Part A (24 rooms: #6500–#6540)
 
 ```mermaid
 graph LR
@@ -14,11 +18,6 @@ graph LR
   R6505["Entrance to Mountain<br/>#6505"]
   R6506["Bend in Narrow Path<br/>#6506"]
   R6507["Narrow path<br/>#6507"]
-  R6508["Narrow north-south path<br/>#6508"]
-  R6509["Door to Kingdom<br/>#6509"]
-  R6510["Path to the Castle<br/>#6510"]
-  R6511["Still on the path to the Castle<br/>#6511"]
-  R6512["Door to Castle<br/>#6512"]
   R6513["Inside the entrance<br/>#6513"]
   R6514["Path<br/>#6514"]
   R6515["Turn in road<br/>#6515"]
@@ -28,34 +27,13 @@ graph LR
   R6519["Path by Hospital<br/>#6519"]
   R6520["Path next to barracks<br/>#6520"]
   R6521["Entrance to barracks<br/>#6521"]
-  R6522["Guard House<br/>#6522"]
   R6523["First Barrack room<br/>#6523"]
   R6524["Back of Barracks<br/>#6524"]
-  R6525["Inside of Castle Strangelove<br/>#6525"]
   R6526["A store room<br/>#6526"]
   R6527["Wine cellar<br/>#6527"]
-  R6528["Stairs in castle<br/>#6528"]
-  R6529["Stairs<br/>#6529"]
-  R6530["Top of stairs<br/>#6530"]
-  R6531["Queen's waiting room<br/>#6531"]
-  R6532["Bedroom<br/>#6532"]
   R6534["Hospital<br/>#6534"]
   R6535["Granite Head's Bakery<br/>#6535"]
   R6540["Dark path<br/>#6540"]
-  R6541["Mine entrance<br/>#6541"]
-  R6542["Inside the mine<br/>#6542"]
-  R6543["Path in the mine<br/>#6543"]
-  R6544["Mine crossroad<br/>#6544"]
-  R6545["Coal Room<br/>#6545"]
-  R6546["Mine Maze<br/>#6546"]
-  R6547["Maze inscription<br/>#6547"]
-  R6548["Maze<br/>#6548"]
-  R6549["Maze<br/>#6549"]
-  R6550["Maze<br/>#6550"]
-  R6551["Mining equipment room<br/>#6551"]
-  R6552["Solved the Maze.<br/>#6552"]
-  R6553["The Mazekeeper's Room<br/>#6553"]
-  R6554["Bottom of mineshaft<br/>#6554"]
   R6500 -->|N| R6501
   R6500 -->|S| X6600
   R6500 -->|U| X3502
@@ -72,19 +50,8 @@ graph LR
   R6505 -->|W| R6513
   R6506 -->|E| R6507
   R6506 -->|S| R6504
-  R6507 -->|N| R6508
+  R6507 -->|N| X6508
   R6507 -->|W| R6506
-  R6508 -->|N| R6509
-  R6508 -->|S| R6507
-  R6509 -->|E| R6510
-  R6509 -->|S| R6508
-  R6509 -->|W| R6522
-  R6510 -->|N| R6511
-  R6510 -->|W| R6509
-  R6511 -->|N| R6512
-  R6511 -->|S| R6510
-  R6512 -->|E| R6525
-  R6512 -->|S| R6511
   R6513 -->|N| R6514
   R6513 -->|E| R6505
   R6513 -->|W| R6526
@@ -106,17 +73,59 @@ graph LR
   R6520 -->|W| R6519
   R6521 -->|S| R6523
   R6521 -->|W| R6520
-  R6522 -->|E| R6509
   R6523 -->|N| R6521
   R6523 -->|S| R6524
   R6524 -->|N| R6523
   R6524 -->|D| X2001
-  R6525 -->|W| R6512
-  R6525 -->|U| R6528
   R6526 -->|E| R6513
   R6526 -->|D| R6527
   R6527 -->|U| R6526
   R6527 -->|D| X2065
+  R6534 -->|S| R6519
+  R6535 -->|E| R6517
+  R6540 -->|N| R6504
+  R6540 -->|E| X6541
+  R6540 -->|W| R6503
+  X6600["On a trail<br/>vacation #6600"]:::ext
+  X3502["The Cross Roads<br/>midennir #3502"]:::ext
+  X6508["▸ Part B: Narrow north-south path<br/>#6508"]:::part
+  X2001["North entrance to the catacombs<br/>catacomb #2001"]:::ext
+  X2065["Southern entrance to the catacombs<br/>catacomb #2065"]:::ext
+  X6541["▸ Part C: Mine entrance<br/>#6541"]:::part
+  classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
+```
+
+## Map — Part B (12 rooms: #6508–#6532)
+
+```mermaid
+graph LR
+  R6508["Narrow north-south path<br/>#6508"]
+  R6509["Door to Kingdom<br/>#6509"]
+  R6510["Path to the Castle<br/>#6510"]
+  R6511["Still on the path to the Castle<br/>#6511"]
+  R6512["Door to Castle<br/>#6512"]
+  R6522["Guard House<br/>#6522"]
+  R6525["Inside of Castle Strangelove<br/>#6525"]
+  R6528["Stairs in castle<br/>#6528"]
+  R6529["Stairs<br/>#6529"]
+  R6530["Top of stairs<br/>#6530"]
+  R6531["Queen's waiting room<br/>#6531"]
+  R6532["Bedroom<br/>#6532"]
+  R6508 -->|N| R6509
+  R6508 -->|S| X6507
+  R6509 -->|E| R6510
+  R6509 -->|S| R6508
+  R6509 -->|W| R6522
+  R6510 -->|N| R6511
+  R6510 -->|W| R6509
+  R6511 -->|N| R6512
+  R6511 -->|S| R6510
+  R6512 -->|E| R6525
+  R6512 -->|S| R6511
+  R6522 -->|E| R6509
+  R6525 -->|W| R6512
+  R6525 -->|U| R6528
   R6528 -->|U| R6529
   R6528 -->|D| R6525
   R6529 -->|U| R6530
@@ -126,12 +135,30 @@ graph LR
   R6531 -->|N| R6532
   R6531 -->|W| R6530
   R6532 -->|S| R6531
-  R6534 -->|S| R6519
-  R6535 -->|E| R6517
-  R6540 -->|N| R6504
-  R6540 -->|E| R6541
-  R6540 -->|W| R6503
-  R6541 -->|W| R6540
+  X6507["▸ Part A: Narrow path<br/>#6507"]:::part
+  classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
+```
+
+## Map — Part C (14 rooms: #6541–#6554)
+
+```mermaid
+graph LR
+  R6541["Mine entrance<br/>#6541"]
+  R6542["Inside the mine<br/>#6542"]
+  R6543["Path in the mine<br/>#6543"]
+  R6544["Mine crossroad<br/>#6544"]
+  R6545["Coal Room<br/>#6545"]
+  R6546["Mine Maze<br/>#6546"]
+  R6547["Maze inscription<br/>#6547"]
+  R6548["Maze<br/>#6548"]
+  R6549["Maze<br/>#6549"]
+  R6550["Maze<br/>#6550"]
+  R6551["Mining equipment room<br/>#6551"]
+  R6552["Solved the Maze.<br/>#6552"]
+  R6553["The Mazekeeper's Room<br/>#6553"]
+  R6554["Bottom of mineshaft<br/>#6554"]
+  R6541 -->|W| X6540
   R6541 -->|D| R6542
   R6542 -->|U| R6541
   R6542 -->|D| R6554
@@ -158,11 +185,9 @@ graph LR
   R6553 -->|E| R6552
   R6554 -->|E| R6543
   R6554 -->|U| R6542
-  X6600["On a trail<br/>vacation #6600"]:::ext
-  X3502["The Cross Roads<br/>midennir #3502"]:::ext
-  X2001["North entrance to the catacombs<br/>catacomb #2001"]:::ext
-  X2065["Southern entrance to the catacombs<br/>catacomb #2065"]:::ext
+  X6540["▸ Part A: Dark path<br/>#6540"]:::part
   classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
 ```
 
 ## Rooms

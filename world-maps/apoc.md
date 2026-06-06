@@ -2,7 +2,11 @@
 
 [← back to world map](WORLD-MAP.md) · 54 rooms · vnums 800–853
 
-Dashed nodes are exits that leave this area.
+Grey dashed nodes leave the area; green dashed nodes (`▸ Part X`) continue on another sub-map below.
+
+_This area is split into 3 sub-maps for legibility._
+
+## Map — Part A (24 rooms: #800–#824)
 
 ```mermaid
 graph LR
@@ -17,7 +21,6 @@ graph LR
   R808["A Hallway<br/>#808"]
   R809["The Courtyard<br/>#809"]
   R810["Another Hallway<br/>#810"]
-  R811["The Hallway<br/>#811"]
   R812["A Portal<br/>#812"]
   R813["A Portal<br/>#813"]
   R814["A Portal<br/>#814"]
@@ -31,35 +34,6 @@ graph LR
   R822["A Duel<br/>#822"]
   R823["A Stair Well<br/>#823"]
   R824["The Dungeon<br/>#824"]
-  R825["A Cell<br/>#825"]
-  R826["A Cell<br/>#826"]
-  R827["A Cell<br/>#827"]
-  R828["A Cell<br/>#828"]
-  R829["The Nexus of Clans<br/>#829"]
-  R830["The Nexus of Clans<br/>#830"]
-  R831["The Nexus of Clans<br/>#831"]
-  R832["The Nexus of Clans<br/>#832"]
-  R833["The Nexus of Clans<br/>#833"]
-  R834["The Nexus of Clans<br/>#834"]
-  R835["The Nexus of Clans<br/>#835"]
-  R836["The Nexus of Clans<br/>#836"]
-  R837["The Nexus of Clans<br/>#837"]
-  R838["The Nexus of Clans<br/>#838"]
-  R839["The Nexus of Clans<br/>#839"]
-  R840["The Nexus of Clans<br/>#840"]
-  R841["The Nexus of Clans<br/>#841"]
-  R842["The Nexus of Clans<br/>#842"]
-  R843["The Nexus of Clans<br/>#843"]
-  R844["The Nexus of Clans<br/>#844"]
-  R845["The Nexus of Clans<br/>#845"]
-  R846["The Nexus of Clans<br/>#846"]
-  R847["The Nexus of Clans<br/>#847"]
-  R848["The Nexus of Clans<br/>#848"]
-  R849["The Nexus of Clans<br/>#849"]
-  R850["The Nexus of Clans<br/>#850"]
-  R851["The Nexus of Clans<br/>#851"]
-  R852["The Nexus of Clans<br/>#852"]
-  R853["The Nexus of Clans<br/>#853"]
   R800 -->|S| R801
   R801 -->|N| R800
   R801 -->|S| R802
@@ -77,7 +51,7 @@ graph LR
   R806 -->|E| R804
   R806 -->|S| R820
   R806 -->|W| R810
-  R806 -->|U| R829
+  R806 -->|U| X829
   R807 -->|N| R808
   R807 -->|S| R806
   R807 -->|D| R823
@@ -113,20 +87,85 @@ graph LR
   R822 -->|E| R809
   R823 -->|U| R807
   R823 -->|D| R824
-  R824 -->|N| R826
-  R824 -->|E| R828
-  R824 -->|S| R827
-  R824 -->|W| R825
+  R824 -->|N| X826
+  R824 -->|E| X828
+  R824 -->|S| X827
+  R824 -->|W| X825
   R824 -->|U| R823
-  R825 -->|E| R824
-  R826 -->|S| R824
-  R827 -->|N| R824
-  R828 -->|W| R824
+  X5100["City Entrance<br/>drow #5100"]:::ext
+  X829["▸ Part C: The Nexus of Clans<br/>#829"]:::part
+  X904["Entrance<br/>olympus #904"]:::ext
+  X1312["Entrance to the High Tower<br/>hitower #1312"]:::ext
+  X3001["The Temple Of Midgaard<br/>midgaard #3001"]:::ext
+  X2201["The Tower Gates<br/>draconia #2201"]:::ext
+  X2362["Before the gates of Mahn-Tor<br/>mahntor #2362"]:::ext
+  X1017["In the air ...<br/>air #1017"]:::ext
+  X826["▸ Part B: A Cell<br/>#826"]:::part
+  X828["▸ Part B: A Cell<br/>#828"]:::part
+  X827["▸ Part B: A Cell<br/>#827"]:::part
+  X825["▸ Part B: A Cell<br/>#825"]:::part
+  classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
+```
+
+## Map — Part B (6 rooms: #811–#853)
+
+```mermaid
+graph LR
+  R811["The Hallway<br/>#811"]
+  R825["A Cell<br/>#825"]
+  R826["A Cell<br/>#826"]
+  R827["A Cell<br/>#827"]
+  R828["A Cell<br/>#828"]
+  R853["The Nexus of Clans<br/>#853"]
+  R825 -->|E| X824
+  R826 -->|S| X824
+  R827 -->|N| X824
+  R828 -->|W| X824
+  R853 -->|N| X838
+  R853 -->|S| X852
+  R853 -->|W| X837
+  X824["▸ Part A: The Dungeon<br/>#824"]:::part
+  X838["▸ Part C: The Nexus of Clans<br/>#838"]:::part
+  X852["▸ Part C: The Nexus of Clans<br/>#852"]:::part
+  X837["▸ Part C: The Nexus of Clans<br/>#837"]:::part
+  classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
+```
+
+## Map — Part C (24 rooms: #829–#852)
+
+```mermaid
+graph LR
+  R829["The Nexus of Clans<br/>#829"]
+  R830["The Nexus of Clans<br/>#830"]
+  R831["The Nexus of Clans<br/>#831"]
+  R832["The Nexus of Clans<br/>#832"]
+  R833["The Nexus of Clans<br/>#833"]
+  R834["The Nexus of Clans<br/>#834"]
+  R835["The Nexus of Clans<br/>#835"]
+  R836["The Nexus of Clans<br/>#836"]
+  R837["The Nexus of Clans<br/>#837"]
+  R838["The Nexus of Clans<br/>#838"]
+  R839["The Nexus of Clans<br/>#839"]
+  R840["The Nexus of Clans<br/>#840"]
+  R841["The Nexus of Clans<br/>#841"]
+  R842["The Nexus of Clans<br/>#842"]
+  R843["The Nexus of Clans<br/>#843"]
+  R844["The Nexus of Clans<br/>#844"]
+  R845["The Nexus of Clans<br/>#845"]
+  R846["The Nexus of Clans<br/>#846"]
+  R847["The Nexus of Clans<br/>#847"]
+  R848["The Nexus of Clans<br/>#848"]
+  R849["The Nexus of Clans<br/>#849"]
+  R850["The Nexus of Clans<br/>#850"]
+  R851["The Nexus of Clans<br/>#851"]
+  R852["The Nexus of Clans<br/>#852"]
   R829 -->|N| R832
   R829 -->|E| R830
   R829 -->|S| R836
   R829 -->|W| R834
-  R829 -->|D| R806
+  R829 -->|D| X806
   R830 -->|N| R831
   R830 -->|E| R838
   R830 -->|S| R837
@@ -156,12 +195,12 @@ graph LR
   R836 -->|S| R850
   R836 -->|W| R835
   R837 -->|N| R830
-  R837 -->|E| R853
+  R837 -->|E| X853
   R837 -->|S| R851
   R837 -->|W| R836
   R838 -->|N| R839
   R838 -->|E| X9600
-  R838 -->|S| R853
+  R838 -->|S| X853
   R838 -->|W| R830
   R839 -->|N| R840
   R839 -->|S| R838
@@ -204,18 +243,10 @@ graph LR
   R851 -->|E| R852
   R851 -->|S| X9950
   R851 -->|W| R850
-  R852 -->|N| R853
+  R852 -->|N| X853
   R852 -->|W| R851
-  R853 -->|N| R838
-  R853 -->|S| R852
-  R853 -->|W| R837
-  X5100["City Entrance<br/>drow #5100"]:::ext
-  X904["Entrance<br/>olympus #904"]:::ext
-  X1312["Entrance to the High Tower<br/>hitower #1312"]:::ext
-  X3001["The Temple Of Midgaard<br/>midgaard #3001"]:::ext
-  X2201["The Tower Gates<br/>draconia #2201"]:::ext
-  X2362["Before the gates of Mahn-Tor<br/>mahntor #2362"]:::ext
-  X1017["In the air ...<br/>air #1017"]:::ext
+  X806["▸ Part A: The Inner Ward<br/>#806"]:::part
+  X853["▸ Part B: The Nexus of Clans<br/>#853"]:::part
   X9600["A cave entrance<br/>cithdeux #9600"]:::ext
   X9500["The Vestibule<br/>malokteri #9500"]:::ext
   X9700["Divergence<br/>divergent #9700"]:::ext
@@ -223,6 +254,7 @@ graph LR
   X9900["Entrance to the Mansion<br/>zrollers #9900"]:::ext
   X9950["Slaughterhouse<br/>renegades #9950"]:::ext
   classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
 ```
 
 ## Rooms

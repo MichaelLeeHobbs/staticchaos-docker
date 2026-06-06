@@ -2,7 +2,11 @@
 
 [← back to world map](WORLD-MAP.md) · 69 rooms · vnums 2001–2069
 
-Dashed nodes are exits that leave this area.
+Grey dashed nodes leave the area; green dashed nodes (`▸ Part X`) continue on another sub-map below.
+
+_This area is split into 4 sub-maps for legibility._
+
+## Map — Part A (24 rooms: #2001–#2024)
 
 ```mermaid
 graph LR
@@ -30,51 +34,6 @@ graph LR
   R2022["The holy grove<br/>#2022"]
   R2023["Mess hall<br/>#2023"]
   R2024["End of a hallway<br/>#2024"]
-  R2025["Grand Templar's room<br/>#2025"]
-  R2026["Very dark passage<br/>#2026"]
-  R2027["The holy grove<br/>#2027"]
-  R2028["The holy grove<br/>#2028"]
-  R2029["Very dark caveway<br/>#2029"]
-  R2030["Deep within the catacombs<br/>#2030"]
-  R2031["Very dark cavern<br/>#2031"]
-  R2032["The holy place<br/>#2032"]
-  R2033["Misty passageway<br/>#2033"]
-  R2034["Intersection of caverns<br/>#2034"]
-  R2035["Entrance to the burial grounds<br/>#2035"]
-  R2036["The burial grounds<br/>#2036"]
-  R2037["The burial grounds<br/>#2037"]
-  R2038["The burial grounds<br/>#2038"]
-  R2039["New graves<br/>#2039"]
-  R2040["Misty cavern<br/>#2040"]
-  R2041["Misty cavern<br/>#2041"]
-  R2042["Mist cavern<br/>#2042"]
-  R2043["Waterfall of mist<br/>#2043"]
-  R2044["Huge multicolored tunnel<br/>#2044"]
-  R2045["Desolate ruins<br/>#2045"]
-  R2046["Curators place<br/>#2046"]
-  R2047["Fresh graves<br/>#2047"]
-  R2048["Twisty cavern<br/>#2048"]
-  R2049["Striped tunnel<br/>#2049"]
-  R2050["Prism cave<br/>#2050"]
-  R2051["Ruined monument<br/>#2051"]
-  R2052["Basement<br/>#2052"]
-  R2053["Fresh graves<br/>#2053"]
-  R2054["Southern gate<br/>#2054"]
-  R2055["Scene of ghastly horror<br/>#2055"]
-  R2056["Twisty passage<br/>#2056"]
-  R2057["Cross of caverns<br/>#2057"]
-  R2058["Lonely tunnel<br/>#2058"]
-  R2059["Lonely tunnel<br/>#2059"]
-  R2060["Bend in the lonely tunnel<br/>#2060"]
-  R2061["Lonely tunnel<br/>#2061"]
-  R2062["Intersection<br/>#2062"]
-  R2063["Tunnel<br/>#2063"]
-  R2064["Tunnel<br/>#2064"]
-  R2065["Southern entrance to the catacombs<br/>#2065"]
-  R2066["Unknown passage<br/>#2066"]
-  R2067["Unknown passage<br/>#2067"]
-  R2068["Unknown passage<br/>#2068"]
-  R2069["Unknown passage<br/>#2069"]
   R2001 -->|S| R2002
   R2001 -->|U| X6524
   R2002 -->|N| R2001
@@ -103,7 +62,7 @@ graph LR
   R2012 -->|S| R2019
   R2013 -->|N| R2009
   R2013 -->|S| R2016
-  R2013 -->|W| R2069
+  R2013 -->|W| X2069
   R2014 -->|N| R2010
   R2014 -->|E| R2015
   R2014 -->|S| R2017
@@ -116,28 +75,83 @@ graph LR
   R2018 -->|W| R2017
   R2019 -->|N| R2012
   R2019 -->|E| R2020
-  R2019 -->|S| R2026
+  R2019 -->|S| X2026
   R2020 -->|E| R2021
   R2020 -->|W| R2019
-  R2021 -->|N| R2068
+  R2021 -->|N| X2068
   R2021 -->|E| R2022
-  R2021 -->|S| R2027
+  R2021 -->|S| X2027
   R2021 -->|W| R2020
-  R2022 -->|S| R2028
+  R2022 -->|S| X2028
   R2022 -->|W| R2021
   R2023 -->|N| R2016
   R2023 -->|E| R2024
   R2024 -->|N| R2017
-  R2024 -->|E| R2025
+  R2024 -->|E| X2025
   R2024 -->|W| R2023
-  R2025 -->|W| R2024
-  R2026 -->|N| R2019
-  R2026 -->|S| R2030
-  R2027 -->|N| R2021
+  X6524["Back of Barracks<br/>dwarven #6524"]:::ext
+  X2069["▸ Part D: Unknown passage<br/>#2069"]:::part
+  X2026["▸ Part C: Very dark passage<br/>#2026"]:::part
+  X2068["▸ Part D: Unknown passage<br/>#2068"]:::part
+  X2027["▸ Part B: The holy grove<br/>#2027"]:::part
+  X2028["▸ Part B: The holy grove<br/>#2028"]:::part
+  X2025["▸ Part B: Grand Templar's room<br/>#2025"]:::part
+  classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
+```
+
+## Map — Part B (4 rooms: #2025–#2032)
+
+```mermaid
+graph LR
+  R2025["Grand Templar's room<br/>#2025"]
+  R2027["The holy grove<br/>#2027"]
+  R2028["The holy grove<br/>#2028"]
+  R2032["The holy place<br/>#2032"]
+  R2025 -->|W| X2024
+  R2027 -->|N| X2021
   R2027 -->|E| R2028
-  R2028 -->|N| R2022
+  R2028 -->|N| X2022
   R2028 -->|S| R2032
   R2028 -->|W| R2027
+  R2032 -->|N| R2028
+  X2024["▸ Part A: End of a hallway<br/>#2024"]:::part
+  X2021["▸ Part A: The holy grove<br/>#2021"]:::part
+  X2022["▸ Part A: The holy grove<br/>#2022"]:::part
+  classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
+```
+
+## Map — Part C (24 rooms: #2026–#2052)
+
+```mermaid
+graph LR
+  R2026["Very dark passage<br/>#2026"]
+  R2029["Very dark caveway<br/>#2029"]
+  R2030["Deep within the catacombs<br/>#2030"]
+  R2031["Very dark cavern<br/>#2031"]
+  R2033["Misty passageway<br/>#2033"]
+  R2034["Intersection of caverns<br/>#2034"]
+  R2035["Entrance to the burial grounds<br/>#2035"]
+  R2036["The burial grounds<br/>#2036"]
+  R2037["The burial grounds<br/>#2037"]
+  R2038["The burial grounds<br/>#2038"]
+  R2039["New graves<br/>#2039"]
+  R2040["Misty cavern<br/>#2040"]
+  R2041["Misty cavern<br/>#2041"]
+  R2042["Mist cavern<br/>#2042"]
+  R2043["Waterfall of mist<br/>#2043"]
+  R2044["Huge multicolored tunnel<br/>#2044"]
+  R2045["Desolate ruins<br/>#2045"]
+  R2046["Curators place<br/>#2046"]
+  R2047["Fresh graves<br/>#2047"]
+  R2048["Twisty cavern<br/>#2048"]
+  R2049["Striped tunnel<br/>#2049"]
+  R2050["Prism cave<br/>#2050"]
+  R2051["Ruined monument<br/>#2051"]
+  R2052["Basement<br/>#2052"]
+  R2026 -->|N| X2019
+  R2026 -->|S| R2030
   R2029 -->|E| R2030
   R2029 -->|W| R2033
   R2030 -->|N| R2026
@@ -145,7 +159,6 @@ graph LR
   R2030 -->|W| R2029
   R2031 -->|S| R2034
   R2031 -->|W| R2030
-  R2032 -->|N| R2028
   R2033 -->|N| R2029
   R2033 -->|S| R2042
   R2034 -->|N| R2031
@@ -176,36 +189,67 @@ graph LR
   R2046 -->|E| R2047
   R2046 -->|D| R2052
   R2047 -->|N| R2039
-  R2047 -->|S| R2053
+  R2047 -->|S| X2053
   R2047 -->|W| R2046
   R2048 -->|N| R2040
   R2048 -->|E| R2049
-  R2048 -->|S| R2056
+  R2048 -->|S| X2056
   R2049 -->|E| R2050
   R2049 -->|W| R2048
   R2050 -->|N| R2044
-  R2050 -->|E| R2058
-  R2050 -->|S| R2057
+  R2050 -->|E| X2058
+  R2050 -->|S| X2057
   R2050 -->|W| R2049
   R2051 -->|N| R2045
   R2051 -->|E| R2052
-  R2051 -->|S| R2054
+  R2051 -->|S| X2054
   R2052 -->|W| R2051
   R2052 -->|U| R2046
-  R2053 -->|N| R2047
+  X2019["▸ Part A: Mossy intersection<br/>#2019"]:::part
+  X2053["▸ Part D: Fresh graves<br/>#2053"]:::part
+  X2056["▸ Part D: Twisty passage<br/>#2056"]:::part
+  X2058["▸ Part D: Lonely tunnel<br/>#2058"]:::part
+  X2057["▸ Part D: Cross of caverns<br/>#2057"]:::part
+  X2054["▸ Part D: Southern gate<br/>#2054"]:::part
+  classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
+```
+
+## Map — Part D (17 rooms: #2053–#2069)
+
+```mermaid
+graph LR
+  R2053["Fresh graves<br/>#2053"]
+  R2054["Southern gate<br/>#2054"]
+  R2055["Scene of ghastly horror<br/>#2055"]
+  R2056["Twisty passage<br/>#2056"]
+  R2057["Cross of caverns<br/>#2057"]
+  R2058["Lonely tunnel<br/>#2058"]
+  R2059["Lonely tunnel<br/>#2059"]
+  R2060["Bend in the lonely tunnel<br/>#2060"]
+  R2061["Lonely tunnel<br/>#2061"]
+  R2062["Intersection<br/>#2062"]
+  R2063["Tunnel<br/>#2063"]
+  R2064["Tunnel<br/>#2064"]
+  R2065["Southern entrance to the catacombs<br/>#2065"]
+  R2066["Unknown passage<br/>#2066"]
+  R2067["Unknown passage<br/>#2067"]
+  R2068["Unknown passage<br/>#2068"]
+  R2069["Unknown passage<br/>#2069"]
+  R2053 -->|N| X2047
   R2053 -->|S| R2055
-  R2054 -->|N| R2051
+  R2054 -->|N| X2051
   R2054 -->|E| R2066
   R2054 -->|S| R2059
   R2055 -->|N| R2053
   R2055 -->|S| R2062
-  R2056 -->|N| R2048
+  R2056 -->|N| X2048
   R2056 -->|E| R2057
-  R2057 -->|N| R2050
+  R2057 -->|N| X2050
   R2057 -->|S| R2066
   R2057 -->|W| R2056
   R2058 -->|E| R2059
-  R2058 -->|W| R2050
+  R2058 -->|W| X2050
   R2059 -->|N| R2054
   R2059 -->|E| R2060
   R2059 -->|W| R2058
@@ -230,9 +274,13 @@ graph LR
   R2068 -->|E| R2069
   R2069 -->|N| R2067
   R2069 -->|W| R2068
-  X6524["Back of Barracks<br/>dwarven #6524"]:::ext
+  X2047["▸ Part C: Fresh graves<br/>#2047"]:::part
+  X2051["▸ Part C: Ruined monument<br/>#2051"]:::part
+  X2048["▸ Part C: Twisty cavern<br/>#2048"]:::part
+  X2050["▸ Part C: Prism cave<br/>#2050"]:::part
   X6527["Wine cellar<br/>dwarven #6527"]:::ext
   classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
 ```
 
 ## Rooms

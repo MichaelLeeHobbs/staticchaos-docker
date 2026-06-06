@@ -2,7 +2,11 @@
 
 [← back to world map](WORLD-MAP.md) · 80 rooms · vnums 1900–1979
 
-Dashed nodes are exits that leave this area.
+Grey dashed nodes leave the area; green dashed nodes (`▸ Part X`) continue on another sub-map below.
+
+_This area is split into 5 sub-maps for legibility._
+
+## Map — Part A (24 rooms: #1900–#1928)
 
 ```mermaid
 graph LR
@@ -29,63 +33,7 @@ graph LR
   R1920["Wandering the Astral Plane<br/>#1920"]
   R1921["Wandering the Astral Plane<br/>#1921"]
   R1922["Wandering the Astral Plane<br/>#1922"]
-  R1923["Travelling the Astral Plane<br/>#1923"]
-  R1924["Travelling the Astral Plane<br/>#1924"]
-  R1925["Travelling the Astral Plane<br/>#1925"]
-  R1926["Travelling the Astral Plane<br/>#1926"]
-  R1927["Travelling the Astral Plane<br/>#1927"]
   R1928["Traversing the Astral Plane<br/>#1928"]
-  R1929["Traversing the Astral Plane<br/>#1929"]
-  R1930["Traversing the Astral Plane<br/>#1930"]
-  R1931["Traversing the Astral Plane<br/>#1931"]
-  R1932["Traversing the Astral Plane<br/>#1932"]
-  R1933["Lost in the Astral Plane<br/>#1933"]
-  R1934["Lost in the Astral Plane<br/>#1934"]
-  R1935["Lost in the Astral Plane<br/>#1935"]
-  R1936["Walking the Silvery Strand<br/>#1936"]
-  R1937["Walking the Silvery Strand<br/>#1937"]
-  R1938["Walking the Silvery Strand<br/>#1938"]
-  R1939["Walking the Silvery Strand<br/>#1939"]
-  R1940["Walking the Silvery Strand<br/>#1940"]
-  R1941["Walking the Silvery Strand<br/>#1941"]
-  R1942["Walking the Silvery Strand<br/>#1942"]
-  R1943["Walking the Silvery Strand<br/>#1943"]
-  R1944["Walking the Silvery Strand<br/>#1944"]
-  R1945["Deep Within the Astral Plane<br/>#1945"]
-  R1946["Deep Within the Astral Plane<br/>#1946"]
-  R1947["Deep Within the Astral Plane<br/>#1947"]
-  R1948["Deep Within the Astral Plane<br/>#1948"]
-  R1949["Deep Within the Astral Plane<br/>#1949"]
-  R1950["Inside the Githyanki Keep<br/>#1950"]
-  R1951["A guard station<br/>#1951"]
-  R1952["A grey road<br/>#1952"]
-  R1953["A grey road<br/>#1953"]
-  R1954["A grey road<br/>#1954"]
-  R1955["A grey road<br/>#1955"]
-  R1956["A grey road<br/>#1956"]
-  R1957["A grey road<br/>#1957"]
-  R1958["A grey road<br/>#1958"]
-  R1959["A grey road<br/>#1959"]
-  R1960["A grey road<br/>#1960"]
-  R1961["A grey road<br/>#1961"]
-  R1962["A small building<br/>#1962"]
-  R1963["A small building<br/>#1963"]
-  R1964["A large dwelling<br/>#1964"]
-  R1965["The Githyanki Weaponry<br/>#1965"]
-  R1966["The Forge<br/>#1966"]
-  R1967["The Githyanki Armoury<br/>#1967"]
-  R1968["Inside the furnace<br/>#1968"]
-  R1969["A guard station<br/>#1969"]
-  R1970["The cellblock<br/>#1970"]
-  R1971["A cramped cell<br/>#1971"]
-  R1972["A tiny cell<br/>#1972"]
-  R1973["A large dwelling<br/>#1973"]
-  R1974["South End of the Hall<br/>#1974"]
-  R1975["North End of the Hall<br/>#1975"]
-  R1976["The Altar Chamber<br/>#1976"]
-  R1977["Before the Altar<br/>#1977"]
-  R1978["A Gateway to the Underworld<br/>#1978"]
-  R1979["Utter darkness and despair<br/>#1979"]
   R1900 -->|U| R1901
   R1900 -->|D| X1036
   R1901 -->|U| R1902
@@ -165,33 +113,84 @@ graph LR
   R1918 -->|E| R1914
   R1918 -->|S| R1913
   R1918 -->|W| R1919
-  R1918 -->|U| R1933
-  R1918 -->|D| R1936
+  R1918 -->|U| X1933
+  R1918 -->|D| X1936
   R1919 -->|N| R1910
   R1919 -->|E| R1918
   R1919 -->|S| R1914
   R1919 -->|W| R1916
-  R1919 -->|U| R1934
-  R1919 -->|D| R1938
+  R1919 -->|U| X1934
+  R1919 -->|D| X1938
   R1920 -->|N| R1911
   R1920 -->|E| R1913
   R1920 -->|S| R1915
   R1920 -->|W| R1921
-  R1920 -->|U| R1935
-  R1920 -->|D| R1940
+  R1920 -->|U| X1935
+  R1920 -->|D| X1940
   R1921 -->|N| R1912
   R1921 -->|E| R1920
   R1921 -->|S| R1916
-  R1921 -->|W| R1942
+  R1921 -->|W| X1942
   R1921 -->|U| R1917
-  R1921 -->|D| R1933
+  R1921 -->|D| X1933
   R1922 -->|N| R1912
   R1922 -->|S| R1917
   R1922 -->|W| R1915
-  R1922 -->|U| R1944
-  R1922 -->|D| R1934
+  R1922 -->|U| X1944
+  R1922 -->|D| X1934
+  R1928 -->|N| R1909
+  R1928 -->|E| X1947
+  R1928 -->|S| X1934
+  R1928 -->|W| X1923
+  R1928 -->|U| X1945
+  R1928 -->|D| X1925
+  X1036["In the air ...<br/>air #1036"]:::ext
+  X1933["▸ Part B: Lost in the Astral Plane<br/>#1933"]:::part
+  X1936["▸ Part B: Walking the Silvery Strand<br/>#1936"]:::part
+  X1934["▸ Part B: Lost in the Astral Plane<br/>#1934"]:::part
+  X1938["▸ Part B: Walking the Silvery Strand<br/>#1938"]:::part
+  X1935["▸ Part B: Lost in the Astral Plane<br/>#1935"]:::part
+  X1940["▸ Part B: Walking the Silvery Strand<br/>#1940"]:::part
+  X1942["▸ Part B: Walking the Silvery Strand<br/>#1942"]:::part
+  X1944["▸ Part B: Walking the Silvery Strand<br/>#1944"]:::part
+  X1947["▸ Part B: Deep Within the Astral Plane<br/>#1947"]:::part
+  X1923["▸ Part B: Travelling the Astral Plane<br/>#1923"]:::part
+  X1945["▸ Part B: Deep Within the Astral Plane<br/>#1945"]:::part
+  X1925["▸ Part B: Travelling the Astral Plane<br/>#1925"]:::part
+  classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
+```
+
+## Map — Part B (24 rooms: #1923–#1947)
+
+```mermaid
+graph LR
+  R1923["Travelling the Astral Plane<br/>#1923"]
+  R1924["Travelling the Astral Plane<br/>#1924"]
+  R1925["Travelling the Astral Plane<br/>#1925"]
+  R1926["Travelling the Astral Plane<br/>#1926"]
+  R1927["Travelling the Astral Plane<br/>#1927"]
+  R1929["Traversing the Astral Plane<br/>#1929"]
+  R1930["Traversing the Astral Plane<br/>#1930"]
+  R1931["Traversing the Astral Plane<br/>#1931"]
+  R1932["Traversing the Astral Plane<br/>#1932"]
+  R1933["Lost in the Astral Plane<br/>#1933"]
+  R1934["Lost in the Astral Plane<br/>#1934"]
+  R1935["Lost in the Astral Plane<br/>#1935"]
+  R1936["Walking the Silvery Strand<br/>#1936"]
+  R1937["Walking the Silvery Strand<br/>#1937"]
+  R1938["Walking the Silvery Strand<br/>#1938"]
+  R1939["Walking the Silvery Strand<br/>#1939"]
+  R1940["Walking the Silvery Strand<br/>#1940"]
+  R1941["Walking the Silvery Strand<br/>#1941"]
+  R1942["Walking the Silvery Strand<br/>#1942"]
+  R1943["Walking the Silvery Strand<br/>#1943"]
+  R1944["Walking the Silvery Strand<br/>#1944"]
+  R1945["Deep Within the Astral Plane<br/>#1945"]
+  R1946["Deep Within the Astral Plane<br/>#1946"]
+  R1947["Deep Within the Astral Plane<br/>#1947"]
   R1923 -->|N| R1924
-  R1923 -->|E| R1928
+  R1923 -->|E| X1928
   R1923 -->|S| R1937
   R1923 -->|W| R1926
   R1923 -->|U| R1932
@@ -206,7 +205,7 @@ graph LR
   R1925 -->|E| R1927
   R1925 -->|S| R1924
   R1925 -->|W| R1934
-  R1925 -->|U| R1928
+  R1925 -->|U| X1928
   R1925 -->|D| R1930
   R1926 -->|N| R1931
   R1926 -->|E| R1923
@@ -220,14 +219,8 @@ graph LR
   R1927 -->|W| R1925
   R1927 -->|U| R1931
   R1927 -->|D| R1944
-  R1928 -->|N| R1909
-  R1928 -->|E| R1947
-  R1928 -->|S| R1934
-  R1928 -->|W| R1923
-  R1928 -->|U| R1945
-  R1928 -->|D| R1925
   R1929 -->|N| R1930
-  R1929 -->|E| R1949
+  R1929 -->|E| X1949
   R1929 -->|S| R1935
   R1929 -->|W| R1924
   R1929 -->|U| R1926
@@ -241,54 +234,54 @@ graph LR
   R1931 -->|N| R1932
   R1931 -->|E| R1934
   R1931 -->|S| R1926
-  R1931 -->|W| R1948
+  R1931 -->|W| X1948
   R1931 -->|U| R1946
   R1931 -->|D| R1927
-  R1932 -->|N| R1949
+  R1932 -->|N| X1949
   R1932 -->|E| R1935
   R1932 -->|S| R1931
   R1932 -->|W| R1927
-  R1932 -->|U| R1948
+  R1932 -->|U| X1948
   R1932 -->|D| R1923
   R1933 -->|N| R1927
   R1933 -->|E| R1924
   R1933 -->|W| R1930
-  R1933 -->|U| R1921
-  R1933 -->|D| R1918
-  R1934 -->|N| R1928
+  R1933 -->|U| X1921
+  R1933 -->|D| X1918
+  R1934 -->|N| X1928
   R1934 -->|E| R1925
   R1934 -->|W| R1931
-  R1934 -->|U| R1922
-  R1934 -->|D| R1919
+  R1934 -->|U| X1922
+  R1934 -->|D| X1919
   R1935 -->|N| R1929
   R1935 -->|E| R1926
   R1935 -->|W| R1932
   R1935 -->|U| R1923
-  R1935 -->|D| R1920
+  R1935 -->|D| X1920
   R1936 -->|N| R1937
-  R1936 -->|U| R1918
+  R1936 -->|U| X1918
   R1937 -->|N| R1923
   R1937 -->|S| R1936
   R1938 -->|E| R1939
-  R1938 -->|U| R1919
+  R1938 -->|U| X1919
   R1939 -->|W| R1938
   R1939 -->|U| R1924
   R1940 -->|E| R1941
-  R1940 -->|U| R1920
+  R1940 -->|U| X1920
   R1941 -->|S| R1925
   R1941 -->|W| R1940
   R1942 -->|N| R1943
-  R1942 -->|E| R1921
+  R1942 -->|E| X1921
   R1943 -->|S| R1942
   R1943 -->|D| R1926
   R1944 -->|U| R1927
-  R1944 -->|D| R1922
+  R1944 -->|D| X1922
   R1945 -->|N| R1946
   R1945 -->|E| R1930
   R1945 -->|S| X0
-  R1945 -->|W| R1949
-  R1945 -->|U| R1950
-  R1945 -->|D| R1928
+  R1945 -->|W| X1949
+  R1945 -->|U| X1950
+  R1945 -->|D| X1928
   R1946 -->|N| R1933
   R1946 -->|E| X0
   R1946 -->|S| R1945
@@ -298,23 +291,82 @@ graph LR
   R1947 -->|N| R1934
   R1947 -->|E| R1946
   R1947 -->|S| R1930
-  R1947 -->|W| R1928
+  R1947 -->|W| X1928
   R1947 -->|U| X0
-  R1947 -->|D| R1948
-  R1948 -->|N| R1935
-  R1948 -->|E| R1931
+  R1947 -->|D| X1948
+  X1928["▸ Part A: Traversing the Astral Plane<br/>#1928"]:::part
+  X1949["▸ Part C: Deep Within the Astral Plane<br/>#1949"]:::part
+  X1948["▸ Part C: Deep Within the Astral Plane<br/>#1948"]:::part
+  X1921["▸ Part A: Wandering the Astral Plane<br/>#1921"]:::part
+  X1918["▸ Part A: Wandering the Astral Plane<br/>#1918"]:::part
+  X1922["▸ Part A: Wandering the Astral Plane<br/>#1922"]:::part
+  X1919["▸ Part A: Wandering the Astral Plane<br/>#1919"]:::part
+  X1920["▸ Part A: Wandering the Astral Plane<br/>#1920"]:::part
+  X0["?? broken<br/>#0"]:::ext
+  X1950["▸ Part D: Inside the Githyanki Keep<br/>#1950"]:::part
+  classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
+```
+
+## Map — Part C (2 rooms: #1948–#1949)
+
+```mermaid
+graph LR
+  R1948["Deep Within the Astral Plane<br/>#1948"]
+  R1949["Deep Within the Astral Plane<br/>#1949"]
+  R1948 -->|N| X1935
+  R1948 -->|E| X1931
   R1948 -->|S| R1949
   R1948 -->|W| X0
-  R1948 -->|U| R1947
-  R1948 -->|D| R1932
+  R1948 -->|U| X1947
+  R1948 -->|D| X1932
   R1949 -->|N| R1948
-  R1949 -->|E| R1945
-  R1949 -->|S| R1932
-  R1949 -->|W| R1929
+  R1949 -->|E| X1945
+  R1949 -->|S| X1932
+  R1949 -->|W| X1929
   R1949 -->|U| X0
   R1949 -->|D| X0
+  X1935["▸ Part B: Lost in the Astral Plane<br/>#1935"]:::part
+  X1931["▸ Part B: Traversing the Astral Plane<br/>#1931"]:::part
+  X0["?? broken<br/>#0"]:::ext
+  X1947["▸ Part B: Deep Within the Astral Plane<br/>#1947"]:::part
+  X1932["▸ Part B: Traversing the Astral Plane<br/>#1932"]:::part
+  X1945["▸ Part B: Deep Within the Astral Plane<br/>#1945"]:::part
+  X1929["▸ Part B: Traversing the Astral Plane<br/>#1929"]:::part
+  classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
+```
+
+## Map — Part D (24 rooms: #1950–#1973)
+
+```mermaid
+graph LR
+  R1950["Inside the Githyanki Keep<br/>#1950"]
+  R1951["A guard station<br/>#1951"]
+  R1952["A grey road<br/>#1952"]
+  R1953["A grey road<br/>#1953"]
+  R1954["A grey road<br/>#1954"]
+  R1955["A grey road<br/>#1955"]
+  R1956["A grey road<br/>#1956"]
+  R1957["A grey road<br/>#1957"]
+  R1958["A grey road<br/>#1958"]
+  R1959["A grey road<br/>#1959"]
+  R1960["A grey road<br/>#1960"]
+  R1961["A grey road<br/>#1961"]
+  R1962["A small building<br/>#1962"]
+  R1963["A small building<br/>#1963"]
+  R1964["A large dwelling<br/>#1964"]
+  R1965["The Githyanki Weaponry<br/>#1965"]
+  R1966["The Forge<br/>#1966"]
+  R1967["The Githyanki Armoury<br/>#1967"]
+  R1968["Inside the furnace<br/>#1968"]
+  R1969["A guard station<br/>#1969"]
+  R1970["The cellblock<br/>#1970"]
+  R1971["A cramped cell<br/>#1971"]
+  R1972["A tiny cell<br/>#1972"]
+  R1973["A large dwelling<br/>#1973"]
   R1950 -->|N| R1951
-  R1950 -->|D| R1945
+  R1950 -->|D| X1945
   R1951 -->|E| R1961
   R1951 -->|S| R1950
   R1951 -->|W| R1952
@@ -326,7 +378,7 @@ graph LR
   R1953 -->|W| R1969
   R1954 -->|E| R1955
   R1954 -->|S| R1953
-  R1955 -->|N| R1974
+  R1955 -->|N| X1974
   R1955 -->|E| R1956
   R1955 -->|W| R1954
   R1956 -->|E| R1957
@@ -368,8 +420,25 @@ graph LR
   R1971 -->|S| R1970
   R1972 -->|N| R1970
   R1973 -->|S| R1957
+  X1945["▸ Part B: Deep Within the Astral Plane<br/>#1945"]:::part
+  X1974["▸ Part E: South End of the Hall<br/>#1974"]:::part
+  X0["?? broken<br/>#0"]:::ext
+  classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
+```
+
+## Map — Part E (6 rooms: #1974–#1979)
+
+```mermaid
+graph LR
+  R1974["South End of the Hall<br/>#1974"]
+  R1975["North End of the Hall<br/>#1975"]
+  R1976["The Altar Chamber<br/>#1976"]
+  R1977["Before the Altar<br/>#1977"]
+  R1978["A Gateway to the Underworld<br/>#1978"]
+  R1979["Utter darkness and despair<br/>#1979"]
   R1974 -->|N| R1975
-  R1974 -->|S| R1955
+  R1974 -->|S| X1955
   R1975 -->|N| R1976
   R1975 -->|S| R1974
   R1976 -->|N| R1977
@@ -378,9 +447,9 @@ graph LR
   R1977 -->|D| R1978
   R1978 -->|U| R1977
   R1978 -->|D| R1979
-  X1036["In the air ...<br/>air #1036"]:::ext
-  X0["?? broken<br/>#0"]:::ext
+  X1955["▸ Part D: A grey road<br/>#1955"]:::part
   classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
 ```
 
 ## Rooms

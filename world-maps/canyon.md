@@ -2,7 +2,11 @@
 
 [← back to world map](WORLD-MAP.md) · 55 rooms · vnums 9201–9260
 
-Dashed nodes are exits that leave this area.
+Grey dashed nodes leave the area; green dashed nodes (`▸ Part X`) continue on another sub-map below.
+
+_This area is split into 4 sub-maps for legibility._
+
+## Map — Part A (24 rooms: #9201–#9224)
 
 ```mermaid
 graph LR
@@ -30,37 +34,6 @@ graph LR
   R9222["Darker Caves<br/>#9222"]
   R9223["Darker Caves<br/>#9223"]
   R9224["Darker Caves<br/>#9224"]
-  R9225["Darkest Caves<br/>#9225"]
-  R9226["Darkest Caves<br/>#9226"]
-  R9227["Earth Chamber<br/>#9227"]
-  R9228["By the River<br/>#9228"]
-  R9229["In the River<br/>#9229"]
-  R9230["Elemental Bay<br/>#9230"]
-  R9231["Elemental Bay<br/>#9231"]
-  R9232["Elemental Bay<br/>#9232"]
-  R9233["Elemental Bay<br/>#9233"]
-  R9234["Elemental Bay<br/>#9234"]
-  R9235["Elemental Bay<br/>#9235"]
-  R9236["Water Chamber<br/>#9236"]
-  R9237["A Fiery Pathway<br/>#9237"]
-  R9238["A Fiery Pathway<br/>#9238"]
-  R9242["The Burning Gardens<br/>#9242"]
-  R9245["The Fire Chamber<br/>#9245"]
-  R9246["Electric Pathway<br/>#9246"]
-  R9247["The Electric Playground<br/>#9247"]
-  R9248["The Electric Playground<br/>#9248"]
-  R9249["The Electric Playground<br/>#9249"]
-  R9250["The Electric Playground<br/>#9250"]
-  R9251["Lightning Causeway<br/>#9251"]
-  R9252["Lightning Chamber<br/>#9252"]
-  R9253["Mesa West<br/>#9253"]
-  R9254["Mesa East<br/>#9254"]
-  R9255["Floating in Air<br/>#9255"]
-  R9256["Floating in Air<br/>#9256"]
-  R9257["Floating in Air<br/>#9257"]
-  R9258["Floating in Air<br/>#9258"]
-  R9259["Windy Tunnel<br/>#9259"]
-  R9260["Air Chamber<br/>#9260"]
   R9201 -->|N| X5267
   R9201 -->|U| R9202
   R9202 -->|U| R9203
@@ -92,13 +65,13 @@ graph LR
   R9212 -->|S| R9209
   R9212 -->|W| R9211
   R9213 -->|N| R9216
-  R9213 -->|E| R9228
+  R9213 -->|E| X9228
   R9213 -->|S| R9210
   R9213 -->|W| R9212
   R9214 -->|N| R9217
   R9214 -->|E| R9215
   R9214 -->|S| R9211
-  R9214 -->|W| R9237
+  R9214 -->|W| X9237
   R9215 -->|N| R9218
   R9215 -->|E| R9216
   R9215 -->|S| R9212
@@ -106,13 +79,13 @@ graph LR
   R9216 -->|N| R9219
   R9216 -->|S| R9213
   R9216 -->|W| R9215
-  R9217 -->|N| R9253
+  R9217 -->|N| X9253
   R9217 -->|E| R9218
   R9217 -->|S| R9214
   R9218 -->|E| R9219
   R9218 -->|S| R9215
   R9218 -->|W| R9217
-  R9219 -->|N| R9254
+  R9219 -->|N| X9254
   R9219 -->|S| R9216
   R9219 -->|W| R9218
   R9220 -->|E| R9221
@@ -124,18 +97,67 @@ graph LR
   R9222 -->|W| R9221
   R9223 -->|N| R9221
   R9223 -->|E| R9224
-  R9223 -->|S| R9225
+  R9223 -->|S| X9225
   R9224 -->|N| R9222
-  R9224 -->|S| R9226
+  R9224 -->|S| X9226
   R9224 -->|W| R9223
-  R9225 -->|N| R9223
+  X5267["A valley in the dark dwarf forest<br/>thalos #5267"]:::ext
+  X9228["▸ Part C: By the River<br/>#9228"]:::part
+  X9237["▸ Part B: A Fiery Pathway<br/>#9237"]:::part
+  X9253["▸ Part D: Mesa West<br/>#9253"]:::part
+  X9254["▸ Part D: Mesa East<br/>#9254"]:::part
+  X9225["▸ Part B: Darkest Caves<br/>#9225"]:::part
+  X9226["▸ Part B: Darkest Caves<br/>#9226"]:::part
+  classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
+```
+
+## Map — Part B (7 rooms: #9225–#9245)
+
+```mermaid
+graph LR
+  R9225["Darkest Caves<br/>#9225"]
+  R9226["Darkest Caves<br/>#9226"]
+  R9227["Earth Chamber<br/>#9227"]
+  R9237["A Fiery Pathway<br/>#9237"]
+  R9238["A Fiery Pathway<br/>#9238"]
+  R9242["The Burning Gardens<br/>#9242"]
+  R9245["The Fire Chamber<br/>#9245"]
+  R9225 -->|N| X9223
   R9225 -->|E| R9226
-  R9226 -->|N| R9224
+  R9226 -->|N| X9224
   R9226 -->|E| R9227
   R9226 -->|W| R9225
   R9227 -->|W| R9226
+  R9237 -->|E| X9214
+  R9237 -->|S| R9238
+  R9238 -->|N| R9237
+  R9238 -->|W| R9242
+  R9242 -->|E| R9238
+  R9242 -->|W| R9245
+  R9245 -->|E| R9242
+  X9223["▸ Part A: Darker Caves<br/>#9223"]:::part
+  X9224["▸ Part A: Darker Caves<br/>#9224"]:::part
+  X9214["▸ Part A: The Floor of the Canyon<br/>#9214"]:::part
+  classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
+```
+
+## Map — Part C (9 rooms: #9228–#9236)
+
+```mermaid
+graph LR
+  R9228["By the River<br/>#9228"]
+  R9229["In the River<br/>#9229"]
+  R9230["Elemental Bay<br/>#9230"]
+  R9231["Elemental Bay<br/>#9231"]
+  R9232["Elemental Bay<br/>#9232"]
+  R9233["Elemental Bay<br/>#9233"]
+  R9234["Elemental Bay<br/>#9234"]
+  R9235["Elemental Bay<br/>#9235"]
+  R9236["Water Chamber<br/>#9236"]
   R9228 -->|N| R9229
-  R9228 -->|W| R9213
+  R9228 -->|W| X9213
   R9229 -->|N| R9230
   R9229 -->|S| R9228
   R9230 -->|N| R9233
@@ -155,13 +177,30 @@ graph LR
   R9235 -->|W| R9234
   R9235 -->|D| R9236
   R9236 -->|U| R9235
-  R9237 -->|E| R9214
-  R9237 -->|S| R9238
-  R9238 -->|N| R9237
-  R9238 -->|W| R9242
-  R9242 -->|E| R9238
-  R9242 -->|W| R9245
-  R9245 -->|E| R9242
+  X9213["▸ Part A: The Floor of the Canyon<br/>#9213"]:::part
+  classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
+```
+
+## Map — Part D (15 rooms: #9246–#9260)
+
+```mermaid
+graph LR
+  R9246["Electric Pathway<br/>#9246"]
+  R9247["The Electric Playground<br/>#9247"]
+  R9248["The Electric Playground<br/>#9248"]
+  R9249["The Electric Playground<br/>#9249"]
+  R9250["The Electric Playground<br/>#9250"]
+  R9251["Lightning Causeway<br/>#9251"]
+  R9252["Lightning Chamber<br/>#9252"]
+  R9253["Mesa West<br/>#9253"]
+  R9254["Mesa East<br/>#9254"]
+  R9255["Floating in Air<br/>#9255"]
+  R9256["Floating in Air<br/>#9256"]
+  R9257["Floating in Air<br/>#9257"]
+  R9258["Floating in Air<br/>#9258"]
+  R9259["Windy Tunnel<br/>#9259"]
+  R9260["Air Chamber<br/>#9260"]
   R9246 -->|N| R9248
   R9246 -->|E| R9253
   R9247 -->|N| R9249
@@ -178,10 +217,10 @@ graph LR
   R9251 -->|U| R9252
   R9252 -->|D| R9251
   R9253 -->|E| R9254
-  R9253 -->|S| R9217
+  R9253 -->|S| X9217
   R9253 -->|W| R9246
   R9254 -->|N| R9255
-  R9254 -->|S| R9219
+  R9254 -->|S| X9219
   R9254 -->|W| R9253
   R9255 -->|N| R9257
   R9255 -->|E| R9256
@@ -196,8 +235,10 @@ graph LR
   R9259 -->|E| R9260
   R9259 -->|W| R9258
   R9260 -->|W| R9259
-  X5267["A valley in the dark dwarf forest<br/>thalos #5267"]:::ext
+  X9217["▸ Part A: The Floor of the Canyon<br/>#9217"]:::part
+  X9219["▸ Part A: The Floor of the Canyon<br/>#9219"]:::part
   classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
+  classDef part fill:#16313a,stroke:#5aa,color:#bfe,stroke-dasharray:4 2;
 ```
 
 ## Rooms

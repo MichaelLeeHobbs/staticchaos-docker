@@ -1,6 +1,6 @@
 # Diku Haon Dor  `(haon)`
 
-[← back to world map](../WORLD-MAP.md) · 71 rooms · vnums 6000–6155
+[← back to world map](WORLD-MAP.md) · 71 rooms · vnums 6000–6155
 
 Dashed nodes are exits that leave this area.
 

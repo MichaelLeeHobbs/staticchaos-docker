@@ -1,6 +1,6 @@
 # Copper Miden'nir  `(midennir)`
 
-[← back to world map](../WORLD-MAP.md) · 45 rooms · vnums 3500–3584
+[← back to world map](WORLD-MAP.md) · 45 rooms · vnums 3500–3584
 
 Dashed nodes are exits that leave this area.
 

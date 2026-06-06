@@ -1,6 +1,6 @@
 # Chris The Keep of Mahn-Tor  `(mahntor)`
 
-[← back to world map](../WORLD-MAP.md) · 100 rooms · vnums 2300–2399
+[← back to world map](WORLD-MAP.md) · 100 rooms · vnums 2300–2399
 
 Dashed nodes are exits that leave this area.
 

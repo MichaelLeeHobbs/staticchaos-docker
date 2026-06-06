@@ -62,6 +62,41 @@ bundled `Superuser` come along). To wipe all game state and start fresh:
 docker compose down -v
 ```
 
+## World data tooling
+
+Node scripts (in `tools/`) parse the `.are` files into navigable references under
+`world-maps/`. Requires Node 18+. No build needed for the data; PDFs need one Chrome download.
+
+```bash
+pnpm install                 # installs md-to-pdf (for the PDF step)
+
+pnpm run build:world         # world.json, WORLD-MAP.md, <area>.md, WORLD-ATLAS.md
+pnpm run build:items         # items.json + ITEMS.md   (equipment catalogue)
+pnpm run build:bestiary      # bestiary.json + BESTIARY.md
+pnpm run build:data          # all three of the above
+
+# One-time browser provision for PDF rendering (md-to-pdf uses puppeteer):
+npx @puppeteer/browsers install chrome@149.0.7827.22 --path ~/.cache/puppeteer
+
+pnpm run build:pdf           # WORLD-ATLAS.pdf, ITEMS.pdf, BESTIARY.pdf
+pnpm run build               # build:data + build:pdf
+```
+
+Outputs (all under `world-maps/`):
+
+| File | What it is |
+|------|------------|
+| `world.json` | Canonical room graph + reachability/dangling-exit reports |
+| `WORLD-MAP.md` | Stats, an area-connectivity Mermaid diagram, area index |
+| `<area>.md` | Per-area Mermaid room map + room table (one per area) |
+| `WORLD-ATLAS.md` / `.pdf` | Print-friendly atlas of every area/room/exit |
+| `ITEMS.md` / `.pdf`, `items.json` | Equipment catalogue: type, wear slot, stat affects, flags |
+| `BESTIARY.md` / `.pdf`, `bestiary.json` | Every mob: level, behaviour flags, where it appears |
+
+The shared parser lives in `tools/lib/area.mjs` (Reader + section parsers + flag decoders,
+matching `src/db.c`). The PDF Chrome version (`chrome@…`) must match whatever
+`puppeteer-core` pins; if `build:pdf` reports "Could not find Chrome (ver. X)", install that X.
+
 ## How it runs
 
 The server binary is `chaosium`. It is launched from the `area/` directory

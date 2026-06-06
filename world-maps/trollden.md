@@ -1,6 +1,6 @@
 # Merc Troll Den  `(trollden)`
 
-[← back to world map](../WORLD-MAP.md) · 5 rooms · vnums 2801–2805
+[← back to world map](WORLD-MAP.md) · 5 rooms · vnums 2801–2805
 
 Dashed nodes are exits that leave this area.
 

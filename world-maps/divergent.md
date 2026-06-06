@@ -1,6 +1,6 @@
 # Dizz Divergent Headquarters  `(divergent)`
 
-[← back to world map](../WORLD-MAP.md) · 6 rooms · vnums 9700–9705
+[← back to world map](WORLD-MAP.md) · 6 rooms · vnums 9700–9705
 
 Dashed nodes are exits that leave this area.
 

@@ -1,6 +1,6 @@
 # Andi The Astral Plane  `(astral)`
 
-[← back to world map](../WORLD-MAP.md) · 80 rooms · vnums 1900–1979
+[← back to world map](WORLD-MAP.md) · 80 rooms · vnums 1900–1979
 
 Dashed nodes are exits that leave this area.
 

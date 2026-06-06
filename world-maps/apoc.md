@@ -1,6 +1,6 @@
 # Larsen ApocalypsE Headquarters  `(apoc)`
 
-[← back to world map](../WORLD-MAP.md) · 54 rooms · vnums 800–853
+[← back to world map](WORLD-MAP.md) · 54 rooms · vnums 800–853
 
 Dashed nodes are exits that leave this area.
 

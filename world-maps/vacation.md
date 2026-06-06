@@ -1,6 +1,6 @@
 # Alathon Pikachu's Vacation  `(vacation)`
 
-[← back to world map](../WORLD-MAP.md) · 20 rooms · vnums 6600–6619
+[← back to world map](WORLD-MAP.md) · 20 rooms · vnums 6600–6619
 
 Dashed nodes are exits that leave this area.
 

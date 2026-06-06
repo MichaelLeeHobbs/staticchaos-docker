@@ -1,6 +1,6 @@
 # Diku Midgaard  `(midgaard)`
 
-[← back to world map](../WORLD-MAP.md) · 101 rooms · vnums 3001–3205
+[← back to world map](WORLD-MAP.md) · 101 rooms · vnums 3001–3205
 
 Dashed nodes are exits that leave this area.
 

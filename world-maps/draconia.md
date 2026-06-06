@@ -1,6 +1,6 @@
 # Wench Dragon Tower  `(draconia)`
 
-[← back to world map](../WORLD-MAP.md) · 44 rooms · vnums 2201–2244
+[← back to world map](WORLD-MAP.md) · 44 rooms · vnums 2201–2244
 
 Dashed nodes are exits that leave this area.
 

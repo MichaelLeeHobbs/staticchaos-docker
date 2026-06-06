@@ -1,6 +1,6 @@
 # Generic Olympus  `(olympus)`
 
-[← back to world map](../WORLD-MAP.md) · 50 rooms · vnums 901–954
+[← back to world map](WORLD-MAP.md) · 50 rooms · vnums 901–954
 
 Dashed nodes are exits that leave this area.
 

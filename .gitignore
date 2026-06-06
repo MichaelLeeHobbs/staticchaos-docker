@@ -1,3 +1,13 @@
+# Node tooling
+node_modules/
+
+# IDE
+.idea/
+
+# Locally-downloaded puppeteer Chrome (provisioned via @puppeteer/browsers)
+chrome/
+.local-chromium/
+
 # Windows image file caches
 Thumbs.db
 ehthumbs.db

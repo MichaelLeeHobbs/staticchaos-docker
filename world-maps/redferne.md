@@ -1,6 +1,6 @@
 # Diku Redferne's Residence  `(redferne)`
 
-[← back to world map](../WORLD-MAP.md) · 17 rooms · vnums 7900–7918
+[← back to world map](WORLD-MAP.md) · 17 rooms · vnums 7900–7918
 
 Dashed nodes are exits that leave this area.
 

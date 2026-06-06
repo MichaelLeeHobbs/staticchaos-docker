@@ -1,6 +1,6 @@
 # Valgarv Cith Deux Headquarters  `(cithdeux)`
 
-[← back to world map](../WORLD-MAP.md) · 18 rooms · vnums 9600–9617
+[← back to world map](WORLD-MAP.md) · 18 rooms · vnums 9600–9617
 
 Dashed nodes are exits that leave this area.
 

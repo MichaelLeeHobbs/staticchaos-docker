@@ -1,6 +1,6 @@
 # Blah Malokteri Headquarters  `(malokteri)`
 
-[← back to world map](../WORLD-MAP.md) · 13 rooms · vnums 9500–9512
+[← back to world map](WORLD-MAP.md) · 13 rooms · vnums 9500–9512
 
 Dashed nodes are exits that leave this area.
 

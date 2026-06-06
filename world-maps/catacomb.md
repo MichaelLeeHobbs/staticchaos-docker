@@ -1,6 +1,6 @@
 # Raff Dwarven Catacombs  `(catacomb)`
 
-[← back to world map](../WORLD-MAP.md) · 69 rooms · vnums 2001–2069
+[← back to world map](WORLD-MAP.md) · 69 rooms · vnums 2001–2069
 
 Dashed nodes are exits that leave this area.
 

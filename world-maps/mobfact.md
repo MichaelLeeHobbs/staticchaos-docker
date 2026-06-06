@@ -1,6 +1,6 @@
 # PinkF Mob Factory  `(mobfact)`
 
-[← back to world map](../WORLD-MAP.md) · 25 rooms · vnums 9400–9424
+[← back to world map](WORLD-MAP.md) · 25 rooms · vnums 9400–9424
 
 Dashed nodes are exits that leave this area.
 

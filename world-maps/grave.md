@@ -1,6 +1,6 @@
 # Alfa Graveyard  `(grave)`
 
-[← back to world map](../WORLD-MAP.md) · 33 rooms · vnums 3600–3651
+[← back to world map](WORLD-MAP.md) · 33 rooms · vnums 3600–3651
 
 Dashed nodes are exits that leave this area.
 

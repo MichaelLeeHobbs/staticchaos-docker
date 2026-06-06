@@ -1,6 +1,6 @@
 # Casret Ultima  `(ultima)`
 
-[← back to world map](../WORLD-MAP.md) · 185 rooms · vnums 2400–2584
+[← back to world map](WORLD-MAP.md) · 185 rooms · vnums 2400–2584
 
 Dashed nodes are exits that leave this area.
 

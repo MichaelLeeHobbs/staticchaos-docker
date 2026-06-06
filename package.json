@@ -1,0 +1,17 @@
+{
+  "name": "staticchaos-docker",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Dockerized Static Chaos MUD + world/data tooling (maps, items, bestiary, PDFs)",
+  "scripts": {
+    "build:world": "node tools/build-world-map.mjs",
+    "build:items": "node tools/build-items.mjs",
+    "build:bestiary": "node tools/build-bestiary.mjs",
+    "build:data": "node tools/build-world-map.mjs && node tools/build-items.mjs && node tools/build-bestiary.mjs",
+    "build:pdf": "md-to-pdf world-maps/WORLD-ATLAS.md world-maps/ITEMS.md world-maps/BESTIARY.md",
+    "build": "npm run build:data && npm run build:pdf"
+  },
+  "dependencies": {
+    "md-to-pdf": "^5.2.5"
+  }
+}

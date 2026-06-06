@@ -1,6 +1,6 @@
 # Raff Elemental Canyon  `(canyon)`
 
-[← back to world map](../WORLD-MAP.md) · 55 rooms · vnums 9201–9260
+[← back to world map](WORLD-MAP.md) · 55 rooms · vnums 9201–9260
 
 Dashed nodes are exits that leave this area.
 

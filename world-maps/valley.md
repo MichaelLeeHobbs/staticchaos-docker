@@ -1,6 +1,6 @@
 # Hatchet Valley of the Elves  `(valley)`
 
-[← back to world map](../WORLD-MAP.md) · 84 rooms · vnums 7800–7883
+[← back to world map](WORLD-MAP.md) · 84 rooms · vnums 7800–7883
 
 Dashed nodes are exits that leave this area.
 

@@ -1,6 +1,6 @@
 # Generic Old Marsh  `(marsh)`
 
-[← back to world map](../WORLD-MAP.md) · 18 rooms · vnums 8301–8318
+[← back to world map](WORLD-MAP.md) · 18 rooms · vnums 8301–8318
 
 Dashed nodes are exits that leave this area.
 

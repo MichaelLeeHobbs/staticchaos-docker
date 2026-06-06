@@ -1,6 +1,6 @@
 # Tyu Teikoku Headquarters  `(teikoku)`
 
-[← back to world map](../WORLD-MAP.md) · 6 rooms · vnums 9800–9805
+[← back to world map](WORLD-MAP.md) · 6 rooms · vnums 9800–9805
 
 Dashed nodes are exits that leave this area.
 

@@ -1,6 +1,6 @@
 # Mahatma Little Haven/Glass Fort  `(haven)`
 
-[← back to world map](../WORLD-MAP.md) · 33 rooms · vnums 1801–1833
+[← back to world map](WORLD-MAP.md) · 33 rooms · vnums 1801–1833
 
 Dashed nodes are exits that leave this area.
 

@@ -1,6 +1,6 @@
 # Anon Drow City  `(drow)`
 
-[← back to world map](../WORLD-MAP.md) · 51 rooms · vnums 5100–5150
+[← back to world map](WORLD-MAP.md) · 51 rooms · vnums 5100–5150
 
 Dashed nodes are exits that leave this area.
 

@@ -1,6 +1,6 @@
 # Anon The Shire  `(shire)`
 
-[← back to world map](../WORLD-MAP.md) · 58 rooms · vnums 1100–1157
+[← back to world map](WORLD-MAP.md) · 58 rooms · vnums 1100–1157
 
 Dashed nodes are exits that leave this area.
 

@@ -1,6 +1,6 @@
 # Alfa Ofcol  `(ofcol)`
 
-[← back to world map](../WORLD-MAP.md) · 8 rooms · vnums 5550–5577
+[← back to world map](WORLD-MAP.md) · 8 rooms · vnums 5550–5577
 
 Dashed nodes are exits that leave this area.
 

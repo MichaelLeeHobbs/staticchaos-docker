@@ -1,6 +1,6 @@
 # Malucif The Renegades Headquarters  `(renegades)`
 
-[← back to world map](../WORLD-MAP.md) · 11 rooms · vnums 9950–9960
+[← back to world map](WORLD-MAP.md) · 11 rooms · vnums 9950–9960
 
 Dashed nodes are exits that leave this area.
 

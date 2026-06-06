@@ -1,6 +1,6 @@
 # Diku Sewer  `(sewer)`
 
-[← back to world map](../WORLD-MAP.md) · 177 rooms · vnums 7001–7445
+[← back to world map](WORLD-MAP.md) · 177 rooms · vnums 7001–7445
 
 Dashed nodes are exits that leave this area.
 

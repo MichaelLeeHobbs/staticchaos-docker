@@ -1,6 +1,6 @@
 # Alfa Moria  `(moria)`
 
-[← back to world map](../WORLD-MAP.md) · 121 rooms · vnums 3900–4172
+[← back to world map](WORLD-MAP.md) · 121 rooms · vnums 3900–4172
 
 Dashed nodes are exits that leave this area.
 

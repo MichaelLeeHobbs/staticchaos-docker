@@ -1,6 +1,6 @@
 # Doctor Galaxy  `(galaxy)`
 
-[← back to world map](../WORLD-MAP.md) · 61 rooms · vnums 9301–9371
+[← back to world map](WORLD-MAP.md) · 61 rooms · vnums 9301–9371
 
 Dashed nodes are exits that leave this area.
 

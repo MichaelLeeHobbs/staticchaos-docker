@@ -1,6 +1,6 @@
 # Diku Limbo  `(limbo)`
 
-[← back to world map](../WORLD-MAP.md) · 2 rooms · vnums 1–2
+[← back to world map](WORLD-MAP.md) · 2 rooms · vnums 1–2
 
 Dashed nodes are exits that leave this area.
 

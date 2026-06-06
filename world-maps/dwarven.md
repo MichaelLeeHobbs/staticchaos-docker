@@ -1,6 +1,6 @@
 # Anon Dwarven Kingdom  `(dwarven)`
 
-[← back to world map](../WORLD-MAP.md) · 50 rooms · vnums 6500–6554
+[← back to world map](WORLD-MAP.md) · 50 rooms · vnums 6500–6554
 
 Dashed nodes are exits that leave this area.
 

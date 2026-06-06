@@ -1,6 +1,6 @@
 # Alathon The Arena  `(arena)`
 
-[← back to world map](../WORLD-MAP.md) · 4 rooms · vnums 96–99
+[← back to world map](WORLD-MAP.md) · 4 rooms · vnums 96–99
 
 Dashed nodes are exits that leave this area.
 

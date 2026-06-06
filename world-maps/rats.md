@@ -1,6 +1,6 @@
 # Hatchet The Rats Lair  `(rats)`
 
-[← back to world map](../WORLD-MAP.md) · 43 rooms · vnums 3801–3899
+[← back to world map](WORLD-MAP.md) · 43 rooms · vnums 3801–3899
 
 Dashed nodes are exits that leave this area.
 

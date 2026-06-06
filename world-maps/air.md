@@ -1,6 +1,6 @@
 # Copper In the Air  `(air)`
 
-[← back to world map](../WORLD-MAP.md) · 40 rooms · vnums 1001–1040
+[← back to world map](WORLD-MAP.md) · 40 rooms · vnums 1001–1040
 
 Dashed nodes are exits that leave this area.
 

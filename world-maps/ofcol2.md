@@ -1,6 +1,6 @@
 # Hatchet New Ofcol  `(ofcol2)`
 
-[← back to world map](../WORLD-MAP.md) · 100 rooms · vnums 600–699
+[← back to world map](WORLD-MAP.md) · 100 rooms · vnums 600–699
 
 Dashed nodes are exits that leave this area.
 

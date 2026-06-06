@@ -1,6 +1,6 @@
 # Vougon Gnome Village  `(gnome)`
 
-[← back to world map](../WORLD-MAP.md) · 89 rooms · vnums 1501–1590
+[← back to world map](WORLD-MAP.md) · 89 rooms · vnums 1501–1590
 
 Dashed nodes are exits that leave this area.
 

@@ -1,6 +1,6 @@
 # Copper Plains of the North  `(plains)`
 
-[← back to world map](../WORLD-MAP.md) · 44 rooms · vnums 300–345
+[← back to world map](WORLD-MAP.md) · 44 rooms · vnums 300–345
 
 Dashed nodes are exits that leave this area.
 

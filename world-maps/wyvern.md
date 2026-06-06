@@ -1,6 +1,6 @@
 # Tyrst Wyvern's Tower  `(wyvern)`
 
-[← back to world map](../WORLD-MAP.md) · 61 rooms · vnums 1601–1720
+[← back to world map](WORLD-MAP.md) · 61 rooms · vnums 1601–1720
 
 Dashed nodes are exits that leave this area.
 

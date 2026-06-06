@@ -1,6 +1,6 @@
 # Hatchet Mud School  `(school)`
 
-[← back to world map](../WORLD-MAP.md) · 59 rooms · vnums 3700–3760
+[← back to world map](WORLD-MAP.md) · 59 rooms · vnums 3700–3760
 
 Dashed nodes are exits that leave this area.
 

@@ -1,6 +1,6 @@
 # Anon High Tower of Sorcery  `(hitower)`
 
-[← back to world map](../WORLD-MAP.md) · 184 rooms · vnums 1200–1499
+[← back to world map](WORLD-MAP.md) · 184 rooms · vnums 1200–1499
 
 Dashed nodes are exits that leave this area.
 

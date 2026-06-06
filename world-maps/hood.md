@@ -1,6 +1,6 @@
 # Raff Dangerous Neighborhood  `(hood)`
 
-[← back to world map](../WORLD-MAP.md) · 72 rooms · vnums 2101–2172
+[← back to world map](WORLD-MAP.md) · 72 rooms · vnums 2101–2172
 
 Dashed nodes are exits that leave this area.
 

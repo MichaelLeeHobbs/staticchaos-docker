@@ -1,6 +1,6 @@
 # Anon Thalos  `(thalos)`
 
-[← back to world map](../WORLD-MAP.md) · 80 rooms · vnums 5200–5280
+[← back to world map](WORLD-MAP.md) · 80 rooms · vnums 5200–5280
 
 Dashed nodes are exits that leave this area.
 

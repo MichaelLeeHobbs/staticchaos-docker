@@ -11,6 +11,8 @@
   .crumb{color:#8fc1ff;cursor:pointer}.crumb:hover{text-decoration:underline}
   #q{margin-left:auto;width:300px;padding:7px 10px;background:#1c2128;border:1px solid #2a2f37;border-radius:6px;color:#fff;font-size:13px}
   #hint{color:#6b7686;font-size:11px}
+  #layout{cursor:pointer;color:#8fc1ff;border:1px solid #2a2f37;border-radius:6px;padding:5px 10px;font-size:12px;white-space:nowrap}
+  #layout:hover{background:#1c2128}
   svg{position:fixed;top:46px;left:0;width:100%;height:calc(100% - 46px);display:block;cursor:grab}
   svg:active{cursor:grabbing}
   .link{stroke:#3a4150;stroke-opacity:.6}
@@ -32,6 +34,7 @@
   <b id="where"></b>
   <span id="hint">drag to pan · scroll to zoom · click a node</span>
   <input id="q" placeholder="search room or area… (name or #vnum)">
+  <span id="layout" title="Switch the room layout (applies inside an area)">Layout: Force</span>
 </div>
 <svg></svg>
 <div id="detail"></div>
@@ -52,6 +55,8 @@ svg.call(zoom);
 window.addEventListener('resize', () => { W = window.innerWidth; H = window.innerHeight - 46; });
 
 let sim = null, view = null, nodeById = new Map();
+let layoutMode = 'force';
+const lbl = s => { s = String(s==null?'':s); return s.length > 16 ? s.slice(0,15)+'…' : s; };
 
 function clearView(){ if (sim) sim.stop(); g.selectAll('*').remove(); nodeById = new Map(); hideDetail(); }
 function resetZoom(k){ svg.transition().duration(450).call(zoom.transform, d3.zoomIdentity.translate(W/2,H/2).scale(k||0.6)); }
@@ -67,26 +72,88 @@ function start(nodes, links, opts){
   const node = g.append('g').selectAll('g').data(nodes).join('g').attr('class','node')
     .call(drag()).on('click', (e,d) => { e.stopPropagation(); opts.onClick && opts.onClick(d); });
   node.append('circle').attr('r', d => d.r).attr('fill', d => d.color);
-  node.append('text').attr('x', d => d.r + 3).attr('y', 4).text(d => d.label);
+  const text = node.append('text').text(d => lbl(d.label));
+  if (opts.labelBelow) text.attr('x', 0).attr('y', d => d.r + 11).attr('text-anchor','middle');
+  else text.attr('x', d => d.r + 3).attr('y', 4);
   node.append('title').text(d => d.title || d.label);
 
-  sim = d3.forceSimulation(nodes)
-    .force('link', d3.forceLink(links).id(d => d.id).distance(opts.dist||70).strength(0.4))
-    .force('charge', d3.forceManyBody().strength(opts.charge||-220))
-    .force('collide', d3.forceCollide().radius(d => d.r + 14))
-    .force('x', d3.forceX(0).strength(0.04)).force('y', d3.forceY(0).strength(0.04))
-    .on('tick', () => {
-      link.attr('x1',d=>d.source.x).attr('y1',d=>d.source.y).attr('x2',d=>d.target.x).attr('y2',d=>d.target.y);
-      if (elabel) elabel.attr('x',d=>(d.source.x+d.target.x)/2).attr('y',d=>(d.source.y+d.target.y)/2);
-      node.attr('transform', d => 'translate('+d.x+','+d.y+')');
-    });
-  resetZoom(opts.zoom||0.6);
+  function ticked(){
+    link.attr('x1',d=>d.source.x).attr('y1',d=>d.source.y).attr('x2',d=>d.target.x).attr('y2',d=>d.target.y);
+    if (elabel) elabel.attr('x',d=>(d.source.x+d.target.x)/2).attr('y',d=>(d.source.y+d.target.y)/2);
+    node.attr('transform', d => 'translate('+d.x+','+d.y+')');
+  }
+
+  if (opts.grid){
+    // fixed compass-grid positions; a force-less sim just applies them + drag
+    nodes.forEach(n => { const p = opts.grid.get(n.id); if (p){ n.x=n.fx=p.x; n.y=n.fy=p.y; } });
+    // link force with strength 0 resolves source/target ids to node objects
+    // (so endpoints draw correctly) without moving the pinned nodes
+    sim = d3.forceSimulation(nodes)
+      .force('link', d3.forceLink(links).id(d => d.id).strength(0))
+      .on('tick', ticked);
+    ticked();
+    fitToGrid(opts.grid);
+  } else {
+    sim = d3.forceSimulation(nodes)
+      .force('link', d3.forceLink(links).id(d => d.id).distance(opts.dist||70).strength(0.4))
+      .force('charge', d3.forceManyBody().strength(opts.charge||-220))
+      .force('collide', d3.forceCollide().radius(d => d.r + 16))
+      .force('x', d3.forceX(0).strength(0.04)).force('y', d3.forceY(0).strength(0.04))
+      .on('tick', ticked);
+    resetZoom(opts.zoom||0.6);
+  }
 }
 function drag(){
   return d3.drag()
     .on('start',(e,d)=>{ if(!e.active) sim.alphaTarget(0.3).restart(); d.fx=d.x; d.fy=d.y; })
     .on('drag',(e,d)=>{ d.fx=e.x; d.fy=e.y; })
-    .on('end',(e,d)=>{ if(!e.active) sim.alphaTarget(0); d.fx=null; d.fy=null; });
+    .on('end',(e,d)=>{ if(!e.active) sim.alphaTarget(0); if(layoutMode!=='grid'||view===null){ d.fx=null; d.fy=null; } });
+}
+
+/* compass-grid layout: BFS from the recall (or first) room, placing each room
+ * at its neighbour's cell + the exit's direction offset; collisions spiral to
+ * the nearest free cell so nothing stacks. Returns id -> {x,y} in pixels. */
+function computeGrid(areaId, roomVnums, inArea, nodes){
+  const DELTA = {N:[0,-1],S:[0,1],E:[1,0],W:[-1,0],U:[1,-1],D:[-1,1]};
+  const SP = 160;
+  const cells = new Set(), gpos = new Map();
+  function claim(gx,gy){
+    if(!cells.has(gx+','+gy)){ cells.add(gx+','+gy); return [gx,gy]; }
+    for(let r=1;r<80;r++) for(let dx=-r;dx<=r;dx++) for(let dy=-r;dy<=r;dy++){
+      if(Math.max(Math.abs(dx),Math.abs(dy))!==r) continue;
+      const k=(gx+dx)+','+(gy+dy);
+      if(!cells.has(k)){ cells.add(k); return [gx+dx,gy+dy]; }
+    }
+    return [gx,gy];
+  }
+  const seedV = inArea.has(DATA.recall) ? DATA.recall : +roomVnums[0];
+  const seedId = 'R'+seedV;
+  gpos.set(seedId, claim(0,0));
+  const queue = [seedId], seen = new Set([seedId]);
+  while(queue.length){
+    const id = queue.shift(); const c = gpos.get(id);
+    if(id[0] !== 'R') continue;
+    const r = DATA.rooms[+id.slice(1)]; if(!r) continue;
+    for(const dir in r.e){
+      const to = r.e[dir]; const nid = inArea.has(to) ? 'R'+to : 'P'+to;
+      if(seen.has(nid)) continue; seen.add(nid);
+      const d = DELTA[dir] || [1,0];
+      gpos.set(nid, claim(c[0]+d[0], c[1]+d[1]));
+      queue.push(nid);
+    }
+  }
+  let col = 0; const baseY = Math.max(0, ...[...gpos.values()].map(c=>c[1])) + 2;
+  for(const n of nodes) if(!gpos.has(n.id)) gpos.set(n.id, claim(col++, baseY));
+  const px = new Map();
+  for(const [id,c] of gpos) px.set(id, { x:c[0]*SP, y:c[1]*SP });
+  return px;
+}
+function fitToGrid(grid){
+  const xs=[...grid.values()].map(p=>p.x), ys=[...grid.values()].map(p=>p.y);
+  const minx=Math.min(...xs), maxx=Math.max(...xs), miny=Math.min(...ys), maxy=Math.max(...ys);
+  const k = Math.max(0.12, Math.min((W-140)/((maxx-minx)+220), (H-140)/((maxy-miny)+220), 1.1));
+  const cx=(minx+maxx)/2, cy=(miny+maxy)/2;
+  svg.transition().duration(450).call(zoom.transform, d3.zoomIdentity.translate(W/2 - cx*k, H/2 - cy*k).scale(k));
 }
 
 /* ---- world view: areas ---- */
@@ -98,7 +165,7 @@ function showWorld(){
     color: a.reach ? '#4b86d6' : '#c0504d', title: a.name+' — '+a.rooms+' rooms'+(a.reach?'':' (unreachable on foot)')
   }));
   const links = DATA.areaLinks.map(l => ({source:l.source, target:l.target, count:l.count}));
-  start(nodes, links, { dist: 110, charge: -500, zoom: 0.55, onClick: d => showArea(d.id) });
+  start(nodes, links, { dist: 150, charge: -800, zoom: 0.5, onClick: d => showArea(d.id) });
 }
 
 /* ---- area view: rooms ---- */
@@ -133,7 +200,10 @@ function showArea(areaId, focusVnum){
       }
     }
   }
-  start(nodes, links, { dist: 60, charge: -160, dirLabels:true, zoom: nodes.length>120?0.35:0.7,
+  const useGrid = layoutMode === 'grid';
+  const grid = useGrid ? computeGrid(areaId, roomVnums, inArea, nodes) : null;
+  start(nodes, links, { dist: 60, charge: -160, dirLabels:true, labelBelow:useGrid, grid,
+    zoom: nodes.length>120?0.35:0.7,
     onClick: d => { if (d.kind==='portal'){ if (d.toArea) showArea(d.toArea, d.toVnum); } else showRoom(d.vnum); } });
   if (focusVnum != null) focusNode('R'+focusVnum);
 }
@@ -182,6 +252,14 @@ document.getElementById('q').addEventListener('keydown', e => {
   else if (area){ showArea(area.id); }
 });
 document.getElementById('home').addEventListener('click', showWorld);
+const layoutEl = document.getElementById('layout');
+function setLayoutLabel(){ layoutEl.textContent = 'Layout: ' + (layoutMode==='grid' ? 'Grid' : 'Force'); }
+layoutEl.addEventListener('click', () => {
+  layoutMode = layoutMode==='grid' ? 'force' : 'grid';
+  setLayoutLabel();
+  if (view) showArea(view);   // re-render current area in the new layout
+});
+setLayoutLabel();
 svg.on('click', hideDetail);
 document.getElementById('legend').innerHTML =
   '<b>'+DATA.areas.length+' areas</b> · blue=reachable, red=stranded &nbsp;|&nbsp; in an area: gold=recall, green ▸=portal to another area';

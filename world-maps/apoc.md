@@ -108,6 +108,7 @@ graph LR
   R820 -->|N| R806
   R820 -->|S| R814
   R820 -->|U| R819
+  R820 -->|D| X1017
   R821 -->|D| R819
   R822 -->|E| R809
   R823 -->|U| R807
@@ -214,6 +215,7 @@ graph LR
   X3001["The Temple Of Midgaard<br/>midgaard #3001"]:::ext
   X2201["The Tower Gates<br/>draconia #2201"]:::ext
   X2362["Before the gates of Mahn-Tor<br/>mahntor #2362"]:::ext
+  X1017["In the air ...<br/>air #1017"]:::ext
   X9600["A cave entrance<br/>cithdeux #9600"]:::ext
   X9500["The Vestibule<br/>malokteri #9500"]:::ext
   X9700["Divergence<br/>divergent #9700"]:::ext
@@ -247,7 +249,7 @@ graph LR
 | 817 | The Entryway to Bathing Chambers | N→818 E→810 |
 | 818 | The Bathing Chamber | S→817 |
 | 819 | The Tower | E→815 U→821 D→820 |
-| 820 | The Southern Hallway | N→806 S→814 U→819 |
+| 820 | The Southern Hallway | N→806 S→814 U→819 D→1017 |
 | 821 | The Top of the Tower | D→819 |
 | 822 | A Duel | E→809 |
 | 823 | A Stair Well | U→807 D→824 |

@@ -116,7 +116,7 @@ graph LR
   R1017 -->|N| R1016
   R1017 -->|S| R1018
   R1017 -->|W| R1012
-  R1017 -->|U| R1037
+  R1017 -->|U| X820
   R1017 -->|D| X3057
   R1018 -->|N| R1017
   R1018 -->|S| R1019
@@ -212,6 +212,7 @@ graph LR
   R1040 -->|N| R1039
   R1040 -->|W| R1035
   R1040 -->|D| R1020
+  X820["The Southern Hallway<br/>apoc #820"]:::ext
   X3057["In the air...<br/>midgaard #3057"]:::ext
   X1900["The Bottom of the Rainbow<br/>astral #1900"]:::ext
   classDef ext fill:#222,stroke:#888,color:#bbb,stroke-dasharray:3 3;
@@ -237,7 +238,7 @@ graph LR
 | 1014 | In the air ... | N→1013 E→1019 S→1015 W→1009 U→1034 |
 | 1015 | In the air ... | N→1014 E→1020 W→1010 U→1035 |
 | 1016 | In the air ... | S→1017 W→1011 U→1036 |
-| 1017 | In the air ... | N→1016 S→1018 W→1012 U→1037 D→3057 |
+| 1017 | In the air ... | N→1016 S→1018 W→1012 U→820 D→3057 |
 | 1018 | In the air ... | N→1017 S→1019 W→1013 U→1038 |
 | 1019 | In the air ... | N→1018 S→1020 W→1014 U→1039 |
 | 1020 | In the air ... | N→1019 W→1015 U→1040 |

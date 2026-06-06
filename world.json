@@ -4,14 +4,14 @@
   "stats": {
     "areas": 45,
     "rooms": 2500,
-    "exits": 5852,
-    "crossAreaLinks": 110,
+    "exits": 5853,
+    "crossAreaLinks": 112,
     "danglingExits": 22,
-    "oneWayExits": 160,
+    "oneWayExits": 161,
     "orphanRooms": 11,
-    "reachableFromRecall": 2374,
-    "unreachableRooms": 126,
-    "unreachableAreas": 8
+    "reachableFromRecall": 2487,
+    "unreachableRooms": 13,
+    "unreachableAreas": 1
   },
   "areas": [
     {
@@ -2116,7 +2116,8 @@
       "exits": {
         "N": 806,
         "S": 814,
-        "U": 819
+        "U": 819,
+        "D": 1017
       }
     },
     "821": {
@@ -3186,7 +3187,7 @@
         "N": 1016,
         "S": 1018,
         "W": 1012,
-        "U": 1037,
+        "U": 820,
         "D": 3057
       }
     },
@@ -26205,14 +26206,7 @@
   },
   "reports": {
     "unreachableAreas": [
-      "apoc",
-      "cithdeux",
-      "arena",
-      "renegades",
-      "teikoku",
-      "divergent",
-      "malokteri",
-      "zrollers"
+      "arena"
     ],
     "orphanRooms": [
       2,
@@ -26349,6 +26343,11 @@
         "from": 693,
         "dir": "S",
         "to": 695
+      },
+      {
+        "from": 1037,
+        "dir": "D",
+        "to": 1017
       },
       {
         "from": 1150,
@@ -27193,6 +27192,13 @@
       },
       {
         "fromArea": "air",
+        "toArea": "apoc",
+        "from": 1017,
+        "to": 820,
+        "dir": "U"
+      },
+      {
+        "fromArea": "air",
         "toArea": "midgaard",
         "from": 1017,
         "to": 3057,
@@ -27820,6 +27826,13 @@
         "from": 816,
         "to": 2362,
         "dir": "E"
+      },
+      {
+        "fromArea": "apoc",
+        "toArea": "air",
+        "from": 820,
+        "to": 1017,
+        "dir": "D"
       },
       {
         "fromArea": "apoc",

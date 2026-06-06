@@ -8,12 +8,12 @@
 |---|---:|
 | Areas | 45 |
 | Rooms | 2500 |
-| Exits | 5852 |
-| Cross-area links | 110 |
-| Reachable from recall (Temple, #3001) | 2374 |
-| **Unreachable rooms** | 126 |
-| **Unreachable areas** | 8 |
-| One-way exits | 160 |
+| Exits | 5853 |
+| Cross-area links | 112 |
+| Reachable from recall (Temple, #3001) | 2487 |
+| **Unreachable rooms** | 13 |
+| **Unreachable areas** | 1 |
+| One-way exits | 161 |
 | Dangling exits (broken) | 22 |
 | Orphan rooms (no way in) | 11 |
 
@@ -75,6 +75,7 @@ graph LR
   plains --> olympus
   ofcol2 --> ofcol
   olympus --> plains
+  air --> apoc
   air --> midgaard
   air --> astral
   shire --> haon
@@ -153,6 +154,7 @@ graph LR
   apoc --> midgaard
   apoc --> draconia
   apoc --> mahntor
+  apoc --> air
   apoc --> cithdeux
   apoc --> malokteri
   apoc --> divergent
@@ -176,9 +178,9 @@ graph LR
 | [`arena`](world-maps/arena.md) | Alathon The Arena | 4 | 96–99 | ❌ 0 | — |
 | [`plains`](world-maps/plains.md) | Copper Plains of the North | 44 | 300–345 | ✅ 44/44 | moria, ofcol, olympus, ultima, valley |
 | [`ofcol2`](world-maps/ofcol2.md) | Hatchet New Ofcol | 100 | 600–699 | ✅ 100/100 | ofcol |
-| [`apoc`](world-maps/apoc.md) | Larsen ApocalypsE Headquarters | 54 | 800–853 | ❌ 0 | cithdeux, divergent, malokteri, renegades, teikoku, zrollers |
+| [`apoc`](world-maps/apoc.md) | Larsen ApocalypsE Headquarters | 54 | 800–853 | ✅ 53/54 | air, cithdeux, divergent, malokteri, renegades, teikoku, zrollers |
 | [`olympus`](world-maps/olympus.md) | Generic Olympus | 50 | 901–954 | ✅ 50/50 | apoc, hitower, plains |
-| [`air`](world-maps/air.md) | Copper In the Air | 40 | 1001–1040 | ✅ 40/40 | astral, midgaard |
+| [`air`](world-maps/air.md) | Copper In the Air | 40 | 1001–1040 | ✅ 40/40 | apoc, astral, midgaard |
 | [`shire`](world-maps/shire.md) | Anon The Shire | 58 | 1100–1157 | ✅ 58/58 | haon |
 | [`hitower`](world-maps/hitower.md) | Anon High Tower of Sorcery | 184 | 1200–1499 | ✅ 182/184 | apoc, draconia, galaxy, haon |
 | [`gnome`](world-maps/gnome.md) | Vougon Gnome Village | 89 | 1501–1590 | ✅ 89/89 | midennir |
@@ -211,25 +213,18 @@ graph LR
 | [`canyon`](world-maps/canyon.md) | Raff Elemental Canyon | 55 | 9201–9260 | ✅ 55/55 | thalos |
 | [`galaxy`](world-maps/galaxy.md) | Doctor Galaxy | 61 | 9301–9371 | ✅ 61/61 | hitower |
 | [`mobfact`](world-maps/mobfact.md) | PinkF Mob Factory | 25 | 9400–9424 | ✅ 25/25 | midgaard |
-| [`malokteri`](world-maps/malokteri.md) | Blah Malokteri Headquarters | 13 | 9500–9512 | ❌ 0 | apoc |
-| [`cithdeux`](world-maps/cithdeux.md) | Valgarv Cith Deux Headquarters | 18 | 9600–9617 | ❌ 0 | apoc |
-| [`divergent`](world-maps/divergent.md) | Dizz Divergent Headquarters | 6 | 9700–9705 | ❌ 0 | apoc |
-| [`teikoku`](world-maps/teikoku.md) | Tyu Teikoku Headquarters | 6 | 9800–9805 | ❌ 0 | apoc |
-| [`zrollers`](world-maps/zrollers.md) | Trunker Z-Rollers Headquarters | 6 | 9900–9905 | ❌ 0 | apoc |
-| [`renegades`](world-maps/renegades.md) | Malucif The Renegades Headquarters | 11 | 9950–9960 | ❌ 0 | apoc |
+| [`malokteri`](world-maps/malokteri.md) | Blah Malokteri Headquarters | 13 | 9500–9512 | ✅ 13/13 | apoc |
+| [`cithdeux`](world-maps/cithdeux.md) | Valgarv Cith Deux Headquarters | 18 | 9600–9617 | ✅ 18/18 | apoc |
+| [`divergent`](world-maps/divergent.md) | Dizz Divergent Headquarters | 6 | 9700–9705 | ✅ 6/6 | apoc |
+| [`teikoku`](world-maps/teikoku.md) | Tyu Teikoku Headquarters | 6 | 9800–9805 | ✅ 6/6 | apoc |
+| [`zrollers`](world-maps/zrollers.md) | Trunker Z-Rollers Headquarters | 6 | 9900–9905 | ✅ 6/6 | apoc |
+| [`renegades`](world-maps/renegades.md) | Malucif The Renegades Headquarters | 11 | 9950–9960 | ✅ 11/11 | apoc |
 
 ## ⚠️ Unreachable areas
 
 These areas have **no path from the recall point** (Temple of Midgaard, room 3001) by walking exits. They still exist in the world data, but a mortal cannot reach them on foot — an immortal must `goto` a room inside. (This is exactly how the old Apocalypse HQ got stranded.)
 
-- **Larsen ApocalypsE Headquarters** (`apoc`, rooms 800–853) — only linked from: cithdeux, divergent, malokteri, renegades, teikoku, zrollers
-- **Valgarv Cith Deux Headquarters** (`cithdeux`, rooms 9600–9617) — only linked from: apoc
 - **Alathon The Arena** (`arena`, rooms 96–99) — no inbound links at all
-- **Malucif The Renegades Headquarters** (`renegades`, rooms 9950–9960) — only linked from: apoc
-- **Tyu Teikoku Headquarters** (`teikoku`, rooms 9800–9805) — only linked from: apoc
-- **Dizz Divergent Headquarters** (`divergent`, rooms 9700–9705) — only linked from: apoc
-- **Blah Malokteri Headquarters** (`malokteri`, rooms 9500–9512) — only linked from: apoc
-- **Trunker Z-Rollers Headquarters** (`zrollers`, rooms 9900–9905) — only linked from: apoc
 
 ## Dangling exits (point at rooms that do not exist)
 

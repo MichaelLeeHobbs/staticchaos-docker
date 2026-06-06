@@ -108,7 +108,8 @@ Outputs (all under `world-maps/`):
 | `SPAWNS.md` / `.pdf`, `spawns.json` | "Where do I find X" — mob/item placement + hunting guide |
 | `SHOPS.md` / `.pdf`, `shops.json` | Shops: keeper, location, trades, markups, stock |
 | `CLASSES.md` / `.pdf`, `classes.json` | Classes (stat caps) + every skill/spell's learn level |
-| `world-browser.html` | Self-contained offline browser — search & click-through |
+| `world-browser.html` | Self-contained offline browser — search & click-through (text/table) |
+| `world-map.html` | Interactive D3 map — area graph → drill into rooms, pan/zoom/drag, portals, detail panel (D3 vendored inline, offline) |
 
 The shared parser lives in `tools/lib/area.mjs` (Reader + section parsers + flag decoders,
 matching `src/db.c`); `build-classes.mjs` reads the `class_table`/`skill_table` from

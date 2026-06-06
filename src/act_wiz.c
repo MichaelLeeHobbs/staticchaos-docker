@@ -2357,6 +2357,90 @@ void do_sstance( CHAR_DATA *ch, char *argument )
 }
 
 
+/* The 13 weapon-proficiency slots shown by 'level', in pcdata->weapons[] order. */
+static int sweapon_lookup( const char *name )
+{
+    static const char * const names[MAX_WEAPONS] =
+    { "hit", "slice", "stab", "slash", "whip", "claw", "blast",
+      "pound", "crush", "grep", "bite", "pierce", "blow" };
+    int i;
+
+    for ( i = 0; i < MAX_WEAPONS; i++ )
+	if ( !str_prefix( name, names[i] ) )
+	    return i;
+    return -1;
+}
+
+/* Immortal: set a player's weapon proficiencies (the Hit/Slice/Stab/... row in
+ * 'level'), which the normal game only raises through combat. Combat caps these
+ * at 200 (Fist's Hit reaches 500 with discipline), so that is the legal range. */
+void do_sweapon( CHAR_DATA *ch, char *argument )
+{
+    char arg1 [MAX_INPUT_LENGTH];
+    char arg2 [MAX_INPUT_LENGTH];
+    char arg3 [MAX_INPUT_LENGTH];
+    CHAR_DATA *victim;
+    int value;
+    int wp;
+    int i;
+
+    argument = one_argument( argument, arg1 );
+    argument = one_argument( argument, arg2 );
+    argument = one_argument( argument, arg3 );
+
+    if ( arg1[0] == '\0' || arg2[0] == '\0' || arg3[0] == '\0' )
+    {
+	send_to_char( "Syntax: sweapon <victim> <type> <value>\n\r",	ch );
+	send_to_char( "or:     sweapon <victim> all    <value>\n\r",	ch );
+	send_to_char( "Types: hit slice stab slash whip claw blast pound crush grep bite pierce blow\n\r", ch );
+	send_to_char( "Value 0 to 500 (200 = combat cap; 500 = Fist hit cap).\n\r", ch );
+	return;
+    }
+
+    if ( ( victim = get_char_world( ch, arg1 ) ) == NULL )
+    {
+	send_to_char( "They aren't here.\n\r", ch );
+	return;
+    }
+
+    if ( IS_NPC(victim) )
+    {
+	send_to_char( "Not on NPC's.\n\r", ch );
+	return;
+    }
+
+    if ( !is_number( arg3 ) )
+    {
+	send_to_char( "Value must be numeric.\n\r", ch );
+	return;
+    }
+    value = atoi( arg3 );
+    if ( value < 0 || value > 500 )
+    {
+	send_to_char( "Value range is 0 to 500 (200 = combat cap).\n\r", ch );
+	return;
+    }
+
+    if ( !str_cmp( arg2, "all" ) )
+    {
+	for ( i = 0; i < MAX_WEAPONS; i++ )
+	    victim->pcdata->weapons[i] = value;
+	send_to_char( "All weapon proficiencies set.\n\r", ch );
+	return;
+    }
+
+    if ( ( wp = sweapon_lookup( arg2 ) ) < 0 )
+    {
+	send_to_char( "No such weapon type (use a type name or 'all').\n\r", ch );
+	return;
+    }
+
+    victim->pcdata->weapons[wp] = value;
+    send_to_char( "Weapon proficiency set.\n\r", ch );
+    return;
+}
+
+
 
 void do_mset( CHAR_DATA *ch, char *argument )
 {

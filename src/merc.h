@@ -2384,6 +2384,7 @@ DECLARE_DO_FUN(	do_split	);
 DECLARE_DO_FUN(	do_squish	);
 DECLARE_DO_FUN(	do_sset		);
 DECLARE_DO_FUN(	do_sstance	);
+DECLARE_DO_FUN(	do_sweapon	);
 DECLARE_DO_FUN( do_stance	);
 DECLARE_DO_FUN(	do_stand	);
 DECLARE_DO_FUN(	do_status	);

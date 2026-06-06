@@ -1642,7 +1642,7 @@ void bust_a_prompt( CHAR_DATA *ch )
             i = buf2; break;
          case 'x' :
 	   if ( ch->fighting == NULL )
-             sprintf( buf2, "%d", ch->exp );
+             sprintf( buf2, "%lld", ch->exp );
 	   else if ( IS_SUIT(ch->fighting) )
            { cond = 0; j = 1;
              for ( k = 0; k < 12; k++ )

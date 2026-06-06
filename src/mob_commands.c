@@ -118,7 +118,7 @@ void do_mpstat( CHAR_DATA *ch, char *argument )
     send_to_char( buf, ch );
 
     sprintf( buf,
-	"Lv: %d.  Class: %d.  Clan: %d.  AC: %d.  Gold: %d.  Exp: %d.\n\r",
+	"Lv: %d.  Class: %d.  Clan: %d.  AC: %d.  Gold: %d.  Exp: %lld.\n\r",
 	victim->level,       victim->class,        victim->pIndexData->clan,
 	GET_AC( victim ),    victim->gold,         victim->exp );
     send_to_char( buf, ch );

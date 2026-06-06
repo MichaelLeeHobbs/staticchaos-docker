@@ -867,7 +867,7 @@ void do_mstat( CHAR_DATA *ch, char *argument )
     }
 
     sprintf( buf,
-	"Lv: %d.  Class: %d.  AC: %d.  Gold: %d.  Exp: %d.",
+	"Lv: %d.  Class: %d.  AC: %d.  Gold: %d.  Exp: %lld.",
 	victim->level,       victim->class,
 	GET_AC(victim),      victim->gold,         victim->exp );
     strcat( buf1, buf );
@@ -2189,7 +2189,31 @@ void do_sset( CHAR_DATA *ch, char *argument )
     sn   = 0;
     if ( !fAll && ( sn = skill_lookup( arg2 ) ) < 0 )
     {
-	send_to_char( "No such skill or spell.\n\r", ch );
+	char list[MAX_STRING_LENGTH];
+	int  col = 0;
+
+	send_to_char( "No such skill or spell.  Valid names (any prefix works):\n\r", ch );
+	list[0] = '\0';
+	for ( sn = 0; sn < MAX_SKILL; sn++ )
+	{
+	    if ( skill_table[sn].name == NULL )
+		break;
+	    if ( skill_table[sn].name[0] == '\0'
+	    ||   !str_cmp( skill_table[sn].name, "reserved" ) )
+		continue;
+	    sprintf( list + strlen( list ), "%-19s", skill_table[sn].name );
+	    if ( ++col % 4 == 0 )
+	    {
+		strcat( list, "\n\r" );
+		send_to_char( list, ch );
+		list[0] = '\0';
+	    }
+	}
+	if ( list[0] != '\0' )
+	{
+	    strcat( list, "\n\r" );
+	    send_to_char( list, ch );
+	}
 	return;
     }
 
@@ -2484,7 +2508,9 @@ void do_mset( CHAR_DATA *ch, char *argument )
     {
 	if ( IS_NPC( victim) ) return;
 
-	victim->exp = value;
+	/* exp is 64-bit; parse arg3 as a long long so values past 2^31 work
+	   (and so an overflowed character can be repaired). */
+	victim->exp = is_number( arg3 ) ? strtoll( arg3, NULL, 10 ) : 0;
 	return;
     }
 

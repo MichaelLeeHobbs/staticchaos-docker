@@ -1146,7 +1146,7 @@ void do_group( CHAR_DATA *ch, char *argument )
 	    if ( is_same_group( gch, ch ) )
 	    {
 		sprintf( buf,
-		"%-16s %4d/%4d hp %4d/%4d mana %4d/%4d mv %5d xp\n\r",
+		"%-16s %4d/%4d hp %4d/%4d mana %4d/%4d mv %5lld xp\n\r",
 		    capitalize( PERS(gch, ch) ),
 		    gch->hit,   gch->max_hit,
 		    gch->mana,  gch->max_mana,

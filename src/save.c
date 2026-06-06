@@ -271,9 +271,9 @@ void fwrite_char( CHAR_DATA *ch, FILE *fp )
     fprintf( fp, "HpManaMove   %d %d %d %d %d %d\n",
 	ch->hit, ch->max_hit, ch->mana, ch->max_mana, ch->move, ch->max_move );
     fprintf( fp, "Gold         %d\n",	ch->gold		);
-    fprintf( fp, "Exp          %d\n",	ch->exp			);
+    fprintf( fp, "Exp          %lld\n",	ch->exp			);
     fprintf( fp, "Act          %d\n",   ch->act			);
-    fprintf( fp, "Totalexp     %d\n",	ch->totalexp		);
+    fprintf( fp, "Totalexp     %lld\n",	ch->totalexp		);
     fprintf( fp, "Newact       %d\n",   ch->pcdata->actnew	);
     fprintf( fp, "AffectedBy   %d\n",	ch->affected_by		);
     /* Bug fix from Alander */
@@ -850,7 +850,7 @@ void fread_char( CHAR_DATA *ch, FILE *fp )
 	      ch->pcdata->version = PFILE_VERSION;
 	      return;
 	    }
-	    KEY( "Exp",		ch->exp,		fread_number( fp ) );
+	    KEY( "Exp",		ch->exp,		fread_number_ll( fp ) );
 
 	    if ( !str_cmp( word, "Extras" ) )
 	    { for ( i = 0; i < MAX_EXTRAS; i++ )
@@ -1099,7 +1099,7 @@ void fread_char( CHAR_DATA *ch, FILE *fp )
 	    break;
 
 	case 'T':
-	    KEY( "Totalexp",	ch->totalexp,		fread_number( fp ) );
+	    KEY( "Totalexp",	ch->totalexp,		fread_number_ll( fp ) );
 	    KEY( "Trust",	ch->trust,		fread_number( fp ) );
 
 	    if ( !str_cmp( word, "Title" ) )

@@ -853,7 +853,7 @@ void do_score( CHAR_DATA *ch, char *argument )
   strcat( buf1, buf2 );
   sprintf( buf2, "+-----------------------------------------------------------------+\n\r" );
   strcat( buf1, buf2 );
-  sprintf( buf2, "|   Hitroll: `B%-5d`n   | Experience: `W%-10d`n |  Mobkills: `B%-6d`n |\n\r",
+  sprintf( buf2, "|   Hitroll: `B%-5d`n   | Experience: `W%-10lld`n |  Mobkills: `B%-6d`n |\n\r",
   	ch->hitroll, ch->exp, ch->pcdata->kills[MK] );
   strcat( buf1, buf2 );
   sprintf( buf2, "|   Damroll: `B%-5d`n   |       Gold: `B%-10d`n | Mobdeaths: `B%-6d`n |\n\r",
@@ -974,7 +974,7 @@ void do_old_score( CHAR_DATA *ch, char *argument )
     send_to_char( buf, ch );
 
     sprintf( buf,
-	"You have scored %d exp, %d gold coins, and %d tokens.\n\r",
+	"You have scored %lld exp, %d gold coins, and %d tokens.\n\r",
 	ch->exp,  ch->gold, ( !IS_NPC(ch) ? ch->pcdata->extras[TOKENS] : 0) );
     send_to_char( buf, ch );
 
@@ -1809,7 +1809,7 @@ void do_report( CHAR_DATA *ch, char *argument )
     char buf[MAX_INPUT_LENGTH];
 
     sprintf( buf,
-	"You report: %d/%d hp %d/%d mana %d/%d mv %d xp.\n\r",
+	"You report: %d/%d hp %d/%d mana %d/%d mv %lld xp.\n\r",
 	ch->hit,  ch->max_hit,
 	ch->mana, ch->max_mana,
 	ch->move, ch->max_move,
@@ -1817,7 +1817,7 @@ void do_report( CHAR_DATA *ch, char *argument )
 
     send_to_char( buf, ch );
 
-    sprintf( buf, "$n reports: %d/%d hp %d/%d mana %d/%d mv %d xp.",
+    sprintf( buf, "$n reports: %d/%d hp %d/%d mana %d/%d mv %lld xp.",
 	ch->hit,  ch->max_hit,
 	ch->mana, ch->max_mana,
 	ch->move, ch->max_move,
@@ -1864,7 +1864,7 @@ void do_practice( CHAR_DATA *ch, char *argument )
 	if ( col % 3 != 0 )
 	    strcat( buf1, "\n\r" );
 
-	sprintf( buf, "You have %d experience points left.\n\r",
+	sprintf( buf, "You have %lld experience points left.\n\r",
 	    ch->exp );
 	strcat( buf1, buf );
 	send_to_char( buf1, ch );

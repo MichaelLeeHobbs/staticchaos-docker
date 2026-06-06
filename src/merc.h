@@ -1415,7 +1415,7 @@ struct	char_data
     int			move;
     int			max_move;
     int			gold;
-    int			exp;
+    long long		exp;
     int			act;
     int			affected_by;
     sh_int		position;
@@ -1430,7 +1430,7 @@ struct	char_data
     sh_int		deaf;
     MPROG_ACT_LIST *    mpact;                  /* Used by MOBprogram */
     int                 mpactnum;               /* Used by MOBprogram */
-    int			totalexp;
+    long long		totalexp;
     sh_int		language;
 };
 
@@ -2872,6 +2872,7 @@ RID *	get_room_index	args( ( int vnum ) );
 RID *	get_rand_room	args( ( void ) );
 char	fread_letter	args( ( FILE *fp ) );
 int	fread_number	args( ( FILE *fp ) );
+long long fread_number_ll	args( ( FILE *fp ) );
 char *	fread_string	args( ( FILE *fp ) );
 void	fread_to_eol	args( ( FILE *fp ) );
 char *	fread_word	args( ( FILE *fp ) );

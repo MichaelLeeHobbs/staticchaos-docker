@@ -8,6 +8,9 @@ node_modules/
 chrome/
 .local-chromium/
 
+# Mermaid-map PDF render scratch dir
+world-maps/.maps-tmp/
+
 # Windows image file caches
 Thumbs.db
 ehthumbs.db

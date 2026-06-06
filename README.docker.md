@@ -83,8 +83,13 @@ pnpm run build:data          # all of the above
 npx @puppeteer/browsers install chrome@149.0.7827.22 --path ~/.cache/puppeteer
 
 pnpm run build:pdf           # PDFs of ATLAS, ITEMS, BESTIARY, SPAWNS, SHOPS, CLASSES
-pnpm run build               # build:data + build:pdf
+pnpm run build:pdf:maps      # WORLD-MAPS.pdf -- the Mermaid diagrams, rendered
+pnpm run build               # build:data + build:pdf + build:pdf:maps
 ```
+
+`build:pdf:maps` needs `@mermaid-js/mermaid-cli` (a dev dep) and the same puppeteer Chrome.
+It pre-renders every Mermaid block to SVG (raising Mermaid's 500-edge cap for big areas
+like `hitower`/`ultima`/`sewer`) and prints them to `WORLD-MAPS.pdf` in A3 landscape.
 
 Outputs (all under `world-maps/`):
 
@@ -94,6 +99,7 @@ Outputs (all under `world-maps/`):
 | `WORLD-MAP.md` | Stats, an area-connectivity Mermaid diagram, area index |
 | `<area>.md` | Per-area Mermaid room map + room table (one per area) |
 | `WORLD-ATLAS.md` / `.pdf` | Print-friendly atlas of every area/room/exit |
+| `WORLD-MAPS.pdf` | The Mermaid diagrams (overview + every area) rendered to PDF |
 | `ITEMS.md` / `.pdf`, `items.json` | Equipment catalogue: type, wear slot, stat affects, flags |
 | `BESTIARY.md` / `.pdf`, `bestiary.json` | Every mob: level, behaviour flags, where it appears |
 | `SPAWNS.md` / `.pdf`, `spawns.json` | "Where do I find X" — mob/item placement + hunting guide |

@@ -2055,9 +2055,11 @@ OBJ_DATA *create_object( OBJ_INDEX_DATA *pObjIndex, int level )
     case ITEM_CORPSE_PC:
     case ITEM_FOUNTAIN:
     case ITEM_PORTAL:
+    case ITEM_GATE:
     case ITEM_SUIT:
     case ITEM_MUNITION:
     case ITEM_ACCESSORY:
+    case ITEM_MATERIA:
 	break;
 
     case ITEM_SCROLL:

@@ -1,0 +1,8 @@
+node_modules/
+dist/
+# synced at build time from world-maps/, docs/, client/
+public/data/
+public/docs/
+public/gmcp/
+*.local
+.DS_Store

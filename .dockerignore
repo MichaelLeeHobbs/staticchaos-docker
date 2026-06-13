@@ -6,3 +6,9 @@ src/chaosium
 *.log
 log/*.log
 README.docker.md
+# keep build contexts lean (applies to both the MUD and web builds)
+node_modules
+**/node_modules
+web/dist
+web/public
+**/*.pdf

@@ -1,0 +1,36 @@
+{
+  "name": "staticchaos-web",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Static companion site for the Static Chaos MUD (docs, world map, data browser, GMCP files).",
+  "scripts": {
+    "sync": "node scripts/sync-content.mjs",
+    "dev": "node scripts/sync-content.mjs && vite",
+    "build": "node scripts/sync-content.mjs && tsc -b && vite build",
+    "preview": "vite preview",
+    "serve": "node server.mjs",
+    "typecheck": "tsc -b --noEmit"
+  },
+  "dependencies": {
+    "@emotion/react": "11.14.0",
+    "@emotion/styled": "11.14.0",
+    "@mui/icons-material": "6.3.1",
+    "@mui/material": "6.3.1",
+    "d3": "7.9.0",
+    "mermaid": "11.4.1",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
+    "react-markdown": "9.0.3",
+    "react-router-dom": "7.1.1",
+    "remark-gfm": "4.0.0"
+  },
+  "devDependencies": {
+    "@types/d3": "7.4.3",
+    "@types/react": "19.0.2",
+    "@types/react-dom": "19.0.2",
+    "@vitejs/plugin-react": "4.3.4",
+    "typescript": "5.7.2",
+    "vite": "6.0.7"
+  }
+}

@@ -161,6 +161,68 @@ void gmcp_update_char( CHAR_DATA *ch )
     send_gmcp( d, "Char.Vitals", json );
 }
 
+/* Copy src into dest, stripping colour codes and escaping JSON specials. */
+static void gmcp_json_str( char *dest, const char *src )
+{
+    if ( src == NULL ) { dest[0] = '\0'; return; }
+    while ( *src != '\0' )
+    {
+        if ( *src == '`' && src[1] != '\0' )      /* backtick colour code: `X */
+        { src += 2; continue; }
+        if ( *src == '{' )                        /* brace colour code: {..} */
+        { while ( *src != '\0' && *src != '}' ) src++;
+          if ( *src != '\0' ) src++;
+          continue; }
+        if ( *src == '"' || *src == '\\' )
+        { *dest++ = '\\'; *dest++ = *src++; continue; }
+        if ( (unsigned char) *src < 32 )
+        { *dest++ = ' '; src++; continue; }
+        *dest++ = *src++;
+    }
+    *dest = '\0';
+}
+
+/* Phase 2: push the player's current room + exits (for the auto-mapper). */
+void gmcp_update_room( CHAR_DATA *ch )
+{
+    static const char *dname[6] = { "n", "e", "s", "w", "u", "d" };
+    char json[MAX_STRING_LENGTH];
+    char ename[MAX_INPUT_LENGTH], earea[MAX_INPUT_LENGTH], exits[MAX_INPUT_LENGTH];
+    char *ep = exits;
+    DESCRIPTOR_DATA *d;
+    ROOM_INDEX_DATA *room;
+    EXIT_DATA *pexit;
+    int door, first = 1;
+
+    if ( ch == NULL || IS_NPC( ch ) )
+        return;
+    if ( ( d = ch->desc ) == NULL || !d->gmcp || d->connected != CON_PLAYING )
+        return;
+    if ( ( room = ch->in_room ) == NULL )
+        return;
+
+    *ep++ = '{';
+    for ( door = 0; door < 6; door++ )
+    {
+        if ( ( pexit = room->exit[door] ) == NULL )
+            continue;
+        if ( !first )
+            *ep++ = ',';
+        first = 0;
+        ep += sprintf( ep, "\"%s\":%d", dname[door],
+            pexit->to_room != NULL ? pexit->to_room->vnum : pexit->vnum );
+    }
+    *ep++ = '}';
+    *ep = '\0';
+
+    gmcp_json_str( ename, room->name );
+    gmcp_json_str( earea, room->area != NULL ? room->area->name : "" );
+
+    sprintf( json, "{\"num\":%d,\"name\":\"%s\",\"area\":\"%s\",\"exits\":%s}",
+        room->vnum, ename, earea, exits );
+    send_gmcp( d, "Room.Info", json );
+}
+
 /* Phase 1 heartbeat: once per second from second_update. */
 void gmcp_update_all( void )
 {

@@ -469,6 +469,9 @@ void char_to_room( CHAR_DATA *ch, ROOM_INDEX_DATA *pRoomIndex )
     &&   obj->value[2] != 0 )
 	++ch->in_room->light;
 
+    /* GMCP: tell the client its new room (auto-mapper). Self-gated for PCs. */
+    gmcp_update_room( ch );
+
     return;
 }
 

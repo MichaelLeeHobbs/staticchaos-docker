@@ -365,7 +365,7 @@ export function MapPage() {
             valueLabelDisplay="auto"
             onChangeCommitted={(_, v) => setSpread(Array.isArray(v) ? (v[0] ?? 1) : v)}
             sx={{ width: 100 }}
-            disabled={layout === 'grid'}
+            disabled={layout === 'grid' && !graph?.gridFellBack}
           />
         </Stack>
         <TextField

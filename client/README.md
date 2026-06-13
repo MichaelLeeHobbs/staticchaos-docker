@@ -4,8 +4,10 @@ Client-side add-ons that use the server's **GMCP** (telnet option 201) data.
 
 ## StaticChaos-Gauges.xml — status bars
 
-Draws **HP / Mana / Move** gauges across the bottom of the Mudlet window and
-updates them in real time from the server's `Char.Vitals` GMCP messages.
+Draws **HP / Mana / Move** gauges across the **top** of the Mudlet window (just
+under the toolbar) and updates them in real time from the server's `Char.Vitals`
+GMCP messages. It reserves a top border so the bars sit *above* the game text
+rather than covering it.
 
 ### Install
 1. In Mudlet: **Toolbox → Package Manager** (or **Settings → Packages**).
@@ -20,8 +22,9 @@ updates them in real time from the server's `Char.Vitals` GMCP messages.
   `IAC WILL GMCP` on connect and Mudlet replies automatically.
 
 ### Notes
-- The gauges are positioned at the very bottom; if they overlap your input line,
-  edit the `y="-2.4c"` values in the script (more-negative = higher up).
+- The bars sit at the top in a reserved 36px strip (`setBorderTop`). To make them
+  taller/shorter, change `setBorderTop(36)` and the gauges' `height="32px"`
+  together so they stay in sync.
 - No commands or settings to configure — it's purely driven by `Char.Vitals`.
 
 ## StaticChaos-Mapper.xml — auto-mapper

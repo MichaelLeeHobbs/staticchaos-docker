@@ -8,16 +8,22 @@
 			<script><![CDATA[
 -- StaticChaos GMCP status gauges (HP / Mana / Move).
 -- Reads Char.Vitals sent by the server's GMCP (telnet 201) and draws three
--- bars across the bottom of the main window, updating in real time.
+-- bars across the TOP of the main window (just under the toolbar), updating in
+-- real time. A reserved top border keeps them from covering game text.
 
 scGMCP = scGMCP or {}
 
 function scGMCP.makeGauges()
+  -- reserve a strip at the top so the bars sit above the text, not over it
+  if not scGMCP.bordered then
+    setBorderTop(36)
+    scGMCP.bordered = true
+  end
   if scGMCP.hp then return end
   local w = "32%"
-  scGMCP.hp   = Geyser.Gauge:new({name="sc_hp",   x="0%",  y="-2.4c", width=w, height="2c"})
-  scGMCP.mana = Geyser.Gauge:new({name="sc_mana", x="34%", y="-2.4c", width=w, height="2c"})
-  scGMCP.move = Geyser.Gauge:new({name="sc_move", x="68%", y="-2.4c", width=w, height="2c"})
+  scGMCP.hp   = Geyser.Gauge:new({name="sc_hp",   x="0%",  y="2px", width=w, height="32px"})
+  scGMCP.mana = Geyser.Gauge:new({name="sc_mana", x="34%", y="2px", width=w, height="32px"})
+  scGMCP.move = Geyser.Gauge:new({name="sc_move", x="68%", y="2px", width=w, height="32px"})
 
   scGMCP.hp.front:setStyleSheet("background-color: rgb(175,45,45); border: 1px solid rgb(60,12,12);")
   scGMCP.hp.back:setStyleSheet("background-color: rgb(48,20,20);")

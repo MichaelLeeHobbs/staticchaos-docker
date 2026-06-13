@@ -808,8 +808,82 @@ void chant_holy_bless( int cn, int rank, CHAR_DATA *ch, void *vo )
   return;
 }
 
+/* White/Astral counter to magic stacking.  Strips 1-3 temporary affects
+   (never everything), collapses a holy-resist barrier, poofs an active Laguna
+   Blade or Recovery, and -- on a failed save -- disrupts a gathering chant. */
 void chant_flow_break( int cn, int rank, CHAR_DATA *ch, void *vo )
 {
+  AFFECT_DATA *paf, *paf_next;
+  CHAR_DATA *victim = (CHAR_DATA *) vo;
+  OBJ_DATA *wield;
+  int hr      = skill_lookup( "holy resist" );
+  int strips  = URANGE( 1, 1 + rank / 18, 3 );   /* 1-3 by rank; never all */
+  int removed = 0;
+
+  act( "You sever the flow of power around $N!", ch, NULL, victim, TO_CHAR );
+  act( "$n severs the flow of power around you!", ch, NULL, victim, TO_VICT );
+  act( "$n severs the flow of power around $N.", ch, NULL, victim, TO_NOTVICT );
+
+  /* Extra effect vs a holy-resist barrier: collapse or weaken it first. */
+  if ( is_affected( victim, hr ) )
+  {
+    for ( paf = victim->affected; paf != NULL && paf->type != hr; paf = paf->next )
+      ;
+    if ( paf != NULL )
+    {
+      paf->duration = UMAX( 0, paf->duration - 200 - rank * 4 );
+      if ( paf->duration == 0 )
+      { affect_strip( victim, hr );
+        send_to_char( "Your protective barrier collapses!\n\r", victim );
+      }
+      else
+        send_to_char( "Your barrier shudders but holds.\n\r", victim );
+    }
+  }
+
+  /* Shatter an active Laguna Blade. */
+  if ( !IS_NPC(victim) && IS_SET(victim->pcdata->actnew, NEW_LAGUNABLADE) )
+  {
+    REMOVE_BIT( victim->pcdata->actnew, NEW_LAGUNABLADE );
+    if ( ( wield = get_eq_char( victim, WEAR_WIELD ) ) != NULL
+      && wield->pIndexData->vnum == LAGUNA_BLADE )
+      extract_obj( wield );
+    send_to_char( "Your blade of black energy shatters!\n\r", victim );
+  }
+
+  /* Disrupt an active Recovery. */
+  if ( !IS_NPC(victim) && IS_SET(victim->pcdata->actnew, NEW_RECOVERY) )
+  {
+    REMOVE_BIT( victim->pcdata->actnew, NEW_RECOVERY );
+    send_to_char( "Your recovery is disrupted.\n\r", victim );
+  }
+
+  /* Strip up to `strips` temporary affects (permanent/innate ones are left). */
+  for ( paf = victim->affected; paf != NULL && removed < strips; paf = paf_next )
+  {
+    paf_next = paf->next;
+    if ( paf->type == hr || paf->duration < 0 )
+      continue;
+    if ( paf->type > 0 && skill_table[paf->type].msg_off )
+    { send_to_char( skill_table[paf->type].msg_off, victim );
+      send_to_char( "\n\r", victim );
+    }
+    affect_remove( victim, paf );
+    removed++;
+  }
+
+  /* On a failed save, also disrupt one gathering chant/prep. */
+  if ( !IS_NPC(victim) && victim->class == CLASS_SORCERER
+    && victim->pcdata->chant != NULL && !saves_chant( ch, victim, cn ) )
+  {
+    lose_chant( victim );
+    act( "You disrupt $N's gathering chant!", ch, NULL, victim, TO_CHAR );
+    send_to_char( "Your gathering chant is disrupted!\n\r", victim );
+  }
+
+  if ( removed == 0 )
+    act( "...but there was little magic left to unravel.", ch, NULL, victim, TO_CHAR );
+  return;
 }
 
 

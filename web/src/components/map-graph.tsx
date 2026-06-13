@@ -158,11 +158,12 @@ export function drawGraph(
     node.attr('transform', (d) => `translate(${d.x ?? 0},${d.y ?? 0})`);
   };
 
-  const recenter = (k: number, cx = 0, cy = 0) =>
-    svg
-      .transition()
-      .duration(450)
-      .call(zoom.transform, d3.zoomIdentity.translate(W / 2 - cx * k, H / 2 - cy * k).scale(k));
+  // Apply immediately (a transition here gets cancelled by the redraw cycle,
+  // leaving the transform stuck near identity -> graph small in the corner).
+  const recenter = (k: number, cx = 0, cy = 0) => {
+    const t = d3.zoomIdentity.translate(W / 2 - cx * k, H / 2 - cy * k).scale(k);
+    svg.call(zoom.transform, t);
+  };
 
   // fit the rendered node bbox to the viewport, centred — robust regardless of
   // where the layout settled (replaces a fixed origin-centred zoom).
@@ -182,6 +183,7 @@ export function drawGraph(
       0.05,
       Math.min((W - pad * 2) / Math.max(1, maxx - minx), (H - pad * 2) / Math.max(1, maxy - miny), 1.4),
     );
+    console.log('[map-fit]', { W, H, nodes: nodes.length, minx, maxx, miny, maxy, k });
     recenter(k, (minx + maxx) / 2, (miny + maxy) / 2);
   };
 

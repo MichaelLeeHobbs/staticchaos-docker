@@ -343,9 +343,9 @@ export function MapPage() {
           : 'gold = recall · green ▸ = portal to another area (click to travel) · click a room for details'}
       </Typography>
 
-      <Box ref={wrapRef} sx={{ position: 'relative' }}>
-        <Paper variant="outlined" sx={{ overflow: 'hidden', bgcolor: '#0c0c10' }}>
-          <svg ref={svgRef} width={dims.w} height={dims.h} style={{ display: 'block' }} />
+      <Box ref={wrapRef} sx={{ position: 'relative', width: '100%', height: dims.h }}>
+        <Paper variant="outlined" sx={{ width: '100%', height: '100%', overflow: 'hidden', bgcolor: '#0c0c10' }}>
+          <svg ref={svgRef} width="100%" height="100%" style={{ display: 'block' }} />
         </Paper>
 
         {room && (

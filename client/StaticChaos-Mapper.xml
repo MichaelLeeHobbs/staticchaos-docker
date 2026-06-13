@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE MudletPackage>
+<MudletPackage version="1.001">
+	<ScriptPackage>
+		<Script isActive="yes" isFolder="no">
+			<name>StaticChaos Mapper</name>
+			<packageName></packageName>
+			<script><![CDATA[
+-- StaticChaos GMCP auto-mapper.
+-- Consumes the server's Room.Info ({num,name,area,exits}) and populates
+-- Mudlet's built-in mapper, placing each new room next to the one you came
+-- from. Open the map with the Mapper toolbar button to watch it draw.
+
+scMap = scMap or {}
+
+-- our exit dir -> (dx,dy,dz) and Mudlet's direction word
+scMap.delta = {
+  n = {0, 1, 0},  s = {0, -1, 0}, e = {1, 0, 0}, w = {-1, 0, 0},
+  u = {0, 0, 1},  d = {0, 0, -1},
+}
+scMap.dirword = { n = "n", s = "s", e = "e", w = "w", u = "up", d = "down" }
+
+local function trim(str)
+  str = str or ""
+  str = str:gsub("^%s+", "")
+  str = str:gsub("%s+$", "")
+  return str
+end
+
+function scMap.area(name)
+  name = trim(name)
+  if name == "" then name = "Unknown" end
+  local areas = getAreaTable() or {}
+  if areas[name] then return areas[name] end
+  return addAreaName(name)
+end
+
+function scMap.onRoom()
+  local r = gmcp and gmcp.Room and gmcp.Room.Info
+  if not r or r.num == nil then return end
+  local vnum = tonumber(r.num)
+  if not vnum then return end
+
+  local isNew = not roomExists(vnum)
+  if isNew then addRoom(vnum) end
+
+  setRoomName(vnum, r.name or ("Room " .. vnum))
+  setRoomArea(vnum, scMap.area(r.area))
+
+  -- place a freshly-seen room next to wherever we walked from
+  if isNew then
+    local x, y, z = 0, 0, 0
+    if scMap.lastVnum and scMap.lastExits and roomExists(scMap.lastVnum) then
+      for dir, target in pairs(scMap.lastExits) do
+        if tonumber(target) == vnum and scMap.delta[dir] then
+          local px, py, pz = getRoomCoordinates(scMap.lastVnum)
+          local dlt = scMap.delta[dir]
+          x = (px or 0) + dlt[1]; y = (py or 0) + dlt[2]; z = (pz or 0) + dlt[3]
+          break
+        end
+      end
+    end
+    setRoomCoordinates(vnum, x, y, z)
+  end
+
+  -- exits: connect to rooms we already know, stub the rest
+  if type(r.exits) == "table" then
+    for dir, target in pairs(r.exits) do
+      local word = scMap.dirword[dir]
+      local t = tonumber(target)
+      if word then
+        if t and roomExists(t) then
+          setExit(vnum, t, word)
+        else
+          setExitStub(vnum, word, true)
+        end
+      end
+    end
+  end
+
+  scMap.lastVnum = vnum
+  scMap.lastExits = r.exits
+  centerview(vnum)
+  updateMap()
+end
+
+if scMap.handler then killAnonymousEventHandler(scMap.handler) end
+scMap.handler = registerAnonymousEventHandler("gmcp.Room.Info", "scMap.onRoom")
+]]></script>
+			<eventHandlerList/>
+		</Script>
+	</ScriptPackage>
+</MudletPackage>

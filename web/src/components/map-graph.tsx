@@ -158,11 +158,16 @@ export function drawGraph(
     node.attr('transform', (d) => `translate(${d.x ?? 0},${d.y ?? 0})`);
   };
 
-  // Apply immediately (a transition here gets cancelled by the redraw cycle,
-  // leaving the transform stuck near identity -> graph small in the corner).
+  // Set the <g> transform directly AND sync d3-zoom's stored __zoom. Going via
+  // svg.call(zoom.transform, t) is unreliable across redraws: the reused <svg>
+  // keeps its old __zoom, so when t matches it d3 emits no 'zoom' event and the
+  // freshly-appended <g> never gets the transform (= graph stuck at identity,
+  // top-left). Applying to <g> directly always works; __zoom keeps later
+  // user pan/zoom continuous.
   const recenter = (k: number, cx = 0, cy = 0) => {
     const t = d3.zoomIdentity.translate(W / 2 - cx * k, H / 2 - cy * k).scale(k);
-    svg.call(zoom.transform, t);
+    g.attr('transform', t.toString());
+    svg.property('__zoom', t);
   };
 
   // fit the rendered node bbox to the viewport, centred — robust regardless of

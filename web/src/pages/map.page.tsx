@@ -141,7 +141,7 @@ export function MapPage() {
   viewRef.current = view;
   const historyRef = useRef(history);
   historyRef.current = history;
-  const [dims, setDims] = useState({ w: 900, h: 600 });
+  const [resizeTick, setResizeTick] = useState(0);
 
   // view changes go through navigate() so we can offer an in-map Back (the
   // browser back button would leave /map entirely — not what we want here).
@@ -195,17 +195,16 @@ export function MapPage() {
     };
   }, []);
 
-  // The wrap fills the available space via flexbox; we just read its rendered
-  // size so d3 can centre the graph in it (and redraw on resize).
+  // Redraw on resize. Depends on `world` so it attaches AFTER the map (and
+  // wrapRef) actually renders — on mount the component is still the loading
+  // spinner, so wrapRef would be null and the observer would never attach.
   useEffect(() => {
     const el = wrapRef.current;
     if (!el) return;
-    const measure = () => setDims({ w: el.clientWidth || 900, h: el.clientHeight || 600 });
-    measure();
-    const ro = new ResizeObserver(measure);
+    const ro = new ResizeObserver(() => setResizeTick((t) => t + 1));
     ro.observe(el);
     return () => ro.disconnect();
-  }, []);
+  }, [world]);
 
   const graph = useMemo(() => {
     if (!world) return null;
@@ -238,12 +237,15 @@ export function MapPage() {
     [navigate],
   );
 
-  // (re)draw the graph whenever the view/layout/size changes
+  // (re)draw the graph whenever the view/layout/size changes. We read the
+  // wrap's LIVE size here (it exists by the time graph is ready) rather than
+  // trusting a measured-on-mount value.
   useEffect(() => {
-    if (!graph || !svgRef.current) return;
+    const wrap = wrapRef.current;
+    if (!graph || !svgRef.current || !wrap) return;
     const handle = drawGraph(svgRef.current, graph.nodes, graph.links, {
-      width: dims.w,
-      height: dims.h,
+      width: wrap.clientWidth || 900,
+      height: wrap.clientHeight || 600,
       grid: graph.grid,
       dist: graph.dist,
       charge: graph.charge,
@@ -260,7 +262,7 @@ export function MapPage() {
       setSelected(v);
     }
     return () => handle.destroy();
-  }, [graph, dims.w, dims.h, layout, view, onNodeClick]);
+  }, [graph, layout, view, onNodeClick, resizeTick]);
 
   const focusRoom = (vnum: number) => {
     const dest = world?.rooms[String(vnum)];
@@ -386,7 +388,7 @@ export function MapPage() {
               top: 8,
               right: 8,
               width: 300,
-              maxHeight: dims.h - 16,
+              maxHeight: 'calc(100% - 16px)',
               overflowY: 'auto',
               p: 2,
             }}

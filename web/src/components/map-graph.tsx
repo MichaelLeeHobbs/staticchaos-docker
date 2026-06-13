@@ -188,7 +188,6 @@ export function drawGraph(
       0.05,
       Math.min((W - pad * 2) / Math.max(1, maxx - minx), (H - pad * 2) / Math.max(1, maxy - miny), 1.4),
     );
-    console.log('[map-fit]', { W, H, nodes: nodes.length, minx, maxx, miny, maxy, k });
     recenter(k, (minx + maxx) / 2, (miny + maxy) / 2);
   };
 

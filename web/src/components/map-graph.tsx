@@ -21,6 +21,7 @@ export interface GraphLink extends d3.SimulationLinkDatum<GraphNode> {
   dir?: string;
   cross?: boolean;
   count?: number;
+  oneWay?: boolean;
 }
 export interface DrawOpts {
   width: number;
@@ -64,9 +65,9 @@ export function drawGraph(
     .selectAll<SVGLineElement, GraphLink>('line')
     .data(links)
     .join('line')
-    .attr('stroke', (d) => (d.cross ? '#5aa17a' : '#39424f'))
+    .attr('stroke', (d) => (d.cross ? '#5aa17a' : d.oneWay ? '#d98a3d' : '#39424f'))
     .attr('stroke-dasharray', (d) => (d.cross ? '4 3' : 'none'))
-    .attr('stroke-width', (d) => Math.min(1 + (d.count ?? 1) * 0.3, 4));
+    .attr('stroke-width', (d) => Math.min(1 + (d.count ?? 1) * 0.3, 4) + (d.oneWay ? 0.6 : 0));
 
   const elabel = opts.dirLabels
     ? g
@@ -82,23 +83,19 @@ export function drawGraph(
 
   let sim: d3.Simulation<GraphNode, GraphLink>;
 
+  // Cheap drag: move only the dragged node + its links (no force re-run). The
+  // layout is pre-settled, so reheating the whole simulation just made big maps
+  // crawl during and after a drag. The node stays where it's dropped.
   const dragBehavior = d3
     .drag<SVGGElement, GraphNode>()
-    .on('start', (e, d) => {
-      if (!e.active) sim.alphaTarget(0.3).restart();
+    .on('start', (_e, d) => {
       d.fx = d.x;
       d.fy = d.y;
     })
     .on('drag', (e, d) => {
-      d.fx = e.x;
-      d.fy = e.y;
-    })
-    .on('end', (e, d) => {
-      if (!e.active) sim.alphaTarget(0);
-      if (!opts.grid) {
-        d.fx = null;
-        d.fy = null;
-      }
+      d.fx = d.x = e.x;
+      d.fy = d.y = e.y;
+      ticked();
     });
 
   const node = g
@@ -224,7 +221,7 @@ export function drawGraph(
     // pre-settle silently (no DOM churn) for a detangled, immediately-fitted view;
     // drag reheats the sim afterwards.
     sim.stop();
-    const iters = Math.min(500, 200 + nodes.length * 2);
+    const iters = Math.min(600, 250 + nodes.length * 2);
     for (let i = 0; i < iters; i++) sim.tick();
     sim.on('tick', ticked);
     ticked();

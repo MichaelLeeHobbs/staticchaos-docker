@@ -97,7 +97,9 @@ function buildArea(world: World, areaId: string): { nodes: GraphNode[]; links: G
       const to = r.exits[dir];
       if (to == null) continue;
       if (inArea.has(to)) {
-        links.push({ source: `R${v}`, target: `R${to}`, dir });
+        const dest = world.rooms[String(to)];
+        const oneWay = !dest || !Object.values(dest.exits).includes(+v);
+        links.push({ source: `R${v}`, target: `R${to}`, dir, oneWay });
       } else {
         const pid = `P${to}`;
         const dest = world.rooms[String(to)];
@@ -372,7 +374,7 @@ export function MapPage() {
       <Typography variant="caption" color="text.secondary" sx={{ display: 'block', mb: 1 }}>
         {view === null
           ? `${world.areas.length} areas · blue = reachable, red = stranded · click an area to enter`
-          : 'gold = recall · green ▸ = portal to another area (click to travel) · click a room for details'}
+          : 'gold = recall · green ▸ = portal (click to travel) · amber link = one-way · drag nodes · click a room for details'}
       </Typography>
 
       <Box ref={wrapRef} sx={{ position: 'relative', flex: 1, minHeight: 0, width: '100%' }}>

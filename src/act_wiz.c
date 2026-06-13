@@ -2441,6 +2441,124 @@ void do_sweapon( CHAR_DATA *ch, char *argument )
 }
 
 
+bool check_parse_name args( ( char *name ) );   /* defined in comm.c */
+
+/* Immortal: delete a player file (offline only; type the name twice). */
+void do_pdelete( CHAR_DATA *ch, char *argument )
+{
+    char arg1[MAX_INPUT_LENGTH];
+    char arg2[MAX_INPUT_LENGTH];
+    char strsave[MAX_INPUT_LENGTH];
+    char buf[MAX_STRING_LENGTH];
+
+    argument = one_argument( argument, arg1 );
+    argument = one_argument( argument, arg2 );
+
+    if ( arg1[0] == '\0' || arg2[0] == '\0' )
+    {
+	send_to_char( "To delete a player, type the name twice: pdelete <name> <name>.\n\r", ch );
+	return;
+    }
+    if ( str_cmp( arg1, arg2 ) )
+    {
+	send_to_char( "Names did not match -- type the name twice to confirm.\n\r", ch );
+	return;
+    }
+    if ( get_char_world( ch, arg1 ) != NULL )
+    {
+	send_to_char( "That player is online -- have them quit first.\n\r", ch );
+	return;
+    }
+
+    sprintf( strsave, "%s%s/%s", PLAYER_DIR, initial( arg1 ), capitalize( arg1 ) );
+    if ( unlink( strsave ) != 0 )
+    {
+	sprintf( strsave, "%s%s/%s.gz", PLAYER_DIR, initial( arg1 ), capitalize( arg1 ) );
+	if ( unlink( strsave ) != 0 )
+	{
+	    send_to_char( "No such player file.\n\r", ch );
+	    return;
+	}
+    }
+    else
+    {
+	sprintf( strsave, "%s%s/%s.gz", PLAYER_DIR, initial( arg1 ), capitalize( arg1 ) );
+	unlink( strsave );
+    }
+    sprintf( strsave, "../finger/%s", capitalize( arg1 ) );
+    unlink( strsave );
+
+    sprintf( buf, "%s deleted player %s.", ch->name, capitalize( arg1 ) );
+    log_string( buf );
+    wiznet( buf );
+    sprintf( buf, "Player %s deleted.\n\r", capitalize( arg1 ) );
+    send_to_char( buf, ch );
+    return;
+}
+
+/* Immortal: rename a player (must be online so the in-file name is updated). */
+void do_prename( CHAR_DATA *ch, char *argument )
+{
+    char arg1[MAX_INPUT_LENGTH];
+    char arg2[MAX_INPUT_LENGTH];
+    char strsave[MAX_INPUT_LENGTH];
+    char buf[MAX_STRING_LENGTH];
+    CHAR_DATA *victim;
+    FILE *fp;
+
+    argument = one_argument( argument, arg1 );
+    argument = one_argument( argument, arg2 );
+
+    if ( arg1[0] == '\0' || arg2[0] == '\0' )
+    {
+	send_to_char( "Syntax: prename <current name> <new name>  (player must be online).\n\r", ch );
+	return;
+    }
+    if ( ( victim = get_char_world( ch, arg1 ) ) == NULL || IS_NPC(victim) )
+    {
+	send_to_char( "That player must be online to be renamed.\n\r", ch );
+	return;
+    }
+    if ( !check_parse_name( capitalize( arg2 ) ) )
+    {
+	send_to_char( "That new name is not allowed.\n\r", ch );
+	return;
+    }
+    if ( get_char_world( ch, arg2 ) != NULL )
+    {
+	send_to_char( "Someone by that new name is already connected.\n\r", ch );
+	return;
+    }
+    sprintf( strsave, "%s%s/%s", PLAYER_DIR, initial( arg2 ), capitalize( arg2 ) );
+    if ( ( fp = fopen( strsave, "r" ) ) != NULL )
+    { fclose( fp );
+      send_to_char( "A player file with that new name already exists.\n\r", ch );
+      return;
+    }
+
+    /* drop the old files, rename the live char, save under the new name */
+    sprintf( strsave, "%s%s/%s", PLAYER_DIR, initial( arg1 ), capitalize( arg1 ) );
+    unlink( strsave );
+    sprintf( strsave, "%s%s/%s.gz", PLAYER_DIR, initial( arg1 ), capitalize( arg1 ) );
+    unlink( strsave );
+    sprintf( strsave, "../finger/%s", capitalize( arg1 ) );
+    unlink( strsave );
+
+    sprintf( buf, "%s renamed player %s to %s.", ch->name, capitalize( arg1 ), capitalize( arg2 ) );
+    free_string( victim->name );
+    victim->name = str_dup( capitalize( arg2 ) );
+    save_char_obj( victim );
+
+    log_string( buf );
+    wiznet( buf );
+    sprintf( buf, "An immortal has renamed you to %s.\n\r", victim->name );
+    send_to_char( buf, victim );
+    sprintf( buf, "Renamed to %s.\n\r", victim->name );
+    send_to_char( buf, ch );
+    return;
+}
+
+
 
 void do_mset( CHAR_DATA *ch, char *argument )
 {

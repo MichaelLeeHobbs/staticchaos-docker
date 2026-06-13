@@ -2,6 +2,16 @@
 
 Client-side add-ons that use the server's **GMCP** (telnet option 201) data.
 
+## StaticChaos.xml — everything, one install (recommended)
+
+All three add-ons below (gauges + auto-mapper + tab completion) bundled into a
+single package. **Toolbox → Package Manager → Install →** pick `StaticChaos.xml`
+and you get the lot. Install **this _or_ the individual files**, not both — they
+define the same scripts and would collide.
+
+Use the individual files instead only if you want à-la-carte control (e.g. gauges
+but not the mapper). Everything below documents the per-feature packages.
+
 ## StaticChaos-Gauges.xml — status bars
 
 Draws **HP / Mana / Move** gauges across the **top** of the Mudlet window (just

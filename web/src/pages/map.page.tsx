@@ -172,25 +172,16 @@ export function MapPage() {
     };
   }, []);
 
-  // fill all available space: full container width, height down to the viewport bottom
+  // The wrap fills the available space via flexbox; we just read its rendered
+  // size so d3 can centre the graph in it (and redraw on resize).
   useEffect(() => {
     const el = wrapRef.current;
     if (!el) return;
-    const measure = () => {
-      const top = el.getBoundingClientRect().top;
-      setDims({
-        w: el.clientWidth || 900,
-        h: Math.max(360, Math.floor(window.innerHeight - top - 10)),
-      });
-    };
+    const measure = () => setDims({ w: el.clientWidth || 900, h: el.clientHeight || 600 });
     measure();
     const ro = new ResizeObserver(measure);
     ro.observe(el);
-    window.addEventListener('resize', measure);
-    return () => {
-      ro.disconnect();
-      window.removeEventListener('resize', measure);
-    };
+    return () => ro.disconnect();
   }, []);
 
   const graph = useMemo(() => {
@@ -299,7 +290,7 @@ export function MapPage() {
   const room = selected != null ? world.rooms[String(selected)] : null;
 
   return (
-    <Box>
+    <Box sx={{ display: 'flex', flexDirection: 'column', flex: 1, minHeight: 0 }}>
       <Stack direction="row" spacing={1.5} alignItems="center" sx={{ mb: 1.5, flexWrap: 'wrap', gap: 1 }}>
         <Button
           size="small"
@@ -343,7 +334,7 @@ export function MapPage() {
           : 'gold = recall · green ▸ = portal to another area (click to travel) · click a room for details'}
       </Typography>
 
-      <Box ref={wrapRef} sx={{ position: 'relative', width: '100%', height: dims.h }}>
+      <Box ref={wrapRef} sx={{ position: 'relative', flex: 1, minHeight: 0, width: '100%' }}>
         <Paper variant="outlined" sx={{ width: '100%', height: '100%', overflow: 'hidden', bgcolor: '#0c0c10' }}>
           <svg ref={svgRef} width="100%" height="100%" style={{ display: 'block' }} />
         </Paper>

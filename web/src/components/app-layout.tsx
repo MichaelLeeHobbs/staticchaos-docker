@@ -42,7 +42,11 @@ export function AppLayout() {
       <Container
         maxWidth={wide ? false : 'lg'}
         disableGutters={wide}
-        sx={{ py: wide ? 1 : 3, px: wide ? 1.5 : undefined, flex: 1 }}
+        sx={
+          wide
+            ? { px: 1.5, py: 1, flex: 1, minHeight: 0, display: 'flex', flexDirection: 'column' }
+            : { py: 3, flex: 1 }
+        }
       >
         <Outlet />
       </Container>

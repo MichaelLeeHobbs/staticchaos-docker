@@ -596,7 +596,8 @@ void char_update( void )
 	{ act( "The Laguna Blade dwindles down to a speck of darkness and vanishes.", ch, NULL, NULL, TO_CHAR );
 	  act( "The Laguna Blade dwindles down to a speck of darkness and vanishes.", ch, NULL, NULL, TO_ROOM );
 	  REMOVE_BIT(ch->pcdata->actnew,NEW_LAGUNABLADE);
-	  if ( ( wield = get_eq_char( ch, WEAR_WIELD ) ) != NULL )
+	  if ( ( wield = get_eq_char( ch, WEAR_WIELD ) ) != NULL
+	    && wield->pIndexData->vnum == LAGUNA_BLADE )
 	  { obj_from_char( wield );
 	    extract_obj( wield );
 	  }

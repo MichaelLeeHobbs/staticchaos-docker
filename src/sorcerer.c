@@ -948,15 +948,33 @@ void chant_laphas_seed( int cn, int rank, CHAR_DATA *ch, void *vo )
 void chant_recovery( int cn, int rank, CHAR_DATA *ch, void *vo )
 {
   CHAR_DATA *victim = (CHAR_DATA *) vo;
+  int heal;
   if ( IS_NPC(victim) )
     return;
   if ( IS_SET(victim->pcdata->actnew,NEW_RECOVERY) )
   { send_to_char( "They already have a recovery spell active.\n\r", ch );
     return;
   }
-  SET_BIT(victim->pcdata->actnew,NEW_RECOVERY);
-  act( "You place a hand over a wound, and begin to heal it.", ch, NULL, NULL, TO_CHAR );
-  act( "$n places $s hand against $N's body, and it begins to glow",ch,NULL,victim,TO_ROOM );
+  SET_BIT(victim->pcdata->actnew,NEW_RECOVERY);   /* starts the heal-over-time (char_update) */
+
+  /* immediate partial heal so the cast isn't a no-op */
+  heal = 200 + dice( rank, 30 );
+  victim->hit = UMIN( victim->max_hit, victim->hit + heal );
+  update_pos( victim );
+
+  /* higher rank also cleanses poison / blindness / light stun */
+  if ( rank >= 30 )
+  { if ( is_affected( victim, skill_lookup( "poison" ) ) )
+      affect_strip( victim, skill_lookup( "poison" ) );
+    if ( is_affected( victim, skill_lookup( "blindness" ) ) )
+      affect_strip( victim, skill_lookup( "blindness" ) );
+    if ( victim->position == POS_STUNNED )
+      victim->position = POS_RESTING;
+  }
+
+  act( "You place a hand over a wound, and it begins to knit closed.", ch, NULL, NULL, TO_CHAR );
+  act( "$n places $s hand against $N's body, and it begins to glow.",ch,NULL,victim,TO_ROOM );
+  send_to_char( "A soothing warmth spreads through you; your wounds begin to mend.\n\r", victim );
   return;
 }
 

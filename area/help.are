@@ -2,6 +2,82 @@
 
 
 
+-1 SORCERER SORC~
+Sorcerers wield Chants drawn from seven Schools of magic:
+  Black, Earth, Wind, Fire, Water, Astral and White.
+
+Your power in a chant is your RANK in its school (see HELP RESEARCH).
+Casting spends MYSTIC, a pool that regenerates over time (see HELP MYSTIC).
+
+Key commands:
+  chant <spell> [target]   - cast a chant
+  chant list               - chants you can attempt right now
+  chant info <spell>       - details for one chant
+  research <school>        - raise a school's rank
+  research list            - your ranks, caps and next costs
+  specialize <path>        - choose Black magic, White magic or Shamanism
+
+See also: HELP CHANT, HELP MYSTIC, HELP RESEARCH, HELP SPECIALIZE.
+~
+-1 CHANT~
+Syntax: chant <spell> [target]
+        chant list
+        chant info <spell>
+
+A chant is gathered over one or more lines, then resolves.  Offensive chants
+let the target attempt a save (HELP SAVES); a specialised caster's chants are
+far harder to resist.  A chant's strength scales with your effective rank in
+its school at the moment you begin -- so casting at full Mystic and high rank
+matters.  You cannot gather two complex chants at once, nor any complex chant
+while wielding the Laguna Blade.
+~
+-1 MYSTIC~
+Mystic is the Sorcerer's spendable power.  Beginning a chant costs Mystic
+equal to the chant's rank, and your effective casting rank is the LOWER of
+your school rank and your current Mystic -- so as Mystic drains, big chants
+weaken until it recovers.  Mystic regenerates over time toward your Will.
+A misfired chant refunds half its Mystic.
+~
+-1 RESEARCH~
+Syntax: research <school>     - raise that school by one rank (costs primal)
+        research list         - show every school's rank, cap and next cost
+
+Schools: Black, Earth, Wind, Fire, Water, Astral, White.
+Your specialty schools cap at rank 50; other schools cap at 44 and cost a
+little extra primal per rank.  See HELP SPECIALIZE.
+~
+-1 SPECIALIZE SPECIALIZATION~
+Syntax: specialize <black magic|white magic|shamanism>
+
+Your specialty raises that path's cap to 50 and makes its chants much more
+reliable.  Shamanism specialises the four elemental schools (Earth, Wind,
+Fire, Water).  Your first specialization is free; changing later costs 250
+primal.  Ranks raised above the off-spec cap are NOT lost when you respec --
+they go dormant and return at full strength if you specialize back in.
+~
+-1 SAVES~
+When you cast an offensive chant the target may save to resist it.  A
+specialised caster of high rank lands chants reliably; true anti-magic
+creatures resist far harder.  Disrupt enemy magic with FLOW BREAK.
+~
+-1 FLOW BREAK~
+A White/Astral chant that severs an enemy's gathered magic: it strips one to
+three temporary magical effects (more at higher rank), weakens or collapses a
+holy-resist barrier, shatters an active Laguna Blade, disrupts a Recovery,
+and -- if the target fails to save -- breaks a chant they are gathering.  It
+never strips everything at once.
+~
+-1 LAGUNA BLADE~
+A Black-magic finisher.  It conjures a short-lived blade of immense cutting
+power into your hands, replacing your weapon.  The blade drains Mystic every
+pulse it is wielded and bars you from gathering other complex chants.  It ends
+if you are disarmed, hit by Flow Break, or when your Mystic runs dry.
+~
+-1 RECOVERY~
+A White chant that mends the body: an immediate partial heal followed by a
+short heal-over-time.  At higher rank it also cleanses poison, blindness and
+light stun.  It does not stack with itself.
+~
 -1 DIKU~
 .                    Original game idea, concept, and design:
 
@@ -253,17 +329,17 @@ Also help on: DAMAGE DEATH EXPERIENCE NEWS STORY TICK WIZLIST
 Look here for changes to classes, combat, etc:
 
 as of 10-10-99:
-  é Levels removed from most PC equations.
-  é Normal stats ripped out, replaced with new ones.
-  é Most stats and attributes trainable with the 'train' command.
-  é Avatars don't die when mortally wounded, must be 'finished' off.
-  é Old combat formulas replaced with something less irritating.
-  é Rudimentary color system installed.. forces ansi though, not good.
-  é Train avatar now works.  Info channel installed to accomadate.
-  é Weaponskills installed, need to make them check wield though.
-  é Regen is applied on ticks even when incapacitated or mortaled.
-  é Mob and PC names can now be abbreviated.
-  é .. and lots of other shit I've forgotten, but which was necessary.
+  ï¿½ Levels removed from most PC equations.
+  ï¿½ Normal stats ripped out, replaced with new ones.
+  ï¿½ Most stats and attributes trainable with the 'train' command.
+  ï¿½ Avatars don't die when mortally wounded, must be 'finished' off.
+  ï¿½ Old combat formulas replaced with something less irritating.
+  ï¿½ Rudimentary color system installed.. forces ansi though, not good.
+  ï¿½ Train avatar now works.  Info channel installed to accomadate.
+  ï¿½ Weaponskills installed, need to make them check wield though.
+  ï¿½ Regen is applied on ticks even when incapacitated or mortaled.
+  ï¿½ Mob and PC names can now be abbreviated.
+  ï¿½ .. and lots of other shit I've forgotten, but which was necessary.
 
 as of 10-13-99:
   * `RC`GO`ML`YO`BR`n is now working propperly.  More to come, though.

@@ -7,6 +7,37 @@
 
 ---
 
+## Implementation status (2026-06-09)
+
+Implemented and deployed, in the recommended order:
+
+| Done | Item | Commit-ish |
+|:--:|------|------|
+| ✅ | Stored-rank fix (resolve at captured rank) + misfire Mystic refund | slice 1 |
+| ✅ | Target-fix bugs: holy_bless / lighting strip the **victim** now | slice 1 |
+| ✅ | New players start with **125 primal** | slice 1 |
+| ✅ | **Flow Break** implemented (the anti-magic counter) | slice 2 |
+| ✅ | **saves_chant** retuned (base 45; floors 10/12/15; ceilings 75/85) | slice 3 |
+| ✅ | **Laguna Blade** finisher (force-wield, Mystic drain, lockout, cleanup) | slice 4 |
+| ✅ | **Recovery** immediate heal + cleanse (on top of the HoT); Laguna tick-expiry made safe | slice 5 |
+| ✅ | **Non-destructive respec** (`sorc_rank` inactive-not-dropped; respec 250; off-spec cap 44) | slice 6 |
+| ✅ | **chant list / chant info / research list** commands | slice 7 |
+| ✅ | **pdelete / prename** immortal commands | slice 8 |
+| ✅ | Help text: SORCERER, CHANT, MYSTIC, RESEARCH, SPECIALIZE, SAVES, FLOW BREAK, LAGUNA BLADE, RECOVERY | slice 9 |
+| ⏸️ | **§3.6 partial-damage-on-save + per-rank lag bands** — *deliberately deferred* | — |
+| ⏸️ | Laguna Blade "partial resist bypass" — *deferred* (damage-pipeline change) | — |
+
+**Why §3.6 is deferred (and that's the balanced call):** it requires editing the
+`saves_chant`-return pattern in ~30 individual damage chants and the lag/wait fields of
+all 81 `chant_table` rows — a wide, error-prone sweep on a live server. Most of its intent
+("early Sorcerer shouldn't whiff") is *already* delivered by the stored-rank fix (full-power
+resolution) and the lower save floors (chants land far more often). The remaining polish
+(half-damage instead of a total whiff) is best done as its own careful pass with Skatha
+confirming which chants are damage vs hard-control. Recommend doing it after watching the
+current changes in real fights.
+
+---
+
 ## TL;DR — recommended order (balance-aware)
 
 The changes are not independent. Several of them **buff Sorcerer at the same time**, so the

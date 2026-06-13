@@ -31,6 +31,31 @@ static int sorc_rank( CHAR_DATA *ch, int school )
   return UMIN( raw, SORC_OFFSPEC_CAP );
 }
 
+static char *sorc_school_name( int school )
+{
+  switch ( school )
+  { case SCHOOL_BLACK:  return "Black";
+    case SCHOOL_EARTH:  return "Earth";
+    case SCHOOL_WIND:   return "Wind";
+    case SCHOOL_FIRE:   return "Fire";
+    case SCHOOL_WATER:  return "Water";
+    case SCHOOL_ASTRAL: return "Astral";
+    case SCHOOL_WHITE:  return "White";
+    default:            return "?";
+  }
+}
+
+static char *sorc_target_name( int target )
+{
+  switch ( target )
+  { case TAR_CHAR_OFFENSIVE: return "offensive (target may save)";
+    case TAR_CHAR_DEFENSIVE: return "defensive";
+    case TAR_CHAR_SELF:      return "self";
+    case TAR_IGNORE:         return "special / area";
+    default:                 return "?";
+  }
+}
+
 void do_chant( CHAR_DATA *ch, char *argument )
 {
   CHANT_DATA *cha;
@@ -52,12 +77,60 @@ void do_chant( CHAR_DATA *ch, char *argument )
   }
 
   argument = one_argument( argument, arg1 );
-  argument = one_argument( argument, arg2 );
 
   if ( arg1[0] == '\0' )
-  { send_to_char( "Syntax is 'chant <spell name> [target]'.\n\r", ch );
+  { send_to_char( "Syntax: 'chant <spell> [target]'.  Also: 'chant list', 'chant info <spell>'.\n\r", ch );
     return;
   }
+
+  /* 'chant list' -- chants you can currently attempt */
+  if ( !str_cmp( arg1, "list" ) )
+  {
+    send_to_char( "`WChants you can attempt`n  (rank = required school rank = Mystic cost):\n\r", ch );
+    send_to_char( "Spell                 School    Rank  Lines\n\r", ch );
+    for ( i = 0; i < MAX_CHANT; i++ )
+    { if ( sorc_rank( ch, chant_table[i].school ) < chant_table[i].rank )
+        continue;
+      sprintf( buf1, "%-20s  %-7s   %3d   %3d\n\r", chant_table[i].name,
+          sorc_school_name( chant_table[i].school ), chant_table[i].rank, chant_table[i].lines );
+      send_to_char( buf1, ch );
+    }
+    send_to_char( "Use 'chant info <spell>' for details.\n\r", ch );
+    return;
+  }
+
+  /* 'chant info <spell>' -- details (matches the full, possibly multi-word name) */
+  if ( !str_cmp( arg1, "info" ) )
+  {
+    while ( *argument == ' ' ) argument++;
+    if ( *argument == '\0' )
+    { send_to_char( "Usage: chant info <spell>.\n\r", ch );
+      return;
+    }
+    for ( i = 0; i < MAX_CHANT; i++ )
+      if ( !str_cmp( argument, chant_table[i].name ) )
+        cn = i;
+    if ( cn < 0 )
+    { send_to_char( "No such chant.\n\r", ch );
+      return;
+    }
+    sprintf( buf1, "`WChant:`n %s\n\r", chant_table[cn].name );
+    send_to_char( buf1, ch );
+    sprintf( buf1, "School: %s    Required rank / Mystic cost: %d\n\r",
+        sorc_school_name( chant_table[cn].school ), chant_table[cn].rank );
+    send_to_char( buf1, ch );
+    sprintf( buf1, "Target: %s\n\r", sorc_target_name( chant_table[cn].target ) );
+    send_to_char( buf1, ch );
+    sprintf( buf1, "Chant length: %d line(s)   Wait: %d   Lag: %d\n\r",
+        chant_table[cn].lines, chant_table[cn].wait, chant_table[cn].lag );
+    send_to_char( buf1, ch );
+    sprintf( buf1, "Your effective %s rank: %d\n\r",
+        sorc_school_name( chant_table[cn].school ), sorc_rank( ch, chant_table[cn].school ) );
+    send_to_char( buf1, ch );
+    return;
+  }
+
+  argument = one_argument( argument, arg2 );
 
   for ( i = 0; i < MAX_CHANT; i++ )
     if ( !strcmp( arg1, chant_table[i].name ) )
@@ -344,6 +417,30 @@ void do_research( CHAR_DATA *ch, char *argument )
   if ( argument[0] == '\0' )
   { send_to_char( "The following schools of magic may be researched:\n\r", ch );
     send_to_char( "Black, Earth, Wind, Fire, Water, Astral, White.\n\r", ch );
+    send_to_char( "Use 'research list' to see your ranks, caps and next costs.\n\r", ch );
+    return;
+  }
+  else if ( !str_cmp( argument, "list" ) )
+  { static const int schools[7] =
+      { SCHOOL_BLACK, SCHOOL_EARTH, SCHOOL_WIND, SCHOOL_FIRE, SCHOOL_WATER, SCHOOL_ASTRAL, SCHOOL_WHITE };
+    int sc;
+    send_to_char( "School    Rank   Cap   Next rank costs\n\r", ch );
+    for ( sc = 0; sc < 7; sc++ )
+    { int s = schools[sc];
+      int specd = ( ch->pcdata->powers[SORC_SPEC] == s ||
+          ( ch->pcdata->powers[SORC_SPEC] == SCHOOL_ASTRAL && s > SCHOOL_BLACK && s < SCHOOL_WHITE ) );
+      int cap = specd ? 50 : SORC_OFFSPEC_CAP;
+      int r   = ch->pcdata->powers[s];
+      int nc  = specd ? UMIN( 75, (r+1)*5 ) : UMIN( 75, (r+1)*5 ) + (r+1);
+      if ( r >= cap )
+        sprintf( buf, "%-8s  %3d   %3d   (maxed)\n\r", sorc_school_name(s), r, cap );
+      else
+        sprintf( buf, "%-8s  %3d   %3d   %d primal\n\r", sorc_school_name(s), r, cap, nc );
+      send_to_char( buf, ch );
+    }
+    sprintf( buf, "You have %d primal.  Specialty schools cap at 50, others at %d.\n\r",
+        ch->pcdata->primal, SORC_OFFSPEC_CAP );
+    send_to_char( buf, ch );
     return;
   }
   else if ( !str_cmp( argument, "black" ) )

@@ -8,7 +8,7 @@
 	<ScriptPackage>
 		<Script isActive="yes" isFolder="no">
 			<name>StaticChaos Gauges</name>
-			<packageName></packageName>
+			<packageName>StaticChaos</packageName>
 			<script><![CDATA[
 -- StaticChaos GMCP status gauges (HP / Mana / Move).
 -- Reads Char.Vitals sent by the server's GMCP (telnet 201) and draws three
@@ -73,7 +73,7 @@ if gmcp and gmcp.Char and gmcp.Char.Vitals then scGMCP.updateVitals() end
 		</Script>
 		<Script isActive="yes" isFolder="no">
 			<name>StaticChaos Mapper</name>
-			<packageName></packageName>
+			<packageName>StaticChaos</packageName>
 			<script><![CDATA[
 -- StaticChaos GMCP auto-mapper.
 -- Consumes the server's Room.Info ({num,name,area,exits}) and populates
@@ -160,7 +160,7 @@ scMap.handler = registerAnonymousEventHandler("gmcp.Room.Info", "scMap.onRoom")
 		</Script>
 		<Script isActive="yes" isFolder="no">
 			<name>StaticChaos Tab Completion</name>
-			<packageName></packageName>
+			<packageName>StaticChaos</packageName>
 			<script><![CDATA[
 -- StaticChaos GMCP tab completion.
 -- The server sends two one-shot lists when you log in:
@@ -253,7 +253,7 @@ end
 	<KeyPackage>
 		<Key isActive="yes" isFolder="no">
 			<name>Tab complete</name>
-			<packageName></packageName>
+			<packageName>StaticChaos</packageName>
 			<script>scComplete.complete(1)</script>
 			<command></command>
 			<keyCode>16777217</keyCode>

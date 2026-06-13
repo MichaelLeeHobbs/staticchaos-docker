@@ -2,6 +2,12 @@
 
 Client-side add-ons that use the server's **GMCP** (telnet option 201) data.
 
+> **Auto-install:** when a Mudlet client connects, the server sends a `Client.GUI`
+> GMCP message pointing at the hosted `StaticChaos.xml`, so Mudlet offers to
+> download and install the all-in-one bundle automatically (and update it when the
+> server bumps the version). Manual install below is the fallback / for picking
+> individual packages.
+
 ## StaticChaos.xml — everything, one install (recommended)
 
 All three add-ons below (gauges + auto-mapper + tab completion) bundled into a

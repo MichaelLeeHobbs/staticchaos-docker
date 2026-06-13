@@ -22,6 +22,13 @@
 #include <arpa/telnet.h>
 #include "merc.h"
 
+/* Mudlet auto-install (Client.GUI): tell the client to download+install our
+ * package bundle. Mudlet only re-installs when GUI_VERSION is higher than what
+ * it has stored for the profile, so BUMP this whenever the hosted package
+ * changes. */
+#define GMCP_GUI_VERSION "1"
+#define GMCP_GUI_URL     "http://rustycatz.fortiddns.com/gmcp/StaticChaos.xml"
+
 /* Offer GMCP to a freshly-connected client:  IAC WILL GMCP. */
 void gmcp_offer( DESCRIPTOR_DATA *d )
 {
@@ -78,6 +85,11 @@ static void gmcp_in( DESCRIPTOR_DATA *d, const char *payload, int plen )
         line[n] = '\0';
         sprintf( log_buf, "GMCP %s: %s", d->host, line );
         log_string( log_buf );
+
+        /* Mudlet: auto-download + install our package bundle from the web host.
+         * Mudlet stores the version per profile and only re-installs on a bump. */
+        send_gmcp( d, "Client.GUI",
+            "{\"version\":\"" GMCP_GUI_VERSION "\",\"url\":\"" GMCP_GUI_URL "\"}" );
     }
     return;
 }

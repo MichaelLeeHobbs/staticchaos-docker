@@ -56,13 +56,17 @@ pressing **Enter** after each:
 
 You're in the game.
 
-## Step 4 — Add the Mudlet add-ons (recommended)
+## Step 4 — Add the Mudlet add-ons (automatic)
 
-We publish ready-made Mudlet packages that light up automatically over the game's
-GMCP data — **HP/Mana/Move gauges, an auto-mapper, and Tab-completion**. Grab the
-all-in-one from the **Mudlet / GMCP** page of this site (`StaticChaos.xml`) and, in
-Mudlet, go to **Settings → Packages → Install** and pick the file. Reconnect and the
-gauges/map appear on their own. (Full instructions are on that page.)
+We publish ready-made Mudlet packages — **HP / Mana / Move + class-resource gauges,
+an auto-mapper, and Tab-completion**. The easiest way to get them:
+
+**When you connect, the server tells Mudlet to install them — accept the prompt that
+pops up.** The add-ons download and install themselves, and update automatically when
+we improve them. (Mudlet asks first, for safety — just say yes.)
+
+Prefer to do it by hand? Grab `StaticChaos.xml` from the **Mudlet / GMCP** page and
+install it via **Settings → Packages → Install**.
 
 ## Step 5 — Learn to move and look around
 

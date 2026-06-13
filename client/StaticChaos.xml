@@ -24,10 +24,11 @@ function scGMCP.makeGauges()
     scGMCP.bordered = true
   end
   if scGMCP.hp then return end
-  local w = "32%"
+  local w = "24%"
   scGMCP.hp   = Geyser.Gauge:new({name="sc_hp",   x="0%",  y="2px", width=w, height="32px"})
-  scGMCP.mana = Geyser.Gauge:new({name="sc_mana", x="34%", y="2px", width=w, height="32px"})
-  scGMCP.move = Geyser.Gauge:new({name="sc_move", x="68%", y="2px", width=w, height="32px"})
+  scGMCP.mana = Geyser.Gauge:new({name="sc_mana", x="25%", y="2px", width=w, height="32px"})
+  scGMCP.move = Geyser.Gauge:new({name="sc_move", x="50%", y="2px", width=w, height="32px"})
+  scGMCP.res  = Geyser.Gauge:new({name="sc_res",  x="75%", y="2px", width=w, height="32px"})
 
   scGMCP.hp.front:setStyleSheet("background-color: rgb(175,45,45); border: 1px solid rgb(60,12,12);")
   scGMCP.hp.back:setStyleSheet("background-color: rgb(48,20,20);")
@@ -35,6 +36,8 @@ function scGMCP.makeGauges()
   scGMCP.mana.back:setStyleSheet("background-color: rgb(22,26,56);")
   scGMCP.move.front:setStyleSheet("background-color: rgb(48,165,85); border: 1px solid rgb(12,52,22);")
   scGMCP.move.back:setStyleSheet("background-color: rgb(22,46,30);")
+  scGMCP.res.front:setStyleSheet("background-color: rgb(150,90,190); border: 1px solid rgb(50,24,70);")
+  scGMCP.res.back:setStyleSheet("background-color: rgb(40,26,52);")
 end
 
 local function setg(g, cur, max, label)
@@ -51,6 +54,12 @@ function scGMCP.updateVitals()
   setg(scGMCP.hp,   v.hp,   v.maxhp,   "HP")
   setg(scGMCP.mana, v.mana, v.maxmana, "Mana")
   setg(scGMCP.move, v.move, v.maxmove, "Move")
+  if v.resname and v.resname ~= "" then
+    scGMCP.res:show()
+    setg(scGMCP.res, v.res, v.maxres, v.resname)
+  else
+    scGMCP.res:hide()
+  end
 end
 
 -- (re)register the handler without duplicating it on reload

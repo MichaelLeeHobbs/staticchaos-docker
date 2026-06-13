@@ -14,10 +14,11 @@ but not the mapper). Everything below documents the per-feature packages.
 
 ## StaticChaos-Gauges.xml — status bars
 
-Draws **HP / Mana / Move** gauges across the **top** of the Mudlet window (just
-under the toolbar) and updates them in real time from the server's `Char.Vitals`
-GMCP messages. It reserves a top border so the bars sit *above* the game text
-rather than covering it.
+Draws **HP / Mana / Move** gauges — plus a **class-resource** gauge (Sorcerer
+Mystic, Saiyan Power, Fist Ki, Mazoku Essence; hidden for classes without one) —
+across the **top** of the Mudlet window (just under the toolbar) and updates them
+in real time from the server's `Char.Vitals` GMCP messages. It reserves a top
+border so the bars sit *above* the game text rather than covering it.
 
 ### Install
 1. In Mudlet: **Toolbox → Package Manager** (or **Settings → Packages**).

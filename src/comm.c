@@ -2388,6 +2388,11 @@ void nanny( DESCRIPTOR_DATA *d, char *argument )
 	      free_string( ch->prompt );
 	      ch->prompt = str_dup( "<[`B%x`n] [`G%h`nH `C%m`nM `c%v`nV] {`M%e`nEss `M%E`nEgo `M%n`nNil}> " );
 	    }
+	    else if ( ch->class == CLASS_SORCERER )
+	    {
+	      free_string( ch->prompt );
+	      ch->prompt = str_dup( "<[`B%x`n] [`G%h`nH `C%m`nM `c%v`nV] {`M%c`nMystic}> " );
+	    }
 
 	    /* create a time string that doesn't include a next line */
 	    sprintf( timebuf, "%s", (char *) ctime( &current_time) );

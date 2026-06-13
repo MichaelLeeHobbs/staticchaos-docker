@@ -1,5 +1,6 @@
 import { AppBar, Toolbar, Typography, Button, Box, Container } from '@mui/material';
 import { Link as RouterLink, useLocation, Outlet } from 'react-router-dom';
+import { AppFooter } from './app-footer';
 
 const NAV = [
   { to: '/', label: 'Home' },
@@ -59,6 +60,7 @@ export function AppLayout() {
       >
         <Outlet />
       </Container>
+      {!wide && <AppFooter />}
     </Box>
   );
 }

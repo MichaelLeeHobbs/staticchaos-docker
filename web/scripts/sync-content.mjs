@@ -38,6 +38,11 @@ const wm = path.join(ROOT, 'world-maps');
 let nData = 0;
 for (const f of ls(wm, /\.json$/)) { cp(path.join(wm, f), path.join(DATA, f)); nData++; }
 
+// stamp when the game data was generated (use world.json's mtime = last build:data)
+const worldSrc = path.join(wm, 'world.json');
+const generatedAt = fs.existsSync(worldSrc) ? fs.statSync(worldSrc).mtime.toISOString() : null;
+fs.writeFileSync(path.join(DATA, 'meta.json'), JSON.stringify({ generatedAt }));
+
 // ---- docs (markdown) + manifest ----
 const docsIndex = [];
 // Only genuinely user-facing docs from docs/ ship to the site. Internal planning

@@ -144,20 +144,44 @@ void gmcp_telnet_filter( DESCRIPTOR_DATA *d )
     d->inbuf[j] = '\0';
 }
 
-/* Phase 1: push one player's current vitals (for status gauges). */
+/* Phase 1: push one player's current vitals (for status gauges).  Includes the
+ * class-specific resource (res/maxres/resname) so a client can draw a 4th gauge
+ * -- Sorcerer Mystic, Saiyan Power, Fist Ki, Mazoku Essence.  Classes with no
+ * extra pool (Patryn, None) send an empty resname so the gauge hides. */
 void gmcp_update_char( CHAR_DATA *ch )
 {
     char json[MAX_STRING_LENGTH];
     DESCRIPTOR_DATA *d;
+    int res = 0, maxres = 0;
+    const char *resname = "";
 
     if ( ch == NULL || IS_NPC( ch ) )
         return;
     if ( ( d = ch->desc ) == NULL || !d->gmcp )
         return;
 
+    switch ( ch->class )
+    {
+        case CLASS_SORCERER:
+            resname = "Mystic"; res = ch->pcdata->powers[SORC_MYSTIC];
+            maxres = ch->pcdata->will; break;
+        case CLASS_SAIYAN:
+            resname = "Power"; res = ch->pcdata->powers[S_POWER];
+            maxres = ch->pcdata->powers[S_POWER_MAX]; break;
+        case CLASS_FIST:
+            resname = "Ki"; res = ch->pcdata->powers[F_KI];
+            maxres = ch->pcdata->powers[F_KI_MAX]; break;
+        case CLASS_MAZOKU:
+            resname = "Essence"; res = ch->pcdata->powers[M_ESSENSE];
+            maxres = UMAX( 10000, res ); break;  /* no hard cap; 10000 = regen ceiling */
+        default: break;                          /* Patryn / None: no extra pool */
+    }
+
     sprintf( json,
-        "{\"hp\":%d,\"maxhp\":%d,\"mana\":%d,\"maxmana\":%d,\"move\":%d,\"maxmove\":%d}",
-        ch->hit, ch->max_hit, ch->mana, ch->max_mana, ch->move, ch->max_move );
+        "{\"hp\":%d,\"maxhp\":%d,\"mana\":%d,\"maxmana\":%d,\"move\":%d,\"maxmove\":%d,"
+        "\"res\":%d,\"maxres\":%d,\"resname\":\"%s\"}",
+        ch->hit, ch->max_hit, ch->mana, ch->max_mana, ch->move, ch->max_move,
+        res, maxres, resname );
     send_gmcp( d, "Char.Vitals", json );
 }
 

@@ -252,7 +252,8 @@ void lose_chant( CHAR_DATA *ch )
 
 bool saves_chant( CHAR_DATA *ch, CHAR_DATA *victim, int cn )
 {
-  int chance = 50;
+  int chance = 45;
+  bool spec;
   if ( IS_NPC(victim) )
   {
     chance += victim->level / 3;
@@ -282,12 +283,26 @@ bool saves_chant( CHAR_DATA *ch, CHAR_DATA *victim, int cn )
 
   chance -= ch->pcdata->will / 3;
   chance -= ch->pcdata->powers[chant_table[cn].school];
-  if ( ch->pcdata->powers[SORC_SPEC] == chant_table[cn].school ||
+  spec = ( ch->pcdata->powers[SORC_SPEC] == chant_table[cn].school ||
        (ch->pcdata->powers[SORC_SPEC] == SCHOOL_ASTRAL &&
-        chant_table[cn].school > SCHOOL_BLACK && chant_table[cn].school < SCHOOL_WHITE) )
+        chant_table[cn].school > SCHOOL_BLACK && chant_table[cn].school < SCHOOL_WHITE) );
+  if ( spec )
     chance /= 2;
 
-  chance = URANGE( 15, chance, 85 );
+  /* Floors/ceilings -- lowered from the old flat 15/85 so a specialist's
+     chants land reliably, while real anti-magic bosses still resist hard. */
+  {
+    int lo, hi;
+    if ( IS_NPC(victim) && victim->level >= 100 )
+      lo = 15;            /* PvE bosses keep a higher save floor */
+    else if ( spec )
+      lo = 10;            /* specialized caster: spells land reliably */
+    else
+      lo = 12;            /* off-spec caster */
+    hi = ( IS_NPC(victim) && victim->level >= 102 ) ? 85 : 75;
+    chance = URANGE( lo, chance, hi );
+  }
+
   if ( number_percent() < chance )
     return TRUE;
 

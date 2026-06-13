@@ -8,10 +8,16 @@
 >   client walking the Mud School got valid `Room.Info {num,name,area,exits}`,
 >   including the down/up link to the Temple of Midgaard). Emitted from
 >   `char_to_room`.
-> - **Client:** Mudlet packages in `client/` — gauges (`Char.Vitals`) and
->   auto-mapper (`Room.Info`). Distributed manually (the XML) for now.
-> - Phase 3 (status/completion) remains; auto-install via `Client.GUI` + a web
->   host is a later, separate task.
+> - **Phase 3 (`Char.Status` + completion)** — implemented, **deployed**, verified
+>   live (a fake Sorcerer login got `Char.Status {name,class,level,gold,primal,exp}`,
+>   `game.Commands` = 253 cmds incl. `chant`/`north` filtered by trust, and
+>   `game.Chants` = 81 hyphenated chant names incl. `rubyeye-blade`). Lists sent
+>   once per connection via a `gmcp_lists` flag.
+> - **Client:** Mudlet packages in `client/` — gauges (`Char.Vitals`),
+>   auto-mapper (`Room.Info`), and tab completion (`game.Commands`/`game.Chants`).
+>   Distributed manually (the XML) for now.
+> - Auto-install via `Client.GUI` + a web host is a later, separate task (the
+>   user drives the web-hosting side).
 >
 > Full plan before any code. GMCP (Generic Mud Communication Protocol) is a small
 > telnet side-channel that lets the server send the client structured data (JSON)
@@ -141,12 +147,17 @@ Keep it self-contained to minimise edits to the hot I/O path:
   done; the packet is just "the current room."
 - Mudlet's built-in mapper consumes GMCP room data → a live map as players walk.
 
-## Phase 3 — Status, commands, completion (closes the original loop)
+## Phase 3 — Status, commands, completion (closes the original loop) — **DONE**
 
-- `Char.Status` (level, class, gold, primal, xp, align), `Char.StatusVars`.
-- A small custom package (e.g. `game.Commands` + context lists like "chant names you
-  can use") so a Mudlet script can do the **context-aware tab completion** that
-  started this whole thread — now fed accurate, live data from the server.
+- `Char.Status` — `{name,class,level,gold,primal,exp}`, pushed each heartbeat.
+  (`align`/`Char.StatusVars` deferred — not needed for the completion loop.)
+- Custom packages for **context-aware tab completion** — the feature that started
+  this whole thread, now fed live from the server:
+  - `game.Commands` — JSON array of command names at the player's trust (filtered
+    by `cmd_table[i].level`).
+  - `game.Chants` — JSON array of hyphenated chant names (Sorcerers only).
+  - Both sent **once per connection** (`d->gmcp_lists` flag), not every tick.
+  - Client: `client/StaticChaos-Complete.xml` binds Tab → cycle prefix matches.
 - Optional later: `Comm.Channel` (route channels to the client), `Char.Items`
   (inventory widget).
 

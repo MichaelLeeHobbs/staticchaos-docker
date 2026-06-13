@@ -49,9 +49,34 @@ Same as the gauges: **Toolbox → Package Manager → Install →** pick
   exits don't draw, tell me your Mudlet version — the exit-direction format is
   the one spot that occasionally differs between versions.
 
+## StaticChaos-Complete.xml — tab completion
+
+Context-aware **Tab completion** driven by the server's `game.Commands` and
+`game.Chants` GMCP lists (Phase 3, live). When you log in the server sends the
+full command list (for your trust level) and, for Sorcerers, your chant names.
+
+### Install
+Same as the others: **Toolbox → Package Manager → Install →** pick
+`StaticChaos-Complete.xml`.
+
+### How it works / notes
+- **First word** on the line completes against the command list (`nor`+Tab →
+  `north`). **After `chant `** it completes against your chant names
+  (`chant rubyeye`+Tab → `chant rubyeye-blade`).
+- Matching ignores hyphens, underscores, spaces and case — so `rubyeyeblade`,
+  `rubyeye-blade` and `rubyeye blade` all match. Press **Tab again** to cycle
+  through the other matches that share your prefix.
+- The lists are sent **once per login**. If completion seems empty right after
+  connecting, reconnect (or just keep playing — it arrives within a second).
+- **Tab key binding:** the package binds `Tab` (Qt key code `16777217`, no
+  modifier). If your Mudlet build doesn't fire it, open **Scripts → Keys →
+  "Tab complete"**, click **grab new key**, press **Tab**, and save — that
+  rebinds it to whatever your platform reports. The script itself is fine; only
+  the key code is version/platform sensitive.
+- Needs a Mudlet with `getCommandLine()` (4.10+). Older builds print a one-line
+  hint instead of completing.
+
 ## Coming next
-- **Tab completion** — once the server emits command/chant lists (Phase 3), a
-  script here can do context-aware Tab completion.
 - **One-click / auto-install** — later we can host these packages and have the
   server auto-deliver them via Mudlet's `Client.GUI` GMCP message (you'll drive
   the web-hosting side).

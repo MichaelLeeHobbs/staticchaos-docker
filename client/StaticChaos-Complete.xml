@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE MudletPackage>
+<MudletPackage version="1.001">
+	<ScriptPackage>
+		<Script isActive="yes" isFolder="no">
+			<name>StaticChaos Tab Completion</name>
+			<packageName></packageName>
+			<script><![CDATA[
+-- StaticChaos GMCP tab completion.
+-- The server sends two one-shot lists when you log in:
+--   game.Commands : every command you can use (at your trust level)
+--   game.Chants   : your chant names (Sorcerers only), hyphenated
+-- This script binds Tab to complete/cycle the word you're typing:
+--   * first word on the line  -> completed against the command list
+--   * after "chant "          -> completed against the chant list
+-- Matching ignores hyphens/underscores/spaces and case, so typing
+-- "rubyeye" then Tab finds "rubyeye-blade". Press Tab again to cycle
+-- through the other matches.
+
+scComplete = scComplete or {}
+
+-- normalise for matching: lower-case, drop separators
+function scComplete.norm(s)
+  return (tostring(s or "")):lower():gsub("[-_ ]", "")
+end
+
+-- store the lists as they arrive
+function scComplete.onCommands() scComplete.commands = gmcp.game.Commands end
+function scComplete.onChants()   scComplete.chants   = gmcp.game.Chants   end
+
+-- dir = 1 forward (default), -1 backward
+function scComplete.complete(dir)
+  dir = dir or 1
+  if not getCommandLine then
+    cecho("\n<red>[completion] needs a newer Mudlet (getCommandLine missing).\n")
+    return
+  end
+  local line = getCommandLine() or ""
+
+  -- repeated Tab on our own output = cycle through the same matches
+  local cycling = (line == scComplete.lastSet)
+                  and scComplete.matches and #scComplete.matches > 0
+  if cycling then
+    scComplete.idx = ((scComplete.idx - 1 + dir) % #scComplete.matches) + 1
+  else
+    -- split: everything up to the last token, and the token we complete
+    local prefix, stem = line:match("^(.*%s)(%S*)$")
+    if not prefix then prefix, stem = "", line end
+
+    local firstword = (line:match("^%s*(%S+)") or ""):lower()
+    local cands
+    if prefix == "" then
+      cands = scComplete.commands                 -- completing the command
+    elseif #firstword > 0 and ("chant"):sub(1, #firstword) == firstword then
+      cands = scComplete.chants                   -- completing a chant name
+    else
+      return                                      -- nothing we complete here
+    end
+    if not cands then return end
+
+    local nstem = scComplete.norm(stem)
+    local matches = {}
+    for _, c in ipairs(cands) do
+      if scComplete.norm(c):sub(1, #nstem) == nstem then
+        matches[#matches + 1] = c
+      end
+    end
+    if #matches == 0 then return end
+
+    scComplete.matches = matches
+    scComplete.prefix  = prefix
+    scComplete.idx     = 1
+  end
+
+  local pick = scComplete.matches[scComplete.idx]
+  local newline = scComplete.prefix .. pick
+  clearCommandLine()
+  appendCommandLine(newline)
+  scComplete.lastSet = newline
+end
+
+-- (re)register handlers without duplicating on reload
+if scComplete.h1 then killAnonymousEventHandler(scComplete.h1) end
+if scComplete.h2 then killAnonymousEventHandler(scComplete.h2) end
+scComplete.h1 = registerAnonymousEventHandler("gmcp.game.Commands", "scComplete.onCommands")
+scComplete.h2 = registerAnonymousEventHandler("gmcp.game.Chants",   "scComplete.onChants")
+
+-- seed from anything already received
+if gmcp and gmcp.game then
+  if gmcp.game.Commands then scComplete.commands = gmcp.game.Commands end
+  if gmcp.game.Chants   then scComplete.chants   = gmcp.game.Chants   end
+end
+]]></script>
+			<eventHandlerList/>
+		</Script>
+	</ScriptPackage>
+	<KeyPackage>
+		<Key isActive="yes" isFolder="no">
+			<name>Tab complete</name>
+			<packageName></packageName>
+			<script>scComplete.complete(1)</script>
+			<command></command>
+			<keyCode>16777217</keyCode>
+			<keyModifier>0</keyModifier>
+		</Key>
+	</KeyPackage>
+</MudletPackage>

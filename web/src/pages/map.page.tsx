@@ -24,6 +24,7 @@ import {
   drawGraph,
   computeGrid,
   computeSimpleGrid,
+  gridDegenerate,
   type GraphHandle,
   type GraphLink,
   type GraphNode,
@@ -216,13 +217,19 @@ export function MapPage() {
         layout === 'grid'
           ? computeSimpleGrid([...nodes].sort((a, b) => a.label.localeCompare(b.label)))
           : (null as Map<string, { x: number; y: number }> | null);
-      return { nodes, links, dist: 180, charge: -1100 * spread, dirLabels: false, grid };
+      return { nodes, links, dist: 180, charge: -1100 * spread, dirLabels: false, grid, gridFellBack: false };
     }
     const { nodes, links } = buildArea(world, view);
     const inArea = new Set(nodes.filter((n) => n.kind === 'room' && n.vnum != null).map((n) => n.vnum as number));
     const roomVnums = [...inArea];
-    const grid = layout === 'grid' ? computeGrid(world, roomVnums, inArea, nodes) : null;
-    return { nodes, links, dist: 95, charge: -340 * spread, dirLabels: true, grid };
+    let grid: Map<string, { x: number; y: number }> | null = null;
+    let gridFellBack = false;
+    if (layout === 'grid') {
+      const g = computeGrid(world, roomVnums, inArea, nodes);
+      if (gridDegenerate(g, links)) gridFellBack = true; // too tangled for a grid → use force
+      else grid = g;
+    }
+    return { nodes, links, dist: 95, charge: -340 * spread, dirLabels: true, grid, gridFellBack };
   }, [world, view, layout, spread]);
 
   const onNodeClick = useCallback(
@@ -375,6 +382,7 @@ export function MapPage() {
         {view === null
           ? `${world.areas.length} areas · blue = reachable, red = stranded · click an area to enter`
           : 'gold = recall · green ▸ = portal (click to travel) · amber link = one-way · drag nodes · click a room for details'}
+        {graph?.gridFellBack ? ' · ⚠ grid unsuitable for this area — showing Force' : ''}
       </Typography>
 
       <Box ref={wrapRef} sx={{ position: 'relative', flex: 1, minHeight: 0, width: '100%' }}>

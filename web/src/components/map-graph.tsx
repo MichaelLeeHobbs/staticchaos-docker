@@ -42,6 +42,59 @@ export interface GraphHandle {
 
 const trunc = (s: string) => (s.length > 16 ? `${s.slice(0, 15)}…` : s);
 
+export const GRID_SP = 160; // compass-grid cell spacing (px)
+
+// --- edge-crossing count, for the multi-restart "least tangled" layout ---
+const cw = (xi: number, yi: number, xj: number, yj: number, xk: number, yk: number) =>
+  (xk - xi) * (yj - yi) - (xj - xi) * (yk - yi);
+function segmentsCross(a: GraphNode, b: GraphNode, c: GraphNode, d: GraphNode): boolean {
+  const ax = a.x ?? 0, ay = a.y ?? 0, bx = b.x ?? 0, by = b.y ?? 0;
+  const cx = c.x ?? 0, cy = c.y ?? 0, dx = d.x ?? 0, dy = d.y ?? 0;
+  const d1 = cw(cx, cy, dx, dy, ax, ay);
+  const d2 = cw(cx, cy, dx, dy, bx, by);
+  const d3a = cw(ax, ay, bx, by, cx, cy);
+  const d4 = cw(ax, ay, bx, by, dx, dy);
+  return ((d1 > 0 && d2 < 0) || (d1 < 0 && d2 > 0)) && ((d3a > 0 && d4 < 0) || (d3a < 0 && d4 > 0));
+}
+function countCrossings(links: GraphLink[]): number {
+  let n = 0;
+  for (let i = 0; i < links.length; i++) {
+    const li = links[i];
+    if (!li) continue;
+    const a = li.source as GraphNode;
+    const b = li.target as GraphNode;
+    for (let j = i + 1; j < links.length; j++) {
+      const lj = links[j];
+      if (!lj) continue;
+      const c = lj.source as GraphNode;
+      const d = lj.target as GraphNode;
+      if (a === c || a === d || b === c || b === d) continue;
+      if (segmentsCross(a, b, c, d)) n++;
+    }
+  }
+  return n;
+}
+
+/* The compass-grid degrades badly on shortcut/maze areas (it collapses toward a
+ * line, with overlaps). Flag it degenerate when too many edges stretch well
+ * beyond an adjacent cell, so the page can auto-fall-back to the force layout.
+ * Links here still carry string ids (called before drawGraph resolves them). */
+export function gridDegenerate(
+  grid: Map<string, { x: number; y: number }>,
+  links: GraphLink[],
+): boolean {
+  let long = 0;
+  let total = 0;
+  for (const l of links) {
+    const a = grid.get(l.source as string);
+    const b = grid.get(l.target as string);
+    if (!a || !b) continue;
+    total++;
+    if (Math.max(Math.abs(a.x - b.x), Math.abs(a.y - b.y)) / GRID_SP > 1.6) long++;
+  }
+  return total > 4 && long / total > 0.34;
+}
+
 export function drawGraph(
   svgEl: SVGSVGElement,
   nodes: GraphNode[],
@@ -206,23 +259,64 @@ export function drawGraph(
     ticked();
     fitView();
   } else {
-    sim = d3
-      .forceSimulation<GraphNode, GraphLink>(nodes)
-      .force(
-        'link',
-        d3.forceLink<GraphNode, GraphLink>(links).id((d) => d.id).distance(opts.dist ?? 80).strength(0.5),
-      )
-      // distanceMax keeps repulsion local so isolated nodes aren't flung to
-      // infinity (which would blow up the fit). forceX/Y hold the graph centred.
-      .force('charge', d3.forceManyBody<GraphNode>().strength(opts.charge ?? -320).distanceMax(700).theta(0.8))
-      .force('collide', d3.forceCollide<GraphNode>().radius((d) => d.r + 20).iterations(2))
-      .force('x', d3.forceX<GraphNode>(0).strength(0.11))
-      .force('y', d3.forceY<GraphNode>(0).strength(0.11));
-    // pre-settle silently (no DOM churn) for a detangled, immediately-fitted view;
-    // drag reheats the sim afterwards.
-    sim.stop();
-    const iters = Math.min(600, 250 + nodes.length * 2);
-    for (let i = 0; i < iters; i++) sim.tick();
+    const makeSim = () =>
+      d3
+        .forceSimulation<GraphNode, GraphLink>(nodes)
+        .force(
+          'link',
+          d3.forceLink<GraphNode, GraphLink>(links).id((d) => d.id).distance(opts.dist ?? 80).strength(0.5),
+        )
+        // distanceMax keeps repulsion local so isolated nodes aren't flung to
+        // infinity (which would blow up the fit). forceX/Y hold it centred.
+        .force('charge', d3.forceManyBody<GraphNode>().strength(opts.charge ?? -320).distanceMax(700).theta(0.8))
+        .force('collide', d3.forceCollide<GraphNode>().radius((d) => d.r + 20).iterations(2))
+        .force('x', d3.forceX<GraphNode>(0).strength(0.11))
+        .force('y', d3.forceY<GraphNode>(0).strength(0.11))
+        .stop();
+
+    // Multi-restart: settle from several random starts and keep the layout with
+    // the fewest edge crossings (crossing-minimisation is NP-hard, so this just
+    // picks the best of N tries). Skip the O(E^2) count on very dense graphs.
+    const iters = Math.min(550, 220 + nodes.length * 2);
+    const restarts = nodes.length > 250 ? 2 : nodes.length > 120 ? 3 : 5;
+    const evalCrossings = links.length <= 700;
+    const span = Math.max(400, Math.sqrt(nodes.length) * 140);
+    let best: { x: number; y: number }[] | null = null;
+    let bestC = Infinity;
+    for (let r = 0; r < restarts; r++) {
+      for (const n of nodes) {
+        n.x = (Math.random() - 0.5) * span;
+        n.y = (Math.random() - 0.5) * span;
+        n.vx = 0;
+        n.vy = 0;
+        n.fx = null;
+        n.fy = null;
+      }
+      const s = makeSim();
+      for (let i = 0; i < iters; i++) s.tick();
+      if (!evalCrossings) {
+        best = nodes.map((n) => ({ x: n.x ?? 0, y: n.y ?? 0 }));
+        break;
+      }
+      const c = countCrossings(links);
+      if (c < bestC) {
+        bestC = c;
+        best = nodes.map((n) => ({ x: n.x ?? 0, y: n.y ?? 0 }));
+      }
+    }
+    if (best) {
+      nodes.forEach((n, i) => {
+        const p = best?.[i];
+        if (p) {
+          n.x = p.x;
+          n.y = p.y;
+          n.fx = null;
+          n.fy = null;
+        }
+      });
+    }
+    // live (stopped) sim: resolves link endpoints + gives drag/focus a handle
+    sim = makeSim();
     sim.on('tick', ticked);
     ticked();
     fitView();
@@ -241,9 +335,8 @@ export function drawGraph(
         .select('circle')
         .attr('stroke', (d) => ((d as GraphNode).id === id ? '#ffffff' : '#0c0c10'))
         .attr('stroke-width', (d) => ((d as GraphNode).id === id ? 2.5 : 1.2));
-      for (let i = 0; i < 60; i++) sim.tick();
-      ticked();
-      recenter(1.1, n.x ?? 0, n.y ?? 0);
+      // don't re-run the sim (it would disturb the chosen layout) — just go there
+      recenter(1.4, n.x ?? 0, n.y ?? 0);
     },
   };
 }

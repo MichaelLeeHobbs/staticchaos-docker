@@ -54,6 +54,8 @@ Switching forms takes a moment (you're locked briefly while you reform), and ent
 
 ## Getting started
 
+> Your guild is **[Mage's Bar — room 3018](#/map?room=3018)** in Midgaard. (Open it on the World Map.)
+
 1. **Learn the basics.** Use `develop list` to see what's available and what it costs. Spend your first primal on `develop claws` so you have a real attack, and `develop charge` plus one attack mode (`develop bolt`, `develop blast`, or `develop bomb`).
 2. **Pour experience into Astral.** Your charged attacks scale off Astral mastery, and it also speeds up your charge time. `develop astral` early and often.
 3. **Practice forming up.** Use `form claws` to grow weapon-limbs, then `morph battle` to enter your fighting body. Try `rake` in a fight to feel out claw attacks.

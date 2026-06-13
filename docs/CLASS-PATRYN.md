@@ -34,6 +34,8 @@ Three things drive a Patryn, and all three are earned, not bought from gear:
 
 ## Getting started
 
+> Your guild is **[The Thieves Bar — room 3028](#/map?room=3028)** in Midgaard. (Open it on the World Map.)
+
 1. **Learn your first runes.** You can begin learning and tattooing at level 2. Start with `learn` to see the list, then learn a primary element or two and a secondary intent. A solid opening pair is an offensive element (air or fire) plus **death** for direct damage, or **life**/**creation** if you want healing first.
 2. **Pick a primary to train.** Run `runetrain` to see costs, then pour experience into one element you'll lean on. Concentrated training makes that element's weaves noticeably stronger.
 3. **Weave it.** With both runes learned, try `runeweave air death` on a target. Watch your mana — weaves are not cheap.

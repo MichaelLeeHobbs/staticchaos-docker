@@ -46,7 +46,10 @@ Your stats grow as you advance, and higher Body/Spirit directly increase both ho
 | `hawkeyes` | Toggle enhanced vision (true sight) on/off (needs 500 power to turn on). |
 
 ## Getting started
-1. **Find your guild** (room 3003) and check what's available with `technique` — then `technique cost` to see prices in primal.
+
+> Your guild is **[Cleric's Bar — room 3003](#/map?room=3003)** in Midgaard. (Open it on the World Map.)
+
+1. **Find your guild** ([room 3003](#/map?room=3003)) and check what's available with `technique` — then `technique cost` to see prices in primal.
 2. **Learn cheap, high-value moves first.** Great early picks: **Ki Blast** (25 primal, your bread-and-butter attack), **Flight** (50), **Hawk Eyes** (50, cheap true sight), **Battlesense** (75), and **Solar Flare** (100, a blind that wins fights). Save up for **Ki Bolt** and **Ki Wave** as your damage backbone.
 3. **Learn the rhythm:** `rage` a few times to bank power (watch your move/stamina), then attack and spend that power on techniques. Re-rage between fights.
 4. **Use `focus`** when you need to be tankier or faster right now — pour power into `aegis` for survivability or `strength`/`speed` for the brawl.

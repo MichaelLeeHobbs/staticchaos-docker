@@ -5,26 +5,35 @@ import {
   Checkbox,
   CircularProgress,
   FormControlLabel,
+  Link as MuiLink,
   Stack,
   Tab,
   Tabs,
   TextField,
   Typography,
 } from '@mui/material';
+import { Link as RouterLink, useSearchParams } from 'react-router-dom';
 import { loadBestiary, loadItems, loadShops, loadSpawns } from '../lib/data';
 import type { Item, Mob, Shop } from '../lib/types';
 import { BrowserTable, type BrowserColumn } from '../components/browser-table';
 
 type TabKey = 'items' | 'mobs' | 'shops' | 'spawns';
+const TAB_KEYS: readonly TabKey[] = ['items', 'mobs', 'shops', 'spawns'];
 
 interface SpawnRow {
   name: string;
   level: number | null;
   roomCount: number;
-  roomsPreview: string;
+  rooms: number[];
 }
 
 const yn = (b: boolean) => (b ? '✓' : '✗');
+// link a room vnum through to the World Map
+const roomLink = (vnum: number) => (
+  <MuiLink key={vnum} component={RouterLink} to={`/map?room=${vnum}`} sx={{ mr: 0.75, whiteSpace: 'nowrap' }}>
+    #{vnum}
+  </MuiLink>
+);
 
 /** Generic loader hook for a single tab's dataset (lazy, fired on first view). */
 function useLazyData<T>(loader: () => Promise<T>, active: boolean) {
@@ -60,9 +69,9 @@ function TabState({ err, loading }: { err: string | null; loading: boolean }) {
   return null;
 }
 
-function ItemsTab({ active }: { active: boolean }) {
+function ItemsTab({ active, initialQuery }: { active: boolean; initialQuery?: string }) {
   const { data, err } = useLazyData(loadItems, active);
-  const [q, setQ] = useState('');
+  const [q, setQ] = useState(initialQuery ?? '');
   const [obtainableOnly, setObtainableOnly] = useState(false);
 
   const rows = useMemo<Item[]>(() => {
@@ -87,7 +96,22 @@ function ItemsTab({ active }: { active: boolean }) {
     { key: 'wear', label: 'wear', render: (r) => r.wear.join('/') },
     { key: 'stats', label: 'stats', render: (r) => r.affects.map((a) => a.stat).join(', ') },
     { key: 'obtainable', label: 'obtainable', render: (r) => yn(r.obtainable) },
-    { key: 'source', label: 'source', render: (r) => r.sources[0]?.text ?? '' },
+    {
+      key: 'source',
+      label: 'source',
+      render: (r) => {
+        const s = r.sources[0];
+        if (!s) return '';
+        const room = typeof s.room === 'number' ? s.room : undefined;
+        return room ? (
+          <MuiLink component={RouterLink} to={`/map?room=${room}`}>
+            {s.text ?? `#${room}`}
+          </MuiLink>
+        ) : (
+          (s.text ?? '')
+        );
+      },
+    },
   ];
 
   return (
@@ -111,9 +135,9 @@ function ItemsTab({ active }: { active: boolean }) {
   );
 }
 
-function MobsTab({ active }: { active: boolean }) {
+function MobsTab({ active, initialQuery }: { active: boolean; initialQuery?: string }) {
   const { data, err } = useLazyData(loadBestiary, active);
-  const [q, setQ] = useState('');
+  const [q, setQ] = useState(initialQuery ?? '');
 
   const rows = useMemo<Mob[]>(() => {
     if (!data) return [];
@@ -148,9 +172,9 @@ function MobsTab({ active }: { active: boolean }) {
   );
 }
 
-function ShopsTab({ active }: { active: boolean }) {
+function ShopsTab({ active, initialQuery }: { active: boolean; initialQuery?: string }) {
   const { data, err } = useLazyData(loadShops, active);
-  const [q, setQ] = useState('');
+  const [q, setQ] = useState(initialQuery ?? '');
 
   const rows = useMemo<Shop[]>(() => {
     if (!data) return [];
@@ -186,9 +210,9 @@ function ShopsTab({ active }: { active: boolean }) {
   );
 }
 
-function SpawnsTab({ active }: { active: boolean }) {
+function SpawnsTab({ active, initialQuery }: { active: boolean; initialQuery?: string }) {
   const { data, err } = useLazyData(loadSpawns, active);
-  const [q, setQ] = useState('');
+  const [q, setQ] = useState(initialQuery ?? '');
 
   const allRows = useMemo<SpawnRow[]>(() => {
     if (!data) return [];
@@ -196,7 +220,7 @@ function SpawnsTab({ active }: { active: boolean }) {
       name: s.name,
       level: s.level,
       roomCount: s.rooms.length,
-      roomsPreview: s.rooms.slice(0, 4).join(', '),
+      rooms: s.rooms,
     }));
   }, [data]);
 
@@ -210,7 +234,16 @@ function SpawnsTab({ active }: { active: boolean }) {
     { key: 'name', label: 'name', render: (r) => r.name },
     { key: 'level', label: 'level', numeric: true, render: (r) => r.level ?? '' },
     { key: 'roomCount', label: '#rooms', numeric: true, render: (r) => r.roomCount },
-    { key: 'rooms', label: 'rooms', render: (r) => r.roomsPreview },
+    {
+      key: 'rooms',
+      label: 'rooms',
+      render: (r) => (
+        <>
+          {r.rooms.slice(0, 6).map(roomLink)}
+          {r.rooms.length > 6 ? `+${r.rooms.length - 6}` : ''}
+        </>
+      ),
+    },
   ];
 
   return (
@@ -229,19 +262,25 @@ function SpawnsTab({ active }: { active: boolean }) {
 }
 
 export function BrowserPage() {
-  const [tab, setTab] = useState<TabKey>('items');
+  const [params] = useSearchParams();
+  const paramTab = params.get('tab');
+  const initialTab: TabKey = TAB_KEYS.includes(paramTab as TabKey) ? (paramTab as TabKey) : 'items';
+  const initialQuery = params.get('q') ?? '';
+
+  const [tab, setTab] = useState<TabKey>(initialTab);
   // Track which tabs have ever been viewed so their data persists across switches.
   const [seen, setSeen] = useState<Record<TabKey, boolean>>({
-    items: true,
-    mobs: false,
-    shops: false,
-    spawns: false,
+    items: initialTab === 'items',
+    mobs: initialTab === 'mobs',
+    shops: initialTab === 'shops',
+    spawns: initialTab === 'spawns',
   });
 
   const onChange = (_e: React.SyntheticEvent, value: TabKey) => {
     setTab(value);
     setSeen((s) => (s[value] ? s : { ...s, [value]: true }));
   };
+  const qFor = (k: TabKey) => (k === initialTab ? initialQuery : '');
 
   return (
     <Box>
@@ -255,10 +294,10 @@ export function BrowserPage() {
         <Tab label="Spawns" value="spawns" />
       </Tabs>
 
-      <Box hidden={tab !== 'items'}>{seen.items && <ItemsTab active={tab === 'items'} />}</Box>
-      <Box hidden={tab !== 'mobs'}>{seen.mobs && <MobsTab active={tab === 'mobs'} />}</Box>
-      <Box hidden={tab !== 'shops'}>{seen.shops && <ShopsTab active={tab === 'shops'} />}</Box>
-      <Box hidden={tab !== 'spawns'}>{seen.spawns && <SpawnsTab active={tab === 'spawns'} />}</Box>
+      <Box hidden={tab !== 'items'}>{seen.items && <ItemsTab active={tab === 'items'} initialQuery={qFor('items')} />}</Box>
+      <Box hidden={tab !== 'mobs'}>{seen.mobs && <MobsTab active={tab === 'mobs'} initialQuery={qFor('mobs')} />}</Box>
+      <Box hidden={tab !== 'shops'}>{seen.shops && <ShopsTab active={tab === 'shops'} initialQuery={qFor('shops')} />}</Box>
+      <Box hidden={tab !== 'spawns'}>{seen.spawns && <SpawnsTab active={tab === 'spawns'} initialQuery={qFor('spawns')} />}</Box>
     </Box>
   );
 }

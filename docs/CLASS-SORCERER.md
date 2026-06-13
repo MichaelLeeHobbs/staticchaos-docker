@@ -55,6 +55,8 @@ Every Sorcerer picks one of three paths with the `specialize` command. Your firs
 
 ## Getting started
 
+> Your guild is **[Mage's Bar — room 3018](#/map?room=3018)** in Midgaard. (Open it on the World Map.)
+
 1. **Pick a path early.** Run `specialize` to see your options, then commit — for example, `specialize shamanism`. Your first choice is free, so choose the playstyle you want (burst damage, support, or elemental variety).
 2. **See what you can cast.** `chant list` shows everything currently available to you. Start with the low-rank chants in your school(s).
 3. **Learn your spells.** Use `chant info <spell>` to check a chant's cost, target type, and how many lines it takes before it lands.

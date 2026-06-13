@@ -32,8 +32,6 @@ profile"). Make a new connection:
 2. Fill in:
    - **Profile name:** `Static Chaos` (anything you like)
    - **Server address:** `rustycatz.fortiddns.com`
-     *(If you're on the same local network as the server, you can also use its
-     local IP — the address you used to open this website.)*
    - **Port:** `4000`
 3. Click **Connect**.
 

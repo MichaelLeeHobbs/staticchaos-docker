@@ -28,6 +28,7 @@ import RestartAltIcon from '@mui/icons-material/RestartAlt';
 import TuneIcon from '@mui/icons-material/Tune';
 import FileDownloadIcon from '@mui/icons-material/FileDownload';
 import FileUploadIcon from '@mui/icons-material/FileUpload';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { loadWorld, loadSpawns } from '../lib/data';
 import type { World } from '../lib/types';
 import {
@@ -147,11 +148,14 @@ export function MapPage() {
   const [search, setSearch] = useState('');
   const [spread, setSpread] = useState(1);
   const [history, setHistory] = useState<(string | null)[]>([]);
+  const [searchParams] = useSearchParams();
+  const routerNav = useNavigate();
 
   const wrapRef = useRef<HTMLDivElement>(null);
   const svgRef = useRef<SVGSVGElement>(null);
   const handleRef = useRef<GraphHandle | null>(null);
   const pendingFocus = useRef<number | null>(null);
+  const deepLinked = useRef(false);
   const viewRef = useRef(view);
   viewRef.current = view;
   const historyRef = useRef(history);
@@ -383,6 +387,20 @@ export function MapPage() {
     if (area) navigate(area.id);
   };
 
+  // deep link: /map?room=<vnum> focuses a room; /map?area=<id> opens an area (once)
+  useEffect(() => {
+    if (!world || deepLinked.current) return;
+    const room = searchParams.get('room');
+    const area = searchParams.get('area');
+    if (room && world.rooms[room]) {
+      deepLinked.current = true;
+      focusRoom(+room);
+    } else if (area && world.areas.some((a) => a.id === area)) {
+      deepLinked.current = true;
+      navigate(area);
+    }
+  }, [world, searchParams, navigate]);
+
   if (err) return <Alert severity="error">{err}</Alert>;
   if (!world) {
     return (
@@ -612,7 +630,13 @@ export function MapPage() {
                 </Typography>
                 <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
                   {enrich.roomMobs.get(selected)?.map((m, i) => (
-                    <Chip key={`${m.name}-${i}`} size="small" label={`${m.name}${m.level != null ? ` (L${m.level})` : ''}`} />
+                    <Chip
+                      key={`${m.name}-${i}`}
+                      size="small"
+                      clickable
+                      onClick={() => routerNav(`/browser?tab=mobs&q=${encodeURIComponent(m.name)}`)}
+                      label={`${m.name}${m.level != null ? ` (L${m.level})` : ''}`}
+                    />
                   ))}
                 </Box>
               </>
@@ -624,7 +648,14 @@ export function MapPage() {
                 </Typography>
                 <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
                   {enrich.roomItems.get(selected)?.map((n, i) => (
-                    <Chip key={`${n}-${i}`} size="small" variant="outlined" label={n} />
+                    <Chip
+                      key={`${n}-${i}`}
+                      size="small"
+                      variant="outlined"
+                      clickable
+                      onClick={() => routerNav(`/browser?tab=items&q=${encodeURIComponent(n)}`)}
+                      label={n}
+                    />
                   ))}
                 </Box>
               </>

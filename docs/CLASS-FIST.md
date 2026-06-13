@@ -44,6 +44,8 @@ The heart of the class is the **combo**: when your Ki is high enough, the `combo
 
 ## Getting started
 
+> Your guild is **[The Bar of Swordsmen — room 3022](#/map?room=3022)** in Midgaard. (Open it on the World Map.)
+
 1. **Roll a Fist and learn your first attacks.** Type `master list` to see your training sheet. You begin by mastering the basic strikes in order, starting with **shinkick**. Each new attack costs experience, so spend kills wisely.
 2. **Get into a fight and use your strikes.** In combat, cycle through the basic attacks you've learned (`shinkick`, `jab`, etc.). Each one chips at the enemy and slowly charges your Ki — watch for the message that your body begins to glow.
 3. **Watch your Ki climb.** As you fight, you'll get messages as your Ki burns "brightly," then "with intense energy." This is your combo fuel building up.

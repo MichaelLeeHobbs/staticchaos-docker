@@ -245,6 +245,15 @@ void do_chant( CHAR_DATA *ch, char *argument )
     return;
   }
 
+  /* Mystic is now an ammo pool: you must be able to afford the full cost, and
+     the chant then lands at your *school* power (see below) -- not throttled by
+     how much fuel is left.  This blocks casting when tapped out instead of the
+     old behaviour of letting depleted chants resolve at feeble strength. */
+  if ( ch->pcdata->powers[SORC_MYSTIC] < chant_table[cn].rank )
+  { send_to_char( "Your Mystic is too depleted to weave that chant.\n\r", ch );
+    return;
+  }
+
   /* mana no longer used directly
   if ( ch->mana < chant_table[cn].cost )
   { send_to_char( "You do not have enough mana to invoke that spell.\n\r", ch );
@@ -320,8 +329,11 @@ void do_chant( CHAR_DATA *ch, char *argument )
   if ( chant_table[cn].target == TAR_CHAR_OFFENSIVE && victim != NULL )
     timer_check( ch, victim );
 
+  /* Chant power = your school rank (mastery), NOT clamped to remaining Mystic.
+     The old 'rank = UMIN(SORC_MYSTIC, rank)' line made every cast weaker as the
+     pool drained -- a death spiral.  Cost is still paid; affordability is gated
+     above. */
   rank = sorc_rank( ch, chant_table[cn].school );
-  rank = UMIN( ch->pcdata->powers[SORC_MYSTIC], rank );
   ch->pcdata->powers[SORC_MYSTIC] -= chant_table[cn].rank;
   ch->pcdata->powers[SORC_MYSTIC] = UMAX(1,ch->pcdata->powers[SORC_MYSTIC]);
 
@@ -850,7 +862,7 @@ void chant_gaav_flare( int cn, int rank, CHAR_DATA *ch, void *vo )
   act( "You launch a tremendous ball of dark flame at $N!", ch, NULL, victim, TO_CHAR );
   act( "$n launches a tremendous ball of dark flame at you!", ch, NULL, victim, TO_VICT );
   act( "$n launches a tremendous ball of dark flame at $N!", ch, NULL, victim, TO_NOTVICT );
-  dam = dice( rank, rank * 2 );
+  dam = dice( rank, rank * 3 );
   if ( saves_chant( ch, victim, cn ) )
     dam -= dam/4;
   chant_damage( ch, victim, dam, cn );
@@ -914,7 +926,7 @@ void chant_flame_breath( int cn, int rank, CHAR_DATA *ch, void *vo )
   act( "Flames explode all around $N!", ch, NULL, victim, TO_CHAR );
   act( "Flames explode all around you!", ch, NULL, victim, TO_VICT );
   act( "Flames explode all around $N.", ch, NULL, victim, TO_NOTVICT );
-  dam = dice( rank, rank * 3 );
+  dam = dice( rank, rank * 4 );
 
   if ( saves_chant( ch, victim, cn ) )
     dam /= 2;
@@ -944,7 +956,7 @@ void chant_dragon_slave( int cn, int rank, CHAR_DATA *ch, void *vo )
   for ( vch = ch->in_room->people; vch != NULL; vch = vch_next )
   { vch_next = vch->next_in_room;
     if ( !is_same_group( ch, vch ) )
-    { dam = dice( rank, rank*3 );
+    { dam = dice( rank, rank*4 );
       if ( saves_chant( ch, vch, cn ) )
         dam -= dam / 3;
       chant_damage( ch, vch, dam, cn );
@@ -1305,7 +1317,7 @@ void chant_holy_resist( int cn, int rank, CHAR_DATA *ch, void *vo )
   af.type      = sn;
   af.duration  = 30 * rank + dice(1,6);
   af.location  = APPLY_AC;
-  af.modifier  = -2 * (rank-20);
+  af.modifier  = -3 * (rank-15);   /* sturdier barrier: white = the sustain spec */
   af.bitvector = AFF_HOLY_RESIST;
   affect_to_char( ch, &af );
   return;

@@ -1028,8 +1028,13 @@ void second_update()
 
     if ( IS_CLASS(ch,CLASS_SORCERER) )
     {
+      /* Passive Mystic regen scales with will (was a flat +1/tick, far too slow
+         to sustain past two big chants).  +1 + will/20 -> +6/tick at will 100. */
       if ( ch->pcdata->powers[SORC_MYSTIC] < ch->pcdata->will )
-        ch->pcdata->powers[SORC_MYSTIC]++;
+      { ch->pcdata->powers[SORC_MYSTIC] += 1 + ch->pcdata->will / 20;
+        if ( ch->pcdata->powers[SORC_MYSTIC] > ch->pcdata->will )
+          ch->pcdata->powers[SORC_MYSTIC] = ch->pcdata->will;
+      }
 
       if ( IS_SET(ch->pcdata->actnew,NEW_CONCENTRATE) )
       {
@@ -1377,7 +1382,8 @@ void regen_update()
         send_to_char( "You feel your wounds healing at an accelerated rate.\n\r", ch );
         if ( IS_CLASS( ch, CLASS_SORCERER ) )
           if ( ch->position == POS_FIGHTING && !IS_NPC(ch->fighting) )
-            hitgain += dice( (ch->pcdata->powers[SCHOOL_WHITE]/20)+1, ch->pcdata->will*3 );
+            /* +50% in-combat Recovery: white's identity is out-lasting, not out-nuking */
+            hitgain += dice( (ch->pcdata->powers[SCHOOL_WHITE]/20)+1, ch->pcdata->will*9/2 );
           else
             hitgain += dice( (ch->pcdata->powers[SCHOOL_WHITE]/10)+1, ch->pcdata->will*3 );
         else

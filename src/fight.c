@@ -2383,6 +2383,16 @@ void group_gain( CHAR_DATA *ch, CHAR_DATA *victim )
 	      act( "You bask in $N's dying agony.", gch, NULL, victim, TO_CHAR );
 	      gch->pcdata->powers[M_EGO] = UMIN( 200, gch->pcdata->powers[M_EGO]+1 );
 	    }
+	  /* Sorcerers earn primal from worthy kills so school ranks are actually
+	     reachable (mirrors the Mazoku ego gain above).  EVAL-gated to stop
+	     trivial-mob farming. */
+	  if ( IS_CLASS(gch,CLASS_SORCERER) )
+	    if ( victim->level > gch->pcdata->extras2[EVAL]/2 )
+	    {
+	      int gain = 1 + victim->level / 30;
+	      gch->pcdata->primal += gain;
+	      act( "You draw raw primal from $N's death.", gch, NULL, victim, TO_CHAR );
+	    }
 	}
 
 	if ( ch->in_room != victim->in_room )

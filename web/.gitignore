@@ -6,3 +6,5 @@ public/docs/
 public/gmcp/
 *.local
 .DS_Store
+
+*.tsbuildinfo

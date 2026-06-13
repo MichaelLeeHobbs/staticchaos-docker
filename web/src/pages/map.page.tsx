@@ -8,6 +8,7 @@ import {
   IconButton,
   Link,
   Paper,
+  Slider,
   Stack,
   TextField,
   ToggleButton,
@@ -16,6 +17,7 @@ import {
 } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import HomeIcon from '@mui/icons-material/Home';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { loadWorld, loadSpawns } from '../lib/data';
 import type { World } from '../lib/types';
 import {
@@ -128,12 +130,33 @@ export function MapPage() {
   const [layout, setLayout] = useState<Layout>('force');
   const [selected, setSelected] = useState<number | null>(null);
   const [search, setSearch] = useState('');
+  const [spread, setSpread] = useState(1);
+  const [history, setHistory] = useState<(string | null)[]>([]);
 
   const wrapRef = useRef<HTMLDivElement>(null);
   const svgRef = useRef<SVGSVGElement>(null);
   const handleRef = useRef<GraphHandle | null>(null);
   const pendingFocus = useRef<number | null>(null);
+  const viewRef = useRef(view);
+  viewRef.current = view;
+  const historyRef = useRef(history);
+  historyRef.current = history;
   const [dims, setDims] = useState({ w: 900, h: 600 });
+
+  // view changes go through navigate() so we can offer an in-map Back (the
+  // browser back button would leave /map entirely — not what we want here).
+  const navigate = useCallback((to: string | null) => {
+    setHistory((h) => [...h, viewRef.current]);
+    setSelected(null);
+    setView(to);
+  }, []);
+  const goBack = useCallback(() => {
+    const h = historyRef.current;
+    if (!h.length) return;
+    setHistory(h.slice(0, -1));
+    setSelected(null);
+    setView(h[h.length - 1] ?? null);
+  }, []);
 
   useEffect(() => {
     let live = true;
@@ -192,27 +215,28 @@ export function MapPage() {
         layout === 'grid'
           ? computeSimpleGrid([...nodes].sort((a, b) => a.label.localeCompare(b.label)))
           : (null as Map<string, { x: number; y: number }> | null);
-      return { nodes, links, dist: 180, charge: -1100, dirLabels: false, grid };
+      return { nodes, links, dist: 180, charge: -1100 * spread, dirLabels: false, grid };
     }
     const { nodes, links } = buildArea(world, view);
     const inArea = new Set(nodes.filter((n) => n.kind === 'room' && n.vnum != null).map((n) => n.vnum as number));
     const roomVnums = [...inArea];
     const grid = layout === 'grid' ? computeGrid(world, roomVnums, inArea, nodes) : null;
-    return { nodes, links, dist: 95, charge: -340, dirLabels: true, grid };
-  }, [world, view, layout]);
+    return { nodes, links, dist: 95, charge: -340 * spread, dirLabels: true, grid };
+  }, [world, view, layout, spread]);
 
-  const onNodeClick = useCallback((n: GraphNode) => {
-    if (n.kind === 'area' && n.areaId) {
-      setSelected(null);
-      setView(n.areaId);
-    } else if (n.kind === 'portal' && n.toArea) {
-      pendingFocus.current = n.toVnum ?? null;
-      setSelected(null);
-      setView(n.toArea);
-    } else if (n.kind === 'room' && n.vnum != null) {
-      setSelected(n.vnum);
-    }
-  }, []);
+  const onNodeClick = useCallback(
+    (n: GraphNode) => {
+      if (n.kind === 'area' && n.areaId) {
+        navigate(n.areaId);
+      } else if (n.kind === 'portal' && n.toArea) {
+        pendingFocus.current = n.toVnum ?? null;
+        navigate(n.toArea);
+      } else if (n.kind === 'room' && n.vnum != null) {
+        setSelected(n.vnum);
+      }
+    },
+    [navigate],
+  );
 
   // (re)draw the graph whenever the view/layout/size changes
   useEffect(() => {
@@ -243,7 +267,7 @@ export function MapPage() {
     if (!dest) return;
     if (view !== dest.area) {
       pendingFocus.current = vnum;
-      setView(dest.area);
+      navigate(dest.area);
     } else {
       handleRef.current?.focus(`R${vnum}`);
       setSelected(vnum);
@@ -262,10 +286,7 @@ export function MapPage() {
       }
     }
     const area = world.areas.find((a) => a.id.toLowerCase() === q || a.name.toLowerCase().includes(q));
-    if (area) {
-      setSelected(null);
-      setView(area.id);
-    }
+    if (area) navigate(area.id);
   };
 
   if (err) return <Alert severity="error">{err}</Alert>;
@@ -287,12 +308,17 @@ export function MapPage() {
           size="small"
           startIcon={<HomeIcon />}
           variant={view === null ? 'contained' : 'outlined'}
-          onClick={() => {
-            setSelected(null);
-            setView(null);
-          }}
+          onClick={() => navigate(null)}
         >
           World
+        </Button>
+        <Button
+          size="small"
+          startIcon={<ArrowBackIcon />}
+          disabled={history.length === 0}
+          onClick={goBack}
+        >
+          Back
         </Button>
         {areaName && (
           <Typography variant="body2" color="text.secondary">
@@ -309,6 +335,28 @@ export function MapPage() {
           <ToggleButton value="force">Force</ToggleButton>
           <ToggleButton value="grid">Grid</ToggleButton>
         </ToggleButtonGroup>
+        <Stack
+          direction="row"
+          spacing={1}
+          alignItems="center"
+          sx={{ minWidth: 150 }}
+          title="How hard the layout pushes nodes apart"
+        >
+          <Typography variant="caption" color="text.secondary">
+            Spread
+          </Typography>
+          <Slider
+            size="small"
+            defaultValue={1}
+            min={0.3}
+            max={3}
+            step={0.1}
+            valueLabelDisplay="auto"
+            onChangeCommitted={(_, v) => setSpread(Array.isArray(v) ? (v[0] ?? 1) : v)}
+            sx={{ width: 100 }}
+            disabled={layout === 'grid'}
+          />
+        </Stack>
         <TextField
           size="small"
           placeholder="search room or area… (name or #vnum)"

@@ -167,13 +167,16 @@ export function drawGraph(
   // fit the rendered node bbox to the viewport, centred — robust regardless of
   // where the layout settled (replaces a fixed origin-centred zoom).
   const fitView = () => {
-    const xs = nodes.map((n) => n.x ?? 0);
-    const ys = nodes.map((n) => n.y ?? 0);
-    if (!xs.length) return;
-    const minx = Math.min(...xs);
-    const maxx = Math.max(...xs);
-    const miny = Math.min(...ys);
-    const maxy = Math.max(...ys);
+    if (!nodes.length) return;
+    const xs = nodes.map((n) => n.x ?? 0).sort((a, b) => a - b);
+    const ys = nodes.map((n) => n.y ?? 0).sort((a, b) => a - b);
+    // trimmed bbox (2nd–98th percentile) so a stray flung node can't tank the zoom
+    const q = (arr: number[], p: number) =>
+      arr[Math.min(arr.length - 1, Math.max(0, Math.round((arr.length - 1) * p)))] ?? 0;
+    const minx = q(xs, 0.02);
+    const maxx = q(xs, 0.98);
+    const miny = q(ys, 0.02);
+    const maxy = q(ys, 0.98);
     const pad = 70;
     const k = Math.max(
       0.05,
@@ -206,10 +209,12 @@ export function drawGraph(
         'link',
         d3.forceLink<GraphNode, GraphLink>(links).id((d) => d.id).distance(opts.dist ?? 80).strength(0.5),
       )
-      .force('charge', d3.forceManyBody<GraphNode>().strength(opts.charge ?? -320).theta(0.8))
+      // distanceMax keeps repulsion local so isolated nodes aren't flung to
+      // infinity (which would blow up the fit). forceX/Y hold the graph centred.
+      .force('charge', d3.forceManyBody<GraphNode>().strength(opts.charge ?? -320).distanceMax(700).theta(0.8))
       .force('collide', d3.forceCollide<GraphNode>().radius((d) => d.r + 20).iterations(2))
-      .force('x', d3.forceX<GraphNode>(0).strength(0.05))
-      .force('y', d3.forceY<GraphNode>(0).strength(0.05));
+      .force('x', d3.forceX<GraphNode>(0).strength(0.11))
+      .force('y', d3.forceY<GraphNode>(0).strength(0.11));
     // pre-settle silently (no DOM churn) for a detangled, immediately-fitted view;
     // drag reheats the sim afterwards.
     sim.stop();

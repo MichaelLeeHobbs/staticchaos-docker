@@ -4,11 +4,14 @@
 > - **Phase 0 + 1** — implemented, **deployed**, verified live (WILL GMCP offered,
 >   `Core.Hello` parsed, `Char.Vitals` pushed once/sec, text uncorrupted, non-GMCP
 >   clients unaffected).
-> - **Phase 2 (`Room.Info`)** — implemented; 32-bit build verified on the server
->   (image built, running container untouched). **NOT yet deployed** — staged for a
->   coordinated push. Emits `Room.Info {num,name,area,exits}` from `char_to_room`.
-> - **Client:** Mudlet gauge package in `client/` (consumes `Char.Vitals`).
-> - Phase 3 (status/completion) remains.
+> - **Phase 2 (`Room.Info`)** — implemented, **deployed**, verified live (a fake
+>   client walking the Mud School got valid `Room.Info {num,name,area,exits}`,
+>   including the down/up link to the Temple of Midgaard). Emitted from
+>   `char_to_room`.
+> - **Client:** Mudlet packages in `client/` — gauges (`Char.Vitals`) and
+>   auto-mapper (`Room.Info`). Distributed manually (the XML) for now.
+> - Phase 3 (status/completion) remains; auto-install via `Client.GUI` + a web
+>   host is a later, separate task.
 >
 > Full plan before any code. GMCP (Generic Mud Communication Protocol) is a small
 > telnet side-channel that lets the server send the client structured data (JSON)

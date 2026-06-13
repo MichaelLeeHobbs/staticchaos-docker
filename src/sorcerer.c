@@ -56,6 +56,54 @@ static char *sorc_target_name( int target )
   }
 }
 
+/* squash a name into a match key: lower-case, no spaces or hyphens, so
+   "rubyeye blade", "rubyeye-blade" and "rubyeyeblade" all compare equal. */
+static void sorc_squash( char *dest, const char *src )
+{
+  while ( *src )
+  { if ( *src != ' ' && *src != '-' )
+      *dest++ = LOWER( *src );
+    src++;
+  }
+  *dest = '\0';
+}
+
+/* display form of a chant name: spaces shown as hyphens (what you type). */
+static char *sorc_hyphen( const char *name )
+{
+  static char buf[MAX_INPUT_LENGTH];
+  char *d = buf;
+  while ( *name ) { *d++ = ( *name == ' ' ) ? '-' : *name; name++; }
+  *d = '\0';
+  return buf;
+}
+
+/* Match player input against chant names, space/hyphen-insensitive and by
+   prefix.  Returns a unique match index, or -1; on -1, the amb/namb outputs
+   hold the prefix candidates (0 = none, >1 = ambiguous).  An exact squashed
+   match beats longer names that merely share the prefix. */
+static int sorc_match_chant( const char *raw, int amb[], int *namb )
+{
+  char key[MAX_INPUT_LENGTH], nk[MAX_INPUT_LENGTH];
+  int i, exact = -1;
+
+  *namb = 0;
+  sorc_squash( key, raw );
+  if ( key[0] == '\0' )
+    return -1;
+  for ( i = 0; i < MAX_CHANT; i++ )
+  {
+    sorc_squash( nk, chant_table[i].name );
+    if ( !strcmp( nk, key ) )
+      exact = i;
+    if ( !str_prefix( key, nk ) )
+      amb[ (*namb)++ ] = i;
+  }
+  if ( exact >= 0 ) { *namb = 0; return exact; }
+  if ( *namb == 1 ) return amb[0];
+  return -1;
+}
+
 void do_chant( CHAR_DATA *ch, char *argument )
 {
   CHANT_DATA *cha;
@@ -65,6 +113,8 @@ void do_chant( CHAR_DATA *ch, char *argument )
   char buf1[MAX_STRING_LENGTH];
   char buf2[MAX_STRING_LENGTH];
   char tar_name[MAX_INPUT_LENGTH];
+  int amb[MAX_CHANT];
+  int namb = 0;
   int cn = -1;
   int i = 0;
   int rank = 0;
@@ -91,7 +141,7 @@ void do_chant( CHAR_DATA *ch, char *argument )
     for ( i = 0; i < MAX_CHANT; i++ )
     { if ( sorc_rank( ch, chant_table[i].school ) < chant_table[i].rank )
         continue;
-      sprintf( buf1, "%-20s  %-7s   %3d   %3d\n\r", chant_table[i].name,
+      sprintf( buf1, "%-20s  %-7s   %3d   %3d\n\r", sorc_hyphen( chant_table[i].name ),
           sorc_school_name( chant_table[i].school ), chant_table[i].rank, chant_table[i].lines );
       send_to_char( buf1, ch );
     }
@@ -99,7 +149,7 @@ void do_chant( CHAR_DATA *ch, char *argument )
     return;
   }
 
-  /* 'chant info <spell>' -- details (matches the full, possibly multi-word name) */
+  /* 'chant info <spell>' -- details (space/hyphen-insensitive, prefix) */
   if ( !str_cmp( arg1, "info" ) )
   {
     while ( *argument == ' ' ) argument++;
@@ -107,14 +157,20 @@ void do_chant( CHAR_DATA *ch, char *argument )
     { send_to_char( "Usage: chant info <spell>.\n\r", ch );
       return;
     }
-    for ( i = 0; i < MAX_CHANT; i++ )
-      if ( !str_cmp( argument, chant_table[i].name ) )
-        cn = i;
+    cn = sorc_match_chant( argument, amb, &namb );
     if ( cn < 0 )
-    { send_to_char( "No such chant.\n\r", ch );
+    { if ( namb == 0 )
+        send_to_char( "No such chant.  Try 'chant list'.\n\r", ch );
+      else
+      { send_to_char( "Did you mean one of:\n\r", ch );
+        for ( i = 0; i < namb; i++ )
+        { sprintf( buf1, "  %s\n\r", sorc_hyphen( chant_table[amb[i]].name ) );
+          send_to_char( buf1, ch );
+        }
+      }
       return;
     }
-    sprintf( buf1, "`WChant:`n %s\n\r", chant_table[cn].name );
+    sprintf( buf1, "`WChant:`n %s\n\r", sorc_hyphen( chant_table[cn].name ) );
     send_to_char( buf1, ch );
     sprintf( buf1, "School: %s    Required rank / Mystic cost: %d\n\r",
         sorc_school_name( chant_table[cn].school ), chant_table[cn].rank );
@@ -132,13 +188,56 @@ void do_chant( CHAR_DATA *ch, char *argument )
 
   argument = one_argument( argument, arg2 );
 
-  for ( i = 0; i < MAX_CHANT; i++ )
-    if ( !strcmp( arg1, chant_table[i].name ) )
-      cn = i;
+  cn = sorc_match_chant( arg1, amb, &namb );
 
-  if ( cn < 0 || cn >= MAX_CHANT )
-  { send_to_char( "There is no such spell.\n\r", ch );
+  /* arg1 ambiguous?  They may have typed a spaced multi-word name -- if arg1
+     plus arg2 resolves to one spell, point them at the hyphenated form. */
+  if ( cn < 0 && namb > 1 && arg2[0] != '\0' )
+  {
+    char joined[MAX_INPUT_LENGTH];
+    int amb2[MAX_CHANT], namb2, cn2;
+    sprintf( joined, "%s%s", arg1, arg2 );
+    cn2 = sorc_match_chant( joined, amb2, &namb2 );
+    if ( cn2 >= 0 )
+    {
+      sprintf( buf1, "Spell names are one word -- type '%s' with a hyphen (or in quotes):\n\r   chant %s <target>\n\r",
+          sorc_hyphen( chant_table[cn2].name ), sorc_hyphen( chant_table[cn2].name ) );
+      send_to_char( buf1, ch );
+      return;
+    }
+  }
+
+  if ( cn < 0 )
+  {
+    if ( namb == 0 )
+      send_to_char( "There is no such spell.  Try 'chant list'.\n\r", ch );
+    else
+    { send_to_char( "Did you mean one of:\n\r", ch );
+      for ( i = 0; i < namb; i++ )
+      { sprintf( buf1, "  %s\n\r", sorc_hyphen( chant_table[amb[i]].name ) );
+        send_to_char( buf1, ch );
+      }
+    }
     return;
+  }
+
+  /* arg1 matched a (possibly multi-word) spell.  If arg2 simply continues that
+     spell's name, the player typed it with a space -- guide them to the
+     hyphenated form instead of mistaking the 2nd word for a target. */
+  if ( arg2[0] != '\0' )
+  {
+    char k1[MAX_INPUT_LENGTH], k12[MAX_INPUT_LENGTH], nk[MAX_INPUT_LENGTH], joined[MAX_INPUT_LENGTH];
+    sorc_squash( k1, arg1 );
+    sprintf( joined, "%s%s", arg1, arg2 );
+    sorc_squash( k12, joined );
+    sorc_squash( nk, chant_table[cn].name );
+    if ( strlen( k12 ) > strlen( k1 ) && !str_prefix( k12, nk ) )
+    {
+      sprintf( buf1, "Spell names are one word -- type '%s' with a hyphen (or in quotes):\n\r   chant %s <target>\n\r",
+          sorc_hyphen( chant_table[cn].name ), sorc_hyphen( chant_table[cn].name ) );
+      send_to_char( buf1, ch );
+      return;
+    }
   }
 
   if ( sorc_rank( ch, chant_table[cn].school ) < chant_table[cn].rank )

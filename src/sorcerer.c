@@ -15,6 +15,22 @@ bool	saves_chant	args( ( CHAR_DATA *ch, CHAR_DATA *victim, int cn ) );
 
 CHANT_DATA *chant_free;
 
+#define SORC_OFFSPEC_CAP 44
+
+/* Effective school rank for chanting: full in your specialty (and the elemental
+   schools under shamanism), capped elsewhere.  Respeccing therefore makes
+   off-spec ranks *inactive* rather than destroying them -- they come back at
+   full strength if you specialize into that school again. */
+static int sorc_rank( CHAR_DATA *ch, int school )
+{
+  int raw = ch->pcdata->powers[school];
+  if ( ch->pcdata->powers[SORC_SPEC] == school
+    || ( ch->pcdata->powers[SORC_SPEC] == SCHOOL_ASTRAL
+         && school > SCHOOL_BLACK && school < SCHOOL_WHITE ) )
+    return raw;
+  return UMIN( raw, SORC_OFFSPEC_CAP );
+}
+
 void do_chant( CHAR_DATA *ch, char *argument )
 {
   CHANT_DATA *cha;
@@ -52,7 +68,7 @@ void do_chant( CHAR_DATA *ch, char *argument )
     return;
   }
 
-  if ( ch->pcdata->powers[chant_table[cn].school] < chant_table[cn].rank )
+  if ( sorc_rank( ch, chant_table[cn].school ) < chant_table[cn].rank )
   { send_to_char( "You are not learned enough to chant that.\n\r", ch );
     return;
   }
@@ -132,7 +148,7 @@ void do_chant( CHAR_DATA *ch, char *argument )
   if ( chant_table[cn].target == TAR_CHAR_OFFENSIVE && victim != NULL )
     timer_check( ch, victim );
 
-  rank = ch->pcdata->powers[chant_table[cn].school];
+  rank = sorc_rank( ch, chant_table[cn].school );
   rank = UMIN( ch->pcdata->powers[SORC_MYSTIC], rank );
   ch->pcdata->powers[SORC_MYSTIC] -= chant_table[cn].rank;
   ch->pcdata->powers[SORC_MYSTIC] = UMAX(1,ch->pcdata->powers[SORC_MYSTIC]);
@@ -277,7 +293,7 @@ bool saves_chant( CHAR_DATA *ch, CHAR_DATA *victim, int cn )
       chance += victim->pcdata->spirit / 5;
     if ( victim->class == CLASS_SORCERER )
     { if ( IS_AFFECTED(victim,AFF_HOLY_RESIST) )
-        chance += victim->pcdata->powers[SCHOOL_WHITE];
+        chance += sorc_rank( victim, SCHOOL_WHITE );
       if ( IS_AFFECTED( victim, AFF_VAS_GLUUDO) )
         chance += 10;
       if ( victim->pcdata->powers[SORC_SPEC] == chant_table[cn].school ||
@@ -288,7 +304,7 @@ bool saves_chant( CHAR_DATA *ch, CHAR_DATA *victim, int cn )
   }
 
   chance -= ch->pcdata->will / 3;
-  chance -= ch->pcdata->powers[chant_table[cn].school];
+  chance -= sorc_rank( ch, chant_table[cn].school );
   spec = ( ch->pcdata->powers[SORC_SPEC] == chant_table[cn].school ||
        (ch->pcdata->powers[SORC_SPEC] == SCHOOL_ASTRAL &&
         chant_table[cn].school > SCHOOL_BLACK && chant_table[cn].school < SCHOOL_WHITE) );
@@ -358,7 +374,7 @@ void do_research( CHAR_DATA *ch, char *argument )
     cost = UMIN( 75, rank*5 );
   }
   else
-  { max = 40;
+  { max = SORC_OFFSPEC_CAP;
     cost = UMIN( 75, rank*5 ) + rank;
   }
 
@@ -386,7 +402,6 @@ void do_research( CHAR_DATA *ch, char *argument )
 void do_specialize( CHAR_DATA *ch, char *argument )
 { char buf[MAX_STRING_LENGTH];
   int school = 0;
-  int i;
 
   if ( IS_NPC(ch) )
     return;
@@ -432,18 +447,16 @@ void do_specialize( CHAR_DATA *ch, char *argument )
     ch->pcdata->powers[SORC_SPEC] = school;
   }
   else
-  { if ( ch->pcdata->primal < 500 )
-    { send_to_char( "Changing your specialization costs 500 primal.\n\r", ch );
+  { if ( ch->pcdata->primal < 250 )
+    { send_to_char( "Changing your specialization costs 250 primal.\n\r", ch );
       return;
     }
     sprintf( buf, "You have respecialized to %s.\n\r", argument );
     send_to_char( buf, ch );
-    ch->pcdata->primal -= 500;
+    ch->pcdata->primal -= 250;
     ch->pcdata->powers[SORC_SPEC] = school;
-    for ( i = 2; i <= SCHOOL_WHITE; i++ )
-    { if ( ch->pcdata->powers[i] > 40 )
-        ch->pcdata->powers[i] = 40;
-    }
+    /* Ranks above the off-spec cap are NOT destroyed -- sorc_rank() makes them
+       inactive while out of spec, and they return at full if you spec back. */
   }
 
   return;

@@ -1898,11 +1898,11 @@ Reachable creatures only, grouped by level. _Lvl_ is the mob level; pick targets
 
 | Item | Type | Source(s) |
 |---|---|---|
-| a Golden Tabard | Armor | worn by Larsen the Cruel in Larsen's Torture Chamber (#800, apoc) |
-| a Golden Band | Armor | worn by Tarrant the Shitter in The Bathing Chamber (#818, apoc) |
-| a Tarnished Silver Bracer | Armor | worn by Dorin the Assassin in A Duel (#822, apoc); worn by Dorin the Assassin in A Duel (#822, apoc) |
-| a Mystic Robe | Armor | worn by Kyriel the Mage in The Top of the Tower (#821, apoc) |
-| a Medal of Honor | Armor | in a container in The Inner Ward (#806, apoc); worn by Ingen Jegger in The Dungeon (#824, apoc) |
+| a Golden Tabard | Armor | worn (body) by Larsen the Cruel (L99) in Larsen's Torture Chamber (#800, apoc) |
+| a Golden Band | Armor | worn (right finger) by Tarrant the Shitter (L99) in The Bathing Chamber (#818, apoc) |
+| a Tarnished Silver Bracer | Armor | worn (right wrist) by Dorin the Assassin (L97) in A Duel (#822, apoc); worn (right wrist) by Dorin the Assassin (L97) in A Duel (#822, apoc) |
+| a Mystic Robe | Armor | worn (about body) by Kyriel the Mage (L99) in The Top of the Tower (#821, apoc) |
+| a Medal of Honor | Armor | inside a Mystic Robe (#803) — worn (about body) by Kyriel the Mage (L99) in The Top of the Tower (#821, apoc); worn (neck) by Ingen Jegger (L97) in The Dungeon (#824, apoc) |
 | A pillar of the purest white marble soars skyward. | Furniture | on the ground in The Inner Ward (#806, apoc) |
 | A pillar of jet black onyx soars skyward. | Furniture | on the ground in The Inner Ward (#806, apoc) |
 
@@ -1910,83 +1910,83 @@ Reachable creatures only, grouped by level. _Lvl_ is the mob level; pick targets
 
 | Item | Type | Source(s) |
 |---|---|---|
-| a massive slate-grey sledgehammer | Weapon | worn by The Astral Guardian in The Astral Gate (#1906, astral) |
-| a black etched tablet | Scroll | carried by The lich-queen in Before the Altar (#1977, astral) |
-| a scroll with githyanki writings on it | Scroll | carried by A warlock of the Gith in A large dwelling (#1964, astral); carried by A warlock of the Gith in A large dwelling (#1973, astral); carried by A warlock of the Gith in South End of the Hall (#1974, astral); carried by A warlock of the Gith in South End of the Hall (#1974, astral) |
-| a small demon's amulet | Wand | carried by A pitch-black nightmare in Lost in the Astral Plane (#1933, astral); carried by A pitch-black nightmare in Lost in the Astral Plane (#1934, astral) |
-| a devilish talisman | Staff | carried by An evil night hag in Deep Within the Astral Plane (#1946, astral) |
-| a silvery knife | Weapon | worn by An evil gish in Traversing the Astral Plane (#1929, astral); worn by An evil gish in Traversing the Astral Plane (#1931, astral); worn by An evil gish in A grey road (#1953, astral); worn by An evil gish in A grey road (#1959, astral); worn by An evil gish in A small building (#1962, astral); worn by An evil gish in A small building (#1962, astral); worn by An evil gish in A small building (#1963, astral); worn by An evil gish in A small building (#1963, astral) |
-| a silvery dagger | Weapon | worn by A githyanki hunter in Wandering the Astral Plane (#1918, astral); worn by A githyanki hunter in Wandering the Astral Plane (#1920, astral); worn by A githyanki hunter in Wandering the Astral Plane (#1922, astral); worn by A githyanki hunter in Travelling the Astral Plane (#1924, astral) |
-| an extremely sharp and thin sword | Weapon | worn by A githyanki guardian in A guard station (#1951, astral); worn by A githyanki guardian in A guard station (#1951, astral); worn by A githyanki guardian in The Githyanki Weaponry (#1965, astral); worn by A githyanki guardian in The Githyanki Weaponry (#1965, astral); worn by A githyanki guardian in The Githyanki Armoury (#1967, astral); worn by A githyanki guardian in The Githyanki Armoury (#1967, astral); worn by A githyanki guardian in A guard station (#1969, astral); worn by A githyanki guardian in A guard station (#1969, astral) |
-| a thin two-handed sword | Weapon | worn by A githyanki warrior in Travelling the Astral Plane (#1923, astral); worn by A githyanki warrior in Travelling the Astral Plane (#1927, astral); worn by A githyanki knight in Traversing the Astral Plane (#1930, astral); worn by A githyanki knight in A grey road (#1955, astral); worn by A githyanki protector in The Altar Chamber (#1976, astral); worn by A githyanki protector in Before the Altar (#1977, astral) |
-| a silvery sword | Weapon | worn by A warlock of the Gith in A large dwelling (#1964, astral); worn by A warlock of the Gith in A large dwelling (#1973, astral); worn by A warlock of the Gith in South End of the Hall (#1974, astral); worn by A warlock of the Gith in South End of the Hall (#1974, astral) |
-| an iron barbed flail | Weapon | worn by The lich-queen in Before the Altar (#1977, astral) |
-| the unholy sword of the githyanki | Weapon | worn by Lord Gith in Utter darkness and despair (#1979, astral) |
-| a brighty flaming stone | Light | worn by The enslaved red dragon in Inside the furnace (#1968, astral) |
-| some astral powder | Treasure | carried by An invisible stalker in Wandering the Astral Plane (#1920, astral); carried by An invisible stalker in Travelling the Astral Plane (#1924, astral); carried by An invisible stalker in Travelling the Astral Plane (#1926, astral); carried by An invisible stalker in Traversing the Astral Plane (#1930, astral) |
-| a splint mail vest | Armor | worn by A githyanki warrior in Travelling the Astral Plane (#1923, astral); worn by A githyanki warrior in Travelling the Astral Plane (#1927, astral); worn by A githyanki knight in Traversing the Astral Plane (#1930, astral); worn by A githyanki guardian in A guard station (#1951, astral); worn by A githyanki guardian in A guard station (#1951, astral); worn by A githyanki knight in A grey road (#1955, astral); worn by A githyanki guardian in The Githyanki Weaponry (#1965, astral); worn by A githyanki guardian in The Githyanki Weaponry (#1965, astral); worn by A githyanki guardian in The Githyanki Armoury (#1967, astral); worn by A githyanki guardian in The Githyanki Armoury (#1967, astral); worn by A githyanki guardian in A guard station (#1969, astral); worn by A githyanki guardian in A guard station (#1969, astral); worn by A githyanki protector in The Altar Chamber (#1976, astral); worn by A githyanki protector in Before the Altar (#1977, astral) |
-| a splint mail skirt | Armor | worn by A githyanki knight in Traversing the Astral Plane (#1930, astral); worn by A githyanki knight in A grey road (#1955, astral); worn by A githyanki protector in The Altar Chamber (#1976, astral); worn by A githyanki protector in Before the Altar (#1977, astral) |
-| a pair of splint mail sleeves | Armor | worn by A githyanki knight in Traversing the Astral Plane (#1930, astral); worn by A githyanki knight in A grey road (#1955, astral); worn by A githyanki protector in The Altar Chamber (#1976, astral); worn by A githyanki protector in Before the Altar (#1977, astral) |
-| a pair of ornately designed gauntlets | Armor | worn by A githyanki protector in The Altar Chamber (#1976, astral); worn by A githyanki protector in Before the Altar (#1977, astral) |
-| a decaying vest made from cracked leather | Armor | worn by Lord Gith in Utter darkness and despair (#1979, astral) |
-| a vial of murky fluid | Potion | carried by An insubstantial ghost in Deep Within the Astral Plane (#1945, astral); carried by An insubstantial ghost in Deep Within the Astral Plane (#1947, astral); carried by An insubstantial ghost in Deep Within the Astral Plane (#1949, astral) |
-| a silvery-colored potion | Potion | carried by An evil gish in A small building (#1962, astral); carried by An evil gish in A small building (#1963, astral) |
-| a black pentagram | Key | worn by The lich-queen in Before the Altar (#1977, astral) |
-| a rotting pouch | Money | carried by Lord Gith in Utter darkness and despair (#1979, astral) |
-| a rusted sword | Weapon | worn by A poor soulless being in Roaming the Astral Plane (#1913, astral); worn by A poor soulless being in Roaming the Astral Plane (#1914, astral); worn by A poor soulless being in Roaming the Astral Plane (#1915, astral); worn by A poor soulless being in Roaming the Astral Plane (#1916, astral); worn by A poor soulless being in Roaming the Astral Plane (#1917, astral); worn by A poor soulless being in Wandering the Astral Plane (#1918, astral); worn by A poor soulless being in Wandering the Astral Plane (#1919, astral); worn by A poor soulless being in Wandering the Astral Plane (#1920, astral); worn by A poor soulless being in Wandering the Astral Plane (#1921, astral); worn by A poor soulless being in Wandering the Astral Plane (#1922, astral) |
+| a massive slate-grey sledgehammer | Weapon | worn (wielded) by The Astral Guardian (L37) in The Astral Gate (#1906, astral) |
+| a black etched tablet | Scroll | carried by The lich-queen (L30) in Before the Altar (#1977, astral) |
+| a scroll with githyanki writings on it | Scroll | carried by A warlock of the Gith (L20) in A large dwelling (#1964, astral); carried by A warlock of the Gith (L20) in A large dwelling (#1973, astral); carried by A warlock of the Gith (L20) in South End of the Hall (#1974, astral); carried by A warlock of the Gith (L20) in South End of the Hall (#1974, astral) |
+| a small demon's amulet | Wand | carried by A pitch-black nightmare (L18) in Lost in the Astral Plane (#1933, astral); carried by A pitch-black nightmare (L18) in Lost in the Astral Plane (#1934, astral) |
+| a devilish talisman | Staff | carried by An evil night hag (L24) in Deep Within the Astral Plane (#1946, astral) |
+| a silvery knife | Weapon | worn (wielded) by An evil gish (L11) in Traversing the Astral Plane (#1929, astral); worn (wielded) by An evil gish (L11) in Traversing the Astral Plane (#1931, astral); worn (wielded) by An evil gish (L11) in A grey road (#1953, astral); worn (wielded) by An evil gish (L11) in A grey road (#1959, astral); worn (wielded) by An evil gish (L11) in A small building (#1962, astral); worn (wielded) by An evil gish (L11) in A small building (#1962, astral); worn (wielded) by An evil gish (L11) in A small building (#1963, astral); worn (wielded) by An evil gish (L11) in A small building (#1963, astral) |
+| a silvery dagger | Weapon | worn (wielded) by A githyanki hunter (L11) in Wandering the Astral Plane (#1918, astral); worn (wielded) by A githyanki hunter (L11) in Wandering the Astral Plane (#1920, astral); worn (wielded) by A githyanki hunter (L11) in Wandering the Astral Plane (#1922, astral); worn (wielded) by A githyanki hunter (L11) in Travelling the Astral Plane (#1924, astral) |
+| an extremely sharp and thin sword | Weapon | worn (wielded) by A githyanki guardian (L15) in A guard station (#1951, astral); worn (wielded) by A githyanki guardian (L15) in A guard station (#1951, astral); worn (wielded) by A githyanki guardian (L15) in The Githyanki Weaponry (#1965, astral); worn (wielded) by A githyanki guardian (L15) in The Githyanki Weaponry (#1965, astral); worn (wielded) by A githyanki guardian (L15) in The Githyanki Armoury (#1967, astral); worn (wielded) by A githyanki guardian (L15) in The Githyanki Armoury (#1967, astral); worn (wielded) by A githyanki guardian (L15) in A guard station (#1969, astral); worn (wielded) by A githyanki guardian (L15) in A guard station (#1969, astral) |
+| a thin two-handed sword | Weapon | worn (wielded) by A githyanki warrior (L15) in Travelling the Astral Plane (#1923, astral); worn (wielded) by A githyanki warrior (L15) in Travelling the Astral Plane (#1927, astral); worn (wielded) by A githyanki knight (L25) in Traversing the Astral Plane (#1930, astral); worn (wielded) by A githyanki knight (L25) in A grey road (#1955, astral); worn (wielded) by A githyanki protector (L25) in The Altar Chamber (#1976, astral); worn (wielded) by A githyanki protector (L25) in Before the Altar (#1977, astral) |
+| a silvery sword | Weapon | worn (wielded) by A warlock of the Gith (L20) in A large dwelling (#1964, astral); worn (wielded) by A warlock of the Gith (L20) in A large dwelling (#1973, astral); worn (wielded) by A warlock of the Gith (L20) in South End of the Hall (#1974, astral); worn (wielded) by A warlock of the Gith (L20) in South End of the Hall (#1974, astral) |
+| an iron barbed flail | Weapon | worn (wielded) by The lich-queen (L30) in Before the Altar (#1977, astral) |
+| the unholy sword of the githyanki | Weapon | worn (wielded) by Lord Gith (L35) in Utter darkness and despair (#1979, astral) |
+| a brighty flaming stone | Light | worn (light) by The enslaved red dragon (L28) in Inside the furnace (#1968, astral) |
+| some astral powder | Treasure | carried by An invisible stalker (L17) in Wandering the Astral Plane (#1920, astral); carried by An invisible stalker (L17) in Travelling the Astral Plane (#1924, astral); carried by An invisible stalker (L17) in Travelling the Astral Plane (#1926, astral); carried by An invisible stalker (L17) in Traversing the Astral Plane (#1930, astral) |
+| a splint mail vest | Armor | worn (body) by A githyanki warrior (L15) in Travelling the Astral Plane (#1923, astral); worn (body) by A githyanki warrior (L15) in Travelling the Astral Plane (#1927, astral); worn (body) by A githyanki knight (L25) in Traversing the Astral Plane (#1930, astral); worn (body) by A githyanki guardian (L15) in A guard station (#1951, astral); worn (body) by A githyanki guardian (L15) in A guard station (#1951, astral); worn (body) by A githyanki knight (L25) in A grey road (#1955, astral); worn (body) by A githyanki guardian (L15) in The Githyanki Weaponry (#1965, astral); worn (body) by A githyanki guardian (L15) in The Githyanki Weaponry (#1965, astral); worn (body) by A githyanki guardian (L15) in The Githyanki Armoury (#1967, astral); worn (body) by A githyanki guardian (L15) in The Githyanki Armoury (#1967, astral); worn (body) by A githyanki guardian (L15) in A guard station (#1969, astral); worn (body) by A githyanki guardian (L15) in A guard station (#1969, astral); worn (body) by A githyanki protector (L25) in The Altar Chamber (#1976, astral); worn (body) by A githyanki protector (L25) in Before the Altar (#1977, astral) |
+| a splint mail skirt | Armor | worn (legs) by A githyanki knight (L25) in Traversing the Astral Plane (#1930, astral); worn (legs) by A githyanki knight (L25) in A grey road (#1955, astral); worn (legs) by A githyanki protector (L25) in The Altar Chamber (#1976, astral); worn (legs) by A githyanki protector (L25) in Before the Altar (#1977, astral) |
+| a pair of splint mail sleeves | Armor | worn (arms) by A githyanki knight (L25) in Traversing the Astral Plane (#1930, astral); worn (arms) by A githyanki knight (L25) in A grey road (#1955, astral); worn (arms) by A githyanki protector (L25) in The Altar Chamber (#1976, astral); worn (arms) by A githyanki protector (L25) in Before the Altar (#1977, astral) |
+| a pair of ornately designed gauntlets | Armor | worn (hands) by A githyanki protector (L25) in The Altar Chamber (#1976, astral); worn (hands) by A githyanki protector (L25) in Before the Altar (#1977, astral) |
+| a decaying vest made from cracked leather | Armor | worn (body) by Lord Gith (L35) in Utter darkness and despair (#1979, astral) |
+| a vial of murky fluid | Potion | carried by An insubstantial ghost (L16) in Deep Within the Astral Plane (#1945, astral); carried by An insubstantial ghost (L16) in Deep Within the Astral Plane (#1947, astral); carried by An insubstantial ghost (L16) in Deep Within the Astral Plane (#1949, astral) |
+| a silvery-colored potion | Potion | carried by An evil gish (L11) in A small building (#1962, astral); carried by An evil gish (L11) in A small building (#1963, astral) |
+| a black pentagram | Key | worn (held) by The lich-queen (L30) in Before the Altar (#1977, astral) |
+| a rotting pouch | Money | carried by Lord Gith (L35) in Utter darkness and despair (#1979, astral) |
+| a rusted sword | Weapon | worn (wielded) by A poor soulless being (L10) in Roaming the Astral Plane (#1913, astral); worn (wielded) by A poor soulless being (L10) in Roaming the Astral Plane (#1914, astral); worn (wielded) by A poor soulless being (L10) in Roaming the Astral Plane (#1915, astral); worn (wielded) by A poor soulless being (L10) in Roaming the Astral Plane (#1916, astral); worn (wielded) by A poor soulless being (L10) in Roaming the Astral Plane (#1917, astral); worn (wielded) by A poor soulless being (L10) in Wandering the Astral Plane (#1918, astral); worn (wielded) by A poor soulless being (L10) in Wandering the Astral Plane (#1919, astral); worn (wielded) by A poor soulless being (L10) in Wandering the Astral Plane (#1920, astral); worn (wielded) by A poor soulless being (L10) in Wandering the Astral Plane (#1921, astral); worn (wielded) by A poor soulless being (L10) in Wandering the Astral Plane (#1922, astral) |
 
 ### `canyon`
 
 | Item | Type | Source(s) |
 |---|---|---|
-| the earth ring | Furniture | worn by the Earth Ruler in Earth Chamber (#9227, canyon) |
-| a stoney breastplate | Armor | worn by the Earth Ruler in Earth Chamber (#9227, canyon) |
-| a fiery dagger | Weapon | worn by the Fire Ruler in The Fire Chamber (#9245, canyon) |
-| a flame red cape | Armor | worn by the Fire Ruler in The Fire Chamber (#9245, canyon) |
-| the wind boots | Armor | worn by The Air Ruler in Air Chamber (#9260, canyon) |
-| a humming hurricane helmet | Armor | worn by The Air Ruler in Air Chamber (#9260, canyon) |
-| a sparking lightning sword | Weapon | worn by The Lightning Ruler in Lightning Chamber (#9252, canyon) |
-| an electric shield | Armor | worn by The Lightning Ruler in Lightning Chamber (#9252, canyon) |
-| an icy girth | Armor | worn by The Water Ruler in Water Chamber (#9236, canyon) |
-| a waterfall cloak | Armor | worn by The Water Ruler in Water Chamber (#9236, canyon) |
-| an elemental amulet | Armor | worn by the elemental guardian in Elemental Gateway (#9209, canyon) |
-| an elemental bracelet | Armor | worn by the elemental guardian in Elemental Gateway (#9209, canyon) |
-| some platinum arm bands | Armor | worn by the cyclops in A Blind Curve on the Mountain Path. (#9204, canyon) |
-| some platinum leg bands | Armor | worn by the cyclops in A Blind Curve on the Mountain Path. (#9204, canyon) |
-| elemental wand of fire | Wand | worn by an elemental magician in The Floor of the Canyon (#9216, canyon); worn by a flame in The Burning Gardens (#9242, canyon); worn by a flame in The Fire Chamber (#9245, canyon) |
-| a stone club | Weapon | worn by a rainbow warrior in Elemental Gateway (#9209, canyon); worn by a small rock in Earth Chamber (#9227, canyon); worn by a large elemental in Air Chamber (#9260, canyon) |
-| a lodestone | Wand | worn by a particle in The Floor of the Canyon (#9210, canyon); worn by a medium elemental in The Floor of the Canyon (#9212, canyon) |
-| a lava lamp | Light | worn by a lava beast in Dark Cave (#9220, canyon) |
-| an energy scroll | Scroll | worn by a large elemental in The Floor of the Canyon (#9218, canyon) |
-| a water jug | Drink Con | worn by a small elemental in Darker Caves (#9222, canyon); worn by a puddle in Elemental Bay (#9235, canyon) |
-| magic dust | Pill | worn by a tiny elemental in The Floor of the Canyon (#9219, canyon); worn by a dust cloud in Darker Caves (#9222, canyon); worn by an eddie in Floating in Air (#9255, canyon) |
-| a flame lance | Weapon | worn by the Blue Flame in A Fiery Pathway (#9238, canyon) |
-| an icicle | Weapon | worn by the Ice Bandit in The Burning Gardens (#9242, canyon) |
-| the Avalanche | Weapon | worn by the Rock Monster in The Burning Gardens (#9242, canyon) |
-| the Morning Star | Weapon | worn by the Hurricane in The Burning Gardens (#9242, canyon) |
-| the Shock Whip | Weapon | worn by the Magneto in A Fiery Pathway (#9238, canyon) |
-| anti-cyclops elixir | Potion | carried by the mountain climber in A Mountain Path (#9202, canyon); carried by the elixir vendor in Mountainside Tombs (#9203, canyon) |
+| the earth ring | Furniture | worn (left finger) by the Earth Ruler (L30) in Earth Chamber (#9227, canyon) |
+| a stoney breastplate | Armor | worn (body) by the Earth Ruler (L30) in Earth Chamber (#9227, canyon) |
+| a fiery dagger | Weapon | worn (wielded) by the Fire Ruler (L30) in The Fire Chamber (#9245, canyon) |
+| a flame red cape | Armor | worn (neck) by the Fire Ruler (L30) in The Fire Chamber (#9245, canyon) |
+| the wind boots | Armor | worn (feet) by The Air Ruler (L30) in Air Chamber (#9260, canyon) |
+| a humming hurricane helmet | Armor | worn (head) by The Air Ruler (L30) in Air Chamber (#9260, canyon) |
+| a sparking lightning sword | Weapon | worn (wielded) by The Lightning Ruler (L30) in Lightning Chamber (#9252, canyon) |
+| an electric shield | Armor | worn (shield) by The Lightning Ruler (L30) in Lightning Chamber (#9252, canyon) |
+| an icy girth | Armor | worn (waist) by The Water Ruler (L30) in Water Chamber (#9236, canyon) |
+| a waterfall cloak | Armor | worn (about body) by The Water Ruler (L30) in Water Chamber (#9236, canyon) |
+| an elemental amulet | Armor | worn (neck) by the elemental guardian (L20) in Elemental Gateway (#9209, canyon) |
+| an elemental bracelet | Armor | worn (left wrist) by the elemental guardian (L20) in Elemental Gateway (#9209, canyon) |
+| some platinum arm bands | Armor | worn (arms) by the cyclops (L22) in A Blind Curve on the Mountain Path. (#9204, canyon) |
+| some platinum leg bands | Armor | worn (legs) by the cyclops (L22) in A Blind Curve on the Mountain Path. (#9204, canyon) |
+| elemental wand of fire | Wand | worn (held) by an elemental magician (L17) in The Floor of the Canyon (#9216, canyon); worn (held) by a flame (L4) in The Burning Gardens (#9242, canyon); worn (held) by a flame (L4) in The Fire Chamber (#9245, canyon) |
+| a stone club | Weapon | worn (wielded) by a rainbow warrior (L18) in Elemental Gateway (#9209, canyon); worn (wielded) by a small rock (L3) in Earth Chamber (#9227, canyon); worn (wielded) by a large elemental (L15) in Air Chamber (#9260, canyon) |
+| a lodestone | Wand | worn (held) by a particle (L5) in The Floor of the Canyon (#9210, canyon); worn (held) by a medium elemental (L10) in The Floor of the Canyon (#9212, canyon) |
+| a lava lamp | Light | worn (held) by a lava beast (L8) in Dark Cave (#9220, canyon) |
+| an energy scroll | Scroll | worn (held) by a large elemental (L15) in The Floor of the Canyon (#9218, canyon) |
+| a water jug | Drink Con | worn (held) by a small elemental (L5) in Darker Caves (#9222, canyon); worn (held) by a puddle (L8) in Elemental Bay (#9235, canyon) |
+| magic dust | Pill | worn (held) by a tiny elemental (L1) in The Floor of the Canyon (#9219, canyon); worn (body) by a dust cloud (L6) in Darker Caves (#9222, canyon); worn (held) by an eddie (L2) in Floating in Air (#9255, canyon) |
+| a flame lance | Weapon | worn (wielded) by the Blue Flame (L26) in A Fiery Pathway (#9238, canyon) |
+| an icicle | Weapon | worn (wielded) by the Ice Bandit (L24) in The Burning Gardens (#9242, canyon) |
+| the Avalanche | Weapon | worn (wielded) by the Rock Monster (L23) in The Burning Gardens (#9242, canyon) |
+| the Morning Star | Weapon | worn (wielded) by the Hurricane (L28) in The Burning Gardens (#9242, canyon) |
+| the Shock Whip | Weapon | worn (wielded) by the Magneto (L22) in A Fiery Pathway (#9238, canyon) |
+| anti-cyclops elixir | Potion | carried by the mountain climber (L3) in A Mountain Path (#9202, canyon); carried by the elixir vendor (L30) in Mountainside Tombs (#9203, canyon) |
 
 ### `catacomb`
 
 | Item | Type | Source(s) |
 |---|---|---|
-| a glowing key | Key | worn by the grand templar in Grand Templar's room (#2025, catacomb) |
-| a suit of granite platemail | Armor | worn by The DarkenBeast in Deep within the catacombs (#2030, catacomb) |
-| an onyx ring | Armor | worn by The DarkenBeast in Deep within the catacombs (#2030, catacomb) |
-| the neutralizer | Weapon | worn by The vampire in Basement (#2052, catacomb) |
-| the sword Excalibur | Weapon | in a container in The holy place (#2032, catacomb) |
-| a kingly crown | Key | worn by The DarkenBeast in Deep within the catacombs (#2030, catacomb) |
+| a glowing key | Key | worn (light) by the grand templar (L16) in Grand Templar's room (#2025, catacomb) |
+| a suit of granite platemail | Armor | worn (body) by The DarkenBeast (L24) in Deep within the catacombs (#2030, catacomb) |
+| an onyx ring | Armor | worn (right finger) by The DarkenBeast (L24) in Deep within the catacombs (#2030, catacomb) |
+| the neutralizer | Weapon | worn (wielded) by The vampire (L15) in Basement (#2052, catacomb) |
+| the sword Excalibur | Weapon | inside stone (#2007) — on the ground in The holy place (#2032, catacomb) |
+| a kingly crown | Key | worn (held) by The DarkenBeast (L24) in Deep within the catacombs (#2030, catacomb) |
 | stone | Container | on the ground in The holy place (#2032, catacomb) |
-| a flask of holy water | Potion | worn by the grand templar in Grand Templar's room (#2025, catacomb) |
-| a suit of chainmail | Armor | worn by a templar in Weapon training area (#2003, catacomb); worn by a templar in Hallway (#2006, catacomb); worn by a templar in Templar Knights sleeping quarters (#2009, catacomb); worn by a templar in Templar Knights sleeping quarters (#2009, catacomb); worn by the templar officer in Mid-level leader's room (#2015, catacomb); worn by a templar in Mess hall (#2016, catacomb); worn by a templar in Mess hall (#2016, catacomb); worn by the templar officer in Mess hall (#2016, catacomb); worn by the templar officer in Mess hall (#2016, catacomb); worn by the templar officer in Mess hall (#2016, catacomb); worn by the templar officer in High officer's room (#2018, catacomb); worn by the templar officer in Mess hall (#2023, catacomb); worn by a skeleton in Entrance to the burial grounds (#2035, catacomb); worn by a skeleton in The burial grounds (#2037, catacomb) |
-| a white cape | Armor | worn by the grand templar in Grand Templar's room (#2025, catacomb) |
-| the shield of defense | Armor | worn by the evil necromancer in Scene of ghastly horror (#2055, catacomb) |
-| a dragonscale shield | Armor | worn by the prism dragon in Prism cave (#2050, catacomb) |
-| a prism wand | Wand | worn by the prism dragon in Prism cave (#2050, catacomb) |
-| a shadow cloak | Armor | worn by the shadow in Very dark passage (#2026, catacomb) |
-| a misty potion | Potion | worn by some mist in Misty passageway (#2033, catacomb); worn by some mist in Misty cavern (#2040, catacomb); worn by some mist in Misty cavern (#2040, catacomb); worn by some mist in Misty cavern (#2041, catacomb); worn by some mist in Misty cavern (#2041, catacomb); worn by some mist in Mist cavern (#2042, catacomb); worn by some mist in Waterfall of mist (#2043, catacomb); worn by some mist in Waterfall of mist (#2043, catacomb); worn by some mist in Waterfall of mist (#2043, catacomb) |
-| a templar's sword | Weapon | worn by a templar in Weapon training area (#2003, catacomb); worn by a templar in Prayer training area (#2004, catacomb); worn by a templar in Templar Knights sleeping quarters (#2009, catacomb); worn by the templar officer in Mid-level leader's room (#2015, catacomb); worn by a templar in Mess hall (#2016, catacomb); worn by the templar officer in Mess hall (#2016, catacomb); worn by the templar officer in Mess hall (#2016, catacomb); worn by the templar officer in Mess hall (#2016, catacomb); worn by the templar officer in High officer's room (#2018, catacomb); worn by a templar in Mess hall (#2023, catacomb); worn by the templar officer in Mess hall (#2023, catacomb) |
+| a flask of holy water | Potion | worn (held) by the grand templar (L16) in Grand Templar's room (#2025, catacomb) |
+| a suit of chainmail | Armor | worn (body) by a templar (L12) in Weapon training area (#2003, catacomb); worn (body) by a templar (L12) in Hallway (#2006, catacomb); worn (body) by a templar (L12) in Templar Knights sleeping quarters (#2009, catacomb); worn (body) by a templar (L12) in Templar Knights sleeping quarters (#2009, catacomb); worn (body) by the templar officer (L13) in Mid-level leader's room (#2015, catacomb); worn (body) by a templar (L12) in Mess hall (#2016, catacomb); worn (body) by a templar (L12) in Mess hall (#2016, catacomb); worn (body) by the templar officer (L13) in Mess hall (#2016, catacomb); worn (body) by the templar officer (L13) in Mess hall (#2016, catacomb); worn (body) by the templar officer (L13) in Mess hall (#2016, catacomb); worn (body) by the templar officer (L13) in High officer's room (#2018, catacomb); worn (body) by the templar officer (L13) in Mess hall (#2023, catacomb); worn (body) by a skeleton (L11) in Entrance to the burial grounds (#2035, catacomb); worn (body) by a skeleton (L11) in The burial grounds (#2037, catacomb) |
+| a white cape | Armor | worn (neck) by the grand templar (L16) in Grand Templar's room (#2025, catacomb) |
+| the shield of defense | Armor | worn (shield) by the evil necromancer (L15) in Scene of ghastly horror (#2055, catacomb) |
+| a dragonscale shield | Armor | worn (body) by the prism dragon (L20) in Prism cave (#2050, catacomb) |
+| a prism wand | Wand | worn (held) by the prism dragon (L20) in Prism cave (#2050, catacomb) |
+| a shadow cloak | Armor | worn (about body) by the shadow (L14) in Very dark passage (#2026, catacomb) |
+| a misty potion | Potion | worn (held) by some mist (L10) in Misty passageway (#2033, catacomb); worn (held) by some mist (L10) in Misty cavern (#2040, catacomb); worn (held) by some mist (L10) in Misty cavern (#2040, catacomb); worn (held) by some mist (L10) in Misty cavern (#2041, catacomb); worn (held) by some mist (L10) in Misty cavern (#2041, catacomb); worn (held) by some mist (L10) in Mist cavern (#2042, catacomb); worn (held) by some mist (L10) in Waterfall of mist (#2043, catacomb); worn (held) by some mist (L10) in Waterfall of mist (#2043, catacomb); worn (held) by some mist (L10) in Waterfall of mist (#2043, catacomb) |
+| a templar's sword | Weapon | worn (wielded) by a templar (L12) in Weapon training area (#2003, catacomb); worn (wielded) by a templar (L12) in Prayer training area (#2004, catacomb); worn (wielded) by a templar (L12) in Templar Knights sleeping quarters (#2009, catacomb); worn (wielded) by the templar officer (L13) in Mid-level leader's room (#2015, catacomb); worn (wielded) by a templar (L12) in Mess hall (#2016, catacomb); worn (wielded) by the templar officer (L13) in Mess hall (#2016, catacomb); worn (wielded) by the templar officer (L13) in Mess hall (#2016, catacomb); worn (wielded) by the templar officer (L13) in Mess hall (#2016, catacomb); worn (wielded) by the templar officer (L13) in High officer's room (#2018, catacomb); worn (wielded) by a templar (L12) in Mess hall (#2023, catacomb); worn (wielded) by the templar officer (L13) in Mess hall (#2023, catacomb) |
 
 ### `cithdeux`
 
@@ -1998,200 +1998,200 @@ Reachable creatures only, grouped by level. _Lvl_ is the mob level; pick targets
 
 | Item | Type | Source(s) |
 |---|---|---|
-| a jagged spear | Weapon | worn by the Draconian in Hallway (#2203, draconia); worn by the Draconian in Hallway (#2204, draconia); worn by the Draconian in Hallway (#2204, draconia); worn by the Draconian in Hallway (#2204, draconia); worn by the Draconian in The Second Floor (#2210, draconia); worn by a gnoll in An Oozing Bog (#8306, marsh) |
-| a silver dagger | Weapon | worn by a concubine in Hall O' Pleasure (#2212, draconia); worn by a concubine in Hall O' Pleasure (#2212, draconia); worn by a concubine in Hall O' Pleasure (#2212, draconia); worn by a concubine in Hall O' Pleasure (#2212, draconia); worn by the Draconian Queen in bedroom (#2217, draconia) |
-| a dragon's tooth knife | Weapon | worn by the dragon master in The Crypt Ends (#2222, draconia) |
-| a dragon skin bracelet | Armor | worn by the Draconian Queen in bedroom (#2217, draconia) |
-| a black silk belt | Armor | worn by the Draconian Queen in bedroom (#2217, draconia) |
-| a white silk belt. | Container | worn by the holy Draconian in The Library (#2214, draconia) |
-| a platinum bracelet. | Armor | worn by the holy Draconian in The Library (#2214, draconia) |
-| a holy symbol | Armor | worn by the holy Draconian in The Library (#2214, draconia) |
-| an emerald sword | Weapon | worn by the Draconian King in The Court Ends (#2216, draconia) |
-| a stone club | Weapon | carried by a large hydra in Guardian's Room (#2208, draconia); worn by a powerful mage in The Library (#2214, draconia) |
-| a steel key | Key | carried by the dragon hatchling in The Tower Gates (#2201, draconia) |
-| a ruby key | Key | carried by the Draconian King in The Court Ends (#2216, draconia) |
-| a white key | Key | carried by a concubine in Hall O' Pleasure (#2212, draconia) |
-| a grey key | Key | carried by a large hydra in Guardian's Room (#2208, draconia) |
-| a black key | Key | carried by a concubine in Hall O' Pleasure (#2212, draconia) |
-| a platinum key | Key | carried by the Ancient Green Dragon in THE Lair (#2230, draconia) |
-| a crested shield | Armor | worn by the Draconian King in The Court Ends (#2216, draconia) |
-| a golden wand | Wand | carried by a large hydra in Guardian's Room (#2208, draconia) |
-| a silver staff | Staff | worn by a large hydra in Guardian's Room (#2208, draconia) |
-| the staff of the dragon | Staff | worn by the Great Red Dragon in Lair (#2226, draconia) |
-| scale mail | Armor | worn by the Great White Dragon in The Lair (#2220, draconia) |
-| a black staff | Staff | worn by a powerful mage in The Library (#2214, draconia) |
-| a cyan potion | Potion | carried by a powerful mage in The Library (#2214, draconia) |
-| a magenta potion | Potion | carried by the holy Draconian in The Library (#2214, draconia) |
-| a pair of spiked gauntlets | Armor | worn by the Draconian King in The Court Ends (#2216, draconia) |
-| a golden scimitar | Weapon | worn by A bodyguard in The Court (#2211, draconia) |
-| a diamond brooch | Armor | worn by a powerful mage in The Library (#2214, draconia); worn by the Ancient Green Dragon in THE Lair (#2230, draconia) |
-| a runed scroll | Scroll | carried by the holy Draconian in The Library (#2214, draconia) |
-| a pair of dragon skin gloves | Armor | worn by the dragon master in The Crypt Ends (#2222, draconia) |
-| a helm of dragon kind | Armor | worn by the Great Red Dragon in Lair (#2226, draconia) |
-| a fur cloak | Armor | worn by the Draconian King in The Court Ends (#2216, draconia) |
-| a pair of dragon scale leggings | Armor | worn by the Great Black Dragon in A Lair (#2221, draconia) |
-| a set of dragon scale sleeves | Armor | worn by the dragon master in The Crypt Ends (#2222, draconia) |
-| a dragon tailed whip | Weapon | carried by the Ancient Green Dragon in THE Lair (#2230, draconia) |
-| a copper hammer | Weapon | worn by A bodyguard in The Second Floor (#2210, draconia); worn by A bodyguard in The Court (#2211, draconia) |
-| a tarnished gold key | Key | carried by the Great Red Dragon in Lair (#2226, draconia) |
+| a jagged spear | Weapon | worn (wielded) by the Draconian (L13) in Hallway (#2203, draconia); worn (wielded) by the Draconian (L13) in Hallway (#2204, draconia); worn (wielded) by the Draconian (L13) in Hallway (#2204, draconia); worn (wielded) by the Draconian (L13) in Hallway (#2204, draconia); worn (wielded) by the Draconian (L13) in The Second Floor (#2210, draconia); worn (wielded) by a gnoll (L30) in An Oozing Bog (#8306, marsh) |
+| a silver dagger | Weapon | worn (wielded) by a concubine (L6) in Hall O' Pleasure (#2212, draconia); worn (wielded) by a concubine (L6) in Hall O' Pleasure (#2212, draconia); worn (wielded) by a concubine (L6) in Hall O' Pleasure (#2212, draconia); worn (wielded) by a concubine (L6) in Hall O' Pleasure (#2212, draconia); worn (wielded) by the Draconian Queen (L20) in bedroom (#2217, draconia) |
+| a dragon's tooth knife | Weapon | worn (wielded) by the dragon master (L27) in The Crypt Ends (#2222, draconia) |
+| a dragon skin bracelet | Armor | worn (left wrist) by the Draconian Queen (L20) in bedroom (#2217, draconia) |
+| a black silk belt | Armor | worn (waist) by the Draconian Queen (L20) in bedroom (#2217, draconia) |
+| a white silk belt. | Container | worn (waist) by the holy Draconian (L22) in The Library (#2214, draconia) |
+| a platinum bracelet. | Armor | worn (left wrist) by the holy Draconian (L22) in The Library (#2214, draconia) |
+| a holy symbol | Armor | worn (neck) by the holy Draconian (L22) in The Library (#2214, draconia) |
+| an emerald sword | Weapon | worn (wielded) by the Draconian King (L26) in The Court Ends (#2216, draconia) |
+| a stone club | Weapon | carried by a large hydra (L18) in Guardian's Room (#2208, draconia); worn (about body) by a powerful mage (L22) in The Library (#2214, draconia) |
+| a steel key | Key | carried by the dragon hatchling (L7) in The Tower Gates (#2201, draconia) |
+| a ruby key | Key | carried by the Draconian King (L26) in The Court Ends (#2216, draconia) |
+| a white key | Key | carried by a concubine (L6) in Hall O' Pleasure (#2212, draconia) |
+| a grey key | Key | carried by a large hydra (L18) in Guardian's Room (#2208, draconia) |
+| a black key | Key | carried by a concubine (L6) in Hall O' Pleasure (#2212, draconia) |
+| a platinum key | Key | carried by the Ancient Green Dragon (L31) in THE Lair (#2230, draconia) |
+| a crested shield | Armor | worn (shield) by the Draconian King (L26) in The Court Ends (#2216, draconia) |
+| a golden wand | Wand | carried by a large hydra (L18) in Guardian's Room (#2208, draconia) |
+| a silver staff | Staff | worn (held) by a large hydra (L18) in Guardian's Room (#2208, draconia) |
+| the staff of the dragon | Staff | worn (held) by the Great Red Dragon (L27) in Lair (#2226, draconia) |
+| scale mail | Armor | worn (body) by the Great White Dragon (L27) in The Lair (#2220, draconia) |
+| a black staff | Staff | worn (held) by a powerful mage (L22) in The Library (#2214, draconia) |
+| a cyan potion | Potion | carried by a powerful mage (L22) in The Library (#2214, draconia) |
+| a magenta potion | Potion | carried by the holy Draconian (L22) in The Library (#2214, draconia) |
+| a pair of spiked gauntlets | Armor | worn (hands) by the Draconian King (L26) in The Court Ends (#2216, draconia) |
+| a golden scimitar | Weapon | worn (wielded) by A bodyguard (L18) in The Court (#2211, draconia) |
+| a diamond brooch | Armor | worn (neck) by a powerful mage (L22) in The Library (#2214, draconia); worn (neck) by the Ancient Green Dragon (L31) in THE Lair (#2230, draconia) |
+| a runed scroll | Scroll | carried by the holy Draconian (L22) in The Library (#2214, draconia) |
+| a pair of dragon skin gloves | Armor | worn (hands) by the dragon master (L27) in The Crypt Ends (#2222, draconia) |
+| a helm of dragon kind | Armor | worn (head) by the Great Red Dragon (L27) in Lair (#2226, draconia) |
+| a fur cloak | Armor | worn (about body) by the Draconian King (L26) in The Court Ends (#2216, draconia) |
+| a pair of dragon scale leggings | Armor | worn (legs) by the Great Black Dragon (L26) in A Lair (#2221, draconia) |
+| a set of dragon scale sleeves | Armor | worn (arms) by the dragon master (L27) in The Crypt Ends (#2222, draconia) |
+| a dragon tailed whip | Weapon | carried by the Ancient Green Dragon (L31) in THE Lair (#2230, draconia) |
+| a copper hammer | Weapon | worn (wielded) by A bodyguard (L18) in The Second Floor (#2210, draconia); worn (wielded) by A bodyguard (L18) in The Court (#2211, draconia) |
+| a tarnished gold key | Key | carried by the Great Red Dragon (L27) in Lair (#2226, draconia) |
 
 ### `drow`
 
 | Item | Type | Source(s) |
 |---|---|---|
-| a commoner's longsword | Weapon | worn by the drow commoner in Warrior's Academy (#5118, drow); worn by the drow commoner in Warrior's Barracks (#5133, drow); worn by the drow scout in A valley in the dark dwarf forest (#5267, thalos); worn by the drow guard in Down the path into a dead end (#5270, thalos); worn by the drow guard in Down the path into a dead end (#5270, thalos); worn by the drow scout in A dim trail in the dwarf forest (#5272, thalos) |
-| a noble's longsword | Weapon | worn by the drow warrior noble in 3rd House (#5104, drow); worn by the drow warrior noble in 2nd House (#5108, drow); worn by the drow warrior noble in 1st House (#5111, drow); worn by the drow warrior noble in 4th house (#5124, drow) |
-| a snake headed whip | Weapon | worn by the drow mage noble in 3rd House (#5104, drow); worn by the drow mage noble in 2nd House (#5108, drow); worn by the drow mage noble in 1st House (#5111, drow); worn by the drow mage noble in 4th house (#5124, drow) |
-| a snake headed whip | Weapon | worn by the drow priestess in 3rd House (#5104, drow); worn by the drow priestess in 2nd House (#5108, drow); worn by the drow priestess in 1st House (#5111, drow); worn by the drow priestess in 4th house (#5124, drow) |
-| a snake headed whip | Weapon | worn by the matron mother in Throne Room (#5105, drow); worn by the matron mother in Throne Room (#5109, drow); worn by the matron mother in Main Chamber (#5113, drow); worn by The drow master in Cleric Academy (#5116, drow); worn by The drow master in Mage's Academy (#5120, drow); worn by the matron mother in Throne Room (#5125, drow) |
-| a black longsword | Weapon | worn by The weapons master in City street (#5101, drow); worn by The drow master in Warrior's Academy (#5118, drow); worn by The weapons master in Weaponsmaster's Chamber (#5150, drow) |
-| a pair of bracers | Armor | worn by the matron mother in Throne Room (#5109, drow) |
-| a pair of gauntlets | Armor | worn by The weapons master in Weaponsmaster's Chamber (#5150, drow) |
-| a silvery blue wand | Wand | worn by The drow master in Cleric Academy (#5116, drow); worn by The drow master in Warrior's Academy (#5118, drow); worn by The drow master in Mage's Academy (#5120, drow) |
-| a small helmet | Armor | worn by the matron mother in Throne Room (#5105, drow) |
-| a small ruby ring | Armor | worn by the matron mother in Main Chamber (#5113, drow) |
-| a spider shaped dagger | Weapon | worn by the yochlol in Dais (#5148, drow) |
-| a small bright green hat | Armor | carried by the matron mother in Throne Room (#5125, drow) |
+| a commoner's longsword | Weapon | worn (wielded) by the drow commoner (L55) in Warrior's Academy (#5118, drow); worn (wielded) by the drow commoner (L55) in Warrior's Barracks (#5133, drow); worn (wielded) by the drow scout (L55) in A valley in the dark dwarf forest (#5267, thalos); worn (wielded) by the drow guard (L60) in Down the path into a dead end (#5270, thalos); worn (wielded) by the drow guard (L60) in Down the path into a dead end (#5270, thalos); worn (wielded) by the drow scout (L55) in A dim trail in the dwarf forest (#5272, thalos) |
+| a noble's longsword | Weapon | worn (wielded) by the drow warrior noble (L60) in 3rd House (#5104, drow); worn (wielded) by the drow warrior noble (L60) in 2nd House (#5108, drow); worn (wielded) by the drow warrior noble (L60) in 1st House (#5111, drow); worn (wielded) by the drow warrior noble (L60) in 4th house (#5124, drow) |
+| a snake headed whip | Weapon | worn (wielded) by the drow mage noble (L65) in 3rd House (#5104, drow); worn (wielded) by the drow mage noble (L65) in 2nd House (#5108, drow); worn (wielded) by the drow mage noble (L65) in 1st House (#5111, drow); worn (wielded) by the drow mage noble (L65) in 4th house (#5124, drow) |
+| a snake headed whip | Weapon | worn (wielded) by the drow priestess (L65) in 3rd House (#5104, drow); worn (wielded) by the drow priestess (L65) in 2nd House (#5108, drow); worn (wielded) by the drow priestess (L65) in 1st House (#5111, drow); worn (wielded) by the drow priestess (L65) in 4th house (#5124, drow) |
+| a snake headed whip | Weapon | worn (wielded) by the matron mother (L70) in Throne Room (#5105, drow); worn (wielded) by the matron mother (L70) in Throne Room (#5109, drow); worn (wielded) by the matron mother (L70) in Main Chamber (#5113, drow); worn (wielded) by The drow master (L70) in Cleric Academy (#5116, drow); worn (wielded) by The drow master (L70) in Mage's Academy (#5120, drow); worn (wielded) by the matron mother (L70) in Throne Room (#5125, drow) |
+| a black longsword | Weapon | worn (wielded) by The weapons master (L70) in City street (#5101, drow); worn (wielded) by The drow master (L70) in Warrior's Academy (#5118, drow); worn (wielded) by The weapons master (L70) in Weaponsmaster's Chamber (#5150, drow) |
+| a pair of bracers | Armor | worn (arms) by the matron mother (L70) in Throne Room (#5109, drow) |
+| a pair of gauntlets | Armor | worn (hands) by The weapons master (L70) in Weaponsmaster's Chamber (#5150, drow) |
+| a silvery blue wand | Wand | worn (held) by The drow master (L70) in Cleric Academy (#5116, drow); worn (held) by The drow master (L70) in Warrior's Academy (#5118, drow); worn (held) by The drow master (L70) in Mage's Academy (#5120, drow) |
+| a small helmet | Armor | worn (head) by the matron mother (L70) in Throne Room (#5105, drow) |
+| a small ruby ring | Armor | worn (left finger) by the matron mother (L70) in Main Chamber (#5113, drow) |
+| a spider shaped dagger | Weapon | worn (wielded) by the yochlol (L98) in Dais (#5148, drow) |
+| a small bright green hat | Armor | carried by the matron mother (L70) in Throne Room (#5125, drow) |
 
 ### `dwarven`
 
 | Item | Type | Source(s) |
 |---|---|---|
-| a deep green key | Key | carried by the dwarven guard in Entrance to Mountain (#6505, dwarven); carried by the wraith in Wine cellar (#6527, dwarven); carried by the dwarven guard in Dark path (#6540, dwarven) |
-| a hammer | Weapon | worn by the dwarven guard in Entrance to Mountain (#6505, dwarven); worn by the dwarven guard in Entrance to Mountain (#6505, dwarven); carried by the storekeeper in Hide & Tooth Shop (#6516, dwarven); worn by the storekeeper in Hide & Tooth Shop (#6516, dwarven); worn by the dwarf in First Barrack room (#6523, dwarven); worn by the baker in Granite Head's Bakery (#6535, dwarven); worn by the dwarven guard in Dark path (#6540, dwarven); worn by the dwarven guard in Dark path (#6540, dwarven) |
-| dwarven plate mail | Armor | worn by the dwarven guard in Entrance to Mountain (#6505, dwarven); worn by the dwarven guard in Entrance to Mountain (#6505, dwarven); worn by the dwarven guard in Door to Kingdom (#6509, dwarven); carried by the storekeeper in Hide & Tooth Shop (#6516, dwarven); worn by the dwarven guard in Dark path (#6540, dwarven); worn by the dwarven guard in Dark path (#6540, dwarven) |
-| long, black stick | Staff | on the ground in Hospital (#6534, dwarven); worn by the dwarven doctor in Hospital (#6534, dwarven) |
+| a deep green key | Key | carried by the dwarven guard (L20) in Entrance to Mountain (#6505, dwarven); carried by the wraith (L29) in Wine cellar (#6527, dwarven); carried by the dwarven guard (L20) in Dark path (#6540, dwarven) |
+| a hammer | Weapon | worn (wielded) by the dwarven guard (L20) in Entrance to Mountain (#6505, dwarven); worn (wielded) by the dwarven guard (L20) in Entrance to Mountain (#6505, dwarven); carried by the storekeeper (L35) in Hide & Tooth Shop (#6516, dwarven); worn (wielded) by the storekeeper (L35) in Hide & Tooth Shop (#6516, dwarven); worn (wielded) by the dwarf (L9) in First Barrack room (#6523, dwarven); worn (wielded) by the baker (L35) in Granite Head's Bakery (#6535, dwarven); worn (wielded) by the dwarven guard (L20) in Dark path (#6540, dwarven); worn (wielded) by the dwarven guard (L20) in Dark path (#6540, dwarven) |
+| dwarven plate mail | Armor | worn (body) by the dwarven guard (L20) in Entrance to Mountain (#6505, dwarven); worn (body) by the dwarven guard (L20) in Entrance to Mountain (#6505, dwarven); worn (body) by the dwarven guard (L20) in Door to Kingdom (#6509, dwarven); carried by the storekeeper (L35) in Hide & Tooth Shop (#6516, dwarven); worn (body) by the dwarven guard (L20) in Dark path (#6540, dwarven); worn (body) by the dwarven guard (L20) in Dark path (#6540, dwarven) |
+| long, black stick | Staff | on the ground in Hospital (#6534, dwarven); worn (held) by the dwarven doctor (L9) in Hospital (#6534, dwarven) |
 | long, black stick | Light | on the ground in Top of mountain (#6503, dwarven); on the ground in Entrance to Mountain (#6505, dwarven); on the ground in Inside the entrance (#6513, dwarven); on the ground in Dark path (#6540, dwarven) |
-| dwarven club | Weapon | worn by the dwarven guard in Door to Castle (#6512, dwarven); worn by the dwarven guard in Door to Castle (#6512, dwarven); worn by the dwarven miner in Inside the mine (#6542, dwarven); worn by the dwarven miner in Path in the mine (#6543, dwarven); worn by the dwarven miner in Path in the mine (#6543, dwarven); worn by the dwarven mine leader in Path in the mine (#6543, dwarven) |
-| a two-handed dwarven axe | Weapon | worn by the dwarven guard in Door to Kingdom (#6509, dwarven); worn by the dwarven guard in Door to Kingdom (#6509, dwarven); worn by the barracks guard in Entrance to barracks (#6521, dwarven); worn by the barracks guard in Entrance to barracks (#6521, dwarven) |
-| a dwarven helmet | Armor | worn by the dwarven guard in Door to Kingdom (#6509, dwarven); carried by the storekeeper in Hide & Tooth Shop (#6516, dwarven) |
-| a dwarven golden ring | Treasure | worn by the dwarven guard in Door to Kingdom (#6509, dwarven); carried by the storekeeper in Hide & Tooth Shop (#6516, dwarven) |
-| dwarven gloves | Armor | worn by the dwarven guard in Door to Kingdom (#6509, dwarven); carried by the storekeeper in Hide & Tooth Shop (#6516, dwarven); worn by the dwarven mine leader in Path in the mine (#6543, dwarven) |
+| dwarven club | Weapon | worn (wielded) by the dwarven guard (L20) in Door to Castle (#6512, dwarven); worn (wielded) by the dwarven guard (L20) in Door to Castle (#6512, dwarven); worn (wielded) by the dwarven miner (L8) in Inside the mine (#6542, dwarven); worn (wielded) by the dwarven miner (L8) in Path in the mine (#6543, dwarven); worn (wielded) by the dwarven miner (L8) in Path in the mine (#6543, dwarven); worn (wielded) by the dwarven mine leader (L21) in Path in the mine (#6543, dwarven) |
+| a two-handed dwarven axe | Weapon | worn (wielded) by the dwarven guard (L20) in Door to Kingdom (#6509, dwarven); worn (wielded) by the dwarven guard (L20) in Door to Kingdom (#6509, dwarven); worn (wielded) by the barracks guard (L16) in Entrance to barracks (#6521, dwarven); worn (wielded) by the barracks guard (L16) in Entrance to barracks (#6521, dwarven) |
+| a dwarven helmet | Armor | worn (head) by the dwarven guard (L20) in Door to Kingdom (#6509, dwarven); carried by the storekeeper (L35) in Hide & Tooth Shop (#6516, dwarven) |
+| a dwarven golden ring | Treasure | worn (left finger) by the dwarven guard (L20) in Door to Kingdom (#6509, dwarven); carried by the storekeeper (L35) in Hide & Tooth Shop (#6516, dwarven) |
+| dwarven gloves | Armor | worn (hands) by the dwarven guard (L20) in Door to Kingdom (#6509, dwarven); carried by the storekeeper (L35) in Hide & Tooth Shop (#6516, dwarven); worn (hands) by the dwarven mine leader (L21) in Path in the mine (#6543, dwarven) |
 | a note | Furniture | on the ground in Back of Barracks (#6524, dwarven) |
-| a castle key | Key | worn by the dwarf in First Barrack room (#6523, dwarven) |
+| a castle key | Key | worn (held) by the dwarf (L9) in First Barrack room (#6523, dwarven) |
 | a mine key | Key | on the ground in Bedroom (#6532, dwarven) |
 | a chunk of coal | Trash | on the ground in Coal Room (#6545, dwarven) |
 | a mining pick | Weapon | on the ground in Mining equipment room (#6551, dwarven) |
-| a box of birth control pills | Pill | carried by the dwarven doctor in Hospital (#6534, dwarven); carried by the mazekeeper in The Mazekeeper's Room (#6553, dwarven) |
+| a box of birth control pills | Pill | carried by the dwarven doctor (L9) in Hospital (#6534, dwarven); carried by the mazekeeper (L29) in The Mazekeeper's Room (#6553, dwarven) |
 
 ### `eastern`
 
 | Item | Type | Source(s) |
 |---|---|---|
-| a small mining pick | Weapon | worn by The dark dwarf in Damp hallway (#5014, eastern) |
-| a glowing suit of banded mail | Armor | worn by The dracolich in Giant cave (#5011, eastern) |
-| the halberd | Weapon | worn by The dracolich in Giant cave (#5011, eastern) |
-| the amulet | Armor | worn by The myconoid shaman in Fungus temple (#5021, eastern) |
+| a small mining pick | Weapon | worn (wielded) by The dark dwarf (L5) in Damp hallway (#5014, eastern) |
+| a glowing suit of banded mail | Armor | worn (body) by The dracolich (L20) in Giant cave (#5011, eastern) |
+| the halberd | Weapon | worn (wielded) by The dracolich (L20) in Giant cave (#5011, eastern) |
+| the amulet | Armor | worn (neck) by The myconoid shaman (L8) in Fungus temple (#5021, eastern) |
 | a large leg bone | Weapon | on the ground in Giant cave (#5011, eastern) |
 | a small wicker basket | Container | on the ground in The main tent (#5060, eastern) |
 | a small wicker basket | Container | on the ground in The main tent (#5061, eastern) |
 | a small wicker basket | Container | on the ground in The main tent (#5061, eastern) |
 | a small wicker basket | Container | on the ground in The main tent (#5061, eastern) |
-| a coil of rope | Furniture | in a container in The main tent (#5060, eastern) |
-| a bunch of stakes | Furniture | in a container in The main tent (#5060, eastern) |
-| an old, tattered map | Furniture | in a container in The main tent (#5061, eastern) |
-| a thick padded turban | Armor | in a container in The main tent (#5061, eastern) |
+| a coil of rope | Furniture | inside a small wicker basket (#5007) — on the ground in The main tent (#5060, eastern) |
+| a bunch of stakes | Furniture | inside a small wicker basket (#5007) — on the ground in The main tent (#5060, eastern) |
+| an old, tattered map | Furniture | inside a small wicker basket (#5010) — on the ground in The main tent (#5061, eastern) |
+| a thick padded turban | Armor | inside a small wicker basket (#5008) — on the ground in The main tent (#5061, eastern) |
 | a great pile of treasure | Money | on the ground in A small shaft (#5070, eastern) |
-| a long, curved sabre | Weapon | worn by The nomad leader in The main tent (#5061, eastern) |
-| a curved scimitar | Weapon | worn by The nomad commander in The main tent (#5060, eastern) |
-| a long, pointed cutlass | Weapon | worn by The nomad warrior in The warrior's tent. (#5059, eastern) |
-| a pink potion | Potion | carried by The giant, purple sand worm in The Great Eastern Desert (#5028, eastern) |
-| a platinum wand | Wand | carried by The giant, purple sand worm in The Great Eastern Desert (#5028, eastern) |
-| a strange energy bow | Weapon | carried by The giant, purple sand worm in The Great Eastern Desert (#5028, eastern) |
-| an encrypted scroll | Scroll | carried by the brass dragon in The mysterious lair. (#5065, eastern) |
+| a long, curved sabre | Weapon | worn (wielded) by The nomad leader (L14) in The main tent (#5061, eastern) |
+| a curved scimitar | Weapon | worn (wielded) by The nomad commander (L12) in The main tent (#5060, eastern) |
+| a long, pointed cutlass | Weapon | worn (wielded) by The nomad warrior (L10) in The warrior's tent. (#5059, eastern) |
+| a pink potion | Potion | carried by The giant, purple sand worm (L18) in The Great Eastern Desert (#5028, eastern) |
+| a platinum wand | Wand | carried by The giant, purple sand worm (L18) in The Great Eastern Desert (#5028, eastern) |
+| a strange energy bow | Weapon | carried by The giant, purple sand worm (L18) in The Great Eastern Desert (#5028, eastern) |
+| an encrypted scroll | Scroll | carried by the brass dragon (L30) in The mysterious lair. (#5065, eastern) |
 | an iron bound chest | Container | on the ground in A small shaft (#5070, eastern) |
-| a golden key | Key | carried by the brass dragon in The mysterious lair. (#5065, eastern) |
-| a copper bracelet | Armor | in a container in A small shaft (#5070, eastern) |
-| a large ruby | Treasure | in a container in A small shaft (#5070, eastern) |
-| a glittering diamond | Treasure | in a container in A small shaft (#5070, eastern) |
-| a brilliant sapphire | Treasure | in a container in A small shaft (#5070, eastern) |
-| a deep blue lapis lazuli | Treasure | in a container in A small shaft (#5070, eastern) |
-| the tiger jewel | Treasure | in a container in A small shaft (#5070, eastern) |
-| the red-eyed jewel | Treasure | in a container in A small shaft (#5070, eastern) |
-| a fiery green emerald | Treasure | in a container in A small shaft (#5070, eastern) |
+| a golden key | Key | carried by the brass dragon (L30) in The mysterious lair. (#5065, eastern) |
+| a copper bracelet | Armor | inside an iron bound chest (#5023) — on the ground in A small shaft (#5070, eastern) |
+| a large ruby | Treasure | inside an iron bound chest (#5023) — on the ground in A small shaft (#5070, eastern) |
+| a glittering diamond | Treasure | inside an iron bound chest (#5023) — on the ground in A small shaft (#5070, eastern) |
+| a brilliant sapphire | Treasure | inside an iron bound chest (#5023) — on the ground in A small shaft (#5070, eastern) |
+| a deep blue lapis lazuli | Treasure | inside an iron bound chest (#5023) — on the ground in A small shaft (#5070, eastern) |
+| the tiger jewel | Treasure | inside an iron bound chest (#5023) — on the ground in A small shaft (#5070, eastern) |
+| the red-eyed jewel | Treasure | inside an iron bound chest (#5023) — on the ground in A small shaft (#5070, eastern) |
+| a fiery green emerald | Treasure | inside an iron bound chest (#5023) — on the ground in A small shaft (#5070, eastern) |
 
 ### `galaxy`
 
 | Item | Type | Source(s) |
 |---|---|---|
-| a comet's tail | Weapon | worn by a speedy comet in A Small Clearing (#9317, galaxy); worn by a speedy comet in A Small Clearing (#9317, galaxy); worn by a speedy comet in Another Edge of the Galaxy (#9322, galaxy); worn by a speedy comet in Another Edge of the Galaxy (#9322, galaxy) |
-| the Titanic Arm plates of Hercules | Armor | worn by the mighty Hercules in Hercules' Mighty Throne (#9332, galaxy) |
-| the Titanic Belt of Orion | Armor | worn by Orion the hunter in Orion's Hunting Lodge (#9328, galaxy) |
-| an ugly skull of Draco | Staff | carried by the Head of Draco in Approaching the Head of Draco (#9363, galaxy) |
-| the Titanic Fleece of Aries | Armor | worn by Aries in On a Hill (#9342, galaxy) |
-| the Titanic Hoof of Taurus | Armor | worn by Taurus in Inside a Spanish Bull-Ring (#9343, galaxy) |
-| the Titanic Mask of Gemini | Armor | worn by Gemini in Inside a study (#9344, galaxy) |
-| the Titanic Shell of Cancer | Armor | worn by Cancer in Along the seashore (#9345, galaxy) |
-| the Titanic Skin of Leo | Armor | worn by Leo in Within the Deep Jungle (#9346, galaxy) |
-| the Titanic Bracelet of Virgo | Armor | worn by Virgo in Inside a Luxurious Bedroom (#9347, galaxy) |
-| the Titanic Scale of Libra | Armor | carried by Libra in The Supreme Court (#9348, galaxy) |
-| the Titanic Scale of Libra | Armor | worn by Libra in The Supreme Court (#9348, galaxy) |
-| the Sting of Scorpio | Weapon | worn by Scorpio in In the Dry Desert (#9349, galaxy) |
-| the Arrow of Sagittarius | Wand | worn by Sagittarius in In the Woods (#9350, galaxy) |
-| the Titanic Bow of Sagittarius | Weapon | worn by Sagittarius in In the Woods (#9350, galaxy) |
-| the Titanic Horns of Capricon | Armor | worn by Capricon in On a Mountain Peak (#9351, galaxy) |
-| the Ancient Vessel of Aquarius | Staff | worn by Aquarius in Inside a Waterfall (#9352, galaxy) |
-| the Titanic Tail of Pisces | Armor | worn by Pisces the mermaid in Inside a Gigantic Clam (#9353, galaxy) |
-| the Ring of Dignity | Armor | worn by Cassiopeia the Queen in Cassiopeia's Throne (#9365, galaxy) |
-| the Sceptre of Might | Light | worn by Cepheus the King in Cepheus' Throne (#9367, galaxy) |
-| the ring of the universe | Armor | worn by Polaris, the polar star in The Polar Star (#9371, galaxy) |
-| the Great Dipper of the Skies | Weapon | worn by Polaris, the polar star in The Polar Star (#9371, galaxy) |
-| a spring shoot | Key | carried by Aries in On a Hill (#9342, galaxy) |
-| a summer flower | Key | carried by Cancer in Along the seashore (#9345, galaxy) |
-| an autumn leaf | Key | carried by Libra in The Supreme Court (#9348, galaxy) |
-| a winter branch | Key | carried by Capricon in On a Mountain Peak (#9351, galaxy) |
-| chains of Andromeda | Trash | worn by poor Andromeda in The Offering Chamber (#9330, galaxy) |
+| a comet's tail | Weapon | worn (wielded) by a speedy comet (L10) in A Small Clearing (#9317, galaxy); worn (wielded) by a speedy comet (L10) in A Small Clearing (#9317, galaxy); worn (wielded) by a speedy comet (L10) in Another Edge of the Galaxy (#9322, galaxy); worn (wielded) by a speedy comet (L10) in Another Edge of the Galaxy (#9322, galaxy) |
+| the Titanic Arm plates of Hercules | Armor | worn (arms) by the mighty Hercules (L19) in Hercules' Mighty Throne (#9332, galaxy) |
+| the Titanic Belt of Orion | Armor | worn (waist) by Orion the hunter (L19) in Orion's Hunting Lodge (#9328, galaxy) |
+| an ugly skull of Draco | Staff | carried by the Head of Draco (L25) in Approaching the Head of Draco (#9363, galaxy) |
+| the Titanic Fleece of Aries | Armor | worn (neck) by Aries (L22) in On a Hill (#9342, galaxy) |
+| the Titanic Hoof of Taurus | Armor | worn (feet) by Taurus (L22) in Inside a Spanish Bull-Ring (#9343, galaxy) |
+| the Titanic Mask of Gemini | Armor | worn (head) by Gemini (L22) in Inside a study (#9344, galaxy) |
+| the Titanic Shell of Cancer | Armor | worn (body) by Cancer (L22) in Along the seashore (#9345, galaxy) |
+| the Titanic Skin of Leo | Armor | worn (about body) by Leo (L22) in Within the Deep Jungle (#9346, galaxy) |
+| the Titanic Bracelet of Virgo | Armor | worn (left wrist) by Virgo (L22) in Inside a Luxurious Bedroom (#9347, galaxy) |
+| the Titanic Scale of Libra | Armor | carried by Libra (L22) in The Supreme Court (#9348, galaxy) |
+| the Titanic Scale of Libra | Armor | worn (shield) by Libra (L22) in The Supreme Court (#9348, galaxy) |
+| the Sting of Scorpio | Weapon | worn (wielded) by Scorpio (L22) in In the Dry Desert (#9349, galaxy) |
+| the Arrow of Sagittarius | Wand | worn (held) by Sagittarius (L22) in In the Woods (#9350, galaxy) |
+| the Titanic Bow of Sagittarius | Weapon | worn (wielded) by Sagittarius (L22) in In the Woods (#9350, galaxy) |
+| the Titanic Horns of Capricon | Armor | worn (hands) by Capricon (L22) in On a Mountain Peak (#9351, galaxy) |
+| the Ancient Vessel of Aquarius | Staff | worn (held) by Aquarius (L22) in Inside a Waterfall (#9352, galaxy) |
+| the Titanic Tail of Pisces | Armor | worn (legs) by Pisces the mermaid (L22) in Inside a Gigantic Clam (#9353, galaxy) |
+| the Ring of Dignity | Armor | worn (left finger) by Cassiopeia the Queen (L26) in Cassiopeia's Throne (#9365, galaxy) |
+| the Sceptre of Might | Light | worn (light) by Cepheus the King (L26) in Cepheus' Throne (#9367, galaxy) |
+| the ring of the universe | Armor | worn (right finger) by Polaris, the polar star (L30) in The Polar Star (#9371, galaxy) |
+| the Great Dipper of the Skies | Weapon | worn (wielded) by Polaris, the polar star (L30) in The Polar Star (#9371, galaxy) |
+| a spring shoot | Key | carried by Aries (L22) in On a Hill (#9342, galaxy) |
+| a summer flower | Key | carried by Cancer (L22) in Along the seashore (#9345, galaxy) |
+| an autumn leaf | Key | carried by Libra (L22) in The Supreme Court (#9348, galaxy) |
+| a winter branch | Key | carried by Capricon (L22) in On a Mountain Peak (#9351, galaxy) |
+| chains of Andromeda | Trash | worn (held) by poor Andromeda (L18) in The Offering Chamber (#9330, galaxy) |
 
 ### `gnome`
 
 | Item | Type | Source(s) |
 |---|---|---|
-| a bloody key | Key | carried by a gnome guard in A Small Hut (#1519, gnome) |
-| a dirty key | Key | carried by the troll in End of the Dark Hallway (#1545, gnome) |
-| a toy boomerang | Weapon | carried by a gnome child in A Small Gnome House (#1509, gnome); carried by a gnome child in A Small Gnome House (#1510, gnome); carried by a gnome child in A Small Gnome House (#1511, gnome) |
-| a gnarled staff | Weapon | worn by a gnome man in A Road in the Village (#1503, gnome); worn by a gnome man in A Road in the Village (#1505, gnome); worn by a gnome man in A Road in the Village (#1506, gnome); worn by a large rat in Prison Cell (#1542, gnome) |
-| a gnome sword | Weapon | worn by a gnome guard in The Iron Gateway (#1527, gnome); worn by a gnome guard in The Barracks (#1530, gnome); worn by a gnome guard in The Barracks (#1530, gnome); worn by a gnome guard in The Mess Hall (#1534, gnome) |
-| a studded shield | Armor | worn by a rat in Prison Cell (#1541, gnome); carried by the fire bat in The End of the Hallway (#1556, gnome) |
-| a bloody potion | Potion | carried by a gnome guard in A Small Hut (#1519, gnome) |
-| a bloody cloak | Armor | worn by a gnome guard in A Small Hut (#1519, gnome) |
-| a bat ring | Armor | worn by the chief gnome in The Chief's House (#1558, gnome) |
-| a bead necklace | Armor | worn by the chief gnome in The Chief's House (#1558, gnome) |
-| an electrum sword | Weapon | worn by the chief gnome in The Chief's House (#1558, gnome) |
-| a wicker basket | Container | carried by a gnome scientist in A Small Gnome House (#1513, gnome); carried by a gnome scientist in A Gnome Shop (#1514, gnome) |
-| some peanuts | Food | in a container in #0; carried by the fire bat in The End of the Hallway (#1556, gnome) |
-| some grain | Food | in a container in #0 |
-| a skiff | Boat | worn by a gnome scientist in A Gnome Shop (#1515, gnome) |
-| a pile of coins | Money | carried by the fire bat in The End of the Hallway (#1556, gnome); on the ground in The Treasury (#1570, gnome) |
+| a bloody key | Key | carried by a gnome guard (L8) in A Small Hut (#1519, gnome) |
+| a dirty key | Key | carried by the troll (L14) in End of the Dark Hallway (#1545, gnome) |
+| a toy boomerang | Weapon | carried by a gnome child (L3) in A Small Gnome House (#1509, gnome); carried by a gnome child (L3) in A Small Gnome House (#1510, gnome); carried by a gnome child (L3) in A Small Gnome House (#1511, gnome) |
+| a gnarled staff | Weapon | worn (wielded) by a gnome man (L6) in A Road in the Village (#1503, gnome); worn (wielded) by a gnome man (L6) in A Road in the Village (#1505, gnome); worn (wielded) by a gnome man (L6) in A Road in the Village (#1506, gnome); worn (wielded) by a large rat (L4) in Prison Cell (#1542, gnome) |
+| a gnome sword | Weapon | worn (wielded) by a gnome guard (L8) in The Iron Gateway (#1527, gnome); worn (wielded) by a gnome guard (L8) in The Barracks (#1530, gnome); worn (wielded) by a gnome guard (L8) in The Barracks (#1530, gnome); worn (wielded) by a gnome guard (L8) in The Mess Hall (#1534, gnome) |
+| a studded shield | Armor | worn (shield) by a rat (L2) in Prison Cell (#1541, gnome); carried by the fire bat (L12) in The End of the Hallway (#1556, gnome) |
+| a bloody potion | Potion | carried by a gnome guard (L8) in A Small Hut (#1519, gnome) |
+| a bloody cloak | Armor | worn (neck) by a gnome guard (L8) in A Small Hut (#1519, gnome) |
+| a bat ring | Armor | worn (left finger) by the chief gnome (L15) in The Chief's House (#1558, gnome) |
+| a bead necklace | Armor | worn (neck) by the chief gnome (L15) in The Chief's House (#1558, gnome) |
+| an electrum sword | Weapon | worn (wielded) by the chief gnome (L15) in The Chief's House (#1558, gnome) |
+| a wicker basket | Container | carried by a gnome scientist (L7) in A Small Gnome House (#1513, gnome); carried by a gnome scientist (L7) in A Gnome Shop (#1514, gnome) |
+| some peanuts | Food | inside a wicker basket (#1511) — carried by a gnome scientist (L7) in A Small Gnome House (#1513, gnome); carried by the fire bat (L12) in The End of the Hallway (#1556, gnome) |
+| some grain | Food | inside a wicker basket (#1511) — carried by a gnome scientist (L7) in A Small Gnome House (#1513, gnome) |
+| a skiff | Boat | worn (wielded) by a gnome scientist (L7) in A Gnome Shop (#1515, gnome) |
+| a pile of coins | Money | carried by the fire bat (L12) in The End of the Hallway (#1556, gnome); on the ground in The Treasury (#1570, gnome) |
 | a pile of coins | Money | on the ground in The Altar (#1557, gnome); on the ground in The Treasury (#1570, gnome) |
 | a pile of coins | Money | on the ground in The Altar (#1557, gnome) |
-| heavy banded mail | Armor | worn by the king of the hobgoblins in The Throne Room (#1569, gnome) |
-| a large club | Weapon | worn by the hobgoblin bodyguard in The Throne Room (#1569, gnome); worn by the hobgoblin bodyguard in The Throne Room (#1569, gnome); worn by the hobgoblin bodyguard in The Throne Room (#1569, gnome); worn by the hobgoblin bodyguard in The Throne Room (#1569, gnome); worn by the hobgoblin bodyguard in The Throne Room (#1569, gnome); worn by the hobgoblin soldier in Guarded Room (#1571, gnome); worn by the hobgoblin soldier in Guarded Room (#1571, gnome); worn by the hobgoblin soldier in Guarded Room (#1571, gnome); worn by the hobgoblin soldier in Guarded Room (#1571, gnome); worn by the hobgoblin soldier in Guarded Room (#1572, gnome); worn by the hobgoblin soldier in Guarded Room (#1572, gnome); worn by the hobgoblin soldier in Guarded Room (#1572, gnome); worn by the hobgoblin soldier in Guarded Room (#1572, gnome); on the ground in Hobgoblin Armory (#1573, gnome) |
+| heavy banded mail | Armor | worn (body) by the king of the hobgoblins (L12) in The Throne Room (#1569, gnome) |
+| a large club | Weapon | worn (wielded) by the hobgoblin bodyguard (L7) in The Throne Room (#1569, gnome); worn (wielded) by the hobgoblin bodyguard (L7) in The Throne Room (#1569, gnome); worn (wielded) by the hobgoblin bodyguard (L7) in The Throne Room (#1569, gnome); worn (wielded) by the hobgoblin bodyguard (L7) in The Throne Room (#1569, gnome); worn (wielded) by the hobgoblin bodyguard (L7) in The Throne Room (#1569, gnome); worn (wielded) by the hobgoblin soldier (L3) in Guarded Room (#1571, gnome); worn (wielded) by the hobgoblin soldier (L3) in Guarded Room (#1571, gnome); worn (wielded) by the hobgoblin soldier (L3) in Guarded Room (#1571, gnome); worn (wielded) by the hobgoblin soldier (L3) in Guarded Room (#1571, gnome); worn (wielded) by the hobgoblin soldier (L3) in Guarded Room (#1572, gnome); worn (wielded) by the hobgoblin soldier (L3) in Guarded Room (#1572, gnome); worn (wielded) by the hobgoblin soldier (L3) in Guarded Room (#1572, gnome); worn (wielded) by the hobgoblin soldier (L3) in Guarded Room (#1572, gnome); on the ground in Hobgoblin Armory (#1573, gnome) |
 
 ### `grave`
 
 | Item | Type | Source(s) |
 |---|---|---|
-| a brandy bottle | Drink Con | carried by Henry the Gardener in In a shed on the Graveyard (#3613, grave) |
+| a brandy bottle | Drink Con | carried by Henry the Gardener (L4) in In a shed on the Graveyard (#3613, grave) |
 | a brandy bottle | Drink Con | on the ground in In a shed on the Graveyard (#3613, grave) |
 | a wheelbarrow | Boat | on the ground in In a shed on the Graveyard (#3613, grave); on the ground in In a dusty Tomb (#3643, grave) |
 | a shovel | Weapon | on the ground in In a shed on the Graveyard (#3613, grave) |
 | a rake | Weapon | on the ground in In a shed on the Graveyard (#3613, grave) |
 | a dusty skeleton | Furniture | on the ground in In a dusty Tomb (#3607, grave); on the ground in In a dusty Tomb (#3615, grave); on the ground in In a dusty Tomb (#3619, grave); on the ground in In a dusty Tomb (#3641, grave); on the ground in In a dusty Tomb (#3647, grave) |
-| a amethyst | Treasure | carried by the rotting zombie in In a dusty Tomb (#3645, grave) |
-| a silver pendant | Armor | carried by the ghastly ghoul in In a dusty Tomb (#3617, grave) |
+| a amethyst | Treasure | carried by the rotting zombie (L4) in In a dusty Tomb (#3645, grave) |
+| a silver pendant | Armor | carried by the ghastly ghoul (L6) in In a dusty Tomb (#3617, grave) |
 | a silver dagger | Weapon | on the ground in In a dusty Tomb (#3611, grave) |
 
 ### `haon`
 
 | Item | Type | Source(s) |
 |---|---|---|
-| a lumber axe | Weapon | worn by John the Lumberjack in Outside a small cabin in the forest (#6009, haon) |
-| a chequered shirt | Armor | worn by John the Lumberjack in Outside a small cabin in the forest (#6009, haon) |
-| a pair of leather boots | Armor | worn by John the Lumberjack in Outside a small cabin in the forest (#6009, haon) |
+| a lumber axe | Weapon | worn (wielded) by John the Lumberjack (L5) in Outside a small cabin in the forest (#6009, haon) |
+| a chequered shirt | Armor | worn (body) by John the Lumberjack (L5) in Outside a small cabin in the forest (#6009, haon) |
+| a pair of leather boots | Armor | worn (feet) by John the Lumberjack (L5) in Outside a small cabin in the forest (#6009, haon) |
 | a fireplace | Container | on the ground in Inside the cabin (#6010, haon) |
 | a wooden chest | Container | on the ground in Inside the cabin (#6010, haon) |
-| a small brass key | Key | in a container in Inside the cabin (#6010, haon) |
-| a heap of gold coins | Money | in a container in Inside the cabin (#6010, haon) |
+| a small brass key | Key | inside a fireplace (#6003) — on the ground in Inside the cabin (#6010, haon) |
+| a heap of gold coins | Money | inside a wooden chest (#6005) — on the ground in Inside the cabin (#6010, haon) |
 | some blackberries | Food | on the ground in On a small, grassy field (#6023, haon) |
 | a mushroom | Food | on the ground in A small path in the dense forest (#6006, haon); on the ground in A small path in the dense forest (#6013, haon); on the ground in A small path in the dense forest (#6016, haon) |
 | the barrel | Drink Con | on the ground in Inside the cabin (#6010, haon); on the ground in The Fridge (#7908, redferne) |
@@ -2201,21 +2201,21 @@ Reachable creatures only, grouped by level. _Lvl_ is the mob level; pick targets
 | a long, grey branch | Trash | on the ground in A small path in the deep, dark forest (#6105, haon) |
 | a toadstool | Food | on the ground in A small path in the deep, dark forest (#6104, haon); on the ground in A narrow trail through the deep, dark forest (#6111, haon); on the ground in A small path in the deep, dark forest (#6122, haon) |
 | a toadstool | Food | on the ground in A small path in the deep, dark forest (#6119, haon) |
-| a yellow potion | Potion | carried by the huge, green dragon in The cave of the Green Dragon (#6143, haon) |
-| a large round shield | Armor | carried by the huge, green dragon in The cave of the Green Dragon (#6143, haon) |
-| an iron crown | Armor | carried by the huge, green dragon in The cave of the Green Dragon (#6143, haon) |
-| an iron ring | Armor | worn by Shargugh in A narrow trail through the deep, dark forest (#6100, haon) |
-| the morning star | Weapon | worn by the elder druid in The cultist temple. (#6155, haon) |
+| a yellow potion | Potion | carried by the huge, green dragon (L25) in The cave of the Green Dragon (#6143, haon) |
+| a large round shield | Armor | carried by the huge, green dragon (L25) in The cave of the Green Dragon (#6143, haon) |
+| an iron crown | Armor | carried by the huge, green dragon (L25) in The cave of the Green Dragon (#6143, haon) |
+| an iron ring | Armor | worn (left finger) by Shargugh (L10) in A narrow trail through the deep, dark forest (#6100, haon) |
+| the morning star | Weapon | worn (wielded) by the elder druid (L17) in The cultist temple. (#6155, haon) |
 
 ### `haven`
 
 | Item | Type | Source(s) |
 |---|---|---|
-| a wand of fire | Wand | worn by the white dragon in The White Dragon's Lair (#1824, haven); worn by the white mistress in Another Mirrored Room (#1830, haven) |
-| a flaming axe | Weapon | worn by the blue dragon in The Blue Dragon's Lair (#1825, haven); worn by the white mistress in The Snow Queen's Entry Hall (#1828, haven) |
-| the Shield of the South Wind | Armor | worn by the Snow Queen in The Snow Queen's Chamber (#1819, haven); worn by the Snow Queen in The Snow Queen's Chamber (#1819, haven) |
-| a sprig of mints | Light | carried by the master herbal in The Master Herbal's Room (#1820, haven) |
-| a fuchsia potion | Potion | carried by the cold frost giant in The Little Temple (#1814, haven); carried by the cold frost giant in The Arboretum (#1818, haven); carried by the cold frost giant in The Guard's Dining Hall (#1821, haven); carried by the cold frost giant in The Great Door (#1827, haven) |
+| a wand of fire | Wand | worn (held) by the white dragon (L35) in The White Dragon's Lair (#1824, haven); worn (held) by the white mistress (L30) in Another Mirrored Room (#1830, haven) |
+| a flaming axe | Weapon | worn (wielded) by the blue dragon (L46) in The Blue Dragon's Lair (#1825, haven); worn (wielded) by the white mistress (L30) in The Snow Queen's Entry Hall (#1828, haven) |
+| the Shield of the South Wind | Armor | worn (shield) by the Snow Queen (L42) in The Snow Queen's Chamber (#1819, haven); worn (held) by the Snow Queen (L42) in The Snow Queen's Chamber (#1819, haven) |
+| a sprig of mints | Light | carried by the master herbal (L30) in The Master Herbal's Room (#1820, haven) |
+| a fuchsia potion | Potion | carried by the cold frost giant (L30) in The Little Temple (#1814, haven); carried by the cold frost giant (L30) in The Arboretum (#1818, haven); carried by the cold frost giant (L30) in The Guard's Dining Hall (#1821, haven); carried by the cold frost giant (L30) in The Great Door (#1827, haven) |
 
 ### `hitower`
 
@@ -2223,9 +2223,9 @@ Reachable creatures only, grouped by level. _Lvl_ is the mob level; pick targets
 |---|---|---|
 | an oven | Container | on the ground in the kitchen (#1320, hitower) |
 | a meat locker | Container | on the ground in the kitchen (#1320, hitower) |
-| a slice of pizza | Food | in a container in the kitchen (#1320, hitower) |
-| a large chunk of meat | Food | in a container in the kitchen (#1320, hitower) |
-| a finger sandwich | Food | in a container in the kitchen (#1320, hitower) |
+| a slice of pizza | Food | inside an oven (#1301) — on the ground in the kitchen (#1320, hitower) |
+| a large chunk of meat | Food | inside a meat locker (#1302) — on the ground in the kitchen (#1320, hitower) |
+| a finger sandwich | Food | inside a meat locker (#1302) — on the ground in the kitchen (#1320, hitower) |
 | a straw broom | Trash | on the ground in A broom closet (#1333, hitower); on the ground in A broom closet (#1333, hitower) |
 | a bar of silver | Treasure | on the ground in A store room (#1379, hitower) |
 | a bar of gold | Treasure | on the ground in A store room (#1379, hitower) |
@@ -2233,428 +2233,428 @@ Reachable creatures only, grouped by level. _Lvl_ is the mob level; pick targets
 | a bar of adamantite | Treasure | on the ground in A store room (#1379, hitower) |
 | a mithril hammer | Weapon | on the ground in A very hot room (#1381, hitower) |
 | a chest | Container | on the ground in The master Enchanter's chamber (#1382, hitower) |
-| a small key | Key | worn by the Enchanter in The master Enchanter's chamber (#1382, hitower) |
-| a long sword | Weapon | in a container in The master Enchanter's chamber (#1382, hitower) |
-| a silver dagger | Weapon | in a container in The master Enchanter's chamber (#1382, hitower) |
-| a curved scimitar | Weapon | in a container in The master Enchanter's chamber (#1382, hitower) |
+| a small key | Key | worn (held) by the Enchanter (L23) in The master Enchanter's chamber (#1382, hitower) |
+| a long sword | Weapon | inside a chest (#1315) — on the ground in The master Enchanter's chamber (#1382, hitower) |
+| a silver dagger | Weapon | inside a chest (#1315) — on the ground in The master Enchanter's chamber (#1382, hitower) |
+| a curved scimitar | Weapon | inside a chest (#1315) — on the ground in The master Enchanter's chamber (#1382, hitower) |
 | a wooden staff | Weapon | on the ground in A store room (#1401, hitower) |
 | a silver chased cabinet | Container | on the ground in The spellbinder's cache (#1403, hitower) |
 | a silver chased cabinet | Container | on the ground in The spellbinder's cache (#1403, hitower) |
-| an old key | Key | worn by the Jailor in The Jailor's office (#1328, hitower) |
-| a silvery key | Key | worn by the master spell binder in The master spellbinder's chamber (#1402, hitower) |
-| a red and white staff | Staff | in a container in The spellbinder's cache (#1403, hitower) |
-| a burnt staff | Staff | in a container in The spellbinder's cache (#1403, hitower) |
-| a black rod | Wand | in a container in The spellbinder's cache (#1403, hitower) |
-| a wooden stick | Wand | in a container in The spellbinder's cache (#1403, hitower) |
-| a metal wand | Wand | in a container in The spellbinder's cache (#1403, hitower) |
+| an old key | Key | worn (held) by the Jailor (L17) in The Jailor's office (#1328, hitower) |
+| a silvery key | Key | worn (held) by the master spell binder (L23) in The master spellbinder's chamber (#1402, hitower) |
+| a red and white staff | Staff | inside a silver chased cabinet (#1321) — on the ground in The spellbinder's cache (#1403, hitower) |
+| a burnt staff | Staff | inside a silver chased cabinet (#1321) — on the ground in The spellbinder's cache (#1403, hitower) |
+| a black rod | Wand | inside a silver chased cabinet (#1322) — on the ground in The spellbinder's cache (#1403, hitower) |
+| a wooden stick | Wand | inside a silver chased cabinet (#1322) — on the ground in The spellbinder's cache (#1403, hitower) |
+| a metal wand | Wand | inside a silver chased cabinet (#1322) — on the ground in The spellbinder's cache (#1403, hitower) |
 | a black cauldron | Container | on the ground in The scrying chamber (#1435, hitower) |
-| a small pair of bat wings | Trash | in a container in The scrying chamber (#1435, hitower) |
-| an eyeball | Trash | in a container in The scrying chamber (#1435, hitower) |
+| a small pair of bat wings | Trash | inside a black cauldron (#1331) — on the ground in The scrying chamber (#1435, hitower) |
+| an eyeball | Trash | inside a black cauldron (#1331) — on the ground in The scrying chamber (#1435, hitower) |
 | the book of magic | Container | on the ground in The reading room (#1445, hitower) |
-| a pair of spectacles | Armor | in a container in The reading room (#1445, hitower) |
+| a pair of spectacles | Armor | inside the book of magic (#1334) — on the ground in The reading room (#1445, hitower) |
 | a golden altar | Container | on the ground in The altar (#1480, hitower) |
-| a heart shaped medallion | Armor | in a container in The altar (#1480, hitower) |
+| a heart shaped medallion | Armor | inside a golden altar (#1336) — on the ground in The altar (#1480, hitower) |
 | a large chest | Container | on the ground in The treasury (#1481, hitower) |
-| an intricately carved key | Key | carried by The Grand Mistress in The audience chamber (#1477, hitower) |
+| an intricately carved key | Key | carried by The Grand Mistress (L50) in The audience chamber (#1477, hitower) |
 | a brown cloak | Armor | on the ground in A passage (#1482, hitower) |
 | a chameleon poncho | Armor | on the ground in A passage (#1482, hitower) |
 | a pair of old boots | Armor | on the ground in A passage (#1482, hitower) |
-| a seashell ring | Boat | in a container in A passage (#1482, hitower) |
+| a seashell ring | Boat | inside a leather backpack (#1345) — on the ground in A passage (#1482, hitower) |
 | a leather backpack | Container | on the ground in A passage (#1482, hitower) |
-| a herbal brew | Drink Con | carried by Strick the bartender in Mages Tavern (#1318, hitower) |
-| a waybread | Food | carried by Strick the bartender in Mages Tavern (#1318, hitower) |
-| a meat cleaver | Weapon | worn by Ezmerelda in the kitchen (#1320, hitower) |
-| some chain shackles | Trash | worn by The prisoner in A dark cell (#1327, hitower) |
-| a silvery dagger | Weapon | worn by a young mage in The training room (#1359, hitower); worn by a young mage in The training room (#1359, hitower); worn by a young mage in The training room (#1359, hitower); worn by the battle mistress in The training room (#1359, hitower) |
-| a scroll | Scroll | carried by the master scribe in The master scribe's workshop (#1373, hitower) |
-| a bound scroll | Scroll | carried by the master scribe in The master scribe's workshop (#1373, hitower) |
-| a long cylindrical tube | Container | carried by the master scribe in The master scribe's workshop (#1373, hitower) |
-| an old scroll | Scroll | carried by the scribe's assistant in The master scribe's workshop (#1373, hitower) |
-| a scroll written on blue paper | Scroll | carried by the Enchanter in The master Enchanter's chamber (#1382, hitower) |
-| a leather pouch | Container | worn by the Mad Alchemist in The Mad Alchemist's workroom (#1388, hitower) |
-| a silver stirring spoon | Furniture | in a container in The master Enchanter's chamber (#1382, hitower) |
-| a bright red potion | Potion | in a container in The master Enchanter's chamber (#1382, hitower) |
-| a green potion | Potion | in a container in The master Enchanter's chamber (#1382, hitower) |
-| an efervecent potion | Potion | in a container in The master Enchanter's chamber (#1382, hitower) |
-| a milky white potion | Potion | in a container in The master Enchanter's chamber (#1382, hitower) |
-| a black staff | Staff | worn by the master summoner in The pentagram chamber (#1390, hitower) |
-| a golden flute | Staff | worn by the master charmer in The charm master's chamber (#1395, hitower) |
-| a small figurine | Staff | carried by the master charmer in The charm master's chamber (#1395, hitower) |
-| a holstered belt | Container | worn by the master spell binder in The master spellbinder's chamber (#1402, hitower) |
-| a blackened wand | Wand | in a container in A store room (#1401, hitower) |
-| a runed chisel | Weapon | worn by the golem maker in The golem master's workshop (#1409, hitower) |
-| a beltpouch | Container | worn by the master of illusions in The master of illusion's chamber (#1417, hitower) |
-| some sparkling dust | Staff | in a container in The spellbinder's cache (#1403, hitower) |
-| a dark cowl | Armor | worn by the Necromancer in The Necromancer's Lair (#1425, hitower) |
-| an ashen wand | Wand | worn by the Necromancer in The Necromancer's Lair (#1425, hitower) |
-| a huge spiked club | Weapon | worn by an undead giant in The Necromancer's Lair (#1425, hitower) |
-| a grey robe | Container | worn by the master's apprentice in The antechamber (#1453, hitower) |
-| a long grey cloak | Armor | worn by the master of Neutrality in The main chamber (#1454, hitower) |
-| a glinting silver bracelet | Armor | worn by the master's apprentice in The antechamber (#1453, hitower) |
-| an iron shod staff | Weapon | worn by the master of Neutrality in The main chamber (#1454, hitower) |
-| a ward minor | Armor | worn by the master of Neutrality in The main chamber (#1454, hitower); worn by the master of the black robes in The inner chamber (#1464, hitower); worn by The master of goodness in The chamber of the white light (#1469, hitower) |
-| a black robe | Container | worn by a black robed apprentice in The chamber of darkness (#1461, hitower) |
-| an onyx bracelet | Armor | worn by a black robed apprentice in The chamber of darkness (#1461, hitower) |
-| a dark black cloak | Armor | worn by the master of the black robes in The inner chamber (#1464, hitower) |
-| a sharp shard of obsidian | Weapon | worn by the master of the black robes in The inner chamber (#1464, hitower) |
-| a white robe | Container | worn by a white robed apprentice in An antechamber (#1467, hitower) |
-| a white gold bracelet | Armor | worn by a white robed apprentice in An antechamber (#1467, hitower) |
-| a white cloak | Armor | worn by The master of goodness in The chamber of the white light (#1469, hitower) |
-| an ivory hilted dagger | Weapon | worn by The master of goodness in The chamber of the white light (#1469, hitower) |
-| a spiked collar | Armor | worn by A calico cat in The audience chamber (#1477, hitower) |
-| a small emerald ring | Armor | worn by The Grand Mistress in The audience chamber (#1477, hitower) |
-| an emerald bracelet | Armor | worn by The Grand Mistress in The audience chamber (#1477, hitower) |
-| a ward major | Armor | worn by The Grand Mistress in The audience chamber (#1477, hitower) |
-| the ebony kris | Weapon | worn by The Grand Mistress in The audience chamber (#1477, hitower) |
-| a tight fitting green dragon scale shirt | Armor | worn by The Grand Mistress in The audience chamber (#1477, hitower); on the ground in Skylar's Hideout (#1499, hitower) |
+| a herbal brew | Drink Con | carried by Strick the bartender (L25) in Mages Tavern (#1318, hitower) |
+| a waybread | Food | carried by Strick the bartender (L25) in Mages Tavern (#1318, hitower) |
+| a meat cleaver | Weapon | worn (wielded) by Ezmerelda (L20) in the kitchen (#1320, hitower) |
+| some chain shackles | Trash | worn (left wrist) by The prisoner (L16) in A dark cell (#1327, hitower) |
+| a silvery dagger | Weapon | worn (wielded) by a young mage (L9) in The training room (#1359, hitower); worn (wielded) by a young mage (L9) in The training room (#1359, hitower); worn (wielded) by a young mage (L9) in The training room (#1359, hitower); worn (held) by the battle mistress (L17) in The training room (#1359, hitower) |
+| a scroll | Scroll | carried by the master scribe (L22) in The master scribe's workshop (#1373, hitower) |
+| a bound scroll | Scroll | carried by the master scribe (L22) in The master scribe's workshop (#1373, hitower) |
+| a long cylindrical tube | Container | carried by the master scribe (L22) in The master scribe's workshop (#1373, hitower) |
+| an old scroll | Scroll | carried by the scribe's assistant (L16) in The master scribe's workshop (#1373, hitower) |
+| a scroll written on blue paper | Scroll | carried by the Enchanter (L23) in The master Enchanter's chamber (#1382, hitower) |
+| a leather pouch | Container | worn (held) by the Mad Alchemist (L24) in The Mad Alchemist's workroom (#1388, hitower) |
+| a silver stirring spoon | Furniture | inside a leather pouch (#1364) — worn (held) by the Mad Alchemist (L24) in The Mad Alchemist's workroom (#1388, hitower) |
+| a bright red potion | Potion | inside a leather pouch (#1364) — worn (held) by the Mad Alchemist (L24) in The Mad Alchemist's workroom (#1388, hitower) |
+| a green potion | Potion | inside a leather pouch (#1364) — worn (held) by the Mad Alchemist (L24) in The Mad Alchemist's workroom (#1388, hitower) |
+| an efervecent potion | Potion | inside a leather pouch (#1364) — worn (held) by the Mad Alchemist (L24) in The Mad Alchemist's workroom (#1388, hitower) |
+| a milky white potion | Potion | inside a leather pouch (#1364) — worn (held) by the Mad Alchemist (L24) in The Mad Alchemist's workroom (#1388, hitower) |
+| a black staff | Staff | worn (held) by the master summoner (L22) in The pentagram chamber (#1390, hitower) |
+| a golden flute | Staff | worn (held) by the master charmer (L23) in The charm master's chamber (#1395, hitower) |
+| a small figurine | Staff | carried by the master charmer (L23) in The charm master's chamber (#1395, hitower) |
+| a holstered belt | Container | worn (waist) by the master spell binder (L23) in The master spellbinder's chamber (#1402, hitower) |
+| a blackened wand | Wand | inside a holstered belt (#1374) — worn (waist) by the master spell binder (L23) in The master spellbinder's chamber (#1402, hitower) |
+| a runed chisel | Weapon | worn (held) by the golem maker (L21) in The golem master's workshop (#1409, hitower) |
+| a beltpouch | Container | worn (waist) by the master of illusions (L21) in The master of illusion's chamber (#1417, hitower) |
+| some sparkling dust | Staff | inside a beltpouch (#1377) — worn (waist) by the master of illusions (L21) in The master of illusion's chamber (#1417, hitower) |
+| a dark cowl | Armor | worn (neck) by the Necromancer (L25) in The Necromancer's Lair (#1425, hitower) |
+| an ashen wand | Wand | worn (held) by the Necromancer (L25) in The Necromancer's Lair (#1425, hitower) |
+| a huge spiked club | Weapon | worn (wielded) by an undead giant (L18) in The Necromancer's Lair (#1425, hitower) |
+| a grey robe | Container | worn (about body) by the master's apprentice (L24) in The antechamber (#1453, hitower) |
+| a long grey cloak | Armor | worn (neck) by the master of Neutrality (L30) in The main chamber (#1454, hitower) |
+| a glinting silver bracelet | Armor | worn (left wrist) by the master's apprentice (L24) in The antechamber (#1453, hitower) |
+| an iron shod staff | Weapon | worn (wielded) by the master of Neutrality (L30) in The main chamber (#1454, hitower) |
+| a ward minor | Armor | worn (held) by the master of Neutrality (L30) in The main chamber (#1454, hitower); worn (held) by the master of the black robes (L30) in The inner chamber (#1464, hitower); worn (held) by The master of goodness (L30) in The chamber of the white light (#1469, hitower) |
+| a black robe | Container | worn (about body) by a black robed apprentice (L20) in The chamber of darkness (#1461, hitower) |
+| an onyx bracelet | Armor | worn (left wrist) by a black robed apprentice (L20) in The chamber of darkness (#1461, hitower) |
+| a dark black cloak | Armor | worn (neck) by the master of the black robes (L30) in The inner chamber (#1464, hitower) |
+| a sharp shard of obsidian | Weapon | worn (wielded) by the master of the black robes (L30) in The inner chamber (#1464, hitower) |
+| a white robe | Container | worn (about body) by a white robed apprentice (L20) in An antechamber (#1467, hitower) |
+| a white gold bracelet | Armor | worn (left wrist) by a white robed apprentice (L20) in An antechamber (#1467, hitower) |
+| a white cloak | Armor | worn (neck) by The master of goodness (L30) in The chamber of the white light (#1469, hitower) |
+| an ivory hilted dagger | Weapon | worn (wielded) by The master of goodness (L30) in The chamber of the white light (#1469, hitower) |
+| a spiked collar | Armor | worn (neck) by A calico cat (L25) in The audience chamber (#1477, hitower) |
+| a small emerald ring | Armor | worn (left finger) by The Grand Mistress (L50) in The audience chamber (#1477, hitower) |
+| an emerald bracelet | Armor | worn (left wrist) by The Grand Mistress (L50) in The audience chamber (#1477, hitower) |
+| a ward major | Armor | worn (held) by The Grand Mistress (L50) in The audience chamber (#1477, hitower) |
+| the ebony kris | Weapon | worn (wielded) by The Grand Mistress (L50) in The audience chamber (#1477, hitower) |
+| a tight fitting green dragon scale shirt | Armor | worn (body) by The Grand Mistress (L50) in The audience chamber (#1477, hitower); on the ground in Skylar's Hideout (#1499, hitower) |
 | a fridge | Container | on the ground in Skylar's Hideout (#1499, hitower) |
-| a bottle of Absolut vodka | Drink Con | in a container in Skylar's Hideout (#1499, hitower) |
-| a bottle of cranberry juice | Drink Con | in a container in Skylar's Hideout (#1499, hitower) |
+| a bottle of Absolut vodka | Drink Con | inside a fridge (#1402) — on the ground in Skylar's Hideout (#1499, hitower) |
+| a bottle of cranberry juice | Drink Con | inside a fridge (#1402) — on the ground in Skylar's Hideout (#1499, hitower) |
 
 ### `hood`
 
 | Item | Type | Source(s) |
 |---|---|---|
-| an Ogre gang jacket | Armor | worn by a gang member in Beginning of White Dragon Boulevard (#2102, hood); worn by a gang member in Along White Dragon Boulevard (#2103, hood); worn by a gang member in White Dragon Boulevard at Armory (#2104, hood); worn by a gang member in Corner of Ice and White Dragon (#2106, hood); worn by a gang member in White Dragon Boulevard (#2107, hood); worn by a gang member in An over-grown lot (#2109, hood); worn by a gang member in East end of an over-grown plot of land (#2110, hood); worn by a gang member in A Bend in the Way (#2112, hood); worn by a gang member in Ice Dragon Bend (#2113, hood); worn by a gang member in Bronze Dragon Street at wizard's back door (#2115, hood); worn by a gang member in Dracolich Plaza (#2116, hood); worn by a gang member in Shortcut (#2117, hood); worn by a gang member in Ice Dragon Way (#2118, hood); worn by a gang member in Shortcut (#2121, hood); worn by a gang member in Ice Dragon Way (#2122, hood); worn by a gang member in Yellow Dragon Road (#2130, hood) |
-| a Troll gang jacket | Armor | worn by a gang member in Hector Street at Bakery (#2142, hood); worn by a gang member in Corner of Ajax and Hector (#2145, hood); worn by a gang member in Hector Street (#2146, hood); worn by a gang member in Hector street (#2151, hood); worn by a gang member in A bend in the road (#2152, hood); worn by a gang member in What is left of the weaponshop (#2153, hood); worn by a gang member in Achilles avenue at entrance to park (#2156, hood); worn by a gang member in Ajax street (#2158, hood); worn by a gang member in Curve in the road (#2159, hood); worn by a gang member in Alexander Road (#2161, hood); worn by a gang member in Alexander Street at park entrance (#2162, hood); worn by a gang member in Ajax Street (#2164, hood); worn by a gang member in The inn/pub (#2165, hood); worn by a gang member in The inn/pub (#2165, hood); worn by a gang member in The inn/pub (#2165, hood); worn by a gang member in Solomon Street (#2166, hood); worn by a gang member in Intersection of Achilles and Solomon (#2167, hood); worn by a gang member in Intersection of Ajax and Solomon (#2169, hood) |
-| a hefty length of chain | Weapon | worn by a bruiser in The remains of the magic shop (#2114, hood); worn by a bruiser in Dracolich Plaza (#2116, hood) |
-| a metal shield | Armor | worn by a bruiser in Dracolich Plaza (#2116, hood); worn by a bruiser in Khan Park (#2155, hood); worn by a bruiser in Hallway (#2170, hood) |
-| a spray paint can | Wand | worn by a vandal in Beginning of White Dragon Boulevard (#2102, hood); worn by a vandal in The remains of the magic shop (#2114, hood); worn by a vandal in Alexander Road (#2161, hood); worn by a vandal in The inn/pub (#2165, hood) |
-| a stiletto | Weapon | worn by the gang leader in A small ruined chapel (#2148, hood) |
-| spiked heeled boots | Armor | worn by a doll in Bronze Dragon Street at Warehouse (#2125, hood); worn by a doll in Ajax Avenue at chapel (#2149, hood) |
-| a mirror | Wand | worn by a doll in Courtyard South (#2123, hood); worn by a doll in Bronze Dragon Street at Warehouse (#2125, hood); worn by a doll in Ajax Avenue at chapel (#2149, hood); worn by a doll in A bend in the road (#2152, hood) |
-| comfortable leather gloves | Armor | worn by a bruiser in Corner of Bronze and White Dragon (#2108, hood); worn by a bruiser in Khan Park (#2155, hood) |
-| a patrol club | Weapon | worn by a patrolman in NO MAN'S LAND (#2131, hood); worn by a patrolman in NO MAN'S LAND (#2132, hood); worn by a patrolman in NO MAN'S LAND (#2133, hood); worn by a patrolman in NO MAN'S LAND (#2134, hood); worn by a patrolman in NO MAN'S LAND (#2135, hood); worn by a patrolman in NO MAN'S LAND (#2136, hood); worn by a patrolman in NO MAN'S LAND (#2137, hood); worn by a patrolman in NO MAN'S LAND (#2138, hood); worn by a patrolman in NO MAN'S LAND (#2139, hood); worn by a patrolman in NO MAN'S LAND (#2140, hood) |
-| a troll signet ring | Armor | worn by the gang leader in Old Abandoned Warehouse (#2124, hood); worn by a bruiser in Hallway (#2170, hood) |
-| brass knuckles | Armor | worn by the gang leader in A small ruined chapel (#2148, hood) |
+| an Ogre gang jacket | Armor | worn (body) by a gang member (L35) in Beginning of White Dragon Boulevard (#2102, hood); worn (body) by a gang member (L35) in Along White Dragon Boulevard (#2103, hood); worn (body) by a gang member (L35) in White Dragon Boulevard at Armory (#2104, hood); worn (body) by a gang member (L35) in Corner of Ice and White Dragon (#2106, hood); worn (body) by a gang member (L35) in White Dragon Boulevard (#2107, hood); worn (body) by a gang member (L35) in An over-grown lot (#2109, hood); worn (body) by a gang member (L35) in East end of an over-grown plot of land (#2110, hood); worn (body) by a gang member (L35) in A Bend in the Way (#2112, hood); worn (body) by a gang member (L35) in Ice Dragon Bend (#2113, hood); worn (body) by a gang member (L35) in Bronze Dragon Street at wizard's back door (#2115, hood); worn (body) by a gang member (L35) in Dracolich Plaza (#2116, hood); worn (body) by a gang member (L35) in Shortcut (#2117, hood); worn (body) by a gang member (L35) in Ice Dragon Way (#2118, hood); worn (body) by a gang member (L35) in Shortcut (#2121, hood); worn (body) by a gang member (L35) in Ice Dragon Way (#2122, hood); worn (body) by a gang member (L35) in Yellow Dragon Road (#2130, hood) |
+| a Troll gang jacket | Armor | worn (body) by a gang member (L35) in Hector Street at Bakery (#2142, hood); worn (body) by a gang member (L35) in Corner of Ajax and Hector (#2145, hood); worn (body) by a gang member (L35) in Hector Street (#2146, hood); worn (body) by a gang member (L35) in Hector street (#2151, hood); worn (body) by a gang member (L35) in A bend in the road (#2152, hood); worn (body) by a gang member (L35) in What is left of the weaponshop (#2153, hood); worn (body) by a gang member (L35) in Achilles avenue at entrance to park (#2156, hood); worn (body) by a gang member (L35) in Ajax street (#2158, hood); worn (body) by a gang member (L35) in Curve in the road (#2159, hood); worn (body) by a gang member (L35) in Alexander Road (#2161, hood); worn (body) by a gang member (L35) in Alexander Street at park entrance (#2162, hood); worn (body) by a gang member (L35) in Ajax Street (#2164, hood); worn (body) by a gang member (L35) in The inn/pub (#2165, hood); worn (body) by a gang member (L35) in The inn/pub (#2165, hood); worn (body) by a gang member (L35) in The inn/pub (#2165, hood); worn (body) by a gang member (L35) in Solomon Street (#2166, hood); worn (body) by a gang member (L35) in Intersection of Achilles and Solomon (#2167, hood); worn (body) by a gang member (L35) in Intersection of Ajax and Solomon (#2169, hood) |
+| a hefty length of chain | Weapon | worn (wielded) by a bruiser (L39) in The remains of the magic shop (#2114, hood); worn (wielded) by a bruiser (L39) in Dracolich Plaza (#2116, hood) |
+| a metal shield | Armor | worn (shield) by a bruiser (L39) in Dracolich Plaza (#2116, hood); worn (shield) by a bruiser (L39) in Khan Park (#2155, hood); worn (shield) by a bruiser (L39) in Hallway (#2170, hood) |
+| a spray paint can | Wand | worn (held) by a vandal (L39) in Beginning of White Dragon Boulevard (#2102, hood); worn (held) by a vandal (L39) in The remains of the magic shop (#2114, hood); worn (held) by a vandal (L39) in Alexander Road (#2161, hood); worn (held) by a vandal (L39) in The inn/pub (#2165, hood) |
+| a stiletto | Weapon | worn (wielded) by the gang leader (L43) in A small ruined chapel (#2148, hood) |
+| spiked heeled boots | Armor | worn (feet) by a doll (L36) in Bronze Dragon Street at Warehouse (#2125, hood); worn (feet) by a doll (L36) in Ajax Avenue at chapel (#2149, hood) |
+| a mirror | Wand | worn (held) by a doll (L36) in Courtyard South (#2123, hood); worn (held) by a doll (L36) in Bronze Dragon Street at Warehouse (#2125, hood); worn (held) by a doll (L36) in Ajax Avenue at chapel (#2149, hood); worn (held) by a doll (L36) in A bend in the road (#2152, hood) |
+| comfortable leather gloves | Armor | worn (hands) by a bruiser (L39) in Corner of Bronze and White Dragon (#2108, hood); worn (hands) by a bruiser (L39) in Khan Park (#2155, hood) |
+| a patrol club | Weapon | worn (wielded) by a patrolman (L37) in NO MAN'S LAND (#2131, hood); worn (wielded) by a patrolman (L37) in NO MAN'S LAND (#2132, hood); worn (wielded) by a patrolman (L37) in NO MAN'S LAND (#2133, hood); worn (wielded) by a patrolman (L37) in NO MAN'S LAND (#2134, hood); worn (wielded) by a patrolman (L37) in NO MAN'S LAND (#2135, hood); worn (wielded) by a patrolman (L37) in NO MAN'S LAND (#2136, hood); worn (wielded) by a patrolman (L37) in NO MAN'S LAND (#2137, hood); worn (wielded) by a patrolman (L37) in NO MAN'S LAND (#2138, hood); worn (wielded) by a patrolman (L37) in NO MAN'S LAND (#2139, hood); worn (wielded) by a patrolman (L37) in NO MAN'S LAND (#2140, hood) |
+| a troll signet ring | Armor | worn (left finger) by the gang leader (L43) in Old Abandoned Warehouse (#2124, hood); worn (left finger) by a bruiser (L39) in Hallway (#2170, hood) |
+| brass knuckles | Armor | worn (held) by the gang leader (L43) in A small ruined chapel (#2148, hood) |
 
 ### `limbo`
 
 | Item | Type | Source(s) |
 |---|---|---|
-| a bright ball of light | Light | worn by the Hitokiri Battousai in The Void (#1, limbo) |
+| a bright ball of light | Light | worn (light) by the Hitokiri Battousai (L104) in The Void (#1, limbo) |
 | a sign | Furniture | on the ground in The Void (#1, limbo) |
-| a katana | Weapon | worn by the Hitokiri Battousai in The Void (#1, limbo) |
-| a Leo mobile suit | Suit | carried by the armourer in The Armoury (#3020, midgaard); carried by Martina in A fissure (#9605, cithdeux); carried by the Seeress of Cove in Tranquility (#9704, divergent); carried by Maklu in A second story shop (#9509, malokteri) |
-| an Aries mobile suit | Suit | carried by the armourer in The Armoury (#3020, midgaard); carried by Martina in A fissure (#9605, cithdeux); carried by the Seeress of Cove in Tranquility (#9704, divergent) |
-| a Taurus mobile suit | Suit | carried by the armourer in The Armoury (#3020, midgaard); carried by Martina in A fissure (#9605, cithdeux); carried by the Seeress of Cove in Tranquility (#9704, divergent); carried by Maklu in A second story shop (#9509, malokteri) |
-| a Virgo mobile suit | Suit | carried by the armourer in The Armoury (#3020, midgaard); carried by Maklu in A second story shop (#9509, malokteri) |
+| a katana | Weapon | worn (wielded) by the Hitokiri Battousai (L104) in The Void (#1, limbo) |
+| a Leo mobile suit | Suit | carried by the armourer (L100) in The Armoury (#3020, midgaard); carried by Martina (L50) in A fissure (#9605, cithdeux); carried by the Seeress of Cove (L50) in Tranquility (#9704, divergent); carried by Maklu (L50) in A second story shop (#9509, malokteri) |
+| an Aries mobile suit | Suit | carried by the armourer (L100) in The Armoury (#3020, midgaard); carried by Martina (L50) in A fissure (#9605, cithdeux); carried by the Seeress of Cove (L50) in Tranquility (#9704, divergent) |
+| a Taurus mobile suit | Suit | carried by the armourer (L100) in The Armoury (#3020, midgaard); carried by Martina (L50) in A fissure (#9605, cithdeux); carried by the Seeress of Cove (L50) in Tranquility (#9704, divergent); carried by Maklu (L50) in A second story shop (#9509, malokteri) |
+| a Virgo mobile suit | Suit | carried by the armourer (L100) in The Armoury (#3020, midgaard); carried by Maklu (L50) in A second story shop (#9509, malokteri) |
 | a Vayeate mobile suit | Suit | on the ground in The healing chamber (#9604, cithdeux) |
 | the Tallgeese | Suit | on the ground in The healing chamber (#9604, cithdeux); on the ground in Shelter (#9956, renegades); on the ground in Hidden Area (#9803, teikoku); on the ground in [Atheneum of Wondrous Knowledge] (#9703, divergent); on the ground in Room of War and Flames (#9512, malokteri) |
 | the Wing Gundam | Suit | on the ground in Shelter (#9956, renegades); on the ground in Hidden Area (#9803, teikoku); on the ground in [Atheneum of Wondrous Knowledge] (#9703, divergent); on the ground in Room of War and Flames (#9512, malokteri) |
 | the Gundam Deathscythe | Suit | on the ground in The healing chamber (#9604, cithdeux); on the ground in Shelter (#9956, renegades); on the ground in Hidden Area (#9803, teikoku); on the ground in [Atheneum of Wondrous Knowledge] (#9703, divergent); on the ground in Room of War and Flames (#9512, malokteri) |
 | the Gundam Heavyarms | Suit | on the ground in Shelter (#9956, renegades); on the ground in Hidden Area (#9803, teikoku); on the ground in [Atheneum of Wondrous Knowledge] (#9703, divergent) |
 | the Gundam Sandrock | Suit | on the ground in The healing chamber (#9604, cithdeux); on the ground in Room of War and Flames (#9512, malokteri) |
-| 100 rounds of 105mm bullets | Munition | carried by the weaponsmith in The Weapon Shop (#3011, midgaard); carried by Dan in The healing chamber (#9604, cithdeux); carried by Lupin in Bastille (#9954, renegades); carried by Wufei in Hidden Area (#9803, teikoku); carried by Atsu in [Atheneum of Wondrous Knowledge] (#9703, divergent); carried by Sut Resi in Room of War and Flames (#9512, malokteri) |
-| a canister of vernier fuel | Munition | carried by the weaponsmith in The Weapon Shop (#3011, midgaard); carried by Dan in The healing chamber (#9604, cithdeux); carried by Lupin in Bastille (#9954, renegades); carried by Malucifer in Shelter (#9956, renegades); carried by Wufei in Hidden Area (#9803, teikoku); carried by Atsu in [Atheneum of Wondrous Knowledge] (#9703, divergent); carried by Sut Resi in Room of War and Flames (#9512, malokteri) |
-| a stack of AP shells | Munition | carried by the weaponsmith in The Weapon Shop (#3011, midgaard); carried by Dan in The healing chamber (#9604, cithdeux); carried by Lupin in Bastille (#9954, renegades); carried by Malucifer in Shelter (#9956, renegades); carried by Wufei in Hidden Area (#9803, teikoku); carried by Atsu in [Atheneum of Wondrous Knowledge] (#9703, divergent); carried by Sut Resi in Room of War and Flames (#9512, malokteri) |
-| a plasma pack | Munition | carried by the weaponsmith in The Weapon Shop (#3011, midgaard); carried by Dan in The healing chamber (#9604, cithdeux); carried by Lupin in Bastille (#9954, renegades); carried by Malucifer in Shelter (#9956, renegades); carried by Wufei in Hidden Area (#9803, teikoku); carried by Atsu in [Atheneum of Wondrous Knowledge] (#9703, divergent); carried by Sut Resi in Room of War and Flames (#9512, malokteri) |
-| a unit of beam fuel | Munition | carried by the weaponsmith in The Weapon Shop (#3011, midgaard); carried by Dan in The healing chamber (#9604, cithdeux); carried by Lupin in Bastille (#9954, renegades); carried by Wufei in Hidden Area (#9803, teikoku); carried by Atsu in [Atheneum of Wondrous Knowledge] (#9703, divergent); carried by Sut Resi in Room of War and Flames (#9512, malokteri) |
-| a small titanium buckler | Accessory | carried by the wizard in The Magic Shop (#3033, midgaard); carried by the Seeress of Cove in Tranquility (#9704, divergent) |
-| a standard issue beam rifle | Accessory | carried by the wizard in The Magic Shop (#3033, midgaard) |
-| a beam cannon | Accessory | carried by the wizard in The Magic Shop (#3033, midgaard) |
-| a high energy laser cannon | Accessory | carried by the wizard in The Magic Shop (#3033, midgaard); carried by Martina in A fissure (#9605, cithdeux); carried by Maklu in A second story shop (#9509, malokteri) |
-| a UPSF standard missile | Munition | carried by the wizard in The Magic Shop (#3033, midgaard); carried by Martina in A fissure (#9605, cithdeux); carried by the Seeress of Cove in Tranquility (#9704, divergent); carried by Maklu in A second story shop (#9509, malokteri) |
-| a slim beam sabre | Accessory | carried by the wizard in The Magic Shop (#3033, midgaard); carried by the Seeress of Cove in Tranquility (#9704, divergent) |
-| a field repair kit | Accessory | carried by the weaponsmith in The Weapon Shop (#3011, midgaard); carried by Dan in The healing chamber (#9604, cithdeux); carried by Lupin in Bastille (#9954, renegades); carried by Malucifer in Shelter (#9956, renegades); carried by Wufei in Hidden Area (#9803, teikoku); carried by Atsu in [Atheneum of Wondrous Knowledge] (#9703, divergent); carried by Sut Resi in Room of War and Flames (#9512, malokteri) |
-| a dobergun | Accessory | carried by the wizard in The Magic Shop (#3033, midgaard); carried by Martina in A fissure (#9605, cithdeux); carried by Maklu in A second story shop (#9509, malokteri) |
+| 100 rounds of 105mm bullets | Munition | carried by the weaponsmith (L100) in The Weapon Shop (#3011, midgaard); carried by Dan (L50) in The healing chamber (#9604, cithdeux); carried by Lupin (L50) in Bastille (#9954, renegades); carried by Wufei (L50) in Hidden Area (#9803, teikoku); carried by Atsu (L50) in [Atheneum of Wondrous Knowledge] (#9703, divergent); carried by Sut Resi (L50) in Room of War and Flames (#9512, malokteri) |
+| a canister of vernier fuel | Munition | carried by the weaponsmith (L100) in The Weapon Shop (#3011, midgaard); carried by Dan (L50) in The healing chamber (#9604, cithdeux); carried by Lupin (L50) in Bastille (#9954, renegades); carried by Malucifer (L50) in Shelter (#9956, renegades); carried by Wufei (L50) in Hidden Area (#9803, teikoku); carried by Atsu (L50) in [Atheneum of Wondrous Knowledge] (#9703, divergent); carried by Sut Resi (L50) in Room of War and Flames (#9512, malokteri) |
+| a stack of AP shells | Munition | carried by the weaponsmith (L100) in The Weapon Shop (#3011, midgaard); carried by Dan (L50) in The healing chamber (#9604, cithdeux); carried by Lupin (L50) in Bastille (#9954, renegades); carried by Malucifer (L50) in Shelter (#9956, renegades); carried by Wufei (L50) in Hidden Area (#9803, teikoku); carried by Atsu (L50) in [Atheneum of Wondrous Knowledge] (#9703, divergent); carried by Sut Resi (L50) in Room of War and Flames (#9512, malokteri) |
+| a plasma pack | Munition | carried by the weaponsmith (L100) in The Weapon Shop (#3011, midgaard); carried by Dan (L50) in The healing chamber (#9604, cithdeux); carried by Lupin (L50) in Bastille (#9954, renegades); carried by Malucifer (L50) in Shelter (#9956, renegades); carried by Wufei (L50) in Hidden Area (#9803, teikoku); carried by Atsu (L50) in [Atheneum of Wondrous Knowledge] (#9703, divergent); carried by Sut Resi (L50) in Room of War and Flames (#9512, malokteri) |
+| a unit of beam fuel | Munition | carried by the weaponsmith (L100) in The Weapon Shop (#3011, midgaard); carried by Dan (L50) in The healing chamber (#9604, cithdeux); carried by Lupin (L50) in Bastille (#9954, renegades); carried by Wufei (L50) in Hidden Area (#9803, teikoku); carried by Atsu (L50) in [Atheneum of Wondrous Knowledge] (#9703, divergent); carried by Sut Resi (L50) in Room of War and Flames (#9512, malokteri) |
+| a small titanium buckler | Accessory | carried by the wizard (L100) in The Magic Shop (#3033, midgaard); carried by the Seeress of Cove (L50) in Tranquility (#9704, divergent) |
+| a standard issue beam rifle | Accessory | carried by the wizard (L100) in The Magic Shop (#3033, midgaard) |
+| a beam cannon | Accessory | carried by the wizard (L100) in The Magic Shop (#3033, midgaard) |
+| a high energy laser cannon | Accessory | carried by the wizard (L100) in The Magic Shop (#3033, midgaard); carried by Martina (L50) in A fissure (#9605, cithdeux); carried by Maklu (L50) in A second story shop (#9509, malokteri) |
+| a UPSF standard missile | Munition | carried by the wizard (L100) in The Magic Shop (#3033, midgaard); carried by Martina (L50) in A fissure (#9605, cithdeux); carried by the Seeress of Cove (L50) in Tranquility (#9704, divergent); carried by Maklu (L50) in A second story shop (#9509, malokteri) |
+| a slim beam sabre | Accessory | carried by the wizard (L100) in The Magic Shop (#3033, midgaard); carried by the Seeress of Cove (L50) in Tranquility (#9704, divergent) |
+| a field repair kit | Accessory | carried by the weaponsmith (L100) in The Weapon Shop (#3011, midgaard); carried by Dan (L50) in The healing chamber (#9604, cithdeux); carried by Lupin (L50) in Bastille (#9954, renegades); carried by Malucifer (L50) in Shelter (#9956, renegades); carried by Wufei (L50) in Hidden Area (#9803, teikoku); carried by Atsu (L50) in [Atheneum of Wondrous Knowledge] (#9703, divergent); carried by Sut Resi (L50) in Room of War and Flames (#9512, malokteri) |
+| a dobergun | Accessory | carried by the wizard (L100) in The Magic Shop (#3033, midgaard); carried by Martina (L50) in A fissure (#9605, cithdeux); carried by Maklu (L50) in A second story shop (#9509, malokteri) |
 
 ### `mahntor`
 
 | Item | Type | Source(s) |
 |---|---|---|
-| a pair of minotaur combat gloves | Armor | worn by Gorak in Gorak's Training Room (#2372, mahntor) |
-| a suit of spiked garde armor | Armor | worn by Gorak in Gorak's Training Room (#2372, mahntor) |
-| a pair of black minotaur greaves | Armor | worn by Gorak in Gorak's Training Room (#2372, mahntor) |
-| a pair of black minotaur vambraces | Armor | worn by Gorak in Gorak's Training Room (#2372, mahntor) |
-| the rod of weaponry | Weapon | worn by Gorak in Gorak's Training Room (#2372, mahntor) |
-| a pitch black cloak | Container | worn by Darkoth in Darkoth's Dark Study (#2373, mahntor) |
-| a black plate neckguard | Armor | worn by Darkoth in Darkoth's Dark Study (#2373, mahntor) |
-| a pair of spiked gauntlets | Armor | worn by Darkoth in Darkoth's Dark Study (#2373, mahntor) |
-| the shadow shield | Armor | worn by Darkoth in Darkoth's Dark Study (#2373, mahntor) |
-| a shortsword named "Nightbringer" | Weapon | worn by Darkoth in Darkoth's Dark Study (#2373, mahntor) |
-| a golden helm and visor | Armor | worn by Tyrgoth in Tyrgoth's Inner Sanctum (#2374, mahntor) |
-| a gilded gold breast plate | Armor | worn by Tyrgoth in Tyrgoth's Inner Sanctum (#2374, mahntor) |
-| a billowing white cape | Armor | worn by Tyrgoth in Tyrgoth's Inner Sanctum (#2374, mahntor) |
-| a huge tower shield | Armor | worn by Tyrgoth in Tyrgoth's Inner Sanctum (#2374, mahntor) |
-| a huge mace named "Dawnbringer" | Weapon | worn by Tyrgoth in Tyrgoth's Inner Sanctum (#2374, mahntor) |
-| a pair of wire rimmed spectacles | Armor | worn by Amyrok in Amyrok's Arcane Study (#2391, mahntor) |
-| a banded ring | Armor | worn by Amyrok in Amyrok's Arcane Study (#2391, mahntor) |
-| a minor globe of invulnerability | Armor | worn by Amyrok in Amyrok's Arcane Study (#2391, mahntor) |
-| a gnarled magius staff | Weapon | worn by Amyrok in Amyrok's Arcane Study (#2391, mahntor) |
-| a girdle of many pouches | Container | worn by Amyrok in Amyrok's Arcane Study (#2391, mahntor) |
-| a heavy woolen robe | Armor | worn by Sumaron in Sumaron's Sanctum (#2390, mahntor) |
-| a broach of life | Armor | worn by Sumaron in Sumaron's Sanctum (#2390, mahntor) |
-| a manual of healing arts | Scroll | worn by Sumaron in Sumaron's Sanctum (#2390, mahntor) |
-| a huge mithril mace | Weapon | worn by Sumaron in Sumaron's Sanctum (#2390, mahntor) |
-| a golden holy symbol | Armor | worn by Sumaron in Sumaron's Sanctum (#2390, mahntor) |
-| a thick marble ring | Armor | worn by Nasturn in Nasturn's Humble Abode (#2394, mahntor) |
-| a thick marble bracelet | Armor | worn by Nasturn in Nasturn's Humble Abode (#2394, mahntor) |
-| boots of striding | Armor | worn by Nasturn in Nasturn's Humble Abode (#2394, mahntor) |
-| an icy white cloak | Armor | worn by Nasturn in Nasturn's Humble Abode (#2394, mahntor) |
-| an ice staff | Weapon | worn by Nasturn in Nasturn's Humble Abode (#2394, mahntor) |
-| a carved wooden ring | Armor | worn by Belrak in Belrak's Green Room (#2399, mahntor) |
-| the horn of life | Wand | worn by Belrak in Belrak's Green Room (#2399, mahntor) |
-| the belt of life | Armor | worn by Belrak in Belrak's Green Room (#2399, mahntor) |
-| a blood red stone | Armor | carried by Belrak in Belrak's Green Room (#2399, mahntor) |
-| a huge crossbow | Weapon | worn by Belrak in Belrak's Green Room (#2399, mahntor) |
-| a small leather pack | Container | worn by Dorgar in Dorgar's Dismal Domicile (#2398, mahntor) |
-| a black leather hood | Armor | worn by Dorgar in Dorgar's Dismal Domicile (#2398, mahntor) |
-| a pair of black leather sleeves | Armor | worn by Dorgar in Dorgar's Dismal Domicile (#2398, mahntor) |
-| a pair of black leather pants | Armor | worn by Dorgar in Dorgar's Dismal Domicile (#2398, mahntor) |
-| a wicked shortsword | Weapon | worn by Dorgar in Dorgar's Dismal Domicile (#2398, mahntor) |
-| a major globe of invulnerability | Armor | worn by Mahn-Tor in The Master Bedroom (#2396, mahntor) |
-| a suit of black minotaur chainmail | Armor | worn by Mahn-Tor in The Master Bedroom (#2396, mahntor) |
-| a spiked buckler | Armor | worn by Mahn-Tor in The Master Bedroom (#2396, mahntor) |
-| a studded ring | Armor | worn by Mahn-Tor in The Master Bedroom (#2396, mahntor) |
-| a horned minotaur helm | Armor | worn by Mahn-Tor in The Master Bedroom (#2396, mahntor) |
-| mahn-Tor's Great Axe | Weapon | worn by Mahn-Tor in The Master Bedroom (#2396, mahntor) |
-| a suit of ethereal plate | Armor | worn by the Dark Ethereal Knight in The bloody intersection (#2307, mahntor) |
-| an ethereal helm | Armor | worn by the Dark Ethereal Knight in The bloody intersection (#2307, mahntor) |
-| an ethereal blade | Weapon | worn by the Dark Ethereal Knight in The bloody intersection (#2307, mahntor) |
-| a willow branch | Wand | carried by the Weeping Willow in The turn in the swampy path (#2330, mahntor) |
-| the keep key | Key | carried by the Minotaur Gatekeeper in Before the Keep of Mahn-Tor (#2377, mahntor) |
-| a red key | Key | in a container in #0 |
-| a black key | Key | in a container in #0 |
-| a white key | Key | in a container in #0 |
-| a brown key | Key | in a container in #0 |
-| a yellow key | Key | in a container in #0 |
-| a maroon key | Key | in a container in #0 |
-| a green key | Key | in a container in #0 |
-| a grey key | Key | in a container in #0 |
-| a runed key | Key | carried by the Elite Minotaur Guard in The secret hallway (#2385, mahntor) |
-| a pair of fur lined boots | Armor | worn by the Plains Barbarian in The frigid wastelands (#2351, mahntor); worn by the Plains Barbarian in The frigid wastelands (#2354, mahntor); worn by the Plains Barbarian in The frigid wastelands (#2359, mahntor) |
-| the white pelt of a yeti | Armor | worn by the White Yeti in The frigid wastelands (#2355, mahntor); worn by the White Yeti in The frigid wastelands (#2357, mahntor); worn by the White Yeti in The frigid wastelands (#2359, mahntor) |
-| a kopesh sword | Weapon | worn by the Minotaur Citizen in The city streets of Mahn-Tor (#2363, mahntor); worn by the Minotaur Citizen in Inside the gates of Mahn-Tor (#2364, mahntor); worn by the Minotaur Citizen in The city streets of Mahn-Tor (#2365, mahntor); worn by the Minotaur Citizen in The Square of Mahn-Tor (#2367, mahntor); worn by the Minotaur Citizen in The Mahn-Tor Equipment Shop (#2370, mahntor) |
-| a pair of steel vambraces | Armor | worn by the Minotaur Guard in Before the gates of Mahn-Tor (#2362, mahntor); worn by the Minotaur Guard in The city streets of Mahn-Tor (#2366, mahntor); worn by the Minotaur Guard in The streets of Mahn-Tor (#2368, mahntor) |
-| a pair of steel greaves | Armor | worn by the Minotaur Guard in Before the gates of Mahn-Tor (#2362, mahntor); worn by the Minotaur Guard in The city streets of Mahn-Tor (#2366, mahntor); worn by the Minotaur Guard in The streets of Mahn-Tor (#2368, mahntor) |
-| a battle axe | Weapon | worn by the Minotaur Guard in Before the gates of Mahn-Tor (#2362, mahntor); worn by the Minotaur Guard in The city streets of Mahn-Tor (#2366, mahntor); worn by the Minotaur Guard in The streets of Mahn-Tor (#2368, mahntor) |
-| a steel breast plate | Armor | worn by the Minotaur Warrior in The Square of Mahn-Tor (#2367, mahntor); worn by the Minotaur Warrior in A small guard house (#2376, mahntor); worn by the Minotaur Warrior in A small guard house (#2378, mahntor); worn by the High Minotaur Guard in The entryway to the Keep of Mahn-Tor (#2379, mahntor); worn by the High Minotaur Guard in The Hall (#2380, mahntor); worn by the Royal Minotaur Guard in The Great Hall (#2382, mahntor); worn by the Royal Minotaur Guard in Standing before the throne (#2383, mahntor); worn by the Elite Minotaur Guard in The secret hallway (#2385, mahntor); worn by the Elite Minotaur Guard in The secret hallway (#2385, mahntor) |
-| a steel helm | Armor | worn by the Minotaur Warrior in The Square of Mahn-Tor (#2367, mahntor); worn by the Minotaur Warrior in A small guard house (#2376, mahntor); worn by the Minotaur Warrior in A small guard house (#2378, mahntor) |
-| a huge halberd | Weapon | worn by the Minotaur Warrior in The Square of Mahn-Tor (#2367, mahntor); worn by the Minotaur Warrior in A small guard house (#2376, mahntor); worn by the Minotaur Warrior in A small guard house (#2378, mahntor) |
-| a blue steel helm and visor | Armor | worn by the High Minotaur Guard in The entryway to the Keep of Mahn-Tor (#2379, mahntor); worn by the High Minotaur Guard in The Hall (#2380, mahntor) |
-| a pair of blue steel greaves | Armor | worn by the High Minotaur Guard in The entryway to the Keep of Mahn-Tor (#2379, mahntor); worn by the High Minotaur Guard in The Hall (#2380, mahntor) |
-| a pair of blue steel vambraces | Armor | worn by the High Minotaur Guard in The entryway to the Keep of Mahn-Tor (#2379, mahntor); worn by the High Minotaur Guard in The Hall (#2380, mahntor) |
-| a two-handed sword | Weapon | worn by the High Minotaur Guard in The entryway to the Keep of Mahn-Tor (#2379, mahntor); worn by the High Minotaur Guard in The Hall (#2380, mahntor) |
-| a red steel helm and visor | Armor | worn by the Royal Minotaur Guard in The Great Hall (#2382, mahntor); worn by the Royal Minotaur Guard in Standing before the throne (#2383, mahntor) |
-| a pair of red steel greaves | Armor | worn by the Royal Minotaur Guard in The Great Hall (#2382, mahntor); worn by the Royal Minotaur Guard in Standing before the throne (#2383, mahntor) |
-| a pair of red steel vambraces | Armor | worn by the Royal Minotaur Guard in The Great Hall (#2382, mahntor); worn by the Royal Minotaur Guard in Standing before the throne (#2383, mahntor) |
-| a minotaur glaive | Weapon | worn by the Royal Minotaur Guard in The Great Hall (#2382, mahntor); worn by the Royal Minotaur Guard in Standing before the throne (#2383, mahntor) |
-| a crimson steel helm and visor | Armor | worn by the Elite Minotaur Guard in The secret hallway (#2385, mahntor); worn by the Elite Minotaur Guard in The secret hallway (#2385, mahntor) |
-| a pair of crimson steel greaves | Armor | worn by the Elite Minotaur Guard in The secret hallway (#2385, mahntor); worn by the Elite Minotaur Guard in The secret hallway (#2385, mahntor) |
-| a pair of crimson steel vambraces | Armor | worn by the Elite Minotaur Guard in The secret hallway (#2385, mahntor); worn by the Elite Minotaur Guard in The secret hallway (#2385, mahntor) |
-| a huge morningstar | Weapon | worn by the Elite Minotaur Guard in The secret hallway (#2385, mahntor); worn by the Elite Minotaur Guard in The secret hallway (#2385, mahntor) |
-| some huge spiked brass knuckles | Weapon | worn by the Minotaur Ring-Keeper in The Guard Post (#2387, mahntor) |
-| a multi-colored key ring | Container | worn by the Minotaur Ring-Keeper in The Guard Post (#2387, mahntor) |
-| a huge wooden maul | Weapon | worn by the Minotaur Ring-Keeper in The Guard Post (#2387, mahntor) |
-| a misty potion | Potion | carried by the Swamp Wraith in Lost in the Mist (#2336, mahntor) |
-| a belt pouch | Container | worn by the Ogre Villager in Inside the gates (#2343, mahntor); worn by the Ogre Villager in The firepit before the lodge (#2346, mahntor) |
-| an ogre spear | Weapon | worn by the Ogre Warrior in Among the crude huts (#2342, mahntor); worn by the Ogre Warrior in The firepit before the lodge (#2346, mahntor); worn by the Ogre Warrior in The village dump (#2347, mahntor); worn by the Ogre Warrior in The entryway to the lodge (#2348, mahntor) |
-| an ogre war club | Weapon | worn by the Ogre Guard in The gate before the Ogre Village (#2341, mahntor); worn by the Ogre Guard in The gate before the Ogre Village (#2341, mahntor); worn by the Ogre Guard in Among the crude huts (#2342, mahntor); worn by the Ogre Guard in The entryway to the lodge (#2348, mahntor) |
-| a bearskin cloak | Armor | worn by The Ogre Shaman in The throne room (#2349, mahntor) |
-| a pair of feathered earrings | Armor | worn by The Ogre Shaman in The throne room (#2349, mahntor) |
-| gauntlets of ogre power | Armor | worn by the Ogre Chieftain in The chieftain's room (#2350, mahntor) |
-| a massive club | Weapon | worn by the Ogre Chieftain in The chieftain's room (#2350, mahntor) |
-| a thick fur cape | Armor | worn by the Plains Barbarian in The frigid wastelands (#2351, mahntor); worn by the Plains Barbarian in The frigid wastelands (#2354, mahntor); worn by the Plains Barbarian in The frigid wastelands (#2359, mahntor) |
-| a fur lined tunic | Armor | worn by the Plains Barbarian in The frigid wastelands (#2351, mahntor); worn by the Plains Barbarian in The frigid wastelands (#2354, mahntor); worn by the Plains Barbarian in The frigid wastelands (#2359, mahntor) |
+| a pair of minotaur combat gloves | Armor | worn (hands) by Gorak (L30) in Gorak's Training Room (#2372, mahntor) |
+| a suit of spiked garde armor | Armor | worn (body) by Gorak (L30) in Gorak's Training Room (#2372, mahntor) |
+| a pair of black minotaur greaves | Armor | worn (legs) by Gorak (L30) in Gorak's Training Room (#2372, mahntor) |
+| a pair of black minotaur vambraces | Armor | worn (arms) by Gorak (L30) in Gorak's Training Room (#2372, mahntor) |
+| the rod of weaponry | Weapon | worn (wielded) by Gorak (L30) in Gorak's Training Room (#2372, mahntor) |
+| a pitch black cloak | Container | worn (about body) by Darkoth (L30) in Darkoth's Dark Study (#2373, mahntor) |
+| a black plate neckguard | Armor | worn (neck) by Darkoth (L30) in Darkoth's Dark Study (#2373, mahntor) |
+| a pair of spiked gauntlets | Armor | worn (hands) by Darkoth (L30) in Darkoth's Dark Study (#2373, mahntor) |
+| the shadow shield | Armor | worn (shield) by Darkoth (L30) in Darkoth's Dark Study (#2373, mahntor) |
+| a shortsword named "Nightbringer" | Weapon | worn (wielded) by Darkoth (L30) in Darkoth's Dark Study (#2373, mahntor) |
+| a golden helm and visor | Armor | worn (head) by Tyrgoth (L30) in Tyrgoth's Inner Sanctum (#2374, mahntor) |
+| a gilded gold breast plate | Armor | worn (body) by Tyrgoth (L30) in Tyrgoth's Inner Sanctum (#2374, mahntor) |
+| a billowing white cape | Armor | worn (neck) by Tyrgoth (L30) in Tyrgoth's Inner Sanctum (#2374, mahntor) |
+| a huge tower shield | Armor | worn (shield) by Tyrgoth (L30) in Tyrgoth's Inner Sanctum (#2374, mahntor) |
+| a huge mace named "Dawnbringer" | Weapon | worn (wielded) by Tyrgoth (L30) in Tyrgoth's Inner Sanctum (#2374, mahntor) |
+| a pair of wire rimmed spectacles | Armor | worn (left finger) by Amyrok (L30) in Amyrok's Arcane Study (#2391, mahntor) |
+| a banded ring | Armor | worn (right finger) by Amyrok (L30) in Amyrok's Arcane Study (#2391, mahntor) |
+| a minor globe of invulnerability | Armor | worn (about body) by Amyrok (L30) in Amyrok's Arcane Study (#2391, mahntor) |
+| a gnarled magius staff | Weapon | worn (wielded) by Amyrok (L30) in Amyrok's Arcane Study (#2391, mahntor) |
+| a girdle of many pouches | Container | worn (waist) by Amyrok (L30) in Amyrok's Arcane Study (#2391, mahntor) |
+| a heavy woolen robe | Armor | worn (about body) by Sumaron (L30) in Sumaron's Sanctum (#2390, mahntor) |
+| a broach of life | Armor | worn (neck) by Sumaron (L30) in Sumaron's Sanctum (#2390, mahntor) |
+| a manual of healing arts | Scroll | worn (held) by Sumaron (L30) in Sumaron's Sanctum (#2390, mahntor) |
+| a huge mithril mace | Weapon | worn (wielded) by Sumaron (L30) in Sumaron's Sanctum (#2390, mahntor) |
+| a golden holy symbol | Armor | worn (neck) by Sumaron (L30) in Sumaron's Sanctum (#2390, mahntor) |
+| a thick marble ring | Armor | worn (left finger) by Nasturn (L30) in Nasturn's Humble Abode (#2394, mahntor) |
+| a thick marble bracelet | Armor | worn (right wrist) by Nasturn (L30) in Nasturn's Humble Abode (#2394, mahntor) |
+| boots of striding | Armor | worn (feet) by Nasturn (L30) in Nasturn's Humble Abode (#2394, mahntor) |
+| an icy white cloak | Armor | worn (about body) by Nasturn (L30) in Nasturn's Humble Abode (#2394, mahntor) |
+| an ice staff | Weapon | worn (wielded) by Nasturn (L30) in Nasturn's Humble Abode (#2394, mahntor) |
+| a carved wooden ring | Armor | worn (right finger) by Belrak (L30) in Belrak's Green Room (#2399, mahntor) |
+| the horn of life | Wand | worn (held) by Belrak (L30) in Belrak's Green Room (#2399, mahntor) |
+| the belt of life | Armor | worn (waist) by Belrak (L30) in Belrak's Green Room (#2399, mahntor) |
+| a blood red stone | Armor | carried by Belrak (L30) in Belrak's Green Room (#2399, mahntor) |
+| a huge crossbow | Weapon | worn (wielded) by Belrak (L30) in Belrak's Green Room (#2399, mahntor) |
+| a small leather pack | Container | worn (about body) by Dorgar (L30) in Dorgar's Dismal Domicile (#2398, mahntor) |
+| a black leather hood | Armor | worn (head) by Dorgar (L30) in Dorgar's Dismal Domicile (#2398, mahntor) |
+| a pair of black leather sleeves | Armor | worn (arms) by Dorgar (L30) in Dorgar's Dismal Domicile (#2398, mahntor) |
+| a pair of black leather pants | Armor | worn (legs) by Dorgar (L30) in Dorgar's Dismal Domicile (#2398, mahntor) |
+| a wicked shortsword | Weapon | worn (wielded) by Dorgar (L30) in Dorgar's Dismal Domicile (#2398, mahntor) |
+| a major globe of invulnerability | Armor | worn (about body) by Mahn-Tor (L33) in The Master Bedroom (#2396, mahntor) |
+| a suit of black minotaur chainmail | Armor | worn (body) by Mahn-Tor (L33) in The Master Bedroom (#2396, mahntor) |
+| a spiked buckler | Armor | worn (left wrist) by Mahn-Tor (L33) in The Master Bedroom (#2396, mahntor) |
+| a studded ring | Armor | worn (right finger) by Mahn-Tor (L33) in The Master Bedroom (#2396, mahntor) |
+| a horned minotaur helm | Armor | worn (head) by Mahn-Tor (L33) in The Master Bedroom (#2396, mahntor) |
+| mahn-Tor's Great Axe | Weapon | worn (wielded) by Mahn-Tor (L33) in The Master Bedroom (#2396, mahntor) |
+| a suit of ethereal plate | Armor | worn (body) by the Dark Ethereal Knight (L25) in The bloody intersection (#2307, mahntor) |
+| an ethereal helm | Armor | worn (head) by the Dark Ethereal Knight (L25) in The bloody intersection (#2307, mahntor) |
+| an ethereal blade | Weapon | worn (wielded) by the Dark Ethereal Knight (L25) in The bloody intersection (#2307, mahntor) |
+| a willow branch | Wand | carried by the Weeping Willow (L25) in The turn in the swampy path (#2330, mahntor) |
+| the keep key | Key | carried by the Minotaur Gatekeeper (L25) in Before the Keep of Mahn-Tor (#2377, mahntor) |
+| a red key | Key | inside a multi-colored key ring (#2382) — worn (waist) by the Minotaur Ring-Keeper (L29) in The Guard Post (#2387, mahntor) |
+| a black key | Key | inside a multi-colored key ring (#2382) — worn (waist) by the Minotaur Ring-Keeper (L29) in The Guard Post (#2387, mahntor) |
+| a white key | Key | inside a multi-colored key ring (#2382) — worn (waist) by the Minotaur Ring-Keeper (L29) in The Guard Post (#2387, mahntor) |
+| a brown key | Key | inside a multi-colored key ring (#2382) — worn (waist) by the Minotaur Ring-Keeper (L29) in The Guard Post (#2387, mahntor) |
+| a yellow key | Key | inside a multi-colored key ring (#2382) — worn (waist) by the Minotaur Ring-Keeper (L29) in The Guard Post (#2387, mahntor) |
+| a maroon key | Key | inside a multi-colored key ring (#2382) — worn (waist) by the Minotaur Ring-Keeper (L29) in The Guard Post (#2387, mahntor) |
+| a green key | Key | inside a multi-colored key ring (#2382) — worn (waist) by the Minotaur Ring-Keeper (L29) in The Guard Post (#2387, mahntor) |
+| a grey key | Key | inside a multi-colored key ring (#2382) — worn (waist) by the Minotaur Ring-Keeper (L29) in The Guard Post (#2387, mahntor) |
+| a runed key | Key | carried by the Elite Minotaur Guard (L28) in The secret hallway (#2385, mahntor) |
+| a pair of fur lined boots | Armor | worn (feet) by the Plains Barbarian (L20) in The frigid wastelands (#2351, mahntor); worn (feet) by the Plains Barbarian (L20) in The frigid wastelands (#2354, mahntor); worn (feet) by the Plains Barbarian (L20) in The frigid wastelands (#2359, mahntor) |
+| the white pelt of a yeti | Armor | worn (about body) by the White Yeti (L16) in The frigid wastelands (#2355, mahntor); worn (about body) by the White Yeti (L16) in The frigid wastelands (#2357, mahntor); worn (about body) by the White Yeti (L16) in The frigid wastelands (#2359, mahntor) |
+| a kopesh sword | Weapon | worn (wielded) by the Minotaur Citizen (L15) in The city streets of Mahn-Tor (#2363, mahntor); worn (wielded) by the Minotaur Citizen (L15) in Inside the gates of Mahn-Tor (#2364, mahntor); worn (wielded) by the Minotaur Citizen (L15) in The city streets of Mahn-Tor (#2365, mahntor); worn (wielded) by the Minotaur Citizen (L15) in The Square of Mahn-Tor (#2367, mahntor); worn (wielded) by the Minotaur Citizen (L15) in The Mahn-Tor Equipment Shop (#2370, mahntor) |
+| a pair of steel vambraces | Armor | worn (arms) by the Minotaur Guard (L22) in Before the gates of Mahn-Tor (#2362, mahntor); worn (arms) by the Minotaur Guard (L22) in The city streets of Mahn-Tor (#2366, mahntor); worn (arms) by the Minotaur Guard (L22) in The streets of Mahn-Tor (#2368, mahntor) |
+| a pair of steel greaves | Armor | worn (legs) by the Minotaur Guard (L22) in Before the gates of Mahn-Tor (#2362, mahntor); worn (legs) by the Minotaur Guard (L22) in The city streets of Mahn-Tor (#2366, mahntor); worn (legs) by the Minotaur Guard (L22) in The streets of Mahn-Tor (#2368, mahntor) |
+| a battle axe | Weapon | worn (wielded) by the Minotaur Guard (L22) in Before the gates of Mahn-Tor (#2362, mahntor); worn (wielded) by the Minotaur Guard (L22) in The city streets of Mahn-Tor (#2366, mahntor); worn (wielded) by the Minotaur Guard (L22) in The streets of Mahn-Tor (#2368, mahntor) |
+| a steel breast plate | Armor | worn (body) by the Minotaur Warrior (L21) in The Square of Mahn-Tor (#2367, mahntor); worn (body) by the Minotaur Warrior (L21) in A small guard house (#2376, mahntor); worn (body) by the Minotaur Warrior (L21) in A small guard house (#2378, mahntor); worn (body) by the High Minotaur Guard (L25) in The entryway to the Keep of Mahn-Tor (#2379, mahntor); worn (body) by the High Minotaur Guard (L25) in The Hall (#2380, mahntor); worn (body) by the Royal Minotaur Guard (L26) in The Great Hall (#2382, mahntor); worn (body) by the Royal Minotaur Guard (L26) in Standing before the throne (#2383, mahntor); worn (body) by the Elite Minotaur Guard (L28) in The secret hallway (#2385, mahntor); worn (body) by the Elite Minotaur Guard (L28) in The secret hallway (#2385, mahntor) |
+| a steel helm | Armor | worn (head) by the Minotaur Warrior (L21) in The Square of Mahn-Tor (#2367, mahntor); worn (head) by the Minotaur Warrior (L21) in A small guard house (#2376, mahntor); worn (head) by the Minotaur Warrior (L21) in A small guard house (#2378, mahntor) |
+| a huge halberd | Weapon | worn (wielded) by the Minotaur Warrior (L21) in The Square of Mahn-Tor (#2367, mahntor); worn (wielded) by the Minotaur Warrior (L21) in A small guard house (#2376, mahntor); worn (wielded) by the Minotaur Warrior (L21) in A small guard house (#2378, mahntor) |
+| a blue steel helm and visor | Armor | worn (head) by the High Minotaur Guard (L25) in The entryway to the Keep of Mahn-Tor (#2379, mahntor); worn (head) by the High Minotaur Guard (L25) in The Hall (#2380, mahntor) |
+| a pair of blue steel greaves | Armor | worn (legs) by the High Minotaur Guard (L25) in The entryway to the Keep of Mahn-Tor (#2379, mahntor); worn (legs) by the High Minotaur Guard (L25) in The Hall (#2380, mahntor) |
+| a pair of blue steel vambraces | Armor | worn (arms) by the High Minotaur Guard (L25) in The entryway to the Keep of Mahn-Tor (#2379, mahntor); worn (arms) by the High Minotaur Guard (L25) in The Hall (#2380, mahntor) |
+| a two-handed sword | Weapon | worn (wielded) by the High Minotaur Guard (L25) in The entryway to the Keep of Mahn-Tor (#2379, mahntor); worn (wielded) by the High Minotaur Guard (L25) in The Hall (#2380, mahntor) |
+| a red steel helm and visor | Armor | worn (head) by the Royal Minotaur Guard (L26) in The Great Hall (#2382, mahntor); worn (head) by the Royal Minotaur Guard (L26) in Standing before the throne (#2383, mahntor) |
+| a pair of red steel greaves | Armor | worn (legs) by the Royal Minotaur Guard (L26) in The Great Hall (#2382, mahntor); worn (legs) by the Royal Minotaur Guard (L26) in Standing before the throne (#2383, mahntor) |
+| a pair of red steel vambraces | Armor | worn (arms) by the Royal Minotaur Guard (L26) in The Great Hall (#2382, mahntor); worn (arms) by the Royal Minotaur Guard (L26) in Standing before the throne (#2383, mahntor) |
+| a minotaur glaive | Weapon | worn (wielded) by the Royal Minotaur Guard (L26) in The Great Hall (#2382, mahntor); worn (wielded) by the Royal Minotaur Guard (L26) in Standing before the throne (#2383, mahntor) |
+| a crimson steel helm and visor | Armor | worn (head) by the Elite Minotaur Guard (L28) in The secret hallway (#2385, mahntor); worn (head) by the Elite Minotaur Guard (L28) in The secret hallway (#2385, mahntor) |
+| a pair of crimson steel greaves | Armor | worn (legs) by the Elite Minotaur Guard (L28) in The secret hallway (#2385, mahntor); worn (legs) by the Elite Minotaur Guard (L28) in The secret hallway (#2385, mahntor) |
+| a pair of crimson steel vambraces | Armor | worn (arms) by the Elite Minotaur Guard (L28) in The secret hallway (#2385, mahntor); worn (arms) by the Elite Minotaur Guard (L28) in The secret hallway (#2385, mahntor) |
+| a huge morningstar | Weapon | worn (wielded) by the Elite Minotaur Guard (L28) in The secret hallway (#2385, mahntor); worn (wielded) by the Elite Minotaur Guard (L28) in The secret hallway (#2385, mahntor) |
+| some huge spiked brass knuckles | Weapon | worn (held) by the Minotaur Ring-Keeper (L29) in The Guard Post (#2387, mahntor) |
+| a multi-colored key ring | Container | worn (waist) by the Minotaur Ring-Keeper (L29) in The Guard Post (#2387, mahntor) |
+| a huge wooden maul | Weapon | worn (wielded) by the Minotaur Ring-Keeper (L29) in The Guard Post (#2387, mahntor) |
+| a misty potion | Potion | carried by the Swamp Wraith (L20) in Lost in the Mist (#2336, mahntor) |
+| a belt pouch | Container | worn (waist) by the Ogre Villager (L10) in Inside the gates (#2343, mahntor); worn (waist) by the Ogre Villager (L10) in The firepit before the lodge (#2346, mahntor) |
+| an ogre spear | Weapon | worn (wielded) by the Ogre Warrior (L15) in Among the crude huts (#2342, mahntor); worn (wielded) by the Ogre Warrior (L15) in The firepit before the lodge (#2346, mahntor); worn (wielded) by the Ogre Warrior (L15) in The village dump (#2347, mahntor); worn (wielded) by the Ogre Warrior (L15) in The entryway to the lodge (#2348, mahntor) |
+| an ogre war club | Weapon | worn (wielded) by the Ogre Guard (L19) in The gate before the Ogre Village (#2341, mahntor); worn (wielded) by the Ogre Guard (L19) in The gate before the Ogre Village (#2341, mahntor); worn (wielded) by the Ogre Guard (L19) in Among the crude huts (#2342, mahntor); worn (wielded) by the Ogre Guard (L19) in The entryway to the lodge (#2348, mahntor) |
+| a bearskin cloak | Armor | worn (about body) by The Ogre Shaman (L20) in The throne room (#2349, mahntor) |
+| a pair of feathered earrings | Armor | worn (head) by The Ogre Shaman (L20) in The throne room (#2349, mahntor) |
+| gauntlets of ogre power | Armor | worn (hands) by the Ogre Chieftain (L25) in The chieftain's room (#2350, mahntor) |
+| a massive club | Weapon | worn (wielded) by the Ogre Chieftain (L25) in The chieftain's room (#2350, mahntor) |
+| a thick fur cape | Armor | worn (neck) by the Plains Barbarian (L20) in The frigid wastelands (#2351, mahntor); worn (neck) by the Plains Barbarian (L20) in The frigid wastelands (#2354, mahntor); worn (neck) by the Plains Barbarian (L20) in The frigid wastelands (#2359, mahntor) |
+| a fur lined tunic | Armor | worn (body) by the Plains Barbarian (L20) in The frigid wastelands (#2351, mahntor); worn (body) by the Plains Barbarian (L20) in The frigid wastelands (#2354, mahntor); worn (body) by the Plains Barbarian (L20) in The frigid wastelands (#2359, mahntor) |
 
 ### `marsh`
 
 | Item | Type | Source(s) |
 |---|---|---|
-| a long spear | Weapon | carried by a marsh giant in Swamp Thing's Lair (#8307, marsh); carried by a marsh giant in A Dark Pool. (#8309, marsh); carried by a marsh giant in Cloud of Darkness. (#8311, marsh); carried by a marsh giant in By the Monolith. (#8313, marsh); carried by a marsh giant in Northern Lake Side. (#8315, marsh) |
-| a dark horned helmet | Armor | worn by a Death Slaad in Gloomy Path Through the Marsh. (#8310, marsh); worn by a marsh giant in Northern Lake Side. (#8315, marsh) |
-| a suit of chainmail | Armor | worn by a gnoll in An Oozing Bog (#8306, marsh) |
-| a huge, wicked-looking scythe | Weapon | worn by a Death Slaad in Gloomy Path Through the Marsh. (#8310, marsh) |
-| a murky green potion | Potion | carried by a green troll in Marshy Forest (#8303, marsh); carried by a shambling mound in Near Vegetation from Hell. (#8312, marsh); carried by a shambling mound in Near Vegetation from Hell. (#8312, marsh) |
+| a long spear | Weapon | carried by a marsh giant (L15) in Swamp Thing's Lair (#8307, marsh); carried by a marsh giant (L15) in A Dark Pool. (#8309, marsh); carried by a marsh giant (L15) in Cloud of Darkness. (#8311, marsh); carried by a marsh giant (L15) in By the Monolith. (#8313, marsh); carried by a marsh giant (L15) in Northern Lake Side. (#8315, marsh) |
+| a dark horned helmet | Armor | worn (head) by a Death Slaad (L20) in Gloomy Path Through the Marsh. (#8310, marsh); worn (head) by a marsh giant (L15) in Northern Lake Side. (#8315, marsh) |
+| a suit of chainmail | Armor | worn (body) by a gnoll (L30) in An Oozing Bog (#8306, marsh) |
+| a huge, wicked-looking scythe | Weapon | worn (wielded) by a Death Slaad (L20) in Gloomy Path Through the Marsh. (#8310, marsh) |
+| a murky green potion | Potion | carried by a green troll (L14) in Marshy Forest (#8303, marsh); carried by a shambling mound (L13) in Near Vegetation from Hell. (#8312, marsh); carried by a shambling mound (L13) in Near Vegetation from Hell. (#8312, marsh) |
 
 ### `midgaard`
 
 | Item | Type | Source(s) |
 |---|---|---|
-| a barrel of beer | Drink Con | carried by the bartender in The Grunting Boar (#3007, midgaard); carried by the Innkeeper in The Local Inn (#5556, ofcol); carried by the baker in Granite Head's Bakery (#6535, dwarven) |
-| a bottle of beer | Drink Con | carried by the bartender in The Grunting Boar (#3007, midgaard); carried by the Innkeeper in The Local Inn (#5556, ofcol) |
-| a bottle of ale | Drink Con | carried by the waiter in Cleric's Bar (#3003, midgaard); carried by the waiter in Mage's Bar (#3018, midgaard); carried by the waiter in The Bar of Swordsmen (#3022, midgaard) |
-| a bottle of firebreather | Drink Con | carried by the waiter in Mage's Bar (#3018, midgaard); carried by the waiter in The Bar of Swordsmen (#3022, midgaard); carried by the waiter in The Thieves Bar (#3028, midgaard); carried by Filthy in Grubby Inn (#3048, midgaard); carried by the baker in Granite Head's Bakery (#6535, dwarven) |
-| a bottle of local specialty | Drink Con | carried by the waiter in Cleric's Bar (#3003, midgaard); carried by the waiter in The Bar of Swordsmen (#3022, midgaard); carried by the waiter in The Thieves Bar (#3028, midgaard); carried by Filthy in Grubby Inn (#3048, midgaard) |
-| an executioner's axe | Weapon | worn by the vortex guardian in Market Square (#3014, midgaard) |
-| a big pot pie | Food | carried by the baker in The Bakery (#3009, midgaard); carried by the baker in Granite Head's Bakery (#6535, dwarven) |
+| a barrel of beer | Drink Con | carried by the bartender (L23) in The Grunting Boar (#3007, midgaard); carried by the Innkeeper (L23) in The Local Inn (#5556, ofcol); carried by the baker (L35) in Granite Head's Bakery (#6535, dwarven) |
+| a bottle of beer | Drink Con | carried by the bartender (L23) in The Grunting Boar (#3007, midgaard); carried by the Innkeeper (L23) in The Local Inn (#5556, ofcol) |
+| a bottle of ale | Drink Con | carried by the waiter (L23) in Cleric's Bar (#3003, midgaard); carried by the waiter (L23) in Mage's Bar (#3018, midgaard); carried by the waiter (L23) in The Bar of Swordsmen (#3022, midgaard) |
+| a bottle of firebreather | Drink Con | carried by the waiter (L23) in Mage's Bar (#3018, midgaard); carried by the waiter (L23) in The Bar of Swordsmen (#3022, midgaard); carried by the waiter (L23) in The Thieves Bar (#3028, midgaard); carried by Filthy (L92) in Grubby Inn (#3048, midgaard); carried by the baker (L35) in Granite Head's Bakery (#6535, dwarven) |
+| a bottle of local specialty | Drink Con | carried by the waiter (L23) in Cleric's Bar (#3003, midgaard); carried by the waiter (L23) in The Bar of Swordsmen (#3022, midgaard); carried by the waiter (L23) in The Thieves Bar (#3028, midgaard); carried by Filthy (L92) in Grubby Inn (#3048, midgaard) |
+| an executioner's axe | Weapon | worn (wielded) by the vortex guardian (L100) in Market Square (#3014, midgaard) |
+| a big pot pie | Food | carried by the baker (L23) in The Bakery (#3009, midgaard); carried by the baker (L35) in Granite Head's Bakery (#6535, dwarven) |
 | the donation pit | Container | on the ground in By the Temple Altar (#3054, midgaard) |
 | Here stands a massive flesh-in-stone statue of the legendary Euthanasia. | Furniture | on the ground in The Temple Square (#3005, midgaard) |
 | Here stands a large marble statue of the Saiyan warrior Anonbert. | Furniture | on the ground in The Main Street (#3015, midgaard) |
 | Here stands a large marble statue of the Saiyan warrior Miral. | Furniture | on the ground in Main Street (#3013, midgaard) |
 | Here stands a large marble statue of the venerable Fist Tyu. | Furniture | on the ground in Main Street (#3012, midgaard) |
-| a dagger | Weapon | worn by the thief in Entrance Hall to the Guild of Thieves (#3027, midgaard); worn by the thief in On the Concourse (#3128, midgaard); worn by the citizen in Village square (#5552, ofcol) |
-| a small sword | Weapon | worn by the vagabond in The Dark Alley (#3026, midgaard); worn by The dervish in The Great Eastern Desert (#5025, eastern); worn by The dervish in The Great Eastern Desert (#5027, eastern); worn by The dervish in The Great Eastern Desert (#5029, eastern) |
-| a long sword | Weapon | worn by the waiter in Cleric's Bar (#3003, midgaard); worn by the knight templar in Entrance to Cleric's Guild (#3004, midgaard); worn by the bartender in The Grunting Boar (#3007, midgaard); worn by the baker in The Bakery (#3009, midgaard); worn by the grocer in The General Store (#3010, midgaard); worn by the sorcerer in Entrance to Mage's Guild (#3017, midgaard); worn by the waiter in Mage's Bar (#3018, midgaard); worn by the knight in Entrance Hall to the Guild of Swordsmen (#3021, midgaard); worn by the waiter in The Bar of Swordsmen (#3022, midgaard); worn by the assassin in Entrance Hall to the Guild of Thieves (#3027, midgaard); worn by the waiter in The Thieves Bar (#3028, midgaard); worn by Filthy in Grubby Inn (#3048, midgaard); worn by The drider in At the foot of the rubble (#5009, eastern); worn by The dervish in The Great Eastern Desert (#5031, eastern) |
-| a torch | Light | carried by the grocer in The General Store (#3010, midgaard); carried by Luxan in Luxan's mixed shop (#5555, ofcol) |
-| a hooded brass lantern | Light | carried by the grocer in The General Store (#3010, midgaard); carried by the adept of Frag in The Store in Mud School (#3718, school); carried by the baker in Granite Head's Bakery (#6535, dwarven) |
-| a raft | Boat | carried by the captain in Levee (#3049, midgaard) |
-| a canoe | Boat | carried by the captain in Levee (#3049, midgaard) |
-| a studded leather jerkin | Armor | carried by the leather worker in The Leather Shop (#3035, midgaard) |
-| a hard leather cap | Armor | carried by the leather worker in The Leather Shop (#3035, midgaard) |
-| a pair of studded leather pants | Armor | carried by the leather worker in The Leather Shop (#3035, midgaard) |
-| a pair of hard leather boots | Armor | carried by the leather worker in The Leather Shop (#3035, midgaard) |
-| a pair of hard leather gloves | Armor | carried by the leather worker in The Leather Shop (#3035, midgaard) |
-| a pair of studded leather sleeves | Armor | carried by the leather worker in The Leather Shop (#3035, midgaard) |
-| a cup of tea | Drink Con | carried by the maid in Park Cafe (#3106, midgaard) |
-| a cup of coffee | Drink Con | carried by the maid in Park Cafe (#3106, midgaard) |
-| a cup of water | Drink Con | carried by the maid in Park Cafe (#3106, midgaard) |
-| a bronze bracer | Armor | in a container in East wing of the city hall (#5233, thalos) |
-| a key | Key | carried by the cityguard in Park Road (#3111, midgaard) |
-| a key | Key | carried by the sexton in Park Cafe (#3106, midgaard) |
-| a key | Key | carried by the captain in Captain's Office (#3142, midgaard) |
-| a key | Key | in a container in Captain's Office (#3142, midgaard) |
-| a long sword | Weapon | worn by the mayor in The Mayor's Office (#3138, midgaard) |
+| a dagger | Weapon | worn (wielded) by the thief (L8) in Entrance Hall to the Guild of Thieves (#3027, midgaard); worn (wielded) by the thief (L8) in On the Concourse (#3128, midgaard); worn (wielded) by the citizen (L5) in Village square (#5552, ofcol) |
+| a small sword | Weapon | worn (wielded) by the vagabond (L30) in The Dark Alley (#3026, midgaard); worn (wielded) by The dervish (L5) in The Great Eastern Desert (#5025, eastern); worn (wielded) by The dervish (L5) in The Great Eastern Desert (#5027, eastern); worn (wielded) by The dervish (L5) in The Great Eastern Desert (#5029, eastern) |
+| a long sword | Weapon | worn (wielded) by the waiter (L23) in Cleric's Bar (#3003, midgaard); worn (wielded) by the knight templar (L23) in Entrance to Cleric's Guild (#3004, midgaard); worn (wielded) by the bartender (L23) in The Grunting Boar (#3007, midgaard); worn (wielded) by the baker (L23) in The Bakery (#3009, midgaard); worn (wielded) by the grocer (L23) in The General Store (#3010, midgaard); worn (wielded) by the sorcerer (L23) in Entrance to Mage's Guild (#3017, midgaard); worn (wielded) by the waiter (L23) in Mage's Bar (#3018, midgaard); worn (wielded) by the knight (L23) in Entrance Hall to the Guild of Swordsmen (#3021, midgaard); worn (wielded) by the waiter (L23) in The Bar of Swordsmen (#3022, midgaard); worn (wielded) by the assassin (L23) in Entrance Hall to the Guild of Thieves (#3027, midgaard); worn (wielded) by the waiter (L23) in The Thieves Bar (#3028, midgaard); worn (wielded) by Filthy (L92) in Grubby Inn (#3048, midgaard); worn (wielded) by The drider (L8) in At the foot of the rubble (#5009, eastern); worn (wielded) by The dervish (L8) in The Great Eastern Desert (#5031, eastern) |
+| a torch | Light | carried by the grocer (L23) in The General Store (#3010, midgaard); carried by Luxan (L23) in Luxan's mixed shop (#5555, ofcol) |
+| a hooded brass lantern | Light | carried by the grocer (L23) in The General Store (#3010, midgaard); carried by the adept of Frag (L30) in The Store in Mud School (#3718, school); carried by the baker (L35) in Granite Head's Bakery (#6535, dwarven) |
+| a raft | Boat | carried by the captain (L23) in Levee (#3049, midgaard) |
+| a canoe | Boat | carried by the captain (L23) in Levee (#3049, midgaard) |
+| a studded leather jerkin | Armor | carried by the leather worker (L23) in The Leather Shop (#3035, midgaard) |
+| a hard leather cap | Armor | carried by the leather worker (L23) in The Leather Shop (#3035, midgaard) |
+| a pair of studded leather pants | Armor | carried by the leather worker (L23) in The Leather Shop (#3035, midgaard) |
+| a pair of hard leather boots | Armor | carried by the leather worker (L23) in The Leather Shop (#3035, midgaard) |
+| a pair of hard leather gloves | Armor | carried by the leather worker (L23) in The Leather Shop (#3035, midgaard) |
+| a pair of studded leather sleeves | Armor | carried by the leather worker (L23) in The Leather Shop (#3035, midgaard) |
+| a cup of tea | Drink Con | carried by the maid (L23) in Park Cafe (#3106, midgaard) |
+| a cup of coffee | Drink Con | carried by the maid (L23) in Park Cafe (#3106, midgaard) |
+| a cup of water | Drink Con | carried by the maid (L23) in Park Cafe (#3106, midgaard) |
+| a bronze bracer | Armor | inside the glass cabinet (#5227) — on the ground in East wing of the city hall (#5233, thalos) |
+| a key | Key | carried by the cityguard (L80) in Park Road (#3111, midgaard) |
+| a key | Key | carried by the sexton (L3) in Park Cafe (#3106, midgaard) |
+| a key | Key | carried by the captain (L17) in Captain's Office (#3142, midgaard) |
+| a key | Key | inside the desk (#3130) — on the ground in Captain's Office (#3142, midgaard) |
+| a long sword | Weapon | worn (wielded) by the mayor (L23) in The Mayor's Office (#3138, midgaard) |
 | the desk | Container | on the ground in Captain's Office (#3142, midgaard) |
 | the safe | Container | on the ground in Captain's Office (#3142, midgaard) |
-| the gold | Money | in a container in Captain's Office (#3142, midgaard) |
-| the City Key | Key | worn by the mayor in The Mayor's Office (#3138, midgaard) |
+| the gold | Money | inside the safe (#3131) — on the ground in Captain's Office (#3142, midgaard) |
+| the City Key | Key | worn (held) by the mayor (L23) in The Mayor's Office (#3138, midgaard) |
 | the Bench | Furniture | on the ground in Promenade (#3101, midgaard); on the ground in Promenade (#3102, midgaard); on the ground in Promenade (#3103, midgaard) |
 | a fountain | Fountain | on the ground in The Temple Square (#3005, midgaard); on the ground in End of Penny Lane (#3141, midgaard); on the ground in The Chat Room (#1200, hitower) |
 | a small pile of gold coins | Money | on the ground in End of Penny Lane (#3141, midgaard) |
-| a steel key | Key | carried by the captain in Captain's Office (#3142, midgaard) |
-| a buffalo water skin | Drink Con | carried by the grocer in The General Store (#3010, midgaard); carried by the adept of Frag in The Store in Mud School (#3718, school) |
+| a steel key | Key | carried by the captain (L17) in Captain's Office (#3142, midgaard) |
+| a buffalo water skin | Drink Con | carried by the grocer (L23) in The General Store (#3010, midgaard); carried by the adept of Frag (L30) in The Store in Mud School (#3718, school) |
 | the receptionist's letter of resignation | Furniture | on the ground in The Defunct Reception (#3008, midgaard) |
 | the bank's notice of liquidation | Furniture | on the ground in The Defunct Reception (#3008, midgaard) |
-| a standard issue sword | Weapon | worn by the cityguard in Entrance to Cleric's Guild (#3004, midgaard); worn by the cityguard in Market Square (#3014, midgaard); worn by the cityguard in Entrance to Mage's Guild (#3017, midgaard); worn by the cityguard in Entrance Hall to the Guild of Swordsmen (#3021, midgaard); worn by the cityguard in Entrance Hall to the Guild of Thieves (#3027, midgaard); worn by the cityguard in Inside the West Gate of Midgaard (#3040, midgaard); worn by the cityguard in Inside the West Gate of Midgaard (#3040, midgaard); worn by the cityguard in Inside the East Gate of Midgaard (#3041, midgaard); worn by the cityguard in Inside the East Gate of Midgaard (#3041, midgaard); worn by the cityguard in Park Road (#3111, midgaard); worn by the cityguard in Park Road (#3111, midgaard); worn by the cityguard in Park Road (#3111, midgaard); worn by the cityguard in Park Road (#3111, midgaard); worn by the cityguard in The Mayor's Office (#3138, midgaard); worn by the cityguard in The Mayor's Office (#3138, midgaard); worn by the cityguard in The Mayor's Office (#3138, midgaard); worn by the cityguard in The Mayor's Office (#3138, midgaard) |
-| a standard issue vest | Armor | worn by the cityguard in Entrance to Cleric's Guild (#3004, midgaard); worn by the cityguard in Market Square (#3014, midgaard); worn by the cityguard in Entrance to Mage's Guild (#3017, midgaard); worn by the cityguard in Entrance Hall to the Guild of Swordsmen (#3021, midgaard); worn by the cityguard in Entrance Hall to the Guild of Thieves (#3027, midgaard); worn by the cityguard in Inside the West Gate of Midgaard (#3040, midgaard); worn by the cityguard in Inside the West Gate of Midgaard (#3040, midgaard); worn by the cityguard in Inside the East Gate of Midgaard (#3041, midgaard); worn by the cityguard in Inside the East Gate of Midgaard (#3041, midgaard); worn by the cityguard in Park Road (#3111, midgaard); worn by the cityguard in Park Road (#3111, midgaard); worn by the cityguard in Park Road (#3111, midgaard); worn by the cityguard in Park Road (#3111, midgaard) |
-| a standard issue shield | Armor | worn by the cityguard in Inside the East Gate of Midgaard (#3041, midgaard) |
-| a standard issue cloak | Armor | worn by the cityguard in Entrance to Cleric's Guild (#3004, midgaard) |
-| a standard issue helmet | Armor | worn by the cityguard in Market Square (#3014, midgaard) |
-| a pair of standard issue leggings | Armor | worn by the cityguard in Entrance to Mage's Guild (#3017, midgaard) |
-| a pair of standard issue boots | Armor | worn by the cityguard in Entrance Hall to the Guild of Swordsmen (#3021, midgaard) |
-| a pair of standard issue gloves | Armor | worn by the cityguard in Entrance Hall to the Guild of Thieves (#3027, midgaard) |
-| a pair of standard issue sleeves | Armor | worn by the cityguard in Inside the East Gate of Midgaard (#3041, midgaard) |
-| a standard issue cape | Armor | worn by the cityguard in Inside the West Gate of Midgaard (#3040, midgaard) |
-| a standard issue belt | Armor | worn by the cityguard in Inside the West Gate of Midgaard (#3040, midgaard) |
-| a standard issue bracer | Armor | worn by the cityguard in Park Road (#3111, midgaard) |
-| a city guard signet ring | Armor | worn by the cityguard in Entrance to Cleric's Guild (#3004, midgaard); worn by the cityguard in Market Square (#3014, midgaard); worn by the cityguard in Entrance to Mage's Guild (#3017, midgaard); worn by the cityguard in Entrance Hall to the Guild of Swordsmen (#3021, midgaard); worn by the cityguard in Entrance Hall to the Guild of Thieves (#3027, midgaard); worn by the cityguard in Inside the West Gate of Midgaard (#3040, midgaard); worn by the cityguard in Inside the West Gate of Midgaard (#3040, midgaard); worn by the cityguard in Inside the East Gate of Midgaard (#3041, midgaard); worn by the cityguard in Inside the East Gate of Midgaard (#3041, midgaard); worn by the cityguard in Park Road (#3111, midgaard); worn by the cityguard in Park Road (#3111, midgaard); worn by the cityguard in Park Road (#3111, midgaard); worn by the cityguard in Park Road (#3111, midgaard); worn by the cityguard in The Mayor's Office (#3138, midgaard); worn by the cityguard in The Mayor's Office (#3138, midgaard); worn by the cityguard in The Mayor's Office (#3138, midgaard); worn by the cityguard in The Mayor's Office (#3138, midgaard) |
-| a war banner | Light | worn by the cityguard in Entrance to Cleric's Guild (#3004, midgaard); worn by the cityguard in Market Square (#3014, midgaard); worn by the cityguard in Entrance to Mage's Guild (#3017, midgaard); worn by the cityguard in Entrance Hall to the Guild of Swordsmen (#3021, midgaard); worn by the cityguard in Entrance Hall to the Guild of Thieves (#3027, midgaard); worn by the cityguard in Inside the West Gate of Midgaard (#3040, midgaard); worn by the cityguard in Inside the West Gate of Midgaard (#3040, midgaard); worn by the cityguard in Inside the East Gate of Midgaard (#3041, midgaard); worn by the cityguard in Inside the East Gate of Midgaard (#3041, midgaard); worn by the cityguard in Park Road (#3111, midgaard); worn by the cityguard in Park Road (#3111, midgaard); worn by the cityguard in Park Road (#3111, midgaard); worn by the cityguard in Park Road (#3111, midgaard); worn by the cityguard in The Mayor's Office (#3138, midgaard); worn by the cityguard in The Mayor's Office (#3138, midgaard); worn by the cityguard in The Mayor's Office (#3138, midgaard); worn by the cityguard in The Mayor's Office (#3138, midgaard) |
+| a standard issue sword | Weapon | worn (wielded) by the cityguard (L80) in Entrance to Cleric's Guild (#3004, midgaard); worn (wielded) by the cityguard (L80) in Market Square (#3014, midgaard); worn (wielded) by the cityguard (L80) in Entrance to Mage's Guild (#3017, midgaard); worn (wielded) by the cityguard (L80) in Entrance Hall to the Guild of Swordsmen (#3021, midgaard); worn (wielded) by the cityguard (L80) in Entrance Hall to the Guild of Thieves (#3027, midgaard); worn (wielded) by the cityguard (L80) in Inside the West Gate of Midgaard (#3040, midgaard); worn (wielded) by the cityguard (L80) in Inside the West Gate of Midgaard (#3040, midgaard); worn (wielded) by the cityguard (L80) in Inside the East Gate of Midgaard (#3041, midgaard); worn (wielded) by the cityguard (L80) in Inside the East Gate of Midgaard (#3041, midgaard); worn (wielded) by the cityguard (L80) in Park Road (#3111, midgaard); worn (wielded) by the cityguard (L80) in Park Road (#3111, midgaard); worn (wielded) by the cityguard (L80) in Park Road (#3111, midgaard); worn (wielded) by the cityguard (L80) in Park Road (#3111, midgaard); worn (wielded) by the cityguard (L20) in The Mayor's Office (#3138, midgaard); worn (wielded) by the cityguard (L20) in The Mayor's Office (#3138, midgaard); worn (wielded) by the cityguard (L20) in The Mayor's Office (#3138, midgaard); worn (wielded) by the cityguard (L20) in The Mayor's Office (#3138, midgaard) |
+| a standard issue vest | Armor | worn (body) by the cityguard (L80) in Entrance to Cleric's Guild (#3004, midgaard); worn (body) by the cityguard (L80) in Market Square (#3014, midgaard); worn (body) by the cityguard (L80) in Entrance to Mage's Guild (#3017, midgaard); worn (body) by the cityguard (L80) in Entrance Hall to the Guild of Swordsmen (#3021, midgaard); worn (body) by the cityguard (L80) in Entrance Hall to the Guild of Thieves (#3027, midgaard); worn (body) by the cityguard (L80) in Inside the West Gate of Midgaard (#3040, midgaard); worn (body) by the cityguard (L80) in Inside the West Gate of Midgaard (#3040, midgaard); worn (body) by the cityguard (L80) in Inside the East Gate of Midgaard (#3041, midgaard); worn (body) by the cityguard (L80) in Inside the East Gate of Midgaard (#3041, midgaard); worn (body) by the cityguard (L80) in Park Road (#3111, midgaard); worn (body) by the cityguard (L80) in Park Road (#3111, midgaard); worn (body) by the cityguard (L80) in Park Road (#3111, midgaard); worn (body) by the cityguard (L80) in Park Road (#3111, midgaard) |
+| a standard issue shield | Armor | worn (shield) by the cityguard (L80) in Inside the East Gate of Midgaard (#3041, midgaard) |
+| a standard issue cloak | Armor | worn (neck) by the cityguard (L80) in Entrance to Cleric's Guild (#3004, midgaard) |
+| a standard issue helmet | Armor | worn (head) by the cityguard (L80) in Market Square (#3014, midgaard) |
+| a pair of standard issue leggings | Armor | worn (legs) by the cityguard (L80) in Entrance to Mage's Guild (#3017, midgaard) |
+| a pair of standard issue boots | Armor | worn (feet) by the cityguard (L80) in Entrance Hall to the Guild of Swordsmen (#3021, midgaard) |
+| a pair of standard issue gloves | Armor | worn (hands) by the cityguard (L80) in Entrance Hall to the Guild of Thieves (#3027, midgaard) |
+| a pair of standard issue sleeves | Armor | worn (arms) by the cityguard (L80) in Inside the East Gate of Midgaard (#3041, midgaard) |
+| a standard issue cape | Armor | worn (about body) by the cityguard (L80) in Inside the West Gate of Midgaard (#3040, midgaard) |
+| a standard issue belt | Armor | worn (waist) by the cityguard (L80) in Inside the West Gate of Midgaard (#3040, midgaard) |
+| a standard issue bracer | Armor | worn (right wrist) by the cityguard (L80) in Park Road (#3111, midgaard) |
+| a city guard signet ring | Armor | worn (left finger) by the cityguard (L80) in Entrance to Cleric's Guild (#3004, midgaard); worn (left finger) by the cityguard (L80) in Market Square (#3014, midgaard); worn (left finger) by the cityguard (L80) in Entrance to Mage's Guild (#3017, midgaard); worn (left finger) by the cityguard (L80) in Entrance Hall to the Guild of Swordsmen (#3021, midgaard); worn (left finger) by the cityguard (L80) in Entrance Hall to the Guild of Thieves (#3027, midgaard); worn (left finger) by the cityguard (L80) in Inside the West Gate of Midgaard (#3040, midgaard); worn (left finger) by the cityguard (L80) in Inside the West Gate of Midgaard (#3040, midgaard); worn (left finger) by the cityguard (L80) in Inside the East Gate of Midgaard (#3041, midgaard); worn (left finger) by the cityguard (L80) in Inside the East Gate of Midgaard (#3041, midgaard); worn (left finger) by the cityguard (L80) in Park Road (#3111, midgaard); worn (left finger) by the cityguard (L80) in Park Road (#3111, midgaard); worn (left finger) by the cityguard (L80) in Park Road (#3111, midgaard); worn (left finger) by the cityguard (L80) in Park Road (#3111, midgaard); worn (left finger) by the cityguard (L20) in The Mayor's Office (#3138, midgaard); worn (left finger) by the cityguard (L20) in The Mayor's Office (#3138, midgaard); worn (left finger) by the cityguard (L20) in The Mayor's Office (#3138, midgaard); worn (left finger) by the cityguard (L20) in The Mayor's Office (#3138, midgaard) |
+| a war banner | Light | worn (light) by the cityguard (L80) in Entrance to Cleric's Guild (#3004, midgaard); worn (light) by the cityguard (L80) in Market Square (#3014, midgaard); worn (light) by the cityguard (L80) in Entrance to Mage's Guild (#3017, midgaard); worn (light) by the cityguard (L80) in Entrance Hall to the Guild of Swordsmen (#3021, midgaard); worn (light) by the cityguard (L80) in Entrance Hall to the Guild of Thieves (#3027, midgaard); worn (light) by the cityguard (L80) in Inside the West Gate of Midgaard (#3040, midgaard); worn (light) by the cityguard (L80) in Inside the West Gate of Midgaard (#3040, midgaard); worn (light) by the cityguard (L80) in Inside the East Gate of Midgaard (#3041, midgaard); worn (light) by the cityguard (L80) in Inside the East Gate of Midgaard (#3041, midgaard); worn (light) by the cityguard (L80) in Park Road (#3111, midgaard); worn (light) by the cityguard (L80) in Park Road (#3111, midgaard); worn (light) by the cityguard (L80) in Park Road (#3111, midgaard); worn (light) by the cityguard (L80) in Park Road (#3111, midgaard); worn (light) by the cityguard (L20) in The Mayor's Office (#3138, midgaard); worn (light) by the cityguard (L20) in The Mayor's Office (#3138, midgaard); worn (light) by the cityguard (L20) in The Mayor's Office (#3138, midgaard); worn (light) by the cityguard (L20) in The Mayor's Office (#3138, midgaard) |
 
 ### `moria`
 
 | Item | Type | Source(s) |
 |---|---|---|
-| a yellow and green ring | Armor | worn by the large orc in The damp tunnel (#4022, moria) |
-| a corpse | Container | carried by the huge python in The light cave (#4030, moria) |
-| some coins | Money | in a container in #0 |
-| a purple potion | Potion | carried by the large hobgoblin in The tunnel (#4064, moria); carried by the large hobgoblin in The large cave (#4071, moria) |
-| a metal helmet | Armor | carried by the warrior in The maze (#4062, moria) |
+| a yellow and green ring | Armor | worn (left finger) by the large orc (L7) in The damp tunnel (#4022, moria) |
+| a corpse | Container | carried by the huge python (L11) in The light cave (#4030, moria) |
+| some coins | Money | inside a corpse (#4001) — carried by the huge python (L11) in The light cave (#4030, moria) |
+| a purple potion | Potion | carried by the large hobgoblin (L10) in The tunnel (#4064, moria); carried by the large hobgoblin (L10) in The large cave (#4071, moria) |
+| a metal helmet | Armor | carried by the warrior (L12) in The maze (#4062, moria) |
 | a mushroom | Food | on the ground in The large cave (#4068, moria); on the ground in The large cave (#4069, moria); on the ground in The large cave (#4070, moria); on the ground in The large cave (#4071, moria) |
-| a black demon blade | Weapon | carried by the troll in The secret chamber (#4122, moria) |
-| swordsman's gloves | Armor | carried by the Warrior in The passage (#4113, moria) |
-| a scroll which reads "ysafg" | Scroll | carried by the Mage in The golden cave (#4114, moria) |
-| a green slime mold | Food | carried by the guardian snake in The long tunnel (#4103, moria); carried by the guardian snake in The tunnel (#4111, moria) |
-| a green slime mold | Food | carried by the guardian snake in The long tunnel (#4103, moria); carried by the guardian snake in The tunnel (#4111, moria); carried by the green kobold in The cave (#4119, moria); carried by the orc in The cave (#4124, moria) |
-| a black potion | Potion | carried by the orc in In the tunnel at the inscription (#4160, moria) |
-| a heavy oak staff | Staff | carried by the Mage in The wet maze (#4167, moria) |
-| a light silver dagger | Weapon | worn by the thief in The small maze (#4158, moria) |
+| a black demon blade | Weapon | carried by the troll (L12) in The secret chamber (#4122, moria) |
+| swordsman's gloves | Armor | carried by the Warrior (L9) in The passage (#4113, moria) |
+| a scroll which reads "ysafg" | Scroll | carried by the Mage (L13) in The golden cave (#4114, moria) |
+| a green slime mold | Food | carried by the guardian snake (L10) in The long tunnel (#4103, moria); carried by the guardian snake (L10) in The tunnel (#4111, moria) |
+| a green slime mold | Food | carried by the guardian snake (L10) in The long tunnel (#4103, moria); carried by the guardian snake (L10) in The tunnel (#4111, moria); carried by the green kobold (L7) in The cave (#4119, moria); carried by the orc (L7) in The cave (#4124, moria) |
+| a black potion | Potion | carried by the orc (L9) in In the tunnel at the inscription (#4160, moria) |
+| a heavy oak staff | Staff | carried by the Mage (L11) in The wet maze (#4167, moria) |
+| a light silver dagger | Weapon | worn (wielded) by the thief (L12) in The small maze (#4158, moria) |
 
 ### `ofcol2`
 
 | Item | Type | Source(s) |
 |---|---|---|
-| a handaxe | Weapon | carried by Jim the Blacksmith in The Blacksmith (#603, ofcol2) |
-| a meat cleaver | Weapon | carried by Jim the Blacksmith in The Blacksmith (#603, ofcol2); worn by Jack in Slaughterhouse (#617, ofcol2) |
-| a side of beef | Food | carried by Marty in The Meat Store (#607, ofcol2) |
-| a side of pork | Food | carried by Marty in The Meat Store (#607, ofcol2) |
-| a side of horse | Food | carried by Marty in The Meat Store (#607, ofcol2) |
-| a defeathered chicken | Food | carried by Marty in The Meat Store (#607, ofcol2) |
-| an emerald ring | Treasure | carried by Madam Tracy in The Pawn Shop. (#606, ofcol2) |
-| a glass trinket | Treasure | carried by Madam Tracy in The Pawn Shop. (#606, ofcol2) |
-| a golden necklace | Treasure | carried by Madam Tracy in The Pawn Shop. (#606, ofcol2) |
-| a head of cabbage | Food | carried by Farmer Elizabeth in Farmer's Market (#610, ofcol2) |
-| a head of lettuce | Food | carried by Farmer Elizabeth in Farmer's Market (#610, ofcol2) |
-| a bottle of milk | Drink Con | carried by Farmer Elizabeth in Farmer's Market (#610, ofcol2); on the ground in Barn (#620, ofcol2) |
-| an apple | Food | carried by Farmer Elizabeth in Farmer's Market (#610, ofcol2) |
-| an ear of corn | Food | carried by Farmer Elizabeth in Farmer's Market (#610, ofcol2) |
+| a handaxe | Weapon | carried by Jim the Blacksmith (L30) in The Blacksmith (#603, ofcol2) |
+| a meat cleaver | Weapon | carried by Jim the Blacksmith (L30) in The Blacksmith (#603, ofcol2); worn (wielded) by Jack (L12) in Slaughterhouse (#617, ofcol2) |
+| a side of beef | Food | carried by Marty (L30) in The Meat Store (#607, ofcol2) |
+| a side of pork | Food | carried by Marty (L30) in The Meat Store (#607, ofcol2) |
+| a side of horse | Food | carried by Marty (L30) in The Meat Store (#607, ofcol2) |
+| a defeathered chicken | Food | carried by Marty (L30) in The Meat Store (#607, ofcol2) |
+| an emerald ring | Treasure | carried by Madam Tracy (L20) in The Pawn Shop. (#606, ofcol2) |
+| a glass trinket | Treasure | carried by Madam Tracy (L20) in The Pawn Shop. (#606, ofcol2) |
+| a golden necklace | Treasure | carried by Madam Tracy (L20) in The Pawn Shop. (#606, ofcol2) |
+| a head of cabbage | Food | carried by Farmer Elizabeth (L20) in Farmer's Market (#610, ofcol2) |
+| a head of lettuce | Food | carried by Farmer Elizabeth (L20) in Farmer's Market (#610, ofcol2) |
+| a bottle of milk | Drink Con | carried by Farmer Elizabeth (L20) in Farmer's Market (#610, ofcol2); on the ground in Barn (#620, ofcol2) |
+| an apple | Food | carried by Farmer Elizabeth (L20) in Farmer's Market (#610, ofcol2) |
+| an ear of corn | Food | carried by Farmer Elizabeth (L20) in Farmer's Market (#610, ofcol2) |
 | a pile of hay | Trash | on the ground in Barn (#620, ofcol2) |
-| a pitchfork | Weapon | carried by Jim the Blacksmith in The Blacksmith (#603, ofcol2); worn by Farmer Sara in Barn (#620, ofcol2) |
-| a leather vest | Armor | carried by Sam in The Leather Shop (#604, ofcol2); worn by a shiriff in Shiriff Post of the Eastern Shire (#1110, shire); worn by a shiriff in Shiriff Post of the Eastern Shire (#1110, shire); worn by a shiriff in Shiriff Post of the Eastern Shire (#1110, shire); worn by the Thain in Thain's Office (#1111, shire); worn by a shiriff in Shiriff Post of the Bridge (#1119, shire); worn by a shiriff in Shiriff Post of the Bridge (#1119, shire); worn by a shiriff in Shiriff Post of the Bridge (#1119, shire); worn by a shiriff in Shiriff Post of Delving Lane (#1145, shire); worn by a shiriff in Shiriff Post of Delving Lane (#1145, shire); worn by a shiriff in Shiriff Post of Delving Lane (#1145, shire); worn by a shiriff in Shiriff Post of the Lower Shire (#1153, shire); worn by a shiriff in Shiriff Post of the Lower Shire (#1153, shire); worn by a shiriff in Shiriff Post of the Lower Shire (#1153, shire) |
-| some leather sleeves | Armor | carried by Sam in The Leather Shop (#604, ofcol2) |
-| some leather leggings | Armor | carried by Sam in The Leather Shop (#604, ofcol2) |
-| some leather boots | Armor | carried by Sam in The Leather Shop (#604, ofcol2) |
-| an Ofcol signet ring | Armor | worn by the Ofcol cityguard in The Big Intersection (#601, ofcol2); worn by Marshall Diana in The Big Intersection (#601, ofcol2); worn by the Ofcol cityguard in The Leather Shop (#604, ofcol2); worn by the Ofcol cityguard in Impy Way (#608, ofcol2); worn by the Ofcol cityguard in Impy Way (#637, ofcol2); worn by the Ofcol cityguard in The Big Intersection (#642, ofcol2); worn by the Ofcol cityguard in Swiftest Way (#647, ofcol2); worn by the Ofcol cityguard in Swiftest Way (#650, ofcol2); worn by the Ofcol cityguard in Raff Way (#667, ofcol2); worn by Captain Derrick in The Temple of Ofcol (#669, ofcol2); worn by the Priestess of Ofcol in The Temple of Ofcol (#669, ofcol2); worn by a Dragonknight in A Hallway of the Golden Citadel (#676, ofcol2); worn by a Dragonknight in A Hallway of the Golden Citadel (#681, ofcol2); worn by a Dragonlord in The Hall of the DragonLords (#688, ofcol2); worn by a Dragonlord in The Hall of the DragonLords (#688, ofcol2); worn by a Dragonlord in The Hall of the DragonLords (#688, ofcol2); worn by a Dragonknight in An Upper Chamber of the Golden Citadel (#690, ofcol2); worn by The Ancient Gold Dragon in The Dragon Chamber (#693, ofcol2); worn by an attendant of the dragon in The Dragon Chamber (#693, ofcol2); worn by an attendant of the dragon in The Dragon Chamber (#693, ofcol2); worn by the Ofcol cityguard in Inside the Entrance to the Golden Citadel (#698, ofcol2); worn by the Ofcol cityguard in Inside the Entrance to the Golden Citadel (#698, ofcol2); worn by the Ofcol cityguard in Inside the Entrance to the Golden Citadel (#698, ofcol2); worn by Captain Jacklyn in Outside the Entrance to the Golden Citadel (#699, ofcol2); worn by the Ofcol cityguard in Outside the Entrance to the Golden Citadel (#699, ofcol2); worn by the Ofcol cityguard in Outside the Entrance to the Golden Citadel (#699, ofcol2); worn by the Ofcol cityguard in Outside the Entrance to the Golden Citadel (#699, ofcol2) |
-| brass plate | Armor | worn by the Ofcol cityguard in The Big Intersection (#601, ofcol2); worn by the Ofcol cityguard in The Leather Shop (#604, ofcol2); worn by the Ofcol cityguard in Impy Way (#608, ofcol2); worn by the Ofcol cityguard in Impy Way (#637, ofcol2); worn by the Ofcol cityguard in The Big Intersection (#642, ofcol2); worn by the Ofcol cityguard in Swiftest Way (#647, ofcol2); worn by the Ofcol cityguard in Swiftest Way (#650, ofcol2); worn by the Ofcol cityguard in Raff Way (#667, ofcol2); worn by the Ofcol cityguard in Inside the Entrance to the Golden Citadel (#698, ofcol2); worn by the Ofcol cityguard in Inside the Entrance to the Golden Citadel (#698, ofcol2); worn by the Ofcol cityguard in Inside the Entrance to the Golden Citadel (#698, ofcol2); worn by the Ofcol cityguard in Outside the Entrance to the Golden Citadel (#699, ofcol2); worn by the Ofcol cityguard in Outside the Entrance to the Golden Citadel (#699, ofcol2); worn by the Ofcol cityguard in Outside the Entrance to the Golden Citadel (#699, ofcol2); worn by the dwarven prince in Bedroom (#1136, shire) |
-| a brass helm | Armor | worn by the Ofcol cityguard in Impy Way (#608, ofcol2); worn by the elven warrior in Bedroom (#1136, shire) |
-| brass leggings | Armor | worn by the Ofcol cityguard in The Leather Shop (#604, ofcol2); worn by Captain Jacklyn in Outside the Entrance to the Golden Citadel (#699, ofcol2); worn by the Keeper of the Ring in Pantry (#1137, shire) |
-| brass boots | Armor | worn by the Ofcol cityguard in The Big Intersection (#601, ofcol2); worn by Captain Jacklyn in Outside the Entrance to the Golden Citadel (#699, ofcol2) |
-| brass gauntlets | Armor | worn by the Ofcol cityguard in Swiftest Way (#650, ofcol2); worn by Captain Jacklyn in Outside the Entrance to the Golden Citadel (#699, ofcol2) |
-| brass sleeves | Armor | worn by the Ofcol cityguard in The Big Intersection (#642, ofcol2); worn by Captain Derrick in The Temple of Ofcol (#669, ofcol2) |
-| a brass shield | Armor | worn by the Ofcol cityguard in Swiftest Way (#647, ofcol2); worn by Captain Derrick in The Temple of Ofcol (#669, ofcol2); worn by the Ofcol cityguard in Inside the Entrance to the Golden Citadel (#698, ofcol2); worn by the Ofcol cityguard in Inside the Entrance to the Golden Citadel (#698, ofcol2); worn by the Ofcol cityguard in Inside the Entrance to the Golden Citadel (#698, ofcol2); worn by the Ofcol cityguard in Outside the Entrance to the Golden Citadel (#699, ofcol2); worn by the Ofcol cityguard in Outside the Entrance to the Golden Citadel (#699, ofcol2); worn by the Ofcol cityguard in Outside the Entrance to the Golden Citadel (#699, ofcol2) |
-| a brass girth | Armor | worn by the Ofcol cityguard in Raff Way (#667, ofcol2); worn by Captain Derrick in The Temple of Ofcol (#669, ofcol2) |
-| a brass bracer | Armor | worn by the Ofcol cityguard in Impy Way (#637, ofcol2) |
-| a claymore | Weapon | worn by the Ofcol cityguard in The Big Intersection (#601, ofcol2); worn by the Ofcol cityguard in The Leather Shop (#604, ofcol2); worn by the Ofcol cityguard in Impy Way (#608, ofcol2); worn by the Ofcol cityguard in Impy Way (#637, ofcol2); worn by the Ofcol cityguard in The Big Intersection (#642, ofcol2); worn by the Ofcol cityguard in Swiftest Way (#647, ofcol2); worn by the Ofcol cityguard in Swiftest Way (#650, ofcol2); worn by the Ofcol cityguard in Raff Way (#667, ofcol2); worn by the Ofcol cityguard in Inside the Entrance to the Golden Citadel (#698, ofcol2); worn by the Ofcol cityguard in Inside the Entrance to the Golden Citadel (#698, ofcol2); worn by the Ofcol cityguard in Inside the Entrance to the Golden Citadel (#698, ofcol2); worn by the Ofcol cityguard in Outside the Entrance to the Golden Citadel (#699, ofcol2); worn by the Ofcol cityguard in Outside the Entrance to the Golden Citadel (#699, ofcol2); worn by the Ofcol cityguard in Outside the Entrance to the Golden Citadel (#699, ofcol2) |
-| silver plate | Armor | worn by Captain Derrick in The Temple of Ofcol (#669, ofcol2); worn by Captain Jacklyn in Outside the Entrance to the Golden Citadel (#699, ofcol2) |
-| a silver helm | Armor | worn by Captain Derrick in The Temple of Ofcol (#669, ofcol2); worn by Captain Jacklyn in Outside the Entrance to the Golden Citadel (#699, ofcol2) |
-| silver leggings | Armor | worn by Captain Derrick in The Temple of Ofcol (#669, ofcol2) |
-| silver boots | Armor | worn by Captain Derrick in The Temple of Ofcol (#669, ofcol2) |
-| silver gauntlets | Armor | worn by Captain Derrick in The Temple of Ofcol (#669, ofcol2) |
-| silver sleeves | Armor | worn by Captain Jacklyn in Outside the Entrance to the Golden Citadel (#699, ofcol2) |
-| the silver shield | Armor | worn by Captain Jacklyn in Outside the Entrance to the Golden Citadel (#699, ofcol2) |
-| the silver girth | Armor | worn by Captain Jacklyn in Outside the Entrance to the Golden Citadel (#699, ofcol2) |
-| platinum plate | Armor | worn by Marshall Diana in The Big Intersection (#601, ofcol2) |
-| the platinum helmet | Armor | worn by Marshall Diana in The Big Intersection (#601, ofcol2) |
-| platinum leggings | Armor | worn by Marshall Diana in The Big Intersection (#601, ofcol2) |
-| platinum boots | Armor | worn by Marshall Diana in The Big Intersection (#601, ofcol2) |
-| platinum gauntlets | Armor | worn by Marshall Diana in The Big Intersection (#601, ofcol2) |
-| platinum sleeves | Armor | worn by Marshall Diana in The Big Intersection (#601, ofcol2) |
-| the platinum spiked shield | Armor | worn by Marshall Diana in The Big Intersection (#601, ofcol2) |
-| the platinum girth | Armor | worn by Marshall Diana in The Big Intersection (#601, ofcol2) |
-| holy Avenger | Weapon | worn by Marshall Diana in The Big Intersection (#601, ofcol2) |
-| a shot of whiskey | Drink Con | carried by Nyles the Bartender in Nyles' House of Ale (#609, ofcol2); carried by the Innkeeper in The Ivy Bush (#1116, shire); carried by the Innkeeper in The Green Dragon (#1144, shire) |
-| a quart of ale | Drink Con | on the ground in Granny's Still Room (#600, ofcol2); carried by Nyles the Bartender in Nyles' House of Ale (#609, ofcol2); carried by the Innkeeper in The Ivy Bush (#1116, shire); carried by the Innkeeper in The Green Dragon (#1144, shire) |
-| a quart of port brew | Drink Con | carried by Nyles the Bartender in Nyles' House of Ale (#609, ofcol2); carried by the Innkeeper in The Ivy Bush (#1116, shire); carried by the Innkeeper in The Green Dragon (#1144, shire) |
-| the citadel key | Key | carried by the Ofcol cityguard in Inside the Entrance to the Golden Citadel (#698, ofcol2); carried by the Ofcol cityguard in Inside the Entrance to the Golden Citadel (#698, ofcol2); carried by the Ofcol cityguard in Inside the Entrance to the Golden Citadel (#698, ofcol2); carried by the Ofcol cityguard in Outside the Entrance to the Golden Citadel (#699, ofcol2); carried by the Ofcol cityguard in Outside the Entrance to the Golden Citadel (#699, ofcol2); carried by the Ofcol cityguard in Outside the Entrance to the Golden Citadel (#699, ofcol2) |
-| the Holy Symbol of Bahamut | Armor | worn by the Priestess of Ofcol in The Temple of Ofcol (#669, ofcol2) |
-| a ranseur | Weapon | worn by Captain Derrick in The Temple of Ofcol (#669, ofcol2); worn by Captain Jacklyn in Outside the Entrance to the Golden Citadel (#699, ofcol2) |
-| a golden dragonscale torso | Armor | worn by a Dragonknight in A Hallway of the Golden Citadel (#676, ofcol2); worn by a Dragonknight in A Hallway of the Golden Citadel (#681, ofcol2); worn by a Dragonlord in The Hall of the DragonLords (#688, ofcol2); worn by a Dragonlord in The Hall of the DragonLords (#688, ofcol2); worn by a Dragonlord in The Hall of the DragonLords (#688, ofcol2); worn by a Dragonknight in An Upper Chamber of the Golden Citadel (#690, ofcol2) |
-| golden dragonscale leggings | Armor | worn by a Dragonlord in The Hall of the DragonLords (#688, ofcol2) |
-| golden dragonscale boots | Armor | worn by a Dragonlord in The Hall of the DragonLords (#688, ofcol2); worn by a Dragonlord in The Hall of the DragonLords (#688, ofcol2) |
-| golden dragonscale gauntlets | Armor | worn by a Dragonlord in The Hall of the DragonLords (#688, ofcol2) |
-| golden dragonscale sleeves | Armor | worn by a Dragonlord in The Hall of the DragonLords (#688, ofcol2) |
-| a golden dragonscale shield | Armor | worn by a Dragonknight in A Hallway of the Golden Citadel (#676, ofcol2); worn by a Dragonknight in A Hallway of the Golden Citadel (#681, ofcol2); worn by a Dragonlord in The Hall of the DragonLords (#688, ofcol2); worn by a Dragonlord in The Hall of the DragonLords (#688, ofcol2); worn by a Dragonlord in The Hall of the DragonLords (#688, ofcol2); worn by a Dragonknight in An Upper Chamber of the Golden Citadel (#690, ofcol2) |
-| a golden dragonscale girth | Armor | worn by a Dragonlord in The Hall of the DragonLords (#688, ofcol2) |
-| the Golden Claw | Weapon | worn by a Dragonknight in A Hallway of the Golden Citadel (#676, ofcol2); worn by a Dragonknight in A Hallway of the Golden Citadel (#681, ofcol2); worn by a Dragonlord in The Hall of the DragonLords (#688, ofcol2); worn by a Dragonlord in The Hall of the DragonLords (#688, ofcol2); worn by a Dragonlord in The Hall of the DragonLords (#688, ofcol2); worn by a Dragonknight in An Upper Chamber of the Golden Citadel (#690, ofcol2); worn by The Ancient Gold Dragon in The Dragon Chamber (#693, ofcol2) |
-| the Gold Dragon Orb | Staff | worn by The Ancient Gold Dragon in The Dragon Chamber (#693, ofcol2) |
-| a golden robe | Armor | worn by the Priestess of Ofcol in The Temple of Ofcol (#669, ofcol2); worn by Chaplain Jerrold in The Hall of the DragonLords (#688, ofcol2); worn by an attendant of the dragon in The Dragon Chamber (#693, ofcol2); worn by an attendant of the dragon in The Dragon Chamber (#693, ofcol2) |
-| a house key | Key | carried by the maid in Bedroom (#627, ofcol2); carried by the maid in Big House (#629, ofcol2); carried by the maid in Big House (#643, ofcol2) |
-| a broom | Weapon | worn by the maid in Bedroom (#627, ofcol2); worn by the maid in Big House (#629, ofcol2); worn by the maid in Big House (#643, ofcol2) |
-| a chest | Container | carried by Jim the Blacksmith in The Blacksmith (#603, ofcol2) |
+| a pitchfork | Weapon | carried by Jim the Blacksmith (L30) in The Blacksmith (#603, ofcol2); worn (wielded) by Farmer Sara (L5) in Barn (#620, ofcol2) |
+| a leather vest | Armor | carried by Sam (L30) in The Leather Shop (#604, ofcol2); worn (body) by a shiriff (L44) in Shiriff Post of the Eastern Shire (#1110, shire); worn (body) by a shiriff (L44) in Shiriff Post of the Eastern Shire (#1110, shire); worn (body) by a shiriff (L45) in Shiriff Post of the Eastern Shire (#1110, shire); worn (body) by the Thain (L45) in Thain's Office (#1111, shire); worn (body) by a shiriff (L44) in Shiriff Post of the Bridge (#1119, shire); worn (body) by a shiriff (L44) in Shiriff Post of the Bridge (#1119, shire); worn (body) by a shiriff (L45) in Shiriff Post of the Bridge (#1119, shire); worn (body) by a shiriff (L44) in Shiriff Post of Delving Lane (#1145, shire); worn (body) by a shiriff (L44) in Shiriff Post of Delving Lane (#1145, shire); worn (body) by a shiriff (L45) in Shiriff Post of Delving Lane (#1145, shire); worn (body) by a shiriff (L44) in Shiriff Post of the Lower Shire (#1153, shire); worn (body) by a shiriff (L44) in Shiriff Post of the Lower Shire (#1153, shire); worn (body) by a shiriff (L45) in Shiriff Post of the Lower Shire (#1153, shire) |
+| some leather sleeves | Armor | carried by Sam (L30) in The Leather Shop (#604, ofcol2) |
+| some leather leggings | Armor | carried by Sam (L30) in The Leather Shop (#604, ofcol2) |
+| some leather boots | Armor | carried by Sam (L30) in The Leather Shop (#604, ofcol2) |
+| an Ofcol signet ring | Armor | worn (left finger) by the Ofcol cityguard (L19) in The Big Intersection (#601, ofcol2); worn (left finger) by Marshall Diana (L33) in The Big Intersection (#601, ofcol2); worn (left finger) by the Ofcol cityguard (L19) in The Leather Shop (#604, ofcol2); worn (left finger) by the Ofcol cityguard (L19) in Impy Way (#608, ofcol2); worn (left finger) by the Ofcol cityguard (L19) in Impy Way (#637, ofcol2); worn (left finger) by the Ofcol cityguard (L19) in The Big Intersection (#642, ofcol2); worn (left finger) by the Ofcol cityguard (L19) in Swiftest Way (#647, ofcol2); worn (left finger) by the Ofcol cityguard (L19) in Swiftest Way (#650, ofcol2); worn (left finger) by the Ofcol cityguard (L19) in Raff Way (#667, ofcol2); worn (left finger) by Captain Derrick (L27) in The Temple of Ofcol (#669, ofcol2); worn (left finger) by the Priestess of Ofcol (L30) in The Temple of Ofcol (#669, ofcol2); worn (left finger) by a Dragonknight (L21) in A Hallway of the Golden Citadel (#676, ofcol2); worn (left finger) by a Dragonknight (L21) in A Hallway of the Golden Citadel (#681, ofcol2); worn (left finger) by a Dragonlord (L29) in The Hall of the DragonLords (#688, ofcol2); worn (left finger) by a Dragonlord (L29) in The Hall of the DragonLords (#688, ofcol2); worn (left finger) by a Dragonlord (L29) in The Hall of the DragonLords (#688, ofcol2); worn (left finger) by a Dragonknight (L21) in An Upper Chamber of the Golden Citadel (#690, ofcol2); worn (left finger) by The Ancient Gold Dragon (L37) in The Dragon Chamber (#693, ofcol2); worn (left finger) by an attendant of the dragon (L21) in The Dragon Chamber (#693, ofcol2); worn (left finger) by an attendant of the dragon (L21) in The Dragon Chamber (#693, ofcol2); worn (left finger) by the Ofcol cityguard (L19) in Inside the Entrance to the Golden Citadel (#698, ofcol2); worn (left finger) by the Ofcol cityguard (L19) in Inside the Entrance to the Golden Citadel (#698, ofcol2); worn (left finger) by the Ofcol cityguard (L19) in Inside the Entrance to the Golden Citadel (#698, ofcol2); worn (left finger) by Captain Jacklyn (L27) in Outside the Entrance to the Golden Citadel (#699, ofcol2); worn (left finger) by the Ofcol cityguard (L19) in Outside the Entrance to the Golden Citadel (#699, ofcol2); worn (left finger) by the Ofcol cityguard (L19) in Outside the Entrance to the Golden Citadel (#699, ofcol2); worn (left finger) by the Ofcol cityguard (L19) in Outside the Entrance to the Golden Citadel (#699, ofcol2) |
+| brass plate | Armor | worn (body) by the Ofcol cityguard (L19) in The Big Intersection (#601, ofcol2); worn (body) by the Ofcol cityguard (L19) in The Leather Shop (#604, ofcol2); worn (body) by the Ofcol cityguard (L19) in Impy Way (#608, ofcol2); worn (body) by the Ofcol cityguard (L19) in Impy Way (#637, ofcol2); worn (body) by the Ofcol cityguard (L19) in The Big Intersection (#642, ofcol2); worn (body) by the Ofcol cityguard (L19) in Swiftest Way (#647, ofcol2); worn (body) by the Ofcol cityguard (L19) in Swiftest Way (#650, ofcol2); worn (body) by the Ofcol cityguard (L19) in Raff Way (#667, ofcol2); worn (body) by the Ofcol cityguard (L19) in Inside the Entrance to the Golden Citadel (#698, ofcol2); worn (body) by the Ofcol cityguard (L19) in Inside the Entrance to the Golden Citadel (#698, ofcol2); worn (body) by the Ofcol cityguard (L19) in Inside the Entrance to the Golden Citadel (#698, ofcol2); worn (body) by the Ofcol cityguard (L19) in Outside the Entrance to the Golden Citadel (#699, ofcol2); worn (body) by the Ofcol cityguard (L19) in Outside the Entrance to the Golden Citadel (#699, ofcol2); worn (body) by the Ofcol cityguard (L19) in Outside the Entrance to the Golden Citadel (#699, ofcol2); worn (body) by the dwarven prince (L44) in Bedroom (#1136, shire) |
+| a brass helm | Armor | worn (head) by the Ofcol cityguard (L19) in Impy Way (#608, ofcol2); worn (head) by the elven warrior (L45) in Bedroom (#1136, shire) |
+| brass leggings | Armor | worn (legs) by the Ofcol cityguard (L19) in The Leather Shop (#604, ofcol2); worn (legs) by Captain Jacklyn (L27) in Outside the Entrance to the Golden Citadel (#699, ofcol2); worn (legs) by the Keeper of the Ring (L45) in Pantry (#1137, shire) |
+| brass boots | Armor | worn (feet) by the Ofcol cityguard (L19) in The Big Intersection (#601, ofcol2); worn (feet) by Captain Jacklyn (L27) in Outside the Entrance to the Golden Citadel (#699, ofcol2) |
+| brass gauntlets | Armor | worn (hands) by the Ofcol cityguard (L19) in Swiftest Way (#650, ofcol2); worn (hands) by Captain Jacklyn (L27) in Outside the Entrance to the Golden Citadel (#699, ofcol2) |
+| brass sleeves | Armor | worn (arms) by the Ofcol cityguard (L19) in The Big Intersection (#642, ofcol2); worn (arms) by Captain Derrick (L27) in The Temple of Ofcol (#669, ofcol2) |
+| a brass shield | Armor | worn (shield) by the Ofcol cityguard (L19) in Swiftest Way (#647, ofcol2); worn (shield) by Captain Derrick (L27) in The Temple of Ofcol (#669, ofcol2); worn (shield) by the Ofcol cityguard (L19) in Inside the Entrance to the Golden Citadel (#698, ofcol2); worn (shield) by the Ofcol cityguard (L19) in Inside the Entrance to the Golden Citadel (#698, ofcol2); worn (shield) by the Ofcol cityguard (L19) in Inside the Entrance to the Golden Citadel (#698, ofcol2); worn (shield) by the Ofcol cityguard (L19) in Outside the Entrance to the Golden Citadel (#699, ofcol2); worn (shield) by the Ofcol cityguard (L19) in Outside the Entrance to the Golden Citadel (#699, ofcol2); worn (shield) by the Ofcol cityguard (L19) in Outside the Entrance to the Golden Citadel (#699, ofcol2) |
+| a brass girth | Armor | worn (waist) by the Ofcol cityguard (L19) in Raff Way (#667, ofcol2); worn (waist) by Captain Derrick (L27) in The Temple of Ofcol (#669, ofcol2) |
+| a brass bracer | Armor | worn (left wrist) by the Ofcol cityguard (L19) in Impy Way (#637, ofcol2) |
+| a claymore | Weapon | worn (wielded) by the Ofcol cityguard (L19) in The Big Intersection (#601, ofcol2); worn (wielded) by the Ofcol cityguard (L19) in The Leather Shop (#604, ofcol2); worn (wielded) by the Ofcol cityguard (L19) in Impy Way (#608, ofcol2); worn (wielded) by the Ofcol cityguard (L19) in Impy Way (#637, ofcol2); worn (wielded) by the Ofcol cityguard (L19) in The Big Intersection (#642, ofcol2); worn (wielded) by the Ofcol cityguard (L19) in Swiftest Way (#647, ofcol2); worn (wielded) by the Ofcol cityguard (L19) in Swiftest Way (#650, ofcol2); worn (wielded) by the Ofcol cityguard (L19) in Raff Way (#667, ofcol2); worn (wielded) by the Ofcol cityguard (L19) in Inside the Entrance to the Golden Citadel (#698, ofcol2); worn (wielded) by the Ofcol cityguard (L19) in Inside the Entrance to the Golden Citadel (#698, ofcol2); worn (wielded) by the Ofcol cityguard (L19) in Inside the Entrance to the Golden Citadel (#698, ofcol2); worn (wielded) by the Ofcol cityguard (L19) in Outside the Entrance to the Golden Citadel (#699, ofcol2); worn (wielded) by the Ofcol cityguard (L19) in Outside the Entrance to the Golden Citadel (#699, ofcol2); worn (wielded) by the Ofcol cityguard (L19) in Outside the Entrance to the Golden Citadel (#699, ofcol2) |
+| silver plate | Armor | worn (body) by Captain Derrick (L27) in The Temple of Ofcol (#669, ofcol2); worn (body) by Captain Jacklyn (L27) in Outside the Entrance to the Golden Citadel (#699, ofcol2) |
+| a silver helm | Armor | worn (head) by Captain Derrick (L27) in The Temple of Ofcol (#669, ofcol2); worn (head) by Captain Jacklyn (L27) in Outside the Entrance to the Golden Citadel (#699, ofcol2) |
+| silver leggings | Armor | worn (legs) by Captain Derrick (L27) in The Temple of Ofcol (#669, ofcol2) |
+| silver boots | Armor | worn (feet) by Captain Derrick (L27) in The Temple of Ofcol (#669, ofcol2) |
+| silver gauntlets | Armor | worn (hands) by Captain Derrick (L27) in The Temple of Ofcol (#669, ofcol2) |
+| silver sleeves | Armor | worn (arms) by Captain Jacklyn (L27) in Outside the Entrance to the Golden Citadel (#699, ofcol2) |
+| the silver shield | Armor | worn (shield) by Captain Jacklyn (L27) in Outside the Entrance to the Golden Citadel (#699, ofcol2) |
+| the silver girth | Armor | worn (waist) by Captain Jacklyn (L27) in Outside the Entrance to the Golden Citadel (#699, ofcol2) |
+| platinum plate | Armor | worn (body) by Marshall Diana (L33) in The Big Intersection (#601, ofcol2) |
+| the platinum helmet | Armor | worn (head) by Marshall Diana (L33) in The Big Intersection (#601, ofcol2) |
+| platinum leggings | Armor | worn (legs) by Marshall Diana (L33) in The Big Intersection (#601, ofcol2) |
+| platinum boots | Armor | worn (feet) by Marshall Diana (L33) in The Big Intersection (#601, ofcol2) |
+| platinum gauntlets | Armor | worn (hands) by Marshall Diana (L33) in The Big Intersection (#601, ofcol2) |
+| platinum sleeves | Armor | worn (arms) by Marshall Diana (L33) in The Big Intersection (#601, ofcol2) |
+| the platinum spiked shield | Armor | worn (shield) by Marshall Diana (L33) in The Big Intersection (#601, ofcol2) |
+| the platinum girth | Armor | worn (waist) by Marshall Diana (L33) in The Big Intersection (#601, ofcol2) |
+| holy Avenger | Weapon | worn (wielded) by Marshall Diana (L33) in The Big Intersection (#601, ofcol2) |
+| a shot of whiskey | Drink Con | carried by Nyles the Bartender (L30) in Nyles' House of Ale (#609, ofcol2); carried by the Innkeeper (L42) in The Ivy Bush (#1116, shire); carried by the Innkeeper (L42) in The Green Dragon (#1144, shire) |
+| a quart of ale | Drink Con | on the ground in Granny's Still Room (#600, ofcol2); carried by Nyles the Bartender (L30) in Nyles' House of Ale (#609, ofcol2); carried by the Innkeeper (L42) in The Ivy Bush (#1116, shire); carried by the Innkeeper (L42) in The Green Dragon (#1144, shire) |
+| a quart of port brew | Drink Con | carried by Nyles the Bartender (L30) in Nyles' House of Ale (#609, ofcol2); carried by the Innkeeper (L42) in The Ivy Bush (#1116, shire); carried by the Innkeeper (L42) in The Green Dragon (#1144, shire) |
+| the citadel key | Key | carried by the Ofcol cityguard (L19) in Inside the Entrance to the Golden Citadel (#698, ofcol2); carried by the Ofcol cityguard (L19) in Inside the Entrance to the Golden Citadel (#698, ofcol2); carried by the Ofcol cityguard (L19) in Inside the Entrance to the Golden Citadel (#698, ofcol2); carried by the Ofcol cityguard (L19) in Outside the Entrance to the Golden Citadel (#699, ofcol2); carried by the Ofcol cityguard (L19) in Outside the Entrance to the Golden Citadel (#699, ofcol2); carried by the Ofcol cityguard (L19) in Outside the Entrance to the Golden Citadel (#699, ofcol2) |
+| the Holy Symbol of Bahamut | Armor | worn (neck) by the Priestess of Ofcol (L30) in The Temple of Ofcol (#669, ofcol2) |
+| a ranseur | Weapon | worn (wielded) by Captain Derrick (L27) in The Temple of Ofcol (#669, ofcol2); worn (wielded) by Captain Jacklyn (L27) in Outside the Entrance to the Golden Citadel (#699, ofcol2) |
+| a golden dragonscale torso | Armor | worn (body) by a Dragonknight (L21) in A Hallway of the Golden Citadel (#676, ofcol2); worn (body) by a Dragonknight (L21) in A Hallway of the Golden Citadel (#681, ofcol2); worn (body) by a Dragonlord (L29) in The Hall of the DragonLords (#688, ofcol2); worn (body) by a Dragonlord (L29) in The Hall of the DragonLords (#688, ofcol2); worn (body) by a Dragonlord (L29) in The Hall of the DragonLords (#688, ofcol2); worn (body) by a Dragonknight (L21) in An Upper Chamber of the Golden Citadel (#690, ofcol2) |
+| golden dragonscale leggings | Armor | worn (head) by a Dragonlord (L29) in The Hall of the DragonLords (#688, ofcol2) |
+| golden dragonscale boots | Armor | worn (legs) by a Dragonlord (L29) in The Hall of the DragonLords (#688, ofcol2); worn (feet) by a Dragonlord (L29) in The Hall of the DragonLords (#688, ofcol2) |
+| golden dragonscale gauntlets | Armor | worn (hands) by a Dragonlord (L29) in The Hall of the DragonLords (#688, ofcol2) |
+| golden dragonscale sleeves | Armor | worn (arms) by a Dragonlord (L29) in The Hall of the DragonLords (#688, ofcol2) |
+| a golden dragonscale shield | Armor | worn (shield) by a Dragonknight (L21) in A Hallway of the Golden Citadel (#676, ofcol2); worn (shield) by a Dragonknight (L21) in A Hallway of the Golden Citadel (#681, ofcol2); worn (shield) by a Dragonlord (L29) in The Hall of the DragonLords (#688, ofcol2); worn (shield) by a Dragonlord (L29) in The Hall of the DragonLords (#688, ofcol2); worn (shield) by a Dragonlord (L29) in The Hall of the DragonLords (#688, ofcol2); worn (shield) by a Dragonknight (L21) in An Upper Chamber of the Golden Citadel (#690, ofcol2) |
+| a golden dragonscale girth | Armor | worn (waist) by a Dragonlord (L29) in The Hall of the DragonLords (#688, ofcol2) |
+| the Golden Claw | Weapon | worn (wielded) by a Dragonknight (L21) in A Hallway of the Golden Citadel (#676, ofcol2); worn (wielded) by a Dragonknight (L21) in A Hallway of the Golden Citadel (#681, ofcol2); worn (wielded) by a Dragonlord (L29) in The Hall of the DragonLords (#688, ofcol2); worn (wielded) by a Dragonlord (L29) in The Hall of the DragonLords (#688, ofcol2); worn (wielded) by a Dragonlord (L29) in The Hall of the DragonLords (#688, ofcol2); worn (wielded) by a Dragonknight (L21) in An Upper Chamber of the Golden Citadel (#690, ofcol2); worn (wielded) by The Ancient Gold Dragon (L37) in The Dragon Chamber (#693, ofcol2) |
+| the Gold Dragon Orb | Staff | worn (held) by The Ancient Gold Dragon (L37) in The Dragon Chamber (#693, ofcol2) |
+| a golden robe | Armor | worn (about body) by the Priestess of Ofcol (L30) in The Temple of Ofcol (#669, ofcol2); worn (about body) by Chaplain Jerrold (L20) in The Hall of the DragonLords (#688, ofcol2); worn (about body) by an attendant of the dragon (L21) in The Dragon Chamber (#693, ofcol2); worn (about body) by an attendant of the dragon (L21) in The Dragon Chamber (#693, ofcol2) |
+| a house key | Key | carried by the maid (L5) in Bedroom (#627, ofcol2); carried by the maid (L5) in Big House (#629, ofcol2); carried by the maid (L5) in Big House (#643, ofcol2) |
+| a broom | Weapon | worn (wielded) by the maid (L5) in Bedroom (#627, ofcol2); worn (wielded) by the maid (L5) in Big House (#629, ofcol2); worn (wielded) by the maid (L5) in Big House (#643, ofcol2) |
+| a chest | Container | carried by Jim the Blacksmith (L30) in The Blacksmith (#603, ofcol2) |
 
 ### `olympus`
 
 | Item | Type | Source(s) |
 |---|---|---|
-| the Aegis | Armor | worn by Zeus in Throne Room (#910, olympus) |
-| the Thunder Bolt | Weapon | worn by Zeus in Throne Room (#910, olympus) |
-| a Winged Helmet | Armor | worn by Hermes in Bed Room (#947, olympus) |
-| the Spear of Ares | Armor | worn by Ares in The Planning Room (#938, olympus) |
-| a pair of winged sandals | Armor | carried by Samuel the Armourer in Armoury (#935, olympus); worn by Hermes in Bed Room (#947, olympus) |
-| an ivory staff | Staff | worn by Athena in Residence (#925, olympus); carried by the Alchemist in Mystic Shop (#927, olympus) |
-| poseidon's Trident | Weapon | worn by Poseidon in Bed Room (#946, olympus) |
-| a silver bow | Weapon | worn by Apollo in Residence (#926, olympus); carried by Clive the Weapons Master in Weapon Shop (#936, olympus) |
-| flaming gauntlets | Armor | worn by Prometheus in Cell (#920, olympus); carried by Samuel the Armourer in Armoury (#935, olympus) |
-| ambrosia | Potion | carried by Zeus in Throne Room (#910, olympus); carried by Athena in Residence (#925, olympus); carried by Apollo in Residence (#926, olympus); carried by the Alchemist in Mystic Shop (#927, olympus); carried by Hephaestus in Smithy (#937, olympus); carried by Ares in The Planning Room (#938, olympus); carried by Hera in Bed Room (#945, olympus); carried by Poseidon in Bed Room (#946, olympus); carried by Hermes in Bed Room (#947, olympus) |
-| a glowing necklace | Armor | worn by Athena in Residence (#925, olympus); carried by the Alchemist in Mystic Shop (#927, olympus) |
-| a sapphire ring | Armor | carried by Samuel the Armourer in Armoury (#935, olympus); worn by Hera in Bed Room (#945, olympus) |
-| a brightly glowing shield | Armor | worn by Hephaestus in Smithy (#937, olympus) |
-| a notched axe | Weapon | carried by Clive the Weapons Master in Weapon Shop (#936, olympus); worn by A Soldier in The Planning Room (#938, olympus); worn by A Soldier in The Planning Room (#938, olympus) |
-| a bunch of grapes | Food | carried by Julius the Green Grocer in Bakery (#924, olympus); carried by A serving boy in Residence (#925, olympus); carried by A serving boy in Residence (#925, olympus) |
-| a fan made of peacock feathers | Trash | worn by A serving boy in Residence (#925, olympus); worn by A serving boy in Residence (#925, olympus) |
-| a lute | Trash | worn by an apprentice musician in Residence (#926, olympus); worn by an apprentice musician in Residence (#926, olympus) |
-| a gold nugget | Treasure | carried by A Golden Maiden in Smithy (#937, olympus); carried by A Golden Maiden in Smithy (#937, olympus) |
-| an apple | Pill | carried by Julius the Green Grocer in Bakery (#924, olympus) |
-| a pear | Pill | carried by Julius the Green Grocer in Bakery (#924, olympus); carried by A Soldier in The Planning Room (#938, olympus); carried by A Soldier in The Planning Room (#938, olympus) |
-| a orange | Pill | carried by Julius the Green Grocer in Bakery (#924, olympus) |
-| a kiwi | Pill | carried by Julius the Green Grocer in Bakery (#924, olympus); carried by an apprentice musician in Residence (#926, olympus); carried by an apprentice musician in Residence (#926, olympus) |
-| the Amulet of Ra | Armor | worn by Ra the Sun God in Guest Quarters (#931, olympus) |
-| the Sword of the Sun | Weapon | worn by Ra the Sun God in Guest Quarters (#931, olympus) |
-| a blue robe | Armor | worn by Odin in Guest Quarters (#929, olympus) |
-| a wide brimmed hat | Armor | worn by Odin in Guest Quarters (#929, olympus) |
-| nectar | Potion | carried by Zeus in Throne Room (#910, olympus); carried by Athena in Residence (#925, olympus); carried by Apollo in Residence (#926, olympus); carried by the Alchemist in Mystic Shop (#927, olympus); carried by Hephaestus in Smithy (#937, olympus); carried by Ares in The Planning Room (#938, olympus); carried by Hera in Bed Room (#945, olympus); carried by Poseidon in Bed Room (#946, olympus); carried by Hermes in Bed Room (#947, olympus) |
-| a Cell key | Key | carried by The Jailer in Dungeon (#918, olympus) |
+| the Aegis | Armor | worn (body) by Zeus (L35) in Throne Room (#910, olympus) |
+| the Thunder Bolt | Weapon | worn (wielded) by Zeus (L35) in Throne Room (#910, olympus) |
+| a Winged Helmet | Armor | worn (head) by Hermes (L33) in Bed Room (#947, olympus) |
+| the Spear of Ares | Armor | worn (wielded) by Ares (L35) in The Planning Room (#938, olympus) |
+| a pair of winged sandals | Armor | carried by Samuel the Armourer (L20) in Armoury (#935, olympus); worn (feet) by Hermes (L33) in Bed Room (#947, olympus) |
+| an ivory staff | Staff | worn (held) by Athena (L33) in Residence (#925, olympus); carried by the Alchemist (L34) in Mystic Shop (#927, olympus) |
+| poseidon's Trident | Weapon | worn (wielded) by Poseidon (L35) in Bed Room (#946, olympus) |
+| a silver bow | Weapon | worn (wielded) by Apollo (L34) in Residence (#926, olympus); carried by Clive the Weapons Master (L30) in Weapon Shop (#936, olympus) |
+| flaming gauntlets | Armor | worn (hands) by Prometheus (L31) in Cell (#920, olympus); carried by Samuel the Armourer (L20) in Armoury (#935, olympus) |
+| ambrosia | Potion | carried by Zeus (L35) in Throne Room (#910, olympus); carried by Athena (L33) in Residence (#925, olympus); carried by Apollo (L34) in Residence (#926, olympus); carried by the Alchemist (L34) in Mystic Shop (#927, olympus); carried by Hephaestus (L33) in Smithy (#937, olympus); carried by Ares (L35) in The Planning Room (#938, olympus); carried by Hera (L35) in Bed Room (#945, olympus); carried by Poseidon (L35) in Bed Room (#946, olympus); carried by Hermes (L33) in Bed Room (#947, olympus) |
+| a glowing necklace | Armor | worn (neck) by Athena (L33) in Residence (#925, olympus); carried by the Alchemist (L34) in Mystic Shop (#927, olympus) |
+| a sapphire ring | Armor | carried by Samuel the Armourer (L20) in Armoury (#935, olympus); worn (left finger) by Hera (L35) in Bed Room (#945, olympus) |
+| a brightly glowing shield | Armor | worn (shield) by Hephaestus (L33) in Smithy (#937, olympus) |
+| a notched axe | Weapon | carried by Clive the Weapons Master (L30) in Weapon Shop (#936, olympus); worn (wielded) by A Soldier (L20) in The Planning Room (#938, olympus); worn (wielded) by A Soldier (L20) in The Planning Room (#938, olympus) |
+| a bunch of grapes | Food | carried by Julius the Green Grocer (L30) in Bakery (#924, olympus); carried by A serving boy (L6) in Residence (#925, olympus); carried by A serving boy (L6) in Residence (#925, olympus) |
+| a fan made of peacock feathers | Trash | worn (held) by A serving boy (L6) in Residence (#925, olympus); worn (held) by A serving boy (L6) in Residence (#925, olympus) |
+| a lute | Trash | worn (held) by an apprentice musician (L8) in Residence (#926, olympus); worn (held) by an apprentice musician (L8) in Residence (#926, olympus) |
+| a gold nugget | Treasure | carried by A Golden Maiden (L15) in Smithy (#937, olympus); carried by A Golden Maiden (L15) in Smithy (#937, olympus) |
+| an apple | Pill | carried by Julius the Green Grocer (L30) in Bakery (#924, olympus) |
+| a pear | Pill | carried by Julius the Green Grocer (L30) in Bakery (#924, olympus); carried by A Soldier (L20) in The Planning Room (#938, olympus); carried by A Soldier (L20) in The Planning Room (#938, olympus) |
+| a orange | Pill | carried by Julius the Green Grocer (L30) in Bakery (#924, olympus) |
+| a kiwi | Pill | carried by Julius the Green Grocer (L30) in Bakery (#924, olympus); carried by an apprentice musician (L8) in Residence (#926, olympus); carried by an apprentice musician (L8) in Residence (#926, olympus) |
+| the Amulet of Ra | Armor | worn (neck) by Ra the Sun God (L35) in Guest Quarters (#931, olympus) |
+| the Sword of the Sun | Weapon | worn (wielded) by Ra the Sun God (L35) in Guest Quarters (#931, olympus) |
+| a blue robe | Armor | worn (about body) by Odin (L35) in Guest Quarters (#929, olympus) |
+| a wide brimmed hat | Armor | worn (head) by Odin (L35) in Guest Quarters (#929, olympus) |
+| nectar | Potion | carried by Zeus (L35) in Throne Room (#910, olympus); carried by Athena (L33) in Residence (#925, olympus); carried by Apollo (L34) in Residence (#926, olympus); carried by the Alchemist (L34) in Mystic Shop (#927, olympus); carried by Hephaestus (L33) in Smithy (#937, olympus); carried by Ares (L35) in The Planning Room (#938, olympus); carried by Hera (L35) in Bed Room (#945, olympus); carried by Poseidon (L35) in Bed Room (#946, olympus); carried by Hermes (L33) in Bed Room (#947, olympus) |
+| a Cell key | Key | carried by The Jailer (L13) in Dungeon (#918, olympus) |
 
 ### `plains`
 
@@ -2662,38 +2662,38 @@ Reachable creatures only, grouped by level. _Lvl_ is the mob level; pick targets
 |---|---|---|
 | a small dusk of timian herbs | Food | on the ground in The foothills (#327, plains) |
 | a small dusk of black gyvel | Food | on the ground in Grassy plains (#319, plains) |
-| a small dusk of poison ivy | Food | carried by Aruncus the Druid in The steep foothills (#323, plains) |
-| a dark red jar | Drink Con | carried by Sorbus the Hermit in Hermit's hut (#331, plains) |
-| wild flowers | Trash | on the ground in Grassy plains (#316, plains); on the ground in The steep foothills (#323, plains); on the ground in Grassy plains (#338, plains); carried by Luxan in Luxan's mixed shop (#5555, ofcol) |
-| a strange amulet | Armor | worn by Aruncus the Druid in The steep foothills (#323, plains) |
-| a druish staff | Furniture | worn by Aruncus the Druid in The steep foothills (#323, plains) |
+| a small dusk of poison ivy | Food | carried by Aruncus the Druid (L13) in The steep foothills (#323, plains) |
+| a dark red jar | Drink Con | carried by Sorbus the Hermit (L4) in Hermit's hut (#331, plains) |
+| wild flowers | Trash | on the ground in Grassy plains (#316, plains); on the ground in The steep foothills (#323, plains); on the ground in Grassy plains (#338, plains); carried by Luxan (L23) in Luxan's mixed shop (#5555, ofcol) |
+| a strange amulet | Armor | worn (neck) by Aruncus the Druid (L13) in The steep foothills (#323, plains) |
+| a druish staff | Furniture | worn (held) by Aruncus the Druid (L13) in The steep foothills (#323, plains) |
 | a rabbit roast | Food | on the ground in Hermit's hut (#331, plains) |
-| a strange template | Scroll | carried by Shudde-M'ell in The Hall of G'harne (#344, plains) |
-| a clear potion | Potion | carried by Shudde-M'ell in The Hall of G'harne (#344, plains) |
-| a scroll titled 'jhyfrdow' | Scroll | carried by Aruncus the Druid in The steep foothills (#323, plains) |
+| a strange template | Scroll | carried by Shudde-M'ell (L24) in The Hall of G'harne (#344, plains) |
+| a clear potion | Potion | carried by Shudde-M'ell (L24) in The Hall of G'harne (#344, plains) |
+| a scroll titled 'jhyfrdow' | Scroll | carried by Aruncus the Druid (L13) in The steep foothills (#323, plains) |
 
 ### `rats`
 
 | Item | Type | Source(s) |
 |---|---|---|
 | a silver key | Key | on the ground in The Treasure Room (#3827, rats) |
-| a key on a necklace | Key | worn by a firedrake in The Firedrake's Lair (#3826, rats) |
-| an iron key | Key | carried by a wererat slavemaster in A T-Intersection in the Tunnels (#3830, rats) |
+| a key on a necklace | Key | worn (neck) by a firedrake (L7) in The Firedrake's Lair (#3826, rats) |
+| an iron key | Key | carried by a wererat slavemaster (L6) in A T-Intersection in the Tunnels (#3830, rats) |
 | the walls | Container | on the ground in A Hallway (#3802, rats); on the ground in A Dim Hallway (#3803, rats); on the ground in A Dim Hallway Above the Stairway (#3804, rats); on the ground in Beneath the Old Stairway (#3811, rats); on the ground in A Dark Hallway (#3812, rats); on the ground in A Dark Hallway (#3813, rats); on the ground in A Dark Hallway (#3814, rats); on the ground in A Stairway (#3823, rats); on the ground in A Meeting Room (#3824, rats) |
 | the walls of the cave | Container | on the ground in A Rough Tunnel (#3829, rats); on the ground in A T-Intersection in the Tunnels (#3830, rats); on the ground in A Bend in the Tunnels (#3832, rats); on the ground in A T-Intersection in the Tunnels (#3833, rats); on the ground in An End of the Tunnel (#3834, rats); on the ground in An End of the Tunnel (#3835, rats); on the ground in The Tunnel (#3836, rats); on the ground in An End of the Tunnel (#3837, rats); on the ground in A Small Shrine (#3838, rats) |
-| a wooden stake | Weapon | worn by a wererat in A Small Storage Room (#3806, rats); worn by a wererat in A Meeting Room (#3824, rats); worn by a wererat in A Meeting Room (#3824, rats); worn by a wererat in A Meeting Room (#3824, rats) |
+| a wooden stake | Weapon | worn (wielded) by a wererat (L4) in A Small Storage Room (#3806, rats); worn (wielded) by a wererat (L4) in A Meeting Room (#3824, rats); worn (wielded) by a wererat (L4) in A Meeting Room (#3824, rats); worn (wielded) by a wererat (L4) in A Meeting Room (#3824, rats) |
 | the shrine | Container | on the ground in A Small Shrine (#3838, rats) |
-| a long rusted knife | Weapon | worn by a wererat guard in A Storage Room (#3815, rats); worn by a wererat guard in A Storage Room (#3815, rats); worn by a wererat guard in A Storage Room (#3816, rats); worn by a wererat guard in A Storage Room (#3816, rats) |
-| a tin bracer | Armor | worn by the wererat leader in The Leader's Quarters (#3828, rats); worn by the wererat leader in The Leader's Quarters (#3828, rats); worn by a wererat slavemaster in A T-Intersection in the Tunnels (#3830, rats); worn by a wererat slavemaster in A T-Intersection in the Tunnels (#3830, rats) |
-| tin leggings | Armor | worn by a wererat guard in A Storage Room (#3815, rats); worn by a wererat guard in A Storage Room (#3815, rats); worn by the wererat leader in The Leader's Quarters (#3828, rats) |
-| tin armguards | Armor | worn by a wererat guard in A Storage Room (#3816, rats); worn by a wererat guard in A Storage Room (#3816, rats); worn by the wererat leader in The Leader's Quarters (#3828, rats) |
-| a spiked flail | Weapon | worn by the wererat leader in The Leader's Quarters (#3828, rats) |
-| a barbed whip | Weapon | worn by a wererat slavemaster in A T-Intersection in the Tunnels (#3830, rats) |
-| holy Rod of Icaza | Staff | in a container in A Small Shrine (#3838, rats) |
-| a torch | Light | in a container in A Hallway (#3802, rats); in a container in A Dim Hallway (#3803, rats); in a container in A Dim Hallway Above the Stairway (#3804, rats); in a container in Beneath the Old Stairway (#3811, rats); in a container in A Dark Hallway (#3812, rats); in a container in A Dark Hallway (#3813, rats); in a container in A Dark Hallway (#3814, rats); in a container in A Stairway (#3823, rats); in a container in A Meeting Room (#3824, rats) |
+| a long rusted knife | Weapon | worn (wielded) by a wererat guard (L5) in A Storage Room (#3815, rats); worn (wielded) by a wererat guard (L5) in A Storage Room (#3815, rats); worn (wielded) by a wererat guard (L5) in A Storage Room (#3816, rats); worn (wielded) by a wererat guard (L5) in A Storage Room (#3816, rats) |
+| a tin bracer | Armor | worn (left wrist) by the wererat leader (L7) in The Leader's Quarters (#3828, rats); worn (right wrist) by the wererat leader (L7) in The Leader's Quarters (#3828, rats); worn (left wrist) by a wererat slavemaster (L6) in A T-Intersection in the Tunnels (#3830, rats); worn (right wrist) by a wererat slavemaster (L6) in A T-Intersection in the Tunnels (#3830, rats) |
+| tin leggings | Armor | worn (legs) by a wererat guard (L5) in A Storage Room (#3815, rats); worn (legs) by a wererat guard (L5) in A Storage Room (#3815, rats); worn (legs) by the wererat leader (L7) in The Leader's Quarters (#3828, rats) |
+| tin armguards | Armor | worn (arms) by a wererat guard (L5) in A Storage Room (#3816, rats); worn (arms) by a wererat guard (L5) in A Storage Room (#3816, rats); worn (arms) by the wererat leader (L7) in The Leader's Quarters (#3828, rats) |
+| a spiked flail | Weapon | worn (wielded) by the wererat leader (L7) in The Leader's Quarters (#3828, rats) |
+| a barbed whip | Weapon | worn (wielded) by a wererat slavemaster (L6) in A T-Intersection in the Tunnels (#3830, rats) |
+| holy Rod of Icaza | Staff | inside the shrine (#3812) — on the ground in A Small Shrine (#3838, rats) |
+| a torch | Light | inside the walls (#3804) — on the ground in A Hallway (#3802, rats); inside the walls (#3804) — on the ground in A Hallway (#3802, rats); inside the walls (#3804) — on the ground in A Hallway (#3802, rats); inside the walls (#3804) — on the ground in A Hallway (#3802, rats); inside the walls (#3804) — on the ground in A Hallway (#3802, rats); inside the walls (#3804) — on the ground in A Hallway (#3802, rats); inside the walls (#3804) — on the ground in A Hallway (#3802, rats); inside the walls (#3804) — on the ground in A Hallway (#3802, rats); inside the walls (#3804) — on the ground in A Hallway (#3802, rats) |
 | the treasure of gold coins | Money | on the ground in The Treasure Room (#3827, rats) |
-| a sapphire gem | Treasure | in a container in A Rough Tunnel (#3829, rats); in a container in A Bend in the Tunnels (#3832, rats); in a container in A T-Intersection in the Tunnels (#3833, rats); in a container in An End of the Tunnel (#3835, rats); in a container in The Tunnel (#3836, rats) |
-| a ruby gem | Treasure | in a container in A T-Intersection in the Tunnels (#3830, rats); in a container in An End of the Tunnel (#3834, rats); in a container in An End of the Tunnel (#3837, rats); in a container in A Small Shrine (#3838, rats) |
+| a sapphire gem | Treasure | inside the walls of the cave (#3805) — on the ground in A Rough Tunnel (#3829, rats); inside the walls of the cave (#3805) — on the ground in A Rough Tunnel (#3829, rats); inside the walls of the cave (#3805) — on the ground in A Rough Tunnel (#3829, rats); inside the walls of the cave (#3805) — on the ground in A Rough Tunnel (#3829, rats); inside the walls of the cave (#3805) — on the ground in A Rough Tunnel (#3829, rats) |
+| a ruby gem | Treasure | inside the walls of the cave (#3805) — on the ground in A Rough Tunnel (#3829, rats); inside the walls of the cave (#3805) — on the ground in A Rough Tunnel (#3829, rats); inside the walls of the cave (#3805) — on the ground in A Rough Tunnel (#3829, rats); inside the walls of the cave (#3805) — on the ground in A Rough Tunnel (#3829, rats) |
 
 ### `redferne`
 
@@ -2701,7 +2701,7 @@ Reachable creatures only, grouped by level. _Lvl_ is the mob level; pick targets
 |---|---|---|
 | a huge treasure | Money | on the ground in The Artifact room of Naris (#7903, redferne) |
 | a wooden chest | Container | on the ground in The Treasure room (#7910, redferne) |
-| a small brass key | Key | carried by the Grand Knight of paladins in Outside Redferne's residence (#7900, redferne) |
+| a small brass key | Key | carried by the Grand Knight of paladins (L29) in Outside Redferne's residence (#7900, redferne) |
 
 ### `renegades`
 
@@ -2714,71 +2714,71 @@ Reachable creatures only, grouped by level. _Lvl_ is the mob level; pick targets
 
 | Item | Type | Source(s) |
 |---|---|---|
-| a sub issue cloak | Armor | worn by the monster in A Cage (#3716, school); worn by the monster in A Cage (#3716, school) |
-| a sub issue helmet | Armor | worn by the wimpy monster in A Cage (#3715, school) |
-| a pair of sub issue leggings | Armor | worn by the aggressive monster in A Cage (#3713, school) |
-| a pair of sub issue boots | Armor | worn by the wimpy aggressive monster in A Cage (#3714, school) |
-| a pair of sub issue gloves | Armor | worn by the big creature in The Darkened Room (#3720, school) |
-| a pair of sub issue sleeves | Armor | worn by the big creature in The Darkened Room (#3720, school) |
-| a sub issue cape | Armor | worn by the wimpy monster in A Cage (#3715, school) |
-| a sub issue belt | Armor | worn by the aggressive monster in A Cage (#3713, school) |
-| a sub issue bracer | Armor | worn by the wimpy aggressive monster in A Cage (#3714, school); worn by the big creature in The Darkened Room (#3720, school) |
-| a key | Key | worn by the big creature in The Darkened Room (#3720, school) |
-| a mud school diploma | Treasure | worn by the diploma beast in The End of Mud School! (#3721, school) |
+| a sub issue cloak | Armor | worn (neck) by the monster (L1) in A Cage (#3716, school); worn (neck) by the monster (L1) in A Cage (#3716, school) |
+| a sub issue helmet | Armor | worn (head) by the wimpy monster (L1) in A Cage (#3715, school) |
+| a pair of sub issue leggings | Armor | worn (legs) by the aggressive monster (L1) in A Cage (#3713, school) |
+| a pair of sub issue boots | Armor | worn (feet) by the wimpy aggressive monster (L1) in A Cage (#3714, school) |
+| a pair of sub issue gloves | Armor | worn (hands) by the big creature (L2) in The Darkened Room (#3720, school) |
+| a pair of sub issue sleeves | Armor | worn (arms) by the big creature (L2) in The Darkened Room (#3720, school) |
+| a sub issue cape | Armor | worn (about body) by the wimpy monster (L1) in A Cage (#3715, school) |
+| a sub issue belt | Armor | worn (waist) by the aggressive monster (L1) in A Cage (#3713, school) |
+| a sub issue bracer | Armor | worn (left wrist) by the wimpy aggressive monster (L1) in A Cage (#3714, school); worn (left wrist) by the big creature (L2) in The Darkened Room (#3720, school) |
+| a key | Key | worn (held) by the big creature (L2) in The Darkened Room (#3720, school) |
+| a mud school diploma | Treasure | worn (held) by the diploma beast (L3) in The End of Mud School! (#3721, school) |
 
 ### `sewer`
 
 | Item | Type | Source(s) |
 |---|---|---|
-| a glinting ring of silver | Armor | worn by the great sewer rat in The tortureroom. (#7285, sewer) |
-| the devil rod | Weapon | worn by the master mindflayer in The inner Lair (#7201, sewer) |
-| the large mace | Weapon | worn by the senior mindflayer in The Lair (#7203, sewer) |
-| the small mace | Weapon | worn by the junior mindflayer in The Lair (#7205, sewer); worn by the junior mindflayer in The lair. (#7207, sewer) |
-| a purple cloak | Armor | worn by the master mindflayer in The inner Lair (#7201, sewer) |
+| a glinting ring of silver | Armor | worn (right finger) by the great sewer rat (L5) in The tortureroom. (#7285, sewer) |
+| the devil rod | Weapon | worn (wielded) by the master mindflayer (L14) in The inner Lair (#7201, sewer) |
+| the large mace | Weapon | worn (wielded) by the senior mindflayer (L8) in The Lair (#7203, sewer) |
+| the small mace | Weapon | worn (wielded) by the junior mindflayer (L6) in The Lair (#7205, sewer); worn (wielded) by the junior mindflayer (L6) in The lair. (#7207, sewer) |
+| a purple cloak | Armor | worn (neck) by the master mindflayer (L14) in The inner Lair (#7201, sewer) |
 | an neon blue potion | Potion | on the ground in The Treasury (#7200, sewer) |
-| a black key | Key | carried by the master mindflayer in The inner Lair (#7201, sewer) |
+| a black key | Key | carried by the master mindflayer (L14) in The inner Lair (#7201, sewer) |
 | a strange white skull | Armor | on the ground in The lair. (#7206, sewer) |
-| a small stick | Light | carried by the ugly wererat in The half-dry drain. (#7217, sewer); carried by the ugly wererat in The sewer drain. (#7221, sewer); carried by the ugly wererat in The sewer drain (#7233, sewer); in a container in The Treasure room (#7910, redferne) |
-| a pair of muddy boots | Armor | worn by the ugly wererat in A dry sewer drain. (#7219, sewer); worn by the ugly wererat in The sewer bend. (#7223, sewer); worn by the ugly wererat in The sewer drain (#7233, sewer) |
-| a short sword | Weapon | worn by the ugly wererat in The sewer drain. (#7213, sewer); worn by the ugly wererat in The drain end. (#7214, sewer); worn by the ugly wererat in The half-wet drain. (#7215, sewer); worn by the ugly wererat in The half-dry drain. (#7217, sewer); worn by the ugly wererat in A dry sewer drain. (#7219, sewer); worn by the ugly wererat in The sewer drain. (#7221, sewer); worn by the ugly wererat in The sewer bend. (#7223, sewer); worn by the ugly wererat in The sewer (#7225, sewer); worn by the ugly wererat in The sewer drain (#7233, sewer); worn by the ugly wererat in The sewer drain (#7233, sewer) |
-| a red dragon claw | Weapon | worn by the red dragon in Dragons lair (#7428, sewer); worn by the Grand Knight of paladins in Outside Redferne's residence (#7900, redferne) |
-| a silvery breast plate | Armor | worn by the Grand Knight of paladins in Outside Redferne's residence (#7900, redferne) |
-| some silvery leg plates | Armor | worn by the Grand Knight of paladins in Outside Redferne's residence (#7900, redferne) |
-| a pair of silvery gloves | Armor | worn by the Grand Knight of paladins in Outside Redferne's residence (#7900, redferne) |
-| a silvery helmet | Armor | worn by the Grand Knight of paladins in Outside Redferne's residence (#7900, redferne) |
-| the shield of the rose | Armor | worn by the Grand Knight of paladins in Outside Redferne's residence (#7900, redferne) |
-| a pair of silvery boots | Armor | worn by the Grand Knight of paladins in Outside Redferne's residence (#7900, redferne) |
-| some silvery arm plates | Armor | worn by the Grand Knight of paladins in Outside Redferne's residence (#7900, redferne) |
-| a white cloak | Armor | worn by the Grand Knight of paladins in Outside Redferne's residence (#7900, redferne) |
-| a huge treasure | Money | in a container in The Treasure room (#7910, redferne) |
+| a small stick | Light | carried by the ugly wererat (L6) in The half-dry drain. (#7217, sewer); carried by the ugly wererat (L6) in The sewer drain. (#7221, sewer); carried by the ugly wererat (L6) in The sewer drain (#7233, sewer); inside a wooden chest (#7910) — on the ground in The Treasure room (#7910, redferne) |
+| a pair of muddy boots | Armor | worn (feet) by the ugly wererat (L6) in A dry sewer drain. (#7219, sewer); worn (feet) by the ugly wererat (L6) in The sewer bend. (#7223, sewer); worn (feet) by the ugly wererat (L6) in The sewer drain (#7233, sewer) |
+| a short sword | Weapon | worn (wielded) by the ugly wererat (L6) in The sewer drain. (#7213, sewer); worn (wielded) by the ugly wererat (L6) in The drain end. (#7214, sewer); worn (wielded) by the ugly wererat (L6) in The half-wet drain. (#7215, sewer); worn (wielded) by the ugly wererat (L6) in The half-dry drain. (#7217, sewer); worn (wielded) by the ugly wererat (L6) in A dry sewer drain. (#7219, sewer); worn (wielded) by the ugly wererat (L6) in The sewer drain. (#7221, sewer); worn (wielded) by the ugly wererat (L6) in The sewer bend. (#7223, sewer); worn (wielded) by the ugly wererat (L6) in The sewer (#7225, sewer); worn (wielded) by the ugly wererat (L6) in The sewer drain (#7233, sewer); worn (wielded) by the ugly wererat (L6) in The sewer drain (#7233, sewer) |
+| a red dragon claw | Weapon | worn (wielded) by the red dragon (L30) in Dragons lair (#7428, sewer); worn (wielded) by the Grand Knight of paladins (L29) in Outside Redferne's residence (#7900, redferne) |
+| a silvery breast plate | Armor | worn (body) by the Grand Knight of paladins (L29) in Outside Redferne's residence (#7900, redferne) |
+| some silvery leg plates | Armor | worn (legs) by the Grand Knight of paladins (L29) in Outside Redferne's residence (#7900, redferne) |
+| a pair of silvery gloves | Armor | worn (hands) by the Grand Knight of paladins (L29) in Outside Redferne's residence (#7900, redferne) |
+| a silvery helmet | Armor | worn (head) by the Grand Knight of paladins (L29) in Outside Redferne's residence (#7900, redferne) |
+| the shield of the rose | Armor | worn (shield) by the Grand Knight of paladins (L29) in Outside Redferne's residence (#7900, redferne) |
+| a pair of silvery boots | Armor | worn (feet) by the Grand Knight of paladins (L29) in Outside Redferne's residence (#7900, redferne) |
+| some silvery arm plates | Armor | worn (arms) by the Grand Knight of paladins (L29) in Outside Redferne's residence (#7900, redferne) |
+| a white cloak | Armor | worn (about body) by the Grand Knight of paladins (L29) in Outside Redferne's residence (#7900, redferne) |
+| a huge treasure | Money | inside a wooden chest (#7910) — on the ground in The Treasure room (#7910, redferne) |
 | a backpack | Container | on the ground in North-western part of basilisks cave (#7439, sewer) |
-| the Red DragonOrb | Staff | worn by the red dragon in Dragons lair (#7428, sewer) |
-| a red dragon torso | Armor | worn by the red dragon in Dragons lair (#7428, sewer) |
-| red dragonscale leggings | Armor | worn by the red dragon in Dragons lair (#7428, sewer) |
-| a pair of red dragon claws | Furniture | worn by the red dragon in Dragons lair (#7428, sewer) |
-| a red dragonhelm | Armor | worn by the red dragon in Dragons lair (#7428, sewer) |
-| the red dragon shield | Armor | worn by the red dragon in Dragons lair (#7428, sewer) |
-| a pair of a red dragon's rear claws | Armor | worn by the red dragon in Dragons lair (#7428, sewer) |
-| red dragon arm guards | Armor | worn by the red dragon in Dragons lair (#7428, sewer) |
+| the Red DragonOrb | Staff | worn (held) by the red dragon (L30) in Dragons lair (#7428, sewer) |
+| a red dragon torso | Armor | worn (body) by the red dragon (L30) in Dragons lair (#7428, sewer) |
+| red dragonscale leggings | Armor | worn (legs) by the red dragon (L30) in Dragons lair (#7428, sewer) |
+| a pair of red dragon claws | Furniture | worn (hands) by the red dragon (L30) in Dragons lair (#7428, sewer) |
+| a red dragonhelm | Armor | worn (head) by the red dragon (L30) in Dragons lair (#7428, sewer) |
+| the red dragon shield | Armor | worn (shield) by the red dragon (L30) in Dragons lair (#7428, sewer) |
+| a pair of a red dragon's rear claws | Armor | worn (arms) by the red dragon (L30) in Dragons lair (#7428, sewer) |
+| red dragon arm guards | Armor | worn (feet) by the red dragon (L30) in Dragons lair (#7428, sewer) |
 
 ### `shire`
 
 | Item | Type | Source(s) |
 |---|---|---|
-| the rainbow staff | Light | worn by the Elven Wizard in A grassy field (#1128, shire) |
-| sting | Weapon | worn by the Keeper of the Ring in Pantry (#1137, shire) |
+| the rainbow staff | Light | worn (light) by the Elven Wizard (L38) in A grassy field (#1128, shire) |
+| sting | Weapon | worn (wielded) by the Keeper of the Ring (L45) in Pantry (#1137, shire) |
 | a sign | Furniture | on the ground in Entrance to the Shire (#1103, shire) |
-| a pipeweed bread | Food | carried by a country bumpkin in A smial (#1114, shire); carried by a country bumpkin in A smial (#1115, shire); carried by the grocer in The Grocer's Delight (#1121, shire) |
-| a silvery cloak | Armor | worn by the Elven Wizard in A grassy field (#1128, shire) |
-| the One Ring | Armor | worn by the Keeper of the Ring in Pantry (#1137, shire) |
-| an elven bow | Weapon | worn by the elven warrior in Bedroom (#1136, shire) |
-| a mithril axe | Weapon | worn by the dwarven prince in Bedroom (#1136, shire) |
-| the thain girth | Armor | worn by the Thain in Thain's Office (#1111, shire) |
-| a tiny dagger | Weapon | worn by a shiriff in Shiriff Post of the Eastern Shire (#1110, shire); worn by a shiriff in Shiriff Post of the Bridge (#1119, shire); worn by a shiriff in Shiriff Post of Delving Lane (#1145, shire); worn by a shiriff in Shiriff Post of the Lower Shire (#1153, shire) |
-| an egg | Food | carried by the Innkeeper in The Ivy Bush (#1116, shire); carried by a chicken in A chicken coop (#1143, shire); carried by a chicken in A chicken coop (#1143, shire); carried by a chicken in A chicken coop (#1143, shire); carried by a chicken in A chicken coop (#1143, shire); carried by a chicken in A chicken coop (#1143, shire); carried by a chicken in A chicken coop (#1143, shire); carried by the Innkeeper in The Green Dragon (#1144, shire) |
-| a bag | Container | carried by the shopkeeper in The General Store (#1105, shire) |
-| a lantern | Light | carried by the shopkeeper in The General Store (#1105, shire) |
-| a bardiche | Weapon | worn by the Thain in Thain's Office (#1111, shire); worn by the battle master in Shiriff Training Grounds (#1117, shire); worn by a trainee in Shiriff Training Grounds (#1117, shire); worn by a trainee in Shiriff Training Grounds (#1117, shire); worn by a trainee in Shiriff Training Grounds (#1117, shire) |
+| a pipeweed bread | Food | carried by a country bumpkin (L45) in A smial (#1114, shire); carried by a country bumpkin (L45) in A smial (#1115, shire); carried by the grocer (L41) in The Grocer's Delight (#1121, shire) |
+| a silvery cloak | Armor | worn (about body) by the Elven Wizard (L38) in A grassy field (#1128, shire) |
+| the One Ring | Armor | worn (left finger) by the Keeper of the Ring (L45) in Pantry (#1137, shire) |
+| an elven bow | Weapon | worn (wielded) by the elven warrior (L45) in Bedroom (#1136, shire) |
+| a mithril axe | Weapon | worn (wielded) by the dwarven prince (L44) in Bedroom (#1136, shire) |
+| the thain girth | Armor | worn (waist) by the Thain (L45) in Thain's Office (#1111, shire) |
+| a tiny dagger | Weapon | worn (wielded) by a shiriff (L44) in Shiriff Post of the Eastern Shire (#1110, shire); worn (wielded) by a shiriff (L44) in Shiriff Post of the Bridge (#1119, shire); worn (wielded) by a shiriff (L44) in Shiriff Post of Delving Lane (#1145, shire); worn (wielded) by a shiriff (L44) in Shiriff Post of the Lower Shire (#1153, shire) |
+| an egg | Food | carried by the Innkeeper (L42) in The Ivy Bush (#1116, shire); carried by a chicken (L42) in A chicken coop (#1143, shire); carried by a chicken (L42) in A chicken coop (#1143, shire); carried by a chicken (L42) in A chicken coop (#1143, shire); carried by a chicken (L42) in A chicken coop (#1143, shire); carried by a chicken (L42) in A chicken coop (#1143, shire); carried by a chicken (L42) in A chicken coop (#1143, shire); carried by the Innkeeper (L42) in The Green Dragon (#1144, shire) |
+| a bag | Container | carried by the shopkeeper (L41) in The General Store (#1105, shire) |
+| a lantern | Light | carried by the shopkeeper (L41) in The General Store (#1105, shire) |
+| a bardiche | Weapon | worn (wielded) by the Thain (L45) in Thain's Office (#1111, shire); worn (wielded) by the battle master (L45) in Shiriff Training Grounds (#1117, shire); worn (wielded) by a trainee (L39) in Shiriff Training Grounds (#1117, shire); worn (wielded) by a trainee (L39) in Shiriff Training Grounds (#1117, shire); worn (wielded) by a trainee (L39) in Shiriff Training Grounds (#1117, shire) |
 
 ### `teikoku`
 
@@ -2790,30 +2790,30 @@ Reachable creatures only, grouped by level. _Lvl_ is the mob level; pick targets
 
 | Item | Type | Source(s) |
 |---|---|---|
-| a mithril vest | Armor | worn by The stone golem in The south-west watchtower (#5247, thalos) |
-| a mithril helm | Armor | worn by The stone golem in The south-east watchtower (#5254, thalos) |
-| a pair of mithril gauntlets | Armor | worn by The stone golem in The south-east watchtower (#5254, thalos) |
-| some mithril sleeves | Armor | worn by The stone golem in The north-west watchtower (#5246, thalos) |
-| a pair of mithril boots | Armor | worn by The stone golem in The south-west watchtower (#5247, thalos) |
-| a set of mithril leggings | Armor | worn by The stone golem in The north-east watchtower (#5248, thalos) |
-| a mithril girth | Armor | worn by The stone golem in The north-east watchtower (#5248, thalos) |
+| a mithril vest | Armor | worn (body) by The stone golem (L25) in The south-west watchtower (#5247, thalos) |
+| a mithril helm | Armor | worn (head) by The stone golem (L25) in The south-east watchtower (#5254, thalos) |
+| a pair of mithril gauntlets | Armor | worn (hands) by The stone golem (L25) in The south-east watchtower (#5254, thalos) |
+| some mithril sleeves | Armor | worn (arms) by The stone golem (L25) in The north-west watchtower (#5246, thalos) |
+| a pair of mithril boots | Armor | worn (feet) by The stone golem (L25) in The south-west watchtower (#5247, thalos) |
+| a set of mithril leggings | Armor | worn (legs) by The stone golem (L25) in The north-east watchtower (#5248, thalos) |
+| a mithril girth | Armor | worn (waist) by The stone golem (L25) in The north-east watchtower (#5248, thalos) |
 | a battered iron breast plate | Armor | on the ground in An abandoned shop (#5229, thalos) |
-| a sturdy iron shield | Armor | worn by The mighty beholder in The Temple of Thalos (#5250, thalos) |
+| a sturdy iron shield | Armor | worn (shield) by The mighty beholder (L25) in The Temple of Thalos (#5250, thalos) |
 | a black potion | Potion | on the ground in A small shack (#5238, thalos) |
 | an orange potion | Potion | on the ground in A small shack (#5238, thalos) |
-| a smooth quartz ball | Light | worn by The mimic in An abandoned shop (#5229, thalos); worn by The mimic in A small shack (#5238, thalos) |
-| a tattered scroll | Scroll | carried by The mimic in A ruined clay dwelling (#5226, thalos); in a container in South wing of the city hall (#5231, thalos) |
-| a bound scroll | Scroll | in a container in South wing of the city hall (#5231, thalos) |
+| a smooth quartz ball | Light | worn (held) by The mimic (L11) in An abandoned shop (#5229, thalos); worn (held) by The mimic (L11) in A small shack (#5238, thalos) |
+| a tattered scroll | Scroll | carried by The mimic (L11) in A ruined clay dwelling (#5226, thalos); inside the desk (#5225) — on the ground in South wing of the city hall (#5231, thalos) |
+| a bound scroll | Scroll | inside the desk (#5225) — on the ground in South wing of the city hall (#5231, thalos) |
 | a silver flute | Staff | on the ground in The Tavern of the Sun (#5230, thalos) |
-| a demon-faced talisman | Armor | carried by The mimic in The guild house (#5219, thalos) |
+| a demon-faced talisman | Armor | carried by The mimic (L11) in The guild house (#5219, thalos) |
 | a chunk of venison | Food | on the ground in The meat stand (#5217, thalos) |
 | a large cracked fountain | Fountain | on the ground in The private gardens and courtyard of Thalos (#5234, thalos) |
-| a two-handed sword | Weapon | worn by The stone golem in The north-west watchtower (#5246, thalos); worn by The stone golem in The south-west watchtower (#5247, thalos); worn by The stone golem in The north-east watchtower (#5248, thalos); worn by The stone golem in The south-east watchtower (#5254, thalos) |
-| a black silk robe | Armor | worn by The mimic in A collapsed home (#5236, thalos) |
-| a dark green cloak | Armor | worn by The mighty beholder in The Temple of Thalos (#5250, thalos) |
-| an engraved ebony seal | Key | worn by The stone golem in The south-west watchtower (#5247, thalos) |
+| a two-handed sword | Weapon | worn (wielded) by The stone golem (L25) in The north-west watchtower (#5246, thalos); worn (wielded) by The stone golem (L25) in The south-west watchtower (#5247, thalos); worn (wielded) by The stone golem (L25) in The north-east watchtower (#5248, thalos); worn (wielded) by The stone golem (L25) in The south-east watchtower (#5254, thalos) |
+| a black silk robe | Armor | worn (about body) by The mimic (L11) in A collapsed home (#5236, thalos) |
+| a dark green cloak | Armor | worn (neck) by The mighty beholder (L25) in The Temple of Thalos (#5250, thalos) |
+| an engraved ebony seal | Key | worn (held) by The stone golem (L25) in The south-west watchtower (#5247, thalos) |
 | the desk | Container | on the ground in South wing of the city hall (#5231, thalos) |
-| an engraved ivory seal | Key | worn by The stone golem in The north-west watchtower (#5246, thalos) |
+| an engraved ivory seal | Key | worn (held) by The stone golem (L25) in The north-west watchtower (#5246, thalos) |
 | the glass cabinet | Container | on the ground in East wing of the city hall (#5233, thalos) |
 | a rotten arm | Food | on the ground in A bath house (#5242, thalos) |
 | a pale blue stone | Treasure | on the ground in Main Street (#5202, thalos) |
@@ -2827,7 +2827,7 @@ Reachable creatures only, grouped by level. _Lvl_ is the mob level; pick targets
 | a clear stone | Treasure | on the ground in The north-west watchtower (#5246, thalos) |
 | a mandolin | Staff | on the ground in The Tavern of the Sun (#5230, thalos) |
 | a golden harp | Staff | on the ground in The Tavern of the Sun (#5230, thalos) |
-| a long slim dagger | Weapon | worn by The lamia in A Garden Path (#5203, thalos); worn by The lamia in A Garden Path (#5204, thalos); worn by The lamia in A Garden Path (#5205, thalos); worn by The lamia in A Garden Path (#5206, thalos); worn by The lamia in A back alley (#5216, thalos); worn by The lamia in A back alley (#5218, thalos); worn by The lamia in The guild house (#5219, thalos); worn by The lamia in The produce stand (#5220, thalos); worn by The lamia in The smithy (#5221, thalos); worn by The lamia in Under the watchtower (#5224, thalos); worn by The lamia in The jewelery stand (#5225, thalos); worn by The lamia in A ruined clay dwelling (#5226, thalos); worn by The lamia in An abandoned shop (#5229, thalos); worn by The lamia in The city hall (#5232, thalos); worn by The lamia in The private gardens and courtyard of Thalos (#5234, thalos); worn by The lamia in A small guard house (#5235, thalos); worn by The lamia in A collapsed home (#5236, thalos); worn by The lamia in A tall dwelling (#5237, thalos); worn by The lamia in A back alley (#5240, thalos); worn by The lamia in A bath house (#5242, thalos) |
+| a long slim dagger | Weapon | worn (wielded) by The lamia (L9) in A Garden Path (#5203, thalos); worn (wielded) by The lamia (L9) in A Garden Path (#5204, thalos); worn (wielded) by The lamia (L9) in A Garden Path (#5205, thalos); worn (wielded) by The lamia (L9) in A Garden Path (#5206, thalos); worn (wielded) by The lamia (L9) in A back alley (#5216, thalos); worn (wielded) by The lamia (L9) in A back alley (#5218, thalos); worn (wielded) by The lamia (L9) in The guild house (#5219, thalos); worn (wielded) by The lamia (L9) in The produce stand (#5220, thalos); worn (wielded) by The lamia (L9) in The smithy (#5221, thalos); worn (wielded) by The lamia (L9) in Under the watchtower (#5224, thalos); worn (wielded) by The lamia (L9) in The jewelery stand (#5225, thalos); worn (wielded) by The lamia (L9) in A ruined clay dwelling (#5226, thalos); worn (wielded) by The lamia (L9) in An abandoned shop (#5229, thalos); worn (wielded) by The lamia (L9) in The city hall (#5232, thalos); worn (wielded) by The lamia (L9) in The private gardens and courtyard of Thalos (#5234, thalos); worn (wielded) by The lamia (L9) in A small guard house (#5235, thalos); worn (wielded) by The lamia (L9) in A collapsed home (#5236, thalos); worn (wielded) by The lamia (L9) in A tall dwelling (#5237, thalos); worn (wielded) by The lamia (L9) in A back alley (#5240, thalos); worn (wielded) by The lamia (L9) in A bath house (#5242, thalos) |
 
 ### `trollden`
 
@@ -2835,97 +2835,97 @@ Reachable creatures only, grouped by level. _Lvl_ is the mob level; pick targets
 |---|---|---|
 | the cadaver-toy | Container | on the ground in The Playpen (#2804, trollden) |
 | the heap of carnage | Container | on the ground in Troll's Bedroom (#2805, trollden) |
-| the troll skin | Armor | worn by the giant troll in Troll's Bedroom (#2805, trollden) |
-| an opal ring | Armor | in a container in Troll's Bedroom (#2805, trollden) |
-| a leather belt | Armor | in a container in The Playpen (#2804, trollden) |
+| the troll skin | Armor | worn (about body) by the giant troll (L13) in Troll's Bedroom (#2805, trollden) |
+| an opal ring | Armor | inside the heap of carnage (#2801) — on the ground in Troll's Bedroom (#2805, trollden) |
+| a leather belt | Armor | inside the cadaver-toy (#2800) — on the ground in The Playpen (#2804, trollden) |
 | a cracked bone | Weapon | on the ground in Wastedump (#2801, trollden) |
 
 ### `ultima`
 
 | Item | Type | Source(s) |
 |---|---|---|
-| mu | Key | worn by Iolo the Bard in Cellar (#2448, ultima); carried by Batlin in Batlin's Room (#2568, ultima) |
-| lum | Key | worn by Katrina the Shepherd in Katrina's Office (#2415, ultima); carried by Batlin in Batlin's Room (#2568, ultima) |
-| beh | Key | worn by Jaana the Druid in Yew Forest (#2470, ultima); carried by Batlin in Batlin's Room (#2568, ultima) |
-| ohm | Key | worn by Shamino the Ranger in The Graveyard (#2561, ultima); carried by Batlin in Batlin's Room (#2568, ultima) |
-| ahm | Key | worn by Mariah the Mage in Library (#2418, ultima); carried by Batlin in Batlin's Room (#2568, ultima) |
-| cah | Key | worn by Julia the Tinker in Forge (#2510, ultima); carried by Batlin in Batlin's Room (#2568, ultima) |
-| ra | Key | worn by Geoffrey the Fighter in The Dungeon (#2487, ultima); carried by Batlin in Batlin's Room (#2568, ultima) |
-| summ | Key | worn by Dupre the Paladin in Dupre's Tent (#2536, ultima); carried by Batlin in Batlin's Room (#2568, ultima) |
-| moonstone | Key | carried by the bat in Attic (#2411, ultima) |
-| moonstone | Key | carried by the giant spider in Web (#2435, ultima) |
-| moonstone | Key | carried by the snake in Cellar (#2454, ultima) |
-| moonstone | Key | carried by the dirty prisoner in Prison Cell (#2467, ultima) |
-| moonstone | Key | carried by the headless in The Dungeon (#2492, ultima) |
-| moonstone | Key | carried by the squid in The Whirlpool (#2523, ultima) |
-| moonstone | Key | carried by the dragon in The Dragon Cave (#2548, ultima) |
-| moonstone | Key | carried by the daemon in The Place of Ultimate Evil (#2551, ultima) |
-| the Hourglass | Key | worn by the Timelord in The Shrine of Spirituality (#2549, ultima) |
-| the shepherd's crook | Weapon | worn by the shepherd in New Magincia Road (#2401, ultima); worn by the shepherd in Barn (#2407, ultima); worn by the shepherd in Humility Lane (#2413, ultima) |
-| the doll | Trash | worn by the girl in New Magincia Road (#2402, ultima); worn by the girl in Humility Lane (#2408, ultima); worn by the girl in House (#2412, ultima) |
-| katrina's sword | Weapon | worn by Katrina the Shepherd in Katrina's Office (#2415, ultima) |
-| a wrinkled scroll | Scroll | carried by the giant spider in Web (#2435, ultima) |
-| a magic dagger | Weapon | worn by Nystul the Librarian in Library Office (#2421, ultima) |
-| a robe | Armor | worn by the mage in Library (#2430, ultima) |
-| horseshoes | Armor | worn by Mr. Smithy in Stables (#2406, ultima) |
-| a mandolin | Weapon | worn by the bard in The South Wall of the Tavern (#2444, ultima) |
-| a cup | Container | worn by the beggar in The Center of the Tavern (#2437, ultima) |
-| some gold pieces | Money | in a container in #0 |
-| the bottle | Potion | carried by Iolo the Bard in Cellar (#2448, ultima) |
-| iolo's bow | Weapon | worn by Iolo the Bard in Cellar (#2448, ultima) |
-| a chicken | Weapon | worn by Chuckles the Jester in Lord British's Castle Entrance (#2562, ultima) |
-| the Infinity Bow | Weapon | worn by Gwenno the Bard in The Southeast Corner of the Tavern (#2445, ultima) |
-| a wooden spear | Weapon | worn by the orc in Yew Forest (#2480, ultima) |
-| a stone club | Weapon | worn by the troll in Yew Forest (#2473, ultima) |
-| a gavel | Weapon | worn by The Judge in The Bench (#2464, ultima) |
-| a staff | Weapon | worn by Jaana the Druid in Yew Forest (#2470, ultima) |
-| a sword | Weapon | worn by Geoffrey the Fighter in The Dungeon (#2487, ultima) |
-| a sword | Weapon | worn by the fighter in The Dungeon (#2486, ultima) |
-| a bastard sword | Weapon | worn by Lord Simon in The Dungeon (#2488, ultima) |
-| a hammer | Weapon | worn by a tinker in Sacrifice Street (#2508, ultima); worn by a tinker in Residence (#2511, ultima); worn by a tinker in Residence (#2512, ultima) |
-| a sword | Weapon | worn by Julia the Tinker in Forge (#2510, ultima) |
-| the Amulet of Love | Armor | worn by The Lady of Empath Abbey in Sacrifice Street (#2508, ultima) |
-| a shiny sword | Weapon | worn by the paladin in Between the Tents (#2529, ultima); worn by the paladin in A Small Tent (#2531, ultima); worn by the paladin in A Small Tent (#2532, ultima); worn by the paladin in A Small Tent (#2537, ultima); worn by the paladin in Desert Entrance (#2538, ultima); worn by the paladin in A Small Tent (#2539, ultima) |
-| shiny armour | Armor | worn by the paladin in Between the Tents (#2529, ultima); worn by the paladin in A Small Tent (#2531, ultima); worn by the paladin in A Small Tent (#2532, ultima); worn by the paladin in A Small Tent (#2537, ultima); worn by the paladin in Desert Entrance (#2538, ultima); worn by the paladin in A Small Tent (#2539, ultima) |
-| a rapier | Weapon | worn by Dupre the Paladin in Dupre's Tent (#2536, ultima) |
-| a boomerang | Weapon | worn by Draxthanum the Gargoyle in The Grand Tent (#2534, ultima) |
-| a rusty sword | Weapon | worn by the skeleton in The Place of Ultimate Evil (#2555, ultima) |
-| a rusty shield | Armor | worn by the skeleton in The Place of Ultimate Evil (#2555, ultima) |
-| a magic cloak | Armor | worn by Shamino the Ranger in The Graveyard (#2561, ultima) |
-| an aura of power | Armor | worn by the Timelord in The Shrine of Spirituality (#2549, ultima) |
-| a big red face | Armor | worn by The Guardian in In the Warp (#2583, ultima) |
-| a spiked mace | Weapon | worn by Blackthorn in In the Warp (#2582, ultima) |
-| a completely black armour | Armor | worn by Exodus in In the Warp (#2580, ultima) |
-| an evil charm | Armor | worn by Minax in In the Warp (#2579, ultima) |
-| an evil gem | Staff | worn by Mondain in In the Warp (#2578, ultima) |
-| sentri's helmet | Armor | worn by Sentri in Hallways (#2565, ultima) |
-| sentri's sleeves | Armor | worn by Sentri in Hallways (#2565, ultima) |
-| sentri's girth | Armor | worn by Sentri in Hallways (#2565, ultima) |
-| sentri's two-handed sword | Weapon | worn by Sentri in Hallways (#2565, ultima) |
-| sentri's gloves | Armor | worn by Sentri in Hallways (#2565, ultima) |
-| sentri's boots | Armor | worn by Sentri in Hallways (#2565, ultima) |
-| sentri's leggings | Armor | worn by Sentri in Hallways (#2565, ultima) |
-| sentri's armour | Armor | worn by Sentri in Hallways (#2565, ultima) |
-| a Fellowship medallion | Armor | worn by Batlin in Batlin's Room (#2568, ultima) |
-| the Glass Sword | Weapon | worn by The Avatar in The Throne Room (#2567, ultima) |
-| british's crown | Armor | worn by Lord British in The Throne Room (#2567, ultima) |
-| british's sceptre | Armor | worn by Lord British in The Throne Room (#2567, ultima) |
-| british's amulet | Armor | worn by Lord British in The Throne Room (#2567, ultima) |
+| mu | Key | worn (held) by Iolo the Bard (L11) in Cellar (#2448, ultima); carried by Batlin (L37) in Batlin's Room (#2568, ultima) |
+| lum | Key | worn (held) by Katrina the Shepherd (L5) in Katrina's Office (#2415, ultima); carried by Batlin (L37) in Batlin's Room (#2568, ultima) |
+| beh | Key | worn (held) by Jaana the Druid (L15) in Yew Forest (#2470, ultima); carried by Batlin (L37) in Batlin's Room (#2568, ultima) |
+| ohm | Key | worn (held) by Shamino the Ranger (L35) in The Graveyard (#2561, ultima); carried by Batlin (L37) in Batlin's Room (#2568, ultima) |
+| ahm | Key | worn (held) by Mariah the Mage (L8) in Library (#2418, ultima); carried by Batlin (L37) in Batlin's Room (#2568, ultima) |
+| cah | Key | worn (held) by Julia the Tinker (L28) in Forge (#2510, ultima); carried by Batlin (L37) in Batlin's Room (#2568, ultima) |
+| ra | Key | worn (held) by Geoffrey the Fighter (L22) in The Dungeon (#2487, ultima); carried by Batlin (L37) in Batlin's Room (#2568, ultima) |
+| summ | Key | worn (held) by Dupre the Paladin (L33) in Dupre's Tent (#2536, ultima); carried by Batlin (L37) in Batlin's Room (#2568, ultima) |
+| moonstone | Key | carried by the bat (L4) in Attic (#2411, ultima) |
+| moonstone | Key | carried by the giant spider (L8) in Web (#2435, ultima) |
+| moonstone | Key | carried by the snake (L9) in Cellar (#2454, ultima) |
+| moonstone | Key | carried by the dirty prisoner (L11) in Prison Cell (#2467, ultima) |
+| moonstone | Key | carried by the headless (L19) in The Dungeon (#2492, ultima) |
+| moonstone | Key | carried by the squid (L30) in The Whirlpool (#2523, ultima) |
+| moonstone | Key | carried by the dragon (L32) in The Dragon Cave (#2548, ultima) |
+| moonstone | Key | carried by the daemon (L34) in The Place of Ultimate Evil (#2551, ultima) |
+| the Hourglass | Key | worn (held) by the Timelord (L40) in The Shrine of Spirituality (#2549, ultima) |
+| the shepherd's crook | Weapon | worn (wielded) by the shepherd (L4) in New Magincia Road (#2401, ultima); worn (wielded) by the shepherd (L4) in Barn (#2407, ultima); worn (wielded) by the shepherd (L4) in Humility Lane (#2413, ultima) |
+| the doll | Trash | worn (held) by the girl (L3) in New Magincia Road (#2402, ultima); worn (held) by the girl (L3) in Humility Lane (#2408, ultima); worn (held) by the girl (L3) in House (#2412, ultima) |
+| katrina's sword | Weapon | worn (wielded) by Katrina the Shepherd (L5) in Katrina's Office (#2415, ultima) |
+| a wrinkled scroll | Scroll | carried by the giant spider (L8) in Web (#2435, ultima) |
+| a magic dagger | Weapon | worn (wielded) by Nystul the Librarian (L30) in Library Office (#2421, ultima) |
+| a robe | Armor | worn (body) by the mage (L6) in Library (#2430, ultima) |
+| horseshoes | Armor | worn (feet) by Mr. Smithy (L25) in Stables (#2406, ultima) |
+| a mandolin | Weapon | worn (wielded) by the bard (L9) in The South Wall of the Tavern (#2444, ultima) |
+| a cup | Container | worn (held) by the beggar (L8) in The Center of the Tavern (#2437, ultima) |
+| some gold pieces | Money | inside a cup (#2425) — worn (held) by the beggar (L8) in The Center of the Tavern (#2437, ultima) |
+| the bottle | Potion | carried by Iolo the Bard (L11) in Cellar (#2448, ultima) |
+| iolo's bow | Weapon | worn (wielded) by Iolo the Bard (L11) in Cellar (#2448, ultima) |
+| a chicken | Weapon | worn (wielded) by Chuckles the Jester (L33) in Lord British's Castle Entrance (#2562, ultima) |
+| the Infinity Bow | Weapon | worn (wielded) by Gwenno the Bard (L31) in The Southeast Corner of the Tavern (#2445, ultima) |
+| a wooden spear | Weapon | worn (wielded) by the orc (L11) in Yew Forest (#2480, ultima) |
+| a stone club | Weapon | worn (wielded) by the troll (L13) in Yew Forest (#2473, ultima) |
+| a gavel | Weapon | worn (wielded) by The Judge (L32) in The Bench (#2464, ultima) |
+| a staff | Weapon | worn (wielded) by Jaana the Druid (L15) in Yew Forest (#2470, ultima) |
+| a sword | Weapon | worn (wielded) by Geoffrey the Fighter (L22) in The Dungeon (#2487, ultima) |
+| a sword | Weapon | worn (wielded) by the fighter (L18) in The Dungeon (#2486, ultima) |
+| a bastard sword | Weapon | worn (wielded) by Lord Simon (L33) in The Dungeon (#2488, ultima) |
+| a hammer | Weapon | worn (wielded) by a tinker (L25) in Sacrifice Street (#2508, ultima); worn (wielded) by a tinker (L25) in Residence (#2511, ultima); worn (wielded) by a tinker (L25) in Residence (#2512, ultima) |
+| a sword | Weapon | worn (wielded) by Julia the Tinker (L28) in Forge (#2510, ultima) |
+| the Amulet of Love | Armor | worn (neck) by The Lady of Empath Abbey (L34) in Sacrifice Street (#2508, ultima) |
+| a shiny sword | Weapon | worn (held) by the paladin (L30) in Between the Tents (#2529, ultima); worn (held) by the paladin (L30) in A Small Tent (#2531, ultima); worn (held) by the paladin (L30) in A Small Tent (#2532, ultima); worn (held) by the paladin (L30) in A Small Tent (#2537, ultima); worn (held) by the paladin (L30) in Desert Entrance (#2538, ultima); worn (held) by the paladin (L30) in A Small Tent (#2539, ultima) |
+| shiny armour | Armor | worn (body) by the paladin (L30) in Between the Tents (#2529, ultima); worn (body) by the paladin (L30) in A Small Tent (#2531, ultima); worn (body) by the paladin (L30) in A Small Tent (#2532, ultima); worn (body) by the paladin (L30) in A Small Tent (#2537, ultima); worn (body) by the paladin (L30) in Desert Entrance (#2538, ultima); worn (body) by the paladin (L30) in A Small Tent (#2539, ultima) |
+| a rapier | Weapon | worn (wielded) by Dupre the Paladin (L33) in Dupre's Tent (#2536, ultima) |
+| a boomerang | Weapon | worn (wielded) by Draxthanum the Gargoyle (L35) in The Grand Tent (#2534, ultima) |
+| a rusty sword | Weapon | worn (wielded) by the skeleton (L33) in The Place of Ultimate Evil (#2555, ultima) |
+| a rusty shield | Armor | worn (shield) by the skeleton (L33) in The Place of Ultimate Evil (#2555, ultima) |
+| a magic cloak | Armor | worn (about body) by Shamino the Ranger (L35) in The Graveyard (#2561, ultima) |
+| an aura of power | Armor | worn (body) by the Timelord (L40) in The Shrine of Spirituality (#2549, ultima) |
+| a big red face | Armor | worn (head) by The Guardian (L45) in In the Warp (#2583, ultima) |
+| a spiked mace | Weapon | worn (wielded) by Blackthorn (L43) in In the Warp (#2582, ultima) |
+| a completely black armour | Armor | worn (body) by Exodus (L41) in In the Warp (#2580, ultima) |
+| an evil charm | Armor | worn (neck) by Minax (L39) in In the Warp (#2579, ultima) |
+| an evil gem | Staff | worn (held) by Mondain (L37) in In the Warp (#2578, ultima) |
+| sentri's helmet | Armor | worn (head) by Sentri (L35) in Hallways (#2565, ultima) |
+| sentri's sleeves | Armor | worn (arms) by Sentri (L35) in Hallways (#2565, ultima) |
+| sentri's girth | Armor | worn (waist) by Sentri (L35) in Hallways (#2565, ultima) |
+| sentri's two-handed sword | Weapon | worn (wielded) by Sentri (L35) in Hallways (#2565, ultima) |
+| sentri's gloves | Armor | worn (hands) by Sentri (L35) in Hallways (#2565, ultima) |
+| sentri's boots | Armor | worn (feet) by Sentri (L35) in Hallways (#2565, ultima) |
+| sentri's leggings | Armor | worn (legs) by Sentri (L35) in Hallways (#2565, ultima) |
+| sentri's armour | Armor | worn (body) by Sentri (L35) in Hallways (#2565, ultima) |
+| a Fellowship medallion | Armor | worn (neck) by Batlin (L37) in Batlin's Room (#2568, ultima) |
+| the Glass Sword | Weapon | worn (wielded) by The Avatar (L50) in The Throne Room (#2567, ultima) |
+| british's crown | Armor | worn (head) by Lord British (L60) in The Throne Room (#2567, ultima) |
+| british's sceptre | Armor | worn (held) by Lord British (L60) in The Throne Room (#2567, ultima) |
+| british's amulet | Armor | worn (neck) by Lord British (L60) in The Throne Room (#2567, ultima) |
 | a fountain | Fountain | on the ground in Minoc's Fountain (#2504, ultima); on the ground in Castle Fountain (#2563, ultima) |
-| a boat | Boat | carried by the boatseller in The Boatseller (#2506, ultima) |
+| a boat | Boat | carried by the boatseller (L100) in The Boatseller (#2506, ultima) |
 
 ### `valley`
 
 | Item | Type | Source(s) |
 |---|---|---|
-| elven chainmail | Armor | worn by a valley elf sentry in Study (#7848, valley); worn by a valley elf sentry in Study (#7848, valley); worn by a valley elf sentry in Along a Windy Trail on the Rim of the Valley (#7850, valley); worn by a valley elf sentry in Along a Windy Trail on the Rim of the Valley (#7853, valley); worn by a valley elf sentry in Along a Windy Trail on the Rim of the Valley (#7856, valley); worn by a valley elf sentry in Along a Windy Trail on the Rim of the Valley (#7860, valley); worn by a valley elf sentry in Along a Windy Trail on the Rim of the Valley (#7863, valley); worn by a valley elf sentry in Along a Windy Trail on the Rim of the Valley (#7866, valley) |
-| elven boots | Armor | worn by a valley elf scout in Along the Trail (#7827, valley); worn by a valley elf scout in A Trail in the Valley (#7842, valley); worn by a valley elf sentry in Study (#7848, valley); worn by a valley elf sentry in Study (#7848, valley); worn by a valley elf sentry in Along a Windy Trail on the Rim of the Valley (#7850, valley); worn by a valley elf scout in Along a Windy Trail on the Rim of the Valley (#7852, valley); worn by a valley elf sentry in Along a Windy Trail on the Rim of the Valley (#7853, valley); worn by a valley elf sentry in Along a Windy Trail on the Rim of the Valley (#7856, valley); worn by a valley elf sentry in Along a Windy Trail on the Rim of the Valley (#7860, valley); worn by a valley elf scout in Along a Windy Trail on the Rim of the Valley (#7862, valley); worn by a valley elf sentry in Along a Windy Trail on the Rim of the Valley (#7863, valley); worn by a valley elf sentry in Along a Windy Trail on the Rim of the Valley (#7866, valley); worn by a valley elf scout in The Small Valley (#7876, valley) |
-| an elven longsword | Weapon | worn by a valley elf in The Entrance to the Valley of the Elves (#7805, valley); worn by a valley elf in The Valley of the Elves (#7811, valley); worn by a valley elf in The Valley of the Elves (#7816, valley); worn by a valley elf in The Edge of the Valley (#7818, valley); worn by a valley elf in The Valley of the Elves (#7820, valley); worn by a valley elf in The Valley of the Elves (#7820, valley); worn by a valley elf scout in Along the Trail (#7827, valley); worn by a valley elf in A Trail in the Valley (#7842, valley); worn by a valley elf scout in A Trail in the Valley (#7842, valley); worn by a valley elf in A Trail in the Valley (#7844, valley); worn by a valley elf sentry in Study (#7848, valley); worn by a valley elf sentry in Study (#7848, valley); worn by a valley elf sentry in Along a Windy Trail on the Rim of the Valley (#7850, valley); worn by a valley elf scout in Along a Windy Trail on the Rim of the Valley (#7852, valley); worn by a valley elf sentry in Along a Windy Trail on the Rim of the Valley (#7853, valley); worn by a valley elf in Along a Windy Trail on the Rim of the Valley (#7854, valley); worn by a valley elf sentry in Along a Windy Trail on the Rim of the Valley (#7856, valley); worn by a valley elf sentry in Along a Windy Trail on the Rim of the Valley (#7860, valley); worn by a valley elf scout in Along a Windy Trail on the Rim of the Valley (#7862, valley); worn by a valley elf sentry in Along a Windy Trail on the Rim of the Valley (#7863, valley); worn by a valley elf in Along a Windy Trail on the Rim of the Valley (#7865, valley); worn by a valley elf sentry in Along a Windy Trail on the Rim of the Valley (#7866, valley); worn by a valley elf in A Bend in the Trail (#7868, valley); worn by a valley elf scout in The Small Valley (#7876, valley); worn by a valley elf in The Small Valley (#7877, valley) |
-| a brown cloak | Armor | worn by a valley elf scout in Along the Trail (#7827, valley); worn by a valley elf scout in A Trail in the Valley (#7842, valley); worn by a valley elf sentry in Study (#7848, valley); worn by a valley elf sentry in Study (#7848, valley); worn by a valley elf sentry in Along a Windy Trail on the Rim of the Valley (#7850, valley); worn by a valley elf scout in Along a Windy Trail on the Rim of the Valley (#7852, valley); worn by a valley elf sentry in Along a Windy Trail on the Rim of the Valley (#7853, valley); worn by a valley elf sentry in Along a Windy Trail on the Rim of the Valley (#7856, valley); worn by a valley elf sentry in Along a Windy Trail on the Rim of the Valley (#7860, valley); worn by a valley elf scout in Along a Windy Trail on the Rim of the Valley (#7862, valley); worn by a valley elf sentry in Along a Windy Trail on the Rim of the Valley (#7863, valley); worn by a valley elf sentry in Along a Windy Trail on the Rim of the Valley (#7866, valley); worn by a valley elf scout in The Small Valley (#7876, valley) |
-| a key | Key | carried by a valley elf elder in The Elders' Room (#7845, valley) |
-| a key | Key | carried by the pyrohydra in The Den of the Pyrohydra (#7880, valley) |
-| a gold ring | Armor | worn by a valley elf elder in The Elders' Room (#7845, valley); worn by a valley elf elder in The Elders' Room (#7845, valley); worn by Talemon in The Workroom (#7881, valley) |
-| a quarterstaff | Weapon | worn by a valley elf elder in The Elders' Room (#7845, valley); worn by a valley elf elder in The Elders' Room (#7845, valley); worn by Talemon in The Workroom (#7881, valley) |
+| elven chainmail | Armor | worn (body) by a valley elf sentry (L7) in Study (#7848, valley); worn (body) by a valley elf sentry (L7) in Study (#7848, valley); worn (body) by a valley elf sentry (L7) in Along a Windy Trail on the Rim of the Valley (#7850, valley); worn (body) by a valley elf sentry (L7) in Along a Windy Trail on the Rim of the Valley (#7853, valley); worn (body) by a valley elf sentry (L7) in Along a Windy Trail on the Rim of the Valley (#7856, valley); worn (body) by a valley elf sentry (L7) in Along a Windy Trail on the Rim of the Valley (#7860, valley); worn (body) by a valley elf sentry (L7) in Along a Windy Trail on the Rim of the Valley (#7863, valley); worn (body) by a valley elf sentry (L7) in Along a Windy Trail on the Rim of the Valley (#7866, valley) |
+| elven boots | Armor | worn (feet) by a valley elf scout (L6) in Along the Trail (#7827, valley); worn (feet) by a valley elf scout (L6) in A Trail in the Valley (#7842, valley); worn (feet) by a valley elf sentry (L7) in Study (#7848, valley); worn (feet) by a valley elf sentry (L7) in Study (#7848, valley); worn (feet) by a valley elf sentry (L7) in Along a Windy Trail on the Rim of the Valley (#7850, valley); worn (feet) by a valley elf scout (L6) in Along a Windy Trail on the Rim of the Valley (#7852, valley); worn (feet) by a valley elf sentry (L7) in Along a Windy Trail on the Rim of the Valley (#7853, valley); worn (feet) by a valley elf sentry (L7) in Along a Windy Trail on the Rim of the Valley (#7856, valley); worn (feet) by a valley elf sentry (L7) in Along a Windy Trail on the Rim of the Valley (#7860, valley); worn (feet) by a valley elf scout (L6) in Along a Windy Trail on the Rim of the Valley (#7862, valley); worn (feet) by a valley elf sentry (L7) in Along a Windy Trail on the Rim of the Valley (#7863, valley); worn (feet) by a valley elf sentry (L7) in Along a Windy Trail on the Rim of the Valley (#7866, valley); worn (feet) by a valley elf scout (L6) in The Small Valley (#7876, valley) |
+| an elven longsword | Weapon | worn (wielded) by a valley elf (L8) in The Entrance to the Valley of the Elves (#7805, valley); worn (wielded) by a valley elf (L8) in The Valley of the Elves (#7811, valley); worn (wielded) by a valley elf (L8) in The Valley of the Elves (#7816, valley); worn (wielded) by a valley elf (L8) in The Edge of the Valley (#7818, valley); worn (wielded) by a valley elf (L8) in The Valley of the Elves (#7820, valley); worn (wielded) by a valley elf (L8) in The Valley of the Elves (#7820, valley); worn (wielded) by a valley elf scout (L6) in Along the Trail (#7827, valley); worn (wielded) by a valley elf (L8) in A Trail in the Valley (#7842, valley); worn (wielded) by a valley elf scout (L6) in A Trail in the Valley (#7842, valley); worn (wielded) by a valley elf (L8) in A Trail in the Valley (#7844, valley); worn (wielded) by a valley elf sentry (L7) in Study (#7848, valley); worn (wielded) by a valley elf sentry (L7) in Study (#7848, valley); worn (wielded) by a valley elf sentry (L7) in Along a Windy Trail on the Rim of the Valley (#7850, valley); worn (wielded) by a valley elf scout (L6) in Along a Windy Trail on the Rim of the Valley (#7852, valley); worn (wielded) by a valley elf sentry (L7) in Along a Windy Trail on the Rim of the Valley (#7853, valley); worn (wielded) by a valley elf (L8) in Along a Windy Trail on the Rim of the Valley (#7854, valley); worn (wielded) by a valley elf sentry (L7) in Along a Windy Trail on the Rim of the Valley (#7856, valley); worn (wielded) by a valley elf sentry (L7) in Along a Windy Trail on the Rim of the Valley (#7860, valley); worn (wielded) by a valley elf scout (L6) in Along a Windy Trail on the Rim of the Valley (#7862, valley); worn (wielded) by a valley elf sentry (L7) in Along a Windy Trail on the Rim of the Valley (#7863, valley); worn (wielded) by a valley elf (L8) in Along a Windy Trail on the Rim of the Valley (#7865, valley); worn (wielded) by a valley elf sentry (L7) in Along a Windy Trail on the Rim of the Valley (#7866, valley); worn (wielded) by a valley elf (L8) in A Bend in the Trail (#7868, valley); worn (wielded) by a valley elf scout (L6) in The Small Valley (#7876, valley); worn (wielded) by a valley elf (L8) in The Small Valley (#7877, valley) |
+| a brown cloak | Armor | worn (neck) by a valley elf scout (L6) in Along the Trail (#7827, valley); worn (neck) by a valley elf scout (L6) in A Trail in the Valley (#7842, valley); worn (neck) by a valley elf sentry (L7) in Study (#7848, valley); worn (neck) by a valley elf sentry (L7) in Study (#7848, valley); worn (neck) by a valley elf sentry (L7) in Along a Windy Trail on the Rim of the Valley (#7850, valley); worn (neck) by a valley elf scout (L6) in Along a Windy Trail on the Rim of the Valley (#7852, valley); worn (neck) by a valley elf sentry (L7) in Along a Windy Trail on the Rim of the Valley (#7853, valley); worn (neck) by a valley elf sentry (L7) in Along a Windy Trail on the Rim of the Valley (#7856, valley); worn (neck) by a valley elf sentry (L7) in Along a Windy Trail on the Rim of the Valley (#7860, valley); worn (neck) by a valley elf scout (L6) in Along a Windy Trail on the Rim of the Valley (#7862, valley); worn (neck) by a valley elf sentry (L7) in Along a Windy Trail on the Rim of the Valley (#7863, valley); worn (neck) by a valley elf sentry (L7) in Along a Windy Trail on the Rim of the Valley (#7866, valley); worn (neck) by a valley elf scout (L6) in The Small Valley (#7876, valley) |
+| a key | Key | carried by a valley elf elder (L15) in The Elders' Room (#7845, valley) |
+| a key | Key | carried by the pyrohydra (L20) in The Den of the Pyrohydra (#7880, valley) |
+| a gold ring | Armor | worn (left finger) by a valley elf elder (L15) in The Elders' Room (#7845, valley); worn (left finger) by a valley elf elder (L15) in The Elders' Room (#7845, valley); worn (left finger) by Talemon (L25) in The Workroom (#7881, valley) |
+| a quarterstaff | Weapon | worn (wielded) by a valley elf elder (L15) in The Elders' Room (#7845, valley); worn (wielded) by a valley elf elder (L15) in The Elders' Room (#7845, valley); worn (wielded) by Talemon (L25) in The Workroom (#7881, valley) |
 | a potion | Potion | on the ground in The Storage Room (#7882, valley) |
 | a potion | Potion | on the ground in The Storage Room (#7846, valley) |
 | a potion | Potion | on the ground in The Storage Room (#7882, valley) |
@@ -2942,27 +2942,27 @@ Reachable creatures only, grouped by level. _Lvl_ is the mob level; pick targets
 | a scroll | Scroll | on the ground in The Storage Room (#7882, valley) |
 | a scroll | Scroll | on the ground in The Storage Room (#7882, valley) |
 | a scroll | Scroll | on the ground in The Storage Room (#7846, valley); on the ground in The Storage Room (#7882, valley) |
-| the Rod of Neutrality | Light | worn by Talemon in The Workroom (#7881, valley) |
+| the Rod of Neutrality | Light | worn (light) by Talemon (L25) in The Workroom (#7881, valley) |
 
 ### `wyvern`
 
 | Item | Type | Source(s) |
 |---|---|---|
 | a rusty cleaver | Weapon | on the ground in Kitchen (#1627, wyvern) |
-| the fine mace | Weapon | worn by the gargoyle shaman in The Shaman's Room (#1638, wyvern) |
-| a long elven dagger | Weapon | in a container in The Armory (#1645, wyvern) |
-| a steel broad sword | Weapon | worn by the savage minotaur in Minotaur's Room (#1610, wyvern); worn by the elite gargoyle in Second Level of the Eastern Tower (#1636, wyvern); worn by the elite gargoyle in Second Level of the Eastern Tower (#1636, wyvern); worn by the captain in The Officer's Quarters (#1646, wyvern); worn by a centaur guard in Entrance to a Large Hut (#1716, wyvern); worn by a centaur guard in Entrance to a Large Hut (#1716, wyvern) |
-| the rod of might | Weapon | worn by a lesser golem in Third Level of Eastern Tower (#1647, wyvern) |
-| a black kite shield | Armor | worn by the savage minotaur in Minotaur's Room (#1610, wyvern) |
-| a commander's helm | Armor | worn by the captain in The Officer's Quarters (#1646, wyvern) |
-| a mithril bracer | Armor | worn by the ancient wyvern in Turret of the Eastern Tower (#1648, wyvern) |
-| a dark blue cloak | Armor | worn by the spectre in Turret of the Western Tower (#1650, wyvern) |
-| a dark red potion | Potion | worn by the gargoyle shaman in The Shaman's Room (#1638, wyvern); carried by the ancient wyvern in Turret of the Eastern Tower (#1648, wyvern); carried by a ranger in Trading Post (#1703, wyvern) |
+| the fine mace | Weapon | worn (wielded) by the gargoyle shaman (L13) in The Shaman's Room (#1638, wyvern) |
+| a long elven dagger | Weapon | inside a bronze chest (#1651) — on the ground in The Armory (#1645, wyvern) |
+| a steel broad sword | Weapon | worn (wielded) by the savage minotaur (L15) in Minotaur's Room (#1610, wyvern); worn (wielded) by the elite gargoyle (L12) in Second Level of the Eastern Tower (#1636, wyvern); worn (wielded) by the elite gargoyle (L12) in Second Level of the Eastern Tower (#1636, wyvern); worn (wielded) by the captain (L17) in The Officer's Quarters (#1646, wyvern); worn (wielded) by a centaur guard (L10) in Entrance to a Large Hut (#1716, wyvern); worn (wielded) by a centaur guard (L10) in Entrance to a Large Hut (#1716, wyvern) |
+| the rod of might | Weapon | worn (wielded) by a lesser golem (L16) in Third Level of Eastern Tower (#1647, wyvern) |
+| a black kite shield | Armor | worn (shield) by the savage minotaur (L15) in Minotaur's Room (#1610, wyvern) |
+| a commander's helm | Armor | worn (head) by the captain (L17) in The Officer's Quarters (#1646, wyvern) |
+| a mithril bracer | Armor | worn (held) by the ancient wyvern (L18) in Turret of the Eastern Tower (#1648, wyvern) |
+| a dark blue cloak | Armor | worn (neck) by the spectre (L19) in Turret of the Western Tower (#1650, wyvern) |
+| a dark red potion | Potion | worn (waist) by the gargoyle shaman (L13) in The Shaman's Room (#1638, wyvern); carried by the ancient wyvern (L18) in Turret of the Eastern Tower (#1648, wyvern); carried by a ranger (L12) in Trading Post (#1703, wyvern) |
 | a bronze chest | Container | on the ground in The Armory (#1645, wyvern) |
 | a barrel of ale | Drink Con | on the ground in Old Store Room (#1608, wyvern) |
-| a strange key | Key | worn by an evil wight in A Large Murky Cellar (#1634, wyvern) |
-| a short bow | Weapon | worn by a hunter in Trading Post (#1703, wyvern); worn by a centaur in Trail north of crossroads (#1704, wyvern); worn by a centaur in Junction in Dark Forest (#1708, wyvern) |
-| a long bow | Weapon | worn by a ranger in Trading Post (#1703, wyvern) |
-| a fur cap | Armor | worn by a trapper in Trading Post (#1703, wyvern); worn by a trapper in Trading Post (#1703, wyvern) |
-| a bronze ring | Armor | worn by the centaur chief in Back of a Large Hut (#1717, wyvern) |
+| a strange key | Key | worn (held) by an evil wight (L12) in A Large Murky Cellar (#1634, wyvern) |
+| a short bow | Weapon | worn (wielded) by a hunter (L8) in Trading Post (#1703, wyvern); worn (wielded) by a centaur (L7) in Trail north of crossroads (#1704, wyvern); worn (wielded) by a centaur (L7) in Junction in Dark Forest (#1708, wyvern) |
+| a long bow | Weapon | worn (wielded) by a ranger (L12) in Trading Post (#1703, wyvern) |
+| a fur cap | Armor | worn (head) by a trapper (L6) in Trading Post (#1703, wyvern); worn (head) by a trapper (L6) in Trading Post (#1703, wyvern) |
+| a bronze ring | Armor | worn (right finger) by the centaur chief (L12) in Back of a Large Hut (#1717, wyvern) |
 

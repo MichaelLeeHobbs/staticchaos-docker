@@ -14,7 +14,10 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { parseAreaFile, loadAreaList, cell, itemTypeName } from './lib/area.mjs';
+import {
+  parseAreaFile, loadAreaList, cell, itemTypeName,
+  buildWorldIndex, resolveResets, describeSource,
+} from './lib/area.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const AREA_DIR = path.join(ROOT, 'area');
@@ -24,17 +27,13 @@ const band = (l) => (l >= 90 ? '90+' : l >= 70 ? '70–89' : l >= 50 ? '50–69'
 function main() {
   fs.mkdirSync(OUT, { recursive: true });
 
-  const rooms = new Map();   // vnum -> {name, area}
-  const mobs = new Map();    // vnum -> {name, level, area}
-  const objs = new Map();    // vnum -> {name, type, area}
   const parsed = [];
-  for (const f of loadAreaList(AREA_DIR)) {
-    const a = parseAreaFile(path.join(AREA_DIR, f));
-    parsed.push(a);
-    for (const r of a.rooms) rooms.set(r.vnum, { name: r.name, area: a.id });
-    for (const m of a.mobiles) mobs.set(m.vnum, { name: m.name, level: m.level, area: a.id });
-    for (const o of a.objects) objs.set(o.vnum, { name: o.name, type: itemTypeName(o.itemType), area: a.id });
-  }
+  for (const f of loadAreaList(AREA_DIR)) parsed.push(parseAreaFile(path.join(AREA_DIR, f)));
+
+  // shared global indexes + correct reset resolution (fixes P/container sourcing)
+  const idx = buildWorldIndex(parsed);
+  const { mobs, rooms, objs } = idx;
+  const { mobSpawns, itemSources: itemSrc } = resolveResets(parsed);
 
   // reachability: which areas are reachable from recall (from world.json if present)
   let unreachable = new Set();
@@ -43,41 +42,13 @@ function main() {
     unreachable = new Set(w.reports.unreachableAreas);
   } catch { /* world.json not built yet -- treat all as reachable */ }
 
-  // walk resets (state is per-area)
-  const mobSpawns = new Map();   // mobVnum -> Set(roomVnum)
-  const itemSrc = new Map();     // objVnum -> [ {kind, room, mob?, wear?} ]
-  const addSrc = (v, s) => { if (!itemSrc.has(v)) itemSrc.set(v, []); itemSrc.get(v).push(s); };
-  for (const a of parsed) {
-    let lastMob = 0, lastMobRoom = 0, lastObjRoom = 0;
-    for (const r of a.resets) {
-      switch (r.command) {
-        case 'M': if (!mobSpawns.has(r.arg1)) mobSpawns.set(r.arg1, new Set()); mobSpawns.get(r.arg1).add(r.arg3); lastMob = r.arg1; lastMobRoom = r.arg3; break;
-        case 'O': addSrc(r.arg1, { kind: 'floor', room: r.arg3 }); lastObjRoom = r.arg3; break;
-        case 'E': addSrc(r.arg1, { kind: 'equipped', mob: lastMob, room: lastMobRoom }); break;
-        case 'G': addSrc(r.arg1, { kind: 'carried', mob: lastMob, room: lastMobRoom }); break;
-        case 'P': addSrc(r.arg1, { kind: 'container', room: lastObjRoom }); break;
-        default: break;
-      }
-    }
-  }
-
-  const roomStr = (v) => { const r = rooms.get(v); return r ? `${r.name} (#${v}, ${r.area})` : `#${v}`; };
-  const srcStr = (s) => {
-    const m = s.mob && mobs.get(s.mob);
-    switch (s.kind) {
-      case 'floor': return `on the ground in ${roomStr(s.room)}`;
-      case 'equipped': return `worn by ${m ? m.name : 'a mob'} in ${roomStr(s.room)}`;
-      case 'carried': return `carried by ${m ? m.name : 'a mob'} in ${roomStr(s.room)}`;
-      case 'container': return `in a container in ${roomStr(s.room)}`;
-      default: return '?';
-    }
-  };
+  const srcStr = (s) => describeSource(s, idx, itemSrc);
 
   // ---- json ----
   const data = {
     stats: { mobsPlaced: mobSpawns.size, itemsPlaced: itemSrc.size },
     mobSpawns: Object.fromEntries([...mobSpawns].map(([v, set]) => [v, { name: mobs.get(v)?.name || `#${v}`, level: mobs.get(v)?.level ?? null, rooms: [...set] }])),
-    itemSources: Object.fromEntries([...itemSrc].map(([v, list]) => [v, { name: objs.get(v)?.name || `#${v}`, type: objs.get(v)?.type, sources: list }])),
+    itemSources: Object.fromEntries([...itemSrc].map(([v, list]) => [v, { name: objs.get(v)?.name || `#${v}`, type: itemTypeName(objs.get(v)?.itemType), sources: list }])),
   };
   fs.writeFileSync(path.join(OUT, 'spawns.json'), JSON.stringify(data, null, 2) + '\n');
 
@@ -122,7 +93,7 @@ function main() {
   for (const area of Object.keys(byAreaItems).sort()) {
     out.push(`### \`${area}\``, '', '| Item | Type | Source(s) |', '|---|---|---|');
     for (const { v, list, o } of byAreaItems[area].sort((a, z) => a.v - z.v)) {
-      out.push(`| ${cell(o?.name || `#${v}`)} | ${o?.type || '?'} | ${cell(list.map(srcStr).join('; '))} |`);
+      out.push(`| ${cell(o?.name || `#${v}`)} | ${itemTypeName(o?.itemType)} | ${cell(list.map(srcStr).join('; '))} |`);
     }
     out.push('');
   }

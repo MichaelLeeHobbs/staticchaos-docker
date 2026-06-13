@@ -36,70 +36,70 @@
 
 ## Notable gear (stat-boosting wearables)
 
-Top 60 by total stat magnitude.
+Top 60 by total stat magnitude. _Found_ traces the item back through area resets; ⚠️ means no reset places it, so it cannot be obtained in normal play.
 
-| VNUM | Item | Type | Worn | Stats | Area |
+| VNUM | Item | Type | Worn | Stats | Found |
 |---:|---|---|---|---|---|
-| 802 | a Tarnished Silver Bracer | Armor | wrist | -999 HP, -999 Mana, -999 Move | apoc |
-| 803 | a Mystic Robe | Armor | about | -50 Save-Spell, +2000 Mana, +5 Hitroll, +5 Damroll, -50 AC, +10 Int, +10 Wis | apoc |
-| 800 | a Golden Tabard | Armor | body | +500 HP, +25 Damroll, +25 Hitroll, -100 AC, +10 Str, +10 Dex, +10 Con | apoc |
-| 804 | a Medal of Honor | Armor | neck | +15 Hitroll, +15 Damroll, +250 HP, +250 Mana | apoc |
-| 31 | A slim henshin pen etched with the sigil of Uranus | Armor | held | +5 Damroll, +5 Hitroll, +200 HP | limbo |
-| 52 | the Laguna Blade | Weapon | wielded | +100 Damroll, +100 Hitroll | limbo |
-| 2449 | a big red face | Armor | head | +50 Mana, +50 HP, +50 Move, +3 Str, +2 Con | ultima |
-| 35 | a double-headed black rubber dildo | Armor | held | +5 Damroll, +5 Hitroll, +100 HP | limbo |
-| 642 | platinum boots | Armor | feet | +10 HP, +100 Move | ofcol2 |
-| 2451 | a completely black armour | Armor | body | +5 AC, -100 Move, +5 Damroll | ultima |
-| 2466 | british's amulet | Armor | neck | +2 Str, +2 Dex, +50 HP, +50 Move | ultima |
-| 1805 | a sprig of mints | Light | held | +100 Move, +1 HP | haven |
-| 2445 | a rusty sword | Weapon | wielded | +100 Age | ultima |
-| 34 | Cloak of the Mriswith | Armor | about | -75 AC, +10 Hitroll | limbo |
-| 2437 | a bastard sword | Weapon | wielded | +3 Str, +2 Dex, +5 Hitroll, +5 Damroll, -50 HP, -10 AC | ultima |
-| 32 | saiyan Battle Armor | Armor | body | +35 Hitroll, +35 Damroll | limbo |
-| 2464 | british's crown | Armor | head | +2 Int, +2 Wis, +50 Mana, +10 AC | ultima |
-| 2465 | british's sceptre | Armor | held | +2 Con, +50 HP, +5 Hitroll, +5 Damroll | ultima |
-| 801 | a Golden Band | Armor | finger | +25 Hitroll, +25 Damroll, -10 AC | apoc |
-| 2423 | horseshoes | Armor | feet | +50 Move, +3 Damroll | ultima |
-| 2453 | an evil gem | Staff | held | +50 Mana, +3 Int | ultima |
-| 2416 | the Hourglass | Key | held | -50 Age, +2 Wis | ultima |
-| 2452 | an evil charm | Armor | neck | +50 Mana, +1 Int, +1 Sex | ultima |
-| 9307 | the Titanic Hoof of Taurus | Armor | feet | +50 Move, +1 Damroll | galaxy |
-| 26 | a katana | Weapon | wielded | +10 Damroll, +10 Hitroll, -30 AC | limbo |
-| 922 | the Amulet of Ra | Armor | neck | +50 Mana | olympus |
-| 2321 | a broach of life | Armor | neck | +50 HP | mahntor |
-| 7801 | elven boots | Armor | feet | +50 Move | valley |
-| 30 | the Murasame Sword | Weapon | wielded | +20 Damroll, +20 Hitroll | limbo |
-| 2316 | a banded ring | Armor | finger | +30 Mana, +10 Age | mahntor |
-| 9322 | the ring of the universe | Armor | finger | +10 Mana, +30 HP | galaxy |
-| 9313 | the Titanic Scale of Libra | Armor | shield | +6 AC, -30 HP | galaxy |
-| 51 | a Ruby-eye blade | Weapon | wielded | +15 Damroll, +15 Hitroll | limbo |
-| 1105 | the One Ring | Armor | finger/held | +10 AC, +20 Mana | shire |
-| 2014 | a shadow cloak | Armor | about | -30 Move | catacomb |
-| 2327 | boots of striding | Armor | feet | +30 Move | mahntor |
-| 9210 | a waterfall cloak | Armor | about | +25 Mana, -2 Hitroll | canyon |
-| 9320 | the Ring of Dignity | Armor | finger | +25 Mana, +2 Int | galaxy |
-| 2440 | the Amulet of Love | Armor | neck | -5 Save-Para, -5 Save-Rod, -5 Save-Petri, -5 Save-Breath, -5 Save-Spell, +1 Sex | ultima |
-| 908 | flaming gauntlets | Armor | hands | +25 HP | olympus |
-| 910 | a glowing necklace | Armor | neck | +25 Mana | olympus |
-| 2261 | a diamond brooch | Armor | neck | +25 Mana | draconia |
-| 2311 | a gilded gold breast plate | Armor | body | +25 HP | mahntor |
-| 5112 | a small ruby ring | Armor | finger | +25 HP | drow |
-| 9212 | an elemental bracelet | Armor | wrist | +25 HP | canyon |
-| 2106 | a stiletto | Weapon | wielded | +4 Hitroll, +20 AC | hood |
-| 2011 | the shield of defense | Armor | shield | +10 Mana, +10 HP, -2 Hitroll, -1 Damroll | catacomb |
-| 2461 | sentri's armour | Armor | body | +3 Hitroll, +20 HP | ultima |
-| 2329 | an ice staff | Weapon | wielded | +2 Hitroll, +20 Mana | mahntor |
-| 2463 | the Glass Sword | Weapon | wielded | +5 Hitroll, +5 Damroll, +1 Str, +1 Dex, +10 Mana | ultima |
-| 9226 | a flame lance | Weapon | wielded | -20 HP, +2 Hitroll | canyon |
-| 2456 | sentri's girth | Armor | waist | +15 HP, -6 Save-Spell | ultima |
-| 1396 | a shimmering cloak of many colors | Container | neck | -15 AC, -5 Save-Spell | hitower |
-| 1397 | a small emerald ring | Armor | finger | +20 Mana | hitower |
-| 2112 | brass knuckles | Armor | hands | -15 HP, +5 Hitroll | hood |
-| 2312 | a billowing white cape | Armor | neck | +20 Age | mahntor |
-| 2333 | a blood red stone | Armor | held | +20 HP | mahntor |
-| 2447 | a magic cloak | Armor | neck | +10 Mana, +10 HP | ultima |
-| 2458 | sentri's gloves | Armor | hands | +3 Hitroll, +15 HP | ultima |
-| 5218 | a demon-faced talisman | Armor | neck | -10 Str, -8 Dex | thalos |
+| 802 | a Tarnished Silver Bracer | Armor | wrist | -999 HP, -999 Mana, -999 Move | worn (right wrist) by Dorin the Assassin (L97) in A Duel (#822, apoc); worn (right wrist) by Dorin the Assassin (L97) in A Duel (#822, apoc) |
+| 803 | a Mystic Robe | Armor | about | -50 Save-Spell, +2000 Mana, +5 Hitroll, +5 Damroll, -50 AC, +10 Int, +10 Wis | worn (about body) by Kyriel the Mage (L99) in The Top of the Tower (#821, apoc) |
+| 800 | a Golden Tabard | Armor | body | +500 HP, +25 Damroll, +25 Hitroll, -100 AC, +10 Str, +10 Dex, +10 Con | worn (body) by Larsen the Cruel (L99) in Larsen's Torture Chamber (#800, apoc) |
+| 804 | a Medal of Honor | Armor | neck | +15 Hitroll, +15 Damroll, +250 HP, +250 Mana | inside a Mystic Robe (#803) — worn (about body) by Kyriel the Mage (L99) in The Top of the Tower (#821, apoc); worn (neck) by Ingen Jegger (L97) in The Dungeon (#824, apoc) |
+| 31 | A slim henshin pen etched with the sigil of Uranus | Armor | held | +5 Damroll, +5 Hitroll, +200 HP | ⚠️ not placed (unobtainable in normal play) |
+| 52 | the Laguna Blade | Weapon | wielded | +100 Damroll, +100 Hitroll | ⚠️ not placed (unobtainable in normal play) |
+| 2449 | a big red face | Armor | head | +50 Mana, +50 HP, +50 Move, +3 Str, +2 Con | worn (head) by The Guardian (L45) in In the Warp (#2583, ultima) |
+| 35 | a double-headed black rubber dildo | Armor | held | +5 Damroll, +5 Hitroll, +100 HP | ⚠️ not placed (unobtainable in normal play) |
+| 642 | platinum boots | Armor | feet | +10 HP, +100 Move | worn (feet) by Marshall Diana (L33) in The Big Intersection (#601, ofcol2) |
+| 2451 | a completely black armour | Armor | body | +5 AC, -100 Move, +5 Damroll | worn (body) by Exodus (L41) in In the Warp (#2580, ultima) |
+| 2466 | british's amulet | Armor | neck | +2 Str, +2 Dex, +50 HP, +50 Move | worn (neck) by Lord British (L60) in The Throne Room (#2567, ultima) |
+| 1805 | a sprig of mints | Light | held | +100 Move, +1 HP | carried by the master herbal (L30) in The Master Herbal's Room (#1820, haven) |
+| 2445 | a rusty sword | Weapon | wielded | +100 Age | worn (wielded) by the skeleton (L33) in The Place of Ultimate Evil (#2555, ultima) |
+| 34 | Cloak of the Mriswith | Armor | about | -75 AC, +10 Hitroll | ⚠️ not placed (unobtainable in normal play) |
+| 2437 | a bastard sword | Weapon | wielded | +3 Str, +2 Dex, +5 Hitroll, +5 Damroll, -50 HP, -10 AC | worn (wielded) by Lord Simon (L33) in The Dungeon (#2488, ultima) |
+| 32 | saiyan Battle Armor | Armor | body | +35 Hitroll, +35 Damroll | ⚠️ not placed (unobtainable in normal play) |
+| 2464 | british's crown | Armor | head | +2 Int, +2 Wis, +50 Mana, +10 AC | worn (head) by Lord British (L60) in The Throne Room (#2567, ultima) |
+| 2465 | british's sceptre | Armor | held | +2 Con, +50 HP, +5 Hitroll, +5 Damroll | worn (held) by Lord British (L60) in The Throne Room (#2567, ultima) |
+| 801 | a Golden Band | Armor | finger | +25 Hitroll, +25 Damroll, -10 AC | worn (right finger) by Tarrant the Shitter (L99) in The Bathing Chamber (#818, apoc) |
+| 2423 | horseshoes | Armor | feet | +50 Move, +3 Damroll | worn (feet) by Mr. Smithy (L25) in Stables (#2406, ultima) |
+| 2453 | an evil gem | Staff | held | +50 Mana, +3 Int | worn (held) by Mondain (L37) in In the Warp (#2578, ultima) |
+| 2416 | the Hourglass | Key | held | -50 Age, +2 Wis | worn (held) by the Timelord (L40) in The Shrine of Spirituality (#2549, ultima) |
+| 2452 | an evil charm | Armor | neck | +50 Mana, +1 Int, +1 Sex | worn (neck) by Minax (L39) in In the Warp (#2579, ultima) |
+| 9307 | the Titanic Hoof of Taurus | Armor | feet | +50 Move, +1 Damroll | worn (feet) by Taurus (L22) in Inside a Spanish Bull-Ring (#9343, galaxy) |
+| 26 | a katana | Weapon | wielded | +10 Damroll, +10 Hitroll, -30 AC | worn (wielded) by the Hitokiri Battousai (L104) in The Void (#1, limbo) |
+| 922 | the Amulet of Ra | Armor | neck | +50 Mana | worn (neck) by Ra the Sun God (L35) in Guest Quarters (#931, olympus) |
+| 2321 | a broach of life | Armor | neck | +50 HP | worn (neck) by Sumaron (L30) in Sumaron's Sanctum (#2390, mahntor) |
+| 7801 | elven boots | Armor | feet | +50 Move | worn (feet) by a valley elf scout (L6) in Along the Trail (#7827, valley); worn (feet) by a valley elf scout (L6) in A Trail in the Valley (#7842, valley); worn (feet) by a valley elf sentry (L7) in Study (#7848, valley); worn (feet) by a valley elf sentry (L7) in Study (#7848, valley); worn (feet) by a valley elf sentry (L7) in Along a Windy Trail on the Rim of the Valley (#7850, valley); worn (feet) by a valley elf scout (L6) in Along a Windy Trail on the Rim of the Valley (#7852, valley); worn (feet) by a valley elf sentry (L7) in Along a Windy Trail on the Rim of the Valley (#7853, valley); worn (feet) by a valley elf sentry (L7) in Along a Windy Trail on the Rim of the Valley (#7856, valley); worn (feet) by a valley elf sentry (L7) in Along a Windy Trail on the Rim of the Valley (#7860, valley); worn (feet) by a valley elf scout (L6) in Along a Windy Trail on the Rim of the Valley (#7862, valley); worn (feet) by a valley elf sentry (L7) in Along a Windy Trail on the Rim of the Valley (#7863, valley); worn (feet) by a valley elf sentry (L7) in Along a Windy Trail on the Rim of the Valley (#7866, valley); worn (feet) by a valley elf scout (L6) in The Small Valley (#7876, valley) |
+| 30 | the Murasame Sword | Weapon | wielded | +20 Damroll, +20 Hitroll | ⚠️ not placed (unobtainable in normal play) |
+| 2316 | a banded ring | Armor | finger | +30 Mana, +10 Age | worn (right finger) by Amyrok (L30) in Amyrok's Arcane Study (#2391, mahntor) |
+| 9322 | the ring of the universe | Armor | finger | +10 Mana, +30 HP | worn (right finger) by Polaris, the polar star (L30) in The Polar Star (#9371, galaxy) |
+| 9313 | the Titanic Scale of Libra | Armor | shield | +6 AC, -30 HP | worn (shield) by Libra (L22) in The Supreme Court (#9348, galaxy) |
+| 51 | a Ruby-eye blade | Weapon | wielded | +15 Damroll, +15 Hitroll | ⚠️ not placed (unobtainable in normal play) |
+| 1105 | the One Ring | Armor | finger/held | +10 AC, +20 Mana | worn (left finger) by the Keeper of the Ring (L45) in Pantry (#1137, shire) |
+| 2014 | a shadow cloak | Armor | about | -30 Move | worn (about body) by the shadow (L14) in Very dark passage (#2026, catacomb) |
+| 2327 | boots of striding | Armor | feet | +30 Move | worn (feet) by Nasturn (L30) in Nasturn's Humble Abode (#2394, mahntor) |
+| 9210 | a waterfall cloak | Armor | about | +25 Mana, -2 Hitroll | worn (about body) by The Water Ruler (L30) in Water Chamber (#9236, canyon) |
+| 9320 | the Ring of Dignity | Armor | finger | +25 Mana, +2 Int | worn (left finger) by Cassiopeia the Queen (L26) in Cassiopeia's Throne (#9365, galaxy) |
+| 2440 | the Amulet of Love | Armor | neck | -5 Save-Para, -5 Save-Rod, -5 Save-Petri, -5 Save-Breath, -5 Save-Spell, +1 Sex | worn (neck) by The Lady of Empath Abbey (L34) in Sacrifice Street (#2508, ultima) |
+| 908 | flaming gauntlets | Armor | hands | +25 HP | worn (hands) by Prometheus (L31) in Cell (#920, olympus); carried by Samuel the Armourer (L20) in Armoury (#935, olympus) |
+| 910 | a glowing necklace | Armor | neck | +25 Mana | worn (neck) by Athena (L33) in Residence (#925, olympus); carried by the Alchemist (L34) in Mystic Shop (#927, olympus) |
+| 2261 | a diamond brooch | Armor | neck | +25 Mana | worn (neck) by a powerful mage (L22) in The Library (#2214, draconia); worn (neck) by the Ancient Green Dragon (L31) in THE Lair (#2230, draconia) |
+| 2311 | a gilded gold breast plate | Armor | body | +25 HP | worn (body) by Tyrgoth (L30) in Tyrgoth's Inner Sanctum (#2374, mahntor) |
+| 5112 | a small ruby ring | Armor | finger | +25 HP | worn (left finger) by the matron mother (L70) in Main Chamber (#5113, drow) |
+| 9212 | an elemental bracelet | Armor | wrist | +25 HP | worn (left wrist) by the elemental guardian (L20) in Elemental Gateway (#9209, canyon) |
+| 2106 | a stiletto | Weapon | wielded | +4 Hitroll, +20 AC | worn (wielded) by the gang leader (L43) in A small ruined chapel (#2148, hood) |
+| 2011 | the shield of defense | Armor | shield | +10 Mana, +10 HP, -2 Hitroll, -1 Damroll | worn (shield) by the evil necromancer (L15) in Scene of ghastly horror (#2055, catacomb) |
+| 2461 | sentri's armour | Armor | body | +3 Hitroll, +20 HP | worn (body) by Sentri (L35) in Hallways (#2565, ultima) |
+| 2329 | an ice staff | Weapon | wielded | +2 Hitroll, +20 Mana | worn (wielded) by Nasturn (L30) in Nasturn's Humble Abode (#2394, mahntor) |
+| 2463 | the Glass Sword | Weapon | wielded | +5 Hitroll, +5 Damroll, +1 Str, +1 Dex, +10 Mana | worn (wielded) by The Avatar (L50) in The Throne Room (#2567, ultima) |
+| 9226 | a flame lance | Weapon | wielded | -20 HP, +2 Hitroll | worn (wielded) by the Blue Flame (L26) in A Fiery Pathway (#9238, canyon) |
+| 2456 | sentri's girth | Armor | waist | +15 HP, -6 Save-Spell | worn (waist) by Sentri (L35) in Hallways (#2565, ultima) |
+| 1396 | a shimmering cloak of many colors | Container | neck | -15 AC, -5 Save-Spell | ⚠️ not placed (unobtainable in normal play) |
+| 1397 | a small emerald ring | Armor | finger | +20 Mana | worn (left finger) by The Grand Mistress (L50) in The audience chamber (#1477, hitower) |
+| 2112 | brass knuckles | Armor | hands | -15 HP, +5 Hitroll | worn (held) by the gang leader (L43) in A small ruined chapel (#2148, hood) |
+| 2312 | a billowing white cape | Armor | neck | +20 Age | worn (neck) by Tyrgoth (L30) in Tyrgoth's Inner Sanctum (#2374, mahntor) |
+| 2333 | a blood red stone | Armor | held | +20 HP | carried by Belrak (L30) in Belrak's Green Room (#2399, mahntor) |
+| 2447 | a magic cloak | Armor | neck | +10 Mana, +10 HP | worn (about body) by Shamino the Ranger (L35) in The Graveyard (#2561, ultima) |
+| 2458 | sentri's gloves | Armor | hands | +3 Hitroll, +15 HP | worn (hands) by Sentri (L35) in Hallways (#2565, ultima) |
+| 5218 | a demon-faced talisman | Armor | neck | -10 Str, -8 Dex | carried by The mimic (L11) in The guild house (#5219, thalos) |
 
 ## Full catalogue by area
 
@@ -107,1369 +107,1369 @@ Top 60 by total stat magnitude.
 
 1 items
 
-| VNUM | Item | Type | Worn | Stats / value / flags |
-|---:|---|---|---|---|
-| 1001 | a red rose | Armor | head | AC 6 |
+| VNUM | Item | Type | Worn | Stats / value / flags | Found |
+|---:|---|---|---|---|---|
+| 1001 | a red rose | Armor | head | AC 6 | ⚠️ not placed (unobtainable in normal play) |
 
 ### Larsen ApocalypsE Headquarters  `(apoc)`
 
 7 items
 
-| VNUM | Item | Type | Worn | Stats / value / flags |
-|---:|---|---|---|---|
-| 800 | a Golden Tabard | Armor | body | AC 15 · +500 HP, +25 Damroll, +25 Hitroll, -100 AC, +10 Str, +10 Dex, +10 Con · _glow/hum/magic_ |
-| 801 | a Golden Band | Armor | finger | +25 Hitroll, +25 Damroll, -10 AC · _glow/hum/magic_ |
-| 802 | a Tarnished Silver Bracer | Armor | wrist | -999 HP, -999 Mana, -999 Move · _glow/hum/magic_ |
-| 803 | a Mystic Robe | Armor | about | -50 Save-Spell, +2000 Mana, +5 Hitroll, +5 Damroll, -50 AC, +10 Int, +10 Wis · _glow/hum/magic_ |
-| 804 | a Medal of Honor | Armor | neck | +15 Hitroll, +15 Damroll, +250 HP, +250 Mana · _glow/hum/magic_ |
-| 805 | A pillar of the purest white marble soars skyward. | Furniture | — | — |
-| 806 | A pillar of jet black onyx soars skyward. | Furniture | — | — |
+| VNUM | Item | Type | Worn | Stats / value / flags | Found |
+|---:|---|---|---|---|---|
+| 800 | a Golden Tabard | Armor | body | AC 15 · +500 HP, +25 Damroll, +25 Hitroll, -100 AC, +10 Str, +10 Dex, +10 Con · _glow/hum/magic_ | worn (body) by Larsen the Cruel (L99) in Larsen's Torture Chamber (#800, apoc) |
+| 801 | a Golden Band | Armor | finger | +25 Hitroll, +25 Damroll, -10 AC · _glow/hum/magic_ | worn (right finger) by Tarrant the Shitter (L99) in The Bathing Chamber (#818, apoc) |
+| 802 | a Tarnished Silver Bracer | Armor | wrist | -999 HP, -999 Mana, -999 Move · _glow/hum/magic_ | worn (right wrist) by Dorin the Assassin (L97) in A Duel (#822, apoc); worn (right wrist) by Dorin the Assassin (L97) in A Duel (#822, apoc) |
+| 803 | a Mystic Robe | Armor | about | -50 Save-Spell, +2000 Mana, +5 Hitroll, +5 Damroll, -50 AC, +10 Int, +10 Wis · _glow/hum/magic_ | worn (about body) by Kyriel the Mage (L99) in The Top of the Tower (#821, apoc) |
+| 804 | a Medal of Honor | Armor | neck | +15 Hitroll, +15 Damroll, +250 HP, +250 Mana · _glow/hum/magic_ | inside a Mystic Robe (#803) — worn (about body) by Kyriel the Mage (L99) in The Top of the Tower (#821, apoc); worn (neck) by Ingen Jegger (L97) in The Dungeon (#824, apoc) |
+| 805 | A pillar of the purest white marble soars skyward. | Furniture | — | — | on the ground in The Inner Ward (#806, apoc) |
+| 806 | A pillar of jet black onyx soars skyward. | Furniture | — | — | on the ground in The Inner Ward (#806, apoc) |
 
 ### Andi The Astral Plane  `(astral)`
 
 27 items
 
-| VNUM | Item | Type | Worn | Stats / value / flags |
-|---:|---|---|---|---|
-| 1900 | a massive slate-grey sledgehammer | Weapon | wielded | dmg 4d8 (avg 18) · -2 Dex, -3 Hitroll, +10 Damroll · _anti-good/anti-evil_ |
-| 1901 | a violet scroll | Scroll | — | val 15/1/3/67 · _bless_ |
-| 1902 | a black etched tablet | Scroll | — | val 30/40/7/-1 |
-| 1903 | a scroll with githyanki writings on it | Scroll | — | val 24/30/30/-1 |
-| 1904 | a small demon's amulet | Wand | held | 5 charges · -1 Int, -1 Wis · _nodrop_ |
-| 1905 | a devilish talisman | Staff | neck/held | 5 charges · -10 HP · _nodrop_ |
-| 1906 | a silvery knife | Weapon | wielded | dmg 2d4 (avg 5) · +1 Hitroll, +1 Damroll |
-| 1907 | a silvery dagger | Weapon | wielded | dmg 3d4 (avg 8) · +2 Hitroll, +1 Damroll |
-| 1908 | an extremely sharp and thin sword | Weapon | wielded | dmg 4d4 (avg 10) · +1 Dex, +1 Hitroll, +3 Damroll |
-| 1909 | a thin two-handed sword | Weapon | wielded | dmg 6d4 (avg 15) · +2 Hitroll, +4 Damroll |
-| 1910 | a silvery sword | Weapon | wielded | dmg 5d4 (avg 13) · +2 Dex, +4 Hitroll, +2 Damroll · _glow_ |
-| 1911 | an iron barbed flail | Weapon | wielded | dmg 5d5 (avg 15) · +3 Hitroll, +7 Damroll · _hum_ |
-| 1912 | the unholy sword of the githyanki | Weapon | wielded | dmg 10d3 (avg 20) · +2 Str, -2 Int, -1 Wis, +8 Hitroll · _nodrop/noremove_ |
-| 1913 | a brighty flaming stone | Light | held | infinite light · -2 AC, -5 Save-Breath |
-| 1914 | some astral powder | Treasure | — | — |
-| 1915 | a splint mail vest | Armor | body | AC 7 |
-| 1916 | a splint mail skirt | Armor | legs | AC 7 |
-| 1917 | a pair of splint mail sleeves | Armor | arms | AC 7 |
-| 1918 | a pair of ornately designed gauntlets | Armor | hands | AC 7 · +2 Str, +1 Hitroll, +1 Damroll |
-| 1919 | a decaying vest made from cracked leather | Armor | body | AC 9 · -6 AC, -2 Save-Spell |
-| 1920 | a violet potion | Potion | — | val 18/29/34/18 · _nodrop_ |
-| 1921 | a vial of murky fluid | Potion | — | val 15/4/67/-1 · _nodrop_ |
-| 1922 | a silvery-colored potion | Potion | — | val 20/19/20/21 · _nodrop_ |
-| 1923 | a tasty-looking chocolate mint | Pill | — | val 35/81/28/-1 |
-| 1924 | a black pentagram | Key | held | — |
-| 1925 | a rotting pouch | Money | — | val 13600/0/0/0 |
-| 1926 | a rusted sword | Weapon | wielded | dmg 3d3 (avg 6) · -2 Hitroll, +5 Damroll |
+| VNUM | Item | Type | Worn | Stats / value / flags | Found |
+|---:|---|---|---|---|---|
+| 1900 | a massive slate-grey sledgehammer | Weapon | wielded | dmg 4d8 (avg 18) · -2 Dex, -3 Hitroll, +10 Damroll · _anti-good/anti-evil_ | worn (wielded) by The Astral Guardian (L37) in The Astral Gate (#1906, astral) |
+| 1901 | a violet scroll | Scroll | — | val 15/1/3/67 · _bless_ | ⚠️ not placed (unobtainable in normal play) |
+| 1902 | a black etched tablet | Scroll | — | val 30/40/7/-1 | carried by The lich-queen (L30) in Before the Altar (#1977, astral) |
+| 1903 | a scroll with githyanki writings on it | Scroll | — | val 24/30/30/-1 | carried by A warlock of the Gith (L20) in A large dwelling (#1964, astral); carried by A warlock of the Gith (L20) in A large dwelling (#1973, astral); carried by A warlock of the Gith (L20) in South End of the Hall (#1974, astral); carried by A warlock of the Gith (L20) in South End of the Hall (#1974, astral) |
+| 1904 | a small demon's amulet | Wand | held | 5 charges · -1 Int, -1 Wis · _nodrop_ | carried by A pitch-black nightmare (L18) in Lost in the Astral Plane (#1933, astral); carried by A pitch-black nightmare (L18) in Lost in the Astral Plane (#1934, astral) |
+| 1905 | a devilish talisman | Staff | neck/held | 5 charges · -10 HP · _nodrop_ | carried by An evil night hag (L24) in Deep Within the Astral Plane (#1946, astral) |
+| 1906 | a silvery knife | Weapon | wielded | dmg 2d4 (avg 5) · +1 Hitroll, +1 Damroll | worn (wielded) by An evil gish (L11) in Traversing the Astral Plane (#1929, astral); worn (wielded) by An evil gish (L11) in Traversing the Astral Plane (#1931, astral); worn (wielded) by An evil gish (L11) in A grey road (#1953, astral); worn (wielded) by An evil gish (L11) in A grey road (#1959, astral); worn (wielded) by An evil gish (L11) in A small building (#1962, astral); worn (wielded) by An evil gish (L11) in A small building (#1962, astral); worn (wielded) by An evil gish (L11) in A small building (#1963, astral); worn (wielded) by An evil gish (L11) in A small building (#1963, astral) |
+| 1907 | a silvery dagger | Weapon | wielded | dmg 3d4 (avg 8) · +2 Hitroll, +1 Damroll | worn (wielded) by A githyanki hunter (L11) in Wandering the Astral Plane (#1918, astral); worn (wielded) by A githyanki hunter (L11) in Wandering the Astral Plane (#1920, astral); worn (wielded) by A githyanki hunter (L11) in Wandering the Astral Plane (#1922, astral); worn (wielded) by A githyanki hunter (L11) in Travelling the Astral Plane (#1924, astral) |
+| 1908 | an extremely sharp and thin sword | Weapon | wielded | dmg 4d4 (avg 10) · +1 Dex, +1 Hitroll, +3 Damroll | worn (wielded) by A githyanki guardian (L15) in A guard station (#1951, astral); worn (wielded) by A githyanki guardian (L15) in A guard station (#1951, astral); worn (wielded) by A githyanki guardian (L15) in The Githyanki Weaponry (#1965, astral); worn (wielded) by A githyanki guardian (L15) in The Githyanki Weaponry (#1965, astral); worn (wielded) by A githyanki guardian (L15) in The Githyanki Armoury (#1967, astral); worn (wielded) by A githyanki guardian (L15) in The Githyanki Armoury (#1967, astral); worn (wielded) by A githyanki guardian (L15) in A guard station (#1969, astral); worn (wielded) by A githyanki guardian (L15) in A guard station (#1969, astral) |
+| 1909 | a thin two-handed sword | Weapon | wielded | dmg 6d4 (avg 15) · +2 Hitroll, +4 Damroll | worn (wielded) by A githyanki warrior (L15) in Travelling the Astral Plane (#1923, astral); worn (wielded) by A githyanki warrior (L15) in Travelling the Astral Plane (#1927, astral); worn (wielded) by A githyanki knight (L25) in Traversing the Astral Plane (#1930, astral); worn (wielded) by A githyanki knight (L25) in A grey road (#1955, astral); worn (wielded) by A githyanki protector (L25) in The Altar Chamber (#1976, astral); worn (wielded) by A githyanki protector (L25) in Before the Altar (#1977, astral) |
+| 1910 | a silvery sword | Weapon | wielded | dmg 5d4 (avg 13) · +2 Dex, +4 Hitroll, +2 Damroll · _glow_ | worn (wielded) by A warlock of the Gith (L20) in A large dwelling (#1964, astral); worn (wielded) by A warlock of the Gith (L20) in A large dwelling (#1973, astral); worn (wielded) by A warlock of the Gith (L20) in South End of the Hall (#1974, astral); worn (wielded) by A warlock of the Gith (L20) in South End of the Hall (#1974, astral) |
+| 1911 | an iron barbed flail | Weapon | wielded | dmg 5d5 (avg 15) · +3 Hitroll, +7 Damroll · _hum_ | worn (wielded) by The lich-queen (L30) in Before the Altar (#1977, astral) |
+| 1912 | the unholy sword of the githyanki | Weapon | wielded | dmg 10d3 (avg 20) · +2 Str, -2 Int, -1 Wis, +8 Hitroll · _nodrop/noremove_ | worn (wielded) by Lord Gith (L35) in Utter darkness and despair (#1979, astral) |
+| 1913 | a brighty flaming stone | Light | held | infinite light · -2 AC, -5 Save-Breath | worn (light) by The enslaved red dragon (L28) in Inside the furnace (#1968, astral) |
+| 1914 | some astral powder | Treasure | — | — | carried by An invisible stalker (L17) in Wandering the Astral Plane (#1920, astral); carried by An invisible stalker (L17) in Travelling the Astral Plane (#1924, astral); carried by An invisible stalker (L17) in Travelling the Astral Plane (#1926, astral); carried by An invisible stalker (L17) in Traversing the Astral Plane (#1930, astral) |
+| 1915 | a splint mail vest | Armor | body | AC 7 | worn (body) by A githyanki warrior (L15) in Travelling the Astral Plane (#1923, astral); worn (body) by A githyanki warrior (L15) in Travelling the Astral Plane (#1927, astral); worn (body) by A githyanki knight (L25) in Traversing the Astral Plane (#1930, astral); worn (body) by A githyanki guardian (L15) in A guard station (#1951, astral); worn (body) by A githyanki guardian (L15) in A guard station (#1951, astral); worn (body) by A githyanki knight (L25) in A grey road (#1955, astral); worn (body) by A githyanki guardian (L15) in The Githyanki Weaponry (#1965, astral); worn (body) by A githyanki guardian (L15) in The Githyanki Weaponry (#1965, astral); worn (body) by A githyanki guardian (L15) in The Githyanki Armoury (#1967, astral); worn (body) by A githyanki guardian (L15) in The Githyanki Armoury (#1967, astral); worn (body) by A githyanki guardian (L15) in A guard station (#1969, astral); worn (body) by A githyanki guardian (L15) in A guard station (#1969, astral); worn (body) by A githyanki protector (L25) in The Altar Chamber (#1976, astral); worn (body) by A githyanki protector (L25) in Before the Altar (#1977, astral) |
+| 1916 | a splint mail skirt | Armor | legs | AC 7 | worn (legs) by A githyanki knight (L25) in Traversing the Astral Plane (#1930, astral); worn (legs) by A githyanki knight (L25) in A grey road (#1955, astral); worn (legs) by A githyanki protector (L25) in The Altar Chamber (#1976, astral); worn (legs) by A githyanki protector (L25) in Before the Altar (#1977, astral) |
+| 1917 | a pair of splint mail sleeves | Armor | arms | AC 7 | worn (arms) by A githyanki knight (L25) in Traversing the Astral Plane (#1930, astral); worn (arms) by A githyanki knight (L25) in A grey road (#1955, astral); worn (arms) by A githyanki protector (L25) in The Altar Chamber (#1976, astral); worn (arms) by A githyanki protector (L25) in Before the Altar (#1977, astral) |
+| 1918 | a pair of ornately designed gauntlets | Armor | hands | AC 7 · +2 Str, +1 Hitroll, +1 Damroll | worn (hands) by A githyanki protector (L25) in The Altar Chamber (#1976, astral); worn (hands) by A githyanki protector (L25) in Before the Altar (#1977, astral) |
+| 1919 | a decaying vest made from cracked leather | Armor | body | AC 9 · -6 AC, -2 Save-Spell | worn (body) by Lord Gith (L35) in Utter darkness and despair (#1979, astral) |
+| 1920 | a violet potion | Potion | — | val 18/29/34/18 · _nodrop_ | ⚠️ not placed (unobtainable in normal play) |
+| 1921 | a vial of murky fluid | Potion | — | val 15/4/67/-1 · _nodrop_ | carried by An insubstantial ghost (L16) in Deep Within the Astral Plane (#1945, astral); carried by An insubstantial ghost (L16) in Deep Within the Astral Plane (#1947, astral); carried by An insubstantial ghost (L16) in Deep Within the Astral Plane (#1949, astral) |
+| 1922 | a silvery-colored potion | Potion | — | val 20/19/20/21 · _nodrop_ | carried by An evil gish (L11) in A small building (#1962, astral); carried by An evil gish (L11) in A small building (#1963, astral) |
+| 1923 | a tasty-looking chocolate mint | Pill | — | val 35/81/28/-1 | ⚠️ not placed (unobtainable in normal play) |
+| 1924 | a black pentagram | Key | held | — | worn (held) by The lich-queen (L30) in Before the Altar (#1977, astral) |
+| 1925 | a rotting pouch | Money | — | val 13600/0/0/0 | carried by Lord Gith (L35) in Utter darkness and despair (#1979, astral) |
+| 1926 | a rusted sword | Weapon | wielded | dmg 3d3 (avg 6) · -2 Hitroll, +5 Damroll | worn (wielded) by A poor soulless being (L10) in Roaming the Astral Plane (#1913, astral); worn (wielded) by A poor soulless being (L10) in Roaming the Astral Plane (#1914, astral); worn (wielded) by A poor soulless being (L10) in Roaming the Astral Plane (#1915, astral); worn (wielded) by A poor soulless being (L10) in Roaming the Astral Plane (#1916, astral); worn (wielded) by A poor soulless being (L10) in Roaming the Astral Plane (#1917, astral); worn (wielded) by A poor soulless being (L10) in Wandering the Astral Plane (#1918, astral); worn (wielded) by A poor soulless being (L10) in Wandering the Astral Plane (#1919, astral); worn (wielded) by A poor soulless being (L10) in Wandering the Astral Plane (#1920, astral); worn (wielded) by A poor soulless being (L10) in Wandering the Astral Plane (#1921, astral); worn (wielded) by A poor soulless being (L10) in Wandering the Astral Plane (#1922, astral) |
 
 ### Raff Elemental Canyon  `(canyon)`
 
 31 items
 
-| VNUM | Item | Type | Worn | Stats / value / flags |
-|---:|---|---|---|---|
-| 9201 | the earth ring | Furniture | finger | +1 Int, +1 Wis · _bless_ |
-| 9202 | a stoney breastplate | Armor | body | AC 10 · +1 Con |
-| 9203 | a fiery dagger | Weapon | wielded | dmg 4d4 (avg 10) · +4 Damroll · _glow_ |
-| 9204 | a flame red cape | Armor | neck | AC 11 · +1 Damroll · _glow_ |
-| 9205 | the wind boots | Armor | feet | AC 10 · +2 Dex · _magic_ |
-| 9206 | a humming hurricane helmet | Armor | head | AC 9 · -4 Save-Breath · _hum_ |
-| 9207 | a sparking lightning sword | Weapon | wielded | dmg 6d3 (avg 12) · -1 Hitroll, +2 Damroll · _glow/hum_ |
-| 9208 | an electric shield | Armor | shield | AC 11 · -1 Str, +1 Con · _hum_ |
-| 9209 | an icy girth | Armor | waist | AC 10 · -2 Con |
-| 9210 | a waterfall cloak | Armor | about | AC 10 · +25 Mana, -2 Hitroll |
-| 9211 | an elemental amulet | Armor | neck | AC 7 · -5 Save-Breath · _glow_ |
-| 9212 | an elemental bracelet | Armor | wrist | AC 4 · +25 HP |
-| 9213 | some platinum arm bands | Armor | arms | AC 9 · +1 Str, -2 Wis |
-| 9214 | some platinum leg bands | Armor | legs | AC 9 · +1 Dex, -2 Int |
-| 9215 | elemental wand of fire | Wand | held | 3 charges · _glow_ |
-| 9216 | an ice staff | Staff | held | 3 charges · _glow_ |
-| 9217 | elemental staff of earthquake | Staff | held | 3 charges · _glow_ |
-| 9218 | elemental wand of wind and air | Wand | held | 1 charges · _glow_ |
-| 9219 | elemental wand of lightning | Wand | held | 1 charges · _glow_ |
-| 9220 | a stone club | Weapon | wielded | dmg 1d12 (avg 7) |
-| 9221 | a lodestone | Wand | held | 2 charges |
-| 9222 | a lava lamp | Light | — | 1000h light · _glow_ |
-| 9223 | an energy scroll | Scroll | — | val 19/15/81/-1 · _hum_ |
-| 9224 | a water jug | Drink Con | — | val 150/150/0/0 |
-| 9225 | magic dust | Pill | — | val 20/19/-1/-1 |
-| 9226 | a flame lance | Weapon | wielded | dmg 2d15 (avg 16) · -20 HP, +2 Hitroll · _glow_ |
-| 9227 | an icicle | Weapon | wielded | dmg 7d3 (avg 14) · +2 Damroll, -1 Str · _glow_ |
-| 9228 | the Avalanche | Weapon | wielded | dmg 1d30 (avg 16) · -1 Hitroll |
-| 9229 | the Morning Star | Weapon | wielded | dmg 6d3 (avg 12) · -5 Save-Breath, -3 AC · _glow_ |
-| 9230 | the Shock Whip | Weapon | wielded | dmg 4d4 (avg 10) · +3 Damroll, -2 Str · _hum_ |
-| 9231 | anti-cyclops elixir | Potion | held | val 15/29/-1/-1 · _nodrop_ |
+| VNUM | Item | Type | Worn | Stats / value / flags | Found |
+|---:|---|---|---|---|---|
+| 9201 | the earth ring | Furniture | finger | +1 Int, +1 Wis · _bless_ | worn (left finger) by the Earth Ruler (L30) in Earth Chamber (#9227, canyon) |
+| 9202 | a stoney breastplate | Armor | body | AC 10 · +1 Con | worn (body) by the Earth Ruler (L30) in Earth Chamber (#9227, canyon) |
+| 9203 | a fiery dagger | Weapon | wielded | dmg 4d4 (avg 10) · +4 Damroll · _glow_ | worn (wielded) by the Fire Ruler (L30) in The Fire Chamber (#9245, canyon) |
+| 9204 | a flame red cape | Armor | neck | AC 11 · +1 Damroll · _glow_ | worn (neck) by the Fire Ruler (L30) in The Fire Chamber (#9245, canyon) |
+| 9205 | the wind boots | Armor | feet | AC 10 · +2 Dex · _magic_ | worn (feet) by The Air Ruler (L30) in Air Chamber (#9260, canyon) |
+| 9206 | a humming hurricane helmet | Armor | head | AC 9 · -4 Save-Breath · _hum_ | worn (head) by The Air Ruler (L30) in Air Chamber (#9260, canyon) |
+| 9207 | a sparking lightning sword | Weapon | wielded | dmg 6d3 (avg 12) · -1 Hitroll, +2 Damroll · _glow/hum_ | worn (wielded) by The Lightning Ruler (L30) in Lightning Chamber (#9252, canyon) |
+| 9208 | an electric shield | Armor | shield | AC 11 · -1 Str, +1 Con · _hum_ | worn (shield) by The Lightning Ruler (L30) in Lightning Chamber (#9252, canyon) |
+| 9209 | an icy girth | Armor | waist | AC 10 · -2 Con | worn (waist) by The Water Ruler (L30) in Water Chamber (#9236, canyon) |
+| 9210 | a waterfall cloak | Armor | about | AC 10 · +25 Mana, -2 Hitroll | worn (about body) by The Water Ruler (L30) in Water Chamber (#9236, canyon) |
+| 9211 | an elemental amulet | Armor | neck | AC 7 · -5 Save-Breath · _glow_ | worn (neck) by the elemental guardian (L20) in Elemental Gateway (#9209, canyon) |
+| 9212 | an elemental bracelet | Armor | wrist | AC 4 · +25 HP | worn (left wrist) by the elemental guardian (L20) in Elemental Gateway (#9209, canyon) |
+| 9213 | some platinum arm bands | Armor | arms | AC 9 · +1 Str, -2 Wis | worn (arms) by the cyclops (L22) in A Blind Curve on the Mountain Path. (#9204, canyon) |
+| 9214 | some platinum leg bands | Armor | legs | AC 9 · +1 Dex, -2 Int | worn (legs) by the cyclops (L22) in A Blind Curve on the Mountain Path. (#9204, canyon) |
+| 9215 | elemental wand of fire | Wand | held | 3 charges · _glow_ | worn (held) by an elemental magician (L17) in The Floor of the Canyon (#9216, canyon); worn (held) by a flame (L4) in The Burning Gardens (#9242, canyon); worn (held) by a flame (L4) in The Fire Chamber (#9245, canyon) |
+| 9216 | an ice staff | Staff | held | 3 charges · _glow_ | ⚠️ not placed (unobtainable in normal play) |
+| 9217 | elemental staff of earthquake | Staff | held | 3 charges · _glow_ | ⚠️ not placed (unobtainable in normal play) |
+| 9218 | elemental wand of wind and air | Wand | held | 1 charges · _glow_ | ⚠️ not placed (unobtainable in normal play) |
+| 9219 | elemental wand of lightning | Wand | held | 1 charges · _glow_ | ⚠️ not placed (unobtainable in normal play) |
+| 9220 | a stone club | Weapon | wielded | dmg 1d12 (avg 7) | worn (wielded) by a rainbow warrior (L18) in Elemental Gateway (#9209, canyon); worn (wielded) by a small rock (L3) in Earth Chamber (#9227, canyon); worn (wielded) by a large elemental (L15) in Air Chamber (#9260, canyon) |
+| 9221 | a lodestone | Wand | held | 2 charges | worn (held) by a particle (L5) in The Floor of the Canyon (#9210, canyon); worn (held) by a medium elemental (L10) in The Floor of the Canyon (#9212, canyon) |
+| 9222 | a lava lamp | Light | — | 1000h light · _glow_ | worn (held) by a lava beast (L8) in Dark Cave (#9220, canyon) |
+| 9223 | an energy scroll | Scroll | — | val 19/15/81/-1 · _hum_ | worn (held) by a large elemental (L15) in The Floor of the Canyon (#9218, canyon) |
+| 9224 | a water jug | Drink Con | — | val 150/150/0/0 | worn (held) by a small elemental (L5) in Darker Caves (#9222, canyon); worn (held) by a puddle (L8) in Elemental Bay (#9235, canyon) |
+| 9225 | magic dust | Pill | — | val 20/19/-1/-1 | worn (held) by a tiny elemental (L1) in The Floor of the Canyon (#9219, canyon); worn (body) by a dust cloud (L6) in Darker Caves (#9222, canyon); worn (held) by an eddie (L2) in Floating in Air (#9255, canyon) |
+| 9226 | a flame lance | Weapon | wielded | dmg 2d15 (avg 16) · -20 HP, +2 Hitroll · _glow_ | worn (wielded) by the Blue Flame (L26) in A Fiery Pathway (#9238, canyon) |
+| 9227 | an icicle | Weapon | wielded | dmg 7d3 (avg 14) · +2 Damroll, -1 Str · _glow_ | worn (wielded) by the Ice Bandit (L24) in The Burning Gardens (#9242, canyon) |
+| 9228 | the Avalanche | Weapon | wielded | dmg 1d30 (avg 16) · -1 Hitroll | worn (wielded) by the Rock Monster (L23) in The Burning Gardens (#9242, canyon) |
+| 9229 | the Morning Star | Weapon | wielded | dmg 6d3 (avg 12) · -5 Save-Breath, -3 AC · _glow_ | worn (wielded) by the Hurricane (L28) in The Burning Gardens (#9242, canyon) |
+| 9230 | the Shock Whip | Weapon | wielded | dmg 4d4 (avg 10) · +3 Damroll, -2 Str · _hum_ | worn (wielded) by the Magneto (L22) in A Fiery Pathway (#9238, canyon) |
+| 9231 | anti-cyclops elixir | Potion | held | val 15/29/-1/-1 · _nodrop_ | carried by the mountain climber (L3) in A Mountain Path (#9202, canyon); carried by the elixir vendor (L30) in Mountainside Tombs (#9203, canyon) |
 
 ### Euthanasia Quest Items  `(cards)`
 
 72 items
 
-| VNUM | Item | Type | Worn | Stats / value / flags |
-|---:|---|---|---|---|
-| 7600 | The Ace of Spades | Treasure | — | val 0/1/6/11 · _nodrop_ |
-| 7601 | The Two of Spades | Treasure | — | val 0/1/6/11 · _nodrop_ |
-| 7602 | The Three of Spades | Treasure | — | val 0/1/6/11 · _nodrop_ |
-| 7603 | The Four of Spades | Treasure | — | val 0/1/6/11 · _nodrop_ |
-| 7604 | The Five of Spades | Treasure | — | val 0/1/6/11 · _nodrop_ |
-| 7605 | The Six of Spades | Treasure | — | val 0/1/6/11 · _nodrop_ |
-| 7606 | The Seven of Spades | Treasure | — | val 0/1/6/11 · _nodrop_ |
-| 7607 | The Eight of Spades | Treasure | — | val 0/1/6/11 · _nodrop_ |
-| 7608 | The Nine of Spades | Treasure | — | val 0/1/6/11 · _nodrop_ |
-| 7609 | The Ten of Spades | Treasure | — | val 0/1/6/11 · _nodrop_ |
-| 7610 | The Jack of Spades | Treasure | — | val 0/1/6/11 · _nodrop_ |
-| 7611 | The Queen of Spades | Treasure | — | val 0/1/6/11 · _nodrop_ |
-| 7612 | The King of Spades | Treasure | — | val 0/1/6/11 · _nodrop_ |
-| 7613 | The Ace of Hearts | Treasure | — | val 0/1/6/11 · _nodrop_ |
-| 7614 | The Two of Hearts | Treasure | — | val 0/1/6/11 · _nodrop_ |
-| 7615 | The Three of Hearts | Treasure | — | val 0/1/6/11 · _nodrop_ |
-| 7616 | The Four of Hearts | Treasure | — | val 0/1/6/11 · _nodrop_ |
-| 7617 | The Five of Hearts | Treasure | — | val 0/1/6/11 · _nodrop_ |
-| 7618 | The Six of Hearts | Treasure | — | val 0/1/6/11 · _nodrop_ |
-| 7619 | The Seven of Hearts | Treasure | — | val 0/1/6/11 · _nodrop_ |
-| 7620 | The Eight of Hearts | Treasure | — | val 0/1/6/11 · _nodrop_ |
-| 7621 | The Nine of Hearts | Treasure | — | val 0/1/6/11 · _nodrop_ |
-| 7622 | The Ten of Hearts | Treasure | — | val 0/1/6/11 · _nodrop_ |
-| 7623 | The Jack of Hearts | Treasure | — | val 0/1/6/11 · _nodrop_ |
-| 7624 | The Queen of Hearts | Treasure | — | val 0/1/6/11 · _nodrop_ |
-| 7625 | The King of Hearts | Treasure | — | val 0/1/6/11 · _nodrop_ |
-| 7626 | The Ace of Diamonds | Treasure | — | val 0/1/6/11 · _nodrop_ |
-| 7627 | The Two of Diamonds | Treasure | — | val 0/1/6/11 · _nodrop_ |
-| 7628 | The Three of Diamonds | Treasure | — | val 0/1/6/11 · _nodrop_ |
-| 7629 | The Four of Diamonds | Treasure | — | val 0/1/6/11 · _nodrop_ |
-| 7630 | The Five of Diamonds | Treasure | — | val 0/1/6/11 · _nodrop_ |
-| 7631 | The Six of Diamonds | Treasure | — | val 0/1/6/11 · _nodrop_ |
-| 7632 | The Seven of Diamonds | Treasure | — | val 0/1/6/11 · _nodrop_ |
-| 7633 | The Eight of Diamonds | Treasure | — | val 0/1/6/11 · _nodrop_ |
-| 7634 | The Nine of Diamonds | Treasure | — | val 0/1/6/11 · _nodrop_ |
-| 7635 | The Ten of Diamonds | Treasure | — | val 0/1/6/11 · _nodrop_ |
-| 7636 | The Jack of Diamonds | Treasure | — | val 0/1/6/11 · _nodrop_ |
-| 7637 | The Queen of Diamonds | Treasure | — | val 0/1/6/11 · _nodrop_ |
-| 7638 | The King of Diamonds | Treasure | — | val 0/1/6/11 · _nodrop_ |
-| 7639 | The Ace of Clubs | Treasure | — | val 0/1/6/11 · _nodrop_ |
-| 7640 | The Two of Clubs | Treasure | — | val 0/1/6/11 · _nodrop_ |
-| 7641 | The Three of Clubs | Treasure | — | val 0/1/6/11 · _nodrop_ |
-| 7642 | The Four of Clubs | Treasure | — | val 0/1/6/11 · _nodrop_ |
-| 7643 | The Five of Clubs | Treasure | — | val 0/1/6/11 · _nodrop_ |
-| 7644 | The Six of Clubs | Treasure | — | val 0/1/6/11 · _nodrop_ |
-| 7645 | The Seven of Clubs | Treasure | — | val 0/1/6/11 · _nodrop_ |
-| 7646 | The Eight of Clubs | Treasure | — | val 0/1/6/11 · _nodrop_ |
-| 7647 | The Nine of Clubs | Treasure | — | val 0/1/6/11 · _nodrop_ |
-| 7648 | The Ten of Clubs | Treasure | — | val 0/1/6/11 · _nodrop_ |
-| 7649 | The Jack of Clubs | Treasure | — | val 0/1/6/11 · _nodrop_ |
-| 7650 | The Queen of Clubs | Treasure | — | val 0/1/6/11 · _nodrop_ |
-| 7651 | The King of Clubs | Treasure | — | val 0/1/6/11 · _nodrop_ |
-| 7652 | a brightly colored present | Treasure | — | val 0/1/6/11 · _nodrop_ |
-| 7653 | a brightly colored present | Treasure | — | val 0/1/6/11 · _nodrop_ |
-| 7654 | a brightly colored present | Treasure | — | val 0/1/6/11 · _nodrop_ |
-| 7655 | a brightly colored present | Treasure | — | val 0/1/6/11 · _nodrop_ |
-| 7656 | a brightly colored present | Treasure | — | val 0/1/6/11 · _nodrop_ |
-| 7657 | a brightly colored present | Treasure | — | val 0/1/6/11 · _nodrop_ |
-| 7658 | a brightly colored present | Treasure | — | val 0/1/6/11 · _nodrop_ |
-| 7659 | a brightly colored present | Treasure | — | val 0/1/6/11 · _nodrop_ |
-| 7660 | a brightly colored present | Treasure | — | val 0/1/6/11 · _nodrop_ |
-| 7661 | a brightly colored present | Treasure | — | val 0/1/6/11 · _nodrop_ |
-| 7662 | a brightly colored present | Treasure | — | val 0/1/6/11 · _nodrop_ |
-| 7663 | a brightly colored present | Treasure | — | val 0/1/6/11 · _nodrop_ |
-| 7664 | a brightly colored present | Treasure | — | val 0/1/6/11 · _nodrop_ |
-| 7665 | a brightly colored present | Treasure | — | val 0/1/6/11 · _nodrop_ |
-| 7666 | a brightly colored present | Treasure | — | val 0/1/6/11 · _nodrop_ |
-| 7667 | a brightly colored present | Treasure | — | val 0/1/6/11 · _nodrop_ |
-| 7668 | a brightly colored present | Treasure | — | val 0/1/6/11 · _nodrop_ |
-| 7669 | a brightly colored present | Treasure | — | val 0/1/6/11 · _nodrop_ |
-| 7670 | a brightly colored present | Treasure | — | val 0/1/6/11 · _nodrop_ |
-| 7671 | a brightly colored present | Treasure | — | val 0/1/6/11 · _nodrop_ |
+| VNUM | Item | Type | Worn | Stats / value / flags | Found |
+|---:|---|---|---|---|---|
+| 7600 | The Ace of Spades | Treasure | — | val 0/1/6/11 · _nodrop_ | ⚠️ not placed (unobtainable in normal play) |
+| 7601 | The Two of Spades | Treasure | — | val 0/1/6/11 · _nodrop_ | ⚠️ not placed (unobtainable in normal play) |
+| 7602 | The Three of Spades | Treasure | — | val 0/1/6/11 · _nodrop_ | ⚠️ not placed (unobtainable in normal play) |
+| 7603 | The Four of Spades | Treasure | — | val 0/1/6/11 · _nodrop_ | ⚠️ not placed (unobtainable in normal play) |
+| 7604 | The Five of Spades | Treasure | — | val 0/1/6/11 · _nodrop_ | ⚠️ not placed (unobtainable in normal play) |
+| 7605 | The Six of Spades | Treasure | — | val 0/1/6/11 · _nodrop_ | ⚠️ not placed (unobtainable in normal play) |
+| 7606 | The Seven of Spades | Treasure | — | val 0/1/6/11 · _nodrop_ | ⚠️ not placed (unobtainable in normal play) |
+| 7607 | The Eight of Spades | Treasure | — | val 0/1/6/11 · _nodrop_ | ⚠️ not placed (unobtainable in normal play) |
+| 7608 | The Nine of Spades | Treasure | — | val 0/1/6/11 · _nodrop_ | ⚠️ not placed (unobtainable in normal play) |
+| 7609 | The Ten of Spades | Treasure | — | val 0/1/6/11 · _nodrop_ | ⚠️ not placed (unobtainable in normal play) |
+| 7610 | The Jack of Spades | Treasure | — | val 0/1/6/11 · _nodrop_ | ⚠️ not placed (unobtainable in normal play) |
+| 7611 | The Queen of Spades | Treasure | — | val 0/1/6/11 · _nodrop_ | ⚠️ not placed (unobtainable in normal play) |
+| 7612 | The King of Spades | Treasure | — | val 0/1/6/11 · _nodrop_ | ⚠️ not placed (unobtainable in normal play) |
+| 7613 | The Ace of Hearts | Treasure | — | val 0/1/6/11 · _nodrop_ | ⚠️ not placed (unobtainable in normal play) |
+| 7614 | The Two of Hearts | Treasure | — | val 0/1/6/11 · _nodrop_ | ⚠️ not placed (unobtainable in normal play) |
+| 7615 | The Three of Hearts | Treasure | — | val 0/1/6/11 · _nodrop_ | ⚠️ not placed (unobtainable in normal play) |
+| 7616 | The Four of Hearts | Treasure | — | val 0/1/6/11 · _nodrop_ | ⚠️ not placed (unobtainable in normal play) |
+| 7617 | The Five of Hearts | Treasure | — | val 0/1/6/11 · _nodrop_ | ⚠️ not placed (unobtainable in normal play) |
+| 7618 | The Six of Hearts | Treasure | — | val 0/1/6/11 · _nodrop_ | ⚠️ not placed (unobtainable in normal play) |
+| 7619 | The Seven of Hearts | Treasure | — | val 0/1/6/11 · _nodrop_ | ⚠️ not placed (unobtainable in normal play) |
+| 7620 | The Eight of Hearts | Treasure | — | val 0/1/6/11 · _nodrop_ | ⚠️ not placed (unobtainable in normal play) |
+| 7621 | The Nine of Hearts | Treasure | — | val 0/1/6/11 · _nodrop_ | ⚠️ not placed (unobtainable in normal play) |
+| 7622 | The Ten of Hearts | Treasure | — | val 0/1/6/11 · _nodrop_ | ⚠️ not placed (unobtainable in normal play) |
+| 7623 | The Jack of Hearts | Treasure | — | val 0/1/6/11 · _nodrop_ | ⚠️ not placed (unobtainable in normal play) |
+| 7624 | The Queen of Hearts | Treasure | — | val 0/1/6/11 · _nodrop_ | ⚠️ not placed (unobtainable in normal play) |
+| 7625 | The King of Hearts | Treasure | — | val 0/1/6/11 · _nodrop_ | ⚠️ not placed (unobtainable in normal play) |
+| 7626 | The Ace of Diamonds | Treasure | — | val 0/1/6/11 · _nodrop_ | ⚠️ not placed (unobtainable in normal play) |
+| 7627 | The Two of Diamonds | Treasure | — | val 0/1/6/11 · _nodrop_ | ⚠️ not placed (unobtainable in normal play) |
+| 7628 | The Three of Diamonds | Treasure | — | val 0/1/6/11 · _nodrop_ | ⚠️ not placed (unobtainable in normal play) |
+| 7629 | The Four of Diamonds | Treasure | — | val 0/1/6/11 · _nodrop_ | ⚠️ not placed (unobtainable in normal play) |
+| 7630 | The Five of Diamonds | Treasure | — | val 0/1/6/11 · _nodrop_ | ⚠️ not placed (unobtainable in normal play) |
+| 7631 | The Six of Diamonds | Treasure | — | val 0/1/6/11 · _nodrop_ | ⚠️ not placed (unobtainable in normal play) |
+| 7632 | The Seven of Diamonds | Treasure | — | val 0/1/6/11 · _nodrop_ | ⚠️ not placed (unobtainable in normal play) |
+| 7633 | The Eight of Diamonds | Treasure | — | val 0/1/6/11 · _nodrop_ | ⚠️ not placed (unobtainable in normal play) |
+| 7634 | The Nine of Diamonds | Treasure | — | val 0/1/6/11 · _nodrop_ | ⚠️ not placed (unobtainable in normal play) |
+| 7635 | The Ten of Diamonds | Treasure | — | val 0/1/6/11 · _nodrop_ | ⚠️ not placed (unobtainable in normal play) |
+| 7636 | The Jack of Diamonds | Treasure | — | val 0/1/6/11 · _nodrop_ | ⚠️ not placed (unobtainable in normal play) |
+| 7637 | The Queen of Diamonds | Treasure | — | val 0/1/6/11 · _nodrop_ | ⚠️ not placed (unobtainable in normal play) |
+| 7638 | The King of Diamonds | Treasure | — | val 0/1/6/11 · _nodrop_ | ⚠️ not placed (unobtainable in normal play) |
+| 7639 | The Ace of Clubs | Treasure | — | val 0/1/6/11 · _nodrop_ | ⚠️ not placed (unobtainable in normal play) |
+| 7640 | The Two of Clubs | Treasure | — | val 0/1/6/11 · _nodrop_ | ⚠️ not placed (unobtainable in normal play) |
+| 7641 | The Three of Clubs | Treasure | — | val 0/1/6/11 · _nodrop_ | ⚠️ not placed (unobtainable in normal play) |
+| 7642 | The Four of Clubs | Treasure | — | val 0/1/6/11 · _nodrop_ | ⚠️ not placed (unobtainable in normal play) |
+| 7643 | The Five of Clubs | Treasure | — | val 0/1/6/11 · _nodrop_ | ⚠️ not placed (unobtainable in normal play) |
+| 7644 | The Six of Clubs | Treasure | — | val 0/1/6/11 · _nodrop_ | ⚠️ not placed (unobtainable in normal play) |
+| 7645 | The Seven of Clubs | Treasure | — | val 0/1/6/11 · _nodrop_ | ⚠️ not placed (unobtainable in normal play) |
+| 7646 | The Eight of Clubs | Treasure | — | val 0/1/6/11 · _nodrop_ | ⚠️ not placed (unobtainable in normal play) |
+| 7647 | The Nine of Clubs | Treasure | — | val 0/1/6/11 · _nodrop_ | ⚠️ not placed (unobtainable in normal play) |
+| 7648 | The Ten of Clubs | Treasure | — | val 0/1/6/11 · _nodrop_ | ⚠️ not placed (unobtainable in normal play) |
+| 7649 | The Jack of Clubs | Treasure | — | val 0/1/6/11 · _nodrop_ | ⚠️ not placed (unobtainable in normal play) |
+| 7650 | The Queen of Clubs | Treasure | — | val 0/1/6/11 · _nodrop_ | ⚠️ not placed (unobtainable in normal play) |
+| 7651 | The King of Clubs | Treasure | — | val 0/1/6/11 · _nodrop_ | ⚠️ not placed (unobtainable in normal play) |
+| 7652 | a brightly colored present | Treasure | — | val 0/1/6/11 · _nodrop_ | ⚠️ not placed (unobtainable in normal play) |
+| 7653 | a brightly colored present | Treasure | — | val 0/1/6/11 · _nodrop_ | ⚠️ not placed (unobtainable in normal play) |
+| 7654 | a brightly colored present | Treasure | — | val 0/1/6/11 · _nodrop_ | ⚠️ not placed (unobtainable in normal play) |
+| 7655 | a brightly colored present | Treasure | — | val 0/1/6/11 · _nodrop_ | ⚠️ not placed (unobtainable in normal play) |
+| 7656 | a brightly colored present | Treasure | — | val 0/1/6/11 · _nodrop_ | ⚠️ not placed (unobtainable in normal play) |
+| 7657 | a brightly colored present | Treasure | — | val 0/1/6/11 · _nodrop_ | ⚠️ not placed (unobtainable in normal play) |
+| 7658 | a brightly colored present | Treasure | — | val 0/1/6/11 · _nodrop_ | ⚠️ not placed (unobtainable in normal play) |
+| 7659 | a brightly colored present | Treasure | — | val 0/1/6/11 · _nodrop_ | ⚠️ not placed (unobtainable in normal play) |
+| 7660 | a brightly colored present | Treasure | — | val 0/1/6/11 · _nodrop_ | ⚠️ not placed (unobtainable in normal play) |
+| 7661 | a brightly colored present | Treasure | — | val 0/1/6/11 · _nodrop_ | ⚠️ not placed (unobtainable in normal play) |
+| 7662 | a brightly colored present | Treasure | — | val 0/1/6/11 · _nodrop_ | ⚠️ not placed (unobtainable in normal play) |
+| 7663 | a brightly colored present | Treasure | — | val 0/1/6/11 · _nodrop_ | ⚠️ not placed (unobtainable in normal play) |
+| 7664 | a brightly colored present | Treasure | — | val 0/1/6/11 · _nodrop_ | ⚠️ not placed (unobtainable in normal play) |
+| 7665 | a brightly colored present | Treasure | — | val 0/1/6/11 · _nodrop_ | ⚠️ not placed (unobtainable in normal play) |
+| 7666 | a brightly colored present | Treasure | — | val 0/1/6/11 · _nodrop_ | ⚠️ not placed (unobtainable in normal play) |
+| 7667 | a brightly colored present | Treasure | — | val 0/1/6/11 · _nodrop_ | ⚠️ not placed (unobtainable in normal play) |
+| 7668 | a brightly colored present | Treasure | — | val 0/1/6/11 · _nodrop_ | ⚠️ not placed (unobtainable in normal play) |
+| 7669 | a brightly colored present | Treasure | — | val 0/1/6/11 · _nodrop_ | ⚠️ not placed (unobtainable in normal play) |
+| 7670 | a brightly colored present | Treasure | — | val 0/1/6/11 · _nodrop_ | ⚠️ not placed (unobtainable in normal play) |
+| 7671 | a brightly colored present | Treasure | — | val 0/1/6/11 · _nodrop_ | ⚠️ not placed (unobtainable in normal play) |
 
 ### Raff Dwarven Catacombs  `(catacomb)`
 
 16 items
 
-| VNUM | Item | Type | Worn | Stats / value / flags |
-|---:|---|---|---|---|
-| 2001 | a glowing key | Key | — | val 39/0/0/0 · _glow/hum/magic_ |
-| 2002 | a suit of granite platemail | Armor | body | AC 9 · -1 Dex · _hum/anti-good_ |
-| 2003 | an onyx ring | Armor | finger | AC 5 · +1 Wis · _anti-good_ |
-| 2004 | the neutralizer | Weapon | wielded | dmg 4d5 (avg 12) · +1 Hitroll, +1 Damroll · _hum/anti-good/anti-evil_ |
-| 2005 | the sword Excalibur | Weapon | wielded | dmg 5d4 (avg 13) · +3 Hitroll, +1 Str · _glow/magic/anti-evil/anti-neutral_ |
-| 2006 | a kingly crown | Key | head | val 15/0/0/0 · -8 AC · _bless_ |
-| 2007 | stone | Container | — | holds 15 · _glow_ |
-| 2008 | a flask of holy water | Potion | held | val 25/3/36/-1 · _glow/nodrop_ |
-| 2009 | a suit of chainmail | Armor | body | AC 5 · _bless_ |
-| 2010 | a white cape | Armor | neck | AC 5 · +1 Hitroll · _glow_ |
-| 2011 | the shield of defense | Armor | shield | AC 15 · +10 Mana, +10 HP, -2 Hitroll, -1 Damroll · _magic_ |
-| 2012 | a dragonscale shield | Armor | shield | AC 8 · +3 Save-Breath |
-| 2013 | a prism wand | Wand | held | 4 charges · _glow/magic_ |
-| 2014 | a shadow cloak | Armor | about | AC 10 · -30 Move · _magic_ |
-| 2015 | a misty potion | Potion | held | val 10/74/-1/-1 · _nodrop_ |
-| 2016 | a templar's sword | Weapon | wielded | dmg 2d6 (avg 7) · +1 Hitroll · _bless_ |
+| VNUM | Item | Type | Worn | Stats / value / flags | Found |
+|---:|---|---|---|---|---|
+| 2001 | a glowing key | Key | — | val 39/0/0/0 · _glow/hum/magic_ | worn (light) by the grand templar (L16) in Grand Templar's room (#2025, catacomb) |
+| 2002 | a suit of granite platemail | Armor | body | AC 9 · -1 Dex · _hum/anti-good_ | worn (body) by The DarkenBeast (L24) in Deep within the catacombs (#2030, catacomb) |
+| 2003 | an onyx ring | Armor | finger | AC 5 · +1 Wis · _anti-good_ | worn (right finger) by The DarkenBeast (L24) in Deep within the catacombs (#2030, catacomb) |
+| 2004 | the neutralizer | Weapon | wielded | dmg 4d5 (avg 12) · +1 Hitroll, +1 Damroll · _hum/anti-good/anti-evil_ | worn (wielded) by The vampire (L15) in Basement (#2052, catacomb) |
+| 2005 | the sword Excalibur | Weapon | wielded | dmg 5d4 (avg 13) · +3 Hitroll, +1 Str · _glow/magic/anti-evil/anti-neutral_ | inside stone (#2007) — on the ground in The holy place (#2032, catacomb) |
+| 2006 | a kingly crown | Key | head | val 15/0/0/0 · -8 AC · _bless_ | worn (held) by The DarkenBeast (L24) in Deep within the catacombs (#2030, catacomb) |
+| 2007 | stone | Container | — | holds 15 · _glow_ | on the ground in The holy place (#2032, catacomb) |
+| 2008 | a flask of holy water | Potion | held | val 25/3/36/-1 · _glow/nodrop_ | worn (held) by the grand templar (L16) in Grand Templar's room (#2025, catacomb) |
+| 2009 | a suit of chainmail | Armor | body | AC 5 · _bless_ | worn (body) by a templar (L12) in Weapon training area (#2003, catacomb); worn (body) by a templar (L12) in Hallway (#2006, catacomb); worn (body) by a templar (L12) in Templar Knights sleeping quarters (#2009, catacomb); worn (body) by a templar (L12) in Templar Knights sleeping quarters (#2009, catacomb); worn (body) by the templar officer (L13) in Mid-level leader's room (#2015, catacomb); worn (body) by a templar (L12) in Mess hall (#2016, catacomb); worn (body) by a templar (L12) in Mess hall (#2016, catacomb); worn (body) by the templar officer (L13) in Mess hall (#2016, catacomb); worn (body) by the templar officer (L13) in Mess hall (#2016, catacomb); worn (body) by the templar officer (L13) in Mess hall (#2016, catacomb); worn (body) by the templar officer (L13) in High officer's room (#2018, catacomb); worn (body) by the templar officer (L13) in Mess hall (#2023, catacomb); worn (body) by a skeleton (L11) in Entrance to the burial grounds (#2035, catacomb); worn (body) by a skeleton (L11) in The burial grounds (#2037, catacomb) |
+| 2010 | a white cape | Armor | neck | AC 5 · +1 Hitroll · _glow_ | worn (neck) by the grand templar (L16) in Grand Templar's room (#2025, catacomb) |
+| 2011 | the shield of defense | Armor | shield | AC 15 · +10 Mana, +10 HP, -2 Hitroll, -1 Damroll · _magic_ | worn (shield) by the evil necromancer (L15) in Scene of ghastly horror (#2055, catacomb) |
+| 2012 | a dragonscale shield | Armor | shield | AC 8 · +3 Save-Breath | worn (body) by the prism dragon (L20) in Prism cave (#2050, catacomb) |
+| 2013 | a prism wand | Wand | held | 4 charges · _glow/magic_ | worn (held) by the prism dragon (L20) in Prism cave (#2050, catacomb) |
+| 2014 | a shadow cloak | Armor | about | AC 10 · -30 Move · _magic_ | worn (about body) by the shadow (L14) in Very dark passage (#2026, catacomb) |
+| 2015 | a misty potion | Potion | held | val 10/74/-1/-1 · _nodrop_ | worn (held) by some mist (L10) in Misty passageway (#2033, catacomb); worn (held) by some mist (L10) in Misty cavern (#2040, catacomb); worn (held) by some mist (L10) in Misty cavern (#2040, catacomb); worn (held) by some mist (L10) in Misty cavern (#2041, catacomb); worn (held) by some mist (L10) in Misty cavern (#2041, catacomb); worn (held) by some mist (L10) in Mist cavern (#2042, catacomb); worn (held) by some mist (L10) in Waterfall of mist (#2043, catacomb); worn (held) by some mist (L10) in Waterfall of mist (#2043, catacomb); worn (held) by some mist (L10) in Waterfall of mist (#2043, catacomb) |
+| 2016 | a templar's sword | Weapon | wielded | dmg 2d6 (avg 7) · +1 Hitroll · _bless_ | worn (wielded) by a templar (L12) in Weapon training area (#2003, catacomb); worn (wielded) by a templar (L12) in Prayer training area (#2004, catacomb); worn (wielded) by a templar (L12) in Templar Knights sleeping quarters (#2009, catacomb); worn (wielded) by the templar officer (L13) in Mid-level leader's room (#2015, catacomb); worn (wielded) by a templar (L12) in Mess hall (#2016, catacomb); worn (wielded) by the templar officer (L13) in Mess hall (#2016, catacomb); worn (wielded) by the templar officer (L13) in Mess hall (#2016, catacomb); worn (wielded) by the templar officer (L13) in Mess hall (#2016, catacomb); worn (wielded) by the templar officer (L13) in High officer's room (#2018, catacomb); worn (wielded) by a templar (L12) in Mess hall (#2023, catacomb); worn (wielded) by the templar officer (L13) in Mess hall (#2023, catacomb) |
 
 ### Valgarv Cith Deux Headquarters  `(cithdeux)`
 
 1 items
 
-| VNUM | Item | Type | Worn | Stats / value / flags |
-|---:|---|---|---|---|
-| 9600 | a Crystalline Throne of the Dragon | Furniture | — | — |
+| VNUM | Item | Type | Worn | Stats / value / flags | Found |
+|---:|---|---|---|---|---|
+| 9600 | a Crystalline Throne of the Dragon | Furniture | — | — | on the ground in Chamber of the Crystal Dragon (#9607, cithdeux) |
 
 ### Wench Dragon Tower  `(draconia)`
 
 40 items
 
-| VNUM | Item | Type | Worn | Stats / value / flags |
-|---:|---|---|---|---|
-| 2200 | a jagged spear | Weapon | wielded | dmg 2d5 (avg 6) |
-| 2201 | a silver dagger | Weapon | wielded | dmg 2d4 (avg 5) |
-| 2202 | a dragon's tooth knife | Weapon | wielded | dmg 3d5 (avg 9) · +1 Dex, +2 Damroll |
-| 2203 | a dragon skin bracelet | Armor | wrist | AC 6 |
-| 2204 | a black silk belt | Armor | waist | AC 6 · +2 Con |
-| 2210 | a white silk belt. | Container | waist | holds 6 · +2 Str |
-| 2211 | a platinum bracelet. | Armor | wrist | AC 7 · _glow_ |
-| 2220 | a holy symbol | Armor | neck/held | AC 4 · +15 Mana · _glow_ |
-| 2221 | a plain black robe | Armor | about | AC 5 · +2 Damroll |
-| 2222 | an emerald sword | Weapon | wielded | dmg 3d6 (avg 11) |
-| 2223 | a stone club | Weapon | wielded | dmg 3d5 (avg 9) |
-| 2224 | a diamond ring | Armor | finger | AC 4 · +3 Hitroll, +3 Damroll |
-| 2230 | a copper ring | Armor | finger | AC 1 · +2 Wis |
-| 2231 | a steel key | Key | — | — |
-| 2232 | a ruby key | Key | — | — |
-| 2233 | a white key | Key | — | — |
-| 2234 | a grey key | Key | — | — |
-| 2237 | a stone key | Key | — | — |
-| 2240 | a black key | Key | — | — |
-| 2241 | a platinum key | Key | — | — |
-| 2242 | a crested shield | Armor | shield | AC 8 · +1 Con |
-| 2243 | a golden wand | Wand | held | 10 charges · _glow_ |
-| 2244 | a silver staff | Staff | held | 20 charges · _glow/magic_ |
-| 2245 | the staff of the dragon | Staff | held | 10 charges · _glow/magic_ |
-| 2246 | scale mail | Armor | body | AC 8 · _glow_ |
-| 2250 | a black staff | Staff | held | 3 charges · _glow/anti-good_ |
-| 2251 | a cyan potion | Potion | — | val 30/4/27/0 · _nodrop_ |
-| 2252 | a magenta potion | Potion | — | val 30/15/34/0 · _nodrop_ |
-| 2254 | a pair of spiked gauntlets | Armor | hands | AC 4 · +2 Damroll, +1 Str · _glow/magic_ |
-| 2260 | a golden scimitar | Weapon | wielded | dmg 3d5 (avg 9) · +1 Int, +1 Wis · _glow_ |
-| 2261 | a diamond brooch | Armor | neck | AC 4 · +25 Mana · _magic_ |
-| 2270 | a runed scroll | Scroll | held | val 30/1/34/67 · _magic_ |
-| 2271 | a pair of dragon skin gloves | Armor | hands | AC 6 · +2 Dex |
-| 2275 | a helm of dragon kind | Armor | head | AC 5 · +15 HP |
-| 2276 | a fur cloak | Armor | about | AC 6 · +1 Str, +10 HP |
-| 2280 | a pair of dragon scale leggings | Armor | legs | AC 7 |
-| 2281 | a set of dragon scale sleeves | Armor | arms | AC 7 |
-| 2285 | a dragon tailed whip | Weapon | wielded | dmg 4d5 (avg 12) · +2 Hitroll, +2 Damroll · _hum/anti-good_ |
-| 2286 | a copper hammer | Weapon | wielded | dmg 3d5 (avg 9) |
-| 2299 | a tarnished gold key | Key | — | — |
+| VNUM | Item | Type | Worn | Stats / value / flags | Found |
+|---:|---|---|---|---|---|
+| 2200 | a jagged spear | Weapon | wielded | dmg 2d5 (avg 6) | worn (wielded) by the Draconian (L13) in Hallway (#2203, draconia); worn (wielded) by the Draconian (L13) in Hallway (#2204, draconia); worn (wielded) by the Draconian (L13) in Hallway (#2204, draconia); worn (wielded) by the Draconian (L13) in Hallway (#2204, draconia); worn (wielded) by the Draconian (L13) in The Second Floor (#2210, draconia); worn (wielded) by a gnoll (L30) in An Oozing Bog (#8306, marsh) |
+| 2201 | a silver dagger | Weapon | wielded | dmg 2d4 (avg 5) | worn (wielded) by a concubine (L6) in Hall O' Pleasure (#2212, draconia); worn (wielded) by a concubine (L6) in Hall O' Pleasure (#2212, draconia); worn (wielded) by a concubine (L6) in Hall O' Pleasure (#2212, draconia); worn (wielded) by a concubine (L6) in Hall O' Pleasure (#2212, draconia); worn (wielded) by the Draconian Queen (L20) in bedroom (#2217, draconia) |
+| 2202 | a dragon's tooth knife | Weapon | wielded | dmg 3d5 (avg 9) · +1 Dex, +2 Damroll | worn (wielded) by the dragon master (L27) in The Crypt Ends (#2222, draconia) |
+| 2203 | a dragon skin bracelet | Armor | wrist | AC 6 | worn (left wrist) by the Draconian Queen (L20) in bedroom (#2217, draconia) |
+| 2204 | a black silk belt | Armor | waist | AC 6 · +2 Con | worn (waist) by the Draconian Queen (L20) in bedroom (#2217, draconia) |
+| 2210 | a white silk belt. | Container | waist | holds 6 · +2 Str | worn (waist) by the holy Draconian (L22) in The Library (#2214, draconia) |
+| 2211 | a platinum bracelet. | Armor | wrist | AC 7 · _glow_ | worn (left wrist) by the holy Draconian (L22) in The Library (#2214, draconia) |
+| 2220 | a holy symbol | Armor | neck/held | AC 4 · +15 Mana · _glow_ | worn (neck) by the holy Draconian (L22) in The Library (#2214, draconia) |
+| 2221 | a plain black robe | Armor | about | AC 5 · +2 Damroll | ⚠️ not placed (unobtainable in normal play) |
+| 2222 | an emerald sword | Weapon | wielded | dmg 3d6 (avg 11) | worn (wielded) by the Draconian King (L26) in The Court Ends (#2216, draconia) |
+| 2223 | a stone club | Weapon | wielded | dmg 3d5 (avg 9) | carried by a large hydra (L18) in Guardian's Room (#2208, draconia); worn (about body) by a powerful mage (L22) in The Library (#2214, draconia) |
+| 2224 | a diamond ring | Armor | finger | AC 4 · +3 Hitroll, +3 Damroll | ⚠️ not placed (unobtainable in normal play) |
+| 2230 | a copper ring | Armor | finger | AC 1 · +2 Wis | ⚠️ not placed (unobtainable in normal play) |
+| 2231 | a steel key | Key | — | — | carried by the dragon hatchling (L7) in The Tower Gates (#2201, draconia) |
+| 2232 | a ruby key | Key | — | — | carried by the Draconian King (L26) in The Court Ends (#2216, draconia) |
+| 2233 | a white key | Key | — | — | carried by a concubine (L6) in Hall O' Pleasure (#2212, draconia) |
+| 2234 | a grey key | Key | — | — | carried by a large hydra (L18) in Guardian's Room (#2208, draconia) |
+| 2237 | a stone key | Key | — | — | ⚠️ not placed (unobtainable in normal play) |
+| 2240 | a black key | Key | — | — | carried by a concubine (L6) in Hall O' Pleasure (#2212, draconia) |
+| 2241 | a platinum key | Key | — | — | carried by the Ancient Green Dragon (L31) in THE Lair (#2230, draconia) |
+| 2242 | a crested shield | Armor | shield | AC 8 · +1 Con | worn (shield) by the Draconian King (L26) in The Court Ends (#2216, draconia) |
+| 2243 | a golden wand | Wand | held | 10 charges · _glow_ | carried by a large hydra (L18) in Guardian's Room (#2208, draconia) |
+| 2244 | a silver staff | Staff | held | 20 charges · _glow/magic_ | worn (held) by a large hydra (L18) in Guardian's Room (#2208, draconia) |
+| 2245 | the staff of the dragon | Staff | held | 10 charges · _glow/magic_ | worn (held) by the Great Red Dragon (L27) in Lair (#2226, draconia) |
+| 2246 | scale mail | Armor | body | AC 8 · _glow_ | worn (body) by the Great White Dragon (L27) in The Lair (#2220, draconia) |
+| 2250 | a black staff | Staff | held | 3 charges · _glow/anti-good_ | worn (held) by a powerful mage (L22) in The Library (#2214, draconia) |
+| 2251 | a cyan potion | Potion | — | val 30/4/27/0 · _nodrop_ | carried by a powerful mage (L22) in The Library (#2214, draconia) |
+| 2252 | a magenta potion | Potion | — | val 30/15/34/0 · _nodrop_ | carried by the holy Draconian (L22) in The Library (#2214, draconia) |
+| 2254 | a pair of spiked gauntlets | Armor | hands | AC 4 · +2 Damroll, +1 Str · _glow/magic_ | worn (hands) by the Draconian King (L26) in The Court Ends (#2216, draconia) |
+| 2260 | a golden scimitar | Weapon | wielded | dmg 3d5 (avg 9) · +1 Int, +1 Wis · _glow_ | worn (wielded) by A bodyguard (L18) in The Court (#2211, draconia) |
+| 2261 | a diamond brooch | Armor | neck | AC 4 · +25 Mana · _magic_ | worn (neck) by a powerful mage (L22) in The Library (#2214, draconia); worn (neck) by the Ancient Green Dragon (L31) in THE Lair (#2230, draconia) |
+| 2270 | a runed scroll | Scroll | held | val 30/1/34/67 · _magic_ | carried by the holy Draconian (L22) in The Library (#2214, draconia) |
+| 2271 | a pair of dragon skin gloves | Armor | hands | AC 6 · +2 Dex | worn (hands) by the dragon master (L27) in The Crypt Ends (#2222, draconia) |
+| 2275 | a helm of dragon kind | Armor | head | AC 5 · +15 HP | worn (head) by the Great Red Dragon (L27) in Lair (#2226, draconia) |
+| 2276 | a fur cloak | Armor | about | AC 6 · +1 Str, +10 HP | worn (about body) by the Draconian King (L26) in The Court Ends (#2216, draconia) |
+| 2280 | a pair of dragon scale leggings | Armor | legs | AC 7 | worn (legs) by the Great Black Dragon (L26) in A Lair (#2221, draconia) |
+| 2281 | a set of dragon scale sleeves | Armor | arms | AC 7 | worn (arms) by the dragon master (L27) in The Crypt Ends (#2222, draconia) |
+| 2285 | a dragon tailed whip | Weapon | wielded | dmg 4d5 (avg 12) · +2 Hitroll, +2 Damroll · _hum/anti-good_ | carried by the Ancient Green Dragon (L31) in THE Lair (#2230, draconia) |
+| 2286 | a copper hammer | Weapon | wielded | dmg 3d5 (avg 9) | worn (wielded) by A bodyguard (L18) in The Second Floor (#2210, draconia); worn (wielded) by A bodyguard (L18) in The Court (#2211, draconia) |
+| 2299 | a tarnished gold key | Key | — | — | carried by the Great Red Dragon (L27) in Lair (#2226, draconia) |
 
 ### Anon Drow City  `(drow)`
 
 15 items
 
-| VNUM | Item | Type | Worn | Stats / value / flags |
-|---:|---|---|---|---|
-| 5100 | a commoner's longsword | Weapon | wielded | dmg 2d6 (avg 7) · +1 Hitroll, +1 Damroll |
-| 5101 | a noble's longsword | Weapon | wielded | dmg 3d5 (avg 9) · +2 Hitroll, +2 Damroll |
-| 5102 | a snake headed whip | Weapon | wielded | dmg 2d6 (avg 7) · +2 Hitroll, +2 Damroll · _glow/magic_ |
-| 5103 | a snake headed whip | Weapon | wielded | dmg 2d7 (avg 8) · +2 Hitroll, +2 Damroll · _glow/magic_ |
-| 5104 | a snake headed whip | Weapon | wielded | dmg 2d8 (avg 9) · +2 Hitroll, +2 Damroll · _glow/magic_ |
-| 5105 | a black longsword | Weapon | wielded | dmg 3d6 (avg 11) · +2 Hitroll, +2 Damroll · _glow/magic_ |
-| 5106 | a snake headed whip | Weapon | wielded | dmg 3d6 (avg 11) · -1 Str, -1 Int · _glow/magic/anti-good_ |
-| 5107 | a snake headed whip | Weapon | wielded | dmg 4d5 (avg 12) · -2 Str, -2 Int · _glow/magic/anti-good_ |
-| 5108 | a pair of bracers | Armor | arms | AC 2 · _glow/magic_ |
-| 5109 | a pair of gauntlets | Armor | hands | AC 5 · +3 Str · _glow_ |
-| 5110 | a silvery blue wand | Wand | held | 3 charges · _magic_ |
-| 5111 | a small helmet | Armor | head | AC 1 · +3 Int · _magic_ |
-| 5112 | a small ruby ring | Armor | finger | +25 HP · _magic_ |
-| 5113 | a spider shaped dagger | Weapon | wielded | dmg 3d4 (avg 8) · +3 Hitroll, +3 Damroll · _magic/anti-good_ |
-| 5114 | a small bright green hat | Armor | head | AC 5 · -15 Age, -2 AC · _nodrop_ |
+| VNUM | Item | Type | Worn | Stats / value / flags | Found |
+|---:|---|---|---|---|---|
+| 5100 | a commoner's longsword | Weapon | wielded | dmg 2d6 (avg 7) · +1 Hitroll, +1 Damroll | worn (wielded) by the drow commoner (L55) in Warrior's Academy (#5118, drow); worn (wielded) by the drow commoner (L55) in Warrior's Barracks (#5133, drow); worn (wielded) by the drow scout (L55) in A valley in the dark dwarf forest (#5267, thalos); worn (wielded) by the drow guard (L60) in Down the path into a dead end (#5270, thalos); worn (wielded) by the drow guard (L60) in Down the path into a dead end (#5270, thalos); worn (wielded) by the drow scout (L55) in A dim trail in the dwarf forest (#5272, thalos) |
+| 5101 | a noble's longsword | Weapon | wielded | dmg 3d5 (avg 9) · +2 Hitroll, +2 Damroll | worn (wielded) by the drow warrior noble (L60) in 3rd House (#5104, drow); worn (wielded) by the drow warrior noble (L60) in 2nd House (#5108, drow); worn (wielded) by the drow warrior noble (L60) in 1st House (#5111, drow); worn (wielded) by the drow warrior noble (L60) in 4th house (#5124, drow) |
+| 5102 | a snake headed whip | Weapon | wielded | dmg 2d6 (avg 7) · +2 Hitroll, +2 Damroll · _glow/magic_ | worn (wielded) by the drow mage noble (L65) in 3rd House (#5104, drow); worn (wielded) by the drow mage noble (L65) in 2nd House (#5108, drow); worn (wielded) by the drow mage noble (L65) in 1st House (#5111, drow); worn (wielded) by the drow mage noble (L65) in 4th house (#5124, drow) |
+| 5103 | a snake headed whip | Weapon | wielded | dmg 2d7 (avg 8) · +2 Hitroll, +2 Damroll · _glow/magic_ | worn (wielded) by the drow priestess (L65) in 3rd House (#5104, drow); worn (wielded) by the drow priestess (L65) in 2nd House (#5108, drow); worn (wielded) by the drow priestess (L65) in 1st House (#5111, drow); worn (wielded) by the drow priestess (L65) in 4th house (#5124, drow) |
+| 5104 | a snake headed whip | Weapon | wielded | dmg 2d8 (avg 9) · +2 Hitroll, +2 Damroll · _glow/magic_ | worn (wielded) by the matron mother (L70) in Throne Room (#5105, drow); worn (wielded) by the matron mother (L70) in Throne Room (#5109, drow); worn (wielded) by the matron mother (L70) in Main Chamber (#5113, drow); worn (wielded) by The drow master (L70) in Cleric Academy (#5116, drow); worn (wielded) by The drow master (L70) in Mage's Academy (#5120, drow); worn (wielded) by the matron mother (L70) in Throne Room (#5125, drow) |
+| 5105 | a black longsword | Weapon | wielded | dmg 3d6 (avg 11) · +2 Hitroll, +2 Damroll · _glow/magic_ | worn (wielded) by The weapons master (L70) in City street (#5101, drow); worn (wielded) by The drow master (L70) in Warrior's Academy (#5118, drow); worn (wielded) by The weapons master (L70) in Weaponsmaster's Chamber (#5150, drow) |
+| 5106 | a snake headed whip | Weapon | wielded | dmg 3d6 (avg 11) · -1 Str, -1 Int · _glow/magic/anti-good_ | ⚠️ not placed (unobtainable in normal play) |
+| 5107 | a snake headed whip | Weapon | wielded | dmg 4d5 (avg 12) · -2 Str, -2 Int · _glow/magic/anti-good_ | ⚠️ not placed (unobtainable in normal play) |
+| 5108 | a pair of bracers | Armor | arms | AC 2 · _glow/magic_ | worn (arms) by the matron mother (L70) in Throne Room (#5109, drow) |
+| 5109 | a pair of gauntlets | Armor | hands | AC 5 · +3 Str · _glow_ | worn (hands) by The weapons master (L70) in Weaponsmaster's Chamber (#5150, drow) |
+| 5110 | a silvery blue wand | Wand | held | 3 charges · _magic_ | worn (held) by The drow master (L70) in Cleric Academy (#5116, drow); worn (held) by The drow master (L70) in Warrior's Academy (#5118, drow); worn (held) by The drow master (L70) in Mage's Academy (#5120, drow) |
+| 5111 | a small helmet | Armor | head | AC 1 · +3 Int · _magic_ | worn (head) by the matron mother (L70) in Throne Room (#5105, drow) |
+| 5112 | a small ruby ring | Armor | finger | +25 HP · _magic_ | worn (left finger) by the matron mother (L70) in Main Chamber (#5113, drow) |
+| 5113 | a spider shaped dagger | Weapon | wielded | dmg 3d4 (avg 8) · +3 Hitroll, +3 Damroll · _magic/anti-good_ | worn (wielded) by the yochlol (L98) in Dais (#5148, drow) |
+| 5114 | a small bright green hat | Armor | head | AC 5 · -15 Age, -2 AC · _nodrop_ | carried by the matron mother (L70) in Throne Room (#5125, drow) |
 
 ### Anon Dwarven Kingdom  `(dwarven)`
 
 16 items
 
-| VNUM | Item | Type | Worn | Stats / value / flags |
-|---:|---|---|---|---|
-| 6502 | a deep green key | Key | — | — |
-| 6504 | a hammer | Weapon | wielded | dmg 3d6 (avg 11) |
-| 6505 | dwarven plate mail | Armor | body | AC 8 |
-| 6506 | long, black stick | Staff | held | 10 charges |
-| 6507 | long, black stick | Light | held | 50h light |
-| 6508 | dwarven club | Weapon | wielded | dmg 2d6 (avg 7) |
-| 6509 | a two-handed dwarven axe | Weapon | wielded | dmg 2d7 (avg 8) · +2 Hitroll, +2 Str |
-| 6510 | a dwarven helmet | Armor | head | AC 8 |
-| 6511 | a dwarven golden ring | Treasure | finger | +1 Hitroll, +1 Damroll · _magic_ |
-| 6512 | dwarven gloves | Armor | hands | AC 4 · +1 Str, +1 Dex |
-| 6513 | a note | Furniture | — | — |
-| 6514 | a castle key | Key | — | — |
-| 6516 | a mine key | Key | — | — |
-| 6517 | a chunk of coal | Trash | held | — |
-| 6518 | a mining pick | Weapon | wielded | dmg 2d3 (avg 4) · _bless_ |
-| 6519 | a box of birth control pills | Pill | — | val 20/0/0/82 |
+| VNUM | Item | Type | Worn | Stats / value / flags | Found |
+|---:|---|---|---|---|---|
+| 6502 | a deep green key | Key | — | — | carried by the dwarven guard (L20) in Entrance to Mountain (#6505, dwarven); carried by the wraith (L29) in Wine cellar (#6527, dwarven); carried by the dwarven guard (L20) in Dark path (#6540, dwarven) |
+| 6504 | a hammer | Weapon | wielded | dmg 3d6 (avg 11) | worn (wielded) by the dwarven guard (L20) in Entrance to Mountain (#6505, dwarven); worn (wielded) by the dwarven guard (L20) in Entrance to Mountain (#6505, dwarven); carried by the storekeeper (L35) in Hide & Tooth Shop (#6516, dwarven); worn (wielded) by the storekeeper (L35) in Hide & Tooth Shop (#6516, dwarven); worn (wielded) by the dwarf (L9) in First Barrack room (#6523, dwarven); worn (wielded) by the baker (L35) in Granite Head's Bakery (#6535, dwarven); worn (wielded) by the dwarven guard (L20) in Dark path (#6540, dwarven); worn (wielded) by the dwarven guard (L20) in Dark path (#6540, dwarven) |
+| 6505 | dwarven plate mail | Armor | body | AC 8 | worn (body) by the dwarven guard (L20) in Entrance to Mountain (#6505, dwarven); worn (body) by the dwarven guard (L20) in Entrance to Mountain (#6505, dwarven); worn (body) by the dwarven guard (L20) in Door to Kingdom (#6509, dwarven); carried by the storekeeper (L35) in Hide & Tooth Shop (#6516, dwarven); worn (body) by the dwarven guard (L20) in Dark path (#6540, dwarven); worn (body) by the dwarven guard (L20) in Dark path (#6540, dwarven) |
+| 6506 | long, black stick | Staff | held | 10 charges | on the ground in Hospital (#6534, dwarven); worn (held) by the dwarven doctor (L9) in Hospital (#6534, dwarven) |
+| 6507 | long, black stick | Light | held | 50h light | on the ground in Top of mountain (#6503, dwarven); on the ground in Entrance to Mountain (#6505, dwarven); on the ground in Inside the entrance (#6513, dwarven); on the ground in Dark path (#6540, dwarven) |
+| 6508 | dwarven club | Weapon | wielded | dmg 2d6 (avg 7) | worn (wielded) by the dwarven guard (L20) in Door to Castle (#6512, dwarven); worn (wielded) by the dwarven guard (L20) in Door to Castle (#6512, dwarven); worn (wielded) by the dwarven miner (L8) in Inside the mine (#6542, dwarven); worn (wielded) by the dwarven miner (L8) in Path in the mine (#6543, dwarven); worn (wielded) by the dwarven miner (L8) in Path in the mine (#6543, dwarven); worn (wielded) by the dwarven mine leader (L21) in Path in the mine (#6543, dwarven) |
+| 6509 | a two-handed dwarven axe | Weapon | wielded | dmg 2d7 (avg 8) · +2 Hitroll, +2 Str | worn (wielded) by the dwarven guard (L20) in Door to Kingdom (#6509, dwarven); worn (wielded) by the dwarven guard (L20) in Door to Kingdom (#6509, dwarven); worn (wielded) by the barracks guard (L16) in Entrance to barracks (#6521, dwarven); worn (wielded) by the barracks guard (L16) in Entrance to barracks (#6521, dwarven) |
+| 6510 | a dwarven helmet | Armor | head | AC 8 | worn (head) by the dwarven guard (L20) in Door to Kingdom (#6509, dwarven); carried by the storekeeper (L35) in Hide & Tooth Shop (#6516, dwarven) |
+| 6511 | a dwarven golden ring | Treasure | finger | +1 Hitroll, +1 Damroll · _magic_ | worn (left finger) by the dwarven guard (L20) in Door to Kingdom (#6509, dwarven); carried by the storekeeper (L35) in Hide & Tooth Shop (#6516, dwarven) |
+| 6512 | dwarven gloves | Armor | hands | AC 4 · +1 Str, +1 Dex | worn (hands) by the dwarven guard (L20) in Door to Kingdom (#6509, dwarven); carried by the storekeeper (L35) in Hide & Tooth Shop (#6516, dwarven); worn (hands) by the dwarven mine leader (L21) in Path in the mine (#6543, dwarven) |
+| 6513 | a note | Furniture | — | — | on the ground in Back of Barracks (#6524, dwarven) |
+| 6514 | a castle key | Key | — | — | worn (held) by the dwarf (L9) in First Barrack room (#6523, dwarven) |
+| 6516 | a mine key | Key | — | — | on the ground in Bedroom (#6532, dwarven) |
+| 6517 | a chunk of coal | Trash | held | — | on the ground in Coal Room (#6545, dwarven) |
+| 6518 | a mining pick | Weapon | wielded | dmg 2d3 (avg 4) · _bless_ | on the ground in Mining equipment room (#6551, dwarven) |
+| 6519 | a box of birth control pills | Pill | — | val 20/0/0/82 | carried by the dwarven doctor (L9) in Hospital (#6534, dwarven); carried by the mazekeeper (L29) in The Mazekeeper's Room (#6553, dwarven) |
 
 ### Anon Great Eastern Desert  `(eastern)`
 
 32 items
 
-| VNUM | Item | Type | Worn | Stats / value / flags |
-|---:|---|---|---|---|
-| 5000 | a small mining pick | Weapon | wielded | dmg 1d9 (avg 5) · _anti-good_ |
-| 5001 | a glowing suit of banded mail | Armor | body | AC 7 · +2 Dex, -4 AC · _glow/magic_ |
-| 5002 | the halberd | Weapon | wielded | dmg 3d7 (avg 12) · +2 Hitroll, +2 Damroll · _magic/bless_ |
-| 5003 | the amulet | Armor | neck | +2 Con · _magic_ |
-| 5005 | a large leg bone | Weapon | wielded | dmg 1d4 (avg 3) |
-| 5006 | a small cactus cup | Drink Con | — | val 5/5/0/0 |
-| 5007 | a small wicker basket | Container | — | holds 100 |
-| 5008 | a small wicker basket | Container | — | holds 100 |
-| 5009 | a small wicker basket | Container | — | holds 100 |
-| 5010 | a small wicker basket | Container | — | holds 100 |
-| 5011 | a coil of rope | Furniture | — | — |
-| 5012 | a bunch of stakes | Furniture | — | — |
-| 5013 | an old, tattered map | Furniture | — | — |
-| 5014 | a thick padded turban | Armor | head | +1 AC · _magic/nodrop_ |
-| 5015 | a great pile of treasure | Money | — | val 46270/0/0/0 |
-| 5016 | a long, curved sabre | Weapon | wielded | dmg 2d8 (avg 9) · +2 Hitroll · _anti-neutral_ |
-| 5017 | a curved scimitar | Weapon | wielded | dmg 2d7 (avg 8) · +1 Hitroll · _anti-neutral_ |
-| 5018 | a long, pointed cutlass | Weapon | wielded | dmg 2d7 (avg 8) · _anti-neutral_ |
-| 5019 | a pink potion | Potion | — | val 25/28/35/-1 · _nodrop_ |
-| 5020 | a platinum wand | Wand | held | 10 charges · _hum_ |
-| 5021 | a strange energy bow | Weapon | wielded | dmg 4d5 (avg 12) · _glow/hum/magic/bless_ |
-| 5022 | an encrypted scroll | Scroll | — | val 22/14/35/43 |
-| 5023 | an iron bound chest | Container | — | holds 200 |
-| 5024 | a golden key | Key | — | val 10/0/0/0 |
-| 5025 | a copper bracelet | Armor | wrist | AC 5 · +10 HP, +2 Damroll · _magic/nodrop_ |
-| 5026 | a large ruby | Treasure | — | val 20/0/0/0 · _magic_ |
-| 5027 | a glittering diamond | Treasure | — | val 21/0/0/0 · _magic_ |
-| 5028 | a brilliant sapphire | Treasure | — | val 22/0/0/0 · _magic_ |
-| 5029 | a deep blue lapis lazuli | Treasure | — | val 24/0/0/0 · _magic_ |
-| 5030 | the tiger jewel | Treasure | held | +1 Dex · _bless_ |
-| 5031 | the red-eyed jewel | Treasure | held | +2 Int |
-| 5032 | a fiery green emerald | Treasure | — | val 23/0/0/0 · _magic_ |
+| VNUM | Item | Type | Worn | Stats / value / flags | Found |
+|---:|---|---|---|---|---|
+| 5000 | a small mining pick | Weapon | wielded | dmg 1d9 (avg 5) · _anti-good_ | worn (wielded) by The dark dwarf (L5) in Damp hallway (#5014, eastern) |
+| 5001 | a glowing suit of banded mail | Armor | body | AC 7 · +2 Dex, -4 AC · _glow/magic_ | worn (body) by The dracolich (L20) in Giant cave (#5011, eastern) |
+| 5002 | the halberd | Weapon | wielded | dmg 3d7 (avg 12) · +2 Hitroll, +2 Damroll · _magic/bless_ | worn (wielded) by The dracolich (L20) in Giant cave (#5011, eastern) |
+| 5003 | the amulet | Armor | neck | +2 Con · _magic_ | worn (neck) by The myconoid shaman (L8) in Fungus temple (#5021, eastern) |
+| 5005 | a large leg bone | Weapon | wielded | dmg 1d4 (avg 3) | on the ground in Giant cave (#5011, eastern) |
+| 5006 | a small cactus cup | Drink Con | — | val 5/5/0/0 | ⚠️ not placed (unobtainable in normal play) |
+| 5007 | a small wicker basket | Container | — | holds 100 | on the ground in The main tent (#5060, eastern) |
+| 5008 | a small wicker basket | Container | — | holds 100 | on the ground in The main tent (#5061, eastern) |
+| 5009 | a small wicker basket | Container | — | holds 100 | on the ground in The main tent (#5061, eastern) |
+| 5010 | a small wicker basket | Container | — | holds 100 | on the ground in The main tent (#5061, eastern) |
+| 5011 | a coil of rope | Furniture | — | — | inside a small wicker basket (#5007) — on the ground in The main tent (#5060, eastern) |
+| 5012 | a bunch of stakes | Furniture | — | — | inside a small wicker basket (#5007) — on the ground in The main tent (#5060, eastern) |
+| 5013 | an old, tattered map | Furniture | — | — | inside a small wicker basket (#5010) — on the ground in The main tent (#5061, eastern) |
+| 5014 | a thick padded turban | Armor | head | +1 AC · _magic/nodrop_ | inside a small wicker basket (#5008) — on the ground in The main tent (#5061, eastern) |
+| 5015 | a great pile of treasure | Money | — | val 46270/0/0/0 | on the ground in A small shaft (#5070, eastern) |
+| 5016 | a long, curved sabre | Weapon | wielded | dmg 2d8 (avg 9) · +2 Hitroll · _anti-neutral_ | worn (wielded) by The nomad leader (L14) in The main tent (#5061, eastern) |
+| 5017 | a curved scimitar | Weapon | wielded | dmg 2d7 (avg 8) · +1 Hitroll · _anti-neutral_ | worn (wielded) by The nomad commander (L12) in The main tent (#5060, eastern) |
+| 5018 | a long, pointed cutlass | Weapon | wielded | dmg 2d7 (avg 8) · _anti-neutral_ | worn (wielded) by The nomad warrior (L10) in The warrior's tent. (#5059, eastern) |
+| 5019 | a pink potion | Potion | — | val 25/28/35/-1 · _nodrop_ | carried by The giant, purple sand worm (L18) in The Great Eastern Desert (#5028, eastern) |
+| 5020 | a platinum wand | Wand | held | 10 charges · _hum_ | carried by The giant, purple sand worm (L18) in The Great Eastern Desert (#5028, eastern) |
+| 5021 | a strange energy bow | Weapon | wielded | dmg 4d5 (avg 12) · _glow/hum/magic/bless_ | carried by The giant, purple sand worm (L18) in The Great Eastern Desert (#5028, eastern) |
+| 5022 | an encrypted scroll | Scroll | — | val 22/14/35/43 | carried by the brass dragon (L30) in The mysterious lair. (#5065, eastern) |
+| 5023 | an iron bound chest | Container | — | holds 200 | on the ground in A small shaft (#5070, eastern) |
+| 5024 | a golden key | Key | — | val 10/0/0/0 | carried by the brass dragon (L30) in The mysterious lair. (#5065, eastern) |
+| 5025 | a copper bracelet | Armor | wrist | AC 5 · +10 HP, +2 Damroll · _magic/nodrop_ | inside an iron bound chest (#5023) — on the ground in A small shaft (#5070, eastern) |
+| 5026 | a large ruby | Treasure | — | val 20/0/0/0 · _magic_ | inside an iron bound chest (#5023) — on the ground in A small shaft (#5070, eastern) |
+| 5027 | a glittering diamond | Treasure | — | val 21/0/0/0 · _magic_ | inside an iron bound chest (#5023) — on the ground in A small shaft (#5070, eastern) |
+| 5028 | a brilliant sapphire | Treasure | — | val 22/0/0/0 · _magic_ | inside an iron bound chest (#5023) — on the ground in A small shaft (#5070, eastern) |
+| 5029 | a deep blue lapis lazuli | Treasure | — | val 24/0/0/0 · _magic_ | inside an iron bound chest (#5023) — on the ground in A small shaft (#5070, eastern) |
+| 5030 | the tiger jewel | Treasure | held | +1 Dex · _bless_ | inside an iron bound chest (#5023) — on the ground in A small shaft (#5070, eastern) |
+| 5031 | the red-eyed jewel | Treasure | held | +2 Int | inside an iron bound chest (#5023) — on the ground in A small shaft (#5070, eastern) |
+| 5032 | a fiery green emerald | Treasure | — | val 23/0/0/0 · _magic_ | inside an iron bound chest (#5023) — on the ground in A small shaft (#5070, eastern) |
 
 ### Doctor Galaxy  `(galaxy)`
 
 27 items
 
-| VNUM | Item | Type | Worn | Stats / value / flags |
-|---:|---|---|---|---|
-| 9301 | a comet's tail | Weapon | wielded | dmg 2d6 (avg 7) · _glow/hum_ |
-| 9302 | the Titanic Arm plates of Hercules | Armor | arms | AC 6 · +1 Str, +2 Damroll · _glow/magic/anti-evil_ |
-| 9304 | the Titanic Belt of Orion | Armor | waist | AC 9 · +2 Con · _glow/magic/anti-evil_ |
-| 9305 | an ugly skull of Draco | Staff | held | 5 charges · _hum/magic/nodrop_ |
-| 9306 | the Titanic Fleece of Aries | Armor | neck | AC 9 · -2 AC · _glow/magic/anti-evil_ |
-| 9307 | the Titanic Hoof of Taurus | Armor | feet | AC 3 · +50 Move, +1 Damroll · _glow/magic/anti-evil_ |
-| 9308 | the Titanic Mask of Gemini | Armor | head | AC 2 · +1 Str, +2 Dex · _glow/magic/nodrop/anti-evil_ |
-| 9309 | the Titanic Shell of Cancer | Armor | body | AC 10 · -2 AC · _glow/magic/anti-evil_ |
-| 9310 | the Titanic Skin of Leo | Armor | about | AC 11 · _glow/magic/anti-evil_ |
-| 9311 | the Titanic Bracelet of Virgo | Armor | wrist | AC 4 · +2 Wis · _glow/magic/anti-evil_ |
-| 9312 | the Titanic Scale of Libra | Armor | shield | AC 8 · -3 AC, +5 HP · _glow/magic/anti-evil_ |
-| 9313 | the Titanic Scale of Libra | Armor | shield | +6 AC, -30 HP · _hum/magic/nodrop_ |
-| 9314 | the Sting of Scorpio | Weapon | wielded | dmg 4d4 (avg 10) · +3 Hitroll, +1 Damroll · _glow/magic/anti-evil_ |
-| 9315 | the Arrow of Sagittarius | Wand | held | 10 charges · _glow/magic/anti-evil_ |
-| 9316 | the Titanic Bow of Sagittarius | Weapon | wielded | dmg 2d9 (avg 10) · +1 Hitroll, +3 Damroll · _glow/magic/anti-evil_ |
-| 9317 | the Titanic Horns of Capricon | Armor | hands | AC 4 · +3 Hitroll, +2 Damroll · _glow/magic/anti-evil_ |
-| 9318 | the Ancient Vessel of Aquarius | Staff | held | 10 charges · _glow/magic/anti-evil_ |
-| 9319 | the Titanic Tail of Pisces | Armor | legs | AC 10 · -2 AC, -2 Dex · _glow/magic/anti-evil_ |
-| 9320 | the Ring of Dignity | Armor | finger | +25 Mana, +2 Int · _glow/hum/magic/anti-evil_ |
-| 9321 | the Sceptre of Might | Light | neck/body/head/feet/hands/arms/shield/about/waist/wrist/wielded | infinite light · +2 Hitroll, +2 Damroll · _glow/hum/magic/anti-evil_ |
-| 9322 | the ring of the universe | Armor | finger | AC 4 · +10 Mana, +30 HP · _glow/hum/magic/bless_ |
-| 9323 | the Great Dipper of the Skies | Weapon | wielded | dmg 4d6 (avg 14) · +2 Hitroll, +2 Damroll · _glow/hum/magic/bless_ |
-| 9324 | a spring shoot | Key | — | _glow/hum_ |
-| 9325 | a summer flower | Key | — | _glow/hum_ |
-| 9326 | an autumn leaf | Key | — | _glow/hum_ |
-| 9327 | a winter branch | Key | — | _glow/hum_ |
-| 9328 | chains of Andromeda | Trash | — | _glow_ |
+| VNUM | Item | Type | Worn | Stats / value / flags | Found |
+|---:|---|---|---|---|---|
+| 9301 | a comet's tail | Weapon | wielded | dmg 2d6 (avg 7) · _glow/hum_ | worn (wielded) by a speedy comet (L10) in A Small Clearing (#9317, galaxy); worn (wielded) by a speedy comet (L10) in A Small Clearing (#9317, galaxy); worn (wielded) by a speedy comet (L10) in Another Edge of the Galaxy (#9322, galaxy); worn (wielded) by a speedy comet (L10) in Another Edge of the Galaxy (#9322, galaxy) |
+| 9302 | the Titanic Arm plates of Hercules | Armor | arms | AC 6 · +1 Str, +2 Damroll · _glow/magic/anti-evil_ | worn (arms) by the mighty Hercules (L19) in Hercules' Mighty Throne (#9332, galaxy) |
+| 9304 | the Titanic Belt of Orion | Armor | waist | AC 9 · +2 Con · _glow/magic/anti-evil_ | worn (waist) by Orion the hunter (L19) in Orion's Hunting Lodge (#9328, galaxy) |
+| 9305 | an ugly skull of Draco | Staff | held | 5 charges · _hum/magic/nodrop_ | carried by the Head of Draco (L25) in Approaching the Head of Draco (#9363, galaxy) |
+| 9306 | the Titanic Fleece of Aries | Armor | neck | AC 9 · -2 AC · _glow/magic/anti-evil_ | worn (neck) by Aries (L22) in On a Hill (#9342, galaxy) |
+| 9307 | the Titanic Hoof of Taurus | Armor | feet | AC 3 · +50 Move, +1 Damroll · _glow/magic/anti-evil_ | worn (feet) by Taurus (L22) in Inside a Spanish Bull-Ring (#9343, galaxy) |
+| 9308 | the Titanic Mask of Gemini | Armor | head | AC 2 · +1 Str, +2 Dex · _glow/magic/nodrop/anti-evil_ | worn (head) by Gemini (L22) in Inside a study (#9344, galaxy) |
+| 9309 | the Titanic Shell of Cancer | Armor | body | AC 10 · -2 AC · _glow/magic/anti-evil_ | worn (body) by Cancer (L22) in Along the seashore (#9345, galaxy) |
+| 9310 | the Titanic Skin of Leo | Armor | about | AC 11 · _glow/magic/anti-evil_ | worn (about body) by Leo (L22) in Within the Deep Jungle (#9346, galaxy) |
+| 9311 | the Titanic Bracelet of Virgo | Armor | wrist | AC 4 · +2 Wis · _glow/magic/anti-evil_ | worn (left wrist) by Virgo (L22) in Inside a Luxurious Bedroom (#9347, galaxy) |
+| 9312 | the Titanic Scale of Libra | Armor | shield | AC 8 · -3 AC, +5 HP · _glow/magic/anti-evil_ | carried by Libra (L22) in The Supreme Court (#9348, galaxy) |
+| 9313 | the Titanic Scale of Libra | Armor | shield | +6 AC, -30 HP · _hum/magic/nodrop_ | worn (shield) by Libra (L22) in The Supreme Court (#9348, galaxy) |
+| 9314 | the Sting of Scorpio | Weapon | wielded | dmg 4d4 (avg 10) · +3 Hitroll, +1 Damroll · _glow/magic/anti-evil_ | worn (wielded) by Scorpio (L22) in In the Dry Desert (#9349, galaxy) |
+| 9315 | the Arrow of Sagittarius | Wand | held | 10 charges · _glow/magic/anti-evil_ | worn (held) by Sagittarius (L22) in In the Woods (#9350, galaxy) |
+| 9316 | the Titanic Bow of Sagittarius | Weapon | wielded | dmg 2d9 (avg 10) · +1 Hitroll, +3 Damroll · _glow/magic/anti-evil_ | worn (wielded) by Sagittarius (L22) in In the Woods (#9350, galaxy) |
+| 9317 | the Titanic Horns of Capricon | Armor | hands | AC 4 · +3 Hitroll, +2 Damroll · _glow/magic/anti-evil_ | worn (hands) by Capricon (L22) in On a Mountain Peak (#9351, galaxy) |
+| 9318 | the Ancient Vessel of Aquarius | Staff | held | 10 charges · _glow/magic/anti-evil_ | worn (held) by Aquarius (L22) in Inside a Waterfall (#9352, galaxy) |
+| 9319 | the Titanic Tail of Pisces | Armor | legs | AC 10 · -2 AC, -2 Dex · _glow/magic/anti-evil_ | worn (legs) by Pisces the mermaid (L22) in Inside a Gigantic Clam (#9353, galaxy) |
+| 9320 | the Ring of Dignity | Armor | finger | +25 Mana, +2 Int · _glow/hum/magic/anti-evil_ | worn (left finger) by Cassiopeia the Queen (L26) in Cassiopeia's Throne (#9365, galaxy) |
+| 9321 | the Sceptre of Might | Light | neck/body/head/feet/hands/arms/shield/about/waist/wrist/wielded | infinite light · +2 Hitroll, +2 Damroll · _glow/hum/magic/anti-evil_ | worn (light) by Cepheus the King (L26) in Cepheus' Throne (#9367, galaxy) |
+| 9322 | the ring of the universe | Armor | finger | AC 4 · +10 Mana, +30 HP · _glow/hum/magic/bless_ | worn (right finger) by Polaris, the polar star (L30) in The Polar Star (#9371, galaxy) |
+| 9323 | the Great Dipper of the Skies | Weapon | wielded | dmg 4d6 (avg 14) · +2 Hitroll, +2 Damroll · _glow/hum/magic/bless_ | worn (wielded) by Polaris, the polar star (L30) in The Polar Star (#9371, galaxy) |
+| 9324 | a spring shoot | Key | — | _glow/hum_ | carried by Aries (L22) in On a Hill (#9342, galaxy) |
+| 9325 | a summer flower | Key | — | _glow/hum_ | carried by Cancer (L22) in Along the seashore (#9345, galaxy) |
+| 9326 | an autumn leaf | Key | — | _glow/hum_ | carried by Libra (L22) in The Supreme Court (#9348, galaxy) |
+| 9327 | a winter branch | Key | — | _glow/hum_ | carried by Capricon (L22) in On a Mountain Peak (#9351, galaxy) |
+| 9328 | chains of Andromeda | Trash | — | _glow_ | worn (held) by poor Andromeda (L18) in The Offering Chamber (#9330, galaxy) |
 
 ### Vougon Gnome Village  `(gnome)`
 
 24 items
 
-| VNUM | Item | Type | Worn | Stats / value / flags |
-|---:|---|---|---|---|
-| 1500 | a bloody key | Key | — | val 2/0/0/0 |
-| 1501 | a dirty key | Key | — | val 2/0/0/0 |
-| 1502 | a toy boomerang | Weapon | wielded | dmg 2d4 (avg 5) |
-| 1503 | a gnarled staff | Weapon | wielded | dmg 1d9 (avg 5) |
-| 1504 | a gnome sword | Weapon | wielded | dmg 3d3 (avg 6) |
-| 1505 | a studded shield | Armor | shield | AC 4 |
-| 1506 | a bloody potion | Potion | — | val 15/14/15/39 · _nodrop_ |
-| 1507 | a bloody cloak | Armor | neck | AC 4 · _magic_ |
-| 1508 | a bat ring | Armor | finger | AC 3 · +15 Move · _magic_ |
-| 1509 | a bead necklace | Armor | neck | AC 3 · +2 Hitroll |
-| 1510 | an electrum sword | Weapon | wielded | dmg 4d3 (avg 8) · _glow/magic_ |
-| 1511 | a wicker basket | Container | — | holds 90 |
-| 1512 | some peanuts | Food | — | val 16/0/0/0 |
-| 1513 | some grain | Food | — | val 13/0/0/0 |
-| 1514 | a skiff | Boat | — | — |
-| 1515 | a pair of gnome boots | Armor | feet | AC 4 · +10 Move |
-| 1516 | a pile of coins | Money | — | val 1000/0/0/0 |
-| 1517 | a pile of coins | Money | — | val 5000/0/0/0 |
-| 1518 | a pile of coins | Money | — | val 1000/0/0/0 |
-| 1519 | a stone shield | Armor | shield | AC 4 · +2 Str |
-| 1520 | heavy banded mail | Armor | body | AC 6 |
-| 1521 | a large club | Weapon | wielded | dmg 4d3 (avg 8) |
-| 1522 | a banana | Food | — | val 6/0/0/0 |
-| 1523 | a potion of life healing | Potion | — | val 32/43/3/0 · _nodrop_ |
+| VNUM | Item | Type | Worn | Stats / value / flags | Found |
+|---:|---|---|---|---|---|
+| 1500 | a bloody key | Key | — | val 2/0/0/0 | carried by a gnome guard (L8) in A Small Hut (#1519, gnome) |
+| 1501 | a dirty key | Key | — | val 2/0/0/0 | carried by the troll (L14) in End of the Dark Hallway (#1545, gnome) |
+| 1502 | a toy boomerang | Weapon | wielded | dmg 2d4 (avg 5) | carried by a gnome child (L3) in A Small Gnome House (#1509, gnome); carried by a gnome child (L3) in A Small Gnome House (#1510, gnome); carried by a gnome child (L3) in A Small Gnome House (#1511, gnome) |
+| 1503 | a gnarled staff | Weapon | wielded | dmg 1d9 (avg 5) | worn (wielded) by a gnome man (L6) in A Road in the Village (#1503, gnome); worn (wielded) by a gnome man (L6) in A Road in the Village (#1505, gnome); worn (wielded) by a gnome man (L6) in A Road in the Village (#1506, gnome); worn (wielded) by a large rat (L4) in Prison Cell (#1542, gnome) |
+| 1504 | a gnome sword | Weapon | wielded | dmg 3d3 (avg 6) | worn (wielded) by a gnome guard (L8) in The Iron Gateway (#1527, gnome); worn (wielded) by a gnome guard (L8) in The Barracks (#1530, gnome); worn (wielded) by a gnome guard (L8) in The Barracks (#1530, gnome); worn (wielded) by a gnome guard (L8) in The Mess Hall (#1534, gnome) |
+| 1505 | a studded shield | Armor | shield | AC 4 | worn (shield) by a rat (L2) in Prison Cell (#1541, gnome); carried by the fire bat (L12) in The End of the Hallway (#1556, gnome) |
+| 1506 | a bloody potion | Potion | — | val 15/14/15/39 · _nodrop_ | carried by a gnome guard (L8) in A Small Hut (#1519, gnome) |
+| 1507 | a bloody cloak | Armor | neck | AC 4 · _magic_ | worn (neck) by a gnome guard (L8) in A Small Hut (#1519, gnome) |
+| 1508 | a bat ring | Armor | finger | AC 3 · +15 Move · _magic_ | worn (left finger) by the chief gnome (L15) in The Chief's House (#1558, gnome) |
+| 1509 | a bead necklace | Armor | neck | AC 3 · +2 Hitroll | worn (neck) by the chief gnome (L15) in The Chief's House (#1558, gnome) |
+| 1510 | an electrum sword | Weapon | wielded | dmg 4d3 (avg 8) · _glow/magic_ | worn (wielded) by the chief gnome (L15) in The Chief's House (#1558, gnome) |
+| 1511 | a wicker basket | Container | — | holds 90 | carried by a gnome scientist (L7) in A Small Gnome House (#1513, gnome); carried by a gnome scientist (L7) in A Gnome Shop (#1514, gnome) |
+| 1512 | some peanuts | Food | — | val 16/0/0/0 | inside a wicker basket (#1511) — carried by a gnome scientist (L7) in A Small Gnome House (#1513, gnome); carried by the fire bat (L12) in The End of the Hallway (#1556, gnome) |
+| 1513 | some grain | Food | — | val 13/0/0/0 | inside a wicker basket (#1511) — carried by a gnome scientist (L7) in A Small Gnome House (#1513, gnome) |
+| 1514 | a skiff | Boat | — | — | worn (wielded) by a gnome scientist (L7) in A Gnome Shop (#1515, gnome) |
+| 1515 | a pair of gnome boots | Armor | feet | AC 4 · +10 Move | ⚠️ not placed (unobtainable in normal play) |
+| 1516 | a pile of coins | Money | — | val 1000/0/0/0 | carried by the fire bat (L12) in The End of the Hallway (#1556, gnome); on the ground in The Treasury (#1570, gnome) |
+| 1517 | a pile of coins | Money | — | val 5000/0/0/0 | on the ground in The Altar (#1557, gnome); on the ground in The Treasury (#1570, gnome) |
+| 1518 | a pile of coins | Money | — | val 1000/0/0/0 | on the ground in The Altar (#1557, gnome) |
+| 1519 | a stone shield | Armor | shield | AC 4 · +2 Str | ⚠️ not placed (unobtainable in normal play) |
+| 1520 | heavy banded mail | Armor | body | AC 6 | worn (body) by the king of the hobgoblins (L12) in The Throne Room (#1569, gnome) |
+| 1521 | a large club | Weapon | wielded | dmg 4d3 (avg 8) | worn (wielded) by the hobgoblin bodyguard (L7) in The Throne Room (#1569, gnome); worn (wielded) by the hobgoblin bodyguard (L7) in The Throne Room (#1569, gnome); worn (wielded) by the hobgoblin bodyguard (L7) in The Throne Room (#1569, gnome); worn (wielded) by the hobgoblin bodyguard (L7) in The Throne Room (#1569, gnome); worn (wielded) by the hobgoblin bodyguard (L7) in The Throne Room (#1569, gnome); worn (wielded) by the hobgoblin soldier (L3) in Guarded Room (#1571, gnome); worn (wielded) by the hobgoblin soldier (L3) in Guarded Room (#1571, gnome); worn (wielded) by the hobgoblin soldier (L3) in Guarded Room (#1571, gnome); worn (wielded) by the hobgoblin soldier (L3) in Guarded Room (#1571, gnome); worn (wielded) by the hobgoblin soldier (L3) in Guarded Room (#1572, gnome); worn (wielded) by the hobgoblin soldier (L3) in Guarded Room (#1572, gnome); worn (wielded) by the hobgoblin soldier (L3) in Guarded Room (#1572, gnome); worn (wielded) by the hobgoblin soldier (L3) in Guarded Room (#1572, gnome); on the ground in Hobgoblin Armory (#1573, gnome) |
+| 1522 | a banana | Food | — | val 6/0/0/0 | ⚠️ not placed (unobtainable in normal play) |
+| 1523 | a potion of life healing | Potion | — | val 32/43/3/0 · _nodrop_ | ⚠️ not placed (unobtainable in normal play) |
 
 ### Alfa Graveyard  `(grave)`
 
 10 items
 
-| VNUM | Item | Type | Worn | Stats / value / flags |
-|---:|---|---|---|---|
-| 3600 | a candlestick | Light | held | 24h light |
-| 3601 | a brandy bottle | Drink Con | — | val 10/10/5/0 |
-| 3602 | a brandy bottle | Drink Con | — | val 10/0/5/0 |
-| 3603 | a wheelbarrow | Boat | — | — |
-| 3604 | a shovel | Weapon | wielded | dmg 1d5 (avg 3) |
-| 3605 | a rake | Weapon | wielded | dmg 1d4 (avg 3) |
-| 3610 | a dusty skeleton | Furniture | — | — |
-| 3611 | a amethyst | Treasure | held | — |
-| 3612 | a silver pendant | Armor | neck | AC 4 |
-| 3613 | a silver dagger | Weapon | wielded | dmg 2d4 (avg 5) · +1 Damroll |
+| VNUM | Item | Type | Worn | Stats / value / flags | Found |
+|---:|---|---|---|---|---|
+| 3600 | a candlestick | Light | held | 24h light | ⚠️ not placed (unobtainable in normal play) |
+| 3601 | a brandy bottle | Drink Con | — | val 10/10/5/0 | carried by Henry the Gardener (L4) in In a shed on the Graveyard (#3613, grave) |
+| 3602 | a brandy bottle | Drink Con | — | val 10/0/5/0 | on the ground in In a shed on the Graveyard (#3613, grave) |
+| 3603 | a wheelbarrow | Boat | — | — | on the ground in In a shed on the Graveyard (#3613, grave); on the ground in In a dusty Tomb (#3643, grave) |
+| 3604 | a shovel | Weapon | wielded | dmg 1d5 (avg 3) | on the ground in In a shed on the Graveyard (#3613, grave) |
+| 3605 | a rake | Weapon | wielded | dmg 1d4 (avg 3) | on the ground in In a shed on the Graveyard (#3613, grave) |
+| 3610 | a dusty skeleton | Furniture | — | — | on the ground in In a dusty Tomb (#3607, grave); on the ground in In a dusty Tomb (#3615, grave); on the ground in In a dusty Tomb (#3619, grave); on the ground in In a dusty Tomb (#3641, grave); on the ground in In a dusty Tomb (#3647, grave) |
+| 3611 | a amethyst | Treasure | held | — | carried by the rotting zombie (L4) in In a dusty Tomb (#3645, grave) |
+| 3612 | a silver pendant | Armor | neck | AC 4 | carried by the ghastly ghoul (L6) in In a dusty Tomb (#3617, grave) |
+| 3613 | a silver dagger | Weapon | wielded | dmg 2d4 (avg 5) · +1 Damroll | on the ground in In a dusty Tomb (#3611, grave) |
 
 ### Diku Haon Dor  `(haon)`
 
 21 items
 
-| VNUM | Item | Type | Worn | Stats / value / flags |
-|---:|---|---|---|---|
-| 6000 | a lumber axe | Weapon | wielded | dmg 2d6 (avg 7) |
-| 6001 | a chequered shirt | Armor | body | AC 3 |
-| 6002 | a pair of leather boots | Armor | feet | AC 3 |
-| 6003 | a fireplace | Container | — | holds 200 |
-| 6005 | a wooden chest | Container | — | holds 100 |
-| 6006 | a small brass key | Key | — | val 6005/0/0/0 |
-| 6007 | a heap of gold coins | Money | — | val 100/0/0/0 |
-| 6010 | some blackberries | Food | — | val 3/0/0/0 |
-| 6011 | a mushroom | Food | — | val 6/0/0/0 |
-| 6013 | the barrel | Drink Con | — | val 50/50/0/0 |
-| 6102 | a colossal tree | Container | — | holds 1000 |
-| 6103 | a long, grey branch | Light | held | 25h light |
-| 6104 | a long, grey branch | Weapon | wielded | dmg 2d5 (avg 6) · -2 Hitroll |
-| 6105 | a long, grey branch | Trash | — | — |
-| 6106 | a toadstool | Food | — | val 12/0/0/0 |
-| 6107 | a toadstool | Food | — | val 12/0/0/1 |
-| 6110 | a yellow potion | Potion | — | val 15/39/-1/-1 · _magic/nodrop_ |
-| 6111 | a large round shield | Armor | shield | AC 5 |
-| 6112 | an iron crown | Armor | head | AC 4 · _magic_ |
-| 6114 | an iron ring | Armor | finger | AC 1 · _magic_ |
-| 6155 | the morning star | Weapon | wielded | dmg 2d8 (avg 9) · _magic_ |
+| VNUM | Item | Type | Worn | Stats / value / flags | Found |
+|---:|---|---|---|---|---|
+| 6000 | a lumber axe | Weapon | wielded | dmg 2d6 (avg 7) | worn (wielded) by John the Lumberjack (L5) in Outside a small cabin in the forest (#6009, haon) |
+| 6001 | a chequered shirt | Armor | body | AC 3 | worn (body) by John the Lumberjack (L5) in Outside a small cabin in the forest (#6009, haon) |
+| 6002 | a pair of leather boots | Armor | feet | AC 3 | worn (feet) by John the Lumberjack (L5) in Outside a small cabin in the forest (#6009, haon) |
+| 6003 | a fireplace | Container | — | holds 200 | on the ground in Inside the cabin (#6010, haon) |
+| 6005 | a wooden chest | Container | — | holds 100 | on the ground in Inside the cabin (#6010, haon) |
+| 6006 | a small brass key | Key | — | val 6005/0/0/0 | inside a fireplace (#6003) — on the ground in Inside the cabin (#6010, haon) |
+| 6007 | a heap of gold coins | Money | — | val 100/0/0/0 | inside a wooden chest (#6005) — on the ground in Inside the cabin (#6010, haon) |
+| 6010 | some blackberries | Food | — | val 3/0/0/0 | on the ground in On a small, grassy field (#6023, haon) |
+| 6011 | a mushroom | Food | — | val 6/0/0/0 | on the ground in A small path in the dense forest (#6006, haon); on the ground in A small path in the dense forest (#6013, haon); on the ground in A small path in the dense forest (#6016, haon) |
+| 6013 | the barrel | Drink Con | — | val 50/50/0/0 | on the ground in Inside the cabin (#6010, haon); on the ground in The Fridge (#7908, redferne) |
+| 6102 | a colossal tree | Container | — | holds 1000 | on the ground in A narrow trail through the deep, dark forest (#6103, haon) |
+| 6103 | a long, grey branch | Light | held | 25h light | on the ground in A small path in the deep, dark forest (#6113, haon) |
+| 6104 | a long, grey branch | Weapon | wielded | dmg 2d5 (avg 6) · -2 Hitroll | on the ground in A small path on the river bank in the deep, dark forest (#6125, haon) |
+| 6105 | a long, grey branch | Trash | — | — | on the ground in A small path in the deep, dark forest (#6105, haon) |
+| 6106 | a toadstool | Food | — | val 12/0/0/0 | on the ground in A small path in the deep, dark forest (#6104, haon); on the ground in A narrow trail through the deep, dark forest (#6111, haon); on the ground in A small path in the deep, dark forest (#6122, haon) |
+| 6107 | a toadstool | Food | — | val 12/0/0/1 | on the ground in A small path in the deep, dark forest (#6119, haon) |
+| 6110 | a yellow potion | Potion | — | val 15/39/-1/-1 · _magic/nodrop_ | carried by the huge, green dragon (L25) in The cave of the Green Dragon (#6143, haon) |
+| 6111 | a large round shield | Armor | shield | AC 5 | carried by the huge, green dragon (L25) in The cave of the Green Dragon (#6143, haon) |
+| 6112 | an iron crown | Armor | head | AC 4 · _magic_ | carried by the huge, green dragon (L25) in The cave of the Green Dragon (#6143, haon) |
+| 6114 | an iron ring | Armor | finger | AC 1 · _magic_ | worn (left finger) by Shargugh (L10) in A narrow trail through the deep, dark forest (#6100, haon) |
+| 6155 | the morning star | Weapon | wielded | dmg 2d8 (avg 9) · _magic_ | worn (wielded) by the elder druid (L17) in The cultist temple. (#6155, haon) |
 
 ### Mahatma Little Haven/Glass Fort  `(haven)`
 
 6 items
 
-| VNUM | Item | Type | Worn | Stats / value / flags |
-|---:|---|---|---|---|
-| 1801 | an ice staff | Staff | held | 3 charges · _glow_ |
-| 1802 | a wand of fire | Wand | held | 3 charges · _glow_ |
-| 1803 | a flaming axe | Weapon | wielded | dmg 2d15 (avg 16) · +2 HP, +2 Hitroll · _glow_ |
-| 1804 | the Shield of the South Wind | Armor | shield | AC 10 · +1 Str, +1 Con, +3 Dex · _glow_ |
-| 1805 | a sprig of mints | Light | held | +100 Move, +1 HP · _glow/magic_ |
-| 1806 | a fuchsia potion | Potion | — | val 15/67/35/0 · _nodrop_ |
+| VNUM | Item | Type | Worn | Stats / value / flags | Found |
+|---:|---|---|---|---|---|
+| 1801 | an ice staff | Staff | held | 3 charges · _glow_ | ⚠️ not placed (unobtainable in normal play) |
+| 1802 | a wand of fire | Wand | held | 3 charges · _glow_ | worn (held) by the white dragon (L35) in The White Dragon's Lair (#1824, haven); worn (held) by the white mistress (L30) in Another Mirrored Room (#1830, haven) |
+| 1803 | a flaming axe | Weapon | wielded | dmg 2d15 (avg 16) · +2 HP, +2 Hitroll · _glow_ | worn (wielded) by the blue dragon (L46) in The Blue Dragon's Lair (#1825, haven); worn (wielded) by the white mistress (L30) in The Snow Queen's Entry Hall (#1828, haven) |
+| 1804 | the Shield of the South Wind | Armor | shield | AC 10 · +1 Str, +1 Con, +3 Dex · _glow_ | worn (shield) by the Snow Queen (L42) in The Snow Queen's Chamber (#1819, haven); worn (held) by the Snow Queen (L42) in The Snow Queen's Chamber (#1819, haven) |
+| 1805 | a sprig of mints | Light | held | +100 Move, +1 HP · _glow/magic_ | carried by the master herbal (L30) in The Master Herbal's Room (#1820, haven) |
+| 1806 | a fuchsia potion | Potion | — | val 15/67/35/0 · _nodrop_ | carried by the cold frost giant (L30) in The Little Temple (#1814, haven); carried by the cold frost giant (L30) in The Arboretum (#1818, haven); carried by the cold frost giant (L30) in The Guard's Dining Hall (#1821, haven); carried by the cold frost giant (L30) in The Great Door (#1827, haven) |
 
 ### Anon High Tower of Sorcery  `(hitower)`
 
 95 items
 
-| VNUM | Item | Type | Worn | Stats / value / flags |
-|---:|---|---|---|---|
-| 1301 | an oven | Container | — | holds 1000 · _glow_ |
-| 1302 | a meat locker | Container | — | holds 1000 |
-| 1304 | a slice of pizza | Food | — | val 15/0/0/0 |
-| 1305 | a large chunk of meat | Food | — | val 24/0/0/1 |
-| 1306 | a finger sandwich | Food | — | val 20/0/0/0 |
-| 1307 | a straw broom | Trash | held | — |
-| 1308 | a coffee machine | Container | — | holds 10000 · _hum_ |
-| 1309 | a cabinet | Container | — | holds 5000 |
-| 1310 | a bar of silver | Treasure | — | — |
-| 1311 | a bar of gold | Treasure | — | — |
-| 1312 | a bar of mithril | Treasure | — | — |
-| 1313 | a bar of adamantite | Treasure | — | — |
-| 1314 | a mithril hammer | Weapon | wielded | dmg 2d6 (avg 7) · +2 Hitroll, +1 Str · _magic_ |
-| 1315 | a chest | Container | — | holds 5000 · _glow_ |
-| 1316 | a small key | Key | — | val 1315/0/0/0 |
-| 1317 | a long sword | Weapon | wielded | dmg 1d8 (avg 5) · +1 Hitroll, +2 Damroll |
-| 1318 | a silver dagger | Weapon | wielded | dmg 3d3 (avg 6) · +2 Hitroll, +2 Damroll |
-| 1319 | a curved scimitar | Weapon | wielded | dmg 2d7 (avg 8) · +3 HP |
-| 1320 | a wooden staff | Weapon | wielded | dmg 1d4 (avg 3) |
-| 1321 | a silver chased cabinet | Container | — | holds 5000 |
-| 1322 | a silver chased cabinet | Container | — | holds 5000 |
-| 1323 | an old key | Key | — | — |
-| 1324 | a silvery key | Key | — | val 1321/0/0/0 |
-| 1325 | a silvery key | Key | — | val 1322/0/0/0 |
-| 1326 | a red and white staff | Staff | held | 3 charges |
-| 1327 | a burnt staff | Staff | held | 4 charges |
-| 1328 | a black rod | Wand | held | 3 charges |
-| 1329 | a wooden stick | Wand | held | 10 charges |
-| 1330 | a metal wand | Wand | held | 4 charges |
-| 1331 | a black cauldron | Container | — | holds 1000 |
-| 1332 | a small pair of bat wings | Trash | — | — |
-| 1333 | an eyeball | Trash | held | — |
-| 1334 | the book of magic | Container | — | holds 500 · _glow_ |
-| 1335 | a pair of spectacles | Armor | head | +1 Int, +1 Wis · _magic_ |
-| 1336 | a golden altar | Container | — | holds 1000 |
-| 1337 | a heart shaped medallion | Armor | neck | +2 Wis, -1 Con · _magic/bless_ |
-| 1338 | a large chest | Container | — | holds 2000 · _glow/magic_ |
-| 1339 | an intricately carved key | Key | held | val 1338/0/0/0 · -1 Save-Spell · _glow/magic_ |
-| 1340 | a pile of coins is here | Money | — | val 23574/0/0/0 |
-| 1341 | a brown cloak | Armor | neck | -5 AC, -3 Save-Spell |
-| 1342 | a chameleon poncho | Armor | about | +2 Dex, -3 AC · _magic_ |
-| 1343 | a pair of old boots | Armor | feet | +15 Move · _magic_ |
-| 1344 | a seashell ring | Boat | finger | _magic_ |
-| 1345 | a leather backpack | Container | about/held | holds 750 |
-| 1351 | a herbal brew | Drink Con | — | val 5/5/11/1 |
-| 1352 | a waybread | Food | — | val 32/0/0/0 |
-| 1355 | a meat cleaver | Weapon | wielded | dmg 3d4 (avg 8) |
-| 1356 | some chain shackles | Trash | — | -100 Mana, -82 Move · _magic/nodrop_ |
-| 1357 | a silvery dagger | Weapon | wielded | dmg 2d4 (avg 5) · +1 Hitroll · _magic_ |
-| 1359 | a scroll | Scroll | — | val 21/4/17/38 |
-| 1360 | a bound scroll | Scroll | held | val 16/1/2/34 · -6 AC · _magic_ |
-| 1361 | a long cylindrical tube | Container | — | holds 100 · _magic_ |
-| 1362 | an old scroll | Scroll | — | val 10/12/-1/-1 |
-| 1363 | a scroll written on blue paper | Scroll | — | val 54/24/-1/-1 · _magic_ |
-| 1364 | a leather pouch | Container | held | holds 150 · _magic_ |
-| 1365 | a silver stirring spoon | Furniture | held | -1 Save-Spell · _magic_ |
-| 1366 | a blue potion | Potion | — | val 24/27/27/27 · _magic/nodrop_ |
-| 1367 | a bright red potion | Potion | — | val 15/15/-1/-1 · _magic/nodrop_ |
-| 1368 | a green potion | Potion | — | val 20/4/2/14 · _magic/nodrop_ |
-| 1369 | an efervecent potion | Potion | — | val 16/18/19/20 · _magic/nodrop_ |
-| 1370 | a milky white potion | Potion | — | val 14/42/-1/-1 · _nodrop_ |
-| 1371 | a black staff | Staff | held | 2 charges · _magic_ |
-| 1372 | a golden flute | Staff | held | 1 charges · -6 Int · _magic_ |
-| 1373 | a small figurine | Staff | held | 15 charges · _magic_ |
-| 1374 | a holstered belt | Container | waist | holds 20 |
-| 1375 | a blackened wand | Wand | held | 1 charges · _magic_ |
-| 1376 | a runed chisel | Weapon | wielded | dmg 2d3 (avg 4) · +1 Dex · _glow/magic_ |
-| 1377 | a beltpouch | Container | waist | holds 50 |
-| 1378 | some sparkling dust | Staff | held | 1 charges |
-| 1379 | a dark cowl | Armor | neck | -8 AC, -3 Save-Spell · _magic/anti-good_ |
-| 1380 | an ashen wand | Wand | held | 4 charges · _anti-good_ |
-| 1381 | a huge spiked club | Weapon | wielded | dmg 3d5 (avg 9) |
-| 1382 | a grey robe | Container | about | holds 50 · -9 AC, -2 Save-Spell · _magic/anti-good/anti-evil_ |
-| 1383 | a long grey cloak | Armor | neck | -12 AC, -3 Save-Spell · _magic/anti-good/anti-evil_ |
-| 1384 | a glinting silver bracelet | Armor | wrist | -5 AC · _magic_ |
-| 1385 | an iron shod staff | Weapon | wielded | dmg 2d7 (avg 8) · +3 Hitroll · _magic_ |
-| 1386 | a ward minor | Armor | held | -5 AC · _glow/magic_ |
-| 1387 | a black robe | Container | about | holds 50 · -9 AC, -2 Save-Spell · _magic/anti-good/anti-neutral_ |
-| 1388 | an onyx bracelet | Armor | wrist | +2 Damroll · _magic_ |
-| 1389 | a dark black cloak | Armor | neck | -12 AC, -3 Save-Spell · _magic/anti-good/anti-neutral_ |
-| 1390 | a sharp shard of obsidian | Weapon | wielded | dmg 2d7 (avg 8) · +3 Damroll · _anti-good_ |
-| 1391 | a white robe | Container | about | holds 50 · -9 AC, -2 Save-Spell · _magic/anti-evil/anti-neutral_ |
-| 1392 | a white gold bracelet | Armor | wrist | +2 Hitroll · _magic_ |
-| 1393 | a white cloak | Armor | neck | -12 AC, -3 Save-Spell · _magic/bless/anti-evil/anti-neutral_ |
-| 1394 | an ivory hilted dagger | Weapon | wielded | dmg 2d6 (avg 7) · +1 Hitroll, +2 Damroll · _magic/bless/anti-evil_ |
-| 1395 | a spiked collar | Armor | neck | -2 AC, +3 Damroll · _magic_ |
-| 1396 | a shimmering cloak of many colors | Container | neck | holds 100 · -15 AC, -5 Save-Spell · _glow/magic_ |
-| 1397 | a small emerald ring | Armor | finger | +20 Mana · _magic_ |
-| 1398 | an emerald bracelet | Armor | wrist | -5 AC, +1 Int · _magic_ |
-| 1399 | a ward major | Armor | held | -10 AC, -2 Save-Spell · _glow/magic_ |
-| 1400 | the ebony kris | Weapon | wielded | dmg 3d4 (avg 8) · +2 Dex, +5 Damroll · _magic_ |
-| 1401 | a tight fitting green dragon scale shirt | Armor | body | AC 10 · +3 Dex, -5 AC · _magic_ |
-| 1402 | a fridge | Container | — | holds 500 · _hum_ |
-| 1403 | a bottle of Absolut vodka | Drink Con | held | val 25/25/5/0 |
-| 1404 | a bottle of cranberry juice | Drink Con | held | val 25/25/2/0 |
+| VNUM | Item | Type | Worn | Stats / value / flags | Found |
+|---:|---|---|---|---|---|
+| 1301 | an oven | Container | — | holds 1000 · _glow_ | on the ground in the kitchen (#1320, hitower) |
+| 1302 | a meat locker | Container | — | holds 1000 | on the ground in the kitchen (#1320, hitower) |
+| 1304 | a slice of pizza | Food | — | val 15/0/0/0 | inside an oven (#1301) — on the ground in the kitchen (#1320, hitower) |
+| 1305 | a large chunk of meat | Food | — | val 24/0/0/1 | inside a meat locker (#1302) — on the ground in the kitchen (#1320, hitower) |
+| 1306 | a finger sandwich | Food | — | val 20/0/0/0 | inside a meat locker (#1302) — on the ground in the kitchen (#1320, hitower) |
+| 1307 | a straw broom | Trash | held | — | on the ground in A broom closet (#1333, hitower); on the ground in A broom closet (#1333, hitower) |
+| 1308 | a coffee machine | Container | — | holds 10000 · _hum_ | ⚠️ not placed (unobtainable in normal play) |
+| 1309 | a cabinet | Container | — | holds 5000 | ⚠️ not placed (unobtainable in normal play) |
+| 1310 | a bar of silver | Treasure | — | — | on the ground in A store room (#1379, hitower) |
+| 1311 | a bar of gold | Treasure | — | — | on the ground in A store room (#1379, hitower) |
+| 1312 | a bar of mithril | Treasure | — | — | on the ground in A store room (#1379, hitower) |
+| 1313 | a bar of adamantite | Treasure | — | — | on the ground in A store room (#1379, hitower) |
+| 1314 | a mithril hammer | Weapon | wielded | dmg 2d6 (avg 7) · +2 Hitroll, +1 Str · _magic_ | on the ground in A very hot room (#1381, hitower) |
+| 1315 | a chest | Container | — | holds 5000 · _glow_ | on the ground in The master Enchanter's chamber (#1382, hitower) |
+| 1316 | a small key | Key | — | val 1315/0/0/0 | worn (held) by the Enchanter (L23) in The master Enchanter's chamber (#1382, hitower) |
+| 1317 | a long sword | Weapon | wielded | dmg 1d8 (avg 5) · +1 Hitroll, +2 Damroll | inside a chest (#1315) — on the ground in The master Enchanter's chamber (#1382, hitower) |
+| 1318 | a silver dagger | Weapon | wielded | dmg 3d3 (avg 6) · +2 Hitroll, +2 Damroll | inside a chest (#1315) — on the ground in The master Enchanter's chamber (#1382, hitower) |
+| 1319 | a curved scimitar | Weapon | wielded | dmg 2d7 (avg 8) · +3 HP | inside a chest (#1315) — on the ground in The master Enchanter's chamber (#1382, hitower) |
+| 1320 | a wooden staff | Weapon | wielded | dmg 1d4 (avg 3) | on the ground in A store room (#1401, hitower) |
+| 1321 | a silver chased cabinet | Container | — | holds 5000 | on the ground in The spellbinder's cache (#1403, hitower) |
+| 1322 | a silver chased cabinet | Container | — | holds 5000 | on the ground in The spellbinder's cache (#1403, hitower) |
+| 1323 | an old key | Key | — | — | worn (held) by the Jailor (L17) in The Jailor's office (#1328, hitower) |
+| 1324 | a silvery key | Key | — | val 1321/0/0/0 | ⚠️ not placed (unobtainable in normal play) |
+| 1325 | a silvery key | Key | — | val 1322/0/0/0 | worn (held) by the master spell binder (L23) in The master spellbinder's chamber (#1402, hitower) |
+| 1326 | a red and white staff | Staff | held | 3 charges | inside a silver chased cabinet (#1321) — on the ground in The spellbinder's cache (#1403, hitower) |
+| 1327 | a burnt staff | Staff | held | 4 charges | inside a silver chased cabinet (#1321) — on the ground in The spellbinder's cache (#1403, hitower) |
+| 1328 | a black rod | Wand | held | 3 charges | inside a silver chased cabinet (#1322) — on the ground in The spellbinder's cache (#1403, hitower) |
+| 1329 | a wooden stick | Wand | held | 10 charges | inside a silver chased cabinet (#1322) — on the ground in The spellbinder's cache (#1403, hitower) |
+| 1330 | a metal wand | Wand | held | 4 charges | inside a silver chased cabinet (#1322) — on the ground in The spellbinder's cache (#1403, hitower) |
+| 1331 | a black cauldron | Container | — | holds 1000 | on the ground in The scrying chamber (#1435, hitower) |
+| 1332 | a small pair of bat wings | Trash | — | — | inside a black cauldron (#1331) — on the ground in The scrying chamber (#1435, hitower) |
+| 1333 | an eyeball | Trash | held | — | inside a black cauldron (#1331) — on the ground in The scrying chamber (#1435, hitower) |
+| 1334 | the book of magic | Container | — | holds 500 · _glow_ | on the ground in The reading room (#1445, hitower) |
+| 1335 | a pair of spectacles | Armor | head | +1 Int, +1 Wis · _magic_ | inside the book of magic (#1334) — on the ground in The reading room (#1445, hitower) |
+| 1336 | a golden altar | Container | — | holds 1000 | on the ground in The altar (#1480, hitower) |
+| 1337 | a heart shaped medallion | Armor | neck | +2 Wis, -1 Con · _magic/bless_ | inside a golden altar (#1336) — on the ground in The altar (#1480, hitower) |
+| 1338 | a large chest | Container | — | holds 2000 · _glow/magic_ | on the ground in The treasury (#1481, hitower) |
+| 1339 | an intricately carved key | Key | held | val 1338/0/0/0 · -1 Save-Spell · _glow/magic_ | carried by The Grand Mistress (L50) in The audience chamber (#1477, hitower) |
+| 1340 | a pile of coins is here | Money | — | val 23574/0/0/0 | ⚠️ not placed (unobtainable in normal play) |
+| 1341 | a brown cloak | Armor | neck | -5 AC, -3 Save-Spell | on the ground in A passage (#1482, hitower) |
+| 1342 | a chameleon poncho | Armor | about | +2 Dex, -3 AC · _magic_ | on the ground in A passage (#1482, hitower) |
+| 1343 | a pair of old boots | Armor | feet | +15 Move · _magic_ | on the ground in A passage (#1482, hitower) |
+| 1344 | a seashell ring | Boat | finger | _magic_ | inside a leather backpack (#1345) — on the ground in A passage (#1482, hitower) |
+| 1345 | a leather backpack | Container | about/held | holds 750 | on the ground in A passage (#1482, hitower) |
+| 1351 | a herbal brew | Drink Con | — | val 5/5/11/1 | carried by Strick the bartender (L25) in Mages Tavern (#1318, hitower) |
+| 1352 | a waybread | Food | — | val 32/0/0/0 | carried by Strick the bartender (L25) in Mages Tavern (#1318, hitower) |
+| 1355 | a meat cleaver | Weapon | wielded | dmg 3d4 (avg 8) | worn (wielded) by Ezmerelda (L20) in the kitchen (#1320, hitower) |
+| 1356 | some chain shackles | Trash | — | -100 Mana, -82 Move · _magic/nodrop_ | worn (left wrist) by The prisoner (L16) in A dark cell (#1327, hitower) |
+| 1357 | a silvery dagger | Weapon | wielded | dmg 2d4 (avg 5) · +1 Hitroll · _magic_ | worn (wielded) by a young mage (L9) in The training room (#1359, hitower); worn (wielded) by a young mage (L9) in The training room (#1359, hitower); worn (wielded) by a young mage (L9) in The training room (#1359, hitower); worn (held) by the battle mistress (L17) in The training room (#1359, hitower) |
+| 1359 | a scroll | Scroll | — | val 21/4/17/38 | carried by the master scribe (L22) in The master scribe's workshop (#1373, hitower) |
+| 1360 | a bound scroll | Scroll | held | val 16/1/2/34 · -6 AC · _magic_ | carried by the master scribe (L22) in The master scribe's workshop (#1373, hitower) |
+| 1361 | a long cylindrical tube | Container | — | holds 100 · _magic_ | carried by the master scribe (L22) in The master scribe's workshop (#1373, hitower) |
+| 1362 | an old scroll | Scroll | — | val 10/12/-1/-1 | carried by the scribe's assistant (L16) in The master scribe's workshop (#1373, hitower) |
+| 1363 | a scroll written on blue paper | Scroll | — | val 54/24/-1/-1 · _magic_ | carried by the Enchanter (L23) in The master Enchanter's chamber (#1382, hitower) |
+| 1364 | a leather pouch | Container | held | holds 150 · _magic_ | worn (held) by the Mad Alchemist (L24) in The Mad Alchemist's workroom (#1388, hitower) |
+| 1365 | a silver stirring spoon | Furniture | held | -1 Save-Spell · _magic_ | inside a leather pouch (#1364) — worn (held) by the Mad Alchemist (L24) in The Mad Alchemist's workroom (#1388, hitower) |
+| 1366 | a blue potion | Potion | — | val 24/27/27/27 · _magic/nodrop_ | ⚠️ not placed (unobtainable in normal play) |
+| 1367 | a bright red potion | Potion | — | val 15/15/-1/-1 · _magic/nodrop_ | inside a leather pouch (#1364) — worn (held) by the Mad Alchemist (L24) in The Mad Alchemist's workroom (#1388, hitower) |
+| 1368 | a green potion | Potion | — | val 20/4/2/14 · _magic/nodrop_ | inside a leather pouch (#1364) — worn (held) by the Mad Alchemist (L24) in The Mad Alchemist's workroom (#1388, hitower) |
+| 1369 | an efervecent potion | Potion | — | val 16/18/19/20 · _magic/nodrop_ | inside a leather pouch (#1364) — worn (held) by the Mad Alchemist (L24) in The Mad Alchemist's workroom (#1388, hitower) |
+| 1370 | a milky white potion | Potion | — | val 14/42/-1/-1 · _nodrop_ | inside a leather pouch (#1364) — worn (held) by the Mad Alchemist (L24) in The Mad Alchemist's workroom (#1388, hitower) |
+| 1371 | a black staff | Staff | held | 2 charges · _magic_ | worn (held) by the master summoner (L22) in The pentagram chamber (#1390, hitower) |
+| 1372 | a golden flute | Staff | held | 1 charges · -6 Int · _magic_ | worn (held) by the master charmer (L23) in The charm master's chamber (#1395, hitower) |
+| 1373 | a small figurine | Staff | held | 15 charges · _magic_ | carried by the master charmer (L23) in The charm master's chamber (#1395, hitower) |
+| 1374 | a holstered belt | Container | waist | holds 20 | worn (waist) by the master spell binder (L23) in The master spellbinder's chamber (#1402, hitower) |
+| 1375 | a blackened wand | Wand | held | 1 charges · _magic_ | inside a holstered belt (#1374) — worn (waist) by the master spell binder (L23) in The master spellbinder's chamber (#1402, hitower) |
+| 1376 | a runed chisel | Weapon | wielded | dmg 2d3 (avg 4) · +1 Dex · _glow/magic_ | worn (held) by the golem maker (L21) in The golem master's workshop (#1409, hitower) |
+| 1377 | a beltpouch | Container | waist | holds 50 | worn (waist) by the master of illusions (L21) in The master of illusion's chamber (#1417, hitower) |
+| 1378 | some sparkling dust | Staff | held | 1 charges | inside a beltpouch (#1377) — worn (waist) by the master of illusions (L21) in The master of illusion's chamber (#1417, hitower) |
+| 1379 | a dark cowl | Armor | neck | -8 AC, -3 Save-Spell · _magic/anti-good_ | worn (neck) by the Necromancer (L25) in The Necromancer's Lair (#1425, hitower) |
+| 1380 | an ashen wand | Wand | held | 4 charges · _anti-good_ | worn (held) by the Necromancer (L25) in The Necromancer's Lair (#1425, hitower) |
+| 1381 | a huge spiked club | Weapon | wielded | dmg 3d5 (avg 9) | worn (wielded) by an undead giant (L18) in The Necromancer's Lair (#1425, hitower) |
+| 1382 | a grey robe | Container | about | holds 50 · -9 AC, -2 Save-Spell · _magic/anti-good/anti-evil_ | worn (about body) by the master's apprentice (L24) in The antechamber (#1453, hitower) |
+| 1383 | a long grey cloak | Armor | neck | -12 AC, -3 Save-Spell · _magic/anti-good/anti-evil_ | worn (neck) by the master of Neutrality (L30) in The main chamber (#1454, hitower) |
+| 1384 | a glinting silver bracelet | Armor | wrist | -5 AC · _magic_ | worn (left wrist) by the master's apprentice (L24) in The antechamber (#1453, hitower) |
+| 1385 | an iron shod staff | Weapon | wielded | dmg 2d7 (avg 8) · +3 Hitroll · _magic_ | worn (wielded) by the master of Neutrality (L30) in The main chamber (#1454, hitower) |
+| 1386 | a ward minor | Armor | held | -5 AC · _glow/magic_ | worn (held) by the master of Neutrality (L30) in The main chamber (#1454, hitower); worn (held) by the master of the black robes (L30) in The inner chamber (#1464, hitower); worn (held) by The master of goodness (L30) in The chamber of the white light (#1469, hitower) |
+| 1387 | a black robe | Container | about | holds 50 · -9 AC, -2 Save-Spell · _magic/anti-good/anti-neutral_ | worn (about body) by a black robed apprentice (L20) in The chamber of darkness (#1461, hitower) |
+| 1388 | an onyx bracelet | Armor | wrist | +2 Damroll · _magic_ | worn (left wrist) by a black robed apprentice (L20) in The chamber of darkness (#1461, hitower) |
+| 1389 | a dark black cloak | Armor | neck | -12 AC, -3 Save-Spell · _magic/anti-good/anti-neutral_ | worn (neck) by the master of the black robes (L30) in The inner chamber (#1464, hitower) |
+| 1390 | a sharp shard of obsidian | Weapon | wielded | dmg 2d7 (avg 8) · +3 Damroll · _anti-good_ | worn (wielded) by the master of the black robes (L30) in The inner chamber (#1464, hitower) |
+| 1391 | a white robe | Container | about | holds 50 · -9 AC, -2 Save-Spell · _magic/anti-evil/anti-neutral_ | worn (about body) by a white robed apprentice (L20) in An antechamber (#1467, hitower) |
+| 1392 | a white gold bracelet | Armor | wrist | +2 Hitroll · _magic_ | worn (left wrist) by a white robed apprentice (L20) in An antechamber (#1467, hitower) |
+| 1393 | a white cloak | Armor | neck | -12 AC, -3 Save-Spell · _magic/bless/anti-evil/anti-neutral_ | worn (neck) by The master of goodness (L30) in The chamber of the white light (#1469, hitower) |
+| 1394 | an ivory hilted dagger | Weapon | wielded | dmg 2d6 (avg 7) · +1 Hitroll, +2 Damroll · _magic/bless/anti-evil_ | worn (wielded) by The master of goodness (L30) in The chamber of the white light (#1469, hitower) |
+| 1395 | a spiked collar | Armor | neck | -2 AC, +3 Damroll · _magic_ | worn (neck) by A calico cat (L25) in The audience chamber (#1477, hitower) |
+| 1396 | a shimmering cloak of many colors | Container | neck | holds 100 · -15 AC, -5 Save-Spell · _glow/magic_ | ⚠️ not placed (unobtainable in normal play) |
+| 1397 | a small emerald ring | Armor | finger | +20 Mana · _magic_ | worn (left finger) by The Grand Mistress (L50) in The audience chamber (#1477, hitower) |
+| 1398 | an emerald bracelet | Armor | wrist | -5 AC, +1 Int · _magic_ | worn (left wrist) by The Grand Mistress (L50) in The audience chamber (#1477, hitower) |
+| 1399 | a ward major | Armor | held | -10 AC, -2 Save-Spell · _glow/magic_ | worn (held) by The Grand Mistress (L50) in The audience chamber (#1477, hitower) |
+| 1400 | the ebony kris | Weapon | wielded | dmg 3d4 (avg 8) · +2 Dex, +5 Damroll · _magic_ | worn (wielded) by The Grand Mistress (L50) in The audience chamber (#1477, hitower) |
+| 1401 | a tight fitting green dragon scale shirt | Armor | body | AC 10 · +3 Dex, -5 AC · _magic_ | worn (body) by The Grand Mistress (L50) in The audience chamber (#1477, hitower); on the ground in Skylar's Hideout (#1499, hitower) |
+| 1402 | a fridge | Container | — | holds 500 · _hum_ | on the ground in Skylar's Hideout (#1499, hitower) |
+| 1403 | a bottle of Absolut vodka | Drink Con | held | val 25/25/5/0 | inside a fridge (#1402) — on the ground in Skylar's Hideout (#1499, hitower) |
+| 1404 | a bottle of cranberry juice | Drink Con | held | val 25/25/2/0 | inside a fridge (#1402) — on the ground in Skylar's Hideout (#1499, hitower) |
 
 ### Raff Dangerous Neighborhood  `(hood)`
 
 12 items
 
-| VNUM | Item | Type | Worn | Stats / value / flags |
-|---:|---|---|---|---|
-| 2101 | an Ogre gang jacket | Armor | body | AC 5 |
-| 2102 | a Troll gang jacket | Armor | body | AC 5 |
-| 2103 | a hefty length of chain | Weapon | wielded | dmg 2d7 (avg 8) · -5 AC, +1 Hitroll · _glow_ |
-| 2104 | a metal shield | Armor | shield | AC 3 |
-| 2105 | a spray paint can | Wand | held | 2 charges · _hum_ |
-| 2106 | a stiletto | Weapon | wielded | dmg 7d2 (avg 11) · +4 Hitroll, +20 AC |
-| 2107 | spiked heeled boots | Armor | feet | AC 3 · -1 Dex, +1 Damroll |
-| 2108 | a mirror | Wand | held | 10 charges · _glow/magic_ |
-| 2109 | comfortable leather gloves | Armor | hands | AC 2 · +1 Str |
-| 2110 | a patrol club | Weapon | wielded | dmg 1d12 (avg 7) · +3 Hitroll, +10 Move |
-| 2111 | a troll signet ring | Armor | finger | AC 4 · +1 Str |
-| 2112 | brass knuckles | Armor | hands | AC -15 · -15 HP, +5 Hitroll · _hum_ |
+| VNUM | Item | Type | Worn | Stats / value / flags | Found |
+|---:|---|---|---|---|---|
+| 2101 | an Ogre gang jacket | Armor | body | AC 5 | worn (body) by a gang member (L35) in Beginning of White Dragon Boulevard (#2102, hood); worn (body) by a gang member (L35) in Along White Dragon Boulevard (#2103, hood); worn (body) by a gang member (L35) in White Dragon Boulevard at Armory (#2104, hood); worn (body) by a gang member (L35) in Corner of Ice and White Dragon (#2106, hood); worn (body) by a gang member (L35) in White Dragon Boulevard (#2107, hood); worn (body) by a gang member (L35) in An over-grown lot (#2109, hood); worn (body) by a gang member (L35) in East end of an over-grown plot of land (#2110, hood); worn (body) by a gang member (L35) in A Bend in the Way (#2112, hood); worn (body) by a gang member (L35) in Ice Dragon Bend (#2113, hood); worn (body) by a gang member (L35) in Bronze Dragon Street at wizard's back door (#2115, hood); worn (body) by a gang member (L35) in Dracolich Plaza (#2116, hood); worn (body) by a gang member (L35) in Shortcut (#2117, hood); worn (body) by a gang member (L35) in Ice Dragon Way (#2118, hood); worn (body) by a gang member (L35) in Shortcut (#2121, hood); worn (body) by a gang member (L35) in Ice Dragon Way (#2122, hood); worn (body) by a gang member (L35) in Yellow Dragon Road (#2130, hood) |
+| 2102 | a Troll gang jacket | Armor | body | AC 5 | worn (body) by a gang member (L35) in Hector Street at Bakery (#2142, hood); worn (body) by a gang member (L35) in Corner of Ajax and Hector (#2145, hood); worn (body) by a gang member (L35) in Hector Street (#2146, hood); worn (body) by a gang member (L35) in Hector street (#2151, hood); worn (body) by a gang member (L35) in A bend in the road (#2152, hood); worn (body) by a gang member (L35) in What is left of the weaponshop (#2153, hood); worn (body) by a gang member (L35) in Achilles avenue at entrance to park (#2156, hood); worn (body) by a gang member (L35) in Ajax street (#2158, hood); worn (body) by a gang member (L35) in Curve in the road (#2159, hood); worn (body) by a gang member (L35) in Alexander Road (#2161, hood); worn (body) by a gang member (L35) in Alexander Street at park entrance (#2162, hood); worn (body) by a gang member (L35) in Ajax Street (#2164, hood); worn (body) by a gang member (L35) in The inn/pub (#2165, hood); worn (body) by a gang member (L35) in The inn/pub (#2165, hood); worn (body) by a gang member (L35) in The inn/pub (#2165, hood); worn (body) by a gang member (L35) in Solomon Street (#2166, hood); worn (body) by a gang member (L35) in Intersection of Achilles and Solomon (#2167, hood); worn (body) by a gang member (L35) in Intersection of Ajax and Solomon (#2169, hood) |
+| 2103 | a hefty length of chain | Weapon | wielded | dmg 2d7 (avg 8) · -5 AC, +1 Hitroll · _glow_ | worn (wielded) by a bruiser (L39) in The remains of the magic shop (#2114, hood); worn (wielded) by a bruiser (L39) in Dracolich Plaza (#2116, hood) |
+| 2104 | a metal shield | Armor | shield | AC 3 | worn (shield) by a bruiser (L39) in Dracolich Plaza (#2116, hood); worn (shield) by a bruiser (L39) in Khan Park (#2155, hood); worn (shield) by a bruiser (L39) in Hallway (#2170, hood) |
+| 2105 | a spray paint can | Wand | held | 2 charges · _hum_ | worn (held) by a vandal (L39) in Beginning of White Dragon Boulevard (#2102, hood); worn (held) by a vandal (L39) in The remains of the magic shop (#2114, hood); worn (held) by a vandal (L39) in Alexander Road (#2161, hood); worn (held) by a vandal (L39) in The inn/pub (#2165, hood) |
+| 2106 | a stiletto | Weapon | wielded | dmg 7d2 (avg 11) · +4 Hitroll, +20 AC | worn (wielded) by the gang leader (L43) in A small ruined chapel (#2148, hood) |
+| 2107 | spiked heeled boots | Armor | feet | AC 3 · -1 Dex, +1 Damroll | worn (feet) by a doll (L36) in Bronze Dragon Street at Warehouse (#2125, hood); worn (feet) by a doll (L36) in Ajax Avenue at chapel (#2149, hood) |
+| 2108 | a mirror | Wand | held | 10 charges · _glow/magic_ | worn (held) by a doll (L36) in Courtyard South (#2123, hood); worn (held) by a doll (L36) in Bronze Dragon Street at Warehouse (#2125, hood); worn (held) by a doll (L36) in Ajax Avenue at chapel (#2149, hood); worn (held) by a doll (L36) in A bend in the road (#2152, hood) |
+| 2109 | comfortable leather gloves | Armor | hands | AC 2 · +1 Str | worn (hands) by a bruiser (L39) in Corner of Bronze and White Dragon (#2108, hood); worn (hands) by a bruiser (L39) in Khan Park (#2155, hood) |
+| 2110 | a patrol club | Weapon | wielded | dmg 1d12 (avg 7) · +3 Hitroll, +10 Move | worn (wielded) by a patrolman (L37) in NO MAN'S LAND (#2131, hood); worn (wielded) by a patrolman (L37) in NO MAN'S LAND (#2132, hood); worn (wielded) by a patrolman (L37) in NO MAN'S LAND (#2133, hood); worn (wielded) by a patrolman (L37) in NO MAN'S LAND (#2134, hood); worn (wielded) by a patrolman (L37) in NO MAN'S LAND (#2135, hood); worn (wielded) by a patrolman (L37) in NO MAN'S LAND (#2136, hood); worn (wielded) by a patrolman (L37) in NO MAN'S LAND (#2137, hood); worn (wielded) by a patrolman (L37) in NO MAN'S LAND (#2138, hood); worn (wielded) by a patrolman (L37) in NO MAN'S LAND (#2139, hood); worn (wielded) by a patrolman (L37) in NO MAN'S LAND (#2140, hood) |
+| 2111 | a troll signet ring | Armor | finger | AC 4 · +1 Str | worn (left finger) by the gang leader (L43) in Old Abandoned Warehouse (#2124, hood); worn (left finger) by a bruiser (L39) in Hallway (#2170, hood) |
+| 2112 | brass knuckles | Armor | hands | AC -15 · -15 HP, +5 Hitroll · _hum_ | worn (held) by the gang leader (L43) in A small ruined chapel (#2148, hood) |
 
 ### Diku Limbo  `(limbo)`
 
 58 items
 
-| VNUM | Item | Type | Worn | Stats / value / flags |
-|---:|---|---|---|---|
-| 1 | a dummy object | Trash | — | — |
-| 2 | a gold coin | Money | — | val 1/0/0/0 |
-| 3 | %d gold coins | Money | — | — |
-| 4 | a generic weapon | Weapon | wielded | dmg 10d20 (avg 105) · _hardened_ |
-| 10 | corpse of %s | NPC Corpse | — | val 0/0/0/1 |
-| 11 | corpse of %s | PC Corpse | — | val 0/0/0/1 |
-| 12 | head of %s | Food | — | val 10/0/0/0 |
-| 13 | heart of %s | Food | — | val 16/0/0/0 |
-| 14 | arm of %s | Food | — | val 20/0/0/0 |
-| 15 | leg of %s | Food | — | val 20/0/0/0 |
-| 16 | steaming turd | Food | held | val 1/0/0/1 |
-| 20 | a Magic Mushroom | Food | — | val 5/0/0/0 |
-| 21 | a bright ball of light | Light | — | infinite light |
-| 22 | a magical spring | Fountain | — | val 100000/100000/0/0 · _magic_ |
-| 23 | a gleaming portal | Portal | — | — |
-| 24 | a quest item | Trash | — | — |
-| 25 | a sign | Furniture | — | — |
-| 26 | a katana | Weapon | wielded | dmg 1d6 (avg 4) · +10 Damroll, +10 Hitroll, -30 AC |
-| 27 | generic materia | Materia | — | — |
-| 30 | the Murasame Sword | Weapon | wielded | dmg 10d20 (avg 105) · +20 Damroll, +20 Hitroll · _glow/hum/unique_ |
-| 31 | A slim henshin pen etched with the sigil of Uranus | Armor | held | +5 Damroll, +5 Hitroll, +200 HP · _unique_ |
-| 32 | saiyan Battle Armor | Armor | body | AC 15 · +35 Hitroll, +35 Damroll · _glow/unique_ |
-| 33 | Journeyman's Boots | Armor | feet | AC 15 · +3 Hitroll, +3 Damroll · _unique_ |
-| 34 | Cloak of the Mriswith | Armor | about | AC 15 · -75 AC, +10 Hitroll · _magic/unique_ |
-| 35 | a double-headed black rubber dildo | Armor | held | AC 15 · +5 Damroll, +5 Hitroll, +100 HP · _unique_ |
-| 50 | an Iceblade | Weapon | wielded | dmg 1d6 (avg 4) · +5 Damroll, +5 Hitroll · _nodrop_ |
-| 51 | a Ruby-eye blade | Weapon | wielded | dmg 1d6 (avg 4) · +15 Damroll, +15 Hitroll · _nodrop_ |
-| 52 | the Laguna Blade | Weapon | wielded | dmg 1d6 (avg 4) · +100 Damroll, +100 Hitroll · _glow/hum/nodrop/noremove_ |
-| 60 | a Leo mobile suit | Suit | — | val 4/0/1500/100 |
-| 61 | an Aries mobile suit | Suit | — | val 384/0/1350/100 |
-| 62 | a Taurus mobile suit | Suit | — | val 8/0/1650/100 |
-| 63 | a Virgo mobile suit | Suit | — | val 18/0/1800/100 |
-| 64 | a Mercurius mobile suit | Suit | — | val 8203/0/1950/100 |
-| 65 | a Vayeate mobile suit | Suit | — | val 88/0/1950/100 |
-| 66 | the Tallgeese | Suit | — | val 2825/0/1800/100 |
-| 67 | the Wing Zero | Suit | — | val 299520/0/2100/100 |
-| 68 | the Wing Gundam | Suit | — | val 21120/0/1950/100 |
-| 69 | the Gundam Deathscythe | Suit | — | val 8454273/0/1800/100 |
-| 70 | the Gundam Heavyarms | Suit | — | val 398208/0/2100/100 |
-| 71 | the Gundam Sandrock | Suit | — | val 528768/0/2400/100 |
-| 72 | the Gundam Shenlong | Suit | — | val 19923073/0/1800/100 |
-| 73 | the Gundam Epyon | Suit | — | val 4195329/0/2100/100 |
-| 74 | an M1A1 Tank | Suit | — | val 17172740/0/32000/100 |
-| 80 | 100 rounds of 105mm bullets | Munition | — | val 5/100/0/0 |
-| 81 | a canister of vernier fuel | Munition | — | val 3/500/0/0 |
-| 82 | a stack of AP shells | Munition | — | val 6/50/0/0 |
-| 83 | a plasma pack | Munition | — | val 7/50/0/0 |
-| 84 | a unit of beam fuel | Munition | — | val 8/250/0/0 |
-| 85 | a small titanium buckler | Accessory | — | val 1/0/0/0 |
-| 86 | a standard issue beam rifle | Accessory | — | val 8/0/0/0 |
-| 87 | a beam cannon | Accessory | — | val 16/0/0/0 |
-| 88 | a high energy laser cannon | Accessory | — | val 32/0/0/0 |
-| 89 | a heavy beam cannon | Accessory | — | val 64/0/0/0 |
-| 90 | a UPSF standard missile | Munition | — | val 14/1/0/0 |
-| 91 | a slim beam sabre | Accessory | — | val 512/0/0/0 |
-| 92 | a heavy beam sword | Accessory | — | val 1024/0/0/0 |
-| 93 | a field repair kit | Accessory | — | val 0/666/0/0 |
-| 94 | a dobergun | Accessory | — | val 2048/0/0/0 |
+| VNUM | Item | Type | Worn | Stats / value / flags | Found |
+|---:|---|---|---|---|---|
+| 1 | a dummy object | Trash | — | — | ⚠️ not placed (unobtainable in normal play) |
+| 2 | a gold coin | Money | — | val 1/0/0/0 | ⚠️ not placed (unobtainable in normal play) |
+| 3 | %d gold coins | Money | — | — | ⚠️ not placed (unobtainable in normal play) |
+| 4 | a generic weapon | Weapon | wielded | dmg 10d20 (avg 105) · _hardened_ | ⚠️ not placed (unobtainable in normal play) |
+| 10 | corpse of %s | NPC Corpse | — | val 0/0/0/1 | ⚠️ not placed (unobtainable in normal play) |
+| 11 | corpse of %s | PC Corpse | — | val 0/0/0/1 | ⚠️ not placed (unobtainable in normal play) |
+| 12 | head of %s | Food | — | val 10/0/0/0 | ⚠️ not placed (unobtainable in normal play) |
+| 13 | heart of %s | Food | — | val 16/0/0/0 | ⚠️ not placed (unobtainable in normal play) |
+| 14 | arm of %s | Food | — | val 20/0/0/0 | ⚠️ not placed (unobtainable in normal play) |
+| 15 | leg of %s | Food | — | val 20/0/0/0 | ⚠️ not placed (unobtainable in normal play) |
+| 16 | steaming turd | Food | held | val 1/0/0/1 | ⚠️ not placed (unobtainable in normal play) |
+| 20 | a Magic Mushroom | Food | — | val 5/0/0/0 | ⚠️ not placed (unobtainable in normal play) |
+| 21 | a bright ball of light | Light | — | infinite light | worn (light) by the Hitokiri Battousai (L104) in The Void (#1, limbo) |
+| 22 | a magical spring | Fountain | — | val 100000/100000/0/0 · _magic_ | ⚠️ not placed (unobtainable in normal play) |
+| 23 | a gleaming portal | Portal | — | — | ⚠️ not placed (unobtainable in normal play) |
+| 24 | a quest item | Trash | — | — | ⚠️ not placed (unobtainable in normal play) |
+| 25 | a sign | Furniture | — | — | on the ground in The Void (#1, limbo) |
+| 26 | a katana | Weapon | wielded | dmg 1d6 (avg 4) · +10 Damroll, +10 Hitroll, -30 AC | worn (wielded) by the Hitokiri Battousai (L104) in The Void (#1, limbo) |
+| 27 | generic materia | Materia | — | — | ⚠️ not placed (unobtainable in normal play) |
+| 30 | the Murasame Sword | Weapon | wielded | dmg 10d20 (avg 105) · +20 Damroll, +20 Hitroll · _glow/hum/unique_ | ⚠️ not placed (unobtainable in normal play) |
+| 31 | A slim henshin pen etched with the sigil of Uranus | Armor | held | +5 Damroll, +5 Hitroll, +200 HP · _unique_ | ⚠️ not placed (unobtainable in normal play) |
+| 32 | saiyan Battle Armor | Armor | body | AC 15 · +35 Hitroll, +35 Damroll · _glow/unique_ | ⚠️ not placed (unobtainable in normal play) |
+| 33 | Journeyman's Boots | Armor | feet | AC 15 · +3 Hitroll, +3 Damroll · _unique_ | ⚠️ not placed (unobtainable in normal play) |
+| 34 | Cloak of the Mriswith | Armor | about | AC 15 · -75 AC, +10 Hitroll · _magic/unique_ | ⚠️ not placed (unobtainable in normal play) |
+| 35 | a double-headed black rubber dildo | Armor | held | AC 15 · +5 Damroll, +5 Hitroll, +100 HP · _unique_ | ⚠️ not placed (unobtainable in normal play) |
+| 50 | an Iceblade | Weapon | wielded | dmg 1d6 (avg 4) · +5 Damroll, +5 Hitroll · _nodrop_ | ⚠️ not placed (unobtainable in normal play) |
+| 51 | a Ruby-eye blade | Weapon | wielded | dmg 1d6 (avg 4) · +15 Damroll, +15 Hitroll · _nodrop_ | ⚠️ not placed (unobtainable in normal play) |
+| 52 | the Laguna Blade | Weapon | wielded | dmg 1d6 (avg 4) · +100 Damroll, +100 Hitroll · _glow/hum/nodrop/noremove_ | ⚠️ not placed (unobtainable in normal play) |
+| 60 | a Leo mobile suit | Suit | — | val 4/0/1500/100 | carried by the armourer (L100) in The Armoury (#3020, midgaard); carried by Martina (L50) in A fissure (#9605, cithdeux); carried by the Seeress of Cove (L50) in Tranquility (#9704, divergent); carried by Maklu (L50) in A second story shop (#9509, malokteri) |
+| 61 | an Aries mobile suit | Suit | — | val 384/0/1350/100 | carried by the armourer (L100) in The Armoury (#3020, midgaard); carried by Martina (L50) in A fissure (#9605, cithdeux); carried by the Seeress of Cove (L50) in Tranquility (#9704, divergent) |
+| 62 | a Taurus mobile suit | Suit | — | val 8/0/1650/100 | carried by the armourer (L100) in The Armoury (#3020, midgaard); carried by Martina (L50) in A fissure (#9605, cithdeux); carried by the Seeress of Cove (L50) in Tranquility (#9704, divergent); carried by Maklu (L50) in A second story shop (#9509, malokteri) |
+| 63 | a Virgo mobile suit | Suit | — | val 18/0/1800/100 | carried by the armourer (L100) in The Armoury (#3020, midgaard); carried by Maklu (L50) in A second story shop (#9509, malokteri) |
+| 64 | a Mercurius mobile suit | Suit | — | val 8203/0/1950/100 | ⚠️ not placed (unobtainable in normal play) |
+| 65 | a Vayeate mobile suit | Suit | — | val 88/0/1950/100 | on the ground in The healing chamber (#9604, cithdeux) |
+| 66 | the Tallgeese | Suit | — | val 2825/0/1800/100 | on the ground in The healing chamber (#9604, cithdeux); on the ground in Shelter (#9956, renegades); on the ground in Hidden Area (#9803, teikoku); on the ground in [Atheneum of Wondrous Knowledge] (#9703, divergent); on the ground in Room of War and Flames (#9512, malokteri) |
+| 67 | the Wing Zero | Suit | — | val 299520/0/2100/100 | ⚠️ not placed (unobtainable in normal play) |
+| 68 | the Wing Gundam | Suit | — | val 21120/0/1950/100 | on the ground in Shelter (#9956, renegades); on the ground in Hidden Area (#9803, teikoku); on the ground in [Atheneum of Wondrous Knowledge] (#9703, divergent); on the ground in Room of War and Flames (#9512, malokteri) |
+| 69 | the Gundam Deathscythe | Suit | — | val 8454273/0/1800/100 | on the ground in The healing chamber (#9604, cithdeux); on the ground in Shelter (#9956, renegades); on the ground in Hidden Area (#9803, teikoku); on the ground in [Atheneum of Wondrous Knowledge] (#9703, divergent); on the ground in Room of War and Flames (#9512, malokteri) |
+| 70 | the Gundam Heavyarms | Suit | — | val 398208/0/2100/100 | on the ground in Shelter (#9956, renegades); on the ground in Hidden Area (#9803, teikoku); on the ground in [Atheneum of Wondrous Knowledge] (#9703, divergent) |
+| 71 | the Gundam Sandrock | Suit | — | val 528768/0/2400/100 | on the ground in The healing chamber (#9604, cithdeux); on the ground in Room of War and Flames (#9512, malokteri) |
+| 72 | the Gundam Shenlong | Suit | — | val 19923073/0/1800/100 | ⚠️ not placed (unobtainable in normal play) |
+| 73 | the Gundam Epyon | Suit | — | val 4195329/0/2100/100 | ⚠️ not placed (unobtainable in normal play) |
+| 74 | an M1A1 Tank | Suit | — | val 17172740/0/32000/100 | ⚠️ not placed (unobtainable in normal play) |
+| 80 | 100 rounds of 105mm bullets | Munition | — | val 5/100/0/0 | carried by the weaponsmith (L100) in The Weapon Shop (#3011, midgaard); carried by Dan (L50) in The healing chamber (#9604, cithdeux); carried by Lupin (L50) in Bastille (#9954, renegades); carried by Wufei (L50) in Hidden Area (#9803, teikoku); carried by Atsu (L50) in [Atheneum of Wondrous Knowledge] (#9703, divergent); carried by Sut Resi (L50) in Room of War and Flames (#9512, malokteri) |
+| 81 | a canister of vernier fuel | Munition | — | val 3/500/0/0 | carried by the weaponsmith (L100) in The Weapon Shop (#3011, midgaard); carried by Dan (L50) in The healing chamber (#9604, cithdeux); carried by Lupin (L50) in Bastille (#9954, renegades); carried by Malucifer (L50) in Shelter (#9956, renegades); carried by Wufei (L50) in Hidden Area (#9803, teikoku); carried by Atsu (L50) in [Atheneum of Wondrous Knowledge] (#9703, divergent); carried by Sut Resi (L50) in Room of War and Flames (#9512, malokteri) |
+| 82 | a stack of AP shells | Munition | — | val 6/50/0/0 | carried by the weaponsmith (L100) in The Weapon Shop (#3011, midgaard); carried by Dan (L50) in The healing chamber (#9604, cithdeux); carried by Lupin (L50) in Bastille (#9954, renegades); carried by Malucifer (L50) in Shelter (#9956, renegades); carried by Wufei (L50) in Hidden Area (#9803, teikoku); carried by Atsu (L50) in [Atheneum of Wondrous Knowledge] (#9703, divergent); carried by Sut Resi (L50) in Room of War and Flames (#9512, malokteri) |
+| 83 | a plasma pack | Munition | — | val 7/50/0/0 | carried by the weaponsmith (L100) in The Weapon Shop (#3011, midgaard); carried by Dan (L50) in The healing chamber (#9604, cithdeux); carried by Lupin (L50) in Bastille (#9954, renegades); carried by Malucifer (L50) in Shelter (#9956, renegades); carried by Wufei (L50) in Hidden Area (#9803, teikoku); carried by Atsu (L50) in [Atheneum of Wondrous Knowledge] (#9703, divergent); carried by Sut Resi (L50) in Room of War and Flames (#9512, malokteri) |
+| 84 | a unit of beam fuel | Munition | — | val 8/250/0/0 | carried by the weaponsmith (L100) in The Weapon Shop (#3011, midgaard); carried by Dan (L50) in The healing chamber (#9604, cithdeux); carried by Lupin (L50) in Bastille (#9954, renegades); carried by Wufei (L50) in Hidden Area (#9803, teikoku); carried by Atsu (L50) in [Atheneum of Wondrous Knowledge] (#9703, divergent); carried by Sut Resi (L50) in Room of War and Flames (#9512, malokteri) |
+| 85 | a small titanium buckler | Accessory | — | val 1/0/0/0 | carried by the wizard (L100) in The Magic Shop (#3033, midgaard); carried by the Seeress of Cove (L50) in Tranquility (#9704, divergent) |
+| 86 | a standard issue beam rifle | Accessory | — | val 8/0/0/0 | carried by the wizard (L100) in The Magic Shop (#3033, midgaard) |
+| 87 | a beam cannon | Accessory | — | val 16/0/0/0 | carried by the wizard (L100) in The Magic Shop (#3033, midgaard) |
+| 88 | a high energy laser cannon | Accessory | — | val 32/0/0/0 | carried by the wizard (L100) in The Magic Shop (#3033, midgaard); carried by Martina (L50) in A fissure (#9605, cithdeux); carried by Maklu (L50) in A second story shop (#9509, malokteri) |
+| 89 | a heavy beam cannon | Accessory | — | val 64/0/0/0 | ⚠️ not placed (unobtainable in normal play) |
+| 90 | a UPSF standard missile | Munition | — | val 14/1/0/0 | carried by the wizard (L100) in The Magic Shop (#3033, midgaard); carried by Martina (L50) in A fissure (#9605, cithdeux); carried by the Seeress of Cove (L50) in Tranquility (#9704, divergent); carried by Maklu (L50) in A second story shop (#9509, malokteri) |
+| 91 | a slim beam sabre | Accessory | — | val 512/0/0/0 | carried by the wizard (L100) in The Magic Shop (#3033, midgaard); carried by the Seeress of Cove (L50) in Tranquility (#9704, divergent) |
+| 92 | a heavy beam sword | Accessory | — | val 1024/0/0/0 | ⚠️ not placed (unobtainable in normal play) |
+| 93 | a field repair kit | Accessory | — | val 0/666/0/0 | carried by the weaponsmith (L100) in The Weapon Shop (#3011, midgaard); carried by Dan (L50) in The healing chamber (#9604, cithdeux); carried by Lupin (L50) in Bastille (#9954, renegades); carried by Malucifer (L50) in Shelter (#9956, renegades); carried by Wufei (L50) in Hidden Area (#9803, teikoku); carried by Atsu (L50) in [Atheneum of Wondrous Knowledge] (#9703, divergent); carried by Sut Resi (L50) in Room of War and Flames (#9512, malokteri) |
+| 94 | a dobergun | Accessory | — | val 2048/0/0/0 | carried by the wizard (L100) in The Magic Shop (#3033, midgaard); carried by Martina (L50) in A fissure (#9605, cithdeux); carried by Maklu (L50) in A second story shop (#9509, malokteri) |
 
 ### Chris The Keep of Mahn-Tor  `(mahntor)`
 
 94 items
 
-| VNUM | Item | Type | Worn | Stats / value / flags |
-|---:|---|---|---|---|
-| 2300 | a pair of minotaur combat gloves | Armor | hands | AC 8 · +1 Hitroll, +1 Damroll |
-| 2301 | a suit of spiked garde armor | Armor | body | AC 7 · +2 Damroll |
-| 2302 | a pair of black minotaur greaves | Armor | legs | AC 9 |
-| 2303 | a pair of black minotaur vambraces | Armor | arms | AC 9 |
-| 2304 | the rod of weaponry | Weapon | wielded | dmg 5d5 (avg 15) · +3 Hitroll, +3 Damroll · _glow/magic/bless_ |
-| 2305 | a pitch black cloak | Container | about | holds 150 · -3 Save-Breath · _magic_ |
-| 2306 | a black plate neckguard | Armor | neck | AC 9 · +1 Wis · _magic/anti-good/anti-neutral_ |
-| 2307 | a pair of spiked gauntlets | Armor | hands | AC 3 · +3 Damroll |
-| 2308 | the shadow shield | Armor | shield | AC 15 · -3 Save-Breath · _glow/magic/anti-good/anti-neutral_ |
-| 2309 | a shortsword named "Nightbringer" | Weapon | wielded | dmg 5d4 (avg 13) · +3 Hitroll, +3 Damroll · _magic/anti-good/anti-neutral_ |
-| 2310 | a golden helm and visor | Armor | head | AC 7 · +1 Wis, +1 Int · _glow/magic/anti-evil/anti-neutral_ |
-| 2311 | a gilded gold breast plate | Armor | body | AC 15 · +25 HP · _glow/magic/anti-evil/anti-neutral_ |
-| 2312 | a billowing white cape | Armor | neck | AC 5 · +20 Age · _glow/magic_ |
-| 2313 | a huge tower shield | Armor | shield | AC 10 · _glow/magic_ |
-| 2314 | a huge mace named "Dawnbringer" | Weapon | wielded | dmg 5d5 (avg 15) · +3 Hitroll, +3 Damroll · _glow/magic/anti-evil/anti-neutral_ |
-| 2315 | a pair of wire rimmed spectacles | Armor | head | AC 1 · +4 Int · _magic_ |
-| 2316 | a banded ring | Armor | finger | AC 1 · +30 Mana, +10 Age · _glow/magic_ |
-| 2317 | a minor globe of invulnerability | Armor | about | AC 10 · -5 apply25, -5 Save-Breath · _glow/magic_ |
-| 2318 | a gnarled magius staff | Weapon | wielded | dmg 4d4 (avg 10) · +3 Hitroll, +3 Damroll · _magic_ |
-| 2319 | a girdle of many pouches | Container | waist | holds 500 |
-| 2320 | a heavy woolen robe | Armor | about | AC 15 · _magic_ |
-| 2321 | a broach of life | Armor | neck | AC 2 · +50 HP · _glow/magic/bless_ |
-| 2322 | a manual of healing arts | Scroll | held | val 30/16/16/16 |
-| 2323 | a huge mithril mace | Weapon | wielded | dmg 4d4 (avg 10) · +2 Hitroll, +2 Damroll · _glow/magic_ |
-| 2324 | a golden holy symbol | Armor | neck | AC 2 · +10 Mana · _magic_ |
-| 2325 | a thick marble ring | Armor | finger | AC 4 · _magic_ |
-| 2326 | a thick marble bracelet | Armor | wrist | AC 4 · +1 Con · _magic_ |
-| 2327 | boots of striding | Armor | feet | AC 5 · +30 Move · _magic_ |
-| 2328 | an icy white cloak | Armor | about | AC 8 · _glow/magic_ |
-| 2329 | an ice staff | Weapon | wielded | dmg 6d3 (avg 12) · +2 Hitroll, +20 Mana · _magic_ |
-| 2330 | a carved wooden ring | Armor | finger | AC 1 · +1 Hitroll, +1 Damroll · _magic_ |
-| 2331 | the horn of life | Wand | held | 8 charges · _magic_ |
-| 2332 | the belt of life | Armor | waist | AC 3 · +3 Con · _magic_ |
-| 2333 | a blood red stone | Armor | held | AC 3 · +20 HP · _hum/magic_ |
-| 2334 | a huge crossbow | Weapon | wielded | dmg 3d7 (avg 12) · +1 Hitroll, +1 Damroll · _magic_ |
-| 2335 | a small leather pack | Container | about | holds 200 · _magic_ |
-| 2336 | a black leather hood | Armor | head | AC 5 · _magic_ |
-| 2337 | a pair of black leather sleeves | Armor | arms | AC 7 |
-| 2338 | a pair of black leather pants | Armor | legs | AC 7 · _magic_ |
-| 2339 | a wicked shortsword | Weapon | wielded | dmg 3d5 (avg 9) · +1 Hitroll, +1 Damroll · _magic_ |
-| 2340 | a major globe of invulnerability | Armor | about | AC 15 · -5 Save-Spell · _glow/hum/magic_ |
-| 2341 | a suit of black minotaur chainmail | Armor | body | AC 15 · +1 Str, +1 Con · _magic_ |
-| 2342 | a spiked buckler | Armor | shield | AC 10 · +2 Damroll |
-| 2343 | a studded ring | Armor | finger | AC 5 · +1 Damroll · _magic_ |
-| 2344 | a horned minotaur helm | Armor | head | AC 10 |
-| 2345 | mahn-Tor's Great Axe | Weapon | wielded | dmg 5d5 (avg 15) · +2 Hitroll, +2 Damroll · _hum/magic_ |
-| 2346 | a suit of ethereal plate | Armor | body | AC 10 · -3 Save-Spell · _glow/anti-good_ |
-| 2347 | an ethereal helm | Armor | head | AC 8 · _glow/anti-good_ |
-| 2348 | an ethereal blade | Weapon | wielded | dmg 4d3 (avg 8) · +1 Hitroll, +1 Damroll · _glow/anti-good_ |
-| 2349 | a willow branch | Wand | held | _magic_ |
-| 2350 | the keep key | Key | — | val 2/0/0/0 |
-| 2351 | a red key | Key | — | val 2/0/0/0 |
-| 2352 | a black key | Key | — | val 2/0/0/0 |
-| 2353 | a white key | Key | — | val 2/0/0/0 |
-| 2354 | a brown key | Key | — | val 2/0/0/0 |
-| 2355 | a yellow key | Key | — | val 2/0/0/0 |
-| 2356 | a maroon key | Key | — | val 2/0/0/0 |
-| 2357 | a green key | Key | — | val 2/0/0/0 |
-| 2358 | a grey key | Key | — | val 2/0/0/0 |
-| 2359 | a runed key | Key | — | val 2/0/0/0 |
-| 2360 | a pair of fur lined boots | Armor | feet | AC 3 · +10 Move · _magic_ |
-| 2361 | the white pelt of a yeti | Armor | about | AC 8 |
-| 2362 | a kopesh sword | Weapon | wielded | dmg 5d3 (avg 10) |
-| 2363 | a pair of steel vambraces | Armor | arms | AC 6 |
-| 2364 | a pair of steel greaves | Armor | legs | AC 6 |
-| 2365 | a battle axe | Weapon | wielded | dmg 4d4 (avg 10) |
-| 2366 | a steel breast plate | Armor | body | AC 6 |
-| 2367 | a steel helm | Armor | head | AC 6 |
-| 2368 | a huge halberd | Weapon | wielded | dmg 9d2 (avg 14) · +1 Hitroll, +1 Damroll · _magic_ |
-| 2369 | a blue steel helm and visor | Armor | head | AC 8 |
-| 2370 | a pair of blue steel greaves | Armor | legs | AC 8 |
-| 2371 | a pair of blue steel vambraces | Armor | arms | AC 8 |
-| 2372 | a two-handed sword | Weapon | wielded | dmg 6d3 (avg 12) · +2 Hitroll, +2 Damroll · _magic_ |
-| 2373 | a red steel helm and visor | Armor | head | AC 9 |
-| 2374 | a pair of red steel greaves | Armor | legs | AC 9 |
-| 2375 | a pair of red steel vambraces | Armor | arms | AC 9 |
-| 2376 | a minotaur glaive | Weapon | wielded | dmg 5d4 (avg 13) · +1 Hitroll, +1 Damroll · _magic_ |
-| 2377 | a crimson steel helm and visor | Armor | head | AC 10 |
-| 2378 | a pair of crimson steel greaves | Armor | legs | AC 10 |
-| 2379 | a pair of crimson steel vambraces | Armor | arms | AC 10 |
-| 2380 | a huge morningstar | Weapon | wielded | dmg 7d3 (avg 14) · +2 Hitroll, +2 Damroll · _magic_ |
-| 2381 | some huge spiked brass knuckles | Weapon | wielded | dmg 4d3 (avg 8) |
-| 2382 | a multi-colored key ring | Container | neck | holds 10 |
-| 2383 | a huge wooden maul | Weapon | wielded | dmg 5d5 (avg 15) |
-| 2384 | a misty potion | Potion | — | val 20/28/0/0 · _glow/magic/nodrop_ |
-| 2385 | a belt pouch | Container | waist | holds 75 |
-| 2386 | an ogre spear | Weapon | wielded | dmg 2d5 (avg 6) |
-| 2387 | an ogre war club | Weapon | wielded | dmg 2d6 (avg 7) |
-| 2388 | a bearskin cloak | Armor | about | AC 8 |
-| 2389 | a pair of feathered earrings | Armor | head | AC 1 · _glow/magic_ |
-| 2390 | gauntlets of ogre power | Armor | hands | AC 7 · +4 Str, +3 Damroll, +10 AC · _hum/magic_ |
-| 2391 | a massive club | Weapon | wielded | dmg 5d3 (avg 10) |
-| 2392 | a thick fur cape | Armor | neck | AC 6 |
-| 2393 | a fur lined tunic | Armor | body | AC 6 |
+| VNUM | Item | Type | Worn | Stats / value / flags | Found |
+|---:|---|---|---|---|---|
+| 2300 | a pair of minotaur combat gloves | Armor | hands | AC 8 · +1 Hitroll, +1 Damroll | worn (hands) by Gorak (L30) in Gorak's Training Room (#2372, mahntor) |
+| 2301 | a suit of spiked garde armor | Armor | body | AC 7 · +2 Damroll | worn (body) by Gorak (L30) in Gorak's Training Room (#2372, mahntor) |
+| 2302 | a pair of black minotaur greaves | Armor | legs | AC 9 | worn (legs) by Gorak (L30) in Gorak's Training Room (#2372, mahntor) |
+| 2303 | a pair of black minotaur vambraces | Armor | arms | AC 9 | worn (arms) by Gorak (L30) in Gorak's Training Room (#2372, mahntor) |
+| 2304 | the rod of weaponry | Weapon | wielded | dmg 5d5 (avg 15) · +3 Hitroll, +3 Damroll · _glow/magic/bless_ | worn (wielded) by Gorak (L30) in Gorak's Training Room (#2372, mahntor) |
+| 2305 | a pitch black cloak | Container | about | holds 150 · -3 Save-Breath · _magic_ | worn (about body) by Darkoth (L30) in Darkoth's Dark Study (#2373, mahntor) |
+| 2306 | a black plate neckguard | Armor | neck | AC 9 · +1 Wis · _magic/anti-good/anti-neutral_ | worn (neck) by Darkoth (L30) in Darkoth's Dark Study (#2373, mahntor) |
+| 2307 | a pair of spiked gauntlets | Armor | hands | AC 3 · +3 Damroll | worn (hands) by Darkoth (L30) in Darkoth's Dark Study (#2373, mahntor) |
+| 2308 | the shadow shield | Armor | shield | AC 15 · -3 Save-Breath · _glow/magic/anti-good/anti-neutral_ | worn (shield) by Darkoth (L30) in Darkoth's Dark Study (#2373, mahntor) |
+| 2309 | a shortsword named "Nightbringer" | Weapon | wielded | dmg 5d4 (avg 13) · +3 Hitroll, +3 Damroll · _magic/anti-good/anti-neutral_ | worn (wielded) by Darkoth (L30) in Darkoth's Dark Study (#2373, mahntor) |
+| 2310 | a golden helm and visor | Armor | head | AC 7 · +1 Wis, +1 Int · _glow/magic/anti-evil/anti-neutral_ | worn (head) by Tyrgoth (L30) in Tyrgoth's Inner Sanctum (#2374, mahntor) |
+| 2311 | a gilded gold breast plate | Armor | body | AC 15 · +25 HP · _glow/magic/anti-evil/anti-neutral_ | worn (body) by Tyrgoth (L30) in Tyrgoth's Inner Sanctum (#2374, mahntor) |
+| 2312 | a billowing white cape | Armor | neck | AC 5 · +20 Age · _glow/magic_ | worn (neck) by Tyrgoth (L30) in Tyrgoth's Inner Sanctum (#2374, mahntor) |
+| 2313 | a huge tower shield | Armor | shield | AC 10 · _glow/magic_ | worn (shield) by Tyrgoth (L30) in Tyrgoth's Inner Sanctum (#2374, mahntor) |
+| 2314 | a huge mace named "Dawnbringer" | Weapon | wielded | dmg 5d5 (avg 15) · +3 Hitroll, +3 Damroll · _glow/magic/anti-evil/anti-neutral_ | worn (wielded) by Tyrgoth (L30) in Tyrgoth's Inner Sanctum (#2374, mahntor) |
+| 2315 | a pair of wire rimmed spectacles | Armor | head | AC 1 · +4 Int · _magic_ | worn (left finger) by Amyrok (L30) in Amyrok's Arcane Study (#2391, mahntor) |
+| 2316 | a banded ring | Armor | finger | AC 1 · +30 Mana, +10 Age · _glow/magic_ | worn (right finger) by Amyrok (L30) in Amyrok's Arcane Study (#2391, mahntor) |
+| 2317 | a minor globe of invulnerability | Armor | about | AC 10 · -5 apply25, -5 Save-Breath · _glow/magic_ | worn (about body) by Amyrok (L30) in Amyrok's Arcane Study (#2391, mahntor) |
+| 2318 | a gnarled magius staff | Weapon | wielded | dmg 4d4 (avg 10) · +3 Hitroll, +3 Damroll · _magic_ | worn (wielded) by Amyrok (L30) in Amyrok's Arcane Study (#2391, mahntor) |
+| 2319 | a girdle of many pouches | Container | waist | holds 500 | worn (waist) by Amyrok (L30) in Amyrok's Arcane Study (#2391, mahntor) |
+| 2320 | a heavy woolen robe | Armor | about | AC 15 · _magic_ | worn (about body) by Sumaron (L30) in Sumaron's Sanctum (#2390, mahntor) |
+| 2321 | a broach of life | Armor | neck | AC 2 · +50 HP · _glow/magic/bless_ | worn (neck) by Sumaron (L30) in Sumaron's Sanctum (#2390, mahntor) |
+| 2322 | a manual of healing arts | Scroll | held | val 30/16/16/16 | worn (held) by Sumaron (L30) in Sumaron's Sanctum (#2390, mahntor) |
+| 2323 | a huge mithril mace | Weapon | wielded | dmg 4d4 (avg 10) · +2 Hitroll, +2 Damroll · _glow/magic_ | worn (wielded) by Sumaron (L30) in Sumaron's Sanctum (#2390, mahntor) |
+| 2324 | a golden holy symbol | Armor | neck | AC 2 · +10 Mana · _magic_ | worn (neck) by Sumaron (L30) in Sumaron's Sanctum (#2390, mahntor) |
+| 2325 | a thick marble ring | Armor | finger | AC 4 · _magic_ | worn (left finger) by Nasturn (L30) in Nasturn's Humble Abode (#2394, mahntor) |
+| 2326 | a thick marble bracelet | Armor | wrist | AC 4 · +1 Con · _magic_ | worn (right wrist) by Nasturn (L30) in Nasturn's Humble Abode (#2394, mahntor) |
+| 2327 | boots of striding | Armor | feet | AC 5 · +30 Move · _magic_ | worn (feet) by Nasturn (L30) in Nasturn's Humble Abode (#2394, mahntor) |
+| 2328 | an icy white cloak | Armor | about | AC 8 · _glow/magic_ | worn (about body) by Nasturn (L30) in Nasturn's Humble Abode (#2394, mahntor) |
+| 2329 | an ice staff | Weapon | wielded | dmg 6d3 (avg 12) · +2 Hitroll, +20 Mana · _magic_ | worn (wielded) by Nasturn (L30) in Nasturn's Humble Abode (#2394, mahntor) |
+| 2330 | a carved wooden ring | Armor | finger | AC 1 · +1 Hitroll, +1 Damroll · _magic_ | worn (right finger) by Belrak (L30) in Belrak's Green Room (#2399, mahntor) |
+| 2331 | the horn of life | Wand | held | 8 charges · _magic_ | worn (held) by Belrak (L30) in Belrak's Green Room (#2399, mahntor) |
+| 2332 | the belt of life | Armor | waist | AC 3 · +3 Con · _magic_ | worn (waist) by Belrak (L30) in Belrak's Green Room (#2399, mahntor) |
+| 2333 | a blood red stone | Armor | held | AC 3 · +20 HP · _hum/magic_ | carried by Belrak (L30) in Belrak's Green Room (#2399, mahntor) |
+| 2334 | a huge crossbow | Weapon | wielded | dmg 3d7 (avg 12) · +1 Hitroll, +1 Damroll · _magic_ | worn (wielded) by Belrak (L30) in Belrak's Green Room (#2399, mahntor) |
+| 2335 | a small leather pack | Container | about | holds 200 · _magic_ | worn (about body) by Dorgar (L30) in Dorgar's Dismal Domicile (#2398, mahntor) |
+| 2336 | a black leather hood | Armor | head | AC 5 · _magic_ | worn (head) by Dorgar (L30) in Dorgar's Dismal Domicile (#2398, mahntor) |
+| 2337 | a pair of black leather sleeves | Armor | arms | AC 7 | worn (arms) by Dorgar (L30) in Dorgar's Dismal Domicile (#2398, mahntor) |
+| 2338 | a pair of black leather pants | Armor | legs | AC 7 · _magic_ | worn (legs) by Dorgar (L30) in Dorgar's Dismal Domicile (#2398, mahntor) |
+| 2339 | a wicked shortsword | Weapon | wielded | dmg 3d5 (avg 9) · +1 Hitroll, +1 Damroll · _magic_ | worn (wielded) by Dorgar (L30) in Dorgar's Dismal Domicile (#2398, mahntor) |
+| 2340 | a major globe of invulnerability | Armor | about | AC 15 · -5 Save-Spell · _glow/hum/magic_ | worn (about body) by Mahn-Tor (L33) in The Master Bedroom (#2396, mahntor) |
+| 2341 | a suit of black minotaur chainmail | Armor | body | AC 15 · +1 Str, +1 Con · _magic_ | worn (body) by Mahn-Tor (L33) in The Master Bedroom (#2396, mahntor) |
+| 2342 | a spiked buckler | Armor | shield | AC 10 · +2 Damroll | worn (left wrist) by Mahn-Tor (L33) in The Master Bedroom (#2396, mahntor) |
+| 2343 | a studded ring | Armor | finger | AC 5 · +1 Damroll · _magic_ | worn (right finger) by Mahn-Tor (L33) in The Master Bedroom (#2396, mahntor) |
+| 2344 | a horned minotaur helm | Armor | head | AC 10 | worn (head) by Mahn-Tor (L33) in The Master Bedroom (#2396, mahntor) |
+| 2345 | mahn-Tor's Great Axe | Weapon | wielded | dmg 5d5 (avg 15) · +2 Hitroll, +2 Damroll · _hum/magic_ | worn (wielded) by Mahn-Tor (L33) in The Master Bedroom (#2396, mahntor) |
+| 2346 | a suit of ethereal plate | Armor | body | AC 10 · -3 Save-Spell · _glow/anti-good_ | worn (body) by the Dark Ethereal Knight (L25) in The bloody intersection (#2307, mahntor) |
+| 2347 | an ethereal helm | Armor | head | AC 8 · _glow/anti-good_ | worn (head) by the Dark Ethereal Knight (L25) in The bloody intersection (#2307, mahntor) |
+| 2348 | an ethereal blade | Weapon | wielded | dmg 4d3 (avg 8) · +1 Hitroll, +1 Damroll · _glow/anti-good_ | worn (wielded) by the Dark Ethereal Knight (L25) in The bloody intersection (#2307, mahntor) |
+| 2349 | a willow branch | Wand | held | _magic_ | carried by the Weeping Willow (L25) in The turn in the swampy path (#2330, mahntor) |
+| 2350 | the keep key | Key | — | val 2/0/0/0 | carried by the Minotaur Gatekeeper (L25) in Before the Keep of Mahn-Tor (#2377, mahntor) |
+| 2351 | a red key | Key | — | val 2/0/0/0 | inside a multi-colored key ring (#2382) — worn (waist) by the Minotaur Ring-Keeper (L29) in The Guard Post (#2387, mahntor) |
+| 2352 | a black key | Key | — | val 2/0/0/0 | inside a multi-colored key ring (#2382) — worn (waist) by the Minotaur Ring-Keeper (L29) in The Guard Post (#2387, mahntor) |
+| 2353 | a white key | Key | — | val 2/0/0/0 | inside a multi-colored key ring (#2382) — worn (waist) by the Minotaur Ring-Keeper (L29) in The Guard Post (#2387, mahntor) |
+| 2354 | a brown key | Key | — | val 2/0/0/0 | inside a multi-colored key ring (#2382) — worn (waist) by the Minotaur Ring-Keeper (L29) in The Guard Post (#2387, mahntor) |
+| 2355 | a yellow key | Key | — | val 2/0/0/0 | inside a multi-colored key ring (#2382) — worn (waist) by the Minotaur Ring-Keeper (L29) in The Guard Post (#2387, mahntor) |
+| 2356 | a maroon key | Key | — | val 2/0/0/0 | inside a multi-colored key ring (#2382) — worn (waist) by the Minotaur Ring-Keeper (L29) in The Guard Post (#2387, mahntor) |
+| 2357 | a green key | Key | — | val 2/0/0/0 | inside a multi-colored key ring (#2382) — worn (waist) by the Minotaur Ring-Keeper (L29) in The Guard Post (#2387, mahntor) |
+| 2358 | a grey key | Key | — | val 2/0/0/0 | inside a multi-colored key ring (#2382) — worn (waist) by the Minotaur Ring-Keeper (L29) in The Guard Post (#2387, mahntor) |
+| 2359 | a runed key | Key | — | val 2/0/0/0 | carried by the Elite Minotaur Guard (L28) in The secret hallway (#2385, mahntor) |
+| 2360 | a pair of fur lined boots | Armor | feet | AC 3 · +10 Move · _magic_ | worn (feet) by the Plains Barbarian (L20) in The frigid wastelands (#2351, mahntor); worn (feet) by the Plains Barbarian (L20) in The frigid wastelands (#2354, mahntor); worn (feet) by the Plains Barbarian (L20) in The frigid wastelands (#2359, mahntor) |
+| 2361 | the white pelt of a yeti | Armor | about | AC 8 | worn (about body) by the White Yeti (L16) in The frigid wastelands (#2355, mahntor); worn (about body) by the White Yeti (L16) in The frigid wastelands (#2357, mahntor); worn (about body) by the White Yeti (L16) in The frigid wastelands (#2359, mahntor) |
+| 2362 | a kopesh sword | Weapon | wielded | dmg 5d3 (avg 10) | worn (wielded) by the Minotaur Citizen (L15) in The city streets of Mahn-Tor (#2363, mahntor); worn (wielded) by the Minotaur Citizen (L15) in Inside the gates of Mahn-Tor (#2364, mahntor); worn (wielded) by the Minotaur Citizen (L15) in The city streets of Mahn-Tor (#2365, mahntor); worn (wielded) by the Minotaur Citizen (L15) in The Square of Mahn-Tor (#2367, mahntor); worn (wielded) by the Minotaur Citizen (L15) in The Mahn-Tor Equipment Shop (#2370, mahntor) |
+| 2363 | a pair of steel vambraces | Armor | arms | AC 6 | worn (arms) by the Minotaur Guard (L22) in Before the gates of Mahn-Tor (#2362, mahntor); worn (arms) by the Minotaur Guard (L22) in The city streets of Mahn-Tor (#2366, mahntor); worn (arms) by the Minotaur Guard (L22) in The streets of Mahn-Tor (#2368, mahntor) |
+| 2364 | a pair of steel greaves | Armor | legs | AC 6 | worn (legs) by the Minotaur Guard (L22) in Before the gates of Mahn-Tor (#2362, mahntor); worn (legs) by the Minotaur Guard (L22) in The city streets of Mahn-Tor (#2366, mahntor); worn (legs) by the Minotaur Guard (L22) in The streets of Mahn-Tor (#2368, mahntor) |
+| 2365 | a battle axe | Weapon | wielded | dmg 4d4 (avg 10) | worn (wielded) by the Minotaur Guard (L22) in Before the gates of Mahn-Tor (#2362, mahntor); worn (wielded) by the Minotaur Guard (L22) in The city streets of Mahn-Tor (#2366, mahntor); worn (wielded) by the Minotaur Guard (L22) in The streets of Mahn-Tor (#2368, mahntor) |
+| 2366 | a steel breast plate | Armor | body | AC 6 | worn (body) by the Minotaur Warrior (L21) in The Square of Mahn-Tor (#2367, mahntor); worn (body) by the Minotaur Warrior (L21) in A small guard house (#2376, mahntor); worn (body) by the Minotaur Warrior (L21) in A small guard house (#2378, mahntor); worn (body) by the High Minotaur Guard (L25) in The entryway to the Keep of Mahn-Tor (#2379, mahntor); worn (body) by the High Minotaur Guard (L25) in The Hall (#2380, mahntor); worn (body) by the Royal Minotaur Guard (L26) in The Great Hall (#2382, mahntor); worn (body) by the Royal Minotaur Guard (L26) in Standing before the throne (#2383, mahntor); worn (body) by the Elite Minotaur Guard (L28) in The secret hallway (#2385, mahntor); worn (body) by the Elite Minotaur Guard (L28) in The secret hallway (#2385, mahntor) |
+| 2367 | a steel helm | Armor | head | AC 6 | worn (head) by the Minotaur Warrior (L21) in The Square of Mahn-Tor (#2367, mahntor); worn (head) by the Minotaur Warrior (L21) in A small guard house (#2376, mahntor); worn (head) by the Minotaur Warrior (L21) in A small guard house (#2378, mahntor) |
+| 2368 | a huge halberd | Weapon | wielded | dmg 9d2 (avg 14) · +1 Hitroll, +1 Damroll · _magic_ | worn (wielded) by the Minotaur Warrior (L21) in The Square of Mahn-Tor (#2367, mahntor); worn (wielded) by the Minotaur Warrior (L21) in A small guard house (#2376, mahntor); worn (wielded) by the Minotaur Warrior (L21) in A small guard house (#2378, mahntor) |
+| 2369 | a blue steel helm and visor | Armor | head | AC 8 | worn (head) by the High Minotaur Guard (L25) in The entryway to the Keep of Mahn-Tor (#2379, mahntor); worn (head) by the High Minotaur Guard (L25) in The Hall (#2380, mahntor) |
+| 2370 | a pair of blue steel greaves | Armor | legs | AC 8 | worn (legs) by the High Minotaur Guard (L25) in The entryway to the Keep of Mahn-Tor (#2379, mahntor); worn (legs) by the High Minotaur Guard (L25) in The Hall (#2380, mahntor) |
+| 2371 | a pair of blue steel vambraces | Armor | arms | AC 8 | worn (arms) by the High Minotaur Guard (L25) in The entryway to the Keep of Mahn-Tor (#2379, mahntor); worn (arms) by the High Minotaur Guard (L25) in The Hall (#2380, mahntor) |
+| 2372 | a two-handed sword | Weapon | wielded | dmg 6d3 (avg 12) · +2 Hitroll, +2 Damroll · _magic_ | worn (wielded) by the High Minotaur Guard (L25) in The entryway to the Keep of Mahn-Tor (#2379, mahntor); worn (wielded) by the High Minotaur Guard (L25) in The Hall (#2380, mahntor) |
+| 2373 | a red steel helm and visor | Armor | head | AC 9 | worn (head) by the Royal Minotaur Guard (L26) in The Great Hall (#2382, mahntor); worn (head) by the Royal Minotaur Guard (L26) in Standing before the throne (#2383, mahntor) |
+| 2374 | a pair of red steel greaves | Armor | legs | AC 9 | worn (legs) by the Royal Minotaur Guard (L26) in The Great Hall (#2382, mahntor); worn (legs) by the Royal Minotaur Guard (L26) in Standing before the throne (#2383, mahntor) |
+| 2375 | a pair of red steel vambraces | Armor | arms | AC 9 | worn (arms) by the Royal Minotaur Guard (L26) in The Great Hall (#2382, mahntor); worn (arms) by the Royal Minotaur Guard (L26) in Standing before the throne (#2383, mahntor) |
+| 2376 | a minotaur glaive | Weapon | wielded | dmg 5d4 (avg 13) · +1 Hitroll, +1 Damroll · _magic_ | worn (wielded) by the Royal Minotaur Guard (L26) in The Great Hall (#2382, mahntor); worn (wielded) by the Royal Minotaur Guard (L26) in Standing before the throne (#2383, mahntor) |
+| 2377 | a crimson steel helm and visor | Armor | head | AC 10 | worn (head) by the Elite Minotaur Guard (L28) in The secret hallway (#2385, mahntor); worn (head) by the Elite Minotaur Guard (L28) in The secret hallway (#2385, mahntor) |
+| 2378 | a pair of crimson steel greaves | Armor | legs | AC 10 | worn (legs) by the Elite Minotaur Guard (L28) in The secret hallway (#2385, mahntor); worn (legs) by the Elite Minotaur Guard (L28) in The secret hallway (#2385, mahntor) |
+| 2379 | a pair of crimson steel vambraces | Armor | arms | AC 10 | worn (arms) by the Elite Minotaur Guard (L28) in The secret hallway (#2385, mahntor); worn (arms) by the Elite Minotaur Guard (L28) in The secret hallway (#2385, mahntor) |
+| 2380 | a huge morningstar | Weapon | wielded | dmg 7d3 (avg 14) · +2 Hitroll, +2 Damroll · _magic_ | worn (wielded) by the Elite Minotaur Guard (L28) in The secret hallway (#2385, mahntor); worn (wielded) by the Elite Minotaur Guard (L28) in The secret hallway (#2385, mahntor) |
+| 2381 | some huge spiked brass knuckles | Weapon | wielded | dmg 4d3 (avg 8) | worn (held) by the Minotaur Ring-Keeper (L29) in The Guard Post (#2387, mahntor) |
+| 2382 | a multi-colored key ring | Container | neck | holds 10 | worn (waist) by the Minotaur Ring-Keeper (L29) in The Guard Post (#2387, mahntor) |
+| 2383 | a huge wooden maul | Weapon | wielded | dmg 5d5 (avg 15) | worn (wielded) by the Minotaur Ring-Keeper (L29) in The Guard Post (#2387, mahntor) |
+| 2384 | a misty potion | Potion | — | val 20/28/0/0 · _glow/magic/nodrop_ | carried by the Swamp Wraith (L20) in Lost in the Mist (#2336, mahntor) |
+| 2385 | a belt pouch | Container | waist | holds 75 | worn (waist) by the Ogre Villager (L10) in Inside the gates (#2343, mahntor); worn (waist) by the Ogre Villager (L10) in The firepit before the lodge (#2346, mahntor) |
+| 2386 | an ogre spear | Weapon | wielded | dmg 2d5 (avg 6) | worn (wielded) by the Ogre Warrior (L15) in Among the crude huts (#2342, mahntor); worn (wielded) by the Ogre Warrior (L15) in The firepit before the lodge (#2346, mahntor); worn (wielded) by the Ogre Warrior (L15) in The village dump (#2347, mahntor); worn (wielded) by the Ogre Warrior (L15) in The entryway to the lodge (#2348, mahntor) |
+| 2387 | an ogre war club | Weapon | wielded | dmg 2d6 (avg 7) | worn (wielded) by the Ogre Guard (L19) in The gate before the Ogre Village (#2341, mahntor); worn (wielded) by the Ogre Guard (L19) in The gate before the Ogre Village (#2341, mahntor); worn (wielded) by the Ogre Guard (L19) in Among the crude huts (#2342, mahntor); worn (wielded) by the Ogre Guard (L19) in The entryway to the lodge (#2348, mahntor) |
+| 2388 | a bearskin cloak | Armor | about | AC 8 | worn (about body) by The Ogre Shaman (L20) in The throne room (#2349, mahntor) |
+| 2389 | a pair of feathered earrings | Armor | head | AC 1 · _glow/magic_ | worn (head) by The Ogre Shaman (L20) in The throne room (#2349, mahntor) |
+| 2390 | gauntlets of ogre power | Armor | hands | AC 7 · +4 Str, +3 Damroll, +10 AC · _hum/magic_ | worn (hands) by the Ogre Chieftain (L25) in The chieftain's room (#2350, mahntor) |
+| 2391 | a massive club | Weapon | wielded | dmg 5d3 (avg 10) | worn (wielded) by the Ogre Chieftain (L25) in The chieftain's room (#2350, mahntor) |
+| 2392 | a thick fur cape | Armor | neck | AC 6 | worn (neck) by the Plains Barbarian (L20) in The frigid wastelands (#2351, mahntor); worn (neck) by the Plains Barbarian (L20) in The frigid wastelands (#2354, mahntor); worn (neck) by the Plains Barbarian (L20) in The frigid wastelands (#2359, mahntor) |
+| 2393 | a fur lined tunic | Armor | body | AC 6 | worn (body) by the Plains Barbarian (L20) in The frigid wastelands (#2351, mahntor); worn (body) by the Plains Barbarian (L20) in The frigid wastelands (#2354, mahntor); worn (body) by the Plains Barbarian (L20) in The frigid wastelands (#2359, mahntor) |
 
 ### Generic Old Marsh  `(marsh)`
 
 5 items
 
-| VNUM | Item | Type | Worn | Stats / value / flags |
-|---:|---|---|---|---|
-| 8301 | a long spear | Weapon | wielded | dmg 3d5 (avg 9) · +3 Damroll, +2 Dex · _nodrop/anti-good_ |
-| 8302 | a dark horned helmet | Armor | head | AC 6 · +1 Damroll, -3 Int · _nodrop/anti-good_ |
-| 8303 | a suit of chainmail | Armor | body | AC 7 · _nodrop/anti-good_ |
-| 8306 | a huge, wicked-looking scythe | Weapon | wielded | dmg 4d4 (avg 10) · +3 Hitroll, +3 Damroll · _nodrop/anti-good_ |
-| 8307 | a murky green potion | Potion | — | val 43/15/0/0 · _glow/hum/nodrop_ |
+| VNUM | Item | Type | Worn | Stats / value / flags | Found |
+|---:|---|---|---|---|---|
+| 8301 | a long spear | Weapon | wielded | dmg 3d5 (avg 9) · +3 Damroll, +2 Dex · _nodrop/anti-good_ | carried by a marsh giant (L15) in Swamp Thing's Lair (#8307, marsh); carried by a marsh giant (L15) in A Dark Pool. (#8309, marsh); carried by a marsh giant (L15) in Cloud of Darkness. (#8311, marsh); carried by a marsh giant (L15) in By the Monolith. (#8313, marsh); carried by a marsh giant (L15) in Northern Lake Side. (#8315, marsh) |
+| 8302 | a dark horned helmet | Armor | head | AC 6 · +1 Damroll, -3 Int · _nodrop/anti-good_ | worn (head) by a Death Slaad (L20) in Gloomy Path Through the Marsh. (#8310, marsh); worn (head) by a marsh giant (L15) in Northern Lake Side. (#8315, marsh) |
+| 8303 | a suit of chainmail | Armor | body | AC 7 · _nodrop/anti-good_ | worn (body) by a gnoll (L30) in An Oozing Bog (#8306, marsh) |
+| 8306 | a huge, wicked-looking scythe | Weapon | wielded | dmg 4d4 (avg 10) · +3 Hitroll, +3 Damroll · _nodrop/anti-good_ | worn (wielded) by a Death Slaad (L20) in Gloomy Path Through the Marsh. (#8310, marsh) |
+| 8307 | a murky green potion | Potion | — | val 43/15/0/0 · _glow/hum/nodrop_ | carried by a green troll (L14) in Marshy Forest (#8303, marsh); carried by a shambling mound (L13) in Near Vegetation from Hell. (#8312, marsh); carried by a shambling mound (L13) in Near Vegetation from Hell. (#8312, marsh) |
 
 ### Alathon Holding area for astral eq  `(mazoku)`
 
 13 items
 
-| VNUM | Item | Type | Worn | Stats / value / flags |
-|---:|---|---|---|---|
-| 200 | an astral ring | Armor | finger | AC 15 · _magic/nodrop_ |
-| 201 | an astral amulet | Armor | neck | AC 15 · _magic/nodrop_ |
-| 202 | an astral shirt | Armor | body | AC 15 · _magic/nodrop_ |
-| 203 | an astral cap | Armor | head | AC 15 · _magic/nodrop_ |
-| 204 | astral pants | Armor | legs | AC 15 · _magic/nodrop_ |
-| 205 | astral boots | Armor | feet | AC 15 · _magic/nodrop_ |
-| 206 | astral gloves | Armor | hands | AC 15 · _magic/nodrop_ |
-| 207 | astral sleeves | Armor | arms | AC 15 · _magic/nodrop_ |
-| 208 | an astral shield | Armor | shield | AC 15 · _magic/nodrop_ |
-| 209 | an astral cloak | Armor | about | AC 15 · _magic/nodrop_ |
-| 210 | an astral belt | Armor | waist | AC 15 · _magic/nodrop_ |
-| 211 | an astral bracer | Armor | wrist | AC 15 · _magic/nodrop_ |
-| 212 | an astral sceptre | Armor | held | AC 15 · _magic/nodrop_ |
+| VNUM | Item | Type | Worn | Stats / value / flags | Found |
+|---:|---|---|---|---|---|
+| 200 | an astral ring | Armor | finger | AC 15 · _magic/nodrop_ | ⚠️ not placed (unobtainable in normal play) |
+| 201 | an astral amulet | Armor | neck | AC 15 · _magic/nodrop_ | ⚠️ not placed (unobtainable in normal play) |
+| 202 | an astral shirt | Armor | body | AC 15 · _magic/nodrop_ | ⚠️ not placed (unobtainable in normal play) |
+| 203 | an astral cap | Armor | head | AC 15 · _magic/nodrop_ | ⚠️ not placed (unobtainable in normal play) |
+| 204 | astral pants | Armor | legs | AC 15 · _magic/nodrop_ | ⚠️ not placed (unobtainable in normal play) |
+| 205 | astral boots | Armor | feet | AC 15 · _magic/nodrop_ | ⚠️ not placed (unobtainable in normal play) |
+| 206 | astral gloves | Armor | hands | AC 15 · _magic/nodrop_ | ⚠️ not placed (unobtainable in normal play) |
+| 207 | astral sleeves | Armor | arms | AC 15 · _magic/nodrop_ | ⚠️ not placed (unobtainable in normal play) |
+| 208 | an astral shield | Armor | shield | AC 15 · _magic/nodrop_ | ⚠️ not placed (unobtainable in normal play) |
+| 209 | an astral cloak | Armor | about | AC 15 · _magic/nodrop_ | ⚠️ not placed (unobtainable in normal play) |
+| 210 | an astral belt | Armor | waist | AC 15 · _magic/nodrop_ | ⚠️ not placed (unobtainable in normal play) |
+| 211 | an astral bracer | Armor | wrist | AC 15 · _magic/nodrop_ | ⚠️ not placed (unobtainable in normal play) |
+| 212 | an astral sceptre | Armor | held | AC 15 · _magic/nodrop_ | ⚠️ not placed (unobtainable in normal play) |
 
 ### Diku Midgaard  `(midgaard)`
 
 85 items
 
-| VNUM | Item | Type | Worn | Stats / value / flags |
-|---:|---|---|---|---|
-| 3000 | a barrel of beer | Drink Con | — | val 50/50/1/0 |
-| 3001 | a bottle of beer | Drink Con | — | val 8/8/1/0 |
-| 3002 | a bottle of ale | Drink Con | — | val 8/8/3/0 |
-| 3003 | a bottle of firebreather | Drink Con | — | val 8/8/7/0 |
-| 3004 | a bottle of local specialty | Drink Con | — | val 8/8/8/0 |
-| 3005 | an executioner's axe | Weapon | wielded | dmg 5d6 (avg 18) · _anti-evil/anti-neutral_ |
-| 3009 | a big pot pie | Food | — | val 40/0/0/0 |
-| 3010 | the donation pit | Container | — | holds 10000 |
-| 3011 | Here stands a massive flesh-in-stone statue of the legendary Euthanasia. | Furniture | — | — |
-| 3012 | Here stands a large marble statue of the Saiyan warrior Anonbert. | Furniture | — | — |
-| 3013 | Here stands a large marble statue of the Saiyan warrior Miral. | Furniture | — | — |
-| 3015 | Here stands a large marble statue of the venerable Fist Tyu. | Furniture | — | — |
-| 3020 | a dagger | Weapon | wielded | dmg 2d4 (avg 5) |
-| 3021 | a small sword | Weapon | wielded | dmg 2d5 (avg 6) |
-| 3022 | a long sword | Weapon | wielded | dmg 2d6 (avg 7) |
-| 3030 | a torch | Light | — | 24h light |
-| 3031 | a hooded brass lantern | Light | held | 100h light |
-| 3032 | a bag | Container | — | holds 50 |
-| 3033 | a box | Container | — | holds 10 |
-| 3040 | a scroll of identify | Scroll | — | val 12/53/-1/-1 · _magic_ |
-| 3041 | a yellow potion of see invisible | Potion | — | val 12/19/-1/-1 · _magic/nodrop_ |
-| 3042 | a scroll of recall | Scroll | — | val 12/42/-1/-1 · _magic_ |
-| 3045 | a scale mail jacket | Armor | body | AC 4 |
-| 3046 | a bronze breast plate | Armor | body | AC 6 |
-| 3050 | a raft | Boat | — | — |
-| 3051 | a canoe | Boat | — | — |
-| 3060 | a leather jerkin | Armor | body | AC 2 |
-| 3061 | a leather cap | Armor | head | AC 2 |
-| 3062 | a pair of leather pants | Armor | legs | AC 2 |
-| 3063 | a pair of leather boots | Armor | feet | AC 2 |
-| 3064 | a pair of leather gloves | Armor | hands | AC 2 |
-| 3065 | a pair of leather sleeves | Armor | arms | AC 2 |
-| 3066 | a studded leather jerkin | Armor | body | AC 3 |
-| 3067 | a hard leather cap | Armor | head | AC 3 |
-| 3068 | a pair of studded leather pants | Armor | legs | AC 3 |
-| 3069 | a pair of hard leather boots | Armor | feet | AC 3 |
-| 3070 | a pair of hard leather gloves | Armor | hands | AC 3 |
-| 3071 | a pair of studded leather sleeves | Armor | arms | AC 3 |
-| 3072 | a scale mail jerkin | Armor | body | AC 4 |
-| 3073 | a scale mail coif | Armor | head | AC 4 |
-| 3074 | a long scale mail skirt | Armor | legs | AC 4 |
-| 3075 | a pair of reinforced boots | Armor | feet | AC 4 |
-| 3076 | a pair of reinforced gloves | Armor | hands | AC 4 |
-| 3077 | a pair of scale mail sleeves | Armor | arms | AC 4 |
-| 3097 | a small metal shield | Armor | shield | AC 4 |
-| 3100 | a cup of tea | Drink Con | — | val 2/2/11/0 |
-| 3101 | a cup of coffee | Drink Con | — | val 2/2/12/0 |
-| 3102 | a cup of water | Drink Con | — | val 2/2/0/0 |
-| 3105 | a bronze bracer | Armor | wrist | AC 6 |
-| 3106 | an iron bracer | Armor | wrist | AC 7 |
-| 3120 | a key | Key | — | — |
-| 3121 | a key | Key | — | — |
-| 3122 | a key | Key | — | — |
-| 3123 | a key | Key | — | — |
-| 3124 | a long sword | Weapon | wielded | dmg 3d8 (avg 14) |
-| 3129 | a pair of hand cuffs | Trash | held | — |
-| 3130 | the desk | Container | — | holds 34 |
-| 3131 | the safe | Container | — | holds 34 |
-| 3132 | the gold | Money | — | val 52385/0/0/0 |
-| 3133 | the City Key | Key | — | — |
-| 3134 | the Bench | Furniture | — | — |
-| 3135 | a fountain | Fountain | — | val 50/50/0/0 |
-| 3136 | a small pile of gold coins | Money | — | val 20/0/0/0 |
-| 3137 | a steel key | Key | — | — |
-| 3138 | a buffalo water skin | Drink Con | — | val 100/100/0/0 |
-| 3139 | the receptionist's letter of resignation | Furniture | — | — |
-| 3140 | the bank's notice of liquidation | Furniture | — | — |
-| 3350 | a standard issue sword | Weapon | wielded | dmg 3d4 (avg 8) · +2 Hitroll, +2 Damroll · _magic_ |
-| 3351 | a standard issue dagger | Weapon | wielded | dmg 4d4 (avg 10) · +2 Hitroll, +1 Damroll · _magic_ |
-| 3352 | a standard issue mace | Weapon | wielded | dmg 4d4 (avg 10) · +2 Hitroll, +2 Damroll · _magic_ |
-| 3353 | a standard issue vest | Armor | body | AC 5 |
-| 3354 | a standard issue shield | Armor | shield | AC 5 |
-| 3355 | a standard issue cloak | Armor | neck | AC 5 |
-| 3356 | a standard issue helmet | Armor | head | AC 5 |
-| 3357 | a pair of standard issue leggings | Armor | legs | AC 5 |
-| 3358 | a pair of standard issue boots | Armor | feet | AC 5 |
-| 3359 | a pair of standard issue gloves | Armor | hands | AC 5 |
-| 3360 | a pair of standard issue sleeves | Armor | arms | AC 5 |
-| 3361 | a standard issue cape | Armor | about | AC 5 |
-| 3362 | a standard issue belt | Armor | waist | AC 5 |
-| 3363 | a standard issue bracer | Armor | wrist | AC 5 |
-| 3364 | a city guard signet ring | Armor | finger | -6 AC, -2 Save-Spell · _magic_ |
-| 3365 | a war banner | Light | — | infinite light · -2 Save-Spell, -2 AC · _glow/magic_ |
-| 3371 | a diamond wedding ring. | Armor | finger | AC 1 · _bless_ |
-| 3372 | a gold wedding band. | Armor | finger | AC 1 · _bless_ |
+| VNUM | Item | Type | Worn | Stats / value / flags | Found |
+|---:|---|---|---|---|---|
+| 3000 | a barrel of beer | Drink Con | — | val 50/50/1/0 | carried by the bartender (L23) in The Grunting Boar (#3007, midgaard); carried by the Innkeeper (L23) in The Local Inn (#5556, ofcol); carried by the baker (L35) in Granite Head's Bakery (#6535, dwarven) |
+| 3001 | a bottle of beer | Drink Con | — | val 8/8/1/0 | carried by the bartender (L23) in The Grunting Boar (#3007, midgaard); carried by the Innkeeper (L23) in The Local Inn (#5556, ofcol) |
+| 3002 | a bottle of ale | Drink Con | — | val 8/8/3/0 | carried by the waiter (L23) in Cleric's Bar (#3003, midgaard); carried by the waiter (L23) in Mage's Bar (#3018, midgaard); carried by the waiter (L23) in The Bar of Swordsmen (#3022, midgaard) |
+| 3003 | a bottle of firebreather | Drink Con | — | val 8/8/7/0 | carried by the waiter (L23) in Mage's Bar (#3018, midgaard); carried by the waiter (L23) in The Bar of Swordsmen (#3022, midgaard); carried by the waiter (L23) in The Thieves Bar (#3028, midgaard); carried by Filthy (L92) in Grubby Inn (#3048, midgaard); carried by the baker (L35) in Granite Head's Bakery (#6535, dwarven) |
+| 3004 | a bottle of local specialty | Drink Con | — | val 8/8/8/0 | carried by the waiter (L23) in Cleric's Bar (#3003, midgaard); carried by the waiter (L23) in The Bar of Swordsmen (#3022, midgaard); carried by the waiter (L23) in The Thieves Bar (#3028, midgaard); carried by Filthy (L92) in Grubby Inn (#3048, midgaard) |
+| 3005 | an executioner's axe | Weapon | wielded | dmg 5d6 (avg 18) · _anti-evil/anti-neutral_ | worn (wielded) by the vortex guardian (L100) in Market Square (#3014, midgaard) |
+| 3009 | a big pot pie | Food | — | val 40/0/0/0 | carried by the baker (L23) in The Bakery (#3009, midgaard); carried by the baker (L35) in Granite Head's Bakery (#6535, dwarven) |
+| 3010 | the donation pit | Container | — | holds 10000 | on the ground in By the Temple Altar (#3054, midgaard) |
+| 3011 | Here stands a massive flesh-in-stone statue of the legendary Euthanasia. | Furniture | — | — | on the ground in The Temple Square (#3005, midgaard) |
+| 3012 | Here stands a large marble statue of the Saiyan warrior Anonbert. | Furniture | — | — | on the ground in The Main Street (#3015, midgaard) |
+| 3013 | Here stands a large marble statue of the Saiyan warrior Miral. | Furniture | — | — | on the ground in Main Street (#3013, midgaard) |
+| 3015 | Here stands a large marble statue of the venerable Fist Tyu. | Furniture | — | — | on the ground in Main Street (#3012, midgaard) |
+| 3020 | a dagger | Weapon | wielded | dmg 2d4 (avg 5) | worn (wielded) by the thief (L8) in Entrance Hall to the Guild of Thieves (#3027, midgaard); worn (wielded) by the thief (L8) in On the Concourse (#3128, midgaard); worn (wielded) by the citizen (L5) in Village square (#5552, ofcol) |
+| 3021 | a small sword | Weapon | wielded | dmg 2d5 (avg 6) | worn (wielded) by the vagabond (L30) in The Dark Alley (#3026, midgaard); worn (wielded) by The dervish (L5) in The Great Eastern Desert (#5025, eastern); worn (wielded) by The dervish (L5) in The Great Eastern Desert (#5027, eastern); worn (wielded) by The dervish (L5) in The Great Eastern Desert (#5029, eastern) |
+| 3022 | a long sword | Weapon | wielded | dmg 2d6 (avg 7) | worn (wielded) by the waiter (L23) in Cleric's Bar (#3003, midgaard); worn (wielded) by the knight templar (L23) in Entrance to Cleric's Guild (#3004, midgaard); worn (wielded) by the bartender (L23) in The Grunting Boar (#3007, midgaard); worn (wielded) by the baker (L23) in The Bakery (#3009, midgaard); worn (wielded) by the grocer (L23) in The General Store (#3010, midgaard); worn (wielded) by the sorcerer (L23) in Entrance to Mage's Guild (#3017, midgaard); worn (wielded) by the waiter (L23) in Mage's Bar (#3018, midgaard); worn (wielded) by the knight (L23) in Entrance Hall to the Guild of Swordsmen (#3021, midgaard); worn (wielded) by the waiter (L23) in The Bar of Swordsmen (#3022, midgaard); worn (wielded) by the assassin (L23) in Entrance Hall to the Guild of Thieves (#3027, midgaard); worn (wielded) by the waiter (L23) in The Thieves Bar (#3028, midgaard); worn (wielded) by Filthy (L92) in Grubby Inn (#3048, midgaard); worn (wielded) by The drider (L8) in At the foot of the rubble (#5009, eastern); worn (wielded) by The dervish (L8) in The Great Eastern Desert (#5031, eastern) |
+| 3030 | a torch | Light | — | 24h light | carried by the grocer (L23) in The General Store (#3010, midgaard); carried by Luxan (L23) in Luxan's mixed shop (#5555, ofcol) |
+| 3031 | a hooded brass lantern | Light | held | 100h light | carried by the grocer (L23) in The General Store (#3010, midgaard); carried by the adept of Frag (L30) in The Store in Mud School (#3718, school); carried by the baker (L35) in Granite Head's Bakery (#6535, dwarven) |
+| 3032 | a bag | Container | — | holds 50 | ⚠️ not placed (unobtainable in normal play) |
+| 3033 | a box | Container | — | holds 10 | ⚠️ not placed (unobtainable in normal play) |
+| 3040 | a scroll of identify | Scroll | — | val 12/53/-1/-1 · _magic_ | ⚠️ not placed (unobtainable in normal play) |
+| 3041 | a yellow potion of see invisible | Potion | — | val 12/19/-1/-1 · _magic/nodrop_ | ⚠️ not placed (unobtainable in normal play) |
+| 3042 | a scroll of recall | Scroll | — | val 12/42/-1/-1 · _magic_ | ⚠️ not placed (unobtainable in normal play) |
+| 3045 | a scale mail jacket | Armor | body | AC 4 | ⚠️ not placed (unobtainable in normal play) |
+| 3046 | a bronze breast plate | Armor | body | AC 6 | ⚠️ not placed (unobtainable in normal play) |
+| 3050 | a raft | Boat | — | — | carried by the captain (L23) in Levee (#3049, midgaard) |
+| 3051 | a canoe | Boat | — | — | carried by the captain (L23) in Levee (#3049, midgaard) |
+| 3060 | a leather jerkin | Armor | body | AC 2 | ⚠️ not placed (unobtainable in normal play) |
+| 3061 | a leather cap | Armor | head | AC 2 | ⚠️ not placed (unobtainable in normal play) |
+| 3062 | a pair of leather pants | Armor | legs | AC 2 | ⚠️ not placed (unobtainable in normal play) |
+| 3063 | a pair of leather boots | Armor | feet | AC 2 | ⚠️ not placed (unobtainable in normal play) |
+| 3064 | a pair of leather gloves | Armor | hands | AC 2 | ⚠️ not placed (unobtainable in normal play) |
+| 3065 | a pair of leather sleeves | Armor | arms | AC 2 | ⚠️ not placed (unobtainable in normal play) |
+| 3066 | a studded leather jerkin | Armor | body | AC 3 | carried by the leather worker (L23) in The Leather Shop (#3035, midgaard) |
+| 3067 | a hard leather cap | Armor | head | AC 3 | carried by the leather worker (L23) in The Leather Shop (#3035, midgaard) |
+| 3068 | a pair of studded leather pants | Armor | legs | AC 3 | carried by the leather worker (L23) in The Leather Shop (#3035, midgaard) |
+| 3069 | a pair of hard leather boots | Armor | feet | AC 3 | carried by the leather worker (L23) in The Leather Shop (#3035, midgaard) |
+| 3070 | a pair of hard leather gloves | Armor | hands | AC 3 | carried by the leather worker (L23) in The Leather Shop (#3035, midgaard) |
+| 3071 | a pair of studded leather sleeves | Armor | arms | AC 3 | carried by the leather worker (L23) in The Leather Shop (#3035, midgaard) |
+| 3072 | a scale mail jerkin | Armor | body | AC 4 | ⚠️ not placed (unobtainable in normal play) |
+| 3073 | a scale mail coif | Armor | head | AC 4 | ⚠️ not placed (unobtainable in normal play) |
+| 3074 | a long scale mail skirt | Armor | legs | AC 4 | ⚠️ not placed (unobtainable in normal play) |
+| 3075 | a pair of reinforced boots | Armor | feet | AC 4 | ⚠️ not placed (unobtainable in normal play) |
+| 3076 | a pair of reinforced gloves | Armor | hands | AC 4 | ⚠️ not placed (unobtainable in normal play) |
+| 3077 | a pair of scale mail sleeves | Armor | arms | AC 4 | ⚠️ not placed (unobtainable in normal play) |
+| 3097 | a small metal shield | Armor | shield | AC 4 | ⚠️ not placed (unobtainable in normal play) |
+| 3100 | a cup of tea | Drink Con | — | val 2/2/11/0 | carried by the maid (L23) in Park Cafe (#3106, midgaard) |
+| 3101 | a cup of coffee | Drink Con | — | val 2/2/12/0 | carried by the maid (L23) in Park Cafe (#3106, midgaard) |
+| 3102 | a cup of water | Drink Con | — | val 2/2/0/0 | carried by the maid (L23) in Park Cafe (#3106, midgaard) |
+| 3105 | a bronze bracer | Armor | wrist | AC 6 | inside the glass cabinet (#5227) — on the ground in East wing of the city hall (#5233, thalos) |
+| 3106 | an iron bracer | Armor | wrist | AC 7 | ⚠️ not placed (unobtainable in normal play) |
+| 3120 | a key | Key | — | — | carried by the cityguard (L80) in Park Road (#3111, midgaard) |
+| 3121 | a key | Key | — | — | carried by the sexton (L3) in Park Cafe (#3106, midgaard) |
+| 3122 | a key | Key | — | — | carried by the captain (L17) in Captain's Office (#3142, midgaard) |
+| 3123 | a key | Key | — | — | inside the desk (#3130) — on the ground in Captain's Office (#3142, midgaard) |
+| 3124 | a long sword | Weapon | wielded | dmg 3d8 (avg 14) | worn (wielded) by the mayor (L23) in The Mayor's Office (#3138, midgaard) |
+| 3129 | a pair of hand cuffs | Trash | held | — | ⚠️ not placed (unobtainable in normal play) |
+| 3130 | the desk | Container | — | holds 34 | on the ground in Captain's Office (#3142, midgaard) |
+| 3131 | the safe | Container | — | holds 34 | on the ground in Captain's Office (#3142, midgaard) |
+| 3132 | the gold | Money | — | val 52385/0/0/0 | inside the safe (#3131) — on the ground in Captain's Office (#3142, midgaard) |
+| 3133 | the City Key | Key | — | — | worn (held) by the mayor (L23) in The Mayor's Office (#3138, midgaard) |
+| 3134 | the Bench | Furniture | — | — | on the ground in Promenade (#3101, midgaard); on the ground in Promenade (#3102, midgaard); on the ground in Promenade (#3103, midgaard) |
+| 3135 | a fountain | Fountain | — | val 50/50/0/0 | on the ground in The Temple Square (#3005, midgaard); on the ground in End of Penny Lane (#3141, midgaard); on the ground in The Chat Room (#1200, hitower) |
+| 3136 | a small pile of gold coins | Money | — | val 20/0/0/0 | on the ground in End of Penny Lane (#3141, midgaard) |
+| 3137 | a steel key | Key | — | — | carried by the captain (L17) in Captain's Office (#3142, midgaard) |
+| 3138 | a buffalo water skin | Drink Con | — | val 100/100/0/0 | carried by the grocer (L23) in The General Store (#3010, midgaard); carried by the adept of Frag (L30) in The Store in Mud School (#3718, school) |
+| 3139 | the receptionist's letter of resignation | Furniture | — | — | on the ground in The Defunct Reception (#3008, midgaard) |
+| 3140 | the bank's notice of liquidation | Furniture | — | — | on the ground in The Defunct Reception (#3008, midgaard) |
+| 3350 | a standard issue sword | Weapon | wielded | dmg 3d4 (avg 8) · +2 Hitroll, +2 Damroll · _magic_ | worn (wielded) by the cityguard (L80) in Entrance to Cleric's Guild (#3004, midgaard); worn (wielded) by the cityguard (L80) in Market Square (#3014, midgaard); worn (wielded) by the cityguard (L80) in Entrance to Mage's Guild (#3017, midgaard); worn (wielded) by the cityguard (L80) in Entrance Hall to the Guild of Swordsmen (#3021, midgaard); worn (wielded) by the cityguard (L80) in Entrance Hall to the Guild of Thieves (#3027, midgaard); worn (wielded) by the cityguard (L80) in Inside the West Gate of Midgaard (#3040, midgaard); worn (wielded) by the cityguard (L80) in Inside the West Gate of Midgaard (#3040, midgaard); worn (wielded) by the cityguard (L80) in Inside the East Gate of Midgaard (#3041, midgaard); worn (wielded) by the cityguard (L80) in Inside the East Gate of Midgaard (#3041, midgaard); worn (wielded) by the cityguard (L80) in Park Road (#3111, midgaard); worn (wielded) by the cityguard (L80) in Park Road (#3111, midgaard); worn (wielded) by the cityguard (L80) in Park Road (#3111, midgaard); worn (wielded) by the cityguard (L80) in Park Road (#3111, midgaard); worn (wielded) by the cityguard (L20) in The Mayor's Office (#3138, midgaard); worn (wielded) by the cityguard (L20) in The Mayor's Office (#3138, midgaard); worn (wielded) by the cityguard (L20) in The Mayor's Office (#3138, midgaard); worn (wielded) by the cityguard (L20) in The Mayor's Office (#3138, midgaard) |
+| 3351 | a standard issue dagger | Weapon | wielded | dmg 4d4 (avg 10) · +2 Hitroll, +1 Damroll · _magic_ | ⚠️ not placed (unobtainable in normal play) |
+| 3352 | a standard issue mace | Weapon | wielded | dmg 4d4 (avg 10) · +2 Hitroll, +2 Damroll · _magic_ | ⚠️ not placed (unobtainable in normal play) |
+| 3353 | a standard issue vest | Armor | body | AC 5 | worn (body) by the cityguard (L80) in Entrance to Cleric's Guild (#3004, midgaard); worn (body) by the cityguard (L80) in Market Square (#3014, midgaard); worn (body) by the cityguard (L80) in Entrance to Mage's Guild (#3017, midgaard); worn (body) by the cityguard (L80) in Entrance Hall to the Guild of Swordsmen (#3021, midgaard); worn (body) by the cityguard (L80) in Entrance Hall to the Guild of Thieves (#3027, midgaard); worn (body) by the cityguard (L80) in Inside the West Gate of Midgaard (#3040, midgaard); worn (body) by the cityguard (L80) in Inside the West Gate of Midgaard (#3040, midgaard); worn (body) by the cityguard (L80) in Inside the East Gate of Midgaard (#3041, midgaard); worn (body) by the cityguard (L80) in Inside the East Gate of Midgaard (#3041, midgaard); worn (body) by the cityguard (L80) in Park Road (#3111, midgaard); worn (body) by the cityguard (L80) in Park Road (#3111, midgaard); worn (body) by the cityguard (L80) in Park Road (#3111, midgaard); worn (body) by the cityguard (L80) in Park Road (#3111, midgaard) |
+| 3354 | a standard issue shield | Armor | shield | AC 5 | worn (shield) by the cityguard (L80) in Inside the East Gate of Midgaard (#3041, midgaard) |
+| 3355 | a standard issue cloak | Armor | neck | AC 5 | worn (neck) by the cityguard (L80) in Entrance to Cleric's Guild (#3004, midgaard) |
+| 3356 | a standard issue helmet | Armor | head | AC 5 | worn (head) by the cityguard (L80) in Market Square (#3014, midgaard) |
+| 3357 | a pair of standard issue leggings | Armor | legs | AC 5 | worn (legs) by the cityguard (L80) in Entrance to Mage's Guild (#3017, midgaard) |
+| 3358 | a pair of standard issue boots | Armor | feet | AC 5 | worn (feet) by the cityguard (L80) in Entrance Hall to the Guild of Swordsmen (#3021, midgaard) |
+| 3359 | a pair of standard issue gloves | Armor | hands | AC 5 | worn (hands) by the cityguard (L80) in Entrance Hall to the Guild of Thieves (#3027, midgaard) |
+| 3360 | a pair of standard issue sleeves | Armor | arms | AC 5 | worn (arms) by the cityguard (L80) in Inside the East Gate of Midgaard (#3041, midgaard) |
+| 3361 | a standard issue cape | Armor | about | AC 5 | worn (about body) by the cityguard (L80) in Inside the West Gate of Midgaard (#3040, midgaard) |
+| 3362 | a standard issue belt | Armor | waist | AC 5 | worn (waist) by the cityguard (L80) in Inside the West Gate of Midgaard (#3040, midgaard) |
+| 3363 | a standard issue bracer | Armor | wrist | AC 5 | worn (right wrist) by the cityguard (L80) in Park Road (#3111, midgaard) |
+| 3364 | a city guard signet ring | Armor | finger | -6 AC, -2 Save-Spell · _magic_ | worn (left finger) by the cityguard (L80) in Entrance to Cleric's Guild (#3004, midgaard); worn (left finger) by the cityguard (L80) in Market Square (#3014, midgaard); worn (left finger) by the cityguard (L80) in Entrance to Mage's Guild (#3017, midgaard); worn (left finger) by the cityguard (L80) in Entrance Hall to the Guild of Swordsmen (#3021, midgaard); worn (left finger) by the cityguard (L80) in Entrance Hall to the Guild of Thieves (#3027, midgaard); worn (left finger) by the cityguard (L80) in Inside the West Gate of Midgaard (#3040, midgaard); worn (left finger) by the cityguard (L80) in Inside the West Gate of Midgaard (#3040, midgaard); worn (left finger) by the cityguard (L80) in Inside the East Gate of Midgaard (#3041, midgaard); worn (left finger) by the cityguard (L80) in Inside the East Gate of Midgaard (#3041, midgaard); worn (left finger) by the cityguard (L80) in Park Road (#3111, midgaard); worn (left finger) by the cityguard (L80) in Park Road (#3111, midgaard); worn (left finger) by the cityguard (L80) in Park Road (#3111, midgaard); worn (left finger) by the cityguard (L80) in Park Road (#3111, midgaard); worn (left finger) by the cityguard (L20) in The Mayor's Office (#3138, midgaard); worn (left finger) by the cityguard (L20) in The Mayor's Office (#3138, midgaard); worn (left finger) by the cityguard (L20) in The Mayor's Office (#3138, midgaard); worn (left finger) by the cityguard (L20) in The Mayor's Office (#3138, midgaard) |
+| 3365 | a war banner | Light | — | infinite light · -2 Save-Spell, -2 AC · _glow/magic_ | worn (light) by the cityguard (L80) in Entrance to Cleric's Guild (#3004, midgaard); worn (light) by the cityguard (L80) in Market Square (#3014, midgaard); worn (light) by the cityguard (L80) in Entrance to Mage's Guild (#3017, midgaard); worn (light) by the cityguard (L80) in Entrance Hall to the Guild of Swordsmen (#3021, midgaard); worn (light) by the cityguard (L80) in Entrance Hall to the Guild of Thieves (#3027, midgaard); worn (light) by the cityguard (L80) in Inside the West Gate of Midgaard (#3040, midgaard); worn (light) by the cityguard (L80) in Inside the West Gate of Midgaard (#3040, midgaard); worn (light) by the cityguard (L80) in Inside the East Gate of Midgaard (#3041, midgaard); worn (light) by the cityguard (L80) in Inside the East Gate of Midgaard (#3041, midgaard); worn (light) by the cityguard (L80) in Park Road (#3111, midgaard); worn (light) by the cityguard (L80) in Park Road (#3111, midgaard); worn (light) by the cityguard (L80) in Park Road (#3111, midgaard); worn (light) by the cityguard (L80) in Park Road (#3111, midgaard); worn (light) by the cityguard (L20) in The Mayor's Office (#3138, midgaard); worn (light) by the cityguard (L20) in The Mayor's Office (#3138, midgaard); worn (light) by the cityguard (L20) in The Mayor's Office (#3138, midgaard); worn (light) by the cityguard (L20) in The Mayor's Office (#3138, midgaard) |
+| 3371 | a diamond wedding ring. | Armor | finger | AC 1 · _bless_ | ⚠️ not placed (unobtainable in normal play) |
+| 3372 | a gold wedding band. | Armor | finger | AC 1 · _bless_ | ⚠️ not placed (unobtainable in normal play) |
 
 ### Alfa Moria  `(moria)`
 
 15 items
 
-| VNUM | Item | Type | Worn | Stats / value / flags |
-|---:|---|---|---|---|
-| 4000 | a yellow and green ring | Armor | finger/held | -2 Str |
-| 4001 | a corpse | Container | — | holds 1 |
-| 4002 | some coins | Money | — | val 500/0/0/0 |
-| 4050 | a purple potion | Potion | held | val 17/14/36/-1 · _nodrop_ |
-| 4051 | a metal helmet | Armor | head/held | AC 3 · -2 Save-Spell, -2 Save-Breath |
-| 4052 | a mushroom | Food | held | val 2/0/0/1 |
-| 4053 | a thieves dirk | Weapon | wielded | dmg 2d6 (avg 7) · +1 Hitroll, +2 Damroll |
-| 4100 | a black demon blade | Weapon | wielded | dmg 3d4 (avg 8) · _anti-good/anti-neutral_ |
-| 4101 | swordsman's gloves | Armor | hands | AC 2 · +2 Hitroll, +1 Damroll · _anti-good_ |
-| 4102 | a scroll which reads "ysafg" | Scroll | — | val 1/53/0/0 |
-| 4103 | a green slime mold | Food | — | val 24/0/0/0 |
-| 4104 | a green slime mold | Food | — | val 24/0/0/1 |
-| 4150 | a black potion | Potion | — | val 15/15/-1/-1 · _nodrop_ |
-| 4151 | a heavy oak staff | Staff | held | 2 charges · _anti-good_ |
-| 4152 | a light silver dagger | Weapon | wielded | dmg 2d5 (avg 6) · _anti-evil_ |
+| VNUM | Item | Type | Worn | Stats / value / flags | Found |
+|---:|---|---|---|---|---|
+| 4000 | a yellow and green ring | Armor | finger/held | -2 Str | worn (left finger) by the large orc (L7) in The damp tunnel (#4022, moria) |
+| 4001 | a corpse | Container | — | holds 1 | carried by the huge python (L11) in The light cave (#4030, moria) |
+| 4002 | some coins | Money | — | val 500/0/0/0 | inside a corpse (#4001) — carried by the huge python (L11) in The light cave (#4030, moria) |
+| 4050 | a purple potion | Potion | held | val 17/14/36/-1 · _nodrop_ | carried by the large hobgoblin (L10) in The tunnel (#4064, moria); carried by the large hobgoblin (L10) in The large cave (#4071, moria) |
+| 4051 | a metal helmet | Armor | head/held | AC 3 · -2 Save-Spell, -2 Save-Breath | carried by the warrior (L12) in The maze (#4062, moria) |
+| 4052 | a mushroom | Food | held | val 2/0/0/1 | on the ground in The large cave (#4068, moria); on the ground in The large cave (#4069, moria); on the ground in The large cave (#4070, moria); on the ground in The large cave (#4071, moria) |
+| 4053 | a thieves dirk | Weapon | wielded | dmg 2d6 (avg 7) · +1 Hitroll, +2 Damroll | ⚠️ not placed (unobtainable in normal play) |
+| 4100 | a black demon blade | Weapon | wielded | dmg 3d4 (avg 8) · _anti-good/anti-neutral_ | carried by the troll (L12) in The secret chamber (#4122, moria) |
+| 4101 | swordsman's gloves | Armor | hands | AC 2 · +2 Hitroll, +1 Damroll · _anti-good_ | carried by the Warrior (L9) in The passage (#4113, moria) |
+| 4102 | a scroll which reads "ysafg" | Scroll | — | val 1/53/0/0 | carried by the Mage (L13) in The golden cave (#4114, moria) |
+| 4103 | a green slime mold | Food | — | val 24/0/0/0 | carried by the guardian snake (L10) in The long tunnel (#4103, moria); carried by the guardian snake (L10) in The tunnel (#4111, moria) |
+| 4104 | a green slime mold | Food | — | val 24/0/0/1 | carried by the guardian snake (L10) in The long tunnel (#4103, moria); carried by the guardian snake (L10) in The tunnel (#4111, moria); carried by the green kobold (L7) in The cave (#4119, moria); carried by the orc (L7) in The cave (#4124, moria) |
+| 4150 | a black potion | Potion | — | val 15/15/-1/-1 · _nodrop_ | carried by the orc (L9) in In the tunnel at the inscription (#4160, moria) |
+| 4151 | a heavy oak staff | Staff | held | 2 charges · _anti-good_ | carried by the Mage (L11) in The wet maze (#4167, moria) |
+| 4152 | a light silver dagger | Weapon | wielded | dmg 2d5 (avg 6) · _anti-evil_ | worn (wielded) by the thief (L12) in The small maze (#4158, moria) |
 
 ### Hatchet New Ofcol  `(ofcol2)`
 
 68 items
 
-| VNUM | Item | Type | Worn | Stats / value / flags |
-|---:|---|---|---|---|
-| 600 | a handaxe | Weapon | wielded | dmg 1d8 (avg 5) |
-| 601 | a meat cleaver | Weapon | wielded | dmg 2d4 (avg 5) |
-| 602 | a side of beef | Food | — | val 24/0/0/0 |
-| 603 | a side of pork | Food | — | val 23/0/0/0 |
-| 604 | a side of horse | Food | — | val 30/0/0/0 |
-| 605 | a defeathered chicken | Food | — | val 16/0/0/0 |
-| 606 | an emerald ring | Treasure | finger | _magic_ |
-| 607 | a glass trinket | Treasure | held | -1 Save-Spell |
-| 608 | a golden necklace | Treasure | neck | -1 Wis, +10 Age |
-| 609 | a head of cabbage | Food | — | val 12/0/0/0 |
-| 610 | a head of lettuce | Food | — | val 12/0/0/0 |
-| 611 | a bottle of milk | Drink Con | — | val 20/20/10/0 |
-| 612 | an apple | Food | — | val 8/0/0/0 |
-| 613 | an ear of corn | Food | — | val 8/0/0/0 |
-| 614 | a pile of hay | Trash | — | — |
-| 615 | a pitchfork | Weapon | wielded | dmg 3d3 (avg 6) |
-| 616 | a leather vest | Armor | body | AC 2 |
-| 617 | some leather sleeves | Armor | arms | AC 2 |
-| 618 | some leather leggings | Armor | legs | AC 2 |
-| 619 | some leather boots | Armor | feet | AC 2 |
-| 620 | an Ofcol signet ring | Armor | finger | AC 6 · -1 Save-Spell, +5 HP · _magic_ |
-| 621 | brass plate | Armor | body | AC 6 · -2 Save-Spell, +10 HP · _magic_ |
-| 622 | a brass helm | Armor | head | AC 6 · -1 Save-Spell, +5 HP · _magic_ |
-| 623 | brass leggings | Armor | legs | AC 6 · -1 Save-Spell, +5 HP · _magic_ |
-| 624 | brass boots | Armor | feet | AC 6 · -1 Save-Spell, +5 HP · _magic_ |
-| 625 | brass gauntlets | Armor | hands | AC 6 · -1 Save-Spell, +5 HP · _magic_ |
-| 626 | brass sleeves | Armor | arms | AC 6 · -1 Save-Spell, +5 HP · _magic_ |
-| 627 | a brass shield | Armor | shield | AC 6 · -1 Save-Spell, +5 HP · _magic_ |
-| 628 | a brass girth | Armor | waist | AC 6 · -1 Save-Spell, +5 HP · _magic_ |
-| 629 | a brass bracer | Armor | wrist | AC 6 · -1 Save-Spell, +5 HP · _magic_ |
-| 630 | a claymore | Weapon | wielded | dmg 4d4 (avg 10) · -2 Hitroll, +5 Damroll · _magic_ |
-| 631 | silver plate | Armor | body | AC 8 · +10 Mana, +1 Str · _magic/anti-evil_ |
-| 632 | a silver helm | Armor | head | AC 8 · +5 Mana, +1 Dex · _magic/anti-evil_ |
-| 633 | silver leggings | Armor | legs | AC 8 · +5 Mana, +1 Int · _magic/anti-evil_ |
-| 634 | silver boots | Armor | feet | AC 8 · +5 Mana, +1 Wis · _magic/anti-evil_ |
-| 635 | silver gauntlets | Armor | hands | AC 8 · +5 Mana, +1 Con · _magic/anti-evil_ |
-| 636 | silver sleeves | Armor | arms | AC 8 · +5 Mana, +1 Hitroll · _magic/anti-evil_ |
-| 637 | the silver shield | Armor | shield | AC 8 · +5 Mana, -3 AC · _magic/anti-evil_ |
-| 638 | the silver girth | Armor | waist | AC 8 · +5 Mana, +1 Damroll · _magic/anti-evil_ |
-| 639 | platinum plate | Armor | body | AC 9 · +15 HP, +2 Con · _magic/anti-evil_ |
-| 640 | the platinum helmet | Armor | head | AC 9 · +10 Mana, +2 Wis · _magic/anti-evil_ |
-| 641 | platinum leggings | Armor | legs | AC 9 · +10 HP, +2 Dex · _magic/anti-evil_ |
-| 642 | platinum boots | Armor | feet | AC 9 · +10 HP, +100 Move · _magic/anti-evil_ |
-| 643 | platinum gauntlets | Armor | hands | AC 9 · +10 HP, +2 Hitroll · _magic/anti-evil_ |
-| 644 | platinum sleeves | Armor | arms | AC 9 · +10 HP, +2 Str · _magic/anti-evil_ |
-| 645 | the platinum spiked shield | Armor | shield | AC 9 · +10 HP, +3 Damroll · _magic/anti-evil_ |
-| 646 | the platinum girth | Armor | waist | AC 9 · +10 HP, -5 Save-Spell · _magic/anti-evil_ |
-| 647 | holy Avenger | Weapon | wielded | dmg 5d6 (avg 18) · +1 Hitroll, +6 Damroll · _magic/anti-evil_ |
-| 648 | a shot of whiskey | Drink Con | — | val 5/5/5/0 |
-| 649 | a quart of ale | Drink Con | — | val 50/50/3/0 |
-| 650 | a quart of port brew | Drink Con | — | val 50/50/4/0 |
-| 651 | the citadel key | Key | — | — |
-| 652 | the Holy Symbol of Bahamut | Armor | neck | AC 8 · +10 Mana, +2 Wis · _magic/bless/anti-evil/anti-neutral_ |
-| 653 | a ranseur | Weapon | wielded | dmg 5d6 (avg 18) · +5 Hitroll, -1 Damroll · _magic/anti-evil_ |
-| 654 | a golden dragonscale torso | Armor | body | AC 9 · -5 AC, +2 Hitroll · _magic/anti-evil_ |
-| 655 | a golden dragonhelm | Armor | head | AC 9 · -3 AC, +1 Hitroll · _magic/anti-evil_ |
-| 656 | golden dragonscale leggings | Armor | legs | AC 9 · -3 AC, +1 Hitroll · _magic/anti-evil_ |
-| 657 | golden dragonscale boots | Armor | feet | AC 9 · -3 AC, +1 Hitroll · _magic/anti-evil_ |
-| 658 | golden dragonscale gauntlets | Armor | hands | AC 9 · -3 AC, +1 Hitroll · _magic/anti-evil_ |
-| 659 | golden dragonscale sleeves | Armor | arms | AC 9 · -3 AC, +1 Hitroll · _magic/anti-evil_ |
-| 660 | a golden dragonscale shield | Armor | shield | AC 9 · -3 AC, +1 Hitroll · _magic/anti-evil_ |
-| 661 | a golden dragonscale girth | Armor | waist | AC 9 · -3 AC, +1 Hitroll · _magic/anti-evil_ |
-| 662 | the Golden Claw | Weapon | wielded | dmg 5d5 (avg 15) · +6 Damroll · _magic/anti-evil_ |
-| 663 | the Gold Dragon Orb | Staff | held | 10 charges · +3 Int, +3 Wis · _magic/anti-evil/anti-neutral_ |
-| 664 | a golden robe | Armor | about | AC 9 · +3 Int · _magic/anti-evil_ |
-| 665 | a house key | Key | — | — |
-| 666 | a broom | Weapon | wielded | dmg 2d3 (avg 4) · +3 Hitroll, -3 Damroll |
-| 667 | a chest | Container | — | holds 100 |
+| VNUM | Item | Type | Worn | Stats / value / flags | Found |
+|---:|---|---|---|---|---|
+| 600 | a handaxe | Weapon | wielded | dmg 1d8 (avg 5) | carried by Jim the Blacksmith (L30) in The Blacksmith (#603, ofcol2) |
+| 601 | a meat cleaver | Weapon | wielded | dmg 2d4 (avg 5) | carried by Jim the Blacksmith (L30) in The Blacksmith (#603, ofcol2); worn (wielded) by Jack (L12) in Slaughterhouse (#617, ofcol2) |
+| 602 | a side of beef | Food | — | val 24/0/0/0 | carried by Marty (L30) in The Meat Store (#607, ofcol2) |
+| 603 | a side of pork | Food | — | val 23/0/0/0 | carried by Marty (L30) in The Meat Store (#607, ofcol2) |
+| 604 | a side of horse | Food | — | val 30/0/0/0 | carried by Marty (L30) in The Meat Store (#607, ofcol2) |
+| 605 | a defeathered chicken | Food | — | val 16/0/0/0 | carried by Marty (L30) in The Meat Store (#607, ofcol2) |
+| 606 | an emerald ring | Treasure | finger | _magic_ | carried by Madam Tracy (L20) in The Pawn Shop. (#606, ofcol2) |
+| 607 | a glass trinket | Treasure | held | -1 Save-Spell | carried by Madam Tracy (L20) in The Pawn Shop. (#606, ofcol2) |
+| 608 | a golden necklace | Treasure | neck | -1 Wis, +10 Age | carried by Madam Tracy (L20) in The Pawn Shop. (#606, ofcol2) |
+| 609 | a head of cabbage | Food | — | val 12/0/0/0 | carried by Farmer Elizabeth (L20) in Farmer's Market (#610, ofcol2) |
+| 610 | a head of lettuce | Food | — | val 12/0/0/0 | carried by Farmer Elizabeth (L20) in Farmer's Market (#610, ofcol2) |
+| 611 | a bottle of milk | Drink Con | — | val 20/20/10/0 | carried by Farmer Elizabeth (L20) in Farmer's Market (#610, ofcol2); on the ground in Barn (#620, ofcol2) |
+| 612 | an apple | Food | — | val 8/0/0/0 | carried by Farmer Elizabeth (L20) in Farmer's Market (#610, ofcol2) |
+| 613 | an ear of corn | Food | — | val 8/0/0/0 | carried by Farmer Elizabeth (L20) in Farmer's Market (#610, ofcol2) |
+| 614 | a pile of hay | Trash | — | — | on the ground in Barn (#620, ofcol2) |
+| 615 | a pitchfork | Weapon | wielded | dmg 3d3 (avg 6) | carried by Jim the Blacksmith (L30) in The Blacksmith (#603, ofcol2); worn (wielded) by Farmer Sara (L5) in Barn (#620, ofcol2) |
+| 616 | a leather vest | Armor | body | AC 2 | carried by Sam (L30) in The Leather Shop (#604, ofcol2); worn (body) by a shiriff (L44) in Shiriff Post of the Eastern Shire (#1110, shire); worn (body) by a shiriff (L44) in Shiriff Post of the Eastern Shire (#1110, shire); worn (body) by a shiriff (L45) in Shiriff Post of the Eastern Shire (#1110, shire); worn (body) by the Thain (L45) in Thain's Office (#1111, shire); worn (body) by a shiriff (L44) in Shiriff Post of the Bridge (#1119, shire); worn (body) by a shiriff (L44) in Shiriff Post of the Bridge (#1119, shire); worn (body) by a shiriff (L45) in Shiriff Post of the Bridge (#1119, shire); worn (body) by a shiriff (L44) in Shiriff Post of Delving Lane (#1145, shire); worn (body) by a shiriff (L44) in Shiriff Post of Delving Lane (#1145, shire); worn (body) by a shiriff (L45) in Shiriff Post of Delving Lane (#1145, shire); worn (body) by a shiriff (L44) in Shiriff Post of the Lower Shire (#1153, shire); worn (body) by a shiriff (L44) in Shiriff Post of the Lower Shire (#1153, shire); worn (body) by a shiriff (L45) in Shiriff Post of the Lower Shire (#1153, shire) |
+| 617 | some leather sleeves | Armor | arms | AC 2 | carried by Sam (L30) in The Leather Shop (#604, ofcol2) |
+| 618 | some leather leggings | Armor | legs | AC 2 | carried by Sam (L30) in The Leather Shop (#604, ofcol2) |
+| 619 | some leather boots | Armor | feet | AC 2 | carried by Sam (L30) in The Leather Shop (#604, ofcol2) |
+| 620 | an Ofcol signet ring | Armor | finger | AC 6 · -1 Save-Spell, +5 HP · _magic_ | worn (left finger) by the Ofcol cityguard (L19) in The Big Intersection (#601, ofcol2); worn (left finger) by Marshall Diana (L33) in The Big Intersection (#601, ofcol2); worn (left finger) by the Ofcol cityguard (L19) in The Leather Shop (#604, ofcol2); worn (left finger) by the Ofcol cityguard (L19) in Impy Way (#608, ofcol2); worn (left finger) by the Ofcol cityguard (L19) in Impy Way (#637, ofcol2); worn (left finger) by the Ofcol cityguard (L19) in The Big Intersection (#642, ofcol2); worn (left finger) by the Ofcol cityguard (L19) in Swiftest Way (#647, ofcol2); worn (left finger) by the Ofcol cityguard (L19) in Swiftest Way (#650, ofcol2); worn (left finger) by the Ofcol cityguard (L19) in Raff Way (#667, ofcol2); worn (left finger) by Captain Derrick (L27) in The Temple of Ofcol (#669, ofcol2); worn (left finger) by the Priestess of Ofcol (L30) in The Temple of Ofcol (#669, ofcol2); worn (left finger) by a Dragonknight (L21) in A Hallway of the Golden Citadel (#676, ofcol2); worn (left finger) by a Dragonknight (L21) in A Hallway of the Golden Citadel (#681, ofcol2); worn (left finger) by a Dragonlord (L29) in The Hall of the DragonLords (#688, ofcol2); worn (left finger) by a Dragonlord (L29) in The Hall of the DragonLords (#688, ofcol2); worn (left finger) by a Dragonlord (L29) in The Hall of the DragonLords (#688, ofcol2); worn (left finger) by a Dragonknight (L21) in An Upper Chamber of the Golden Citadel (#690, ofcol2); worn (left finger) by The Ancient Gold Dragon (L37) in The Dragon Chamber (#693, ofcol2); worn (left finger) by an attendant of the dragon (L21) in The Dragon Chamber (#693, ofcol2); worn (left finger) by an attendant of the dragon (L21) in The Dragon Chamber (#693, ofcol2); worn (left finger) by the Ofcol cityguard (L19) in Inside the Entrance to the Golden Citadel (#698, ofcol2); worn (left finger) by the Ofcol cityguard (L19) in Inside the Entrance to the Golden Citadel (#698, ofcol2); worn (left finger) by the Ofcol cityguard (L19) in Inside the Entrance to the Golden Citadel (#698, ofcol2); worn (left finger) by Captain Jacklyn (L27) in Outside the Entrance to the Golden Citadel (#699, ofcol2); worn (left finger) by the Ofcol cityguard (L19) in Outside the Entrance to the Golden Citadel (#699, ofcol2); worn (left finger) by the Ofcol cityguard (L19) in Outside the Entrance to the Golden Citadel (#699, ofcol2); worn (left finger) by the Ofcol cityguard (L19) in Outside the Entrance to the Golden Citadel (#699, ofcol2) |
+| 621 | brass plate | Armor | body | AC 6 · -2 Save-Spell, +10 HP · _magic_ | worn (body) by the Ofcol cityguard (L19) in The Big Intersection (#601, ofcol2); worn (body) by the Ofcol cityguard (L19) in The Leather Shop (#604, ofcol2); worn (body) by the Ofcol cityguard (L19) in Impy Way (#608, ofcol2); worn (body) by the Ofcol cityguard (L19) in Impy Way (#637, ofcol2); worn (body) by the Ofcol cityguard (L19) in The Big Intersection (#642, ofcol2); worn (body) by the Ofcol cityguard (L19) in Swiftest Way (#647, ofcol2); worn (body) by the Ofcol cityguard (L19) in Swiftest Way (#650, ofcol2); worn (body) by the Ofcol cityguard (L19) in Raff Way (#667, ofcol2); worn (body) by the Ofcol cityguard (L19) in Inside the Entrance to the Golden Citadel (#698, ofcol2); worn (body) by the Ofcol cityguard (L19) in Inside the Entrance to the Golden Citadel (#698, ofcol2); worn (body) by the Ofcol cityguard (L19) in Inside the Entrance to the Golden Citadel (#698, ofcol2); worn (body) by the Ofcol cityguard (L19) in Outside the Entrance to the Golden Citadel (#699, ofcol2); worn (body) by the Ofcol cityguard (L19) in Outside the Entrance to the Golden Citadel (#699, ofcol2); worn (body) by the Ofcol cityguard (L19) in Outside the Entrance to the Golden Citadel (#699, ofcol2); worn (body) by the dwarven prince (L44) in Bedroom (#1136, shire) |
+| 622 | a brass helm | Armor | head | AC 6 · -1 Save-Spell, +5 HP · _magic_ | worn (head) by the Ofcol cityguard (L19) in Impy Way (#608, ofcol2); worn (head) by the elven warrior (L45) in Bedroom (#1136, shire) |
+| 623 | brass leggings | Armor | legs | AC 6 · -1 Save-Spell, +5 HP · _magic_ | worn (legs) by the Ofcol cityguard (L19) in The Leather Shop (#604, ofcol2); worn (legs) by Captain Jacklyn (L27) in Outside the Entrance to the Golden Citadel (#699, ofcol2); worn (legs) by the Keeper of the Ring (L45) in Pantry (#1137, shire) |
+| 624 | brass boots | Armor | feet | AC 6 · -1 Save-Spell, +5 HP · _magic_ | worn (feet) by the Ofcol cityguard (L19) in The Big Intersection (#601, ofcol2); worn (feet) by Captain Jacklyn (L27) in Outside the Entrance to the Golden Citadel (#699, ofcol2) |
+| 625 | brass gauntlets | Armor | hands | AC 6 · -1 Save-Spell, +5 HP · _magic_ | worn (hands) by the Ofcol cityguard (L19) in Swiftest Way (#650, ofcol2); worn (hands) by Captain Jacklyn (L27) in Outside the Entrance to the Golden Citadel (#699, ofcol2) |
+| 626 | brass sleeves | Armor | arms | AC 6 · -1 Save-Spell, +5 HP · _magic_ | worn (arms) by the Ofcol cityguard (L19) in The Big Intersection (#642, ofcol2); worn (arms) by Captain Derrick (L27) in The Temple of Ofcol (#669, ofcol2) |
+| 627 | a brass shield | Armor | shield | AC 6 · -1 Save-Spell, +5 HP · _magic_ | worn (shield) by the Ofcol cityguard (L19) in Swiftest Way (#647, ofcol2); worn (shield) by Captain Derrick (L27) in The Temple of Ofcol (#669, ofcol2); worn (shield) by the Ofcol cityguard (L19) in Inside the Entrance to the Golden Citadel (#698, ofcol2); worn (shield) by the Ofcol cityguard (L19) in Inside the Entrance to the Golden Citadel (#698, ofcol2); worn (shield) by the Ofcol cityguard (L19) in Inside the Entrance to the Golden Citadel (#698, ofcol2); worn (shield) by the Ofcol cityguard (L19) in Outside the Entrance to the Golden Citadel (#699, ofcol2); worn (shield) by the Ofcol cityguard (L19) in Outside the Entrance to the Golden Citadel (#699, ofcol2); worn (shield) by the Ofcol cityguard (L19) in Outside the Entrance to the Golden Citadel (#699, ofcol2) |
+| 628 | a brass girth | Armor | waist | AC 6 · -1 Save-Spell, +5 HP · _magic_ | worn (waist) by the Ofcol cityguard (L19) in Raff Way (#667, ofcol2); worn (waist) by Captain Derrick (L27) in The Temple of Ofcol (#669, ofcol2) |
+| 629 | a brass bracer | Armor | wrist | AC 6 · -1 Save-Spell, +5 HP · _magic_ | worn (left wrist) by the Ofcol cityguard (L19) in Impy Way (#637, ofcol2) |
+| 630 | a claymore | Weapon | wielded | dmg 4d4 (avg 10) · -2 Hitroll, +5 Damroll · _magic_ | worn (wielded) by the Ofcol cityguard (L19) in The Big Intersection (#601, ofcol2); worn (wielded) by the Ofcol cityguard (L19) in The Leather Shop (#604, ofcol2); worn (wielded) by the Ofcol cityguard (L19) in Impy Way (#608, ofcol2); worn (wielded) by the Ofcol cityguard (L19) in Impy Way (#637, ofcol2); worn (wielded) by the Ofcol cityguard (L19) in The Big Intersection (#642, ofcol2); worn (wielded) by the Ofcol cityguard (L19) in Swiftest Way (#647, ofcol2); worn (wielded) by the Ofcol cityguard (L19) in Swiftest Way (#650, ofcol2); worn (wielded) by the Ofcol cityguard (L19) in Raff Way (#667, ofcol2); worn (wielded) by the Ofcol cityguard (L19) in Inside the Entrance to the Golden Citadel (#698, ofcol2); worn (wielded) by the Ofcol cityguard (L19) in Inside the Entrance to the Golden Citadel (#698, ofcol2); worn (wielded) by the Ofcol cityguard (L19) in Inside the Entrance to the Golden Citadel (#698, ofcol2); worn (wielded) by the Ofcol cityguard (L19) in Outside the Entrance to the Golden Citadel (#699, ofcol2); worn (wielded) by the Ofcol cityguard (L19) in Outside the Entrance to the Golden Citadel (#699, ofcol2); worn (wielded) by the Ofcol cityguard (L19) in Outside the Entrance to the Golden Citadel (#699, ofcol2) |
+| 631 | silver plate | Armor | body | AC 8 · +10 Mana, +1 Str · _magic/anti-evil_ | worn (body) by Captain Derrick (L27) in The Temple of Ofcol (#669, ofcol2); worn (body) by Captain Jacklyn (L27) in Outside the Entrance to the Golden Citadel (#699, ofcol2) |
+| 632 | a silver helm | Armor | head | AC 8 · +5 Mana, +1 Dex · _magic/anti-evil_ | worn (head) by Captain Derrick (L27) in The Temple of Ofcol (#669, ofcol2); worn (head) by Captain Jacklyn (L27) in Outside the Entrance to the Golden Citadel (#699, ofcol2) |
+| 633 | silver leggings | Armor | legs | AC 8 · +5 Mana, +1 Int · _magic/anti-evil_ | worn (legs) by Captain Derrick (L27) in The Temple of Ofcol (#669, ofcol2) |
+| 634 | silver boots | Armor | feet | AC 8 · +5 Mana, +1 Wis · _magic/anti-evil_ | worn (feet) by Captain Derrick (L27) in The Temple of Ofcol (#669, ofcol2) |
+| 635 | silver gauntlets | Armor | hands | AC 8 · +5 Mana, +1 Con · _magic/anti-evil_ | worn (hands) by Captain Derrick (L27) in The Temple of Ofcol (#669, ofcol2) |
+| 636 | silver sleeves | Armor | arms | AC 8 · +5 Mana, +1 Hitroll · _magic/anti-evil_ | worn (arms) by Captain Jacklyn (L27) in Outside the Entrance to the Golden Citadel (#699, ofcol2) |
+| 637 | the silver shield | Armor | shield | AC 8 · +5 Mana, -3 AC · _magic/anti-evil_ | worn (shield) by Captain Jacklyn (L27) in Outside the Entrance to the Golden Citadel (#699, ofcol2) |
+| 638 | the silver girth | Armor | waist | AC 8 · +5 Mana, +1 Damroll · _magic/anti-evil_ | worn (waist) by Captain Jacklyn (L27) in Outside the Entrance to the Golden Citadel (#699, ofcol2) |
+| 639 | platinum plate | Armor | body | AC 9 · +15 HP, +2 Con · _magic/anti-evil_ | worn (body) by Marshall Diana (L33) in The Big Intersection (#601, ofcol2) |
+| 640 | the platinum helmet | Armor | head | AC 9 · +10 Mana, +2 Wis · _magic/anti-evil_ | worn (head) by Marshall Diana (L33) in The Big Intersection (#601, ofcol2) |
+| 641 | platinum leggings | Armor | legs | AC 9 · +10 HP, +2 Dex · _magic/anti-evil_ | worn (legs) by Marshall Diana (L33) in The Big Intersection (#601, ofcol2) |
+| 642 | platinum boots | Armor | feet | AC 9 · +10 HP, +100 Move · _magic/anti-evil_ | worn (feet) by Marshall Diana (L33) in The Big Intersection (#601, ofcol2) |
+| 643 | platinum gauntlets | Armor | hands | AC 9 · +10 HP, +2 Hitroll · _magic/anti-evil_ | worn (hands) by Marshall Diana (L33) in The Big Intersection (#601, ofcol2) |
+| 644 | platinum sleeves | Armor | arms | AC 9 · +10 HP, +2 Str · _magic/anti-evil_ | worn (arms) by Marshall Diana (L33) in The Big Intersection (#601, ofcol2) |
+| 645 | the platinum spiked shield | Armor | shield | AC 9 · +10 HP, +3 Damroll · _magic/anti-evil_ | worn (shield) by Marshall Diana (L33) in The Big Intersection (#601, ofcol2) |
+| 646 | the platinum girth | Armor | waist | AC 9 · +10 HP, -5 Save-Spell · _magic/anti-evil_ | worn (waist) by Marshall Diana (L33) in The Big Intersection (#601, ofcol2) |
+| 647 | holy Avenger | Weapon | wielded | dmg 5d6 (avg 18) · +1 Hitroll, +6 Damroll · _magic/anti-evil_ | worn (wielded) by Marshall Diana (L33) in The Big Intersection (#601, ofcol2) |
+| 648 | a shot of whiskey | Drink Con | — | val 5/5/5/0 | carried by Nyles the Bartender (L30) in Nyles' House of Ale (#609, ofcol2); carried by the Innkeeper (L42) in The Ivy Bush (#1116, shire); carried by the Innkeeper (L42) in The Green Dragon (#1144, shire) |
+| 649 | a quart of ale | Drink Con | — | val 50/50/3/0 | on the ground in Granny's Still Room (#600, ofcol2); carried by Nyles the Bartender (L30) in Nyles' House of Ale (#609, ofcol2); carried by the Innkeeper (L42) in The Ivy Bush (#1116, shire); carried by the Innkeeper (L42) in The Green Dragon (#1144, shire) |
+| 650 | a quart of port brew | Drink Con | — | val 50/50/4/0 | carried by Nyles the Bartender (L30) in Nyles' House of Ale (#609, ofcol2); carried by the Innkeeper (L42) in The Ivy Bush (#1116, shire); carried by the Innkeeper (L42) in The Green Dragon (#1144, shire) |
+| 651 | the citadel key | Key | — | — | carried by the Ofcol cityguard (L19) in Inside the Entrance to the Golden Citadel (#698, ofcol2); carried by the Ofcol cityguard (L19) in Inside the Entrance to the Golden Citadel (#698, ofcol2); carried by the Ofcol cityguard (L19) in Inside the Entrance to the Golden Citadel (#698, ofcol2); carried by the Ofcol cityguard (L19) in Outside the Entrance to the Golden Citadel (#699, ofcol2); carried by the Ofcol cityguard (L19) in Outside the Entrance to the Golden Citadel (#699, ofcol2); carried by the Ofcol cityguard (L19) in Outside the Entrance to the Golden Citadel (#699, ofcol2) |
+| 652 | the Holy Symbol of Bahamut | Armor | neck | AC 8 · +10 Mana, +2 Wis · _magic/bless/anti-evil/anti-neutral_ | worn (neck) by the Priestess of Ofcol (L30) in The Temple of Ofcol (#669, ofcol2) |
+| 653 | a ranseur | Weapon | wielded | dmg 5d6 (avg 18) · +5 Hitroll, -1 Damroll · _magic/anti-evil_ | worn (wielded) by Captain Derrick (L27) in The Temple of Ofcol (#669, ofcol2); worn (wielded) by Captain Jacklyn (L27) in Outside the Entrance to the Golden Citadel (#699, ofcol2) |
+| 654 | a golden dragonscale torso | Armor | body | AC 9 · -5 AC, +2 Hitroll · _magic/anti-evil_ | worn (body) by a Dragonknight (L21) in A Hallway of the Golden Citadel (#676, ofcol2); worn (body) by a Dragonknight (L21) in A Hallway of the Golden Citadel (#681, ofcol2); worn (body) by a Dragonlord (L29) in The Hall of the DragonLords (#688, ofcol2); worn (body) by a Dragonlord (L29) in The Hall of the DragonLords (#688, ofcol2); worn (body) by a Dragonlord (L29) in The Hall of the DragonLords (#688, ofcol2); worn (body) by a Dragonknight (L21) in An Upper Chamber of the Golden Citadel (#690, ofcol2) |
+| 655 | a golden dragonhelm | Armor | head | AC 9 · -3 AC, +1 Hitroll · _magic/anti-evil_ | ⚠️ not placed (unobtainable in normal play) |
+| 656 | golden dragonscale leggings | Armor | legs | AC 9 · -3 AC, +1 Hitroll · _magic/anti-evil_ | worn (head) by a Dragonlord (L29) in The Hall of the DragonLords (#688, ofcol2) |
+| 657 | golden dragonscale boots | Armor | feet | AC 9 · -3 AC, +1 Hitroll · _magic/anti-evil_ | worn (legs) by a Dragonlord (L29) in The Hall of the DragonLords (#688, ofcol2); worn (feet) by a Dragonlord (L29) in The Hall of the DragonLords (#688, ofcol2) |
+| 658 | golden dragonscale gauntlets | Armor | hands | AC 9 · -3 AC, +1 Hitroll · _magic/anti-evil_ | worn (hands) by a Dragonlord (L29) in The Hall of the DragonLords (#688, ofcol2) |
+| 659 | golden dragonscale sleeves | Armor | arms | AC 9 · -3 AC, +1 Hitroll · _magic/anti-evil_ | worn (arms) by a Dragonlord (L29) in The Hall of the DragonLords (#688, ofcol2) |
+| 660 | a golden dragonscale shield | Armor | shield | AC 9 · -3 AC, +1 Hitroll · _magic/anti-evil_ | worn (shield) by a Dragonknight (L21) in A Hallway of the Golden Citadel (#676, ofcol2); worn (shield) by a Dragonknight (L21) in A Hallway of the Golden Citadel (#681, ofcol2); worn (shield) by a Dragonlord (L29) in The Hall of the DragonLords (#688, ofcol2); worn (shield) by a Dragonlord (L29) in The Hall of the DragonLords (#688, ofcol2); worn (shield) by a Dragonlord (L29) in The Hall of the DragonLords (#688, ofcol2); worn (shield) by a Dragonknight (L21) in An Upper Chamber of the Golden Citadel (#690, ofcol2) |
+| 661 | a golden dragonscale girth | Armor | waist | AC 9 · -3 AC, +1 Hitroll · _magic/anti-evil_ | worn (waist) by a Dragonlord (L29) in The Hall of the DragonLords (#688, ofcol2) |
+| 662 | the Golden Claw | Weapon | wielded | dmg 5d5 (avg 15) · +6 Damroll · _magic/anti-evil_ | worn (wielded) by a Dragonknight (L21) in A Hallway of the Golden Citadel (#676, ofcol2); worn (wielded) by a Dragonknight (L21) in A Hallway of the Golden Citadel (#681, ofcol2); worn (wielded) by a Dragonlord (L29) in The Hall of the DragonLords (#688, ofcol2); worn (wielded) by a Dragonlord (L29) in The Hall of the DragonLords (#688, ofcol2); worn (wielded) by a Dragonlord (L29) in The Hall of the DragonLords (#688, ofcol2); worn (wielded) by a Dragonknight (L21) in An Upper Chamber of the Golden Citadel (#690, ofcol2); worn (wielded) by The Ancient Gold Dragon (L37) in The Dragon Chamber (#693, ofcol2) |
+| 663 | the Gold Dragon Orb | Staff | held | 10 charges · +3 Int, +3 Wis · _magic/anti-evil/anti-neutral_ | worn (held) by The Ancient Gold Dragon (L37) in The Dragon Chamber (#693, ofcol2) |
+| 664 | a golden robe | Armor | about | AC 9 · +3 Int · _magic/anti-evil_ | worn (about body) by the Priestess of Ofcol (L30) in The Temple of Ofcol (#669, ofcol2); worn (about body) by Chaplain Jerrold (L20) in The Hall of the DragonLords (#688, ofcol2); worn (about body) by an attendant of the dragon (L21) in The Dragon Chamber (#693, ofcol2); worn (about body) by an attendant of the dragon (L21) in The Dragon Chamber (#693, ofcol2) |
+| 665 | a house key | Key | — | — | carried by the maid (L5) in Bedroom (#627, ofcol2); carried by the maid (L5) in Big House (#629, ofcol2); carried by the maid (L5) in Big House (#643, ofcol2) |
+| 666 | a broom | Weapon | wielded | dmg 2d3 (avg 4) · +3 Hitroll, -3 Damroll | worn (wielded) by the maid (L5) in Bedroom (#627, ofcol2); worn (wielded) by the maid (L5) in Big House (#629, ofcol2); worn (wielded) by the maid (L5) in Big House (#643, ofcol2) |
+| 667 | a chest | Container | — | holds 100 | carried by Jim the Blacksmith (L30) in The Blacksmith (#603, ofcol2) |
 
 ### Generic Olympus  `(olympus)`
 
 28 items
 
-| VNUM | Item | Type | Worn | Stats / value / flags |
-|---:|---|---|---|---|
-| 900 | the Aegis | Armor | body | AC 10 · +1 Str · _magic/anti-evil_ |
-| 901 | the Thunder Bolt | Weapon | wielded | dmg 6d5 (avg 18) · +3 Hitroll · _magic/anti-evil_ |
-| 902 | a Winged Helmet | Armor | head | AC 10 · +2 Dex · _magic/anti-evil_ |
-| 903 | the Spear of Ares | Armor | neck | +2 Hitroll, +2 Damroll · _magic/anti-good_ |
-| 904 | a pair of winged sandals | Armor | feet | AC 8 · _magic/anti-evil_ |
-| 905 | an ivory staff | Staff | held | 3 charges · _magic/anti-evil_ |
-| 906 | poseidon's Trident | Weapon | wielded | dmg 3d8 (avg 14) · +2 Wis · _magic/anti-evil_ |
-| 907 | a silver bow | Weapon | wielded | dmg 4d4 (avg 10) · +1 Hitroll, +1 Damroll · _magic/anti-evil_ |
-| 908 | flaming gauntlets | Armor | hands | AC 7 · +25 HP · _magic/anti-evil_ |
-| 909 | ambrosia | Potion | — | val 30/22/28/28 · _magic/nodrop/anti-evil_ |
-| 910 | a glowing necklace | Armor | neck | AC 4 · +25 Mana · _magic/anti-evil_ |
-| 911 | a sapphire ring | Armor | finger | AC 5 · +2 Wis, +4 Damroll · _magic/anti-evil_ |
-| 912 | a brightly glowing shield | Armor | shield | AC 9 · +1 Wis · _magic/anti-evil_ |
-| 913 | a notched axe | Weapon | wielded | dmg 4d4 (avg 10) · _magic/anti-evil_ |
-| 914 | a bunch of grapes | Food | — | val 24/0/0/0 |
-| 915 | a fan made of peacock feathers | Trash | — | — |
-| 916 | a lute | Trash | — | — |
-| 917 | a gold nugget | Treasure | — | — |
-| 918 | an apple | Pill | — | val 24/0/0/16 |
-| 919 | a pear | Pill | — | val 24/0/0/43 |
-| 920 | a orange | Pill | — | val 24/0/0/1 |
-| 921 | a kiwi | Pill | — | val 24/0/0/43 |
-| 922 | the Amulet of Ra | Armor | neck | AC 2 · +50 Mana · _magic/anti-evil_ |
-| 923 | the Sword of the Sun | Weapon | wielded | dmg 6d5 (avg 18) · +2 Damroll · _magic/anti-evil_ |
-| 924 | a blue robe | Armor | about | AC 6 · +15 HP · _magic/anti-evil_ |
-| 925 | a wide brimmed hat | Armor | head | AC 4 · _magic/anti-evil_ |
-| 926 | nectar | Potion | — | val 12/36/39/1 · _nodrop_ |
-| 927 | a Cell key | Key | — | — |
+| VNUM | Item | Type | Worn | Stats / value / flags | Found |
+|---:|---|---|---|---|---|
+| 900 | the Aegis | Armor | body | AC 10 · +1 Str · _magic/anti-evil_ | worn (body) by Zeus (L35) in Throne Room (#910, olympus) |
+| 901 | the Thunder Bolt | Weapon | wielded | dmg 6d5 (avg 18) · +3 Hitroll · _magic/anti-evil_ | worn (wielded) by Zeus (L35) in Throne Room (#910, olympus) |
+| 902 | a Winged Helmet | Armor | head | AC 10 · +2 Dex · _magic/anti-evil_ | worn (head) by Hermes (L33) in Bed Room (#947, olympus) |
+| 903 | the Spear of Ares | Armor | neck | +2 Hitroll, +2 Damroll · _magic/anti-good_ | worn (wielded) by Ares (L35) in The Planning Room (#938, olympus) |
+| 904 | a pair of winged sandals | Armor | feet | AC 8 · _magic/anti-evil_ | carried by Samuel the Armourer (L20) in Armoury (#935, olympus); worn (feet) by Hermes (L33) in Bed Room (#947, olympus) |
+| 905 | an ivory staff | Staff | held | 3 charges · _magic/anti-evil_ | worn (held) by Athena (L33) in Residence (#925, olympus); carried by the Alchemist (L34) in Mystic Shop (#927, olympus) |
+| 906 | poseidon's Trident | Weapon | wielded | dmg 3d8 (avg 14) · +2 Wis · _magic/anti-evil_ | worn (wielded) by Poseidon (L35) in Bed Room (#946, olympus) |
+| 907 | a silver bow | Weapon | wielded | dmg 4d4 (avg 10) · +1 Hitroll, +1 Damroll · _magic/anti-evil_ | worn (wielded) by Apollo (L34) in Residence (#926, olympus); carried by Clive the Weapons Master (L30) in Weapon Shop (#936, olympus) |
+| 908 | flaming gauntlets | Armor | hands | AC 7 · +25 HP · _magic/anti-evil_ | worn (hands) by Prometheus (L31) in Cell (#920, olympus); carried by Samuel the Armourer (L20) in Armoury (#935, olympus) |
+| 909 | ambrosia | Potion | — | val 30/22/28/28 · _magic/nodrop/anti-evil_ | carried by Zeus (L35) in Throne Room (#910, olympus); carried by Athena (L33) in Residence (#925, olympus); carried by Apollo (L34) in Residence (#926, olympus); carried by the Alchemist (L34) in Mystic Shop (#927, olympus); carried by Hephaestus (L33) in Smithy (#937, olympus); carried by Ares (L35) in The Planning Room (#938, olympus); carried by Hera (L35) in Bed Room (#945, olympus); carried by Poseidon (L35) in Bed Room (#946, olympus); carried by Hermes (L33) in Bed Room (#947, olympus) |
+| 910 | a glowing necklace | Armor | neck | AC 4 · +25 Mana · _magic/anti-evil_ | worn (neck) by Athena (L33) in Residence (#925, olympus); carried by the Alchemist (L34) in Mystic Shop (#927, olympus) |
+| 911 | a sapphire ring | Armor | finger | AC 5 · +2 Wis, +4 Damroll · _magic/anti-evil_ | carried by Samuel the Armourer (L20) in Armoury (#935, olympus); worn (left finger) by Hera (L35) in Bed Room (#945, olympus) |
+| 912 | a brightly glowing shield | Armor | shield | AC 9 · +1 Wis · _magic/anti-evil_ | worn (shield) by Hephaestus (L33) in Smithy (#937, olympus) |
+| 913 | a notched axe | Weapon | wielded | dmg 4d4 (avg 10) · _magic/anti-evil_ | carried by Clive the Weapons Master (L30) in Weapon Shop (#936, olympus); worn (wielded) by A Soldier (L20) in The Planning Room (#938, olympus); worn (wielded) by A Soldier (L20) in The Planning Room (#938, olympus) |
+| 914 | a bunch of grapes | Food | — | val 24/0/0/0 | carried by Julius the Green Grocer (L30) in Bakery (#924, olympus); carried by A serving boy (L6) in Residence (#925, olympus); carried by A serving boy (L6) in Residence (#925, olympus) |
+| 915 | a fan made of peacock feathers | Trash | — | — | worn (held) by A serving boy (L6) in Residence (#925, olympus); worn (held) by A serving boy (L6) in Residence (#925, olympus) |
+| 916 | a lute | Trash | — | — | worn (held) by an apprentice musician (L8) in Residence (#926, olympus); worn (held) by an apprentice musician (L8) in Residence (#926, olympus) |
+| 917 | a gold nugget | Treasure | — | — | carried by A Golden Maiden (L15) in Smithy (#937, olympus); carried by A Golden Maiden (L15) in Smithy (#937, olympus) |
+| 918 | an apple | Pill | — | val 24/0/0/16 | carried by Julius the Green Grocer (L30) in Bakery (#924, olympus) |
+| 919 | a pear | Pill | — | val 24/0/0/43 | carried by Julius the Green Grocer (L30) in Bakery (#924, olympus); carried by A Soldier (L20) in The Planning Room (#938, olympus); carried by A Soldier (L20) in The Planning Room (#938, olympus) |
+| 920 | a orange | Pill | — | val 24/0/0/1 | carried by Julius the Green Grocer (L30) in Bakery (#924, olympus) |
+| 921 | a kiwi | Pill | — | val 24/0/0/43 | carried by Julius the Green Grocer (L30) in Bakery (#924, olympus); carried by an apprentice musician (L8) in Residence (#926, olympus); carried by an apprentice musician (L8) in Residence (#926, olympus) |
+| 922 | the Amulet of Ra | Armor | neck | AC 2 · +50 Mana · _magic/anti-evil_ | worn (neck) by Ra the Sun God (L35) in Guest Quarters (#931, olympus) |
+| 923 | the Sword of the Sun | Weapon | wielded | dmg 6d5 (avg 18) · +2 Damroll · _magic/anti-evil_ | worn (wielded) by Ra the Sun God (L35) in Guest Quarters (#931, olympus) |
+| 924 | a blue robe | Armor | about | AC 6 · +15 HP · _magic/anti-evil_ | worn (about body) by Odin (L35) in Guest Quarters (#929, olympus) |
+| 925 | a wide brimmed hat | Armor | head | AC 4 · _magic/anti-evil_ | worn (head) by Odin (L35) in Guest Quarters (#929, olympus) |
+| 926 | nectar | Potion | — | val 12/36/39/1 · _nodrop_ | carried by Zeus (L35) in Throne Room (#910, olympus); carried by Athena (L33) in Residence (#925, olympus); carried by Apollo (L34) in Residence (#926, olympus); carried by the Alchemist (L34) in Mystic Shop (#927, olympus); carried by Hephaestus (L33) in Smithy (#937, olympus); carried by Ares (L35) in The Planning Room (#938, olympus); carried by Hera (L35) in Bed Room (#945, olympus); carried by Poseidon (L35) in Bed Room (#946, olympus); carried by Hermes (L33) in Bed Room (#947, olympus) |
+| 927 | a Cell key | Key | — | — | carried by The Jailer (L13) in Dungeon (#918, olympus) |
 
 ### Copper Plains of the North  `(plains)`
 
 11 items
 
-| VNUM | Item | Type | Worn | Stats / value / flags |
-|---:|---|---|---|---|
-| 300 | a small dusk of timian herbs | Food | — | val 1/0/0/0 |
-| 301 | a small dusk of black gyvel | Food | — | val 1/0/0/0 |
-| 302 | a small dusk of poison ivy | Food | — | val 1/0/0/1 |
-| 303 | a dark red jar | Drink Con | — | val 2/2/13/0 |
-| 304 | wild flowers | Trash | head/held | _anti-evil_ |
-| 307 | a strange amulet | Armor | neck | AC 2 · +5 Save-Rod · _magic/nodrop_ |
-| 308 | a druish staff | Furniture | held | — |
-| 309 | a rabbit roast | Food | — | val 24/0/0/0 |
-| 310 | a strange template | Scroll | held | val 15/38/4/26 · _magic_ |
-| 311 | a clear potion | Potion | — | val 20/18/19/20 · _magic/nodrop_ |
-| 312 | a scroll titled 'jhyfrdow' | Scroll | — | — |
+| VNUM | Item | Type | Worn | Stats / value / flags | Found |
+|---:|---|---|---|---|---|
+| 300 | a small dusk of timian herbs | Food | — | val 1/0/0/0 | on the ground in The foothills (#327, plains) |
+| 301 | a small dusk of black gyvel | Food | — | val 1/0/0/0 | on the ground in Grassy plains (#319, plains) |
+| 302 | a small dusk of poison ivy | Food | — | val 1/0/0/1 | carried by Aruncus the Druid (L13) in The steep foothills (#323, plains) |
+| 303 | a dark red jar | Drink Con | — | val 2/2/13/0 | carried by Sorbus the Hermit (L4) in Hermit's hut (#331, plains) |
+| 304 | wild flowers | Trash | head/held | _anti-evil_ | on the ground in Grassy plains (#316, plains); on the ground in The steep foothills (#323, plains); on the ground in Grassy plains (#338, plains); carried by Luxan (L23) in Luxan's mixed shop (#5555, ofcol) |
+| 307 | a strange amulet | Armor | neck | AC 2 · +5 Save-Rod · _magic/nodrop_ | worn (neck) by Aruncus the Druid (L13) in The steep foothills (#323, plains) |
+| 308 | a druish staff | Furniture | held | — | worn (held) by Aruncus the Druid (L13) in The steep foothills (#323, plains) |
+| 309 | a rabbit roast | Food | — | val 24/0/0/0 | on the ground in Hermit's hut (#331, plains) |
+| 310 | a strange template | Scroll | held | val 15/38/4/26 · _magic_ | carried by Shudde-M'ell (L24) in The Hall of G'harne (#344, plains) |
+| 311 | a clear potion | Potion | — | val 20/18/19/20 · _magic/nodrop_ | carried by Shudde-M'ell (L24) in The Hall of G'harne (#344, plains) |
+| 312 | a scroll titled 'jhyfrdow' | Scroll | — | — | carried by Aruncus the Druid (L13) in The steep foothills (#323, plains) |
 
 ### Hatchet The Rats Lair  `(rats)`
 
 23 items
 
-| VNUM | Item | Type | Worn | Stats / value / flags |
-|---:|---|---|---|---|
-| 3801 | a silver key | Key | — | val 3838/0/0/0 |
-| 3802 | a key on a necklace | Key | neck | val 3827/0/0/0 |
-| 3803 | an iron key | Key | — | val 3831/0/0/0 |
-| 3804 | the walls | Container | — | holds 300 |
-| 3805 | the walls of the cave | Container | — | holds 300 |
-| 3806 | the box | Container | — | holds 300 |
-| 3807 | the crate | Container | — | holds 300 |
-| 3808 | the table | Container | — | holds 300 |
-| 3809 | the stool | Weapon | wielded | dmg 2d2 (avg 3) · -1 Hitroll, +2 Damroll |
-| 3810 | food fit for rats | Food | — | val 15/0/0/0 |
-| 3811 | a wooden stake | Weapon | wielded | dmg 2d2 (avg 3) |
-| 3812 | the shrine | Container | — | holds 200 |
-| 3813 | a long rusted knife | Weapon | wielded | dmg 2d3 (avg 4) · +1 Damroll |
-| 3814 | a tin bracer | Armor | wrist | AC 4 |
-| 3815 | tin leggings | Armor | legs | AC 4 |
-| 3816 | tin armguards | Armor | arms | AC 4 |
-| 3817 | a spiked flail | Weapon | wielded | dmg 3d3 (avg 6) · +2 Damroll |
-| 3818 | a barbed whip | Weapon | wielded | dmg 3d4 (avg 8) · +1 Hitroll, +1 Damroll |
-| 3819 | holy Rod of Icaza | Staff | held | 3 charges · -5 AC, -2 Save-Spell, +1 Int · _glow/hum/magic/bless/anti-evil/anti-neutral_ |
-| 3820 | a torch | Light | — | 99h light |
-| 3821 | the treasure of gold coins | Money | — | val 2000/0/0/0 · _glow_ |
-| 3822 | a sapphire gem | Treasure | — | — |
-| 3823 | a ruby gem | Treasure | — | — |
+| VNUM | Item | Type | Worn | Stats / value / flags | Found |
+|---:|---|---|---|---|---|
+| 3801 | a silver key | Key | — | val 3838/0/0/0 | on the ground in The Treasure Room (#3827, rats) |
+| 3802 | a key on a necklace | Key | neck | val 3827/0/0/0 | worn (neck) by a firedrake (L7) in The Firedrake's Lair (#3826, rats) |
+| 3803 | an iron key | Key | — | val 3831/0/0/0 | carried by a wererat slavemaster (L6) in A T-Intersection in the Tunnels (#3830, rats) |
+| 3804 | the walls | Container | — | holds 300 | on the ground in A Hallway (#3802, rats); on the ground in A Dim Hallway (#3803, rats); on the ground in A Dim Hallway Above the Stairway (#3804, rats); on the ground in Beneath the Old Stairway (#3811, rats); on the ground in A Dark Hallway (#3812, rats); on the ground in A Dark Hallway (#3813, rats); on the ground in A Dark Hallway (#3814, rats); on the ground in A Stairway (#3823, rats); on the ground in A Meeting Room (#3824, rats) |
+| 3805 | the walls of the cave | Container | — | holds 300 | on the ground in A Rough Tunnel (#3829, rats); on the ground in A T-Intersection in the Tunnels (#3830, rats); on the ground in A Bend in the Tunnels (#3832, rats); on the ground in A T-Intersection in the Tunnels (#3833, rats); on the ground in An End of the Tunnel (#3834, rats); on the ground in An End of the Tunnel (#3835, rats); on the ground in The Tunnel (#3836, rats); on the ground in An End of the Tunnel (#3837, rats); on the ground in A Small Shrine (#3838, rats) |
+| 3806 | the box | Container | — | holds 300 | ⚠️ not placed (unobtainable in normal play) |
+| 3807 | the crate | Container | — | holds 300 | ⚠️ not placed (unobtainable in normal play) |
+| 3808 | the table | Container | — | holds 300 | ⚠️ not placed (unobtainable in normal play) |
+| 3809 | the stool | Weapon | wielded | dmg 2d2 (avg 3) · -1 Hitroll, +2 Damroll | ⚠️ not placed (unobtainable in normal play) |
+| 3810 | food fit for rats | Food | — | val 15/0/0/0 | ⚠️ not placed (unobtainable in normal play) |
+| 3811 | a wooden stake | Weapon | wielded | dmg 2d2 (avg 3) | worn (wielded) by a wererat (L4) in A Small Storage Room (#3806, rats); worn (wielded) by a wererat (L4) in A Meeting Room (#3824, rats); worn (wielded) by a wererat (L4) in A Meeting Room (#3824, rats); worn (wielded) by a wererat (L4) in A Meeting Room (#3824, rats) |
+| 3812 | the shrine | Container | — | holds 200 | on the ground in A Small Shrine (#3838, rats) |
+| 3813 | a long rusted knife | Weapon | wielded | dmg 2d3 (avg 4) · +1 Damroll | worn (wielded) by a wererat guard (L5) in A Storage Room (#3815, rats); worn (wielded) by a wererat guard (L5) in A Storage Room (#3815, rats); worn (wielded) by a wererat guard (L5) in A Storage Room (#3816, rats); worn (wielded) by a wererat guard (L5) in A Storage Room (#3816, rats) |
+| 3814 | a tin bracer | Armor | wrist | AC 4 | worn (left wrist) by the wererat leader (L7) in The Leader's Quarters (#3828, rats); worn (right wrist) by the wererat leader (L7) in The Leader's Quarters (#3828, rats); worn (left wrist) by a wererat slavemaster (L6) in A T-Intersection in the Tunnels (#3830, rats); worn (right wrist) by a wererat slavemaster (L6) in A T-Intersection in the Tunnels (#3830, rats) |
+| 3815 | tin leggings | Armor | legs | AC 4 | worn (legs) by a wererat guard (L5) in A Storage Room (#3815, rats); worn (legs) by a wererat guard (L5) in A Storage Room (#3815, rats); worn (legs) by the wererat leader (L7) in The Leader's Quarters (#3828, rats) |
+| 3816 | tin armguards | Armor | arms | AC 4 | worn (arms) by a wererat guard (L5) in A Storage Room (#3816, rats); worn (arms) by a wererat guard (L5) in A Storage Room (#3816, rats); worn (arms) by the wererat leader (L7) in The Leader's Quarters (#3828, rats) |
+| 3817 | a spiked flail | Weapon | wielded | dmg 3d3 (avg 6) · +2 Damroll | worn (wielded) by the wererat leader (L7) in The Leader's Quarters (#3828, rats) |
+| 3818 | a barbed whip | Weapon | wielded | dmg 3d4 (avg 8) · +1 Hitroll, +1 Damroll | worn (wielded) by a wererat slavemaster (L6) in A T-Intersection in the Tunnels (#3830, rats) |
+| 3819 | holy Rod of Icaza | Staff | held | 3 charges · -5 AC, -2 Save-Spell, +1 Int · _glow/hum/magic/bless/anti-evil/anti-neutral_ | inside the shrine (#3812) — on the ground in A Small Shrine (#3838, rats) |
+| 3820 | a torch | Light | — | 99h light | inside the walls (#3804) — on the ground in A Hallway (#3802, rats); inside the walls (#3804) — on the ground in A Hallway (#3802, rats); inside the walls (#3804) — on the ground in A Hallway (#3802, rats); inside the walls (#3804) — on the ground in A Hallway (#3802, rats); inside the walls (#3804) — on the ground in A Hallway (#3802, rats); inside the walls (#3804) — on the ground in A Hallway (#3802, rats); inside the walls (#3804) — on the ground in A Hallway (#3802, rats); inside the walls (#3804) — on the ground in A Hallway (#3802, rats); inside the walls (#3804) — on the ground in A Hallway (#3802, rats) |
+| 3821 | the treasure of gold coins | Money | — | val 2000/0/0/0 · _glow_ | on the ground in The Treasure Room (#3827, rats) |
+| 3822 | a sapphire gem | Treasure | — | — | inside the walls of the cave (#3805) — on the ground in A Rough Tunnel (#3829, rats); inside the walls of the cave (#3805) — on the ground in A Rough Tunnel (#3829, rats); inside the walls of the cave (#3805) — on the ground in A Rough Tunnel (#3829, rats); inside the walls of the cave (#3805) — on the ground in A Rough Tunnel (#3829, rats); inside the walls of the cave (#3805) — on the ground in A Rough Tunnel (#3829, rats) |
+| 3823 | a ruby gem | Treasure | — | — | inside the walls of the cave (#3805) — on the ground in A Rough Tunnel (#3829, rats); inside the walls of the cave (#3805) — on the ground in A Rough Tunnel (#3829, rats); inside the walls of the cave (#3805) — on the ground in A Rough Tunnel (#3829, rats); inside the walls of the cave (#3805) — on the ground in A Rough Tunnel (#3829, rats) |
 
 ### Diku Redferne's Residence  `(redferne)`
 
 3 items
 
-| VNUM | Item | Type | Worn | Stats / value / flags |
-|---:|---|---|---|---|
-| 7909 | a huge treasure | Money | — | val -100/0/0/0 |
-| 7910 | a wooden chest | Container | — | holds 100 |
-| 7911 | a small brass key | Key | — | val 7910/0/0/0 |
+| VNUM | Item | Type | Worn | Stats / value / flags | Found |
+|---:|---|---|---|---|---|
+| 7909 | a huge treasure | Money | — | val -100/0/0/0 | on the ground in The Artifact room of Naris (#7903, redferne) |
+| 7910 | a wooden chest | Container | — | holds 100 | on the ground in The Treasure room (#7910, redferne) |
+| 7911 | a small brass key | Key | — | val 7910/0/0/0 | carried by the Grand Knight of paladins (L29) in Outside Redferne's residence (#7900, redferne) |
 
 ### Malucif The Renegades Headquarters  `(renegades)`
 
 2 items
 
-| VNUM | Item | Type | Worn | Stats / value / flags |
-|---:|---|---|---|---|
-| 9950 | A White Marble Tomb with Etching | Furniture | — | — |
-| 9951 | The wall | Furniture | — | — |
+| VNUM | Item | Type | Worn | Stats / value / flags | Found |
+|---:|---|---|---|---|---|
+| 9950 | A White Marble Tomb with Etching | Furniture | — | — | on the ground in Sanctuary (#9952, renegades) |
+| 9951 | The wall | Furniture | — | — | on the ground in Memorial (#9960, renegades) |
 
 ### Hatchet Mud School  `(school)`
 
 17 items
 
-| VNUM | Item | Type | Worn | Stats / value / flags |
-|---:|---|---|---|---|
-| 3700 | a sub issue mace | Weapon | wielded | dmg 2d3 (avg 4) · +1 Hitroll, +1 Damroll · _magic_ |
-| 3701 | a sub issue dagger | Weapon | wielded | dmg 2d3 (avg 4) · -5 AC, +1 Hitroll, +1 Damroll · _magic_ |
-| 3702 | a sub issue sword | Weapon | wielded | dmg 2d3 (avg 4) · +1 Hitroll, +1 Damroll · _magic_ |
-| 3703 | a sub issue vest | Armor | body | AC 2 |
-| 3704 | a sub issue shield | Armor | shield | AC 2 |
-| 3705 | a sub issue cloak | Armor | neck | AC 2 |
-| 3706 | a sub issue helmet | Armor | head | AC 2 |
-| 3707 | a pair of sub issue leggings | Armor | legs | AC 2 |
-| 3708 | a pair of sub issue boots | Armor | feet | AC 2 |
-| 3709 | a pair of sub issue gloves | Armor | hands | AC 2 |
-| 3710 | a pair of sub issue sleeves | Armor | arms | AC 2 |
-| 3711 | a sub issue cape | Armor | about | AC 2 |
-| 3712 | a sub issue belt | Armor | waist | AC 2 |
-| 3713 | a sub issue bracer | Armor | wrist | AC 2 |
-| 3714 | a key | Key | — | — |
-| 3715 | a mud school diploma | Treasure | held | +1 Con, +1 Wis · _magic_ |
-| 3716 | a war banner | Light | — | infinite light · -1 Save-Spell, -1 AC · _glow/magic_ |
+| VNUM | Item | Type | Worn | Stats / value / flags | Found |
+|---:|---|---|---|---|---|
+| 3700 | a sub issue mace | Weapon | wielded | dmg 2d3 (avg 4) · +1 Hitroll, +1 Damroll · _magic_ | ⚠️ not placed (unobtainable in normal play) |
+| 3701 | a sub issue dagger | Weapon | wielded | dmg 2d3 (avg 4) · -5 AC, +1 Hitroll, +1 Damroll · _magic_ | ⚠️ not placed (unobtainable in normal play) |
+| 3702 | a sub issue sword | Weapon | wielded | dmg 2d3 (avg 4) · +1 Hitroll, +1 Damroll · _magic_ | ⚠️ not placed (unobtainable in normal play) |
+| 3703 | a sub issue vest | Armor | body | AC 2 | ⚠️ not placed (unobtainable in normal play) |
+| 3704 | a sub issue shield | Armor | shield | AC 2 | ⚠️ not placed (unobtainable in normal play) |
+| 3705 | a sub issue cloak | Armor | neck | AC 2 | worn (neck) by the monster (L1) in A Cage (#3716, school); worn (neck) by the monster (L1) in A Cage (#3716, school) |
+| 3706 | a sub issue helmet | Armor | head | AC 2 | worn (head) by the wimpy monster (L1) in A Cage (#3715, school) |
+| 3707 | a pair of sub issue leggings | Armor | legs | AC 2 | worn (legs) by the aggressive monster (L1) in A Cage (#3713, school) |
+| 3708 | a pair of sub issue boots | Armor | feet | AC 2 | worn (feet) by the wimpy aggressive monster (L1) in A Cage (#3714, school) |
+| 3709 | a pair of sub issue gloves | Armor | hands | AC 2 | worn (hands) by the big creature (L2) in The Darkened Room (#3720, school) |
+| 3710 | a pair of sub issue sleeves | Armor | arms | AC 2 | worn (arms) by the big creature (L2) in The Darkened Room (#3720, school) |
+| 3711 | a sub issue cape | Armor | about | AC 2 | worn (about body) by the wimpy monster (L1) in A Cage (#3715, school) |
+| 3712 | a sub issue belt | Armor | waist | AC 2 | worn (waist) by the aggressive monster (L1) in A Cage (#3713, school) |
+| 3713 | a sub issue bracer | Armor | wrist | AC 2 | worn (left wrist) by the wimpy aggressive monster (L1) in A Cage (#3714, school); worn (left wrist) by the big creature (L2) in The Darkened Room (#3720, school) |
+| 3714 | a key | Key | — | — | worn (held) by the big creature (L2) in The Darkened Room (#3720, school) |
+| 3715 | a mud school diploma | Treasure | held | +1 Con, +1 Wis · _magic_ | worn (held) by the diploma beast (L3) in The End of Mud School! (#3721, school) |
+| 3716 | a war banner | Light | — | infinite light · -1 Save-Spell, -1 AC · _glow/magic_ | ⚠️ not placed (unobtainable in normal play) |
 
 ### Diku Sewer  `(sewer)`
 
 33 items
 
-| VNUM | Item | Type | Worn | Stats / value / flags |
-|---:|---|---|---|---|
-| 7190 | a glinting ring of silver | Armor | finger | AC 4 · +1 Hitroll · _magic_ |
-| 7200 | the devil rod | Weapon | wielded | dmg 3d5 (avg 9) · +2 Hitroll, +1 Str · _magic_ |
-| 7201 | the large mace | Weapon | wielded | dmg 2d6 (avg 7) · +2 Damroll · _magic_ |
-| 7202 | the small mace | Weapon | wielded | dmg 2d5 (avg 6) · +1 Damroll · _magic_ |
-| 7203 | a purple cloak | Armor | neck | AC 6 · -1 Save-Spell · _magic_ |
-| 7204 | an neon blue potion | Potion | — | val 14/15/29/42 · _magic/nodrop_ |
-| 7205 | a black key | Key | — | — |
-| 7206 | a strange white skull | Armor | head | AC 1 · -4 Dex · _magic/nodrop_ |
-| 7208 | a small stick | Light | held | 120h light |
-| 7209 | a pair of muddy boots | Armor | feet | AC 3 · +1 Dex · _magic_ |
-| 7210 | a huge treasure | Money | — | val 6000/0/0/0 |
-| 7211 | a short sword | Weapon | wielded | dmg 2d4 (avg 5) · +1 Hitroll |
-| 7216 | a red dragon claw | Weapon | wielded | dmg 4d4 (avg 10) · +5 AC, +5 Damroll · _magic/anti-good_ |
-| 7217 | a silvery breast plate | Armor | body | AC 8 · +3 Str · _magic/bless/anti-evil/anti-neutral_ |
-| 7218 | some silvery leg plates | Armor | legs | AC 8 · +3 Int · _magic/bless/anti-evil/anti-neutral_ |
-| 7219 | a pair of silvery gloves | Armor | hands | AC 8 · +3 Hitroll, +1 Hitroll · _magic/bless/anti-evil/anti-neutral_ |
-| 7220 | a silvery helmet | Armor | head | AC 9 · +3 Wis · _magic/bless/anti-evil/anti-neutral_ |
-| 7221 | the shield of the rose | Armor | shield | AC 10 · -10 AC · _magic/bless/anti-evil/anti-neutral_ |
-| 7222 | a pair of silvery boots | Armor | feet | AC 8 · +3 Dex · _magic/bless/anti-evil/anti-neutral_ |
-| 7223 | some silvery arm plates | Armor | arms | AC 8 · +3 Con · _magic/bless/anti-evil/anti-neutral_ |
-| 7224 | a white cloak | Armor | about | AC 10 · -5 Save-Spell · _magic/bless/anti-evil/anti-neutral_ |
-| 7298 | a huge treasure | Money | — | val 1000/0/0/0 |
-| 7299 | a short sword | Weapon | wielded | dmg 2d5 (avg 6) |
-| 7300 | a backpack | Container | about | holds 60 |
-| 7301 | a large beltpouch | Container | waist | holds 5 |
-| 7303 | the Red DragonOrb | Staff | held | 10 charges · +2 Int, +2 Wis · _magic/anti-good_ |
-| 7304 | a red dragon torso | Armor | body | AC 9 · -1 Dex, +2 Damroll · _magic/anti-good_ |
-| 7305 | red dragonscale leggings | Armor | legs | AC 9 · -1 Dex, +2 Damroll · _magic/anti-good_ |
-| 7306 | a pair of red dragon claws | Furniture | hands | val 9/0/0/0 · +2 Damroll · _magic/anti-good_ |
-| 7307 | a red dragonhelm | Armor | head | AC 9 · -1 Dex, +2 Damroll, +2 Wis · _magic/anti-good_ |
-| 7308 | the red dragon shield | Armor | shield | AC 10 · +2 Damroll · _magic/anti-good_ |
-| 7309 | a pair of a red dragon's rear claws | Armor | feet | AC 9 · +2 Damroll, -1 Dex · _magic/anti-good_ |
-| 7310 | red dragon arm guards | Armor | arms | AC 9 · +2 Damroll, -1 Dex · _magic/anti-good_ |
+| VNUM | Item | Type | Worn | Stats / value / flags | Found |
+|---:|---|---|---|---|---|
+| 7190 | a glinting ring of silver | Armor | finger | AC 4 · +1 Hitroll · _magic_ | worn (right finger) by the great sewer rat (L5) in The tortureroom. (#7285, sewer) |
+| 7200 | the devil rod | Weapon | wielded | dmg 3d5 (avg 9) · +2 Hitroll, +1 Str · _magic_ | worn (wielded) by the master mindflayer (L14) in The inner Lair (#7201, sewer) |
+| 7201 | the large mace | Weapon | wielded | dmg 2d6 (avg 7) · +2 Damroll · _magic_ | worn (wielded) by the senior mindflayer (L8) in The Lair (#7203, sewer) |
+| 7202 | the small mace | Weapon | wielded | dmg 2d5 (avg 6) · +1 Damroll · _magic_ | worn (wielded) by the junior mindflayer (L6) in The Lair (#7205, sewer); worn (wielded) by the junior mindflayer (L6) in The lair. (#7207, sewer) |
+| 7203 | a purple cloak | Armor | neck | AC 6 · -1 Save-Spell · _magic_ | worn (neck) by the master mindflayer (L14) in The inner Lair (#7201, sewer) |
+| 7204 | an neon blue potion | Potion | — | val 14/15/29/42 · _magic/nodrop_ | on the ground in The Treasury (#7200, sewer) |
+| 7205 | a black key | Key | — | — | carried by the master mindflayer (L14) in The inner Lair (#7201, sewer) |
+| 7206 | a strange white skull | Armor | head | AC 1 · -4 Dex · _magic/nodrop_ | on the ground in The lair. (#7206, sewer) |
+| 7208 | a small stick | Light | held | 120h light | carried by the ugly wererat (L6) in The half-dry drain. (#7217, sewer); carried by the ugly wererat (L6) in The sewer drain. (#7221, sewer); carried by the ugly wererat (L6) in The sewer drain (#7233, sewer); inside a wooden chest (#7910) — on the ground in The Treasure room (#7910, redferne) |
+| 7209 | a pair of muddy boots | Armor | feet | AC 3 · +1 Dex · _magic_ | worn (feet) by the ugly wererat (L6) in A dry sewer drain. (#7219, sewer); worn (feet) by the ugly wererat (L6) in The sewer bend. (#7223, sewer); worn (feet) by the ugly wererat (L6) in The sewer drain (#7233, sewer) |
+| 7210 | a huge treasure | Money | — | val 6000/0/0/0 | ⚠️ not placed (unobtainable in normal play) |
+| 7211 | a short sword | Weapon | wielded | dmg 2d4 (avg 5) · +1 Hitroll | worn (wielded) by the ugly wererat (L6) in The sewer drain. (#7213, sewer); worn (wielded) by the ugly wererat (L6) in The drain end. (#7214, sewer); worn (wielded) by the ugly wererat (L6) in The half-wet drain. (#7215, sewer); worn (wielded) by the ugly wererat (L6) in The half-dry drain. (#7217, sewer); worn (wielded) by the ugly wererat (L6) in A dry sewer drain. (#7219, sewer); worn (wielded) by the ugly wererat (L6) in The sewer drain. (#7221, sewer); worn (wielded) by the ugly wererat (L6) in The sewer bend. (#7223, sewer); worn (wielded) by the ugly wererat (L6) in The sewer (#7225, sewer); worn (wielded) by the ugly wererat (L6) in The sewer drain (#7233, sewer); worn (wielded) by the ugly wererat (L6) in The sewer drain (#7233, sewer) |
+| 7216 | a red dragon claw | Weapon | wielded | dmg 4d4 (avg 10) · +5 AC, +5 Damroll · _magic/anti-good_ | worn (wielded) by the red dragon (L30) in Dragons lair (#7428, sewer); worn (wielded) by the Grand Knight of paladins (L29) in Outside Redferne's residence (#7900, redferne) |
+| 7217 | a silvery breast plate | Armor | body | AC 8 · +3 Str · _magic/bless/anti-evil/anti-neutral_ | worn (body) by the Grand Knight of paladins (L29) in Outside Redferne's residence (#7900, redferne) |
+| 7218 | some silvery leg plates | Armor | legs | AC 8 · +3 Int · _magic/bless/anti-evil/anti-neutral_ | worn (legs) by the Grand Knight of paladins (L29) in Outside Redferne's residence (#7900, redferne) |
+| 7219 | a pair of silvery gloves | Armor | hands | AC 8 · +3 Hitroll, +1 Hitroll · _magic/bless/anti-evil/anti-neutral_ | worn (hands) by the Grand Knight of paladins (L29) in Outside Redferne's residence (#7900, redferne) |
+| 7220 | a silvery helmet | Armor | head | AC 9 · +3 Wis · _magic/bless/anti-evil/anti-neutral_ | worn (head) by the Grand Knight of paladins (L29) in Outside Redferne's residence (#7900, redferne) |
+| 7221 | the shield of the rose | Armor | shield | AC 10 · -10 AC · _magic/bless/anti-evil/anti-neutral_ | worn (shield) by the Grand Knight of paladins (L29) in Outside Redferne's residence (#7900, redferne) |
+| 7222 | a pair of silvery boots | Armor | feet | AC 8 · +3 Dex · _magic/bless/anti-evil/anti-neutral_ | worn (feet) by the Grand Knight of paladins (L29) in Outside Redferne's residence (#7900, redferne) |
+| 7223 | some silvery arm plates | Armor | arms | AC 8 · +3 Con · _magic/bless/anti-evil/anti-neutral_ | worn (arms) by the Grand Knight of paladins (L29) in Outside Redferne's residence (#7900, redferne) |
+| 7224 | a white cloak | Armor | about | AC 10 · -5 Save-Spell · _magic/bless/anti-evil/anti-neutral_ | worn (about body) by the Grand Knight of paladins (L29) in Outside Redferne's residence (#7900, redferne) |
+| 7298 | a huge treasure | Money | — | val 1000/0/0/0 | inside a wooden chest (#7910) — on the ground in The Treasure room (#7910, redferne) |
+| 7299 | a short sword | Weapon | wielded | dmg 2d5 (avg 6) | ⚠️ not placed (unobtainable in normal play) |
+| 7300 | a backpack | Container | about | holds 60 | on the ground in North-western part of basilisks cave (#7439, sewer) |
+| 7301 | a large beltpouch | Container | waist | holds 5 | ⚠️ not placed (unobtainable in normal play) |
+| 7303 | the Red DragonOrb | Staff | held | 10 charges · +2 Int, +2 Wis · _magic/anti-good_ | worn (held) by the red dragon (L30) in Dragons lair (#7428, sewer) |
+| 7304 | a red dragon torso | Armor | body | AC 9 · -1 Dex, +2 Damroll · _magic/anti-good_ | worn (body) by the red dragon (L30) in Dragons lair (#7428, sewer) |
+| 7305 | red dragonscale leggings | Armor | legs | AC 9 · -1 Dex, +2 Damroll · _magic/anti-good_ | worn (legs) by the red dragon (L30) in Dragons lair (#7428, sewer) |
+| 7306 | a pair of red dragon claws | Furniture | hands | val 9/0/0/0 · +2 Damroll · _magic/anti-good_ | worn (hands) by the red dragon (L30) in Dragons lair (#7428, sewer) |
+| 7307 | a red dragonhelm | Armor | head | AC 9 · -1 Dex, +2 Damroll, +2 Wis · _magic/anti-good_ | worn (head) by the red dragon (L30) in Dragons lair (#7428, sewer) |
+| 7308 | the red dragon shield | Armor | shield | AC 10 · +2 Damroll · _magic/anti-good_ | worn (shield) by the red dragon (L30) in Dragons lair (#7428, sewer) |
+| 7309 | a pair of a red dragon's rear claws | Armor | feet | AC 9 · +2 Damroll, -1 Dex · _magic/anti-good_ | worn (arms) by the red dragon (L30) in Dragons lair (#7428, sewer) |
+| 7310 | red dragon arm guards | Armor | arms | AC 9 · +2 Damroll, -1 Dex · _magic/anti-good_ | worn (feet) by the red dragon (L30) in Dragons lair (#7428, sewer) |
 
 ### Anon The Shire  `(shire)`
 
 15 items
 
-| VNUM | Item | Type | Worn | Stats / value / flags |
-|---:|---|---|---|---|
-| 1100 | the rainbow staff | Light | — | infinite light · +1 Wis · _magic_ |
-| 1101 | sting | Weapon | wielded | dmg 2d7 (avg 8) · +2 Dex · _glow/hum/anti-evil_ |
-| 1102 | a sign | Furniture | — | — |
-| 1103 | a pipeweed bread | Food | — | val 24/0/0/0 |
-| 1104 | a silvery cloak | Armor | about | AC 7 · -2 Save-Spell · _glow/magic_ |
-| 1105 | the One Ring | Armor | finger/held | +10 AC, +20 Mana · _magic_ |
-| 1106 | an elven bow | Weapon | wielded | dmg 2d8 (avg 9) · +2 Hitroll · _hum/magic/anti-evil_ |
-| 1107 | a mithril axe | Weapon | wielded | dmg 2d8 (avg 9) · +2 Damroll · _hum/magic_ |
-| 1108 | the thain girth | Armor | waist | AC 5 · +2 Wis |
-| 1109 | a tiny dagger | Weapon | wielded | dmg 1d6 (avg 4) |
-| 1110 | an egg | Food | — | val 12/0/0/0 |
-| 1111 | a bag | Container | — | holds 50 |
-| 1112 | a lantern | Light | — | 20h light |
-| 1113 | a bardiche | Weapon | wielded | dmg 3d4 (avg 8) · +4 Hitroll |
-| 1114 | a flail | Weapon | wielded | dmg 2d4 (avg 5) |
+| VNUM | Item | Type | Worn | Stats / value / flags | Found |
+|---:|---|---|---|---|---|
+| 1100 | the rainbow staff | Light | — | infinite light · +1 Wis · _magic_ | worn (light) by the Elven Wizard (L38) in A grassy field (#1128, shire) |
+| 1101 | sting | Weapon | wielded | dmg 2d7 (avg 8) · +2 Dex · _glow/hum/anti-evil_ | worn (wielded) by the Keeper of the Ring (L45) in Pantry (#1137, shire) |
+| 1102 | a sign | Furniture | — | — | on the ground in Entrance to the Shire (#1103, shire) |
+| 1103 | a pipeweed bread | Food | — | val 24/0/0/0 | carried by a country bumpkin (L45) in A smial (#1114, shire); carried by a country bumpkin (L45) in A smial (#1115, shire); carried by the grocer (L41) in The Grocer's Delight (#1121, shire) |
+| 1104 | a silvery cloak | Armor | about | AC 7 · -2 Save-Spell · _glow/magic_ | worn (about body) by the Elven Wizard (L38) in A grassy field (#1128, shire) |
+| 1105 | the One Ring | Armor | finger/held | +10 AC, +20 Mana · _magic_ | worn (left finger) by the Keeper of the Ring (L45) in Pantry (#1137, shire) |
+| 1106 | an elven bow | Weapon | wielded | dmg 2d8 (avg 9) · +2 Hitroll · _hum/magic/anti-evil_ | worn (wielded) by the elven warrior (L45) in Bedroom (#1136, shire) |
+| 1107 | a mithril axe | Weapon | wielded | dmg 2d8 (avg 9) · +2 Damroll · _hum/magic_ | worn (wielded) by the dwarven prince (L44) in Bedroom (#1136, shire) |
+| 1108 | the thain girth | Armor | waist | AC 5 · +2 Wis | worn (waist) by the Thain (L45) in Thain's Office (#1111, shire) |
+| 1109 | a tiny dagger | Weapon | wielded | dmg 1d6 (avg 4) | worn (wielded) by a shiriff (L44) in Shiriff Post of the Eastern Shire (#1110, shire); worn (wielded) by a shiriff (L44) in Shiriff Post of the Bridge (#1119, shire); worn (wielded) by a shiriff (L44) in Shiriff Post of Delving Lane (#1145, shire); worn (wielded) by a shiriff (L44) in Shiriff Post of the Lower Shire (#1153, shire) |
+| 1110 | an egg | Food | — | val 12/0/0/0 | carried by the Innkeeper (L42) in The Ivy Bush (#1116, shire); carried by a chicken (L42) in A chicken coop (#1143, shire); carried by a chicken (L42) in A chicken coop (#1143, shire); carried by a chicken (L42) in A chicken coop (#1143, shire); carried by a chicken (L42) in A chicken coop (#1143, shire); carried by a chicken (L42) in A chicken coop (#1143, shire); carried by a chicken (L42) in A chicken coop (#1143, shire); carried by the Innkeeper (L42) in The Green Dragon (#1144, shire) |
+| 1111 | a bag | Container | — | holds 50 | carried by the shopkeeper (L41) in The General Store (#1105, shire) |
+| 1112 | a lantern | Light | — | 20h light | carried by the shopkeeper (L41) in The General Store (#1105, shire) |
+| 1113 | a bardiche | Weapon | wielded | dmg 3d4 (avg 8) · +4 Hitroll | worn (wielded) by the Thain (L45) in Thain's Office (#1111, shire); worn (wielded) by the battle master (L45) in Shiriff Training Grounds (#1117, shire); worn (wielded) by a trainee (L39) in Shiriff Training Grounds (#1117, shire); worn (wielded) by a trainee (L39) in Shiriff Training Grounds (#1117, shire); worn (wielded) by a trainee (L39) in Shiriff Training Grounds (#1117, shire) |
+| 1114 | a flail | Weapon | wielded | dmg 2d4 (avg 5) | ⚠️ not placed (unobtainable in normal play) |
 
 ### Tyu Teikoku Headquarters  `(teikoku)`
 
 1 items
 
-| VNUM | Item | Type | Worn | Stats / value / flags |
-|---:|---|---|---|---|
-| 9800 | A wooden announcement board is here. | Furniture | — | — |
+| VNUM | Item | Type | Worn | Stats / value / flags | Found |
+|---:|---|---|---|---|---|
+| 9800 | A wooden announcement board is here. | Furniture | — | — | on the ground in Center of the Circle (#9802, teikoku) |
 
 ### Anon Thalos  `(thalos)`
 
 39 items
 
-| VNUM | Item | Type | Worn | Stats / value / flags |
-|---:|---|---|---|---|
-| 5200 | a mithril vest | Armor | body | AC 8 · +1 Damroll, +2 Str · _magic/anti-evil_ |
-| 5201 | a mithril helm | Armor | head | AC 8 · +2 Hitroll · _magic/anti-evil_ |
-| 5202 | a pair of mithril gauntlets | Armor | hands | AC 8 · +1 Hitroll, +1 Damroll · _magic/anti-evil_ |
-| 5203 | some mithril sleeves | Armor | arms | AC 7 · +1 Hitroll, +1 Damroll · _magic/anti-evil_ |
-| 5204 | a pair of mithril boots | Armor | feet | AC 7 · +1 Hitroll, +1 Dex · _magic/anti-evil_ |
-| 5205 | a set of mithril leggings | Armor | legs | AC 7 · +1 Hitroll, +1 Dex · _magic/anti-evil_ |
-| 5206 | a mithril girth | Armor | waist | AC 7 · +2 Con · _magic/anti-evil_ |
-| 5207 | a battered iron breast plate | Armor | body | AC 5 · -6 Hitroll |
-| 5208 | a sturdy iron shield | Armor | shield | AC 7 · -2 Save-Para, -2 Save-Rod · _magic/anti-good_ |
-| 5210 | a black potion | Potion | — | val 16/4/36/39 · _magic/nodrop_ |
-| 5211 | an orange potion | Potion | — | val 20/44/-1/-1 · _magic/nodrop_ |
-| 5214 | a smooth quartz ball | Light | held | 72h light · _magic_ |
-| 5215 | a tattered scroll | Scroll | — | val 24/24/-1/-1 · _magic_ |
-| 5216 | a bound scroll | Scroll | — | val 15/18/19/20 · _magic_ |
-| 5217 | a silver flute | Staff | held | 1 charges · _glow/magic_ |
-| 5218 | a demon-faced talisman | Armor | neck | AC 5 · -10 Str, -8 Dex · _glow/magic_ |
-| 5219 | a chunk of venison | Food | — | val 24/0/0/0 |
-| 5220 | a large cracked fountain | Fountain | — | val 10/10/0/1 |
-| 5221 | a two-handed sword | Weapon | wielded | dmg 2d12 (avg 13) · +2 Hitroll, +3 Damroll · _magic/anti-evil_ |
-| 5222 | a black silk robe | Armor | about | AC 1 · +10 Mana |
-| 5223 | a dark green cloak | Armor | neck | AC 8 · +5 HP · _magic/anti-good_ |
-| 5224 | an engraved ebony seal | Key | — | val 30/0/0/0 |
-| 5225 | the desk | Container | — | holds 100 |
-| 5226 | an engraved ivory seal | Key | — | val 31/0/0/0 |
-| 5227 | the glass cabinet | Container | — | holds 500 |
-| 5228 | a rotten arm | Food | — | val 50/0/0/1 |
-| 5230 | a pale blue stone | Treasure | held | +1 Str · _magic_ |
-| 5231 | a scarlet and blue stone | Treasure | held | +1 Int · _magic_ |
-| 5232 | an incandescent blue stone | Treasure | held | +1 Wis · _magic_ |
-| 5233 | a deep red stone | Treasure | held | +1 Dex · _magic_ |
-| 5234 | a pink stone | Treasure | held | +1 Con · _magic_ |
-| 5235 | a pearly white stone | Treasure | held | +1 HP · _magic_ |
-| 5237 | a lavender and green stone | Treasure | held | -4 Save-Spell · _magic_ |
-| 5239 | a dull grey stone | Treasure | held | — |
-| 5241 | a pink and green stone | Treasure | held | -5 Hitroll · _magic_ |
-| 5243 | a clear stone | Treasure | held | +3 AC · _magic_ |
-| 5250 | a mandolin | Staff | held | 3 charges · _magic_ |
-| 5251 | a golden harp | Staff | held | 1 charges · _magic_ |
-| 5252 | a long slim dagger | Weapon | wielded | dmg 2d5 (avg 6) · +1 Hitroll, +1 Damroll · _magic_ |
+| VNUM | Item | Type | Worn | Stats / value / flags | Found |
+|---:|---|---|---|---|---|
+| 5200 | a mithril vest | Armor | body | AC 8 · +1 Damroll, +2 Str · _magic/anti-evil_ | worn (body) by The stone golem (L25) in The south-west watchtower (#5247, thalos) |
+| 5201 | a mithril helm | Armor | head | AC 8 · +2 Hitroll · _magic/anti-evil_ | worn (head) by The stone golem (L25) in The south-east watchtower (#5254, thalos) |
+| 5202 | a pair of mithril gauntlets | Armor | hands | AC 8 · +1 Hitroll, +1 Damroll · _magic/anti-evil_ | worn (hands) by The stone golem (L25) in The south-east watchtower (#5254, thalos) |
+| 5203 | some mithril sleeves | Armor | arms | AC 7 · +1 Hitroll, +1 Damroll · _magic/anti-evil_ | worn (arms) by The stone golem (L25) in The north-west watchtower (#5246, thalos) |
+| 5204 | a pair of mithril boots | Armor | feet | AC 7 · +1 Hitroll, +1 Dex · _magic/anti-evil_ | worn (feet) by The stone golem (L25) in The south-west watchtower (#5247, thalos) |
+| 5205 | a set of mithril leggings | Armor | legs | AC 7 · +1 Hitroll, +1 Dex · _magic/anti-evil_ | worn (legs) by The stone golem (L25) in The north-east watchtower (#5248, thalos) |
+| 5206 | a mithril girth | Armor | waist | AC 7 · +2 Con · _magic/anti-evil_ | worn (waist) by The stone golem (L25) in The north-east watchtower (#5248, thalos) |
+| 5207 | a battered iron breast plate | Armor | body | AC 5 · -6 Hitroll | on the ground in An abandoned shop (#5229, thalos) |
+| 5208 | a sturdy iron shield | Armor | shield | AC 7 · -2 Save-Para, -2 Save-Rod · _magic/anti-good_ | worn (shield) by The mighty beholder (L25) in The Temple of Thalos (#5250, thalos) |
+| 5210 | a black potion | Potion | — | val 16/4/36/39 · _magic/nodrop_ | on the ground in A small shack (#5238, thalos) |
+| 5211 | an orange potion | Potion | — | val 20/44/-1/-1 · _magic/nodrop_ | on the ground in A small shack (#5238, thalos) |
+| 5214 | a smooth quartz ball | Light | held | 72h light · _magic_ | worn (held) by The mimic (L11) in An abandoned shop (#5229, thalos); worn (held) by The mimic (L11) in A small shack (#5238, thalos) |
+| 5215 | a tattered scroll | Scroll | — | val 24/24/-1/-1 · _magic_ | carried by The mimic (L11) in A ruined clay dwelling (#5226, thalos); inside the desk (#5225) — on the ground in South wing of the city hall (#5231, thalos) |
+| 5216 | a bound scroll | Scroll | — | val 15/18/19/20 · _magic_ | inside the desk (#5225) — on the ground in South wing of the city hall (#5231, thalos) |
+| 5217 | a silver flute | Staff | held | 1 charges · _glow/magic_ | on the ground in The Tavern of the Sun (#5230, thalos) |
+| 5218 | a demon-faced talisman | Armor | neck | AC 5 · -10 Str, -8 Dex · _glow/magic_ | carried by The mimic (L11) in The guild house (#5219, thalos) |
+| 5219 | a chunk of venison | Food | — | val 24/0/0/0 | on the ground in The meat stand (#5217, thalos) |
+| 5220 | a large cracked fountain | Fountain | — | val 10/10/0/1 | on the ground in The private gardens and courtyard of Thalos (#5234, thalos) |
+| 5221 | a two-handed sword | Weapon | wielded | dmg 2d12 (avg 13) · +2 Hitroll, +3 Damroll · _magic/anti-evil_ | worn (wielded) by The stone golem (L25) in The north-west watchtower (#5246, thalos); worn (wielded) by The stone golem (L25) in The south-west watchtower (#5247, thalos); worn (wielded) by The stone golem (L25) in The north-east watchtower (#5248, thalos); worn (wielded) by The stone golem (L25) in The south-east watchtower (#5254, thalos) |
+| 5222 | a black silk robe | Armor | about | AC 1 · +10 Mana | worn (about body) by The mimic (L11) in A collapsed home (#5236, thalos) |
+| 5223 | a dark green cloak | Armor | neck | AC 8 · +5 HP · _magic/anti-good_ | worn (neck) by The mighty beholder (L25) in The Temple of Thalos (#5250, thalos) |
+| 5224 | an engraved ebony seal | Key | — | val 30/0/0/0 | worn (held) by The stone golem (L25) in The south-west watchtower (#5247, thalos) |
+| 5225 | the desk | Container | — | holds 100 | on the ground in South wing of the city hall (#5231, thalos) |
+| 5226 | an engraved ivory seal | Key | — | val 31/0/0/0 | worn (held) by The stone golem (L25) in The north-west watchtower (#5246, thalos) |
+| 5227 | the glass cabinet | Container | — | holds 500 | on the ground in East wing of the city hall (#5233, thalos) |
+| 5228 | a rotten arm | Food | — | val 50/0/0/1 | on the ground in A bath house (#5242, thalos) |
+| 5230 | a pale blue stone | Treasure | held | +1 Str · _magic_ | on the ground in Main Street (#5202, thalos) |
+| 5231 | a scarlet and blue stone | Treasure | held | +1 Int · _magic_ | on the ground in A Garden Path (#5205, thalos) |
+| 5232 | an incandescent blue stone | Treasure | held | +1 Wis · _magic_ | on the ground in The market place (#5208, thalos) |
+| 5233 | a deep red stone | Treasure | held | +1 Dex · _magic_ | on the ground in A Side Street (#5211, thalos) |
+| 5234 | a pink stone | Treasure | held | +1 Con · _magic_ | ⚠️ not placed (unobtainable in normal play) |
+| 5235 | a pearly white stone | Treasure | held | +1 HP · _magic_ | on the ground in The meat stand (#5217, thalos) |
+| 5237 | a lavender and green stone | Treasure | held | -4 Save-Spell · _magic_ | on the ground in Under the watchtower (#5224, thalos) |
+| 5239 | a dull grey stone | Treasure | held | — | on the ground in The Tavern of the Sun (#5230, thalos) |
+| 5241 | a pink and green stone | Treasure | held | -5 Hitroll · _magic_ | on the ground in A small shack (#5238, thalos) |
+| 5243 | a clear stone | Treasure | held | +3 AC · _magic_ | on the ground in The north-west watchtower (#5246, thalos) |
+| 5250 | a mandolin | Staff | held | 3 charges · _magic_ | on the ground in The Tavern of the Sun (#5230, thalos) |
+| 5251 | a golden harp | Staff | held | 1 charges · _magic_ | on the ground in The Tavern of the Sun (#5230, thalos) |
+| 5252 | a long slim dagger | Weapon | wielded | dmg 2d5 (avg 6) · +1 Hitroll, +1 Damroll · _magic_ | worn (wielded) by The lamia (L9) in A Garden Path (#5203, thalos); worn (wielded) by The lamia (L9) in A Garden Path (#5204, thalos); worn (wielded) by The lamia (L9) in A Garden Path (#5205, thalos); worn (wielded) by The lamia (L9) in A Garden Path (#5206, thalos); worn (wielded) by The lamia (L9) in A back alley (#5216, thalos); worn (wielded) by The lamia (L9) in A back alley (#5218, thalos); worn (wielded) by The lamia (L9) in The guild house (#5219, thalos); worn (wielded) by The lamia (L9) in The produce stand (#5220, thalos); worn (wielded) by The lamia (L9) in The smithy (#5221, thalos); worn (wielded) by The lamia (L9) in Under the watchtower (#5224, thalos); worn (wielded) by The lamia (L9) in The jewelery stand (#5225, thalos); worn (wielded) by The lamia (L9) in A ruined clay dwelling (#5226, thalos); worn (wielded) by The lamia (L9) in An abandoned shop (#5229, thalos); worn (wielded) by The lamia (L9) in The city hall (#5232, thalos); worn (wielded) by The lamia (L9) in The private gardens and courtyard of Thalos (#5234, thalos); worn (wielded) by The lamia (L9) in A small guard house (#5235, thalos); worn (wielded) by The lamia (L9) in A collapsed home (#5236, thalos); worn (wielded) by The lamia (L9) in A tall dwelling (#5237, thalos); worn (wielded) by The lamia (L9) in A back alley (#5240, thalos); worn (wielded) by The lamia (L9) in A bath house (#5242, thalos) |
 
 ### Merc Troll Den  `(trollden)`
 
 6 items
 
-| VNUM | Item | Type | Worn | Stats / value / flags |
-|---:|---|---|---|---|
-| 2800 | the cadaver-toy | Container | — | holds 30 |
-| 2801 | the heap of carnage | Container | — | holds 30 |
-| 2802 | the troll skin | Armor | about | AC 5 · +1 Str |
-| 2803 | an opal ring | Armor | finger | AC 3 · +2 Damroll · _magic_ |
-| 2804 | a leather belt | Armor | waist | AC 6 · _magic_ |
-| 2805 | a cracked bone | Weapon | wielded | dmg 3d3 (avg 6) · -1 Damroll, -1 Hitroll |
+| VNUM | Item | Type | Worn | Stats / value / flags | Found |
+|---:|---|---|---|---|---|
+| 2800 | the cadaver-toy | Container | — | holds 30 | on the ground in The Playpen (#2804, trollden) |
+| 2801 | the heap of carnage | Container | — | holds 30 | on the ground in Troll's Bedroom (#2805, trollden) |
+| 2802 | the troll skin | Armor | about | AC 5 · +1 Str | worn (about body) by the giant troll (L13) in Troll's Bedroom (#2805, trollden) |
+| 2803 | an opal ring | Armor | finger | AC 3 · +2 Damroll · _magic_ | inside the heap of carnage (#2801) — on the ground in Troll's Bedroom (#2805, trollden) |
+| 2804 | a leather belt | Armor | waist | AC 6 · _magic_ | inside the cadaver-toy (#2800) — on the ground in The Playpen (#2804, trollden) |
+| 2805 | a cracked bone | Weapon | wielded | dmg 3d3 (avg 6) · -1 Damroll, -1 Hitroll | on the ground in Wastedump (#2801, trollden) |
 
 ### Casret Ultima  `(ultima)`
 
 69 items
 
-| VNUM | Item | Type | Worn | Stats / value / flags |
-|---:|---|---|---|---|
-| 2400 | mu | Key | — | _hum_ |
-| 2401 | lum | Key | — | _hum_ |
-| 2402 | beh | Key | — | _hum_ |
-| 2403 | ohm | Key | — | _hum_ |
-| 2404 | ahm | Key | — | _hum_ |
-| 2405 | cah | Key | — | _hum_ |
-| 2406 | ra | Key | — | _hum_ |
-| 2407 | summ | Key | — | _hum_ |
-| 2408 | moonstone | Key | — | — |
-| 2409 | moonstone | Key | — | — |
-| 2410 | moonstone | Key | — | — |
-| 2411 | moonstone | Key | — | — |
-| 2412 | moonstone | Key | — | — |
-| 2413 | moonstone | Key | — | — |
-| 2414 | moonstone | Key | — | — |
-| 2415 | moonstone | Key | — | — |
-| 2416 | the Hourglass | Key | held | -50 Age, +2 Wis · _glow_ |
-| 2417 | the shepherd's crook | Weapon | wielded | — |
-| 2418 | the doll | Trash | — | _nodrop_ |
-| 2419 | katrina's sword | Weapon | wielded | _anti-evil_ |
-| 2420 | a wrinkled scroll | Scroll | — | val 10/23/0/0 |
-| 2421 | a magic dagger | Weapon | wielded | +2 Int, +2 Hitroll · _hum_ |
-| 2422 | a robe | Armor | about | — |
-| 2423 | horseshoes | Armor | feet | +50 Move, +3 Damroll · _glow_ |
-| 2424 | a mandolin | Weapon | wielded | — |
-| 2425 | a cup | Container | neck | — |
-| 2426 | some gold pieces | Money | — | val 50/0/0/0 |
-| 2427 | the bottle | Potion | — | val 11/15/201/0 · _nodrop_ |
-| 2428 | iolo's bow | Weapon | wielded | +1 Dex · _glow/hum_ |
-| 2429 | a chicken | Weapon | wielded | +3 Level, +3 Damroll · _anti-evil_ |
-| 2430 | the Infinity Bow | Weapon | wielded | +3 Dex, +5 Damroll · _glow/hum/anti-evil_ |
-| 2431 | a wooden spear | Weapon | wielded | — |
-| 2432 | a stone club | Weapon | wielded | — |
-| 2433 | a gavel | Weapon | wielded | +3 Wis, +10 Mana · _anti-evil_ |
-| 2434 | a staff | Weapon | wielded | +1 Wis · _glow/anti-evil_ |
-| 2435 | a sword | Weapon | wielded | +1 Str · _glow/anti-evil_ |
-| 2436 | a sword | Weapon | wielded | — |
-| 2437 | a bastard sword | Weapon | wielded | +3 Str, +2 Dex, +5 Hitroll, +5 Damroll, -50 HP, -10 AC · _glow/anti-evil_ |
-| 2438 | a hammer | Weapon | wielded | — |
-| 2439 | a sword | Weapon | wielded | +3 Save-Breath, +3 Damroll, -2 Hitroll · _glow/anti-evil_ |
-| 2440 | the Amulet of Love | Armor | neck | -5 Save-Para, -5 Save-Rod, -5 Save-Petri, -5 Save-Breath, -5 Save-Spell, +1 Sex · _glow/anti-evil/anti-neutral_ |
-| 2441 | a shiny sword | Weapon | wielded | +2 Hitroll |
-| 2442 | shiny armour | Armor | body | +1 Str, -5 AC |
-| 2443 | a rapier | Weapon | wielded | +1 Str, +1 Dex · _glow/anti-evil_ |
-| 2444 | a boomerang | Weapon | wielded | +5 Hitroll, +5 AC · _hum_ |
-| 2445 | a rusty sword | Weapon | wielded | +100 Age · _nodrop/noremove_ |
-| 2446 | a rusty shield | Armor | shield | +3 Damroll, -3 AC · _nodrop/noremove_ |
-| 2447 | a magic cloak | Armor | neck | +10 Mana, +10 HP · _glow_ |
-| 2448 | an aura of power | Armor | body | +10 AC, +2 Wis · _glow_ |
-| 2449 | a big red face | Armor | head | +50 Mana, +50 HP, +50 Move, +3 Str, +2 Con · _anti-good/anti-neutral_ |
-| 2450 | a spiked mace | Weapon | wielded | +6 Damroll, +5 Hitroll · _anti-good/anti-neutral_ |
-| 2451 | a completely black armour | Armor | body | +5 AC, -100 Move, +5 Damroll · _anti-good/anti-neutral_ |
-| 2452 | an evil charm | Armor | neck | +50 Mana, +1 Int, +1 Sex · _anti-good/anti-neutral_ |
-| 2453 | an evil gem | Staff | held | 1 charges · +50 Mana, +3 Int · _anti-good/anti-neutral_ |
-| 2454 | sentri's helmet | Armor | head | +2 Wis, +15 Mana · _anti-evil_ |
-| 2455 | sentri's sleeves | Armor | arms | +2 Str, +15 HP · _anti-evil_ |
-| 2456 | sentri's girth | Armor | waist | +15 HP, -6 Save-Spell · _anti-evil_ |
-| 2457 | sentri's two-handed sword | Weapon | wielded | +3 Hitroll, +3 Damroll · _anti-evil_ |
-| 2458 | sentri's gloves | Armor | hands | +3 Hitroll, +15 HP · _anti-evil_ |
-| 2459 | sentri's boots | Armor | feet | +1 Dex, +15 HP · _anti-evil_ |
-| 2460 | sentri's leggings | Armor | legs | +1 Dex, +3 Hitroll · _anti-evil_ |
-| 2461 | sentri's armour | Armor | body | +3 Hitroll, +20 HP · _anti-evil_ |
-| 2462 | a Fellowship medallion | Armor | neck | +10 Mana, -1 Wis |
-| 2463 | the Glass Sword | Weapon | wielded | +5 Hitroll, +5 Damroll, +1 Str, +1 Dex, +10 Mana · _magic/bless_ |
-| 2464 | british's crown | Armor | head | +2 Int, +2 Wis, +50 Mana, +10 AC · _glow_ |
-| 2465 | british's sceptre | Armor | held | +2 Con, +50 HP, +5 Hitroll, +5 Damroll · _glow_ |
-| 2466 | british's amulet | Armor | neck | +2 Str, +2 Dex, +50 HP, +50 Move · _glow_ |
-| 2467 | a fountain | Fountain | — | — |
-| 2468 | a boat | Boat | — | — |
+| VNUM | Item | Type | Worn | Stats / value / flags | Found |
+|---:|---|---|---|---|---|
+| 2400 | mu | Key | — | _hum_ | worn (held) by Iolo the Bard (L11) in Cellar (#2448, ultima); carried by Batlin (L37) in Batlin's Room (#2568, ultima) |
+| 2401 | lum | Key | — | _hum_ | worn (held) by Katrina the Shepherd (L5) in Katrina's Office (#2415, ultima); carried by Batlin (L37) in Batlin's Room (#2568, ultima) |
+| 2402 | beh | Key | — | _hum_ | worn (held) by Jaana the Druid (L15) in Yew Forest (#2470, ultima); carried by Batlin (L37) in Batlin's Room (#2568, ultima) |
+| 2403 | ohm | Key | — | _hum_ | worn (held) by Shamino the Ranger (L35) in The Graveyard (#2561, ultima); carried by Batlin (L37) in Batlin's Room (#2568, ultima) |
+| 2404 | ahm | Key | — | _hum_ | worn (held) by Mariah the Mage (L8) in Library (#2418, ultima); carried by Batlin (L37) in Batlin's Room (#2568, ultima) |
+| 2405 | cah | Key | — | _hum_ | worn (held) by Julia the Tinker (L28) in Forge (#2510, ultima); carried by Batlin (L37) in Batlin's Room (#2568, ultima) |
+| 2406 | ra | Key | — | _hum_ | worn (held) by Geoffrey the Fighter (L22) in The Dungeon (#2487, ultima); carried by Batlin (L37) in Batlin's Room (#2568, ultima) |
+| 2407 | summ | Key | — | _hum_ | worn (held) by Dupre the Paladin (L33) in Dupre's Tent (#2536, ultima); carried by Batlin (L37) in Batlin's Room (#2568, ultima) |
+| 2408 | moonstone | Key | — | — | carried by the bat (L4) in Attic (#2411, ultima) |
+| 2409 | moonstone | Key | — | — | carried by the giant spider (L8) in Web (#2435, ultima) |
+| 2410 | moonstone | Key | — | — | carried by the snake (L9) in Cellar (#2454, ultima) |
+| 2411 | moonstone | Key | — | — | carried by the dirty prisoner (L11) in Prison Cell (#2467, ultima) |
+| 2412 | moonstone | Key | — | — | carried by the headless (L19) in The Dungeon (#2492, ultima) |
+| 2413 | moonstone | Key | — | — | carried by the squid (L30) in The Whirlpool (#2523, ultima) |
+| 2414 | moonstone | Key | — | — | carried by the dragon (L32) in The Dragon Cave (#2548, ultima) |
+| 2415 | moonstone | Key | — | — | carried by the daemon (L34) in The Place of Ultimate Evil (#2551, ultima) |
+| 2416 | the Hourglass | Key | held | -50 Age, +2 Wis · _glow_ | worn (held) by the Timelord (L40) in The Shrine of Spirituality (#2549, ultima) |
+| 2417 | the shepherd's crook | Weapon | wielded | — | worn (wielded) by the shepherd (L4) in New Magincia Road (#2401, ultima); worn (wielded) by the shepherd (L4) in Barn (#2407, ultima); worn (wielded) by the shepherd (L4) in Humility Lane (#2413, ultima) |
+| 2418 | the doll | Trash | — | _nodrop_ | worn (held) by the girl (L3) in New Magincia Road (#2402, ultima); worn (held) by the girl (L3) in Humility Lane (#2408, ultima); worn (held) by the girl (L3) in House (#2412, ultima) |
+| 2419 | katrina's sword | Weapon | wielded | _anti-evil_ | worn (wielded) by Katrina the Shepherd (L5) in Katrina's Office (#2415, ultima) |
+| 2420 | a wrinkled scroll | Scroll | — | val 10/23/0/0 | carried by the giant spider (L8) in Web (#2435, ultima) |
+| 2421 | a magic dagger | Weapon | wielded | +2 Int, +2 Hitroll · _hum_ | worn (wielded) by Nystul the Librarian (L30) in Library Office (#2421, ultima) |
+| 2422 | a robe | Armor | about | — | worn (body) by the mage (L6) in Library (#2430, ultima) |
+| 2423 | horseshoes | Armor | feet | +50 Move, +3 Damroll · _glow_ | worn (feet) by Mr. Smithy (L25) in Stables (#2406, ultima) |
+| 2424 | a mandolin | Weapon | wielded | — | worn (wielded) by the bard (L9) in The South Wall of the Tavern (#2444, ultima) |
+| 2425 | a cup | Container | neck | — | worn (held) by the beggar (L8) in The Center of the Tavern (#2437, ultima) |
+| 2426 | some gold pieces | Money | — | val 50/0/0/0 | inside a cup (#2425) — worn (held) by the beggar (L8) in The Center of the Tavern (#2437, ultima) |
+| 2427 | the bottle | Potion | — | val 11/15/201/0 · _nodrop_ | carried by Iolo the Bard (L11) in Cellar (#2448, ultima) |
+| 2428 | iolo's bow | Weapon | wielded | +1 Dex · _glow/hum_ | worn (wielded) by Iolo the Bard (L11) in Cellar (#2448, ultima) |
+| 2429 | a chicken | Weapon | wielded | +3 Level, +3 Damroll · _anti-evil_ | worn (wielded) by Chuckles the Jester (L33) in Lord British's Castle Entrance (#2562, ultima) |
+| 2430 | the Infinity Bow | Weapon | wielded | +3 Dex, +5 Damroll · _glow/hum/anti-evil_ | worn (wielded) by Gwenno the Bard (L31) in The Southeast Corner of the Tavern (#2445, ultima) |
+| 2431 | a wooden spear | Weapon | wielded | — | worn (wielded) by the orc (L11) in Yew Forest (#2480, ultima) |
+| 2432 | a stone club | Weapon | wielded | — | worn (wielded) by the troll (L13) in Yew Forest (#2473, ultima) |
+| 2433 | a gavel | Weapon | wielded | +3 Wis, +10 Mana · _anti-evil_ | worn (wielded) by The Judge (L32) in The Bench (#2464, ultima) |
+| 2434 | a staff | Weapon | wielded | +1 Wis · _glow/anti-evil_ | worn (wielded) by Jaana the Druid (L15) in Yew Forest (#2470, ultima) |
+| 2435 | a sword | Weapon | wielded | +1 Str · _glow/anti-evil_ | worn (wielded) by Geoffrey the Fighter (L22) in The Dungeon (#2487, ultima) |
+| 2436 | a sword | Weapon | wielded | — | worn (wielded) by the fighter (L18) in The Dungeon (#2486, ultima) |
+| 2437 | a bastard sword | Weapon | wielded | +3 Str, +2 Dex, +5 Hitroll, +5 Damroll, -50 HP, -10 AC · _glow/anti-evil_ | worn (wielded) by Lord Simon (L33) in The Dungeon (#2488, ultima) |
+| 2438 | a hammer | Weapon | wielded | — | worn (wielded) by a tinker (L25) in Sacrifice Street (#2508, ultima); worn (wielded) by a tinker (L25) in Residence (#2511, ultima); worn (wielded) by a tinker (L25) in Residence (#2512, ultima) |
+| 2439 | a sword | Weapon | wielded | +3 Save-Breath, +3 Damroll, -2 Hitroll · _glow/anti-evil_ | worn (wielded) by Julia the Tinker (L28) in Forge (#2510, ultima) |
+| 2440 | the Amulet of Love | Armor | neck | -5 Save-Para, -5 Save-Rod, -5 Save-Petri, -5 Save-Breath, -5 Save-Spell, +1 Sex · _glow/anti-evil/anti-neutral_ | worn (neck) by The Lady of Empath Abbey (L34) in Sacrifice Street (#2508, ultima) |
+| 2441 | a shiny sword | Weapon | wielded | +2 Hitroll | worn (held) by the paladin (L30) in Between the Tents (#2529, ultima); worn (held) by the paladin (L30) in A Small Tent (#2531, ultima); worn (held) by the paladin (L30) in A Small Tent (#2532, ultima); worn (held) by the paladin (L30) in A Small Tent (#2537, ultima); worn (held) by the paladin (L30) in Desert Entrance (#2538, ultima); worn (held) by the paladin (L30) in A Small Tent (#2539, ultima) |
+| 2442 | shiny armour | Armor | body | +1 Str, -5 AC | worn (body) by the paladin (L30) in Between the Tents (#2529, ultima); worn (body) by the paladin (L30) in A Small Tent (#2531, ultima); worn (body) by the paladin (L30) in A Small Tent (#2532, ultima); worn (body) by the paladin (L30) in A Small Tent (#2537, ultima); worn (body) by the paladin (L30) in Desert Entrance (#2538, ultima); worn (body) by the paladin (L30) in A Small Tent (#2539, ultima) |
+| 2443 | a rapier | Weapon | wielded | +1 Str, +1 Dex · _glow/anti-evil_ | worn (wielded) by Dupre the Paladin (L33) in Dupre's Tent (#2536, ultima) |
+| 2444 | a boomerang | Weapon | wielded | +5 Hitroll, +5 AC · _hum_ | worn (wielded) by Draxthanum the Gargoyle (L35) in The Grand Tent (#2534, ultima) |
+| 2445 | a rusty sword | Weapon | wielded | +100 Age · _nodrop/noremove_ | worn (wielded) by the skeleton (L33) in The Place of Ultimate Evil (#2555, ultima) |
+| 2446 | a rusty shield | Armor | shield | +3 Damroll, -3 AC · _nodrop/noremove_ | worn (shield) by the skeleton (L33) in The Place of Ultimate Evil (#2555, ultima) |
+| 2447 | a magic cloak | Armor | neck | +10 Mana, +10 HP · _glow_ | worn (about body) by Shamino the Ranger (L35) in The Graveyard (#2561, ultima) |
+| 2448 | an aura of power | Armor | body | +10 AC, +2 Wis · _glow_ | worn (body) by the Timelord (L40) in The Shrine of Spirituality (#2549, ultima) |
+| 2449 | a big red face | Armor | head | +50 Mana, +50 HP, +50 Move, +3 Str, +2 Con · _anti-good/anti-neutral_ | worn (head) by The Guardian (L45) in In the Warp (#2583, ultima) |
+| 2450 | a spiked mace | Weapon | wielded | +6 Damroll, +5 Hitroll · _anti-good/anti-neutral_ | worn (wielded) by Blackthorn (L43) in In the Warp (#2582, ultima) |
+| 2451 | a completely black armour | Armor | body | +5 AC, -100 Move, +5 Damroll · _anti-good/anti-neutral_ | worn (body) by Exodus (L41) in In the Warp (#2580, ultima) |
+| 2452 | an evil charm | Armor | neck | +50 Mana, +1 Int, +1 Sex · _anti-good/anti-neutral_ | worn (neck) by Minax (L39) in In the Warp (#2579, ultima) |
+| 2453 | an evil gem | Staff | held | 1 charges · +50 Mana, +3 Int · _anti-good/anti-neutral_ | worn (held) by Mondain (L37) in In the Warp (#2578, ultima) |
+| 2454 | sentri's helmet | Armor | head | +2 Wis, +15 Mana · _anti-evil_ | worn (head) by Sentri (L35) in Hallways (#2565, ultima) |
+| 2455 | sentri's sleeves | Armor | arms | +2 Str, +15 HP · _anti-evil_ | worn (arms) by Sentri (L35) in Hallways (#2565, ultima) |
+| 2456 | sentri's girth | Armor | waist | +15 HP, -6 Save-Spell · _anti-evil_ | worn (waist) by Sentri (L35) in Hallways (#2565, ultima) |
+| 2457 | sentri's two-handed sword | Weapon | wielded | +3 Hitroll, +3 Damroll · _anti-evil_ | worn (wielded) by Sentri (L35) in Hallways (#2565, ultima) |
+| 2458 | sentri's gloves | Armor | hands | +3 Hitroll, +15 HP · _anti-evil_ | worn (hands) by Sentri (L35) in Hallways (#2565, ultima) |
+| 2459 | sentri's boots | Armor | feet | +1 Dex, +15 HP · _anti-evil_ | worn (feet) by Sentri (L35) in Hallways (#2565, ultima) |
+| 2460 | sentri's leggings | Armor | legs | +1 Dex, +3 Hitroll · _anti-evil_ | worn (legs) by Sentri (L35) in Hallways (#2565, ultima) |
+| 2461 | sentri's armour | Armor | body | +3 Hitroll, +20 HP · _anti-evil_ | worn (body) by Sentri (L35) in Hallways (#2565, ultima) |
+| 2462 | a Fellowship medallion | Armor | neck | +10 Mana, -1 Wis | worn (neck) by Batlin (L37) in Batlin's Room (#2568, ultima) |
+| 2463 | the Glass Sword | Weapon | wielded | +5 Hitroll, +5 Damroll, +1 Str, +1 Dex, +10 Mana · _magic/bless_ | worn (wielded) by The Avatar (L50) in The Throne Room (#2567, ultima) |
+| 2464 | british's crown | Armor | head | +2 Int, +2 Wis, +50 Mana, +10 AC · _glow_ | worn (head) by Lord British (L60) in The Throne Room (#2567, ultima) |
+| 2465 | british's sceptre | Armor | held | +2 Con, +50 HP, +5 Hitroll, +5 Damroll · _glow_ | worn (held) by Lord British (L60) in The Throne Room (#2567, ultima) |
+| 2466 | british's amulet | Armor | neck | +2 Str, +2 Dex, +50 HP, +50 Move · _glow_ | worn (neck) by Lord British (L60) in The Throne Room (#2567, ultima) |
+| 2467 | a fountain | Fountain | — | — | on the ground in Minoc's Fountain (#2504, ultima); on the ground in Castle Fountain (#2563, ultima) |
+| 2468 | a boat | Boat | — | — | carried by the boatseller (L100) in The Boatseller (#2506, ultima) |
 
 ### Alathon Pikachu's Vacation  `(vacation)`
 
 6 items
 
-| VNUM | Item | Type | Worn | Stats / value / flags |
-|---:|---|---|---|---|
-| 6600 | a toy axe | Weapon | wielded | dmg 1d6 (avg 4) |
-| 6601 | a pink ice ring | Armor | finger | AC 1 · +1 Str, +6 HP |
-| 6644 | a juicy steak | Food | — | val 15/0/0/0 |
-| 6645 | a rotten steak | Food | — | val 4/0/0/1 |
-| 6646 | an amber potion | Potion | — | val 30/16/1/0 · _nodrop_ |
-| 6647 | a toy gun | Weapon | wielded | dmg 2d3 (avg 4) |
+| VNUM | Item | Type | Worn | Stats / value / flags | Found |
+|---:|---|---|---|---|---|
+| 6600 | a toy axe | Weapon | wielded | dmg 1d6 (avg 4) | ⚠️ not placed (unobtainable in normal play) |
+| 6601 | a pink ice ring | Armor | finger | AC 1 · +1 Str, +6 HP | ⚠️ not placed (unobtainable in normal play) |
+| 6644 | a juicy steak | Food | — | val 15/0/0/0 | ⚠️ not placed (unobtainable in normal play) |
+| 6645 | a rotten steak | Food | — | val 4/0/0/1 | ⚠️ not placed (unobtainable in normal play) |
+| 6646 | an amber potion | Potion | — | val 30/16/1/0 · _nodrop_ | ⚠️ not placed (unobtainable in normal play) |
+| 6647 | a toy gun | Weapon | wielded | dmg 2d3 (avg 4) | ⚠️ not placed (unobtainable in normal play) |
 
 ### Hatchet Valley of the Elves  `(valley)`
 
 25 items
 
-| VNUM | Item | Type | Worn | Stats / value / flags |
-|---:|---|---|---|---|
-| 7800 | elven chainmail | Armor | body | AC 4 |
-| 7801 | elven boots | Armor | feet | AC 3 · +50 Move |
-| 7802 | an elven longsword | Weapon | wielded | dmg 3d3 (avg 6) · +1 Hitroll · _magic_ |
-| 7803 | a brown cloak | Armor | neck | AC 3 · +1 Dex · _magic_ |
-| 7804 | a key | Key | — | val 7846/0/0/0 |
-| 7805 | a key | Key | — | val 7880/0/0/0 |
-| 7806 | a gold ring | Armor | finger | AC 3 · +10 Mana · _magic_ |
-| 7807 | a quarterstaff | Weapon | wielded | dmg 4d4 (avg 10) · +2 Damroll · _magic_ |
-| 7808 | a potion | Potion | — | val 10/1/29/0 · _magic/nodrop_ |
-| 7809 | a potion | Potion | — | val 10/25/0/0 · _magic/nodrop_ |
-| 7810 | a potion | Potion | — | val 10/44/20/0 · _magic/nodrop_ |
-| 7811 | a potion | Potion | — | val 50/59/59/59 · _magic/nodrop_ |
-| 7812 | a potion | Potion | — | val 10/81/34/0 · _magic/nodrop_ |
-| 7813 | a potion | Potion | — | val 10/38/0/0 · _magic/nodrop_ |
-| 7814 | a potion | Potion | — | val 10/3/0/0 · _magic/nodrop_ |
-| 7815 | a potion | Potion | — | val 10/15/0/0 · _magic/nodrop_ |
-| 7816 | a potion | Potion | — | val 10/0/0/0 · _magic/nodrop_ |
-| 7817 | a scroll | Scroll | — | val 10/15/0/0 · _magic_ |
-| 7818 | a scroll | Scroll | — | val 10/0/0/0 · _magic_ |
-| 7819 | a scroll | Scroll | — | val 10/18/0/0 · _magic_ |
-| 7820 | a scroll | Scroll | — | val 10/13/0/0 · _magic_ |
-| 7821 | a scroll | Scroll | — | val 10/32/0/0 · _magic_ |
-| 7822 | a scroll | Scroll | — | val 10/8/0/0 · _magic_ |
-| 7823 | a scroll | Scroll | — | val 10/28/0/0 · _magic_ |
-| 7824 | the Rod of Neutrality | Light | — | infinite light · +5 Damroll · _magic/anti-good/anti-evil_ |
+| VNUM | Item | Type | Worn | Stats / value / flags | Found |
+|---:|---|---|---|---|---|
+| 7800 | elven chainmail | Armor | body | AC 4 | worn (body) by a valley elf sentry (L7) in Study (#7848, valley); worn (body) by a valley elf sentry (L7) in Study (#7848, valley); worn (body) by a valley elf sentry (L7) in Along a Windy Trail on the Rim of the Valley (#7850, valley); worn (body) by a valley elf sentry (L7) in Along a Windy Trail on the Rim of the Valley (#7853, valley); worn (body) by a valley elf sentry (L7) in Along a Windy Trail on the Rim of the Valley (#7856, valley); worn (body) by a valley elf sentry (L7) in Along a Windy Trail on the Rim of the Valley (#7860, valley); worn (body) by a valley elf sentry (L7) in Along a Windy Trail on the Rim of the Valley (#7863, valley); worn (body) by a valley elf sentry (L7) in Along a Windy Trail on the Rim of the Valley (#7866, valley) |
+| 7801 | elven boots | Armor | feet | AC 3 · +50 Move | worn (feet) by a valley elf scout (L6) in Along the Trail (#7827, valley); worn (feet) by a valley elf scout (L6) in A Trail in the Valley (#7842, valley); worn (feet) by a valley elf sentry (L7) in Study (#7848, valley); worn (feet) by a valley elf sentry (L7) in Study (#7848, valley); worn (feet) by a valley elf sentry (L7) in Along a Windy Trail on the Rim of the Valley (#7850, valley); worn (feet) by a valley elf scout (L6) in Along a Windy Trail on the Rim of the Valley (#7852, valley); worn (feet) by a valley elf sentry (L7) in Along a Windy Trail on the Rim of the Valley (#7853, valley); worn (feet) by a valley elf sentry (L7) in Along a Windy Trail on the Rim of the Valley (#7856, valley); worn (feet) by a valley elf sentry (L7) in Along a Windy Trail on the Rim of the Valley (#7860, valley); worn (feet) by a valley elf scout (L6) in Along a Windy Trail on the Rim of the Valley (#7862, valley); worn (feet) by a valley elf sentry (L7) in Along a Windy Trail on the Rim of the Valley (#7863, valley); worn (feet) by a valley elf sentry (L7) in Along a Windy Trail on the Rim of the Valley (#7866, valley); worn (feet) by a valley elf scout (L6) in The Small Valley (#7876, valley) |
+| 7802 | an elven longsword | Weapon | wielded | dmg 3d3 (avg 6) · +1 Hitroll · _magic_ | worn (wielded) by a valley elf (L8) in The Entrance to the Valley of the Elves (#7805, valley); worn (wielded) by a valley elf (L8) in The Valley of the Elves (#7811, valley); worn (wielded) by a valley elf (L8) in The Valley of the Elves (#7816, valley); worn (wielded) by a valley elf (L8) in The Edge of the Valley (#7818, valley); worn (wielded) by a valley elf (L8) in The Valley of the Elves (#7820, valley); worn (wielded) by a valley elf (L8) in The Valley of the Elves (#7820, valley); worn (wielded) by a valley elf scout (L6) in Along the Trail (#7827, valley); worn (wielded) by a valley elf (L8) in A Trail in the Valley (#7842, valley); worn (wielded) by a valley elf scout (L6) in A Trail in the Valley (#7842, valley); worn (wielded) by a valley elf (L8) in A Trail in the Valley (#7844, valley); worn (wielded) by a valley elf sentry (L7) in Study (#7848, valley); worn (wielded) by a valley elf sentry (L7) in Study (#7848, valley); worn (wielded) by a valley elf sentry (L7) in Along a Windy Trail on the Rim of the Valley (#7850, valley); worn (wielded) by a valley elf scout (L6) in Along a Windy Trail on the Rim of the Valley (#7852, valley); worn (wielded) by a valley elf sentry (L7) in Along a Windy Trail on the Rim of the Valley (#7853, valley); worn (wielded) by a valley elf (L8) in Along a Windy Trail on the Rim of the Valley (#7854, valley); worn (wielded) by a valley elf sentry (L7) in Along a Windy Trail on the Rim of the Valley (#7856, valley); worn (wielded) by a valley elf sentry (L7) in Along a Windy Trail on the Rim of the Valley (#7860, valley); worn (wielded) by a valley elf scout (L6) in Along a Windy Trail on the Rim of the Valley (#7862, valley); worn (wielded) by a valley elf sentry (L7) in Along a Windy Trail on the Rim of the Valley (#7863, valley); worn (wielded) by a valley elf (L8) in Along a Windy Trail on the Rim of the Valley (#7865, valley); worn (wielded) by a valley elf sentry (L7) in Along a Windy Trail on the Rim of the Valley (#7866, valley); worn (wielded) by a valley elf (L8) in A Bend in the Trail (#7868, valley); worn (wielded) by a valley elf scout (L6) in The Small Valley (#7876, valley); worn (wielded) by a valley elf (L8) in The Small Valley (#7877, valley) |
+| 7803 | a brown cloak | Armor | neck | AC 3 · +1 Dex · _magic_ | worn (neck) by a valley elf scout (L6) in Along the Trail (#7827, valley); worn (neck) by a valley elf scout (L6) in A Trail in the Valley (#7842, valley); worn (neck) by a valley elf sentry (L7) in Study (#7848, valley); worn (neck) by a valley elf sentry (L7) in Study (#7848, valley); worn (neck) by a valley elf sentry (L7) in Along a Windy Trail on the Rim of the Valley (#7850, valley); worn (neck) by a valley elf scout (L6) in Along a Windy Trail on the Rim of the Valley (#7852, valley); worn (neck) by a valley elf sentry (L7) in Along a Windy Trail on the Rim of the Valley (#7853, valley); worn (neck) by a valley elf sentry (L7) in Along a Windy Trail on the Rim of the Valley (#7856, valley); worn (neck) by a valley elf sentry (L7) in Along a Windy Trail on the Rim of the Valley (#7860, valley); worn (neck) by a valley elf scout (L6) in Along a Windy Trail on the Rim of the Valley (#7862, valley); worn (neck) by a valley elf sentry (L7) in Along a Windy Trail on the Rim of the Valley (#7863, valley); worn (neck) by a valley elf sentry (L7) in Along a Windy Trail on the Rim of the Valley (#7866, valley); worn (neck) by a valley elf scout (L6) in The Small Valley (#7876, valley) |
+| 7804 | a key | Key | — | val 7846/0/0/0 | carried by a valley elf elder (L15) in The Elders' Room (#7845, valley) |
+| 7805 | a key | Key | — | val 7880/0/0/0 | carried by the pyrohydra (L20) in The Den of the Pyrohydra (#7880, valley) |
+| 7806 | a gold ring | Armor | finger | AC 3 · +10 Mana · _magic_ | worn (left finger) by a valley elf elder (L15) in The Elders' Room (#7845, valley); worn (left finger) by a valley elf elder (L15) in The Elders' Room (#7845, valley); worn (left finger) by Talemon (L25) in The Workroom (#7881, valley) |
+| 7807 | a quarterstaff | Weapon | wielded | dmg 4d4 (avg 10) · +2 Damroll · _magic_ | worn (wielded) by a valley elf elder (L15) in The Elders' Room (#7845, valley); worn (wielded) by a valley elf elder (L15) in The Elders' Room (#7845, valley); worn (wielded) by Talemon (L25) in The Workroom (#7881, valley) |
+| 7808 | a potion | Potion | — | val 10/1/29/0 · _magic/nodrop_ | on the ground in The Storage Room (#7882, valley) |
+| 7809 | a potion | Potion | — | val 10/25/0/0 · _magic/nodrop_ | on the ground in The Storage Room (#7846, valley) |
+| 7810 | a potion | Potion | — | val 10/44/20/0 · _magic/nodrop_ | on the ground in The Storage Room (#7882, valley) |
+| 7811 | a potion | Potion | — | val 50/59/59/59 · _magic/nodrop_ | on the ground in The Storage Room (#7882, valley) |
+| 7812 | a potion | Potion | — | val 10/81/34/0 · _magic/nodrop_ | on the ground in The Storage Room (#7882, valley) |
+| 7813 | a potion | Potion | — | val 10/38/0/0 · _magic/nodrop_ | on the ground in The Storage Room (#7882, valley) |
+| 7814 | a potion | Potion | — | val 10/3/0/0 · _magic/nodrop_ | on the ground in The Storage Room (#7882, valley) |
+| 7815 | a potion | Potion | — | val 10/15/0/0 · _magic/nodrop_ | on the ground in The Storage Room (#7846, valley); on the ground in The Storage Room (#7882, valley) |
+| 7816 | a potion | Potion | — | val 10/0/0/0 · _magic/nodrop_ | on the ground in The Storage Room (#7846, valley) |
+| 7817 | a scroll | Scroll | — | val 10/15/0/0 · _magic_ | on the ground in The Storage Room (#7846, valley) |
+| 7818 | a scroll | Scroll | — | val 10/0/0/0 · _magic_ | on the ground in The Storage Room (#7882, valley) |
+| 7819 | a scroll | Scroll | — | val 10/18/0/0 · _magic_ | on the ground in The Storage Room (#7846, valley) |
+| 7820 | a scroll | Scroll | — | val 10/13/0/0 · _magic_ | on the ground in The Storage Room (#7846, valley); on the ground in The Storage Room (#7882, valley) |
+| 7821 | a scroll | Scroll | — | val 10/32/0/0 · _magic_ | on the ground in The Storage Room (#7882, valley) |
+| 7822 | a scroll | Scroll | — | val 10/8/0/0 · _magic_ | on the ground in The Storage Room (#7882, valley) |
+| 7823 | a scroll | Scroll | — | val 10/28/0/0 · _magic_ | on the ground in The Storage Room (#7846, valley); on the ground in The Storage Room (#7882, valley) |
+| 7824 | the Rod of Neutrality | Light | — | infinite light · +5 Damroll · _magic/anti-good/anti-evil_ | worn (light) by Talemon (L25) in The Workroom (#7881, valley) |
 
 ### Tyrst Wyvern's Tower  `(wyvern)`
 
 21 items
 
-| VNUM | Item | Type | Worn | Stats / value / flags |
-|---:|---|---|---|---|
-| 1601 | a rusty cleaver | Weapon | wielded | dmg 1d6 (avg 4) |
-| 1602 | the fine mace | Weapon | wielded | dmg 2d5 (avg 6) · +1 Hitroll · _magic_ |
-| 1603 | a long elven dagger | Weapon | wielded | dmg 2d5 (avg 6) · +2 Hitroll · _glow/magic_ |
-| 1604 | a steel broad sword | Weapon | wielded | dmg 2d6 (avg 7) · +1 Hitroll, +1 Damroll · _glow/magic_ |
-| 1606 | the rod of might | Weapon | wielded | dmg 2d7 (avg 8) · +2 Hitroll, +1 Str · _hum/magic_ |
-| 1612 | a black kite shield | Armor | shield | AC 6 · +1 Save-Spell · _glow/magic_ |
-| 1614 | a commander's helm | Armor | head | AC 7 · +1 Wis · _glow/magic_ |
-| 1615 | a mithril bracer | Armor | arms | AC 6 · +1 Str · _hum/magic_ |
-| 1616 | a dark blue cloak | Armor | neck | AC 1 · -6 AC, +5 Mana · _glow/magic_ |
-| 1621 | a dark red potion | Potion | held | val 9/14/15/-1 · _glow/magic/nodrop_ |
-| 1651 | a bronze chest | Container | — | holds 30 |
-| 1652 | a barrel of ale | Drink Con | — | val 5/2/3/0 |
-| 1691 | the twin towers key | Key | — | val 1/0/0/0 |
-| 1692 | a strange key | Key | held | val 2/0/0/0 · -5 AC · _glow/magic_ |
-| 1701 | a short bow | Weapon | wielded | dmg 2d4 (avg 5) |
-| 1702 | a long bow | Weapon | wielded | dmg 2d6 (avg 7) · +1 Hitroll · _glow/magic_ |
-| 1703 | a gnarled staff | Weapon | wielded | dmg 2d6 (avg 7) · +5 HP · _glow/magic_ |
-| 1704 | an ancient long sword | Weapon | wielded | dmg 2d8 (avg 9) · +3 Hitroll, +3 Damroll · _hum/magic_ |
-| 1711 | a fur cap | Armor | head | AC 2 |
-| 1712 | a pair of travelling boots | Armor | feet | AC 5 · +10 Move · _magic_ |
-| 1713 | a bronze ring | Armor | finger | AC 3 · +5 Mana · _magic_ |
+| VNUM | Item | Type | Worn | Stats / value / flags | Found |
+|---:|---|---|---|---|---|
+| 1601 | a rusty cleaver | Weapon | wielded | dmg 1d6 (avg 4) | on the ground in Kitchen (#1627, wyvern) |
+| 1602 | the fine mace | Weapon | wielded | dmg 2d5 (avg 6) · +1 Hitroll · _magic_ | worn (wielded) by the gargoyle shaman (L13) in The Shaman's Room (#1638, wyvern) |
+| 1603 | a long elven dagger | Weapon | wielded | dmg 2d5 (avg 6) · +2 Hitroll · _glow/magic_ | inside a bronze chest (#1651) — on the ground in The Armory (#1645, wyvern) |
+| 1604 | a steel broad sword | Weapon | wielded | dmg 2d6 (avg 7) · +1 Hitroll, +1 Damroll · _glow/magic_ | worn (wielded) by the savage minotaur (L15) in Minotaur's Room (#1610, wyvern); worn (wielded) by the elite gargoyle (L12) in Second Level of the Eastern Tower (#1636, wyvern); worn (wielded) by the elite gargoyle (L12) in Second Level of the Eastern Tower (#1636, wyvern); worn (wielded) by the captain (L17) in The Officer's Quarters (#1646, wyvern); worn (wielded) by a centaur guard (L10) in Entrance to a Large Hut (#1716, wyvern); worn (wielded) by a centaur guard (L10) in Entrance to a Large Hut (#1716, wyvern) |
+| 1606 | the rod of might | Weapon | wielded | dmg 2d7 (avg 8) · +2 Hitroll, +1 Str · _hum/magic_ | worn (wielded) by a lesser golem (L16) in Third Level of Eastern Tower (#1647, wyvern) |
+| 1612 | a black kite shield | Armor | shield | AC 6 · +1 Save-Spell · _glow/magic_ | worn (shield) by the savage minotaur (L15) in Minotaur's Room (#1610, wyvern) |
+| 1614 | a commander's helm | Armor | head | AC 7 · +1 Wis · _glow/magic_ | worn (head) by the captain (L17) in The Officer's Quarters (#1646, wyvern) |
+| 1615 | a mithril bracer | Armor | arms | AC 6 · +1 Str · _hum/magic_ | worn (held) by the ancient wyvern (L18) in Turret of the Eastern Tower (#1648, wyvern) |
+| 1616 | a dark blue cloak | Armor | neck | AC 1 · -6 AC, +5 Mana · _glow/magic_ | worn (neck) by the spectre (L19) in Turret of the Western Tower (#1650, wyvern) |
+| 1621 | a dark red potion | Potion | held | val 9/14/15/-1 · _glow/magic/nodrop_ | worn (waist) by the gargoyle shaman (L13) in The Shaman's Room (#1638, wyvern); carried by the ancient wyvern (L18) in Turret of the Eastern Tower (#1648, wyvern); carried by a ranger (L12) in Trading Post (#1703, wyvern) |
+| 1651 | a bronze chest | Container | — | holds 30 | on the ground in The Armory (#1645, wyvern) |
+| 1652 | a barrel of ale | Drink Con | — | val 5/2/3/0 | on the ground in Old Store Room (#1608, wyvern) |
+| 1691 | the twin towers key | Key | — | val 1/0/0/0 | ⚠️ not placed (unobtainable in normal play) |
+| 1692 | a strange key | Key | held | val 2/0/0/0 · -5 AC · _glow/magic_ | worn (held) by an evil wight (L12) in A Large Murky Cellar (#1634, wyvern) |
+| 1701 | a short bow | Weapon | wielded | dmg 2d4 (avg 5) | worn (wielded) by a hunter (L8) in Trading Post (#1703, wyvern); worn (wielded) by a centaur (L7) in Trail north of crossroads (#1704, wyvern); worn (wielded) by a centaur (L7) in Junction in Dark Forest (#1708, wyvern) |
+| 1702 | a long bow | Weapon | wielded | dmg 2d6 (avg 7) · +1 Hitroll · _glow/magic_ | worn (wielded) by a ranger (L12) in Trading Post (#1703, wyvern) |
+| 1703 | a gnarled staff | Weapon | wielded | dmg 2d6 (avg 7) · +5 HP · _glow/magic_ | ⚠️ not placed (unobtainable in normal play) |
+| 1704 | an ancient long sword | Weapon | wielded | dmg 2d8 (avg 9) · +3 Hitroll, +3 Damroll · _hum/magic_ | ⚠️ not placed (unobtainable in normal play) |
+| 1711 | a fur cap | Armor | head | AC 2 | worn (head) by a trapper (L6) in Trading Post (#1703, wyvern); worn (head) by a trapper (L6) in Trading Post (#1703, wyvern) |
+| 1712 | a pair of travelling boots | Armor | feet | AC 5 · +10 Move · _magic_ | ⚠️ not placed (unobtainable in normal play) |
+| 1713 | a bronze ring | Armor | finger | AC 3 · +5 Mana · _magic_ | worn (right finger) by the centaur chief (L12) in Back of a Large Hut (#1717, wyvern) |
 

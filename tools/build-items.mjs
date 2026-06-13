@@ -16,6 +16,7 @@ import { fileURLToPath } from 'node:url';
 import {
   parseAreaFile, loadAreaList, cell,
   itemTypeName, wearList, extraList, affectStr, itemValueStr,
+  buildWorldIndex, resolveResets, describeSource,
 } from './lib/area.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -35,10 +36,22 @@ function statsCol(o) {
 
 function main() {
   fs.mkdirSync(OUT, { recursive: true });
+  const parsed = [];
+  for (const f of loadAreaList(AREA_DIR)) parsed.push(parseAreaFile(path.join(AREA_DIR, f)));
+
+  // where does each item come from? (resets, resolved across all areas)
+  const idx = buildWorldIndex(parsed);
+  const { itemSources } = resolveResets(parsed);
+  // one-line "where to get it", or a clear unobtainable marker
+  const foundStr = (vnum) => {
+    const src = itemSources.get(vnum);
+    if (!src || !src.length) return '⚠️ not placed (unobtainable in normal play)';
+    return src.map((s) => describeSource(s, idx, itemSources)).join('; ');
+  };
+
   const areas = [];
   const all = [];
-  for (const f of loadAreaList(AREA_DIR)) {
-    const a = parseAreaFile(path.join(AREA_DIR, f));
+  for (const a of parsed) {
     if (!a.objects.length) continue;
     areas.push({ id: a.id, name: a.name, objects: a.objects });
     for (const o of a.objects) all.push({ ...o, area: a.id, areaName: a.name });
@@ -53,6 +66,8 @@ function main() {
       vnum: o.vnum, name: o.name, area: o.area, type: itemTypeName(o.itemType),
       wear: wearList(o.wear), value: itemValueStr(o), flags: extraList(o.extra),
       affects: o.affects.map((a) => ({ stat: affectStr(a) })), weight: o.weight, cost: o.cost,
+      obtainable: itemSources.has(o.vnum),
+      sources: (itemSources.get(o.vnum) || []).map((s) => ({ ...s, text: describeSource(s, idx, itemSources) })),
     })),
   };
   fs.writeFileSync(path.join(OUT, 'items.json'), JSON.stringify(data, null, 2) + '\n');
@@ -71,10 +86,10 @@ function main() {
     .map((o) => ({ o, power: o.affects.reduce((n, a) => n + Math.abs(a.mod), 0) }))
     .sort((a, b) => b.power - a.power).slice(0, 60);
   if (notable.length) {
-    out.push('## Notable gear (stat-boosting wearables)', '', 'Top 60 by total stat magnitude.', '');
-    out.push('| VNUM | Item | Type | Worn | Stats | Area |', '|---:|---|---|---|---|---|');
+    out.push('## Notable gear (stat-boosting wearables)', '', 'Top 60 by total stat magnitude. _Found_ traces the item back through area resets; ⚠️ means no reset places it, so it cannot be obtained in normal play.', '');
+    out.push('| VNUM | Item | Type | Worn | Stats | Found |', '|---:|---|---|---|---|---|');
     for (const { o } of notable) {
-      out.push(`| ${o.vnum} | ${cell(o.name)} | ${itemTypeName(o.itemType)} | ${wearList(o.wear).join('/') || '—'} | ${cell(o.affects.map(affectStr).join(', '))} | ${o.area} |`);
+      out.push(`| ${o.vnum} | ${cell(o.name)} | ${itemTypeName(o.itemType)} | ${wearList(o.wear).join('/') || '—'} | ${cell(o.affects.map(affectStr).join(', '))} | ${cell(foundStr(o.vnum))} |`);
     }
     out.push('');
   }
@@ -83,9 +98,9 @@ function main() {
   out.push('## Full catalogue by area', '');
   for (const a of areas.sort((x, y) => x.id.localeCompare(y.id))) {
     out.push(`### ${a.name}  \`(${a.id})\``, '', `${a.objects.length} items`, '');
-    out.push('| VNUM | Item | Type | Worn | Stats / value / flags |', '|---:|---|---|---|---|');
+    out.push('| VNUM | Item | Type | Worn | Stats / value / flags | Found |', '|---:|---|---|---|---|---|');
     for (const o of a.objects.sort((x, y) => x.vnum - y.vnum)) {
-      out.push(`| ${o.vnum} | ${cell(o.name)} | ${itemTypeName(o.itemType)} | ${wearList(o.wear).join('/') || '—'} | ${cell(statsCol(o))} |`);
+      out.push(`| ${o.vnum} | ${cell(o.name)} | ${itemTypeName(o.itemType)} | ${wearList(o.wear).join('/') || '—'} | ${cell(statsCol(o))} | ${cell(foundStr(o.vnum))} |`);
     }
     out.push('');
   }

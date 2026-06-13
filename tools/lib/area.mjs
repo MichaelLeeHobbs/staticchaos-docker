@@ -282,6 +282,88 @@ export const applyName = (loc) => APPLY[loc] || `apply${loc}`;
 export const affectStr = (a) => `${a.mod >= 0 ? '+' : ''}${a.mod} ${applyName(a.loc)}`;
 
 /* ------------------------------------------------------------------ */
+/* Reset cross-reference: where mobs spawn and where items come from   */
+/* ------------------------------------------------------------------ */
+
+/* Global vnum indexes across all parsed areas. Mob/room/object vnums are each
+ * globally unique, so flat maps are correct. Pass an array of parseAreaFile()
+ * results. */
+export function buildWorldIndex(areas) {
+  const mobs = new Map(), rooms = new Map(), objs = new Map();
+  for (const a of areas) {
+    for (const m of a.mobiles) mobs.set(m.vnum, { ...m, area: a.id });
+    for (const r of a.rooms)   rooms.set(r.vnum, { ...r, area: a.id });
+    for (const o of a.objects) objs.set(o.vnum, { ...o, area: a.id });
+  }
+  return { mobs, rooms, objs };
+}
+
+/* Walk every area's #RESETS the way src/db.c reset_room() does, returning:
+ *   mobSpawns   : Map<mobVnum, Set<roomVnum>>
+ *   itemSources : Map<objVnum, Source[]>
+ * where Source is one of:
+ *   { kind:'floor',     room }              -- O: lying in a room
+ *   { kind:'equipped',  mob, room, wear }   -- E: worn by the last-loaded mob
+ *   { kind:'carried',   mob, room }         -- G: carried by the last-loaded mob
+ *   { kind:'container', container }         -- P: put inside object <arg3>
+ *
+ * State is per-area. E/G attach to the most recent M (LastMob and the room it
+ * loaded in). P nests arg1 inside the object named by arg3 (the container's own
+ * vnum) -- it does NOT belong to "the last room", which is the long-standing
+ * mistake this centralises away. Items that never appear as an O/E/G/P arg1
+ * are simply absent from itemSources -> not placed -> unobtainable in play. */
+export function resolveResets(areas) {
+  const mobSpawns = new Map();
+  const itemSources = new Map();
+  const addSpawn = (mob, room) => { (mobSpawns.get(mob) ?? mobSpawns.set(mob, new Set()).get(mob)).add(room); };
+  const addSrc = (obj, s) => { (itemSources.get(obj) ?? itemSources.set(obj, []).get(obj)).push(s); };
+  for (const a of areas) {
+    let lastMob = 0, lastMobRoom = 0;
+    for (const r of a.resets) {
+      switch (r.command) {
+        case 'M': lastMob = r.arg1; lastMobRoom = r.arg3; addSpawn(r.arg1, r.arg3); break;
+        case 'O': addSrc(r.arg1, { kind: 'floor', room: r.arg3 }); break;
+        case 'E': addSrc(r.arg1, { kind: 'equipped', mob: lastMob, room: lastMobRoom, wear: r.arg3 }); break;
+        case 'G': addSrc(r.arg1, { kind: 'carried', mob: lastMob, room: lastMobRoom }); break;
+        case 'P': addSrc(r.arg1, { kind: 'container', container: r.arg3 }); break;
+        default: break;
+      }
+    }
+  }
+  return { mobSpawns, itemSources };
+}
+
+export const WEARLOC = [
+  'light', 'left finger', 'right finger', 'neck', 'neck', 'body', 'head', 'legs',
+  'feet', 'hands', 'arms', 'shield', 'about body', 'waist', 'left wrist',
+  'right wrist', 'wielded', 'held',
+];
+
+/* Human description of one item Source. `idx` is buildWorldIndex() output;
+ * `itemSources` lets us resolve where a container itself lives (one level
+ * deep, so chained P resets don't loop forever). */
+export function describeSource(s, idx, itemSources, depth = 0) {
+  const roomStr = (v) => { const r = idx.rooms.get(v); return r ? `${r.name} (#${v}, ${r.area})` : `room #${v}`; };
+  const mobStr  = (v) => { const m = idx.mobs.get(v);  return m ? `${m.name} (L${m.level})` : `a creature (#${v})`; };
+  switch (s.kind) {
+    case 'floor':    return `on the ground in ${roomStr(s.room)}`;
+    case 'equipped': return `worn (${WEARLOC[s.wear] || 'slot ' + s.wear}) by ${mobStr(s.mob)} in ${roomStr(s.room)}`;
+    case 'carried':  return `carried by ${mobStr(s.mob)} in ${roomStr(s.room)}`;
+    case 'container': {
+      const c = idx.objs.get(s.container);
+      const name = c ? `${c.name} (#${s.container})` : `container #${s.container}`;
+      let where = '';
+      if (depth < 2) {
+        const cs = (itemSources.get(s.container) || []).find((x) => x.kind !== 'container');
+        if (cs) where = ` — ${describeSource(cs, idx, itemSources, depth + 1)}`;
+      }
+      return `inside ${name}${where}`;
+    }
+    default: return '?';
+  }
+}
+
+/* ------------------------------------------------------------------ */
 /* Area map partitioning + Mermaid generation                         */
 /* ------------------------------------------------------------------ */
 

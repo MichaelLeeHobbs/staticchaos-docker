@@ -1,6 +1,8 @@
 import { useEffect, useState, type ReactNode } from 'react';
 import {
+  Alert,
   Box,
+  Button,
   Card,
   CardActionArea,
   CardContent,
@@ -14,6 +16,7 @@ import MenuBookIcon from '@mui/icons-material/MenuBook';
 import MapIcon from '@mui/icons-material/Map';
 import TravelExploreIcon from '@mui/icons-material/TravelExplore';
 import DownloadIcon from '@mui/icons-material/Download';
+import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
 import { loadBestiary, loadItems, loadWorld } from '../lib/data';
 
 interface NavCard {
@@ -99,6 +102,19 @@ export function HomePage() {
             <Chip label={`${stats.mobs.toLocaleString()} mobs`} size="small" />
           </Stack>
         )}
+        <Alert
+          severity="info"
+          icon={<RocketLaunchIcon />}
+          action={
+            <Button component={Link} to="/docs/GETTING-STARTED.md" color="inherit" size="small" variant="outlined">
+              Start here
+            </Button>
+          }
+          sx={{ maxWidth: 720, alignItems: 'center' }}
+        >
+          New to MUDs? The <strong>Getting Started</strong> guide takes you from zero to
+          in-game — installing Mudlet and connecting included.
+        </Alert>
       </Stack>
 
       <Grid container spacing={3}>

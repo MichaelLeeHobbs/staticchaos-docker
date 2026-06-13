@@ -40,10 +40,16 @@ for (const f of ls(wm, /\.json$/)) { cp(path.join(wm, f), path.join(DATA, f)); n
 
 // ---- docs (markdown) + manifest ----
 const docsIndex = [];
+// Only genuinely user-facing docs from docs/ ship to the site. Internal planning
+// docs (GMCP-PLAN, SORCERER-AND-ADMIN-BRAINSTORM, …) live in docs/ for us but are
+// NOT exposed — add a file here once it's been written for players.
+const USER_DOCS = new Set(['GETTING-STARTED.md', 'GEARING-GUIDE.md']);
 for (const f of ls(path.join(ROOT, 'docs'), /\.md$/)) {
+  if (!USER_DOCS.has(f)) continue;
   const src = path.join(ROOT, 'docs', f);
   cp(src, path.join(DOCS, f));
-  docsIndex.push({ file: f, title: titleOf(src), group: 'Guides' });
+  const group = f === 'GETTING-STARTED.md' ? 'Start here' : 'Guides';
+  docsIndex.push({ file: f, title: titleOf(src), group });
 }
 for (const f of ls(wm, /\.md$/)) {
   const src = path.join(wm, f);
@@ -51,7 +57,7 @@ for (const f of ls(wm, /\.md$/)) {
   const group = /^[A-Z]/.test(f) ? 'Reference' : 'Atlas (areas)';
   docsIndex.push({ file: f, title: titleOf(src), group });
 }
-const groupOrder = { Guides: 0, Reference: 1, 'Atlas (areas)': 2 };
+const groupOrder = { 'Start here': 0, Guides: 1, Reference: 2, 'Atlas (areas)': 3 };
 docsIndex.sort((a, b) => (groupOrder[a.group] - groupOrder[b.group]) || a.title.localeCompare(b.title));
 fs.writeFileSync(path.join(DOCS, 'index.json'), JSON.stringify(docsIndex, null, 2));
 

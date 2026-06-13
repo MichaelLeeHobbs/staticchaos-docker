@@ -5,8 +5,13 @@ import {
   Button,
   Chip,
   CircularProgress,
+  Divider,
   IconButton,
   Link,
+  ListItemIcon,
+  ListItemText,
+  Menu,
+  MenuItem,
   Paper,
   Slider,
   Stack,
@@ -20,6 +25,9 @@ import HomeIcon from '@mui/icons-material/Home';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import AutoFixHighIcon from '@mui/icons-material/AutoFixHigh';
 import RestartAltIcon from '@mui/icons-material/RestartAlt';
+import TuneIcon from '@mui/icons-material/Tune';
+import FileDownloadIcon from '@mui/icons-material/FileDownload';
+import FileUploadIcon from '@mui/icons-material/FileUpload';
 import { loadWorld, loadSpawns } from '../lib/data';
 import type { World } from '../lib/types';
 import {
@@ -164,6 +172,38 @@ export function MapPage() {
     positionsRef.current.delete(viewRef.current ?? '__world__');
     persist();
   }, [persist]);
+
+  const [menuAnchor, setMenuAnchor] = useState<HTMLElement | null>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
+
+  const exportLayouts = useCallback(() => {
+    const blob = new Blob([JSON.stringify(Object.fromEntries(positionsRef.current))], {
+      type: 'application/json',
+    });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'staticchaos-map-layouts.json';
+    a.click();
+    URL.revokeObjectURL(url);
+  }, []);
+
+  const importLayouts = useCallback(
+    (file: File) => {
+      file
+        .text()
+        .then((txt) => {
+          const obj = JSON.parse(txt) as SavedPositions;
+          for (const [k, v] of Object.entries(obj)) positionsRef.current.set(k, v);
+          persist();
+          setResizeTick((t) => t + 1); // redraw current view from the imported layout
+        })
+        .catch(() => {
+          /* not a valid layout file */
+        });
+    },
+    [persist],
+  );
 
   // view changes go through navigate() so we can offer an in-map Back (the
   // browser back button would leave /map entirely — not what we want here).
@@ -419,19 +459,72 @@ export function MapPage() {
             disabled={layout === 'grid' && !graph?.gridFellBack}
           />
         </Stack>
-        <Button size="small" startIcon={<AutoFixHighIcon />} onClick={() => handleRef.current?.relayout()}>
-          Re-tidy
-        </Button>
         <Button
           size="small"
-          startIcon={<RestartAltIcon />}
-          onClick={() => {
-            forgetLayout();
-            setResizeTick((t) => t + 1);
-          }}
+          startIcon={<TuneIcon />}
+          onClick={(e) => setMenuAnchor(e.currentTarget)}
         >
-          Reset
+          Layout
         </Button>
+        <Menu anchorEl={menuAnchor} open={Boolean(menuAnchor)} onClose={() => setMenuAnchor(null)}>
+          <MenuItem
+            onClick={() => {
+              handleRef.current?.relayout();
+              setMenuAnchor(null);
+            }}
+          >
+            <ListItemIcon>
+              <AutoFixHighIcon fontSize="small" />
+            </ListItemIcon>
+            <ListItemText>Re-tidy (relax from here)</ListItemText>
+          </MenuItem>
+          <MenuItem
+            onClick={() => {
+              forgetLayout();
+              setResizeTick((t) => t + 1);
+              setMenuAnchor(null);
+            }}
+          >
+            <ListItemIcon>
+              <RestartAltIcon fontSize="small" />
+            </ListItemIcon>
+            <ListItemText>Reset (fresh auto-layout)</ListItemText>
+          </MenuItem>
+          <Divider />
+          <MenuItem
+            onClick={() => {
+              exportLayouts();
+              setMenuAnchor(null);
+            }}
+          >
+            <ListItemIcon>
+              <FileDownloadIcon fontSize="small" />
+            </ListItemIcon>
+            <ListItemText>Export layouts…</ListItemText>
+          </MenuItem>
+          <MenuItem
+            onClick={() => {
+              fileInputRef.current?.click();
+              setMenuAnchor(null);
+            }}
+          >
+            <ListItemIcon>
+              <FileUploadIcon fontSize="small" />
+            </ListItemIcon>
+            <ListItemText>Import layouts…</ListItemText>
+          </MenuItem>
+        </Menu>
+        <input
+          ref={fileInputRef}
+          type="file"
+          accept="application/json"
+          hidden
+          onChange={(e) => {
+            const f = e.target.files?.[0];
+            if (f) importLayouts(f);
+            e.target.value = '';
+          }}
+        />
         <TextField
           size="small"
           placeholder="search room or area… (name or #vnum)"

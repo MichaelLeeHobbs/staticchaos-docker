@@ -164,6 +164,24 @@ export function drawGraph(
       .duration(450)
       .call(zoom.transform, d3.zoomIdentity.translate(W / 2 - cx * k, H / 2 - cy * k).scale(k));
 
+  // fit the rendered node bbox to the viewport, centred — robust regardless of
+  // where the layout settled (replaces a fixed origin-centred zoom).
+  const fitView = () => {
+    const xs = nodes.map((n) => n.x ?? 0);
+    const ys = nodes.map((n) => n.y ?? 0);
+    if (!xs.length) return;
+    const minx = Math.min(...xs);
+    const maxx = Math.max(...xs);
+    const miny = Math.min(...ys);
+    const maxy = Math.max(...ys);
+    const pad = 70;
+    const k = Math.max(
+      0.05,
+      Math.min((W - pad * 2) / Math.max(1, maxx - minx), (H - pad * 2) / Math.max(1, maxy - miny), 1.4),
+    );
+    recenter(k, (minx + maxx) / 2, (miny + maxy) / 2);
+  };
+
   if (opts.grid) {
     const grid = opts.grid;
     for (const n of nodes) {
@@ -173,37 +191,33 @@ export function drawGraph(
         n.y = n.fy = p.y;
       }
     }
+    // pinned positions; the strength-0 link force just resolves endpoints
     sim = d3
       .forceSimulation<GraphNode, GraphLink>(nodes)
-      .force('link', d3.forceLink<GraphNode, GraphLink>(links).id((d) => d.id).strength(0))
-      .on('tick', ticked);
+      .force('link', d3.forceLink<GraphNode, GraphLink>(links).id((d) => d.id).strength(0));
+    sim.stop();
+    sim.on('tick', ticked);
     ticked();
-    const xs = [...grid.values()].map((p) => p.x);
-    const ys = [...grid.values()].map((p) => p.y);
-    if (xs.length) {
-      const minx = Math.min(...xs);
-      const maxx = Math.max(...xs);
-      const miny = Math.min(...ys);
-      const maxy = Math.max(...ys);
-      const k = Math.max(
-        0.1,
-        Math.min((W - 140) / (maxx - minx + 220), (H - 140) / (maxy - miny + 220), 1.1),
-      );
-      recenter(k, (minx + maxx) / 2, (miny + maxy) / 2);
-    }
+    fitView();
   } else {
     sim = d3
       .forceSimulation<GraphNode, GraphLink>(nodes)
       .force(
         'link',
-        d3.forceLink<GraphNode, GraphLink>(links).id((d) => d.id).distance(opts.dist ?? 70).strength(0.4),
+        d3.forceLink<GraphNode, GraphLink>(links).id((d) => d.id).distance(opts.dist ?? 80).strength(0.5),
       )
-      .force('charge', d3.forceManyBody().strength(opts.charge ?? -220))
-      .force('collide', d3.forceCollide<GraphNode>().radius((d) => d.r + 16))
-      .force('x', d3.forceX(0).strength(0.04))
-      .force('y', d3.forceY(0).strength(0.04))
-      .on('tick', ticked);
-    recenter(opts.zoom ?? 0.6);
+      .force('charge', d3.forceManyBody<GraphNode>().strength(opts.charge ?? -320).theta(0.8))
+      .force('collide', d3.forceCollide<GraphNode>().radius((d) => d.r + 20).iterations(2))
+      .force('x', d3.forceX<GraphNode>(0).strength(0.05))
+      .force('y', d3.forceY<GraphNode>(0).strength(0.05));
+    // pre-settle silently (no DOM churn) for a detangled, immediately-fitted view;
+    // drag reheats the sim afterwards.
+    sim.stop();
+    const iters = Math.min(500, 200 + nodes.length * 2);
+    for (let i = 0; i < iters; i++) sim.tick();
+    sim.on('tick', ticked);
+    ticked();
+    fitView();
   }
 
   return {

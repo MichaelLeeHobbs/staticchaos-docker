@@ -177,18 +177,7 @@ export function MapPage() {
   useEffect(() => {
     const el = wrapRef.current;
     if (!el) return;
-    const measure = () => {
-      const w = el.clientWidth || 900;
-      const h = el.clientHeight || 600;
-      // TEMP debug — paste this back if the canvas still mis-sizes
-      console.debug('[map] measure', {
-        wrap: { w: el.clientWidth, h: el.clientHeight },
-        parent: { h: el.parentElement?.clientHeight, tag: el.parentElement?.className },
-        win: { innerH: window.innerHeight },
-        wrapTop: Math.round(el.getBoundingClientRect().top),
-      });
-      setDims({ w, h });
-    };
+    const measure = () => setDims({ w: el.clientWidth || 900, h: el.clientHeight || 600 });
     measure();
     const ro = new ResizeObserver(measure);
     ro.observe(el);
@@ -203,21 +192,13 @@ export function MapPage() {
         layout === 'grid'
           ? computeSimpleGrid([...nodes].sort((a, b) => a.label.localeCompare(b.label)))
           : (null as Map<string, { x: number; y: number }> | null);
-      return { nodes, links, dist: 150, charge: -800, zoom: 0.5, dirLabels: false, grid };
+      return { nodes, links, dist: 180, charge: -1100, dirLabels: false, grid };
     }
     const { nodes, links } = buildArea(world, view);
     const inArea = new Set(nodes.filter((n) => n.kind === 'room' && n.vnum != null).map((n) => n.vnum as number));
     const roomVnums = [...inArea];
     const grid = layout === 'grid' ? computeGrid(world, roomVnums, inArea, nodes) : null;
-    return {
-      nodes,
-      links,
-      dist: 60,
-      charge: -160,
-      zoom: nodes.length > 120 ? 0.35 : 0.7,
-      dirLabels: true,
-      grid,
-    };
+    return { nodes, links, dist: 95, charge: -340, dirLabels: true, grid };
   }, [world, view, layout]);
 
   const onNodeClick = useCallback((n: GraphNode) => {
@@ -244,7 +225,6 @@ export function MapPage() {
       charge: graph.charge,
       dirLabels: graph.dirLabels,
       labelBelow: layout === 'grid',
-      zoom: graph.zoom,
       onNodeClick,
       onBackgroundClick: () => setSelected(null),
     });

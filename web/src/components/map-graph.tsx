@@ -226,6 +226,20 @@ export function drawGraph(
   };
 }
 
+/* simple uniform grid for the world overview (areas have no compass exits): a
+ * square-ish grid of evenly spaced cells, ordered as the nodes are passed in. */
+export function computeSimpleGrid(
+  nodes: GraphNode[],
+  spacing = 170,
+): Map<string, { x: number; y: number }> {
+  const cols = Math.max(1, Math.ceil(Math.sqrt(nodes.length)));
+  const px = new Map<string, { x: number; y: number }>();
+  nodes.forEach((n, i) => {
+    px.set(n.id, { x: (i % cols) * spacing, y: Math.floor(i / cols) * spacing });
+  });
+  return px;
+}
+
 /* compass-grid layout: BFS from the recall (or first) room, placing each room at
  * its neighbour's cell + the exit direction offset; collisions spiral outward. */
 export function computeGrid(

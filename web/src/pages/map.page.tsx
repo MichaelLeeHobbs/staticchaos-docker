@@ -18,7 +18,14 @@ import CloseIcon from '@mui/icons-material/Close';
 import HomeIcon from '@mui/icons-material/Home';
 import { loadWorld, loadSpawns } from '../lib/data';
 import type { World } from '../lib/types';
-import { drawGraph, computeGrid, type GraphHandle, type GraphLink, type GraphNode } from '../components/map-graph';
+import {
+  drawGraph,
+  computeGrid,
+  computeSimpleGrid,
+  type GraphHandle,
+  type GraphLink,
+  type GraphNode,
+} from '../components/map-graph';
 
 const DIRW: Record<string, string> = { N: 'north', E: 'east', S: 'south', W: 'west', U: 'up', D: 'down' };
 type Layout = 'force' | 'grid';
@@ -165,23 +172,36 @@ export function MapPage() {
     };
   }, []);
 
-  // size the canvas to the container
+  // fill all available space: full container width, height down to the viewport bottom
   useEffect(() => {
     const el = wrapRef.current;
     if (!el) return;
-    const measure = () =>
-      setDims({ w: el.clientWidth || 900, h: Math.max(440, Math.round(window.innerHeight * 0.72)) });
+    const measure = () => {
+      const top = el.getBoundingClientRect().top;
+      setDims({
+        w: el.clientWidth || 900,
+        h: Math.max(360, Math.floor(window.innerHeight - top - 10)),
+      });
+    };
     measure();
     const ro = new ResizeObserver(measure);
     ro.observe(el);
-    return () => ro.disconnect();
+    window.addEventListener('resize', measure);
+    return () => {
+      ro.disconnect();
+      window.removeEventListener('resize', measure);
+    };
   }, []);
 
   const graph = useMemo(() => {
     if (!world) return null;
     if (view === null) {
       const { nodes, links } = buildWorld(world);
-      return { nodes, links, dist: 150, charge: -800, zoom: 0.5, dirLabels: false, grid: null as Map<string, { x: number; y: number }> | null };
+      const grid =
+        layout === 'grid'
+          ? computeSimpleGrid([...nodes].sort((a, b) => a.label.localeCompare(b.label)))
+          : (null as Map<string, { x: number; y: number }> | null);
+      return { nodes, links, dist: 150, charge: -800, zoom: 0.5, dirLabels: false, grid };
     }
     const { nodes, links } = buildArea(world, view);
     const inArea = new Set(nodes.filter((n) => n.kind === 'room' && n.vnum != null).map((n) => n.vnum as number));
@@ -221,7 +241,7 @@ export function MapPage() {
       dist: graph.dist,
       charge: graph.charge,
       dirLabels: graph.dirLabels,
-      labelBelow: layout === 'grid' && view !== null,
+      labelBelow: layout === 'grid',
       zoom: graph.zoom,
       onNodeClick,
       onBackgroundClick: () => setSelected(null),
@@ -303,7 +323,6 @@ export function MapPage() {
           exclusive
           value={layout}
           onChange={(_, v: Layout | null) => v && setLayout(v)}
-          disabled={view === null}
         >
           <ToggleButton value="force">Force</ToggleButton>
           <ToggleButton value="grid">Grid</ToggleButton>

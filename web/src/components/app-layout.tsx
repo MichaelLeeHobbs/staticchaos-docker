@@ -12,6 +12,8 @@ const NAV = [
 export function AppLayout() {
   const { pathname } = useLocation();
   const isActive = (to: string) => (to === '/' ? pathname === '/' : pathname.startsWith(to));
+  // the map wants the whole page; other pages read better in a centred column
+  const wide = pathname.startsWith('/map');
   return (
     <Box sx={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
       <AppBar position="sticky" color="default" enableColorOnDark>
@@ -37,7 +39,11 @@ export function AppLayout() {
           ))}
         </Toolbar>
       </AppBar>
-      <Container maxWidth="lg" sx={{ py: 3, flex: 1 }}>
+      <Container
+        maxWidth={wide ? false : 'lg'}
+        disableGutters={wide}
+        sx={{ py: wide ? 1 : 3, px: wide ? 1.5 : undefined, flex: 1 }}
+      >
         <Outlet />
       </Container>
     </Box>

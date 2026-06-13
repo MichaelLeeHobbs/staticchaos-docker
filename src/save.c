@@ -622,7 +622,7 @@ bool load_char_obj( DESCRIPTOR_DATA *d, char *name )
     ch->pcdata->mind			= 10; 
     ch->pcdata->spirit			= 10;
     ch->pcdata->will			= 10;
-    ch->pcdata->primal			= 0;
+    ch->pcdata->primal			= 125;	/* new players start with 125 primal */
     ch->pcdata->condition[COND_THIRST]	= 48;
     ch->pcdata->pagelen                 = 20;
     ch->pcdata->security		= 0;	/* OLC */

@@ -170,8 +170,10 @@ void chant_cast( CHAR_DATA *ch, CHANT_DATA *cast )
   void *vo;
   int rank;
 
-  rank = ch->pcdata->powers[chant_table[cast->cn].school];
-  rank = UMIN( ch->pcdata->powers[SORC_MYSTIC], rank );
+  /* Use the rank captured at chant start (Mystic was already paid then).  The
+     old code recomputed rank from the now-reduced Mystic, double-counting the
+     cost so expensive chants resolved weaker the more they cost. */
+  rank = cast->rank;
 
   if ( chant_table[cast->cn].target != TAR_IGNORE )
   {
@@ -202,9 +204,12 @@ void chant_cast( CHAR_DATA *ch, CHANT_DATA *cast )
       }
     }
   }
-  /* otherwise misfire */
+  /* otherwise misfire -- refund half the Mystic this chant cost */
   else
+  {
+    ch->pcdata->powers[SORC_MYSTIC] += chant_table[cast->cn].rank / 2;
     stc( "Your chant misfired.\n\r", ch );
+  }
 
   /* add the used up chant back to the list of available ones */
   free_string( cast->target );
@@ -749,8 +754,9 @@ void chant_lighting( int cn, int rank, CHAR_DATA *ch, void *vo )
   act( "A bright ball of light appears right in $N's face.", ch, NULL, victim, TO_NOTVICT );
   if ( saves_chant( ch, victim, cn ) || IS_SUIT(victim) || victim->level > 95 )
     return;
-  if ( is_affected( ch, skill_lookup( "blindness" ) ) )
-    affect_strip( ch, skill_lookup( "blindness" ) );
+  /* refresh existing blindness on the VICTIM (the old code stripped the caster) */
+  if ( is_affected( victim, skill_lookup( "blindness" ) ) )
+    affect_strip( victim, skill_lookup( "blindness" ) );
   af.type      = skill_lookup( "blindness" );
   af.location  = APPLY_HITROLL;
   af.modifier  = -4;
@@ -785,7 +791,7 @@ void chant_holy_bless( int cn, int rank, CHAR_DATA *ch, void *vo )
   int sn =  skill_lookup( "bless" );
 
   if ( is_affected( victim, sn ) )
-    affect_strip( ch, sn );
+    affect_strip( victim, sn );
 
   af.type      = sn;
   af.duration  = 30 * rank + dice(1,6);

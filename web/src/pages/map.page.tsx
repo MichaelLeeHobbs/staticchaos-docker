@@ -18,6 +18,8 @@ import {
 import CloseIcon from '@mui/icons-material/Close';
 import HomeIcon from '@mui/icons-material/Home';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import AutoFixHighIcon from '@mui/icons-material/AutoFixHigh';
+import RestartAltIcon from '@mui/icons-material/RestartAlt';
 import { loadWorld, loadSpawns } from '../lib/data';
 import type { World } from '../lib/types';
 import {
@@ -31,7 +33,9 @@ import {
 } from '../components/map-graph';
 
 const DIRW: Record<string, string> = { N: 'north', E: 'east', S: 'south', W: 'west', U: 'up', D: 'down' };
+const LS_KEY = 'sc-map-layout-v1'; // saved per-area node positions
 type Layout = 'force' | 'grid';
+type SavedPositions = Record<string, Record<string, [number, number]>>; // areaKey -> nodeId -> [x,y]
 interface Enrich {
   roomMobs: Map<number, { name: string; level: number | null }[]>;
   roomItems: Map<number, string[]>;
@@ -145,6 +149,21 @@ export function MapPage() {
   const historyRef = useRef(history);
   historyRef.current = history;
   const [resizeTick, setResizeTick] = useState(0);
+  // saved node positions per area (in-memory, mirrored to localStorage)
+  const positionsRef = useRef<Map<string, Record<string, [number, number]>>>(new Map());
+
+  const persist = useCallback(() => {
+    try {
+      localStorage.setItem(LS_KEY, JSON.stringify(Object.fromEntries(positionsRef.current)));
+    } catch {
+      /* storage may be unavailable */
+    }
+  }, []);
+  // drop the saved layout for the current view so the next draw recomputes it
+  const forgetLayout = useCallback(() => {
+    positionsRef.current.delete(viewRef.current ?? '__world__');
+    persist();
+  }, [persist]);
 
   // view changes go through navigate() so we can offer an in-map Back (the
   // browser back button would leave /map entirely — not what we want here).
@@ -159,6 +178,16 @@ export function MapPage() {
     setHistory(h.slice(0, -1));
     setSelected(null);
     setView(h[h.length - 1] ?? null);
+  }, []);
+
+  // load any saved layouts before the first draw
+  useEffect(() => {
+    try {
+      const raw = localStorage.getItem(LS_KEY);
+      if (raw) positionsRef.current = new Map(Object.entries(JSON.parse(raw) as SavedPositions));
+    } catch {
+      /* ignore */
+    }
   }, []);
 
   useEffect(() => {
@@ -252,6 +281,17 @@ export function MapPage() {
   useEffect(() => {
     const wrap = wrapRef.current;
     if (!graph || !svgRef.current || !wrap) return;
+    const key = view ?? '__world__';
+    const saved = positionsRef.current.get(key);
+    const initial = saved
+      ? new Map(Object.entries(saved).map(([id, xy]) => [id, { x: xy[0], y: xy[1] }]))
+      : null;
+    const saveCurrent = () => {
+      const h = handleRef.current;
+      if (!h) return;
+      positionsRef.current.set(key, h.getPositions());
+      persist();
+    };
     const handle = drawGraph(svgRef.current, graph.nodes, graph.links, {
       width: wrap.clientWidth || 900,
       height: wrap.clientHeight || 600,
@@ -260,10 +300,13 @@ export function MapPage() {
       charge: graph.charge,
       dirLabels: graph.dirLabels,
       labelBelow: layout === 'grid',
+      initialPositions: initial,
       onNodeClick,
       onBackgroundClick: () => setSelected(null),
+      onLayoutChange: saveCurrent,
     });
     handleRef.current = handle;
+    if (!initial) saveCurrent(); // persist the freshly-computed layout
     if (pendingFocus.current != null) {
       const v = pendingFocus.current;
       pendingFocus.current = null;
@@ -271,7 +314,7 @@ export function MapPage() {
       setSelected(v);
     }
     return () => handle.destroy();
-  }, [graph, layout, view, onNodeClick, resizeTick]);
+  }, [graph, layout, view, onNodeClick, resizeTick, persist]);
 
   const focusRoom = (vnum: number) => {
     const dest = world?.rooms[String(vnum)];
@@ -341,7 +384,12 @@ export function MapPage() {
           size="small"
           exclusive
           value={layout}
-          onChange={(_, v: Layout | null) => v && setLayout(v)}
+          onChange={(_, v: Layout | null) => {
+            if (v) {
+              forgetLayout();
+              setLayout(v);
+            }
+          }}
         >
           <ToggleButton value="force">Force</ToggleButton>
           <ToggleButton value="grid">Grid</ToggleButton>
@@ -363,11 +411,27 @@ export function MapPage() {
             max={3}
             step={0.1}
             valueLabelDisplay="auto"
-            onChangeCommitted={(_, v) => setSpread(Array.isArray(v) ? (v[0] ?? 1) : v)}
+            onChangeCommitted={(_, v) => {
+              forgetLayout();
+              setSpread(Array.isArray(v) ? (v[0] ?? 1) : v);
+            }}
             sx={{ width: 100 }}
             disabled={layout === 'grid' && !graph?.gridFellBack}
           />
         </Stack>
+        <Button size="small" startIcon={<AutoFixHighIcon />} onClick={() => handleRef.current?.relayout()}>
+          Re-tidy
+        </Button>
+        <Button
+          size="small"
+          startIcon={<RestartAltIcon />}
+          onClick={() => {
+            forgetLayout();
+            setResizeTick((t) => t + 1);
+          }}
+        >
+          Reset
+        </Button>
         <TextField
           size="small"
           placeholder="search room or area… (name or #vnum)"
@@ -381,7 +445,7 @@ export function MapPage() {
       <Typography variant="caption" color="text.secondary" sx={{ display: 'block', mb: 1 }}>
         {view === null
           ? `${world.areas.length} areas · blue = reachable, red = stranded · click an area to enter`
-          : 'gold = recall · green ▸ = portal (click to travel) · amber link = one-way · drag nodes · click a room for details'}
+          : 'gold = recall · green ▸ = portal · amber = one-way · drag to move · Ctrl-click / Ctrl-drag to multi-select then drag the group · Re-tidy relaxes from here · layout saved in your browser'}
         {graph?.gridFellBack ? ' · ⚠ grid unsuitable for this area — showing Force' : ''}
       </Typography>
 

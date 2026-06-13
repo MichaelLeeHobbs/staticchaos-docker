@@ -32,12 +32,22 @@ export interface DrawOpts {
   dirLabels?: boolean;
   labelBelow?: boolean;
   zoom?: number;
+  // if given, use these node positions verbatim (skip auto-layout)
+  initialPositions?: Map<string, { x: number; y: number }> | null;
   onNodeClick?: (n: GraphNode) => void;
   onBackgroundClick?: () => void;
+  // fired after the user changes positions (drag / box-move / re-tidy) so the
+  // page can persist the layout
+  onLayoutChange?: () => void;
 }
 export interface GraphHandle {
   destroy: () => void;
   focus: (id: string) => void;
+  // relax the current arrangement with the force sim (manually-placed/pinned
+  // nodes stay put as anchors)
+  relayout: () => void;
+  // current node positions, for persistence
+  getPositions: () => Record<string, [number, number]>;
 }
 
 const trunc = (s: string) => (s.length > 16 ? `${s.slice(0, 15)}…` : s);
@@ -111,7 +121,6 @@ export function drawGraph(
     .scaleExtent([0.06, 6])
     .on('zoom', (e) => g.attr('transform', e.transform.toString()));
   svg.call(zoom);
-  svg.on('click', () => opts.onBackgroundClick?.());
 
   const link = g
     .append('g')
@@ -135,10 +144,15 @@ export function drawGraph(
     : null;
 
   let sim: d3.Simulation<GraphNode, GraphLink>;
+  const selected = new Set<string>();
+  const refreshSelection = () =>
+    node
+      .select('circle')
+      .attr('stroke', (d) => (selected.has((d as GraphNode).id) ? '#ffd479' : '#0c0c10'))
+      .attr('stroke-width', (d) => (selected.has((d as GraphNode).id) ? 2.6 : 1.2));
 
-  // Cheap drag: move only the dragged node + its links (no force re-run). The
-  // layout is pre-settled, so reheating the whole simulation just made big maps
-  // crawl during and after a drag. The node stays where it's dropped.
+  // Cheap drag (no force re-run). Dragging a SELECTED node moves the whole
+  // selection together; otherwise just that node. Node stays where dropped.
   const dragBehavior = d3
     .drag<SVGGElement, GraphNode>()
     .on('start', (_e, d) => {
@@ -146,10 +160,19 @@ export function drawGraph(
       d.fy = d.y;
     })
     .on('drag', (e, d) => {
-      d.fx = d.x = e.x;
-      d.fy = d.y = e.y;
+      if (selected.has(d.id) && selected.size > 1) {
+        for (const n of nodes) {
+          if (!selected.has(n.id)) continue;
+          n.fx = n.x = (n.x ?? 0) + e.dx;
+          n.fy = n.y = (n.y ?? 0) + e.dy;
+        }
+      } else {
+        d.fx = d.x = e.x;
+        d.fy = d.y = e.y;
+      }
       ticked();
-    });
+    })
+    .on('end', () => opts.onLayoutChange?.());
 
   const node = g
     .append('g')
@@ -160,6 +183,13 @@ export function drawGraph(
     .call(dragBehavior)
     .on('click', (e, d) => {
       e.stopPropagation();
+      // Ctrl/Cmd/Shift-click toggles selection (for group drag); plain click navigates
+      if (e.ctrlKey || e.metaKey || e.shiftKey) {
+        if (selected.has(d.id)) selected.delete(d.id);
+        else selected.add(d.id);
+        refreshSelection();
+        return;
+      }
       opts.onNodeClick?.(d);
     });
 
@@ -188,6 +218,56 @@ export function drawGraph(
   }
 
   node.append('title').text((d) => d.title ?? d.label);
+
+  // Ctrl/Cmd-drag on empty canvas = rubber-band box select (d3.zoom ignores
+  // ctrl-drag by default, so it won't pan). Plain click on canvas clears.
+  let boxStart: [number, number] | null = null;
+  let boxRect: d3.Selection<SVGRectElement, unknown, null, undefined> | null = null;
+  svg.on('mousedown.box', (e: MouseEvent) => {
+    if (!(e.ctrlKey || e.metaKey)) return;
+    e.preventDefault();
+    boxStart = d3.pointer(e, g.node());
+    boxRect = g
+      .append('rect')
+      .attr('fill', 'rgba(255,212,121,0.12)')
+      .attr('stroke', '#ffd479')
+      .attr('stroke-dasharray', '4 3')
+      .attr('pointer-events', 'none');
+  });
+  svg.on('mousemove.box', (e: MouseEvent) => {
+    if (!boxStart || !boxRect) return;
+    const p = d3.pointer(e, g.node());
+    boxRect
+      .attr('x', Math.min(boxStart[0], p[0]))
+      .attr('y', Math.min(boxStart[1], p[1]))
+      .attr('width', Math.abs(p[0] - boxStart[0]))
+      .attr('height', Math.abs(p[1] - boxStart[1]));
+  });
+  svg.on('mouseup.box', (e: MouseEvent) => {
+    if (!boxStart) return;
+    const p = d3.pointer(e, g.node());
+    const x0 = Math.min(boxStart[0], p[0]);
+    const x1 = Math.max(boxStart[0], p[0]);
+    const y0 = Math.min(boxStart[1], p[1]);
+    const y1 = Math.max(boxStart[1], p[1]);
+    for (const n of nodes) {
+      const nx = n.x ?? 0;
+      const ny = n.y ?? 0;
+      if (nx >= x0 && nx <= x1 && ny >= y0 && ny <= y1) selected.add(n.id);
+    }
+    refreshSelection();
+    boxRect?.remove();
+    boxStart = null;
+    boxRect = null;
+  });
+  svg.on('click', (e: MouseEvent) => {
+    if (e.ctrlKey || e.metaKey || e.shiftKey) return;
+    if (selected.size) {
+      selected.clear();
+      refreshSelection();
+    }
+    opts.onBackgroundClick?.();
+  });
 
   const elPos = (d: GraphLink) => {
     const s = d.source as GraphNode;
@@ -241,7 +321,45 @@ export function drawGraph(
     recenter(k, (minx + maxx) / 2, (miny + maxy) / 2);
   };
 
-  if (opts.grid) {
+  // relax from current positions (manually-dragged/pinned nodes stay as anchors).
+  // Powers the "Re-tidy" button: spread out overlaps without discarding the
+  // human's arrangement.
+  const relax = () => {
+    const s = d3
+      .forceSimulation<GraphNode, GraphLink>(nodes)
+      .force('link', d3.forceLink<GraphNode, GraphLink>(links).id((d) => d.id).distance(opts.dist ?? 80).strength(0.4))
+      .force('charge', d3.forceManyBody<GraphNode>().strength(opts.charge ?? -320).distanceMax(700).theta(0.85))
+      .force('collide', d3.forceCollide<GraphNode>().radius((d) => d.r + 20).iterations(2))
+      .stop();
+    for (let i = 0; i < 300; i++) s.tick();
+    ticked();
+    fitView();
+  };
+
+  // resolves link endpoints (source/target string ids -> node objects)
+  const resolveLinks = () => {
+    sim = d3
+      .forceSimulation<GraphNode, GraphLink>(nodes)
+      .force('link', d3.forceLink<GraphNode, GraphLink>(links).id((d) => d.id).strength(0));
+    sim.stop();
+    sim.on('tick', ticked);
+  };
+
+  if (opts.initialPositions) {
+    const pos = opts.initialPositions;
+    for (const n of nodes) {
+      const p = pos.get(n.id);
+      if (p) {
+        n.x = p.x;
+        n.y = p.y;
+      }
+      n.fx = null;
+      n.fy = null;
+    }
+    resolveLinks();
+    ticked();
+    fitView();
+  } else if (opts.grid) {
     const grid = opts.grid;
     for (const n of nodes) {
       const p = grid.get(n.id);
@@ -250,12 +368,7 @@ export function drawGraph(
         n.y = n.fy = p.y;
       }
     }
-    // pinned positions; the strength-0 link force just resolves endpoints
-    sim = d3
-      .forceSimulation<GraphNode, GraphLink>(nodes)
-      .force('link', d3.forceLink<GraphNode, GraphLink>(links).id((d) => d.id).strength(0));
-    sim.stop();
-    sim.on('tick', ticked);
+    resolveLinks();
     ticked();
     fitView();
   } else {
@@ -325,18 +438,28 @@ export function drawGraph(
   return {
     destroy() {
       sim.stop();
-      svg.on('.zoom', null).on('click', null);
+      svg
+        .on('.zoom', null)
+        .on('click', null)
+        .on('mousedown.box', null)
+        .on('mousemove.box', null)
+        .on('mouseup.box', null);
       svg.selectAll('*').remove();
     },
     focus(id) {
       const n = nodes.find((x) => x.id === id);
       if (!n) return;
-      node
-        .select('circle')
-        .attr('stroke', (d) => ((d as GraphNode).id === id ? '#ffffff' : '#0c0c10'))
-        .attr('stroke-width', (d) => ((d as GraphNode).id === id ? 2.5 : 1.2));
-      // don't re-run the sim (it would disturb the chosen layout) — just go there
+      // just pan/zoom to it (don't re-run the sim or clobber selection rings)
       recenter(1.4, n.x ?? 0, n.y ?? 0);
+    },
+    relayout() {
+      relax();
+      opts.onLayoutChange?.();
+    },
+    getPositions() {
+      const out: Record<string, [number, number]> = {};
+      for (const n of nodes) out[n.id] = [Math.round(n.x ?? 0), Math.round(n.y ?? 0)];
+      return out;
     },
   };
 }

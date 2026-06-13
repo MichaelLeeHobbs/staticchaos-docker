@@ -637,6 +637,7 @@ struct	descriptor_data
     sh_int		connected;
     bool		fcommand;
     bool		gmcp;		/* client negotiated GMCP (telnet 201) */
+    bool		gmcp_lists;	/* one-shot command/chant lists sent */
     char		inbuf		[4 * MAX_INPUT_LENGTH];
     char		incomm		[MAX_INPUT_LENGTH];
     char		inlast		[MAX_INPUT_LENGTH];
@@ -2838,6 +2839,8 @@ void	gmcp_telnet_filter	args( ( DESCRIPTOR_DATA *d ) );
 void	send_gmcp		args( ( DESCRIPTOR_DATA *d, const char *msg, const char *json ) );
 void	gmcp_update_char	args( ( CHAR_DATA *ch ) );
 void	gmcp_update_room	args( ( CHAR_DATA *ch ) );
+void	gmcp_update_status	args( ( CHAR_DATA *ch ) );
+void	gmcp_send_lists		args( ( CHAR_DATA *ch ) );
 void	gmcp_update_all		args( ( void ) );
 void	init_descriptor	args( ( DESCRIPTOR_DATA *dnew, int desc ) );
 void	stc		args( ( const char *txt, CHAR_DATA *ch ) );

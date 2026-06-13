@@ -223,12 +223,97 @@ void gmcp_update_room( CHAR_DATA *ch )
     send_gmcp( d, "Room.Info", json );
 }
 
-/* Phase 1 heartbeat: once per second from second_update. */
+static char *gmcp_class_name( int cls )
+{
+    switch ( cls )
+    {
+        case CLASS_SAIYAN:   return "Saiyan";
+        case CLASS_PATRYN:   return "Patryn";
+        case CLASS_FIST:     return "Fist";
+        case CLASS_SORCERER: return "Sorcerer";
+        case CLASS_MAZOKU:   return "Mazoku";
+        default:             return "None";
+    }
+}
+
+/* Phase 3: character status (changes rarely, but cheap to resend). */
+void gmcp_update_status( CHAR_DATA *ch )
+{
+    char json[MAX_STRING_LENGTH], nm[MAX_INPUT_LENGTH];
+    DESCRIPTOR_DATA *d;
+
+    if ( ch == NULL || IS_NPC( ch ) )
+        return;
+    if ( ( d = ch->desc ) == NULL || !d->gmcp || d->connected != CON_PLAYING )
+        return;
+
+    gmcp_json_str( nm, ch->name );
+    sprintf( json,
+        "{\"name\":\"%s\",\"class\":\"%s\",\"level\":%d,\"gold\":%d,\"primal\":%d,\"exp\":%lld}",
+        nm, gmcp_class_name( ch->class ), ch->level, ch->gold, ch->pcdata->primal, ch->exp );
+    send_gmcp( d, "Char.Status", json );
+}
+
+/* Phase 3: one-shot lists for client-side tab completion --
+ * game.Commands (commands at the player's trust) and, for Sorcerers,
+ * game.Chants (hyphenated chant names). */
+void gmcp_send_lists( CHAR_DATA *ch )
+{
+    char buf[MAX_STRING_LENGTH], *p;
+    DESCRIPTOR_DATA *d;
+    int i, trust, first;
+
+    if ( ch == NULL || IS_NPC( ch ) )
+        return;
+    if ( ( d = ch->desc ) == NULL || !d->gmcp || d->connected != CON_PLAYING )
+        return;
+
+    trust = get_trust( ch );
+    p = buf; *p++ = '[';
+    first = 1;
+    for ( i = 0; cmd_table[i].name[0] != '\0'; i++ )
+    {
+        if ( cmd_table[i].level > trust )
+            continue;
+        if ( !first ) *p++ = ',';
+        first = 0;
+        p += sprintf( p, "\"%s\"", cmd_table[i].name );
+    }
+    *p++ = ']'; *p = '\0';
+    send_gmcp( d, "game.Commands", buf );
+
+    if ( ch->class == CLASS_SORCERER )
+    {
+        p = buf; *p++ = '['; first = 1;
+        for ( i = 0; i < MAX_CHANT; i++ )
+        {
+            const char *n = chant_table[i].name;
+            if ( !first ) *p++ = ',';
+            first = 0;
+            *p++ = '"';
+            while ( *n != '\0' ) { *p++ = ( *n == ' ' ) ? '-' : *n; n++; }
+            *p++ = '"';
+        }
+        *p++ = ']'; *p = '\0';
+        send_gmcp( d, "game.Chants", buf );
+    }
+}
+
+/* Phase 1+3 heartbeat: once per second from second_update. */
 void gmcp_update_all( void )
 {
     DESCRIPTOR_DATA *d;
 
     for ( d = descriptor_list; d != NULL; d = d->next )
-        if ( d->gmcp && d->connected == CON_PLAYING && d->character != NULL )
-            gmcp_update_char( d->character );
+    {
+        if ( !d->gmcp || d->connected != CON_PLAYING || d->character == NULL )
+            continue;
+        gmcp_update_char( d->character );        /* Char.Vitals */
+        gmcp_update_status( d->character );      /* Char.Status */
+        if ( !d->gmcp_lists )                    /* command/chant lists, once */
+        {
+            gmcp_send_lists( d->character );
+            d->gmcp_lists = TRUE;
+        }
+    }
 }

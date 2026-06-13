@@ -70,6 +70,12 @@ void do_chant( CHAR_DATA *ch, char *argument )
     return;
   }
 
+  if ( chant_table[cn].lines > 1 && IS_SET(ch->pcdata->actnew,NEW_LAGUNABLADE) )
+  {
+    stc( "You cannot weave complex magic while the blade burns in your hands.\n\r", ch );
+    return;
+  }
+
   switch ( chant_table[cn].target )
   {
     case TAR_CHAR_OFFENSIVE:
@@ -739,23 +745,34 @@ void chant_dragon_slave( int cn, int rank, CHAR_DATA *ch, void *vo )
   return;
 }
 
+/* Black-magic finisher: conjures a short-lived blade of huge damage that
+   drains Mystic every pulse while wielded (see char_update) and blocks other
+   complex chants (see do_chant).  Counterplay: disarm, flee, Flow Break. */
 void chant_laguna_blade( int cn, int rank, CHAR_DATA *ch, void *vo )
 { OBJ_DATA *obj;
   OBJ_DATA *wield;
-  send_to_char( "This spell is temporarily out of order.\n\r", ch );
-   return;
-  if ( ( wield = get_eq_char(ch,WEAR_WIELD) ) != NULL )
-    do_remove( ch, "wield->name" );
+
+  if ( IS_SET( ch->pcdata->actnew, NEW_LAGUNABLADE ) )
+  { send_to_char( "The blade already burns in your hands.\n\r", ch );
+    return;
+  }
+
+  /* put away whatever is wielded first */
+  if ( ( wield = get_eq_char( ch, WEAR_WIELD ) ) != NULL )
+  { act( "You lower $p.", ch, wield, NULL, TO_CHAR );
+    unequip_char( ch, wield );
+  }
+
   act( "An awesome blade of oscillating black energy erupts in your hands!", ch, NULL, NULL, TO_CHAR );
   act( "An awesome blade of oscillating black energy erupts in $n's hands!", ch, NULL, NULL, TO_ROOM );
-  if ( !IS_SET(ch->pcdata->actnew,NEW_LAGUNABLADE) )
-    SET_BIT(ch->pcdata->actnew,NEW_LAGUNABLADE);
+
+  SET_BIT( ch->pcdata->actnew, NEW_LAGUNABLADE );
   obj = create_object( get_obj_index( LAGUNA_BLADE ), 2 );
-  obj->timer = 1;
-  obj->value[1] = 50;
-  obj->value[2] = 2500;
+  obj->timer    = 2;                          /* short fuse even if you survive */
+  obj->value[1] = UMAX( 20, rank );           /* damage dice scale with rank */
+  obj->value[2] = 40 * UMAX( 20, rank );
   obj_to_char( obj, ch );
-  do_wear(ch,"23skidoo" );
+  equip_char( ch, obj, WEAR_WIELD );
   return;
 }
 

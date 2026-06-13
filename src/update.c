@@ -1304,6 +1304,35 @@ void regen_update()
 
       if ( IS_SET(ch->pcdata->actnew,NEW_DRAGON_SLAVE) )
         REMOVE_BIT(ch->pcdata->actnew,NEW_DRAGON_SLAVE);
+
+      /* Laguna Blade upkeep: drains Mystic while wielded; ends if the blade is
+         gone (decayed / disarmed / removed) or your Mystic runs dry. */
+      if ( IS_SET(ch->pcdata->actnew,NEW_LAGUNABLADE) )
+      {
+        OBJ_DATA *blade = get_eq_char( ch, WEAR_WIELD );
+        if ( blade != NULL && blade->pIndexData->vnum == LAGUNA_BLADE )
+        {
+          ch->pcdata->powers[SORC_MYSTIC] -= 8;
+          if ( ch->pcdata->powers[SORC_MYSTIC] <= 0 )
+          {
+            ch->pcdata->powers[SORC_MYSTIC] = 1;
+            REMOVE_BIT( ch->pcdata->actnew, NEW_LAGUNABLADE );
+            extract_obj( blade );
+            send_to_char( "Your Mystic runs dry; the blade of black energy shatters!\n\r", ch );
+          }
+        }
+        else
+        {
+          OBJ_DATA *o, *o_next;
+          REMOVE_BIT( ch->pcdata->actnew, NEW_LAGUNABLADE );
+          for ( o = ch->carrying; o != NULL; o = o_next )
+          { o_next = o->next_content;
+            if ( o->pIndexData->vnum == LAGUNA_BLADE )
+              extract_obj( o );
+          }
+          send_to_char( "The black energy dissipates from your grasp.\n\r", ch );
+        }
+      }
     }
     else if ( IS_CLASS(ch,CLASS_MAZOKU) && ch->level >= 2)
     {

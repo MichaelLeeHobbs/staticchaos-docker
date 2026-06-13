@@ -43,12 +43,21 @@ const docsIndex = [];
 // Only genuinely user-facing docs from docs/ ship to the site. Internal planning
 // docs (GMCP-PLAN, SORCERER-AND-ADMIN-BRAINSTORM, …) live in docs/ for us but are
 // NOT exposed — add a file here once it's been written for players.
-const USER_DOCS = new Set(['GETTING-STARTED.md', 'GEARING-GUIDE.md']);
+const USER_DOCS = new Set([
+  'GETTING-STARTED.md',
+  'GEARING-GUIDE.md',
+  'CLASS-SAIYAN.md',
+  'CLASS-FIST.md',
+  'CLASS-PATRYN.md',
+  'CLASS-SORCERER.md',
+  'CLASS-MAZOKU.md',
+]);
 for (const f of ls(path.join(ROOT, 'docs'), /\.md$/)) {
   if (!USER_DOCS.has(f)) continue;
   const src = path.join(ROOT, 'docs', f);
   cp(src, path.join(DOCS, f));
-  const group = f === 'GETTING-STARTED.md' ? 'Start here' : 'Guides';
+  const group =
+    f === 'GETTING-STARTED.md' ? 'Start here' : f.startsWith('CLASS-') ? 'Class guides' : 'Guides';
   docsIndex.push({ file: f, title: titleOf(src), group });
 }
 for (const f of ls(wm, /\.md$/)) {
@@ -57,7 +66,7 @@ for (const f of ls(wm, /\.md$/)) {
   const group = /^[A-Z]/.test(f) ? 'Reference' : 'Atlas (areas)';
   docsIndex.push({ file: f, title: titleOf(src), group });
 }
-const groupOrder = { 'Start here': 0, Guides: 1, Reference: 2, 'Atlas (areas)': 3 };
+const groupOrder = { 'Start here': 0, Guides: 1, 'Class guides': 2, Reference: 3, 'Atlas (areas)': 4 };
 docsIndex.sort((a, b) => (groupOrder[a.group] - groupOrder[b.group]) || a.title.localeCompare(b.title));
 fs.writeFileSync(path.join(DOCS, 'index.json'), JSON.stringify(docsIndex, null, 2));
 

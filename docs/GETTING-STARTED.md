@@ -31,9 +31,9 @@ profile"). Make a new connection:
 1. Click **New** (or "Add new profile").
 2. Fill in:
    - **Profile name:** `Static Chaos` (anything you like)
-   - **Server address:** the **same address you used to open this website**
-     (the IP or name in your browser's address bar — e.g. `192.168.1.150`).
-     *Ask whoever runs the server if you're connecting from outside the network.*
+   - **Server address:** `rustycatz.fortiddns.com`
+     *(If you're on the same local network as the server, you can also use its
+     local IP — the address you used to open this website.)*
    - **Port:** `4000`
 3. Click **Connect**.
 
@@ -49,9 +49,10 @@ pressing **Enter** after each:
 2. **Password** — pick one (at least 5 characters), then type it again to confirm.
    *(It's a game password — don't reuse a real/important one.)*
 3. **Sex** — `M`, `F`, or `N`.
-4. **Class** — choose your path when asked. If you're brand new, anything works;
-   you can read about the world later. (See the **Gearing Guide** in Docs for how
-   power actually works here — it comes mostly from *training*, not gear.)
+4. **Class** — choose your path when asked (Saiyan, Patryn, Fist, Sorcerer, or
+   Mazoku). They play very differently, so skim the **class guides** in Docs to
+   pick one — new players can choose anything and learn as they go. (The
+   **Gearing Guide** explains how power works here: mostly *training*, not gear.)
 5. Follow any remaining prompts (press **Enter** to get through the message of the
    day) until you're dropped into a room with a description.
 

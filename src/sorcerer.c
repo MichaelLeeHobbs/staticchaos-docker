@@ -2617,7 +2617,7 @@ const	struct	chant_type	chant_table	[MAX_CHANT]	=
 
     {
     	"laguna blade",	chant_laguna_blade,	SCHOOL_BLACK, FALSE,
-    	55,	6000,	5,	8,	TAR_IGNORE,
+    	50,	6000,	5,	8,	TAR_IGNORE,
     	"`dLord of the dreams that terrify..`n",
     	"`dSword of cold and darkness, free yourself from the heavens bond.`n",
     	"`dBecome one with my power one with my body..`n",

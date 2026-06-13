@@ -177,7 +177,18 @@ export function MapPage() {
   useEffect(() => {
     const el = wrapRef.current;
     if (!el) return;
-    const measure = () => setDims({ w: el.clientWidth || 900, h: el.clientHeight || 600 });
+    const measure = () => {
+      const w = el.clientWidth || 900;
+      const h = el.clientHeight || 600;
+      // TEMP debug — paste this back if the canvas still mis-sizes
+      console.debug('[map] measure', {
+        wrap: { w: el.clientWidth, h: el.clientHeight },
+        parent: { h: el.parentElement?.clientHeight, tag: el.parentElement?.className },
+        win: { innerH: window.innerHeight },
+        wrapTop: Math.round(el.getBoundingClientRect().top),
+      });
+      setDims({ w, h });
+    };
     measure();
     const ro = new ResizeObserver(measure);
     ro.observe(el);

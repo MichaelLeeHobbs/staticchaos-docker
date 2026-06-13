@@ -15,7 +15,16 @@ export function AppLayout() {
   // the map wants the whole page; other pages read better in a centred column
   const wide = pathname.startsWith('/map');
   return (
-    <Box sx={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+    <Box
+      sx={{
+        minHeight: '100vh',
+        // a DEFINITE height on the map route so the flex chain can fill it
+        // (min-height alone gives flex children no free space to grow into)
+        height: wide ? '100vh' : undefined,
+        display: 'flex',
+        flexDirection: 'column',
+      }}
+    >
       <AppBar position="sticky" color="default" enableColorOnDark>
         <Toolbar variant="dense" sx={{ gap: 0.5, flexWrap: 'wrap' }}>
           <Typography

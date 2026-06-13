@@ -932,6 +932,9 @@ void second_update()
     copyover();
   }
 
+  /* GMCP heartbeat: refresh status gauges once per second. */
+  gmcp_update_all( );
+
   for ( ch = char_list; ch != NULL; ch = ch_next )
   {
     ch_next = ch->next;

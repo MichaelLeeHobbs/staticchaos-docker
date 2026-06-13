@@ -636,6 +636,7 @@ struct	descriptor_data
     sh_int		descriptor;
     sh_int		connected;
     bool		fcommand;
+    bool		gmcp;		/* client negotiated GMCP (telnet 201) */
     char		inbuf		[4 * MAX_INPUT_LENGTH];
     char		incomm		[MAX_INPUT_LENGTH];
     char		inlast		[MAX_INPUT_LENGTH];
@@ -2827,6 +2828,16 @@ bool	is_same_group	args( ( CHAR_DATA *ach, CHAR_DATA *bch ) );
 bool	is_note_to	args( ( CHAR_DATA *ch, NOTE_DATA *pnote ) );
 void	talk_auction	args( (char *argument) );
 bool    write_to_descriptor     args( ( int desc, char *txt, int length ) );
+
+/* gmcp.c -- Generic Mud Communication Protocol (telnet option 201) */
+#ifndef TELOPT_GMCP
+#define TELOPT_GMCP 201
+#endif
+void	gmcp_offer		args( ( DESCRIPTOR_DATA *d ) );
+void	gmcp_telnet_filter	args( ( DESCRIPTOR_DATA *d ) );
+void	send_gmcp		args( ( DESCRIPTOR_DATA *d, const char *msg, const char *json ) );
+void	gmcp_update_char	args( ( CHAR_DATA *ch ) );
+void	gmcp_update_all		args( ( void ) );
 void	init_descriptor	args( ( DESCRIPTOR_DATA *dnew, int desc ) );
 void	stc		args( ( const char *txt, CHAR_DATA *ch ) );
 void	wiznet		args( ( char *argument ) );

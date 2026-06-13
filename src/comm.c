@@ -1034,6 +1034,11 @@ void new_descriptor( int control )
     descriptor_list		= dnew;
 
     /*
+     * Offer GMCP (telnet 201) before the greeting; harmless to non-GMCP clients.
+     */
+    gmcp_offer( dnew );
+
+    /*
      * Send the greeting.
      */
     {
@@ -1202,6 +1207,10 @@ bool read_from_descriptor( DESCRIPTOR_DATA *d )
 #endif
 
     d->inbuf[iStart] = '\0';
+
+    /* Pull telnet / GMCP sequences out before the line parser sees them. */
+    gmcp_telnet_filter( d );
+
     return TRUE;
 }
 

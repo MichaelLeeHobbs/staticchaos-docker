@@ -1,5 +1,11 @@
 # GMCP Implementation Plan — Static Chaos
 
+> **Status (2026-06-13): Phase 0 + Phase 1 implemented, deployed and verified live.**
+> A fake-Mudlet test confirmed the server offers `IAC WILL GMCP`, parses incoming
+> GMCP (`Core.Hello` logged), pushes `Char.Vitals` once/sec, and leaves normal text
+> uncorrupted; non-GMCP clients are unaffected. Phases 2 (Room.Info mapper) and 3
+> (status/completion) remain.
+>
 > Full plan before any code. GMCP (Generic Mud Communication Protocol) is a small
 > telnet side-channel that lets the server send the client structured data (JSON)
 > out-of-band. It's the foundation for modern Mudlet features: status gauges, an

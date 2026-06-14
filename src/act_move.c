@@ -953,7 +953,9 @@ void do_recall( CHAR_DATA *ch, char *argument )
     }
 
     if ( ch->in_room == location )
+    {	send_to_char( "You're already home.\n\r", ch );
 	return;
+    }
 
     if ( IS_SET(ch->in_room->room_flags, ROOM_NO_RECALL)
     ||   IS_AFFECTED(ch, AFF_CURSE) )

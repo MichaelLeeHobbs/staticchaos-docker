@@ -597,6 +597,11 @@
           "text": "carried by the armourer (L100) in The Armoury (#3020, midgaard)"
         },
         {
+          "kind": "floor",
+          "room": 3001,
+          "text": "on the ground in The Temple Of Midgaard (#3001, midgaard)"
+        },
+        {
           "kind": "carried",
           "mob": 9609,
           "room": 9605,
@@ -993,6 +998,11 @@
           "mob": 3003,
           "room": 3011,
           "text": "carried by the weaponsmith (L100) in The Weapon Shop (#3011, midgaard)"
+        },
+        {
+          "kind": "floor",
+          "room": 3001,
+          "text": "on the ground in The Temple Of Midgaard (#3001, midgaard)"
         },
         {
           "kind": "carried",

@@ -713,9 +713,13 @@ int damage( CHAR_DATA *ch, CHAR_DATA *victim, int dam, int dt )
 
 
 	if ( IS_SUIT(victim) )
-	{ if ( dt == DAM_LIGHTNING )
+	{ int red;
+	  if ( dt == DAM_LIGHTNING )
 	    dam *= 2;
-	  dam -= dam * (suit_table[victim->pcdata->suit[SUIT_NUMBER]].armor - 60) / 140;
+	  red = dam * (suit_table[victim->pcdata->suit[SUIT_NUMBER]].armor - 60) / 140;
+	  if ( red > dam * 3 / 4 )	/* cap mobile-suit armor soak at 75% */
+	    red = dam * 3 / 4;
+	  dam -= red;
 	}
              /* damage reduction from toughness */
         else if (!IS_NPC(victim) && victim->level >= 2)
@@ -1343,9 +1347,13 @@ void chant_damage( CHAR_DATA *ch, CHAR_DATA *victim, int dam, int dt )
             dam -= dam * (victim->level - 95) * 10 / 100;
         }
         else if (IS_SUIT(victim) )
-	{ if ( school == SCHOOL_WIND )
+	{ int red;
+	  if ( school == SCHOOL_WIND )
 	    dam *= 2;
-	  dam -= dam * (suit_table[victim->pcdata->suit[SUIT_NUMBER]].armor - 60) / 160;
+	  red = dam * (suit_table[victim->pcdata->suit[SUIT_NUMBER]].armor - 60) / 160;
+	  if ( red > dam * 3 / 4 )	/* cap mobile-suit armor soak at 75% */
+	    red = dam * 3 / 4;
+	  dam -= red;
 	}
 	else
         {
@@ -1708,7 +1716,7 @@ bool check_parry( CHAR_DATA *ch, CHAR_DATA *victim )
         chance += 30;
       if ( dice(1, 1+reflex+isquare(reflex)) > reflex )
         if ( reflex < 2500 && reflex < (victim->pcdata->extras2[EVAL]*45) )
-          victim->pcdata->suit[SUIT_REFLEX]++;
+          victim->pcdata->suit[SUIT_REFLEX] += number_range(3,6); /* faster pilot-skill gain */
     }
     else
     {
@@ -1826,7 +1834,7 @@ bool check_dodge( CHAR_DATA *ch, CHAR_DATA *victim )
       chance += (suit_table[suit].speed - 80) + isquare(reflex);
       if ( dice(1, 1+reflex+isquare(reflex)) > reflex )
         if ( reflex < 2500 && reflex < (victim->pcdata->extras2[EVAL]*45) )
-          victim->pcdata->suit[SUIT_REFLEX]++;
+          victim->pcdata->suit[SUIT_REFLEX] += number_range(3,6); /* faster pilot-skill gain */
     }
     else
     {

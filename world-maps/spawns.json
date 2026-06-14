@@ -6441,6 +6441,10 @@
           "room": 3020
         },
         {
+          "kind": "floor",
+          "room": 3001
+        },
+        {
           "kind": "carried",
           "mob": 9609,
           "room": 9605
@@ -6644,6 +6648,10 @@
           "kind": "carried",
           "mob": 3003,
           "room": 3011
+        },
+        {
+          "kind": "floor",
+          "room": 3001
         },
         {
           "kind": "carried",

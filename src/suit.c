@@ -765,7 +765,7 @@ void do_fire( CHAR_DATA *ch, char *argument )
           && ch->in_room == victim->in_room
           && aim < ch->pcdata->extras2[EVAL]*45 )
         {
-          ch->pcdata->suit[SUIT_AIM]++;
+          ch->pcdata->suit[SUIT_AIM] += number_range(3,6); /* faster pilot-skill gain */
         }
         damage( ch, victim, dam1, type );
       }
@@ -993,7 +993,7 @@ void do_punch( CHAR_DATA *ch, char *argument )
     && combat < 2500
     && combat < ch->pcdata->extras2[EVAL]*45 )
   {
-      ch->pcdata->suit[SUIT_COMBAT]++;
+      ch->pcdata->suit[SUIT_COMBAT] += number_range(3,6); /* faster pilot-skill gain */
   }
   damage( ch, victim, dam, TYPE_HIT );
 
@@ -1001,7 +1001,7 @@ void do_punch( CHAR_DATA *ch, char *argument )
   if ( dice(1,1+combat+isquare(combat)*2) >= combat )
     if ( combat < 2500 && victim && victim->position > POS_STUNNED
       && combat < ch->pcdata->extras2[EVAL]*45 )
-      ch->pcdata->suit[SUIT_COMBAT]++;
+      ch->pcdata->suit[SUIT_COMBAT] += number_range(3,6); /* faster pilot-skill gain */
   WAIT_STATE( ch, 5 );
   return;
 }
@@ -1063,7 +1063,7 @@ void do_slash( CHAR_DATA *ch, char *argument )
     && weapon < 2500
     && weapon < ch->pcdata->extras2[EVAL]*45 )
   {
-      ch->pcdata->suit[SUIT_WEAPON]++;
+      ch->pcdata->suit[SUIT_WEAPON] += number_range(3,6); /* faster pilot-skill gain */
   }
 
   damage( ch, victim, dam, DAM_BEAMSABRE );

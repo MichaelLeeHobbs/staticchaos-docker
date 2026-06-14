@@ -51,6 +51,7 @@ const docsIndex = [];
 const USER_DOCS = new Set([
   'GETTING-STARTED.md',
   'GEARING-GUIDE.md',
+  'MOBILE-SUITS.md',
   'CLASS-SAIYAN.md',
   'CLASS-FIST.md',
   'CLASS-PATRYN.md',

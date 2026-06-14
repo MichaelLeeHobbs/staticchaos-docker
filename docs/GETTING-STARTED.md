@@ -92,6 +92,7 @@ add-on will finish commands for you.
 - **World Map** (this site) — explore every area and how the rooms connect.
 - **Browser** — search items, monsters, and shops.
 - **Gearing Guide** — how to actually get stronger (and which gear is worth it).
+- **Mobile Suits** — climb into a Gundam-style mech; a free trainer Leo (and ammo) waits in the Temple where you start.
 - **Mudlet / GMCP** — the add-ons and how to install them.
 
 Have fun, and don't be shy — `say hi` when you see someone around.

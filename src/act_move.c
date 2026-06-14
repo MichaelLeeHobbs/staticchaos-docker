@@ -957,8 +957,13 @@ void do_recall( CHAR_DATA *ch, char *argument )
 	return;
     }
 
-    if ( IS_SET(ch->in_room->room_flags, ROOM_NO_RECALL)
-    ||   IS_AFFECTED(ch, AFF_CURSE) )
+    if ( IS_AFFECTED(ch, AFF_CURSE) )
+    {
+	send_to_char( "You are cursed and cannot recall.\n\r", ch );
+	return;
+    }
+
+    if ( IS_SET(ch->in_room->room_flags, ROOM_NO_RECALL) )
     {
 	send_to_char( "Alathon is busy, please leave a message at the beep.\n\r", ch );
 	return;

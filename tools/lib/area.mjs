@@ -103,8 +103,9 @@ function parseRooms(block) {
     if (!vnum) break;
     const name = r.readString();
     r.readString();                                  // description
-    r.readWord(); r.readWord(); const sector = r.readNumber();
+    r.readNumber(); const flags = r.readNumber(); const sector = r.readNumber();
     const exits = {};
+    const exitInfo = {};   // per-dir { to, flags, key, keyword } -- door/lock detail
     let guard = 0;
     for (;;) {
       if (guard++ > 5000) throw new Error(`runaway room parse at vnum ${vnum}`);
@@ -112,10 +113,15 @@ function parseRooms(block) {
       if (letter === '' || letter === 'S') break;
       if (letter === 'D') {
         const door = r.readNumber();
-        r.readString(); r.readString();
-        r.readNumber(); r.readNumber();
-        const to = r.readNumber();
-        if (DIRS[door]) exits[DIRS[door]] = to;
+        r.readString();                  // exit description
+        const keyword = r.readString();  // door keyword(s)
+        const flags = r.readNumber();    // EX_ flags (door/closed/locked/pickproof)
+        const key = r.readNumber();      // key object vnum (-1 = none)
+        const to = r.readNumber();       // destination vnum (-1 = dead end)
+        if (DIRS[door]) {
+          exits[DIRS[door]] = to;
+          exitInfo[DIRS[door]] = { to, flags, key, keyword: clean(keyword) };
+        }
       } else if (letter === 'E') {
         r.readString(); r.readString();
       } else if (letter === 'H' || letter === 'M') {
@@ -126,7 +132,7 @@ function parseRooms(block) {
         throw new Error(`unexpected room token '${letter}' at vnum ${vnum}`);
       }
     }
-    rooms.push({ vnum, name: clean(name), sector, exits });
+    rooms.push({ vnum, name: clean(name), sector, flags, exits, exitInfo });
   }
   return rooms;
 }

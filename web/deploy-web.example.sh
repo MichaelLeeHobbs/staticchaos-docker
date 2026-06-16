@@ -1,12 +1,18 @@
 #!/usr/bin/env bash
-# Deploy the static companion site beside the MUD. Packages the repo (the web
-# Docker build needs world-maps/, docs/, client/ as context), ships it, and
-# (re)builds the `web` compose service on the remote host. Serves HTTP on :80.
+#
+# EXAMPLE web-only deploy — copy to web/deploy-web.sh and edit for your host.
+#   cp web/deploy-web.example.sh web/deploy-web.sh   # deploy-web.sh is gitignored
+#
+# Deploys ONLY the static companion site beside the MUD. The web Docker build
+# needs world-maps/, docs/, client/ as context, so it packages the whole repo
+# (minus node_modules/dist/pdfs) and (re)builds the `web` compose service.
+# Serves HTTP on :80.
+#
 set -euo pipefail
-REMOTE="${REMOTE:-ubersrc01}"
+REMOTE="${REMOTE:-your-ssh-host}"                 # SSH host alias or user@host
 REMOTE_DIR="${REMOTE_DIR:-/opt/staticchaos}"
-SRC="/mnt/c/Users/mhobb/WebstormProjects/_experimental/staticchaos-docker"
-TARBALL="$(mktemp /tmp/staticchaos-web.XXXXXX.tgz)"
+SRC="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"   # repo root (this script lives in web/)
+TARBALL="$(mktemp "${TMPDIR:-/tmp}/staticchaos-web.XXXXXX.tgz")"
 trap 'rm -f "$TARBALL"' EXIT
 
 echo "==> packaging (excluding .git, node_modules, dist, pdfs)"
@@ -22,5 +28,5 @@ echo "==> extract + build + up (web) on $REMOTE"
 ssh "$REMOTE" "set -e; cd '$REMOTE_DIR'; tar xzf /tmp/staticchaos-web.tgz; rm -f /tmp/staticchaos-web.tgz; cd web; docker compose up -d --build 2>&1 | tail -8"
 
 echo "==> status"
-ssh "$REMOTE" "docker ps --format '{{.Names}}\t{{.Ports}}' | grep -E 'staticchaos-web|chaos'"
+ssh "$REMOTE" "docker ps --format '{{.Names}}\t{{.Ports}}' | grep -E 'staticchaos-web|chaos' || true"
 echo "==> done. Browse: http://<server>/"

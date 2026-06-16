@@ -58,3 +58,28 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+
+# =========================
+# Runtime game data — mutable, seeded into Docker named volumes on first run.
+# NEVER commit: this fork stores player passwords in PLAINTEXT (see
+# README.docker.md), so real player files would leak credentials. Empty dirs
+# are kept via .gitkeep so the build/volume mount still works.
+# =========================
+/player/*
+!/player/s/
+/player/s/*
+!/player/s/.gitkeep
+/notes/*
+!/notes/.gitkeep
+/finger/*
+!/finger/.gitkeep
+/log/
+
+# Editor / source backups (clutter, not loaded by the game)
+*.bak
+*.old
+
+# Personal deploy scripts — copy the *.example.sh templates and edit for your host
+/deploy.sh
+/mud-redeploy.sh
+/web/deploy-web.sh

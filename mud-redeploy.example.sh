@@ -1,11 +1,18 @@
 #!/usr/bin/env bash
-# Rebuild + redeploy the MUD (32-bit). Aborts if players are connected; builds
-# (verify) before restarting so a compile error never kills the running game.
+#
+# EXAMPLE safe MUD-only redeploy — copy to mud-redeploy.sh and edit for your host.
+#   cp mud-redeploy.example.sh mud-redeploy.sh   # mud-redeploy.sh is gitignored
+#
+# Rebuilds + redeploys ONLY the MUD container (32-bit). Aborts if players are
+# connected, and builds (verify) before restarting so a compile error never
+# kills the running game. Use this for source/area changes; use deploy.sh for a
+# full-stack deploy and web/deploy-web.sh for web-only.
+#
 set -euo pipefail
-REMOTE=ubersrc01
-REMOTE_DIR=/opt/staticchaos
-SRC=/mnt/c/Users/mhobb/WebstormProjects/_experimental/staticchaos-docker
-TARBALL="$(mktemp /tmp/sc.XXXXXX.tgz)"
+REMOTE="${REMOTE:-your-ssh-host}"                 # SSH host alias or user@host
+REMOTE_DIR="${REMOTE_DIR:-/opt/staticchaos}"
+SRC="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+TARBALL="$(mktemp "${TMPDIR:-/tmp}/sc.XXXXXX.tgz")"
 trap 'rm -f "$TARBALL"' EXIT
 
 N=$(ssh "$REMOTE" "ss -tn state established '( sport = :4000 )' 2>/dev/null | grep -c ':4000' || true")

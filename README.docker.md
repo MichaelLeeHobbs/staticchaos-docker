@@ -23,8 +23,10 @@ Then connect with any telnet/MUD client:
 telnet localhost 4000
 ```
 
-Log in as the bundled admin account: **`Superuser`** / password **`superuser`**, or create a
-new character at the "By what name do you wish to be known?" prompt.
+Create a new character at the "By what name do you wish to be known?" prompt. (Earlier builds
+shipped a default `Superuser`/`superuser` account; it's been removed from the repo so no
+credentials are published — create your own.) To make a character an immortal, stop the server
+and set its `Level` (17–20; `MAX_LEVEL` is 20) plus `Trust`/`Wizbit` in its player file.
 
 ### Choosing the host port
 
@@ -43,6 +45,30 @@ docker run -d -p 4000:4000 --name staticchaos staticchaos
 telnet localhost 4000
 ```
 
+## Deploying to a remote host
+
+The repo ships **example** deploy scripts that push this project to a remote Docker host over
+SSH. They're templates — copy each to the real name (the real ones are gitignored so your
+host/paths stay out of the repo) and set your host:
+
+```bash
+cp deploy.example.sh            deploy.sh
+cp mud-redeploy.example.sh      mud-redeploy.sh
+cp web/deploy-web.example.sh    web/deploy-web.sh
+# then either edit REMOTE in each, or pass it at runtime:
+REMOTE=user@host ./deploy.sh
+```
+
+| Script | What it does |
+|--------|--------------|
+| `deploy.sh` | Full stack: package the project, copy to `REMOTE_DIR` on the host, `docker compose up -d --build` (MUD + web). |
+| `mud-redeploy.sh` | MUD only, **safe**: aborts if players are online, builds (verify) *before* restarting so a bad compile never kills the running game. Use for source/area changes. |
+| `web/deploy-web.sh` | Web companion site only (rebuilds the `web` compose service on :80). |
+
+All three honor `REMOTE` (SSH alias or `user@host`) and `REMOTE_DIR` env vars and derive their
+own source path, so they work from any checkout. They need `ssh`/`scp`/`tar` and key-based SSH
+to the host (run from WSL or Git Bash on Windows). Named volumes mean game data survives deploys.
+
 ## Data persistence
 
 Mutable game data lives in named volumes so accounts and progress survive
@@ -55,8 +81,9 @@ Mutable game data lives in named volumes so accounts and progress survive
 | `finger` | `/mud/finger`  | Player "finger" info                        |
 | `log`    | `/mud/log`     | Runtime log directory                      |
 
-On first run Docker seeds these volumes from the image (so the a–z player directories and the
-bundled `Superuser` come along). To wipe all game state and start fresh:
+On first run Docker seeds these volumes from the image. Runtime contents (player files, notes,
+finger info, logs) are gitignored — a fresh clone ships only empty directories and no
+credentials, so the volumes start clean. To wipe all game state and start fresh:
 
 ```bash
 docker compose down -v
@@ -172,7 +199,7 @@ required a handful of minimal, documented changes — each is commented in-place
 
 - Boots and loads all area files → `Merc is ready to rock on port 4000.`
 - Accepts telnet connections; renders the Static Chaos title screen and login.
-- Login as `Superuser` / `superuser` → MOTD → in-world at "Entrance to Mud School".
+- Create a character → MOTD → in-world at "Entrance to Mud School".
 - New character creation (name → confirm → password → sex → class → MOTD → in-world).
 - Player data persists across `docker compose restart` via the `player` volume.
 

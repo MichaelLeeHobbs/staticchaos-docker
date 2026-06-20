@@ -130,7 +130,7 @@ typedef void CHANT_FUN	args( ( int cn, int rank, CHAR_DATA *ch, void *vo ) );
  * Increase the max'es if you add more of something.
  * Adjust the pulse numbers to suit yourself.
  */
-#define MAX_SKILL		  163
+#define MAX_SKILL		  164	/* +1 for "scorched" Gaav Flare debuff (PvP) */
 #define MAX_CHANT		   81
 #define MAX_CLASS		    6
 #define MAX_LEVEL		   20

@@ -456,6 +456,18 @@ void lose_chant( CHAR_DATA *ch )
 }
 
 
+/* PvP balance: TRUE for chants whose whole purpose is breaking down a Ki Wall
+   (diem wing / flow break / bomb di wind).  A Saiyan's Ki-Wall save bonus must
+   NOT make those chants harder to land -- that defeats the counter-play. */
+bool chant_breaks_kiwall( int cn )
+{
+  if ( cn < 0 || cn >= MAX_CHANT )
+    return FALSE;
+  return ( chant_table[cn].cast == chant_diem_wing
+        || chant_table[cn].cast == chant_flow_break
+        || chant_table[cn].cast == chant_bomb_di_wind );
+}
+
 bool saves_chant( CHAR_DATA *ch, CHAR_DATA *victim, int cn )
 {
   int chance = 45;
@@ -469,7 +481,9 @@ bool saves_chant( CHAR_DATA *ch, CHAR_DATA *victim, int cn )
   else
   {
     chance += victim->pcdata->will / 3;
-    if ( IS_CLASS(victim,CLASS_SAIYAN) && is_affected(victim,gsn_kiwall) )
+    /* The Ki-Wall spirit bonus does not apply to wall-breaking chants. */
+    if ( IS_CLASS(victim,CLASS_SAIYAN) && is_affected(victim,gsn_kiwall)
+      && !chant_breaks_kiwall(cn) )
       chance += victim->pcdata->spirit;
     if ( victim->class == CLASS_PATRYN )
       chance += victim->pcdata->powers[P_AIR]/2;
@@ -790,6 +804,13 @@ void chant_ferrous_bleed( int cn, int rank, CHAR_DATA *ch, void *vo )
       chant_damage( ch, victim, dam, cn );
       count++;
     }
+
+    /* PvP balance: if the target had nothing to strip the chant used to be a
+       total no-op.  Deal a small backlash so a successful cast always bites. */
+    if ( count == 0 )
+    { dam = dice( 5, rank );
+      chant_damage( ch, victim, dam, cn );
+    }
   }
 
   return;
@@ -858,14 +879,33 @@ void chant_ruby_eye_blade( int cn, int rank, CHAR_DATA *ch, void *vo )
 
 void chant_gaav_flare( int cn, int rank, CHAR_DATA *ch, void *vo )
 { int dam;
+  bool saved;
   CHAR_DATA *victim = (CHAR_DATA *) vo;
   act( "You launch a tremendous ball of dark flame at $N!", ch, NULL, victim, TO_CHAR );
   act( "$n launches a tremendous ball of dark flame at you!", ch, NULL, victim, TO_VICT );
   act( "$n launches a tremendous ball of dark flame at $N!", ch, NULL, victim, TO_NOTVICT );
   dam = dice( rank, rank * 3 );
-  if ( saves_chant( ch, victim, cn ) )
+  saved = saves_chant( ch, victim, cn );
+  if ( saved )
     dam -= dam/4;
   chant_damage( ch, victim, dam, cn );
+
+  /* PvP balance: on a FAILED save the flame leaves the target "Scorched",
+     a short Black-school vulnerability (handled in chant_damage). */
+  if ( !saved && victim != NULL && victim->position > POS_DEAD )
+  { int sn = skill_lookup( "scorched" );
+    if ( sn > 0 && !is_affected( victim, sn ) )
+    { AFFECT_DATA af;
+      af.type      = sn;
+      af.duration  = dice( 2, 4 );      /* ~2-8 ticks */
+      af.location  = APPLY_NONE;
+      af.modifier  = 0;
+      af.bitvector = 0;
+      affect_to_char( victim, &af );
+      act( "$N's skin is left smoldering and scorched!", ch, NULL, victim, TO_CHAR );
+      act( "Your skin is left smoldering and scorched!", ch, NULL, victim, TO_VICT );
+    }
+  }
   return;
 }
 
@@ -1094,6 +1134,15 @@ void chant_flow_break( int cn, int rank, CHAR_DATA *ch, void *vo )
     }
   }
 
+  /* PvP balance: explicitly tear down a Vas Gluudo shield (the generic strip
+     below only reaches the first few affects, so guarantee this one falls). */
+  { int vg = skill_lookup( "vas gluudo" );
+    if ( vg > 0 && is_affected( victim, vg ) )
+    { affect_strip( victim, vg );
+      send_to_char( "Your shield of energy unravels!\n\r", victim );
+    }
+  }
+
   /* Shatter an active Laguna Blade. */
   if ( !IS_NPC(victim) && IS_SET(victim->pcdata->actnew, NEW_LAGUNABLADE) )
   {
@@ -1140,6 +1189,10 @@ void chant_flow_break( int cn, int rank, CHAR_DATA *ch, void *vo )
 }
 
 
+/* PvP tunables for Laphas Seed (the bind/restraint chant). */
+#define LAPHAS_PVP_DUR_CAP  20   /* max ticks of AFF_NO_FLEE vs a player    */
+#define LAPHAS_MOVE_DRAIN   50   /* movement points sapped while bound      */
+
 void chant_laphas_seed( int cn, int rank, CHAR_DATA *ch, void *vo )
 { AFFECT_DATA af;
   CHAR_DATA *victim = (CHAR_DATA *) vo;
@@ -1159,9 +1212,20 @@ void chant_laphas_seed( int cn, int rank, CHAR_DATA *ch, void *vo )
   act( "$N is wrapped in bands of energy.", ch, NULL, victim, TO_NOTVICT );
   af.type      = skill_lookup( "laphas seed" );
   af.duration  = dice(5,20);
+  /* PvP balance: cap the restraint duration on players so it can't lock a PC
+     down for an absurdly long time (PvE mobs keep the full roll).          */
+  if ( !IS_NPC(victim) )
+    af.duration = UMIN( af.duration, LAPHAS_PVP_DUR_CAP );
   af.location  = APPLY_AC;
   af.modifier  = rank * 4;
   af.bitvector = AFF_NO_FLEE;
+  affect_to_char( victim, &af );
+
+  /* PvP balance: also sap movement so the bound target can't immediately
+     burn moves on escape skills.  Second affect carries the -move modifier. */
+  af.location  = APPLY_MOVE;
+  af.modifier  = -1 * LAPHAS_MOVE_DRAIN;
+  af.bitvector = 0;
   affect_to_char( victim, &af );
   return;
 }
@@ -1333,7 +1397,9 @@ void chant_defense( int cn, int rank, CHAR_DATA *ch, void *vo )
   }
 
   af.type      = gsn_defense;
-  af.duration  = rank / 40;
+  /* PvP balance: old rank/40 gave ~0-2 ticks (useless at most ranks).
+     Now a guaranteed short emergency window that scales: 2 + rank/20. */
+  af.duration  = 2 + rank / 20;
   af.location  = APPLY_NONE;
   af.modifier  = 0;
   af.bitvector = 0;
@@ -1460,14 +1526,28 @@ void chant_diem_wing( int cn, int rank, CHAR_DATA *ch, void *vo )
     lose_chant( victim );
   if ( IS_SET(victim->pcdata->actnew,NEW_FIGUREEIGHT) )
     REMOVE_BIT(victim->pcdata->actnew,NEW_FIGUREEIGHT);
+  /* PvP feedback: this chant already stripped these barriers silently, so
+     players "saw nothing happen".  Announce each strip so it reads as working. */
   if ( is_affected(victim,gsn_kiwall) )
-    affect_strip(victim,gsn_kiwall);
+  { affect_strip(victim,gsn_kiwall);
+    act( "Your gust shears away $N's wall of Ki!", ch, NULL, victim, TO_CHAR );
+    act( "$n's gust shears away your wall of Ki!", ch, NULL, victim, TO_VICT );
+    act( "$n's gust shears away $N's wall of Ki!", ch, NULL, victim, TO_NOTVICT );
+  }
   if ( is_affected(victim,gsn_defense) )
-    affect_strip(victim,gsn_defense);
+  { affect_strip(victim,gsn_defense);
+    act( "Your gust tears apart $N's defensive barrier!", ch, NULL, victim, TO_CHAR );
+    act( "$n's gust tears apart your defensive barrier!", ch, NULL, victim, TO_VICT );
+    act( "$n's gust tears apart $N's defensive barrier!", ch, NULL, victim, TO_NOTVICT );
+  }
   if ( is_affected(victim,gsn_balus_wall) )
-    affect_strip(victim,gsn_balus_wall);
+  { affect_strip(victim,gsn_balus_wall);
+    act( "Your gust scatters $N's Balus Wall!", ch, NULL, victim, TO_CHAR );
+    act( "$n's gust scatters your Balus Wall!", ch, NULL, victim, TO_VICT );
+    act( "$n's gust scatters $N's Balus Wall!", ch, NULL, victim, TO_NOTVICT );
+  }
   return;
-} 
+}
 
 void chant_damu_brass( int cn, int rank, CHAR_DATA *ch, void *vo ) 
 { CHAR_DATA *victim = (CHAR_DATA *) vo;

@@ -1208,6 +1208,17 @@ const	struct	skill_type	skill_table	[MAX_SKILL]	=
         "defense",		"Your defensive barrier drops."
     },
 
+    /* PvP balance: "scorched" is a debuff applied by Gaav Flare on a failed
+       save.  It is never learned or cast directly (NULL gsn, like windy
+       shield); it is looked up by name and increases Black-school chant
+       damage taken while active. */
+    {
+        "scorched",		{ 99, 99, 99, 99, 99, 99 },
+        spell_null,             TAR_IGNORE,             POS_FIGHTING,
+        NULL,			SLOT(0),        0,      12,     FALSE,
+        "scorched",		"The lingering scorched feeling fades from your skin."
+    },
+
     {
         "kaiouken",        	{ 20, 20, 20, 20, 20, 20 },
         spell_null,             TAR_IGNORE,             POS_FIGHTING,

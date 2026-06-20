@@ -620,6 +620,12 @@ int damage( CHAR_DATA *ch, CHAR_DATA *victim, int dam, int dt )
 	if ( IS_AFFECTED(victim,AFF_STEELY) )
 	  dam /= 2;
 
+	/* PvP balance: DEFENSE is the Sorcerer "emergency button".  While the
+	   gsn_defense barrier is up, soak 35% of all incoming damage.  (Specific
+	   fist-kick types are still FULLY blocked below; Ki Wave consumes Defense
+	   to negate a chant interrupt in saiyan.c.)  35% = dam * 65 / 100.       */
+	if ( !IS_SUIT(victim) && is_affected(victim,gsn_defense) )
+	  dam = dam * 65 / 100;
 
 	if ( dam < 0 )
 	    dam = 0;
@@ -912,13 +918,21 @@ int damage( CHAR_DATA *ch, CHAR_DATA *victim, int dam, int dt )
             }
 
 	    if ( IS_AFFECTED(victim,AFF_VAS_GLUUDO) )
-	    { if  ( dt == DAM_KIFLAME || (dt >= 130 && dt < 140) 
+	    { if  ( dt == DAM_KIFLAME || (dt >= 130 && dt < 140)
 	         || dt == DAM_SHOCKWAVE )
 	        dam -= dam * (victim->pcdata->powers[SCHOOL_WHITE]-20) / 35;
 	      if ( dt == DAM_BEAMRIFLE || dt == DAM_BEAMSABRE || dt == DAM_BEAMSWORD )
 	        dam -= dam * (victim->pcdata->powers[SCHOOL_WHITE] - 10) / 60;
 	      if ( dt == DAM_SHOCKSHIELD )
 	        dam -= dam * (victim->pcdata->powers[SCHOOL_WHITE]-20) / 60;
+
+	      /* PvP balance: Vas Gluudo also soaks straight physical attacks.
+	         Melee weapon hits (TYPE_HIT..TYPE_HIT+14) -10%; projectile/shell
+	         mobile-suit fire -15% (distinguished via dt).                   */
+	      if ( dt >= TYPE_HIT && dt < TYPE_HIT + 15 )
+	        dam -= dam * 10 / 100;
+	      else if ( dt == DAM_BULLETS || dt == DAM_SHELLS || dt == DAM_MISSILES )
+	        dam -= dam * 15 / 100;
 	    }
 	  }
 
@@ -1320,6 +1334,14 @@ void chant_damage( CHAR_DATA *ch, CHAR_DATA *victim, int dam, int dt )
           }
         }
 
+	/* PvP balance: a "scorched" victim (left by a failed-save Gaav Flare)
+	   takes +10% from Black-school chant damage while the debuff lasts. */
+	if ( school == SCHOOL_BLACK )
+	{ int sc = skill_lookup( "scorched" );
+	  if ( sc > 0 && is_affected( victim, sc ) )
+	    dam += dam / 10;
+	}
+
 	/*
 	 * Damage modifiers.
 	 */
@@ -1443,6 +1465,19 @@ void chant_damage( CHAR_DATA *ch, CHAR_DATA *victim, int dam, int dt )
           {
             if ( IS_AFFECTED(victim,AFF_HOLY_RESIST) )
               dam -= dam * 2 * (victim->pcdata->powers[SCHOOL_WHITE]-20) / 100;
+
+            /* PvP balance: Holy Resist blunts hostile "dark" magic bursts.
+               Black(=negative)/Astral/White chant damage -15%, or -20% if the
+               victim is themselves White-spec (SCHOOL_WHITE).  Keyed off the
+               chant's school so it only touches those damage schools. */
+            if ( IS_AFFECTED(victim,AFF_HOLY_RESIST) &&
+                 ( school == SCHOOL_BLACK || school == SCHOOL_ASTRAL ||
+                   school == SCHOOL_WHITE ) )
+            { if ( victim->pcdata->powers[SORC_SPEC] == SCHOOL_WHITE )
+                dam -= dam * 20 / 100;
+              else
+                dam -= dam * 15 / 100;
+            }
 
             if ( is_affected(victim,gsn_mos_varim) && chant_table[dt].school == SCHOOL_FIRE)
               dam -= dam * (victim->pcdata->powers[SCHOOL_WHITE]-20) / 35;

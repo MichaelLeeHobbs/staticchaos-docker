@@ -2240,6 +2240,22 @@ void make_corpse( CHAR_DATA *ch, bool pdox )
     }
 
     obj_to_room( corpse, ch->in_room );
+
+    /*
+     * Corpse persistence: stamp the real-time creation moment on PC corpses
+     * (cached in extra[0], an int slot unused by corpses -- only ITEM_SUIT
+     * uses extra[]).  This drives the ~1-week wall-clock lifetime for NON-EMPTY
+     * PC corpses, which is honoured across server restarts because the stamp is
+     * written to / read from the persistent corpse file.  Empty PC corpses keep
+     * their normal short tick-based decay (timer set above).  We also record
+     * the owner so the per-player persistence cap can be enforced.
+     */
+    if ( !IS_NPC(ch) )
+    {
+	corpse->extra[0] = (int) current_time;
+	free_string( corpse->owner );
+	corpse->owner = str_dup( ch->name );
+    }
     return;
 }
 

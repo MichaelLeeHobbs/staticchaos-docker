@@ -1255,6 +1255,9 @@ void fread_obj( CHAR_DATA *ch, FILE *fp )
 
 	case 'C':
 	    KEY( "Cost",	obj->cost,		fread_number( fp ) );
+	    /* Corpse persistence: real-time creation stamp (see fwrite_corpse).
+	     * Harmless in fread_obj -- normal object files never contain it. */
+	    KEY( "CreatedAt",	obj->extra[0],		fread_number( fp ) );
 	    break;
 
 	case 'D':
@@ -1469,7 +1472,18 @@ void fwrite_corpse( OBJ_DATA *obj, FILE *fp, int iNest )
 	obj->value[0], obj->value[1], obj->value[2], obj->value[3]	     );
 
     if ( iNest == 0 )
+    {
       fprintf( fp, "Room         %d\n",   obj->in_room->vnum           );
+      /*
+       * Corpse persistence: the real-time creation stamp is cached in
+       * obj->extra[0] (an int field unused by corpses -- only ITEM_SUIT uses
+       * the extra[] array).  Writing it lets a corpse's true age survive a
+       * cold restart so the ~1-week lifetime is honoured across reboots.
+       * Only written for top-level (nest 0) corpses; ignored by older code.
+       */
+      if ( obj->item_type == ITEM_CORPSE_PC )
+        fprintf( fp, "CreatedAt    %d\n", obj->extra[0]                 );
+    }
     switch ( obj->item_type )
     {
     case ITEM_POTION:
@@ -1605,6 +1619,9 @@ void fread_corpse( FILE *fp )
 
 	case 'C':
 	    KEY( "Cost",	obj->cost,		fread_number( fp ) );
+	    /* Corpse persistence: real-time creation stamp (see fwrite_corpse).
+	     * Harmless in fread_obj -- normal object files never contain it. */
+	    KEY( "CreatedAt",	obj->extra[0],		fread_number( fp ) );
 	    break;
 
 	case 'D':
@@ -1844,6 +1861,210 @@ void load_copyover()
   fclose( fp );
   fpReserve = fopen( NULL_FILE, "r" );
   return;
+}
+
+/*
+ * ---------------------------------------------------------------------------
+ * Persistent PC corpses (cold-restart / docker-redeploy survival).
+ *
+ * The copyover path above keeps live corpse OBJECTs across a hot reboot.  This
+ * pair instead serialises qualifying corpses to a standalone file so they also
+ * survive a full process exit.  We reuse fwrite_corpse / fread_corpse for the
+ * on-disk object format; the only addition is a per-corpse "CreatedAt" line
+ * (its real-time time_t creation stamp, cached in obj->extra[0]) so the
+ * ~1-week lifetime is measured in wall-clock time and is honoured across
+ * restarts of any duration.
+ *
+ * A corpse qualifies for persistence exactly like the copyover filter:
+ *   item_type == ITEM_CORPSE_PC && contains != NULL && in_obj == NULL
+ * (i.e. a non-empty, non-nested PC corpse) and additionally must be lying in a
+ * room (in_room != NULL) and not already past its 1-week expiry.
+ *
+ * DoS-safe caps (see merc.h): at most CORPSE_MAX_PER_PLAYER corpses per owner
+ * (oldest dropped first) and CORPSE_MAX_TOTAL overall (oldest dropped first),
+ * so the file -- and the memory rebuilt from it at boot -- cannot grow without
+ * bound regardless of player behaviour.
+ * ---------------------------------------------------------------------------
+ */
+
+/* Does this object qualify as a persistable, non-expired PC corpse? */
+static bool corpse_is_persistable( OBJ_DATA *obj )
+{
+    if ( obj->item_type != ITEM_CORPSE_PC )
+	return FALSE;
+    if ( obj->contains == NULL )		/* empty corpse: short decay only */
+	return FALSE;
+    if ( obj->in_obj != NULL )			/* nested: dupe risk, skip       */
+	return FALSE;
+    if ( obj->in_room == NULL )			/* must be lying in a room       */
+	return FALSE;
+    /* extra[0] holds the creation time_t; 0 means a legacy/just-made corpse
+     * whose stamp we'll treat as "now" elsewhere -- never expired here. */
+    if ( obj->extra[0] != 0
+      && current_time - (time_t) obj->extra[0] > CORPSE_PERSIST_SECONDS )
+	return FALSE;				/* older than a week: let it rot  */
+    return TRUE;
+}
+
+void save_persistent_corpses( void )
+{
+    /* Pointers to the qualifying corpses, capped at the global maximum. */
+    OBJ_DATA *list[CORPSE_MAX_TOTAL];
+    OBJ_DATA *obj;
+    FILE     *fp;
+    char      tmpfile[MAX_INPUT_LENGTH];
+    int       nList = 0;
+    int       i, j;
+
+    /*
+     * Build the candidate list.  We do two safety passes:
+     *  1) gather all currently-persistable corpses (bounded scan of object_list)
+     *  2) enforce per-player and global caps, dropping the OLDEST first.
+     */
+    for ( obj = object_list; obj != NULL; obj = obj->next )
+    {
+	if ( !corpse_is_persistable( obj ) )
+	    continue;
+
+	/* Per-player cap: count how many of this owner we already kept; if at
+	 * the limit, replace the oldest one we hold for that owner. */
+	{
+	    int  owned     = 0;
+	    int  oldestIdx = -1;
+	    time_t oldestT = 0;
+
+	    for ( i = 0; i < nList; i++ )
+	    {
+		if ( !str_cmp( list[i]->owner, obj->owner ) )
+		{
+		    owned++;
+		    if ( oldestIdx < 0
+		      || (time_t) list[i]->extra[0] < oldestT )
+		    {
+			oldestIdx = i;
+			oldestT   = (time_t) list[i]->extra[0];
+		    }
+		}
+	    }
+
+	    if ( owned >= CORPSE_MAX_PER_PLAYER )
+	    {
+		/* Keep the newer corpse, drop the older of (held-oldest, obj). */
+		if ( (time_t) obj->extra[0] > oldestT && oldestIdx >= 0 )
+		    list[oldestIdx] = obj;
+		continue;
+	    }
+	}
+
+	if ( nList < CORPSE_MAX_TOTAL )
+	{
+	    list[nList++] = obj;
+	}
+	else
+	{
+	    /* Global cap reached: replace the single oldest held corpse if this
+	     * one is newer, otherwise drop it. */
+	    int  oldestIdx = 0;
+	    for ( j = 1; j < nList; j++ )
+		if ( (time_t) list[j]->extra[0] < (time_t) list[oldestIdx]->extra[0] )
+		    oldestIdx = j;
+	    if ( (time_t) obj->extra[0] > (time_t) list[oldestIdx]->extra[0] )
+		list[oldestIdx] = obj;
+	}
+    }
+
+    /* Write to a temp file then rename, so an interrupted/partial write can
+     * never corrupt the live corpse file (atomic replace on POSIX). */
+    fclose( fpReserve );
+    sprintf( tmpfile, "%s.tmp", CORPSE_FILE );
+
+    if ( ( fp = fopen( tmpfile, "w" ) ) == NULL )
+    {
+	bug( "Save_persistent_corpses: fopen", 0 );
+	perror( tmpfile );
+	fpReserve = fopen( NULL_FILE, "r" );
+	return;
+    }
+
+    for ( i = 0; i < nList; i++ )
+	fwrite_corpse( list[i], fp, 0 );
+
+    fprintf( fp, "#END\n" );
+    fclose( fp );
+
+    if ( rename( tmpfile, CORPSE_FILE ) != 0 )
+    {
+	bug( "Save_persistent_corpses: rename", 0 );
+	perror( CORPSE_FILE );
+    }
+
+    fpReserve = fopen( NULL_FILE, "r" );
+    return;
+}
+
+void load_persistent_corpses( void )
+{
+    FILE *fp;
+    int   loaded = 0;
+
+    fclose( fpReserve );
+
+    if ( ( fp = fopen( CORPSE_FILE, "r" ) ) == NULL )
+    {
+	/* No corpse file (fresh install / first boot after upgrade) is normal. */
+	fpReserve = fopen( NULL_FILE, "r" );
+	return;
+    }
+
+    for ( ; ; )
+    {
+	char letter;
+	char *word;
+
+	letter = fread_letter( fp );
+	if ( letter == '*' )
+	{
+	    fread_to_eol( fp );
+	    continue;
+	}
+
+	if ( letter != '#' )
+	{
+	    bug( "Load_persistent_corpses: # not found.", 0 );
+	    break;
+	}
+
+	word = fread_word( fp );
+	if ( !str_cmp( word, "OBJECT" ) )
+	{
+	    /* Global cap is also enforced at load time: once we've recreated
+	     * CORPSE_MAX_TOTAL corpses, stop -- protects boot from a hand-edited
+	     * or runaway file. fread_corpse recreates the object into its room
+	     * (or the Temple if its room vnum no longer exists). Expired ones
+	     * are still loaded here but will be reaped on the next obj_update. */
+	    if ( loaded >= CORPSE_MAX_TOTAL )
+		break;
+	    fread_corpse( fp );
+	    loaded++;
+	}
+	else if ( !str_cmp( word, "END" ) )
+	    break;
+	else
+	{
+	    bug( "Load_persistent_corpses: bad section.", 0 );
+	    break;
+	}
+    }
+
+    fclose( fp );
+    fpReserve = fopen( NULL_FILE, "r" );
+
+    {
+	char buf[MAX_STRING_LENGTH];
+	sprintf( buf, "Loaded %d persistent PC corpse(s).", loaded );
+	log_string( buf );
+    }
+    return;
 }
 
 void fwrite_pkill( PKILL_DATA *pkill, FILE *fp )

@@ -557,6 +557,18 @@ void boot_db( bool fCopyOver )
 
     if ( fCopyOver )
           copyover_recover();
+    else
+    {
+          /*
+           * Cold boot only.  On a copyover, live corpses are already restored
+           * via copyover_recover()/load_copyover(); loading the persistent file
+           * too would duplicate them.  On a real restart there is no copyover
+           * file, so recreate persisted non-empty PC corpses here -- after the
+           * world (rooms) is loaded so they can be placed (or sent to Temple if
+           * their room vnum is gone).  Expired/over-cap corpses are skipped.
+           */
+          load_persistent_corpses();
+    }
     return;
 }
 

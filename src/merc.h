@@ -2343,6 +2343,7 @@ DECLARE_DO_FUN( do_roundhouse	);
 DECLARE_DO_FUN(	do_rset		);
 DECLARE_DO_FUN(	do_rstat	);
 DECLARE_DO_FUN(	do_rub		);
+DECLARE_DO_FUN( do_runes	);
 DECLARE_DO_FUN( do_runestats	);
 DECLARE_DO_FUN( do_runetrain	);
 DECLARE_DO_FUN( do_runeweave	);

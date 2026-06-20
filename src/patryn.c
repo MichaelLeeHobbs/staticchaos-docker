@@ -16,6 +16,43 @@ void	runecast	args( ( CHAR_DATA *ch, CHAR_DATA *victim, char *arg ) );
 
 const	int	runemax[5] = { 15, 5, 5, 8, 8 };
 
+/* Maps a RUNE_* bit value to its name; used by do_runes and runeweave list.
+   Indexed by { bit, name }; primaries carry a trainable strength, secondaries
+   do not.  RUNE_LIFE.. are also the result of rune1+rune2 sums. */
+struct rune_name_type
+{
+  int		bit;
+  char *	name;
+};
+
+const struct rune_name_type primary_runes[] =
+{
+  { RUNE_AIR,		"air"		},
+  { RUNE_EARTH,		"earth"		},
+  { RUNE_FIRE,		"fire"		},
+  { RUNE_WATER,		"water"		},
+  { RUNE_ENERGY,	"energy"	},
+  { RUNE_NEGATIVE,	"negative"	},
+  { 0,			NULL		}
+};
+
+const struct rune_name_type secondary_runes[] =
+{
+  { RUNE_LIFE,		"life"		},
+  { RUNE_DEATH,		"death"		},
+  { RUNE_CREATION,	"creation"	},
+  { RUNE_DESTRUCTION,	"destruction"	},
+  { RUNE_PROTECTION,	"protection"	},
+  { RUNE_TRANSFORMATION, "transformation"},
+  { RUNE_MOVEMENT,	"movement"	},
+  { RUNE_ABJURATION,	"abjuration"	},
+  { 0,			NULL		}
+};
+
+/* Power index (P_AIR..) for each primary rune, parallel to primary_runes. */
+const int primary_power[] =
+{ P_AIR, P_EARTH, P_FIRE, P_WATER, P_ENERGY, P_NEGATIVE };
+
 struct cost_type
 {
   int spell;
@@ -140,6 +177,65 @@ void do_learn( CHAR_DATA *ch, char *argument )
   return;
 }
 
+void do_runes( CHAR_DATA *ch, char *argument )
+{
+  char buf[MAX_STRING_LENGTH];
+  int learn_cost;
+  int i, pidx, strength, train_cost;
+  bool known;
+
+  if ( IS_NPC(ch) )
+    return;
+  if ( ch->class != CLASS_PATRYN )
+  { send_to_char( "You simply don't understand rune magic.\n\r", ch );
+    return;
+  }
+
+  learn_cost = UMIN( 200, 50 + ch->pcdata->powers[P_LEARNED_NUM] * 10 );
+
+  send_to_char( "\n\rPrimary runes (strength can be raised with 'runetrain'):\n\r", ch );
+  send_to_char( "Rune        Status   Strength  Cost\n\r", ch );
+  send_to_char( "------------------------------------------------\n\r", ch );
+  for ( i = 0; primary_runes[i].name != NULL; i++ )
+  {
+    known = IS_SET( ch->pcdata->powers[P_LEARNED], primary_runes[i].bit );
+    pidx  = primary_power[i];
+    strength = ch->pcdata->powers[pidx];
+    if ( !known )
+    { sprintf( buf, "%-10s  unknown    %3d/100  %d primal to learn\n\r",
+        primary_runes[i].name, strength, learn_cost );
+    }
+    else if ( strength >= 100 )
+    { sprintf( buf, "%-10s  known      %3d/100  (mastered)\n\r",
+        primary_runes[i].name, strength );
+    }
+    else
+    { train_cost = 150 * (strength+1) * (strength+1);
+      sprintf( buf, "%-10s  known      %3d/100  %d exp to train\n\r",
+        primary_runes[i].name, strength, train_cost );
+    }
+    send_to_char( buf, ch );
+  }
+
+  send_to_char( "\n\rSecondary runes (no strength; learned only):\n\r", ch );
+  send_to_char( "Rune            Status   Cost\n\r", ch );
+  send_to_char( "------------------------------------------------\n\r", ch );
+  for ( i = 0; secondary_runes[i].name != NULL; i++ )
+  {
+    known = IS_SET( ch->pcdata->powers[P_LEARNED], secondary_runes[i].bit );
+    if ( !known )
+    { sprintf( buf, "%-14s  unknown    %d primal to learn\n\r",
+        secondary_runes[i].name, learn_cost );
+    }
+    else
+    { sprintf( buf, "%-14s  known      -\n\r", secondary_runes[i].name );
+    }
+    send_to_char( buf, ch );
+  }
+  send_to_char( "\n\r", ch );
+  return;
+}
+
 void do_runeweave( CHAR_DATA *ch, char *argument )
 {
   char arg1[MAX_INPUT_LENGTH];
@@ -167,6 +263,41 @@ void do_runeweave( CHAR_DATA *ch, char *argument )
   argument = one_argument( argument, arg2 );
   argument = one_argument( argument, arg3 );
   argument = one_argument( argument, arg1 );
+
+  if ( !str_cmp( arg2, "list" ) )
+  {
+    char rn1[MAX_STRING_LENGTH];
+    char rn2[MAX_STRING_LENGTH];
+    int  p, s, sp;
+
+    send_to_char( "\n\rThe following runeweaves are known:\n\r", ch );
+    send_to_char( "Rune 1 + Rune 2          Mana  Target     Wait\n\r", ch );
+    send_to_char( "-------------------------------------------------\n\r", ch );
+    for ( slot = 0; slot < MAX_RUNESPELLS; slot++ )
+    {
+      sp = cost_table[slot].spell;
+      strcpy( rn1, "?" );
+      strcpy( rn2, "?" );
+      for ( p = 0; primary_runes[p].name != NULL; p++ )
+        if ( IS_SET( sp, primary_runes[p].bit ) )
+          strcpy( rn1, primary_runes[p].name );
+      for ( s = 0; secondary_runes[s].name != NULL; s++ )
+        if ( IS_SET( sp, secondary_runes[s].bit ) )
+          strcpy( rn2, secondary_runes[s].name );
+      switch ( cost_table[slot].target )
+      {
+        case TAR_CHAR_OFFENSIVE: strcpy( def1, "offensive" ); break;
+        case TAR_CHAR_DEFENSIVE: strcpy( def1, "defensive" ); break;
+        case TAR_CHAR_SELF:      strcpy( def1, "self"      ); break;
+        case TAR_IGNORE:         strcpy( def1, "room"      ); break;
+        default:                 strcpy( def1, "-"         ); break;
+      }
+      sprintf( buf, "%-8s + %-14s %5d  %-9s  %3d\n\r",
+        rn1, rn2, cost_table[slot].cost, def1, cost_table[slot].wait );
+      send_to_char( buf, ch );
+    }
+    return;
+  }
 
   if ( arg2[0] == '\0' || arg3[0] == '\0' )
   { send_to_char( "You must specify two runes to weave.\n\r", ch );

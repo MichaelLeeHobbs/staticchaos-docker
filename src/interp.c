@@ -311,6 +311,7 @@ const	struct	cmd_type	cmd_table	[] =
     { "defenses",	do_defenses,	POS_RESTING,	 2,  LOG_NORMAL },
     { "erase",		do_erase,	POS_STANDING,	 2,  LOG_NORMAL },
     { "learn",		do_learn,	POS_STANDING,	 2,  LOG_NORMAL },
+    { "runes",		do_runes,	POS_DEAD,	 2,  LOG_NORMAL },
     { "runeweave",	do_runeweave,	POS_FIGHTING,	 2,  LOG_NORMAL },
     { "runestats",	do_runestats,	POS_RESTING,	 2,  LOG_NORMAL },
     { "runetrain",	do_runetrain,	POS_STANDING,	 2,  LOG_NORMAL },

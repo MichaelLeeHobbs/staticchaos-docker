@@ -1,0 +1,220 @@
+#AREADATA
+Name        { 1 99} Skatha The Class Trials~
+Builders    Claude~
+VNUMs       2900 2969
+Security    1
+Recall      3001
+End
+
+
+
+#MOBILES
+#2900
+trial master skatha~
+the Trial Master~
+The Trial Master stands ready to test your mastery of your class.
+~
+The Trial Master is a scarred veteran of a thousand duels, here to forge
+raw recruits into warriors who actually know how to use their abilities.
+Type 'quest trial' to see the trials on offer.
+~
+1091 0 0 S
+50 0 0 0d0+0 0d0+0
+0 0
+0 0 1
+#2901
+trial dummy practice~
+a Practice Dummy (Easy)~
+A battered practice dummy stands here, swaying slightly.
+~
+This is the first trial.  Defeat it to prove you can do more than flail.
+~
+104 0 0 S
+5 0 0 0d0+0 0d0+0
+0 0
+0 0 0
+#2902
+trial recruit~
+a Trial Recruit (Easy-Medium)~
+A trial recruit eyes you warily, fists raised.
+~
+A slightly tougher foe for the second trial.
+~
+104 0 0 S
+10 0 0 0d0+0 0d0+0
+0 0
+0 0 1
+#2903
+trial brawler~
+a Trial Brawler (Medium)~
+A trial brawler cracks his knuckles, ready for a real fight.
+~
+The third trial.  This one will actually hit back.
+~
+104 0 0 S
+20 0 0 0d0+0 0d0+0
+0 0
+0 0 1
+#2904
+trial veteran~
+a Trial Veteran (Medium-Hard)~
+A trial veteran circles you, looking for an opening.
+~
+The fourth trial.  A seasoned fighter who punishes mistakes.
+~
+104 0 0 S
+30 0 0 0d0+0 0d0+0
+0 0
+0 0 1
+#2905
+trial champion~
+a Trial Champion (Hard)~
+A trial champion stands tall, radiating menace.
+~
+The fifth trial.  A genuine threat to an unprepared challenger.
+~
+104 0 0 S
+40 0 0 0d0+0 0d0+0
+0 0
+0 0 1
+#2906
+trial warlord~
+a Trial Warlord (Hard)~
+A trial warlord sneers, weapons gleaming.
+~
+The sixth trial.  Brutal and unforgiving.
+~
+104 0 0 S
+50 0 0 0d0+0 0d0+0
+0 0
+0 0 1
+#2907
+trial destroyer~
+a Trial Destroyer (Very Hard)~
+A trial destroyer towers over the arena, hungry for battle.
+~
+The seventh trial.  Only the well-practiced survive this.
+~
+104 0 0 S
+65 0 0 0d0+0 0d0+0
+0 0
+0 0 1
+#2908
+trial nemesis~
+a Trial Nemesis (Extreme)~
+A trial nemesis radiates overwhelming power, the final test.
+~
+The eighth and final trial.  A true master-level challenge.
+~
+104 0 0 S
+85 0 0 0d0+0 0d0+0
+0 0
+0 0 1
+#0
+
+
+
+#OBJECTS
+#0
+
+
+
+#ROOMDATA
+#2900
+The Trial Lobby~
+A circular antechamber of polished grey stone.  Eight sealed archways ring
+the walls, each humming faintly with contained violence.  This is the staging
+ground for the Class Trials: a series of solo proving-grounds where a warrior
+faces escalating foes to sharpen the skills of their chosen path.
+
+The Trial Master waits here.  Speak with them ('quest trial') to begin.
+Go up to return to the world.
+~
+0 10752 1
+D4
+You see the way back out to the world.
+~
+~
+0 0 3001
+S
+#2901
+Trial of the First Step~
+A bare stone cell, lit by a cold blue glow.  There is no exit but victory.
+Prove yourself here and you will be returned to the lobby automatically.
+~
+0 10760 1
+S
+#2902
+Trial of the Second Step~
+A bare stone cell, lit by a cold blue glow.  The air feels heavier here.
+~
+0 10760 1
+S
+#2903
+Trial of the Third Step~
+A bare stone cell, lit by a cold blue glow.  Old bloodstains mark the floor.
+~
+0 10760 1
+S
+#2904
+Trial of the Fourth Step~
+A bare stone cell, lit by a cold blue glow.  The walls are scarred with
+the marks of past battles.
+~
+0 10760 1
+S
+#2905
+Trial of the Fifth Step~
+A grim arena of black stone.  This is no longer a place for the timid.
+~
+0 10760 1
+S
+#2906
+Trial of the Sixth Step~
+A grim arena of black stone, ringed with broken weapons.
+~
+0 10760 1
+S
+#2907
+Trial of the Seventh Step~
+A vast, echoing chamber.  The very air seems to press down on you.
+~
+0 10760 1
+S
+#2908
+Trial of the Final Step~
+A cathedral of war, lit by a single shaft of crimson light.  Here the
+greatest challenge awaits.  Survive, and you will have proven true mastery.
+~
+0 10760 1
+S
+#0
+
+
+
+#SPECIALS
+S
+
+
+
+#RESETS
+M 0 2900 1 2900
+M 0 2900 2 3760
+M 0 2901 1 2901
+M 0 2902 1 2902
+M 0 2903 1 2903
+M 0 2904 1 2904
+M 0 2905 1 2905
+M 0 2906 1 2906
+M 0 2907 1 2907
+M 0 2908 1 2908
+S
+
+
+
+#SHOPS
+0
+
+
+
+#$

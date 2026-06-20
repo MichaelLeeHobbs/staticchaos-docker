@@ -42,7 +42,7 @@ He looks mean, but you feel comfortable that you can kill him, especially since
 he is leashed up, and you are not.
 ~
 3 0 0 S
-1 20 10 1d1+10 1d3+0
+3 18 8 3d6+30 2d4+1
 100 0
 0 0 0
 #3703
@@ -54,7 +54,7 @@ He looks wimpy.  You feel comfortable that you can kill him, especially since
 he is leashed up, and you are not.
 ~
 131 0 0 S
-1 20 10 1d1+10 1d3+0
+2 19 9 2d6+20 1d6+1
 100 0
 0 0 0
 #3704
@@ -66,7 +66,7 @@ He looks mean, but you feel comfortable that you can kill him, especially since
 he is leashed up, and you are not.
 ~
 35 0 0 S
-1 20 10 1d1+10 1d3+0
+4 17 7 4d6+40 2d4+2
 100 0
 0 0 0
 #3705
@@ -78,7 +78,7 @@ He looks mean, but you feel comfortable that you can kill him, especially since
 he is leashed up, and you are not.
 ~
 163 0 0 S
-1 20 10 1d1+10 1d3+0
+3 18 8 3d6+28 2d4+1
 100 0
 0 0 0
 #3706
@@ -156,7 +156,7 @@ A snail is trying to get out of your way.
 You don't see much but slime about it.
 ~
 65 0 0 S
-0 21 10 1d1+0 1d1+0
+1 20 10 1d4+8 1d4+0
 2 0
 0 0 0
 #3714

@@ -2240,6 +2240,7 @@ DECLARE_DO_FUN(	do_look		);
 DECLARE_DO_FUN( do_loot		);
 DECLARE_DO_FUN( do_loserboards	);
 DECLARE_DO_FUN( do_maccept	);
+DECLARE_DO_FUN(	do_maintenance	);
 DECLARE_DO_FUN( do_masenkouha	);
 DECLARE_DO_FUN( do_master	);
 DECLARE_DO_FUN( do_mbanish	);

@@ -50,6 +50,7 @@ PC_DATA *		pcdata_free;
 
 time_t			copyover_time = 0;
 time_t			copyover_warning = 0;
+time_t			maint_time = 0;		/* absolute maintenance shutdown time, 0 = none */
 int			char_free_num = 0;
 int			pcdata_free_num = 0;
 int			obj_free_num = 0;

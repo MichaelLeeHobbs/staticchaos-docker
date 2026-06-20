@@ -908,6 +908,46 @@ void aggr_update( void )
     return;
 }
 
+/*
+ * Count players actively in the game (CON_PLAYING).
+ */
+static int maint_players_connected( void )
+{
+    DESCRIPTOR_DATA *d;
+    int count = 0;
+
+    for ( d = descriptor_list; d != NULL; d = d->next )
+    {
+        if ( d->connected == CON_PLAYING )
+            count++;
+    }
+
+    return count;
+}
+
+/*
+ * Save everyone and bring the server down gracefully for maintenance.
+ */
+static void maint_bring_down( void )
+{
+    DESCRIPTOR_DATA *d;
+    extern bool merc_down;
+
+    send_to_all_char( "`RServer going down for maintenance now.`n\n\r" );
+
+    for ( d = descriptor_list; d != NULL; d = d->next )
+    {
+        if ( d->character != NULL && d->connected == CON_PLAYING )
+            save_char_obj( d->character );
+    }
+
+    save_llboards( TRUE );
+    save_llboards( FALSE );
+    merc_down = TRUE;
+
+    return;
+}
+
 void second_update()
 {
   CHAR_DATA *ch;
@@ -921,6 +961,8 @@ void second_update()
   int dam, rank;
   extern time_t copyover_time;
   extern time_t copyover_warning;
+  extern time_t maint_time;
+  int left;
 
   if ( copyover_warning == current_time )
   {
@@ -930,6 +972,31 @@ void second_update()
   if ( copyover_time == current_time )
   {
     copyover();
+  }
+
+  /* Maintenance shutdown countdown: drains players before redeploy. */
+  if ( maint_time != 0 )
+  {
+    left = (int) (maint_time - current_time);
+
+    if ( left == 600 || left == 300 || left == 120 || left == 60
+    ||   left == 30  || left == 10  || left == 5   || left == 4
+    ||   left == 3   || left == 2   || left == 1 )
+    {
+        if ( left >= 60 )
+            sprintf( buf, "`RMaintenance: server going down in %dm %ds. "
+                "Please get to a safe location.`n\n\r", left / 60, left % 60 );
+        else
+            sprintf( buf, "`RMaintenance: server going down in %ds. "
+                "Please get to a safe location.`n\n\r", left );
+        send_to_all_char( buf );
+    }
+
+    if ( left <= 0 || maint_players_connected( ) == 0 )
+    {
+        maint_bring_down( );
+        return;
+    }
   }
 
   /* GMCP heartbeat: refresh status gauges once per second. */

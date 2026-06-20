@@ -3901,11 +3901,76 @@ void do_copyover( CHAR_DATA *ch, char *argument )
 
     sprintf( buf, "`RCopyover in `W%d`R seconds.`n\n\r", wait );                 
     send_to_all_char( buf );                                                     
-    copyover_time = current_time + wait;                                         
+    copyover_time = current_time + wait;
     copyover_warning = current_time + (wait / 2);
-                                                                                 
-    return;                                                                      
-}  
+
+    return;
+}
+
+void do_maintenance( CHAR_DATA *ch, char *argument )
+{
+    char arg[MAX_INPUT_LENGTH];
+    char buf[MAX_STRING_LENGTH];
+    extern time_t maint_time;
+    int minutes = 0;
+
+    argument = one_argument( argument, arg );
+
+    if ( arg[0] == '\0' )
+    {
+        if ( maint_time != 0 )
+        {
+            sprintf( buf, "Maintenance shutdown armed: %d second(s) remaining.\n\r",
+                (int) (maint_time - current_time) );
+            stc( buf, ch );
+            return;
+        }
+        stc( "Syntax: maintenance <minutes>  (1-120)\n\r"
+             "        maintenance cancel\n\r", ch );
+        return;
+    }
+
+    if ( !str_prefix( arg, "cancel" )
+    ||   !str_prefix( arg, "abort" )
+    ||   !str_prefix( arg, "off" ) )
+    {
+        if ( maint_time == 0 )
+        {
+            stc( "There is no maintenance shutdown scheduled.\n\r", ch );
+            return;
+        }
+        maint_time = 0;
+        sprintf( buf, "Maintenance cancelled by %s.", ch->name );
+        append_file( ch, SHUTDOWN_FILE, buf );
+        send_to_all_char( "`GMaintenance cancelled -- carry on.`n\n\r" );
+        return;
+    }
+
+    if ( !is_number( arg ) )
+    {
+        stc( "Syntax: maintenance <minutes>  (1-120)\n\r"
+             "        maintenance cancel\n\r", ch );
+        return;
+    }
+
+    minutes = atoi( arg );
+    if ( minutes < 1 || minutes > 120 )
+    {
+        stc( "Maintenance time must be between 1 and 120 minutes.\n\r", ch );
+        return;
+    }
+
+    sprintf( buf, "Maintenance shutdown in %d minute(s) by %s.", minutes, ch->name );
+    append_file( ch, SHUTDOWN_FILE, buf );
+
+    maint_time = current_time + (minutes * 60);
+
+    sprintf( buf, "`RThe server is going down for maintenance in %d minute(s). "
+        "Please get to a safe location.`n\n\r", minutes );
+    send_to_all_char( buf );
+    return;
+}
+
 void copyover()
 {
 	FILE *fp;

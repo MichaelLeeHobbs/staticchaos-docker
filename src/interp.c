@@ -403,6 +403,7 @@ const	struct	cmd_type	cmd_table	[] =
     { "changeclass",	do_changeclass,	POS_DEAD,    L_SUP,  LOG_ALWAYS },
     { "clanedit",	do_clanedit,	POS_DEAD,    L_SUP,  LOG_ALWAYS },
     { "copyover",	do_copyover,	POS_DEAD,    L_SUP,  LOG_ALWAYS },
+    { "maintenance",	do_maintenance,	POS_DEAD,    L_SUP,  LOG_ALWAYS },
     { "deny",		do_deny,	POS_DEAD,    L_SUP,  LOG_ALWAYS	},
     { "disconnect",	do_disconnect,	POS_DEAD,    L_SUP,  LOG_ALWAYS	},
     { "freeze",		do_freeze,	POS_DEAD,    L_SUP,  LOG_ALWAYS	},

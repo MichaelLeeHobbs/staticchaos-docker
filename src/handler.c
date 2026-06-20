@@ -212,7 +212,17 @@ void affect_modify( CHAR_DATA *ch, AFFECT_DATA *paf, bool fAdd )
 	return;
 
     case APPLY_NONE:						break;
-/*  case APPLY_STR:           ch->pcdata->mod_str	+= mod;	break; */
+    /*
+     * No perm stat fields in this codebase; remap stat affects to
+     * derived combat/resource stats so item stat bonuses actually work.
+     * mod already carries the add/remove sign (negative on remove).
+     */
+    case APPLY_STR:           ch->damroll		+= 2  * mod;	break;
+    case APPLY_DEX:           ch->hitroll		+= 2  * mod;	break;
+    case APPLY_INT:           ch->max_mana		+= 20 * mod;	break;
+    case APPLY_WIS:           ch->saving_throw		-= 2  * mod;	break; /* lower saving_throw = better */
+    case APPLY_CON:           ch->max_hit		+= 10 * mod;
+                              ch->max_move		+= 10 * mod;	break;
     case APPLY_SEX:           ch->sex			+= mod;	break;
     case APPLY_CLASS:						break;
     case APPLY_LEVEL:						break;

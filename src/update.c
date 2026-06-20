@@ -753,6 +753,23 @@ void obj_update( void )
 
 	obj_next = obj->next;
 
+	/*
+	 * Corpse persistence: a NON-EMPTY PC corpse lives ~1 real week, gated on
+	 * its wall-clock creation stamp (extra[0]) rather than the tick counter,
+	 * so its age survives a restart.  While young it is exempt from the normal
+	 * timer-based decay below; once a week old it falls through and decays
+	 * like anything else.  Empty PC corpses are NOT exempt -> short decay.
+	 * (extra[0] == 0 is a legacy corpse with no stamp: treat as just-made.)
+	 */
+	if ( obj->item_type == ITEM_CORPSE_PC
+	  && obj->contains != NULL
+	  && obj->in_obj == NULL )
+	{
+	    time_t born = (time_t) obj->extra[0];
+	    if ( born == 0 || current_time - born <= CORPSE_PERSIST_SECONDS )
+		continue;	/* still within its 1-week life: do not reap */
+	}
+
 	if ( obj->timer <= 0 || --obj->timer > 0 )
 	    continue;
 
@@ -1942,12 +1959,21 @@ void update_handler( void )
     static  int     pulse_point;
     static  int     pulse_second;
     static int pulse_db_dump;	/* OLC 1.1b */
+    static int pulse_corpse_save;	/* corpse persistence */
 
     /* OLC 1.1b */
     if ( --pulse_db_dump  <= 0 )
     {
 	pulse_db_dump	= PULSE_DB_DUMP;
 	do_asave( NULL, "" );
+    }
+
+    /* Corpse persistence: periodically snapshot non-empty PC corpses to disk so
+     * an unexpected crash/kill (no graceful shutdown) loses at most ~5 min. */
+    if ( --pulse_corpse_save <= 0 )
+    {
+	pulse_corpse_save = PULSE_CORPSE_SAVE;
+	save_persistent_corpses();
     }
 
     if ( --pulse_area     <= 0 )

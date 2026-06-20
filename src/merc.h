@@ -162,6 +162,7 @@ typedef void CHANT_FUN	args( ( int cn, int rank, CHAR_DATA *ch, void *vo ) );
 #define PULSE_AUCTION             (10 * PULSE_PER_SECOND) /* 10 seconds */
 /* Save the database - OLC 1.1b */
 #define PULSE_DB_DUMP		  (1800* PULSE_PER_SECOND ) /* 30 minutes  */
+#define PULSE_CORPSE_SAVE	  ( 300* PULSE_PER_SECOND ) /* 5 minutes: persist corpses */
 
 #define	SECONDS_PER_WEEK       604800
 
@@ -2808,6 +2809,22 @@ char *	crypt		args( ( const char *key, const char *salt ) );
 #define	COPYOVER_FILE	"copyover.txt"	/* For 'copyover'		*/
 #define	EXE_FILE	"../src/chaosium"	/* For 'copyover'		*/
 
+/*
+ * Persistent (cold-restart-surviving) PC corpse storage.  Unlike the
+ * copyover path (which keeps live objects across a hot reboot), this writes
+ * qualifying non-empty PC corpses to a standalone file so they also survive a
+ * full process exit / docker redeploy.  See save.c (fwrite/load helpers),
+ * update.c (periodic + decay) and comm.c (SIGTERM).
+ */
+#define CORPSE_FILE		"../player/corpses.dat"	/* persisted corpses    */
+/* Non-empty PC corpses live ~1 real week.  Gated on a stored time_t, not on
+ * the tick counter, so age survives a restart.  7 days * 24h * 3600s. */
+#define CORPSE_PERSIST_SECONDS	(7 * 24 * 60 * 60)	/* 604800s = 1 week    */
+/* DoS-safe caps: bound how many corpses we ever persist so the file (and the
+ * memory rebuilt from it at boot) cannot grow without limit. */
+#define CORPSE_MAX_TOTAL	200	/* global cap across all players          */
+#define CORPSE_MAX_PER_PLAYER	5	/* per-owner cap; oldest dropped when over */
+
 
 
 
@@ -3052,6 +3069,8 @@ bool	load_char_obj	args( ( DESCRIPTOR_DATA *d, char *name ) );
 void	save_char_fin	args( ( CHAR_DATA *ch ) );
 void	save_copyover	args( ( void ) );
 void	load_copyover	args( ( void ) );
+void	save_persistent_corpses	args( ( void ) );	/* corpse persistence */
+void	load_persistent_corpses	args( ( void ) );	/* corpse persistence */
 char	*initial	args( ( const char *str ) );
 
 /* sorcerer.c */

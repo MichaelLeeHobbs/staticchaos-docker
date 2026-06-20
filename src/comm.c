@@ -675,6 +675,29 @@ static void sc_crash_handler( int sig )
     signal( sig, SIG_DFL );
     raise( sig );
 }
+
+/* Graceful shutdown on SIGTERM.  Docker sends SIGTERM on `stop`/redeploy; the
+ * default action would kill us instantly and lose any corpses created since the
+ * last periodic snapshot.  Here we flush the persistent corpse file once, then
+ * exit normally.  This is intentionally minimal and self-contained: it touches
+ * only the corpse file (no player/area writes, no freeing) so it stays safe to
+ * run from signal context, and it does NOT alter the SIGSEGV/SIGABRT/SIGBUS
+ * crash handlers above.  Re-entry is guarded so a second SIGTERM can't recurse. */
+static void sc_term_handler( int sig )
+{
+    static volatile sig_atomic_t in_term = 0;
+
+    if ( in_term )
+	_exit( 0 );
+    in_term = 1;
+
+    fprintf( stderr, "\n=== SC SIGTERM: saving persistent corpses, exiting ===\n" );
+    fflush( stderr );
+
+    save_persistent_corpses( );
+
+    exit( 0 );
+}
 #endif
 
 #if defined(unix)
@@ -688,6 +711,7 @@ void game_loop_unix( int control )
     signal( SIGSEGV, sc_crash_handler );
     signal( SIGABRT, sc_crash_handler );
     signal( SIGBUS,  sc_crash_handler );
+    signal( SIGTERM, sc_term_handler );	/* corpse persistence: save on docker stop */
 #endif
     gettimeofday( &last_time, NULL );
     current_time = (time_t) last_time.tv_sec;
@@ -892,6 +916,12 @@ void game_loop_unix( int control )
 	gettimeofday( &last_time, NULL );
 	current_time = (time_t) last_time.tv_sec;
     }
+
+    /* Reached on a graceful 'shutdown'/'reboot' (merc_down set).  Persist
+     * non-empty PC corpses so they survive the restart.  (A 'copyover' never
+     * exits this loop -- it execl()s after save_copyover() -- so corpses are
+     * carried by the copyover file in that case.) */
+    save_persistent_corpses( );
 
     return;
 }

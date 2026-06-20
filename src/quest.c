@@ -46,7 +46,7 @@ void do_quest( CHAR_DATA *ch, char *argument )
   if ( arg1[0] == '\0' )
   { send_to_char( "You may use the following quest commands:\n\r", ch );
     send_to_char( "QUEST REQUEST, INFO, COMPLETE, FAIL, LIST, BUY,\n\r", ch );
-    send_to_char( "      AC, DAMAGE, RENAME, GLOW, HUM, NODROP, REPAIR.\n\r", ch );
+    send_to_char( "      AC, DAMAGE, RENAME, GLOW, HUM, NODROP, UNCURSE, REPAIR.\n\r", ch );
     return;
   }
   else if ( !str_cmp( arg1, "request" ) )
@@ -245,11 +245,11 @@ void do_quest( CHAR_DATA *ch, char *argument )
   else if ( !str_cmp( arg1, "list" ) )
   { send_to_char( "\n\r", ch );
     send_to_char( "Item                       Cost\n\r", ch );
-    send_to_char( "a Tarnished Silver Bracer  400,000\n\r", ch );
-    send_to_char( "a Medal of Honor           500,000\n\r", ch );
-    send_to_char( "a Golden Band              600,000\n\r", ch );
-    send_to_char( "a Mystic Robe              750,000\n\r", ch );
-    send_to_char( "a Golden Tabard            750,000\n\r\n\r", ch );
+    send_to_char( "a Tarnished Silver Bracer   40,000\n\r", ch );
+    send_to_char( "a Medal of Honor            50,000\n\r", ch );
+    send_to_char( "a Golden Band               60,000\n\r", ch );
+    send_to_char( "a Mystic Robe               75,000\n\r", ch );
+    send_to_char( "a Golden Tabard             75,000\n\r\n\r", ch );
     return;
   }
   else if ( !str_cmp( arg1, "buy" ) )
@@ -259,23 +259,23 @@ void do_quest( CHAR_DATA *ch, char *argument )
     }
     if ( !str_cmp( arg2, "tarnished" ) || !str_cmp( arg2, "bracer" ) )
     { vnum = 802;
-      cost = 400000;
+      cost = 40000;
     }
     else if ( !str_cmp( arg2, "medal" ) || !str_cmp( arg2, "honor" ) )
     { vnum = 804;
-      cost = 500000;
+      cost = 50000;
     }
     else if ( !str_cmp( arg2, "band" ) )
     { vnum = 801;
-      cost = 600000;
+      cost = 60000;
     }
     else if ( !str_cmp( arg2, "mystic" ) || !str_cmp( arg2, "robe" ) )
     { vnum = 803;
-      cost = 750000;
+      cost = 75000;
     }
     else if ( !str_cmp( arg2, "tabard" ) )
     { vnum = 800;
-      cost = 750000;
+      cost = 75000;
     }
     else
     { send_to_char( "Buy what?\n\r", ch );
@@ -469,6 +469,34 @@ void do_quest( CHAR_DATA *ch, char *argument )
     else
       act( "$N says '`m$p is already undroppable.`n'", ch, obj, mob, TO_CHAR );
 
+    return;
+  }
+  else if ( !str_cmp( arg1, "uncurse" ) )
+  { if ( arg2[0] == '\0' )
+    { send_to_char( "Uncurse what?\n\r", ch );
+      return;
+    }
+    if ( ( obj = get_obj_carry( ch, arg2 ) ) == NULL )
+    { send_to_char( "You don't have that.\n\r", ch );
+      return;
+    }
+    if ( IS_OBJ_STAT(obj, ITEM_UNIQUE) )
+    { send_to_char( "Uniques may not be quested.\n\r", ch );
+      return;
+    }
+    if ( !IS_SET(obj->extra_flags,ITEM_NOREMOVE) )
+    { act( "$N says '`m$p isn't cursed -- it'll come off just fine.`n'", ch, obj, mob, TO_CHAR );
+      return;
+    }
+    if ( ch->gold < 35000 )
+    { send_to_char( "It costs 35000 gold to lift the curse from an item.\n\r", ch );
+      return;
+    }
+
+    REMOVE_BIT(obj->extra_flags,ITEM_NOREMOVE);
+    ch->gold -= 35000;
+    act( "$N mutters over $p; the curse lifts and it loosens its grip.", ch, obj, mob, TO_CHAR );
+    act( "$N mutters over $p in $n's hands and the curse lifts.", ch, obj, mob, TO_ROOM );
     return;
   }
   else if ( !str_cmp( arg1, "hum" ) )

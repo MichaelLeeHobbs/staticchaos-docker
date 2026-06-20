@@ -1,7 +1,26 @@
 # Class Trials — Design Doc (for review before any implementation)
 
-**Status:** DESIGN ONLY. Requested by Skatha (req 14, "look over first"). Rewards = **XP + Primal**.
-Nothing here is built yet.
+**Status:** DESIGN APPROVED by Skatha (2026-06-20). Still **not built** — this is a future phase, not
+part of the current patch. The decisions below are now the authoritative spec; the "Open questions"
+section at the bottom is resolved and kept only for history.
+
+## Decisions (resolved with Skatha)
+1. **Reward = XP (spendable) + Primal, NO leveling.** This game has no direct leveling — rank is
+   derived from current stats, and XP is the currency you spend to raise stats. So trials simply
+   **grant XP to spend** (plus Primal). This is effectively reward model **R2**: do NOT re-enable
+   `advance_level`/auto-leveling; just credit `ch->exp` (the spendable pool) and Primal. Lower risk.
+2. **8 tiers**, difficulties: Easy, Easy-Medium, Medium, Medium-Hard, Hard, Hard, Very Hard, Extreme.
+   Target: completing the **basics** grants enough XP + Primal to reach roughly **Eval 10 / 2nd
+   Class** — enough that a new player leaves the trials already knowing some abilities (not just
+   auto-attack) and can start exploring. (This replaces the old "start with Primal" handout.)
+3. **Per-class teaching.** Trials must teach the player's *current* class. Preferred: one shared trial
+   framework parameterized by class (tier room + objective vary by `ch->class`); fall back to separate
+   trial sets per class only if a shared framework can't express the class-specific lessons. (Per-class
+   content is the larger cost — flag at build time.)
+4. **Solo enforcement = `ROOM_SOLITARY` bounce + per-player owner-damage** (no true instancing —
+   Skatha agrees instancing would disturb the code too much).
+
+Rewards = **XP + Primal**. Nothing here is built yet.
 
 ## Goal
 Solo, escalating class trials that *teach* a class and reward XP + Primal — enough that clearing the
@@ -68,3 +87,17 @@ This is data-only (mob level/hp/damage in the relevant `.are` files) and can shi
 ## Effort
 Phase A ≈ L (new area + entry gating + owner-damage hook + quest verb + reward grant). Phase B medium
 on top. Early-mob threat pass ≈ S (data only). Not started — awaiting answers above.
+
+
+## Responses
+Skatha — 3:28 PM
+That approach sounds like it will work.
+
+1.) There's no direct leveling in the game it's rank based on current stats. You use the XP to raise stats. So it should just give the player XP to spend.
+
+2.) There should be 8 tiers with the following difficulties: Easy, Easy-Medium, Medium, Medium-Hard, Hard, Hard, Very Hard, and Extreme. Completing the basics should give enough XP and Primal to get to Eval 10 or 2nd Class. The idea is that completing the basics will let the player start exploring already knowing some abilities so it's not just auto attack.
+
+3.) The trials need to teach the specific class the player is using if that could be done without separate trials sets that's fine, but if not we'd need separate sets for each class.
+
+4.) The solo enforcement proposed sounds fine. It seems like adding true instancing would mess with the code too much.
+

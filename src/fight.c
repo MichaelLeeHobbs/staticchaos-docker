@@ -1634,6 +1634,7 @@ void chant_damage( CHAR_DATA *ch, CHAR_DATA *victim, int dam, int dt )
 	}
 
 	check_quest( ch, victim );
+	check_trial( ch, victim );	/* Class Trials: also credit on this kill path */
 	raw_kill( victim, FALSE );
 
 	if ( !IS_NPC(ch) && IS_NPC(victim) )

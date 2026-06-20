@@ -2064,7 +2064,7 @@ void load_persistent_corpses( void )
 
     {
 	char buf[MAX_STRING_LENGTH];
-	sprintf( buf, "Loaded %d persistent PC corpse(s).", loaded );
+	sprintf( buf, "Loaded %d persistent corpse object(s) (corpses + contents).", loaded );
 	log_string( buf );
     }
     return;

@@ -753,4 +753,14 @@ S
 
 
 
+#MOBPROGS
+M 1 dlg_1.prg
+M 2 dlg_2.prg
+M 3 dlg_3.prg
+M 10 dlg_10.prg
+M 11 dlg_11.prg
+M 12 dlg_12.prg
+M 13 dlg_13.prg
+S
+
 #$

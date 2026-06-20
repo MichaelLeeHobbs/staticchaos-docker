@@ -4418,6 +4418,61 @@ S
 
 
 #MOBPROGS
+M 3000 dlg_3000.prg
+M 3001 dlg_3001.prg
+M 3002 dlg_3002.prg
+M 3003 dlg_3003.prg
+M 3004 dlg_3004.prg
+M 3005 dlg_3005.prg
+M 3006 dlg_3006.prg
+M 3007 dlg_3007.prg
+M 3008 dlg_3008.prg
+M 3009 dlg_3009.prg
+M 3010 dlg_3010.prg
+M 3011 dlg_3011.prg
+M 3012 dlg_3012.prg
+M 3020 dlg_3020.prg
+M 3021 dlg_3021.prg
+M 3022 dlg_3022.prg
+M 3023 dlg_3023.prg
+M 3024 dlg_3024.prg
+M 3025 dlg_3025.prg
+M 3026 dlg_3026.prg
+M 3027 dlg_3027.prg
+M 3040 dlg_3040.prg
+M 3041 dlg_3041.prg
+M 3042 dlg_3042.prg
+M 3043 dlg_3043.prg
+M 3044 dlg_3044.prg
+M 3045 dlg_3045.prg
+M 3046 dlg_3046.prg
+M 3050 dlg_3050.prg
+M 3060 dlg_3060.prg
+M 3061 dlg_3061.prg
+M 3063 dlg_3063.prg
+M 3064 dlg_3064.prg
+M 3065 dlg_3065.prg
+M 3066 dlg_3066.prg
+M 3067 dlg_3067.prg
+M 3068 dlg_3068.prg
+M 3069 dlg_3069.prg
+M 3090 dlg_3090.prg
+M 3091 dlg_3091.prg
+M 3092 dlg_3092.prg
+M 3093 dlg_3093.prg
+M 3094 dlg_3094.prg
+M 3100 dlg_3100.prg
+M 3120 dlg_3120.prg
+M 3121 dlg_3121.prg
+M 3122 dlg_3122.prg
+M 3123 dlg_3123.prg
+M 3124 dlg_3124.prg
+M 3140 dlg_3140.prg
+M 3141 dlg_3141.prg
+M 3142 dlg_3142.prg
+M 3143 dlg_3143.prg
+M 3144 dlg_3144.prg
+M 3145 dlg_3145.prg
 M 3154 cobbler.prg
 S
 

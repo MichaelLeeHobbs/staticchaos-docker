@@ -189,4 +189,11 @@ S
 
 
 
+#MOBPROGS
+M 90 dlg_90.prg
+M 91 dlg_91.prg
+M 92 dlg_92.prg
+M 93 dlg_93.prg
+S
+
 #$

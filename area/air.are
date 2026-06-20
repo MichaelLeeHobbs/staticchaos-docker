@@ -1230,4 +1230,9 @@ S
 
 
 
+#MOBPROGS
+M 1000 dlg_1000.prg
+M 1001 dlg_1001.prg
+S
+
 #$

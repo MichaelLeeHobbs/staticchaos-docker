@@ -1288,4 +1288,14 @@ S
 
 
 
+#MOBPROGS
+M 800 dlg_800.prg
+M 801 dlg_801.prg
+M 802 dlg_802.prg
+M 803 dlg_803.prg
+M 804 dlg_804.prg
+M 805 dlg_805.prg
+M 806 dlg_806.prg
+S
+
 #$

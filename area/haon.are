@@ -2494,4 +2494,18 @@ S
 
 
 
+#MOBPROGS
+M 6000 dlg_6000.prg
+M 6002 dlg_6002.prg
+M 6003 dlg_6003.prg
+M 6004 dlg_6004.prg
+M 6005 dlg_6005.prg
+M 6100 dlg_6100.prg
+M 6101 dlg_6101.prg
+M 6102 dlg_6102.prg
+M 6103 dlg_6103.prg
+M 6115 dlg_6115.prg
+M 6116 dlg_6116.prg
+S
+
 #$

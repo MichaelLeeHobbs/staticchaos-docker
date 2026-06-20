@@ -889,4 +889,8 @@ S
 
 
 
+#MOBPROGS
+M 3600 dlg_3600.prg
+S
+
 #$

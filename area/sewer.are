@@ -4728,4 +4728,14 @@ S
 
 
 
+#MOBPROGS
+M 7000 dlg_7000.prg
+M 7002 dlg_7002.prg
+M 7013 dlg_7013.prg
+M 7042 dlg_7042.prg
+M 7045 dlg_7045.prg
+M 7046 dlg_7046.prg
+M 7204 dlg_7204.prg
+S
+
 #$

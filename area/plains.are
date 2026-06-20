@@ -1324,4 +1324,16 @@ S
 
 
 
+#MOBPROGS
+M 300 dlg_300.prg
+M 301 dlg_301.prg
+M 303 dlg_303.prg
+M 304 dlg_304.prg
+M 305 dlg_305.prg
+M 306 dlg_306.prg
+M 308 dlg_308.prg
+M 309 dlg_309.prg
+M 350 dlg_350.prg
+S
+
 #$

@@ -1216,4 +1216,9 @@ S
 
 
 
+#MOBPROGS
+M 5100 dlg_5100.prg
+M 5109 dlg_5109.prg
+S
+
 #$

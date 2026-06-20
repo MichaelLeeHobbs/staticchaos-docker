@@ -83,3 +83,7 @@ Temporary Items
 /deploy.sh
 /mud-redeploy.sh
 /web/deploy-web.sh
+/tmp/
+
+# Claude Code agent config / skills / transient worktrees — local only
+/.claude/

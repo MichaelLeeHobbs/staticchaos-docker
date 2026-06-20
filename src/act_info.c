@@ -213,6 +213,56 @@ void show_list_to_char( OBJ_DATA *list, CHAR_DATA *ch, bool fShort, bool fShowNo
 
 
 
+/*
+ * For an NPC, append any of its target keywords that don't already appear
+ * in the displayed text, in parentheses: e.g. " (guard soldier)".  Helps
+ * players know what to type to interact with the mob.  str_infix returns
+ * FALSE when the token is found in buf.
+ */
+static void append_mob_keywords( char *buf, CHAR_DATA *victim )
+{
+    char extra[MAX_STRING_LENGTH];
+    char tok[MAX_INPUT_LENGTH];
+    char *name;
+    bool first;
+
+    if ( !IS_NPC(victim) || victim->name == NULL )
+	return;
+
+    extra[0] = '\0';
+    first    = TRUE;
+    name     = victim->name;
+    while ( *name != '\0' )
+    {
+	name = one_argument( name, tok );
+	if ( tok[0] == '\0' )
+	    continue;
+
+	/* str_infix returns FALSE when tok is found in buf */
+	if ( !str_infix( tok, buf ) )
+	    continue;
+
+	if ( first )
+	{
+	    strcat( extra, " (" );
+	    first = FALSE;
+	}
+	else
+	    strcat( extra, " " );
+	strcat( extra, tok );
+    }
+
+    if ( !first )
+    {
+	strcat( extra, ")" );
+	strcat( buf, extra );
+    }
+
+    return;
+}
+
+
+
 void show_char_to_char_0( CHAR_DATA *victim, CHAR_DATA *ch )
 {
     char buf[MAX_STRING_LENGTH];
@@ -236,6 +286,7 @@ void show_char_to_char_0( CHAR_DATA *victim, CHAR_DATA *ch )
     if ( victim->position == POS_STANDING && victim->long_descr[0] != '\0' )
     {
 	strcat( buf, victim->long_descr );
+	append_mob_keywords( buf, victim );
 	send_to_char( buf, ch );
 	return;
     }
@@ -276,6 +327,7 @@ void show_char_to_char_0( CHAR_DATA *victim, CHAR_DATA *ch )
 	break;
     }
 
+    append_mob_keywords( buf, victim );
     strcat( buf, "\n\r" );
     buf[0] = UPPER(buf[0]);
     send_to_char( buf, ch );
@@ -730,8 +782,8 @@ void do_examine( CHAR_DATA *ch, char *argument )
    } 
 
 
-    if ( ( obj = get_obj_carry( ch, arg ) ) == NULL )
-    { send_to_char( "You aren't carrying that.\n\r", ch );
+    if ( ( obj = get_obj_here( ch, arg ) ) == NULL )
+    { send_to_char( "You don't see that here.\n\r", ch );
       return;
     }
 
@@ -1404,7 +1456,9 @@ void do_inventory( CHAR_DATA *ch, char *argument )
 
 void do_equipment( CHAR_DATA *ch, char *argument )
 {
+    char buf[MAX_STRING_LENGTH];
     OBJ_DATA *obj;
+    AFFECT_DATA *paf;
     int iWear;
     bool found;
 
@@ -1420,6 +1474,27 @@ void do_equipment( CHAR_DATA *ch, char *argument )
 	{
 	    send_to_char( format_obj_to_char( obj, ch, TRUE ), ch );
 	    send_to_char( "\n\r", ch );
+
+	    /* show what the item affects, like 'identify' does */
+	    for ( paf = obj->pIndexData->affected; paf != NULL; paf = paf->next )
+	    {
+		if ( paf->location != APPLY_NONE && paf->modifier != 0 )
+		{
+		    sprintf( buf, "     (affects %s by %d)\n\r",
+			affect_loc_name( paf->location ), paf->modifier );
+		    send_to_char( buf, ch );
+		}
+	    }
+
+	    for ( paf = obj->affected; paf != NULL; paf = paf->next )
+	    {
+		if ( paf->location != APPLY_NONE && paf->modifier != 0 )
+		{
+		    sprintf( buf, "     (affects %s by %d)\n\r",
+			affect_loc_name( paf->location ), paf->modifier );
+		    send_to_char( buf, ch );
+		}
+	    }
 	}
 	else
 	{
@@ -1830,10 +1905,40 @@ void do_report( CHAR_DATA *ch, char *argument )
 
 
 
+/*
+ * Strip surrounding double or single quotes and leading/trailing spaces
+ * from src into dest, so multi-word skill names like "burning hands" can
+ * be matched.  Plain unquoted input passes through unchanged.
+ */
+static void strip_quotes( char *dest, const char *src )
+{
+    int len;
+
+    while ( *src == ' ' )
+	src++;
+
+    if ( *src == '"' || *src == '\'' )
+	src++;
+
+    strcpy( dest, src );
+
+    len = strlen( dest );
+    while ( len > 0
+      && ( dest[len-1] == ' '
+        || dest[len-1] == '"'
+        || dest[len-1] == '\'' ) )
+	dest[--len] = '\0';
+
+    return;
+}
+
+
+
 void do_practice( CHAR_DATA *ch, char *argument )
 {
     char buf[MAX_STRING_LENGTH];
     char buf1[MAX_STRING_LENGTH];
+    char name[MAX_INPUT_LENGTH];
     int sn;
 
     if ( IS_NPC(ch) )
@@ -1885,7 +1990,9 @@ void do_practice( CHAR_DATA *ch, char *argument )
 	    return;
 	}
 
-	if ( ( sn = skill_lookup( argument ) ) < 0
+	strip_quotes( name, argument );
+
+	if ( ( sn = skill_lookup( name ) ) < 0
 	|| ( !IS_NPC(ch)
 	&&   ch->level < skill_table[sn].skill_level[ch->class] ) )
 	{

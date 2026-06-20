@@ -275,6 +275,8 @@ void do_yell( CHAR_DATA *ch, char *argument )
      }
     talk_channel( ch, argument, CHANNEL_YELL, "yell" );
     check_activation( ch, argument );
+    /* Let NPCs in the room react to yelled keywords, parallel to do_say. */
+    mprog_speech_trigger( argument, ch );
     return;
 }
 

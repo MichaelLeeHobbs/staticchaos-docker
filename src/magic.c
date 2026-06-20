@@ -193,10 +193,40 @@ bool saves_spell( int level, CHAR_DATA *victim )
  */
 char *target_name;
 
+/*
+ * Strip surrounding double or single quotes and leading/trailing spaces
+ * from src into dest, so multi-word spell names like "magic missile" can
+ * be matched.  Plain unquoted input passes through unchanged.  one_argument
+ * already removes outer quotes, but a stray quote on a hand-typed name is
+ * trimmed here too.
+ */
+static void cast_strip_quotes( char *dest, const char *src )
+{
+    int len;
+
+    while ( *src == ' ' )
+	src++;
+
+    if ( *src == '"' || *src == '\'' )
+	src++;
+
+    strcpy( dest, src );
+
+    len = strlen( dest );
+    while ( len > 0
+      && ( dest[len-1] == ' '
+        || dest[len-1] == '"'
+        || dest[len-1] == '\'' ) )
+	dest[--len] = '\0';
+
+    return;
+}
+
 void do_cast( CHAR_DATA *ch, char *argument )
 {
     char arg1[MAX_INPUT_LENGTH];
     char arg2[MAX_INPUT_LENGTH];
+    char name[MAX_INPUT_LENGTH];
     CHAR_DATA *victim;
     OBJ_DATA *obj;
     void *vo;
@@ -222,7 +252,9 @@ void do_cast( CHAR_DATA *ch, char *argument )
 	return;
     }
 
-    if ( ( sn = skill_lookup( arg1 ) ) < 0
+    cast_strip_quotes( name, arg1 );
+
+    if ( ( sn = skill_lookup( name ) ) < 0
     || ( !IS_NPC(ch) && ch->level < skill_table[sn].skill_level[ch->class] ) )
     {
 	send_to_char( "You can't do that.\n\r", ch );

@@ -9,6 +9,9 @@
 #include <string.h>
 #include "merc.h"
 
+/* Class Trials (Phase A MVP) -- see docs/CLASS-TRIALS-DESIGN.md */
+void do_quest_trial( CHAR_DATA *ch, CHAR_DATA *mob, char *arg );
+
 void do_quest( CHAR_DATA *ch, char *argument )
 { char arg1[MAX_INPUT_LENGTH];
   char arg2[MAX_INPUT_LENGTH];
@@ -46,7 +49,8 @@ void do_quest( CHAR_DATA *ch, char *argument )
   if ( arg1[0] == '\0' )
   { send_to_char( "You may use the following quest commands:\n\r", ch );
     send_to_char( "QUEST REQUEST, INFO, COMPLETE, FAIL, LIST, BUY,\n\r", ch );
-    send_to_char( "      AC, DAMAGE, RENAME, GLOW, HUM, NODROP, UNCURSE, REPAIR.\n\r", ch );
+    send_to_char( "      AC, DAMAGE, RENAME, GLOW, HUM, NODROP, UNCURSE, REPAIR,\n\r", ch );
+    send_to_char( "      TRIAL.\n\r", ch );
     return;
   }
   else if ( !str_cmp( arg1, "request" ) )
@@ -584,4 +588,202 @@ void do_quest( CHAR_DATA *ch, char *argument )
     };
     return;
   }
+  else if ( !str_cmp( arg1, "trial" ) || !str_cmp( arg1, "trials" ) )
+  { do_quest_trial( ch, mob, arg2 );
+    return;
+  }
+}
+
+/*
+ * ---------------------------------------------------------------------------
+ *  CLASS TRIALS  (Phase A MVP) -- see docs/CLASS-TRIALS-DESIGN.md
+ * ---------------------------------------------------------------------------
+ *  Reward model R2: credit spendable XP (ch->exp via gain_exp) + Primal
+ *  (ch->pcdata->primal).  NO leveling/advance_level.
+ *
+ *  Completion is tracked in ch->pcdata->trials -- one bit per tier
+ *  (bit (n-1) for tier n), saved/loaded in save.c as "Trials".
+ *
+ *  Solo enforcement: tier rooms carry ROOM_SOLITARY|ROOM_PRIVATE; we also
+ *  bounce on entry here if another PC is already inside.
+ *
+ *  Per-class teaching is currently a SHARED gauntlet (one framework for all
+ *  classes).  Per-class custom objectives are a TODO (Phase B) -- the tier
+ *  mob's difficulty already scales by level so the player must use their
+ *  class abilities to win the higher tiers.
+ * ---------------------------------------------------------------------------
+ */
+
+/*
+ * Reward table, indexed by tier-1.  Tunable.
+ * Design target (Skatha): completing the basics (~the first few tiers)
+ * grants enough XP + Primal to reach roughly "Eval 10 / 2nd class", i.e.
+ * leave the trials already knowing some abilities instead of just
+ * auto-attacking.  XP is the spendable stat currency; primal buys
+ * school/clan stuff.  Totals across all 8 tiers are large-but-bounded.
+ */
+const int trial_xp_reward[MAX_TRIALS] =
+  {  5000, 10000, 20000, 35000, 55000, 80000, 120000, 200000 };
+const int trial_primal_reward[MAX_TRIALS] =
+  {    25,    40,    60,    90,   130,   180,    250,    350 };
+const char * const trial_tier_name[MAX_TRIALS] =
+  { "Easy", "Easy-Medium", "Medium", "Medium-Hard",
+    "Hard", "Hard", "Very Hard", "Extreme" };
+
+/*
+ * The `quest trial` verb.  `mob` is the Trial Master (already validated by
+ * do_quest as an ACT_PRACTICE mob in the room).  `arg` is the tier number,
+ * or empty to list.
+ */
+void do_quest_trial( CHAR_DATA *ch, CHAR_DATA *mob, char *arg )
+{
+  char buf[MAX_STRING_LENGTH];
+  ROOM_INDEX_DATA *location;
+  CHAR_DATA *rch;
+  int tier, n;
+
+  if ( IS_NPC(ch) )
+    return;
+
+  /* No argument -> list the tiers and the player's progress. */
+  if ( arg[0] == '\0' )
+  {
+    send_to_char( "`WClass Trials`n -- solo proving-grounds for your class.\n\r", ch );
+    sprintf( buf, "Your class: `Y%s`n.  Use `Wquest trial <number>`n to begin.\n\r\n\r",
+             class_table[ch->class].who_name );
+    send_to_char( buf, ch );
+    send_to_char( "  # Tier          Status       Reward (XP / Primal)\n\r", ch );
+    send_to_char( "  - ------------- ------------ --------------------\n\r", ch );
+    for ( n = 0; n < MAX_TRIALS; n++ )
+    {
+      sprintf( buf, "  %d %-13s %-12s %d / %d\n\r",
+        n + 1,
+        trial_tier_name[n],
+        IS_SET( ch->pcdata->trials, 1 << n ) ? "`GCOMPLETE`n" : "incomplete",
+        trial_xp_reward[n],
+        trial_primal_reward[n] );
+      send_to_char( buf, ch );
+    }
+    send_to_char( "\n\rDefeat the trial foe to win.  You will be returned here on victory.\n\r", ch );
+    return;
+  }
+
+  if ( !is_number( arg ) )
+  { send_to_char( "Which trial?  Try 'quest trial' for the list.\n\r", ch );
+    return;
+  }
+
+  tier = atoi( arg );
+  if ( tier < 1 || tier > MAX_TRIALS )
+  { sprintf( buf, "There are only %d trials, numbered 1 to %d.\n\r",
+             MAX_TRIALS, MAX_TRIALS );
+    send_to_char( buf, ch );
+    return;
+  }
+
+  /* Ordering: must clear the prior tier before attempting the next. */
+  if ( tier > 1 && !IS_SET( ch->pcdata->trials, 1 << (tier-2) ) )
+  { sprintf( buf, "You must complete trial %d before attempting trial %d.\n\r",
+             tier - 1, tier );
+    send_to_char( buf, ch );
+    return;
+  }
+
+  if ( ch->fighting != NULL )
+  { send_to_char( "Not while you're fighting!\n\r", ch );
+    return;
+  }
+
+  location = get_room_index( TRIAL_ROOM_FIRST + (tier-1) );
+  if ( location == NULL )
+  { send_to_char( "That trial room is missing -- tell an immortal.\n\r", ch );
+    return;
+  }
+
+  /* Solo gating: bounce if another PC is already running this tier. */
+  for ( rch = location->people; rch != NULL; rch = rch->next_in_room )
+  {
+    if ( !IS_NPC(rch) )
+    { send_to_char( "A trial is already in progress there.  Try again shortly.\n\r", ch );
+      return;
+    }
+  }
+
+  sprintf( buf, "$n says '`mBegin the %s trial!  Prove your worth.`n'",
+           trial_tier_name[tier-1] );
+  act( buf, mob, NULL, ch, TO_ROOM );
+
+  act( "$n is swept away into the trial grounds.", ch, NULL, NULL, TO_ROOM );
+  char_from_room( ch );
+  char_to_room( ch, location );
+  act( "$n appears, summoned to the trial.", ch, NULL, NULL, TO_ROOM );
+  do_look( ch, "auto" );
+
+  /* TODO (Phase B): per-class objective/scripted-mechanic hooks here. */
+  return;
+}
+
+/*
+ * Called from the mob-death path (check_quest in fight.c) when a PC kills an
+ * NPC.  If the dead mob is the tier mob for the room the player is in, award
+ * the reward, mark the tier complete, and send the player back to the lobby.
+ */
+void check_trial( CHAR_DATA *ch, CHAR_DATA *victim )
+{
+  char buf[MAX_STRING_LENGTH];
+  ROOM_INDEX_DATA *lobby;
+  int tier, mvnum, rvnum;
+
+  if ( IS_NPC(ch) || !IS_NPC(victim) || ch->in_room == NULL )
+    return;
+
+  rvnum = ch->in_room->vnum;
+  /* Must be standing in a tier room. */
+  if ( rvnum < TRIAL_ROOM_FIRST || rvnum >= TRIAL_ROOM_FIRST + MAX_TRIALS )
+    return;
+
+  tier  = rvnum - TRIAL_ROOM_FIRST + 1;    /* 1-based */
+  mvnum = TRIAL_MOB_FIRST + (tier-1);
+
+  /* The dead mob must be THIS tier's trial mob. */
+  if ( victim->pIndexData == NULL || victim->pIndexData->vnum != mvnum )
+    return;
+
+  /*
+   * Reward is paid only the FIRST time a tier is cleared (no farming).
+   * Re-clears are allowed for practice but pay nothing.
+   */
+  if ( !IS_SET( ch->pcdata->trials, 1 << (tier-1) ) )
+  {
+    gain_exp( ch, trial_xp_reward[tier-1] );
+    ch->pcdata->primal += trial_primal_reward[tier-1];
+    SET_BIT( ch->pcdata->trials, 1 << (tier-1) );
+
+    sprintf( buf, "`WYou have conquered the %s trial!`n\n\r", trial_tier_name[tier-1] );
+    send_to_char( buf, ch );
+    sprintf( buf, "`GReward:`n %d experience to spend and %d primal.\n\r",
+             trial_xp_reward[tier-1], trial_primal_reward[tier-1] );
+    send_to_char( buf, ch );
+    if ( tier < MAX_TRIALS )
+      send_to_char( "Return to the Trial Master to attempt the next trial.\n\r", ch );
+    else
+      send_to_char( "`YYou have mastered every trial.  Go forth.`n\n\r", ch );
+  }
+  else
+  {
+    sprintf( buf, "`WYou clear the %s trial again`n (already rewarded).\n\r",
+             trial_tier_name[tier-1] );
+    send_to_char( buf, ch );
+  }
+
+  /* Send the victor back to the lobby. */
+  if ( ( lobby = get_room_index( TRIAL_LOBBY_VNUM ) ) != NULL )
+  {
+    char_from_room( ch );
+    char_to_room( ch, lobby );
+    do_look( ch, "auto" );
+  }
+
+  save_char_obj( ch );
+  return;
 }

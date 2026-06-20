@@ -1158,6 +1158,16 @@ struct	kill_data
 #define ROOM_VNUM_SCHOOL	   3700
 #define	ROOM_VNUM_LOUNGE	     97
 
+/*
+ * Class Trials (see docs/CLASS-TRIALS-DESIGN.md).  Phase A MVP.
+ * Area trials.are occupies vnums 2900-2969.
+ */
+#define TRIAL_LOBBY_VNUM	   2900	/* lobby room                       */
+#define TRIAL_ROOM_FIRST	   2901	/* tier 1 room; tier n room = +n-1  */
+#define TRIAL_MOB_FIRST		   2901	/* tier 1 mob;  tier n mob  = +n-1  */
+#define TRIAL_MASTER_VNUM	   2900	/* the Trial Master quest mob       */
+#define MAX_TRIALS		      8	/* eight tiers, Easy .. Extreme     */
+
 
 
 /*
@@ -1480,6 +1490,7 @@ struct	pc_data
     int			kills		[15];
     int			version;
     char *		legend;
+    int			trials;		/* Class Trials: bitmask of completed tiers (bit n = tier n+1) */
     int 		security;	/* OLC */ /* Builder security */
     CHANT_DATA *	chant;
     char *		cflag;
@@ -3005,6 +3016,7 @@ int	get_obj_number	args( ( OBJ_DATA *obj ) );
 int	get_obj_weight	args( ( OBJ_DATA *obj ) );
 bool	room_is_dark	args( ( ROOM_INDEX_DATA *pRoomIndex ) );
 bool	room_is_private	args( ( ROOM_INDEX_DATA *pRoomIndex ) );
+void	check_trial	args( ( CHAR_DATA *ch, CHAR_DATA *victim ) );
 bool	can_see		args( ( CHAR_DATA *ch, CHAR_DATA *victim ) );
 bool	can_see_obj	args( ( CHAR_DATA *ch, OBJ_DATA *obj ) );
 bool	can_drop_obj	args( ( CHAR_DATA *ch, OBJ_DATA *obj ) );

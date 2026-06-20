@@ -1107,6 +1107,7 @@ int damage( CHAR_DATA *ch, CHAR_DATA *victim, int dam, int dt )
 	}
 
 	check_quest( ch, victim );
+	check_trial( ch, victim );	/* Class Trials: reward + bounce on tier clear */
 	if ( IS_NPC(victim) && victim->level >= 50 )
 	  rand_obj( victim );
 	raw_kill( victim, FALSE );

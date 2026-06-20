@@ -304,6 +304,7 @@ void fwrite_char( CHAR_DATA *ch, FILE *fp )
 	fprintf( fp, "Created      %s~\n",	ch->pcdata->created	);
 	fprintf( fp, "Ignore       %s~\n",	ch->pcdata->ignore	);
 	fprintf( fp, "Legend       %s~\n",	ch->pcdata->legend	);
+	fprintf( fp, "Trials       %d\n",	ch->pcdata->trials	);
 	fprintf( fp, "Cflag        %s~\n",	ch->pcdata->cflag	);
 	fprintf( fp, "Weapons      %d %d %d %d %d %d %d %d %d %d %d %d %d\n",
 		ch->pcdata->weapons[0],	ch->pcdata->weapons[1],
@@ -616,6 +617,7 @@ bool load_char_obj( DESCRIPTOR_DATA *d, char *name )
     ch->pcdata->ignore			= str_dup( "" );
     ch->pcdata->created			= str_dup( "" );
     ch->pcdata->legend			= str_dup( "" );
+    ch->pcdata->trials			= 0;
     ch->pcdata->cflag			= str_dup( "" );
     ch->pcdata->host			= str_dup( d->host );
     ch->pcdata->body			= 10;
@@ -1100,6 +1102,7 @@ void fread_char( CHAR_DATA *ch, FILE *fp )
 
 	case 'T':
 	    KEY( "Totalexp",	ch->totalexp,		fread_number_ll( fp ) );
+	    KEY( "Trials",	ch->pcdata->trials,	fread_number( fp ) );
 	    KEY( "Trust",	ch->trust,		fread_number( fp ) );
 
 	    if ( !str_cmp( word, "Title" ) )

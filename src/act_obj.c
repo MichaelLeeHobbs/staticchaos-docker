@@ -1170,6 +1170,88 @@ void wear_obj( CHAR_DATA *ch, OBJ_DATA *obj, bool fReplace )
 
 
 
+/*
+ * Heuristic "how good is this gear" score, used by "wear all" to decide
+ * whether a candidate item beats what is already worn in its slot.
+ * Affects are summed from both the prototype (pIndexData) and the instance.
+ *   WEAPON = damage (value[1]*value[2]) + damroll + hitroll + level
+ *   ARMOR  = armor (value[0]) + hit + mana + move + level
+ */
+static int wear_score( OBJ_DATA *obj )
+{
+    AFFECT_DATA *paf;
+    int hitroll = 0;
+    int damroll = 0;
+    int hit     = 0;
+    int mana    = 0;
+    int move    = 0;
+
+    if ( obj == NULL )
+	return 0;
+
+    for ( paf = obj->pIndexData->affected; paf != NULL; paf = paf->next )
+    {
+	     if ( paf->location == APPLY_HITROLL ) hitroll += paf->modifier;
+	else if ( paf->location == APPLY_DAMROLL ) damroll += paf->modifier;
+	else if ( paf->location == APPLY_HIT     ) hit     += paf->modifier;
+	else if ( paf->location == APPLY_MANA    ) mana    += paf->modifier;
+	else if ( paf->location == APPLY_MOVE    ) move    += paf->modifier;
+    }
+
+    for ( paf = obj->affected; paf != NULL; paf = paf->next )
+    {
+	     if ( paf->location == APPLY_HITROLL ) hitroll += paf->modifier;
+	else if ( paf->location == APPLY_DAMROLL ) damroll += paf->modifier;
+	else if ( paf->location == APPLY_HIT     ) hit     += paf->modifier;
+	else if ( paf->location == APPLY_MANA    ) mana    += paf->modifier;
+	else if ( paf->location == APPLY_MOVE    ) move    += paf->modifier;
+    }
+
+    if ( obj->item_type == ITEM_WEAPON )
+	return ( obj->value[1] * obj->value[2] ) + damroll + hitroll + obj->level;
+
+    /* Treat anything else wearable as armor for scoring purposes. */
+    return obj->value[0] + hit + mana + move + obj->level;
+}
+
+
+/*
+ * Map an item's wear flags to the equipment slot(s) it would occupy,
+ * mirroring the slot choices wear_obj makes.  Returns the slot wear_obj
+ * would actually use given what is currently equipped (e.g. the first free
+ * finger/wrist/neck), or WEAR_NONE if the item is not wearable on the body.
+ * Wield/hold/light are handled here too so "wear all" can swap weapons.
+ */
+static int wear_slot_for( CHAR_DATA *ch, OBJ_DATA *obj )
+{
+    if ( obj->item_type == ITEM_LIGHT )
+	return WEAR_LIGHT;
+
+    if ( CAN_WEAR( obj, ITEM_WEAR_FINGER ) )
+	return ( get_eq_char( ch, WEAR_FINGER_L ) == NULL )
+	    ? WEAR_FINGER_L : WEAR_FINGER_R;
+    if ( CAN_WEAR( obj, ITEM_WEAR_NECK ) )
+	return ( get_eq_char( ch, WEAR_NECK_1 ) == NULL )
+	    ? WEAR_NECK_1 : WEAR_NECK_2;
+    if ( CAN_WEAR( obj, ITEM_WEAR_BODY ) )   return WEAR_BODY;
+    if ( CAN_WEAR( obj, ITEM_WEAR_HEAD ) )   return WEAR_HEAD;
+    if ( CAN_WEAR( obj, ITEM_WEAR_LEGS ) )   return WEAR_LEGS;
+    if ( CAN_WEAR( obj, ITEM_WEAR_FEET ) )   return WEAR_FEET;
+    if ( CAN_WEAR( obj, ITEM_WEAR_HANDS ) )  return WEAR_HANDS;
+    if ( CAN_WEAR( obj, ITEM_WEAR_ARMS ) )   return WEAR_ARMS;
+    if ( CAN_WEAR( obj, ITEM_WEAR_ABOUT ) )  return WEAR_ABOUT;
+    if ( CAN_WEAR( obj, ITEM_WEAR_WAIST ) )  return WEAR_WAIST;
+    if ( CAN_WEAR( obj, ITEM_WEAR_WRIST ) )
+	return ( get_eq_char( ch, WEAR_WRIST_L ) == NULL )
+	    ? WEAR_WRIST_L : WEAR_WRIST_R;
+    if ( CAN_WEAR( obj, ITEM_WEAR_SHIELD ) ) return WEAR_SHIELD;
+    if ( CAN_WEAR( obj, ITEM_WIELD ) )       return WEAR_WIELD;
+    if ( CAN_WEAR( obj, ITEM_HOLD ) )        return WEAR_HOLD;
+
+    return WEAR_NONE;
+}
+
+
 void do_wear( CHAR_DATA *ch, char *argument )
 {
     char arg[MAX_INPUT_LENGTH];
@@ -1186,12 +1268,32 @@ void do_wear( CHAR_DATA *ch, char *argument )
     if ( !str_cmp( arg, "all" ) )
     {
 	OBJ_DATA *obj_next;
+	OBJ_DATA *worn;
+	int slot;
 
 	for ( obj = ch->carrying; obj != NULL; obj = obj_next )
 	{
 	    obj_next = obj->next_content;
-	    if ( obj->wear_loc == WEAR_NONE && can_see_obj( ch, obj ) )
+	    if ( obj->wear_loc != WEAR_NONE || !can_see_obj( ch, obj ) )
+		continue;
+
+	    /* Figure out which slot this item would take. */
+	    slot = wear_slot_for( ch, obj );
+	    if ( slot == WEAR_NONE )
+		continue;
+
+	    worn = get_eq_char( ch, slot );
+	    if ( worn == NULL )
+	    {
+		/* Slot is free: just wear it (wear_obj enforces all checks). */
 		wear_obj( ch, obj, FALSE );
+	    }
+	    else if ( wear_score( obj ) > wear_score( worn ) )
+	    {
+		/* Candidate is strictly better: swap it in. */
+		if ( remove_obj( ch, slot, TRUE ) )
+		    wear_obj( ch, obj, FALSE );
+	    }
 	}
 	return;
     }

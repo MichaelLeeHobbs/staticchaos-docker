@@ -548,6 +548,13 @@ int damage( CHAR_DATA *ch, CHAR_DATA *victim, int dam, int dt )
 	return -1;
 
     /*
+     * Class Trials (Phase B): a tier mob can only be harmed while the player
+     * holds the tier's required class state.  Out of state -> 0 damage (and an
+     * occasional hint).  No-op for non-trial fights and TRIAL_REQ_NONE tiers.
+     */
+    dam = trial_damage_gate( ch, victim, dam );
+
+    /*
      * Stop up any residual loopholes.
      */
     if ( dam > 30000 && !IS_IMMORTAL(ch) )

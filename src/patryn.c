@@ -417,12 +417,17 @@ void do_runeweave( CHAR_DATA *ch, char *argument )
     	  stc( "They are already so cursed.\n\r", ch );
     	  break;
     	}
+    	/* only one elemental curse at a time: strip the other three */
+    	affect_strip( victim, gsn_earth_curse );
+    	affect_strip( victim, gsn_flame_curse );
+    	affect_strip( victim, gsn_water_curse );
     	act( "A pale blue mist settles around $N.", ch, NULL, victim, TO_CHAR );
     	act( "A pale blue mist settles around $N.", ch, NULL, victim, TO_ROOM );
         af.type      = gsn_wind_curse;
         af.location  = 0;
         af.modifier  = 0;
-        af.duration  = ch->pcdata->mind *2/3;
+        /* PvP duration cap: 3 ticks vs players, Mind-scaled vs NPCs */
+        af.duration  = !IS_NPC(victim) ? 3 : ch->pcdata->mind *2/3;
         af.bitvector = 0;
         affect_to_char( victim, &af );
         break;
@@ -432,13 +437,18 @@ void do_runeweave( CHAR_DATA *ch, char *argument )
           stc( "They are already so cursed.\n\r", ch );
           break;
         }
+        /* only one elemental curse at a time: strip the other three */
+        affect_strip( victim, gsn_wind_curse );
+        affect_strip( victim, gsn_flame_curse );
+        affect_strip( victim, gsn_water_curse );
         act( "A dull yellow mist settles around $N.", ch, NULL, victim, TO_CHAR );
         act( "A dull yellow mist settles around $N.", ch, NULL, victim, TO_ROOM );
         af.type      = gsn_earth_curse;
         af.location  = 0;
         af.modifier  = 0;
-        af.duration  = ch->pcdata->mind *2/3; 
-        af.bitvector = 0 *2/3;;
+        /* PvP duration cap: 3 ticks vs players, Mind-scaled vs NPCs */
+        af.duration  = !IS_NPC(victim) ? 3 : ch->pcdata->mind *2/3;
+        af.bitvector = 0;
         affect_to_char( victim, &af );
         break;
     case RUNE_FIRE + RUNE_LIFE:
@@ -447,12 +457,17 @@ void do_runeweave( CHAR_DATA *ch, char *argument )
           stc( "They are already so cursed.\n\r", ch );
           break;
         }
+        /* only one elemental curse at a time: strip the other three */
+        affect_strip( victim, gsn_wind_curse );
+        affect_strip( victim, gsn_earth_curse );
+        affect_strip( victim, gsn_water_curse );
         act( "A blood red mist settles around $N.", ch, NULL, victim, TO_CHAR );
         act( "A blood red mist settles around $N.", ch, NULL, victim, TO_ROOM );
         af.type      = gsn_flame_curse;
         af.location  = 0;
         af.modifier  = 0;
-        af.duration  = ch->pcdata->mind *2/3;
+        /* PvP duration cap: 3 ticks vs players, Mind-scaled vs NPCs */
+        af.duration  = !IS_NPC(victim) ? 3 : ch->pcdata->mind *2/3;
         af.bitvector = 0;
         affect_to_char( victim, &af );
         break;
@@ -462,12 +477,17 @@ void do_runeweave( CHAR_DATA *ch, char *argument )
           stc( "They are already so cursed.\n\r", ch );
           break;
         }
+        /* only one elemental curse at a time: strip the other three */
+        affect_strip( victim, gsn_wind_curse );
+        affect_strip( victim, gsn_earth_curse );
+        affect_strip( victim, gsn_flame_curse );
         act( "A murky mist settles around $N.", ch, NULL, victim, TO_CHAR );
         act( "A murky mist settles around $N.", ch, NULL, victim, TO_ROOM );
         af.type      = gsn_water_curse;
         af.location  = 0;
         af.modifier  = 0;
-        af.duration  = ch->pcdata->mind *2/3;
+        /* PvP duration cap: 3 ticks vs players, Mind-scaled vs NPCs */
+        af.duration  = !IS_NPC(victim) ? 3 : ch->pcdata->mind *2/3;
         af.bitvector = 0;
         affect_to_char( victim, &af );
         break;

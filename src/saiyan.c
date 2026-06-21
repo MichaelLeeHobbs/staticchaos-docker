@@ -540,13 +540,31 @@ void do_kisense( CHAR_DATA *ch, char *argument )
 
   if ( IS_CLASS(victim,CLASS_PATRYN) && get_runes(victim,RUNE_FIRE,TORSO) > 0
     && victim->level >= 2 && IS_SET(victim->pcdata->powers[P_BITS],P_DEFENSES) )
-  { 
-    if ( get_runes(victim,RUNE_FIRE,TORSO) == 1 )
+  {
+    int fcount = get_runes(victim,RUNE_FIRE,TORSO);
+
+    if ( fcount == 1 )
       act( "Your tattoos glow with a dull red aura.", victim, NULL, NULL, TO_CHAR );
     else
       act( "Your tattoos glow dull red, as you feel $N's Ki brush against you.", victim, NULL, ch, TO_CHAR );
 
     act( "$n's tattoos glow with a dull red aura.", victim, NULL, NULL, TO_ROOM );
+
+    /* graded anti-scry: 5+ Fire runes or spirit ward fully blocks the sense */
+    if ( fcount >= 5 || is_affected( victim, gsn_spirit_ward ) )
+    {
+      send_to_char( "Their Ki is shrouded; you cannot sense them.\n\r", ch );
+      WAIT_STATE( ch, 8 );
+      return;
+    }
+    /* 3-4 Fire runes: clouds the trail, no location */
+    if ( fcount >= 3 )
+    {
+      send_to_char( "The trail is clouded; you can't pin down their location.\n\r", ch );
+      WAIT_STATE( ch, 8 );
+      return;
+    }
+    /* 1-2 Fire runes: warn only, sense succeeds below */
   }
 
   /* crummy way to get the "{ 5 15 } Larsen" part outta it */

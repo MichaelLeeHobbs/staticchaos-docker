@@ -4,17 +4,10 @@ Living list of open work, decisions, and tuning. All committed code is shipped &
 below are mostly playtest tuning, verification, and optional follow-ups. (Detailed per-number tuning
 notes are kept in the maintainers' private working notes.)
 
-## In progress (current round)
-- **Patryn — earth arm → parry (not damage).** Earth arm runes should buff the Patryn's *parry* to be
-  as useful as the fire-arm *damage* bonus; only **fire** arm runes increase damage. (Reverts the
-  interim earth-arm damage buff.)
-- **Patryn — anti-scry vs Astral Detect.** Raised defenses already resist the Vision chant and kisense;
-  also block **Astral Detect** when it targets an item the Patryn has equipped or in inventory. Do
-  **not** block `scan`.
-- **Patryn — water-leg move regen.** Add a small move-regen buff to water-leg runes (on top of the
-  existing dodge bonus); revisit size after testing.
-
 ## Awaiting playtest / tuning (live, numbers are tunable)
+- **Patryn feedback fixes (just shipped, tune from play):** earth-arm runes now buff **parry** (not
+  damage; only fire arm adds damage); raised defenses also block **Astral Detect** for items the Patryn
+  carries/wears (not `scan`); water-leg runes give a small **move-regen** buff (+2%/rune) on top of dodge.
 - **Patryn patch** — these are "fine until testing": Spirit Ward soak % + drain, curse/dispel resist %,
   `defenses raised` buff/penalty numbers, the four elemental-curse numbers, water-torso-vs-cerulean.
 - **Class Trials Phase B** — verify the XP + Primal reward actually fires on a first tier clear (could

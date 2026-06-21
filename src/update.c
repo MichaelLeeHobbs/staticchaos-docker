@@ -196,6 +196,10 @@ int move_gain( CHAR_DATA *ch )
     if ( IS_AFFECTED(ch, AFF_POISON) )
 	gain /= 4;
 
+    /* water-leg move-regen buff, small/tunable */
+    if ( IS_CLASS(ch,CLASS_PATRYN) )
+	gain += gain * (get_runes(ch,RUNE_WATER,LEFTLEG)+get_runes(ch,RUNE_WATER,RIGHTLEG)) * 2 / 100;
+
     /* Patryn WATER CURSE: -15% move regen.  Applied to the final gain, after
        all other modifiers.  15% tunable. */
     if ( is_affected(ch, gsn_water_curse) )

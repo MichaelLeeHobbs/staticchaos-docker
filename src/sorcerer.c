@@ -2211,6 +2211,35 @@ void chant_astral_detect( int cn, int rank, CHAR_DATA *ch, void *vo )
  
  	if ( in_obj->carried_by != NULL )
  	{
+ 	    CHAR_DATA *holder = in_obj->carried_by;
+
+ 	    /* graded anti-scry vs a defenses-raised Patryn holding the object,
+ 	       mirroring chant_vision's Air-torso hook */
+ 	    if ( IS_CLASS(holder,CLASS_PATRYN) && holder->level >= 2
+ 		&& IS_SET(holder->pcdata->powers[P_BITS],P_DEFENSES)
+ 		&& get_runes(holder,RUNE_AIR,TORSO) > 0 )
+ 	    {
+ 		int acount = get_runes(holder,RUNE_AIR,TORSO);
+
+ 		if ( acount == 1 )
+ 		    act( "Your tattoos glow with a frosty blue aura.", holder, NULL, NULL, TO_CHAR );
+ 		else
+ 		    act( "Your tattoos glow frosty blue, as if probed from afar.", holder, NULL, NULL, TO_CHAR );
+
+ 		act( "$n's tattoos glow with a frosty blue aura.", holder, NULL, NULL, TO_ROOM );
+
+ 		/* 5+ Air runes or spirit ward: the detect fails for this item */
+ 		if ( acount >= 5 || is_affected( holder, gsn_spirit_ward ) )
+ 		    continue;
+ 		/* 3-4 Air runes: clouded, suppress holder and location */
+ 		if ( acount >= 3 )
+ 		{
+ 		    send_to_char( "The vision clouds...\n\r", ch );
+ 		    continue;
+ 		}
+ 		/* 1-2 Air runes: warn only, reveal still succeeds below */
+ 	    }
+
  	    sprintf( buf, "%s carried by %s.\n\r",
  		obj->short_descr, PERS(in_obj->carried_by, ch) );
  	}

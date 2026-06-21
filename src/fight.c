@@ -446,8 +446,6 @@ void one_hit( CHAR_DATA *ch, CHAR_DATA *victim, int dt )
     if ( IS_CLASS(ch,CLASS_PATRYN) && ch->level >= 2 )
     {
       dam += dam * (50 + ch->pcdata->powers[P_FIRE] / 2) * (get_runes(ch,RUNE_FIRE,LEFTARM) + get_runes(ch,RUNE_FIRE,RIGHTARM)) / 100;
-      /* earth-arm parity buff: same shape as fire-arm above, tunable */
-      dam += dam * (50 + ch->pcdata->powers[P_EARTH] / 2) * (get_runes(ch,RUNE_EARTH,LEFTARM) + get_runes(ch,RUNE_EARTH,RIGHTARM)) / 100;
       /* Patryn defenses raised: melee -10% (cost of the defensive stance), after both arm boosts. */
       if ( IS_SET(ch->pcdata->powers[P_BITS], P_DEFENSES) )
         dam -= dam / 10;
@@ -1823,10 +1821,10 @@ bool check_parry( CHAR_DATA *ch, CHAR_DATA *victim )
 	chance += victim->pcdata->weapons[chdt] / 5;
 
 	if ( victim->class == CLASS_PATRYN )
-	{
+	{ /* earth-arm parry buff (owner-tunable) */
 	  runes = get_runes(victim,RUNE_EARTH,LEFTARM)+get_runes(victim,RUNE_EARTH,RIGHTARM);
-	  chance += runes * 8;
-	  chance += victim->pcdata->powers[P_EARTH] * 2 / 5;
+	  chance += runes * 12;
+	  chance += victim->pcdata->powers[P_EARTH] / 2;
 	}
         if ( victim->class == CLASS_FIST )
           chance /= 2;

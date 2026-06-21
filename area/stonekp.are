@@ -1563,4 +1563,10 @@ S
 
 
 
+#MOBPROGS
+M 500 dlg_500.prg
+M 502 dlg_502.prg
+M 503 dlg_503.prg
+S
+
 #$

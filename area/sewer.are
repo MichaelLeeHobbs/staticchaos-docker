@@ -4731,10 +4731,16 @@ S
 #MOBPROGS
 M 7000 dlg_7000.prg
 M 7002 dlg_7002.prg
+M 7004 dlg_7004.prg
+M 7005 dlg_7005.prg
+M 7007 dlg_7007.prg
+M 7008 dlg_7008.prg
+M 7010 dlg_7010.prg
 M 7013 dlg_7013.prg
 M 7042 dlg_7042.prg
 M 7045 dlg_7045.prg
 M 7046 dlg_7046.prg
+M 7203 dlg_7203.prg
 M 7204 dlg_7204.prg
 S
 

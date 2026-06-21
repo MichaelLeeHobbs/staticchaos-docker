@@ -5225,7 +5225,9 @@ S
 
 
 #MOBPROGS
+M 1300 dlg_1300.prg
 M 1301 dlg_1301.prg
+M 1302 dlg_1302.prg
 M 1303 dlg_1303.prg
 M 1304 dlg_1304.prg
 M 1305 dlg_1305.prg
@@ -5234,15 +5236,20 @@ M 1307 dlg_1307.prg
 M 1308 dlg_1308.prg
 M 1309 dlg_1309.prg
 M 1310 dlg_1310.prg
+M 1312 dlg_1312.prg
+M 1313 dlg_1313.prg
 M 1314 dlg_1314.prg
 M 1315 dlg_1315.prg
 M 1316 dlg_1316.prg
+M 1317 dlg_1317.prg
+M 1318 dlg_1318.prg
 M 1319 dlg_1319.prg
 M 1320 dlg_1320.prg
 M 1322 dlg_1322.prg
 M 1324 dlg_1324.prg
 M 1325 dlg_1325.prg
 M 1326 dlg_1326.prg
+M 1328 dlg_1328.prg
 M 1329 dlg_1329.prg
 M 1330 dlg_1330.prg
 M 1331 dlg_1331.prg
@@ -5255,6 +5262,8 @@ M 1344 dlg_1344.prg
 M 1345 dlg_1345.prg
 M 1346 dlg_1346.prg
 M 1347 dlg_1347.prg
+M 1348 dlg_1348.prg
+M 1352 dlg_1352.prg
 M 1353 dlg_1353.prg
 M 1355 dlg_1355.prg
 M 1356 dlg_1356.prg

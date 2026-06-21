@@ -1,4 +1,4 @@
 >speech_prog battousai manslayer sword limbo blade~
-mpecho $n says 'Rematch? That's the sweetest word in the arena. It means somebody learned NOTHING and brought gold anyway. Step up. We're delighted to host the lesson twice.'
+mpecho The manslayer doesn't speak. The blade clears the sheath before the syllable would have landed, and that is his whole answer.
 ~
 |

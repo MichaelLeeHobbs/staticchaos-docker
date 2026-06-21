@@ -1505,8 +1505,10 @@ M 905 dlg_905.prg
 M 907 dlg_907.prg
 M 908 dlg_908.prg
 M 909 dlg_909.prg
+M 910 dlg_910.prg
 M 911 dlg_911.prg
 M 912 dlg_912.prg
+M 913 dlg_913.prg
 M 914 dlg_914.prg
 M 915 dlg_915.prg
 M 916 dlg_916.prg
@@ -1518,6 +1520,7 @@ M 922 dlg_922.prg
 M 923 dlg_923.prg
 M 924 dlg_924.prg
 M 925 dlg_925.prg
+M 926 dlg_926.prg
 S
 
 #$

@@ -531,7 +531,11 @@ S
 
 
 #MOBPROGS
+M 9600 dlg_9600.prg
+M 9601 dlg_9601.prg
 M 9604 dlg_9604.prg
+M 9605 dlg_9605.prg
+M 9606 dlg_9606.prg
 M 9607 dlg_9607.prg
 M 9608 dlg_9608.prg
 M 9609 dlg_9609.prg

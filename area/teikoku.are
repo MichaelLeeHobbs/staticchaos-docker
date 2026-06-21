@@ -327,8 +327,14 @@ S
 
 
 #MOBPROGS
+M 9800 dlg_9800.prg
+M 9801 dlg_9801.prg
+M 9802 dlg_9802.prg
 M 9803 dlg_9803.prg
+M 9804 dlg_9804.prg
 M 9805 dlg_9805.prg
+M 9806 dlg_9806.prg
+M 9807 dlg_9807.prg
 M 9808 dlg_9808.prg
 S
 

@@ -3360,8 +3360,13 @@ S
 
 #MOBPROGS
 M 1900 dlg_1900.prg
+M 1903 dlg_1903.prg
 M 1904 dlg_1904.prg
 M 1905 dlg_1905.prg
+M 1906 dlg_1906.prg
+M 1907 dlg_1907.prg
+M 1908 dlg_1908.prg
+M 1910 dlg_1910.prg
 M 1916 dlg_1916.prg
 M 1917 dlg_1917.prg
 M 1918 dlg_1918.prg

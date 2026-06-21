@@ -1083,10 +1083,12 @@ S
 
 
 #MOBPROGS
+M 3500 dlg_3500.prg
 M 3501 dlg_3501.prg
 M 3502 dlg_3502.prg
 M 3503 dlg_3503.prg
 M 3504 dlg_3504.prg
+M 3505 dlg_3505.prg
 M 3506 dlg_3506.prg
 M 3507 dlg_3507.prg
 S

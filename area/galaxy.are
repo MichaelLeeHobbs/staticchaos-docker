@@ -1925,15 +1925,18 @@ S
 
 #MOBPROGS
 M 9301 dlg_9301.prg
+M 9302 dlg_9302.prg
 M 9303 dlg_9303.prg
 M 9304 dlg_9304.prg
 M 9305 dlg_9305.prg
 M 9306 dlg_9306.prg
+M 9307 dlg_9307.prg
 M 9308 dlg_9308.prg
 M 9309 dlg_9309.prg
 M 9310 dlg_9310.prg
 M 9311 dlg_9311.prg
 M 9312 dlg_9312.prg
+M 9314 dlg_9314.prg
 M 9315 dlg_9315.prg
 M 9316 dlg_9316.prg
 M 9317 dlg_9317.prg
@@ -1947,6 +1950,8 @@ M 9324 dlg_9324.prg
 M 9325 dlg_9325.prg
 M 9326 dlg_9326.prg
 M 9327 dlg_9327.prg
+M 9328 dlg_9328.prg
+M 9329 dlg_9329.prg
 M 9330 dlg_9330.prg
 M 9331 dlg_9331.prg
 M 9332 dlg_9332.prg

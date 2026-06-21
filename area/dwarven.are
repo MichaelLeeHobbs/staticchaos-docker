@@ -1288,9 +1288,13 @@ S
 
 
 #MOBPROGS
+M 6500 dlg_6500.prg
 M 6501 dlg_6501.prg
+M 6502 dlg_6502.prg
 M 6503 dlg_6503.prg
 M 6504 dlg_6504.prg
+M 6505 dlg_6505.prg
+M 6506 dlg_6506.prg
 M 6507 dlg_6507.prg
 M 6508 dlg_6508.prg
 M 6509 dlg_6509.prg
@@ -1298,6 +1302,7 @@ M 6510 dlg_6510.prg
 M 6511 dlg_6511.prg
 M 6512 dlg_6512.prg
 M 6513 dlg_6513.prg
+M 6514 dlg_6514.prg
 M 6515 dlg_6515.prg
 S
 

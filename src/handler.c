@@ -1762,8 +1762,12 @@ void eval( CHAR_DATA *ch )
     if ( point < 30 && pk > 100 && (pk/pd) >= 2 )
       point = 30;
   }
-  /* promote exp stackers to higher status */
-  if ( ch->exp > 30000000 )
+  /* Exp-stacking can LIFT a low-stat character toward Unholy (50), but must never
+   * LOWER the stat-based assessment.  The old code (no `point < 50` guard) overwrote
+   * point and clamped it to 50, hard-locking every >30M-exp character at Unholy no
+   * matter how high their stats -- so endgame chars could never reach their class
+   * title (Rune Lord / SSJ / etc.).  Only apply the exp boost when stats < 50. */
+  if ( ch->exp > 30000000 && point < 50 )
   {
     point = UMIN( point + (ch->exp - 30000000)/10000000, 50 );
   }

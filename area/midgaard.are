@@ -881,14 +881,14 @@ say Ungggghhhhh.. damnit... I'll get you..
 ~
 |
 #3150
-killer rabbit hamster doom bunny caerbannog~
-the killer rabbit~
-A small white rabbit hops about here, twitching its nose adorably.
+hamster doom giant rodent~
+the Hamster of Doom~
+A plump little hamster snuffles about here, stuffing its cheeks adorably.
 ~
-What an adorable little bunny!  Soft white fur, big floppy ears, and the
-sweetest pink nose you ever saw.  Surely something this cute could never
-hurt a soul.  (It is, in fact, the Killer Rabbit of Caerbannog -- and it
-has a vicious streak a mile wide.  Best not to mess with it.)
+What an adorable little hamster!  Round golden fur, twitching whiskers, and
+the chubbiest cheeks you ever saw.  Surely something this cute could never
+hurt a soul.  (It is, in fact, the Hamster of Doom -- and those who mess
+with it rarely live to regret it.)
 ~
 64 0 0 S
 96 0 0 1d100000+0 1d1+0
@@ -902,7 +902,7 @@ Berthold the cobbler hammers away at a workbench piled with leather here.
 A wiry old craftsman with squinting eyes and clever, calloused hands.
 Berthold has cobbled shoes for adventurers for forty years, and boasts he
 can make a slipper out of just about anything -- "even," he winks, "the
-foot of a certain rabbit, if some brave fool ever brings me one."
+foot of a certain Hamster, if some brave fool ever brings me one."
 ~
 65 0 0 S
 30 0 0 1d1+30000 1d8+12
@@ -1861,17 +1861,17 @@ band gold wedding~
 A wide, plain circle of gold inscribed: 'Your loving wife, Vanya'.
 ~
 #3151
-foot rabbit lucky tuft~
-a rabbit's foot~
-A severed rabbit's foot, still warm, lies here.~
+foot hamster doom component~
+the foot of the Hamster of Doom~
+A severed hamster foot, still warm, lies here.~
 ~
 8 0 1
 0 0 0 0
 1 500 0
 #3152
-slippers rabbit feet~
-a pair of rabbit slippers~
-A pair of fluffy white rabbit-fur slippers rests here, twitching slightly.~
+doomslippers slippers footwear hamster doom~
+a pair of Hamster of Doom slippers~
+A pair of fluffy golden hamster-fur slippers rests here, twitching slightly.~
 ~
 9 0 65
 2 0 0 0
@@ -1883,9 +1883,9 @@ A
 A
 13 25
 #3153
-slipper rabbit half unfinished~
-a half-finished rabbit slipper~
-A single half-finished rabbit-fur slipper lies here.~
+token unfinished receipt hamster~
+an unfinished hamster slipper~
+A single unfinished hamster-fur slipper lies here.~
 ~
 13 0 1
 0 0 0 0

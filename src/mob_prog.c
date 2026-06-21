@@ -863,6 +863,39 @@ bool mprog_do_ifchck( char *ifchck, CHAR_DATA *mob, CHAR_DATA *actor,
 	}
     }
 
+  if ( !str_cmp( buf, "carries" ) )
+    {
+      /* carries($*) == <vnum> : true if the actor (or other char var)
+       * is carrying an object whose pIndexData->vnum matches <vnum>.
+       * Iterates the character's inventory; guards against NULL chars. */
+      CHAR_DATA *carrier;
+      OBJ_DATA  *cobj;
+
+      switch ( arg[1] )  /* arg should be "$*" so just get the letter */
+	{
+	case 'i': carrier = mob;   break;
+	case 'n': carrier = actor; break;
+	case 't': carrier = vict;  break;
+	case 'r': carrier = rndm;  break;
+	default:
+	  bug ( "Mob: %d bad argument to 'carries'", mob->pIndexData->vnum );
+	  return -1;
+	}
+
+      if ( !carrier )
+	return -1;
+
+      rhsvl = atoi( val );
+      for ( cobj = carrier->carrying; cobj; cobj = cobj->next_content )
+	{
+	  if ( cobj->pIndexData
+	    && cobj->pIndexData->vnum == rhsvl )
+	    return mprog_veval( rhsvl, opr, rhsvl );
+	}
+      /* not carrying it: evaluate against a value that cannot match */
+      return mprog_veval( rhsvl + 1, opr, rhsvl );
+    }
+
   if ( !str_cmp( buf, "name" ) )
     {
       switch ( arg[1] )  /* arg should be "$*" so just get the letter */

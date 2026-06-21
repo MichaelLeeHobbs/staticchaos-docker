@@ -117,6 +117,11 @@ int hit_gain( CHAR_DATA *ch )
     if ( IS_AFFECTED(ch, AFF_POISON) )
 	gain /= 4;
 
+    /* Patryn WATER CURSE: -15% HP regen.  Applied to the final gain, after
+       all other modifiers.  15% tunable. */
+    if ( is_affected(ch, gsn_water_curse) )
+	gain -= gain * 15 / 100;
+
     return UMIN(gain, ch->max_hit - ch->hit);
 }
 
@@ -190,6 +195,11 @@ int move_gain( CHAR_DATA *ch )
 
     if ( IS_AFFECTED(ch, AFF_POISON) )
 	gain /= 4;
+
+    /* Patryn WATER CURSE: -15% move regen.  Applied to the final gain, after
+       all other modifiers.  15% tunable. */
+    if ( is_affected(ch, gsn_water_curse) )
+	gain -= gain * 15 / 100;
 
     return UMIN(gain, ch->max_move - ch->move);
 }
@@ -696,6 +706,21 @@ void char_update( void )
 	 *   MUST NOT refer to ch after damage taken,
 	 *   as it may be lethal damage (on NPC).
 	 */
+	/* Patryn FLAME CURSE: burn damage-over-time.  Mirrors the AFF_POISON
+	   tick directly below -- same self-damage() + position-update path, so
+	   it is death-safe (damage() returns -1 on a POS_DEAD victim, and we
+	   never touch ch after the call).  Scale: ~1% of max_hit, floor 5, cap
+	   300, so it bites at every level without one-shotting.  All tunable.  */
+	if ( is_affected(ch, gsn_flame_curse) )
+	{
+	    int burn = ch->max_hit / 100;
+	    if ( burn < 5 )   burn = 5;
+	    if ( burn > 300 ) burn = 300;
+	    act( "$n is scorched by a clinging curse-flame.", ch, NULL, NULL, TO_ROOM );
+	    send_to_char( "Cursed flames sear your flesh.\n\r", ch );
+	    damage( ch, ch, burn, gsn_flame_curse );
+	}
+
 	if ( IS_AFFECTED(ch, AFF_POISON) )
 	{
 	    act( "$n shivers and suffers.", ch, NULL, NULL, TO_ROOM );

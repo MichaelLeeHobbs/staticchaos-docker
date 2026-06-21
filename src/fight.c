@@ -634,6 +634,21 @@ int damage( CHAR_DATA *ch, CHAR_DATA *victim, int dam, int dt )
 	if ( !IS_SUIT(victim) && is_affected(victim,gsn_defense) )
 	  dam = dam * 65 / 100;
 
+	/* Patryn EARTH CURSE: -10% physical mitigation.  A cursed victim takes
+	   ~10% MORE damage from physical/melee hits (weapon dt range, same
+	   melee window Vas Gluudo uses: TYPE_HIT..TYPE_HIT+14).  Physical only
+	   -- spell/chant dt's are excluded.  10% tunable.                      */
+	if ( is_affected(victim,gsn_earth_curse)
+	  && dt >= TYPE_HIT && dt < TYPE_HIT + 15 )
+	  dam += dam / 10;
+
+	/* Patryn FLAME CURSE: +12% fire damage taken.  A cursed victim suffers
+	   12% extra from the fire family (DAM_FIRE / DAM_KIFLAME / DAM_CRIMSON).
+	   12% tunable.                                                         */
+	if ( is_affected(victim,gsn_flame_curse)
+	  && ( dt == DAM_FIRE || dt == DAM_KIFLAME || dt == DAM_CRIMSON ) )
+	  dam += dam * 12 / 100;
+
 	if ( dam < 0 )
 	    dam = 0;
 
@@ -3171,11 +3186,21 @@ void do_flee( CHAR_DATA *ch, char *argument )
 	  mod += ch->pcdata->extras[PUSSY];
 	*/
 
+	/* Patryn WIND CURSE: -10% flee success.  Success here is the roll
+	   FAILING to exceed the threshold (15 + mod + attackers*40), so a
+	   LOWER threshold means more failures.  Subtract 10 from the threshold
+	   (via mod) to make escape ~10% harder.  10 tunable.                  */
+	if ( is_affected(ch,gsn_wind_curse) )
+	  mod -= 10;
+
 	if ( number_percent() > (15 + mod + attackers*40 ) )
 	{ act( "You fail!", ch, NULL, victim, TO_CHAR );
 	  act( "$n turns $s back in an attempt to flee.", ch, NULL, victim, TO_VICT );
 	  act( "$n turns $s back on $N in an attempt to flee.", ch, NULL, victim,TO_NOTVICT);
 	  WAIT_STATE(ch,12);
+	  /* Patryn WIND CURSE: +1 wait on the (failed) escape action. */
+	  if ( is_affected(ch,gsn_wind_curse) )
+	    WAIT_STATE(ch,1);
 	  if ( !IS_NPC(ch) && !IS_SET(ch->pcdata->actnew,NEW_FLEEING) )
 	    SET_BIT(ch->pcdata->actnew,NEW_FLEEING );
 	  return;
@@ -3211,6 +3236,10 @@ void do_flee( CHAR_DATA *ch, char *argument )
 	    send_to_char( "You flee from combat!  You lose 25 exps.\n\r", ch );
 	    gain_exp( ch, -25 );
 	}
+
+	/* Patryn WIND CURSE: +1 wait on the (successful) escape action. */
+	if ( is_affected(ch,gsn_wind_curse) )
+	  WAIT_STATE(ch,1);
 
 	stop_fighting( ch, TRUE );
 	return;

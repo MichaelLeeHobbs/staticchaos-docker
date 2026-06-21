@@ -1490,6 +1490,10 @@ void spell_heal( int sn, int level, CHAR_DATA *ch, void *vo )
     heal = dice( 3, 8 ) + ( level * 3 / 2 );
     if ( victim->position == POS_FIGHTING )
       heal -= heal / 6;
+    /* Patryn WATER CURSE: -15% healing received.  Applied to the final heal
+       amount.  15% tunable. */
+    if ( is_affected( victim, gsn_water_curse ) )
+      heal -= heal * 15 / 100;
     victim->hit = UMIN( victim->hit + heal, victim->max_hit );
     update_pos( victim );
     send_to_char( "A warm feeling fills your body.\n\r", victim );

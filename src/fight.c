@@ -443,8 +443,12 @@ void one_hit( CHAR_DATA *ch, CHAR_DATA *victim, int dt )
       if ( ch->pcdata->powers[F_HANDS] > 0 )
 	dam += dam * ch->pcdata->powers[F_HANDS] / 33; 
 
-    if ( IS_CLASS(ch,CLASS_PATRYN) && ch->level >= 2 ) 
+    if ( IS_CLASS(ch,CLASS_PATRYN) && ch->level >= 2 )
       dam += dam * (50 + ch->pcdata->powers[P_FIRE] / 2) * (get_runes(ch,RUNE_FIRE,LEFTARM) + get_runes(ch,RUNE_FIRE,RIGHTARM)) / 100;
+
+    /* earth-arm parity buff: same shape as fire-arm above, tunable */
+    if ( IS_CLASS(ch,CLASS_PATRYN) && ch->level >= 2 )
+      dam += dam * (50 + ch->pcdata->powers[P_EARTH] / 2) * (get_runes(ch,RUNE_EARTH,LEFTARM) + get_runes(ch,RUNE_EARTH,RIGHTARM)) / 100;
 
 
     if ( IS_CLASS(ch,CLASS_MAZOKU) && ch->level >= 2 )
@@ -543,6 +547,7 @@ int damage( CHAR_DATA *ch, CHAR_DATA *victim, int dam, int dt )
     sh_int mod;
     char log_buf[MAX_STRING_LENGTH];
     int i;
+    int wardbonus;  /* item 3 buff half: +10% ward absorb when Patryn defenses raised */
 
     if ( victim->position == POS_DEAD )
 	return -1;
@@ -813,10 +818,26 @@ int damage( CHAR_DATA *ch, CHAR_DATA *victim, int dam, int dt )
 	      if ( get_runes(victim,RUNE_FIRE,TORSO) <= 0 )
 	        mod /= 2;
 	    }
+	    else if ( dt == DAM_CERULEAN )
+	    {
+	      /* Water torso adds 1.5x its count vs cerulean; Earth halved if no Water */
+	      mod = get_runes(victim,RUNE_EARTH,TORSO);
+	      if ( get_runes(victim,RUNE_WATER,TORSO) > 0 )
+	        mod += get_runes(victim,RUNE_WATER,TORSO) * 3 / 2;
+	      else
+	        mod /= 2;
+	    }
 	    else
 	      mod = get_runes(victim,RUNE_EARTH,TORSO);
+	    /* item 3 buff half: defenses raised gives +10% torso mitigation */
+	    if ( IS_SET(victim->pcdata->powers[P_BITS],P_DEFENSES) )
+	      dam -= ( ( dam * mod * (4+victim->pcdata->powers[P_EARTH]/20) ) /
+	             ( mod * 10 + ( 35 - (mod * 2) ) + dice(1,20) ) ) * 11 / 10;
+	    else
 	    dam -= ( dam * mod * (4+victim->pcdata->powers[P_EARTH]/20) ) /
 	           ( mod * 10 + ( 35 - (mod * 2) ) + dice(1,20) );
+	    /* item 3 buff half: defenses raised gives +10% flat ward absorb below */
+	    wardbonus = IS_SET(victim->pcdata->powers[P_BITS],P_DEFENSES) ? 11 : 10;
 	    switch ( dt )
 	    {
 	      default:
@@ -824,14 +845,14 @@ int damage( CHAR_DATA *ch, CHAR_DATA *victim, int dam, int dt )
 	      case DAM_SHOCKWAVE:
 	        if ( is_affected( victim, gsn_wind_ward ) )
 	        {
-	          dam -= 500;
+	          dam -= 500 * wardbonus / 10;
 	          dec_duration( victim, gsn_wind_ward, 500 );
 	        }
 	        break;
 	      case DAM_EMERALD:
 	        if ( is_affected( victim, gsn_earth_ward ) )
 	        {
-	          dam -= 200;
+	          dam -= 200 * wardbonus / 10;
 	          dec_duration( victim, gsn_earth_ward, 200 );
 	        }
 	        break;
@@ -843,7 +864,7 @@ int damage( CHAR_DATA *ch, CHAR_DATA *victim, int dam, int dt )
 	      case F_UPPERCUT:
                 if ( is_affected( victim, gsn_earth_ward ) )
                 {
-                  dam -= 15;
+                  dam -= 15 * wardbonus / 10;
                   dec_duration( victim, gsn_earth_ward, 60 );
                 }
 	      	break;
@@ -855,7 +876,7 @@ int damage( CHAR_DATA *ch, CHAR_DATA *victim, int dam, int dt )
 	      case 1012:
 	        if ( is_affected( victim, gsn_earth_ward ) )
 	        {
-	          dam -= 15;
+	          dam -= 15 * wardbonus / 10;
 	          dec_duration( victim, gsn_earth_ward, 15 );
 	        }
 	        break;
@@ -863,14 +884,14 @@ int damage( CHAR_DATA *ch, CHAR_DATA *victim, int dam, int dt )
 	      case DAM_CRIMSON:
 	        if ( is_affected( victim, gsn_flame_ward ) )
 	        {
-	          dam -= 400;
+	          dam -= 400 * wardbonus / 10;
 	          dec_duration( victim, gsn_flame_ward, 400 );
 	        }
 	        break;
 	      case DAM_CERULEAN:
 	        if ( is_affected( victim, gsn_water_ward ) )
 	        {
-	          dam -= 400;
+	          dam -= 400 * wardbonus / 10;
 	          dec_duration( victim, gsn_water_ward, 400 );
 	        }
 	        break;
@@ -878,7 +899,7 @@ int damage( CHAR_DATA *ch, CHAR_DATA *victim, int dam, int dt )
 	      case DAM_OBSIDIAN:
 	        if ( is_affected( victim, gsn_negative_ward ) )
 	        {
-	          dam -= 200;
+	          dam -= 200 * wardbonus / 10;
 	          dec_duration( victim, gsn_negative_ward, 200 );
 	        }
 	        break;

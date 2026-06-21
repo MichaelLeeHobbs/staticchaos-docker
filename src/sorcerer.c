@@ -2421,12 +2421,28 @@ void chant_vision( int cn, int rank, CHAR_DATA *ch, void *vo )
   if ( IS_CLASS(victim,CLASS_PATRYN) && get_runes(victim,RUNE_AIR,TORSO) > 0
     && victim->level >= 2 && IS_SET(victim->pcdata->powers[P_BITS],P_DEFENSES) )
   {
-    if ( get_runes(victim,RUNE_AIR,TORSO) == 1 )
+    int acount = get_runes(victim,RUNE_AIR,TORSO);
+
+    if ( acount == 1 )
       act( "Your tattoos glow with a frosty blue aura.", victim, NULL, NULL, TO_CHAR );
     else
       act( "Your tattoos glow frosty blue, and a vision of $N flashes before your eyes.", victim, NULL, ch, TO_CHAR );
 
     act( "$n's tattoos glow with a frosty blue aura.", victim, NULL, NULL, TO_ROOM );
+
+    /* graded anti-scry: 5+ Air runes or spirit ward fully blocks the vision */
+    if ( acount >= 5 || is_affected( victim, gsn_spirit_ward ) )
+    {
+      send_to_char( "You fail to locate them.\n\r", ch );
+      return;
+    }
+    /* 3-4 Air runes: vision dissolves, no room snapshot */
+    if ( acount >= 3 )
+    {
+      send_to_char( "The vision dissolves into static.\n\r", ch );
+      return;
+    }
+    /* 1-2 Air runes: warn only, vision succeeds below */
   }
 
   if ( victim->in_room->vnum == 1 ||

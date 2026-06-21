@@ -142,8 +142,8 @@ int mana_gain( CHAR_DATA *ch )
 
 	if ( ch->class == CLASS_SORCERER )
 	{ switch( ch->position )
-	  { case POS_SLEEPING: gain += ch->pcdata->will * 20;
-	    case POS_RESTING:  gain += ch->pcdata->will * 15;
+	  { case POS_SLEEPING: gain += ch->pcdata->will * 20;	break;
+	    case POS_RESTING:  gain += ch->pcdata->will * 15;	break;
 	  }
 	}
 

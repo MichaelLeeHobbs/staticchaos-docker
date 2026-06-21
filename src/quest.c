@@ -589,7 +589,9 @@ void do_quest( CHAR_DATA *ch, char *argument )
     return;
   }
   else if ( !str_cmp( arg1, "trial" ) || !str_cmp( arg1, "trials" ) )
-  { do_quest_trial( ch, mob, arg2 );
+  { /* Pass the tier plus any trailing confirm word ("accept"). */
+    sprintf( buf1, "%s %s", arg2, arg3 );
+    do_quest_trial( ch, mob, buf1 );
     return;
   }
 }
@@ -638,15 +640,21 @@ const char * const trial_tier_name[MAX_TRIALS] =
 void do_quest_trial( CHAR_DATA *ch, CHAR_DATA *mob, char *arg )
 {
   char buf[MAX_STRING_LENGTH];
+  char arg1[MAX_INPUT_LENGTH];
+  char arg2[MAX_INPUT_LENGTH];
   ROOM_INDEX_DATA *location;
   CHAR_DATA *rch;
-  int tier, n;
+  CHAR_DATA *tmob;
+  int tier, n, mvnum;
 
   if ( IS_NPC(ch) )
     return;
 
-  /* No argument -> list the tiers and the player's progress. */
-  if ( arg[0] == '\0' )
+  /* Split into <tier> and an optional confirm word (e.g. "accept"). */
+  one_argument( one_argument( arg, arg1 ), arg2 );
+
+  /* No tier given -> list the tiers and the player's progress. */
+  if ( arg1[0] == '\0' )
   {
     send_to_char( "`WClass Trials`n -- solo proving-grounds for your class.\n\r", ch );
     sprintf( buf, "Your class: `Y%s`n.  Use `Wquest trial <number>`n to begin.\n\r\n\r",
@@ -668,12 +676,12 @@ void do_quest_trial( CHAR_DATA *ch, CHAR_DATA *mob, char *arg )
     return;
   }
 
-  if ( !is_number( arg ) )
+  if ( !is_number( arg1 ) )
   { send_to_char( "Which trial?  Try 'quest trial' for the list.\n\r", ch );
     return;
   }
 
-  tier = atoi( arg );
+  tier = atoi( arg1 );
   if ( tier < 1 || tier > MAX_TRIALS )
   { sprintf( buf, "There are only %d trials, numbered 1 to %d.\n\r",
              MAX_TRIALS, MAX_TRIALS );
@@ -709,6 +717,21 @@ void do_quest_trial( CHAR_DATA *ch, CHAR_DATA *mob, char *arg )
     }
   }
 
+  /*
+   * Win-or-die confirmation.  Unless the player explicitly typed the confirm
+   * word, warn them about the no-exit/no-recall nature of the trial and bail.
+   */
+  if ( str_cmp( arg2, "accept" ) != 0 )
+  {
+    sprintf( buf, "`RWARNING:`n The %s trial is a SOLO proving-ground -- no exit, no recall.\n\r",
+             trial_tier_name[tier-1] );
+    send_to_char( buf, ch );
+    send_to_char( "You WIN or you DIE.  If you fall, your corpse (and gear) is sent to the Trial Lobby.\n\r", ch );
+    sprintf( buf, "To accept, type: `Wquest trial %d accept`n\n\r", tier );
+    send_to_char( buf, ch );
+    return;
+  }
+
   sprintf( buf, "$n says '`mBegin the %s trial!  Prove your worth.`n'",
            trial_tier_name[tier-1] );
   act( buf, mob, NULL, ch, TO_ROOM );
@@ -716,6 +739,37 @@ void do_quest_trial( CHAR_DATA *ch, CHAR_DATA *mob, char *arg )
   act( "$n is swept away into the trial grounds.", ch, NULL, NULL, TO_ROOM );
   char_from_room( ch );
   char_to_room( ch, location );
+
+  /*
+   * Ensure a FRESH, full-HP tier mob faces the player.  A prior player who
+   * died or logged mid-fight can leave the mob wounded / mid-combat; reset an
+   * existing one, or spawn one if none is present.
+   */
+  mvnum = TRIAL_MOB_FIRST + (tier-1);
+  tmob  = NULL;
+  for ( rch = location->people; rch != NULL; rch = rch->next_in_room )
+  {
+    if ( IS_NPC(rch) && rch->pIndexData != NULL
+      && rch->pIndexData->vnum == mvnum )
+    { tmob = rch;
+      break;
+    }
+  }
+
+  if ( tmob != NULL )
+  {
+    stop_fighting( tmob, TRUE );
+    tmob->hit      = tmob->max_hit;
+    tmob->mana     = tmob->max_mana;
+    tmob->move     = tmob->max_move;
+    tmob->position = POS_STANDING;
+  }
+  else if ( get_mob_index( mvnum ) != NULL )
+  {
+    tmob = create_mobile( get_mob_index( mvnum ) );
+    char_to_room( tmob, location );
+  }
+
   act( "$n appears, summoned to the trial.", ch, NULL, NULL, TO_ROOM );
   do_look( ch, "auto" );
 

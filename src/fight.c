@@ -2341,9 +2341,48 @@ void death_cry( CHAR_DATA *ch )
 
 void raw_kill( CHAR_DATA *victim, bool pdox )
 {
+    ROOM_INDEX_DATA *death_room;
+
     stop_fighting( victim, TRUE );
     mprog_death_trigger( victim );
+
+    /* Remember where they fell so we can relocate a trial-room corpse below. */
+    death_room = victim->in_room;
     make_corpse( victim, pdox );
+
+    /*
+     * Trial rooms are sealed (no exit, no recall): a corpse left there is
+     * stranded.  If a PLAYER died in a tier room, carry their fresh corpse to
+     * the Trial Lobby so the player can retrieve their gear.
+     */
+    if ( !IS_NPC(victim) && death_room != NULL
+      && death_room->vnum >= TRIAL_ROOM_FIRST
+      && death_room->vnum <  TRIAL_ROOM_FIRST + MAX_TRIALS )
+    {
+	OBJ_DATA *corpse;
+	OBJ_DATA *obj;
+	ROOM_INDEX_DATA *lobby;
+
+	corpse = NULL;
+	for ( obj = death_room->contents; obj != NULL; obj = obj->next_content )
+	{
+	    if ( obj->item_type == ITEM_CORPSE_PC
+	      && obj->owner != NULL
+	      && is_name( victim->name, obj->owner ) )
+	    { corpse = obj;
+	      break;
+	    }
+	}
+
+	if ( corpse != NULL
+	  && ( lobby = get_room_index( TRIAL_LOBBY_VNUM ) ) != NULL )
+	{
+	    obj_from_room( corpse );
+	    obj_to_room( corpse, lobby );
+	    if ( victim->desc != NULL )
+		send_to_char( "Your corpse has been carried to the Trial Lobby.\n\r", victim );
+	}
+    }
 
     if ( IS_NPC(victim) )
     {

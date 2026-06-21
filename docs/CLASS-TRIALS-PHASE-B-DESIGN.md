@@ -1,8 +1,9 @@
 # Class Trials — Phase B: Per-Class Objectives (research-backed design)
 
-**Status:** DESIGN, for Skatha's review. Not built. Supersedes the "shared level-scaled gauntlet"
-that ships today (Phase A). Grounded in a deep-research pass (sources at the bottom); where the
-research doesn't cover text-MUD specifics, that's flagged.
+**Status:** DESIGN — reviewed by Skatha (2026-06-21); his decisions are folded in (see "Decisions"
+below). Not built yet. Supersedes the "shared level-scaled gauntlet" that ships today (Phase A).
+Grounded in a deep-research pass (sources at the bottom); where the research doesn't cover text-MUD
+specifics, that's flagged.
 
 ## The core shift (what the research says)
 Today every tier is the **same mob scaled by level** — it tests survival, not class skill. The
@@ -32,19 +33,24 @@ Use a gradual/adaptive curve, **actionable failure feedback**, and fair scaling.
 Every "force a defensive/interrupt response" lesson in the sources assumes a *visual* telegraph (a
 wind-up animation). A text MUD has none. **So the central new primitive is a text wind-up:**
 
-> A trial foe **announces a multi-tick wind-up** via room echoes, and the player must perform the
-> required class action **before the wind-up resolves on a later pulse.**
+> A trial foe **announces a wind-up** via a room echo, and the player must perform the required class
+> action **within a tight, PvP-speed window** before the wind-up resolves.
+
+**Timing (per Skatha): ~1-2 real seconds to react** — deliberately PvP-fast, not a leisurely turn.
+The engine pulses 4×/sec (`PULSE_PER_SECOND`), so the wind-up resolves roughly **4-8 pulses** after
+the telegraph. This must run on the per-pulse loop, **not** the 3-second combat round, so it can
+demand sub-round reactions the way real PvP does (e.g. interrupting a chant the instant it starts).
 
 Example (Sorcerer, "protect your chant" tier):
 ```
-The wraith's eyes flare. 'I will silence your prattling!'   (tick 0 — telegraph)
-The wraith gathers a wave of disrupting force...            (tick 1 — last chance)
--> if the player raised Defense/Wind/Vas Gluudo: "Your shield drinks the wave — your chant holds!"
--> else: the wraith's wave lands; the player's in-progress chant is interrupted (lesson delivered).
+The wraith's eyes flare. 'I will silence your prattling!'   (telegraph — clock starts, ~1-2s)
+-> player raises Defense/Wind/Vas Gluudo in time: "Your shield drinks the wave — your chant holds!"
+-> too slow: the wave lands; the in-progress chant is interrupted (lesson delivered + corrective text).
 ```
-This single mechanic — *telegraph → react-window → success/failure with a teaching message* —
+This single mechanic — *telegraph → tight react-window → success/failure with a teaching message* —
 implements almost every per-class objective. Failure must always **say what to do next time**
-(actionable feedback), since text has no other channel.
+(actionable feedback), since text has no other channel. The 1-2s window is the headline tuning knob;
+playtest it for fairness (text latency + typing speed) and consider loosening early tiers slightly.
 
 ## Recommended build: one trial engine, class/tier "objective overlays" (not 40 bespoke fights)
 40 hand-authored encounters (5 classes × 8 tiers) is unmaintainable. Instead build **one reusable C
@@ -77,8 +83,12 @@ combine/pressure; T7-8 mock-PvP against a dummy of the class's hardest matchup.
 **Fist** (Ki/spirit martial arts, dim-mak interrupt, kicks)
 1. Build Ki, land basic kicks. 2. Survive a telegraphed hit via defensive stance. 3. **Dim-mak to interrupt** a telegraphed cast. 4. Kick **combo windows** (timing). 5. Priority target / adds. 6. Survive burst. 7. Combine combo + interrupt under pressure. 8. Mock-PvP vs caster dummy.
 
-**Patryn** (rune magic, two-rune runeweave combos, rune strength)
-1. Cast a single rune effect. 2. Use a **runeweave combo** vs a foe immune to single runes. 3. Pick the **right combo** for a resistance. 4. **Raise rune strength** mid-trial to break a threshold. 5. Two foes needing different combos. 6. Survive a burst with a defensive runeweave. 7. Combine combos under pressure. 8. Mock-PvP.
+**Patryn** (rune magic; signature = knowing your **runeweave spells** and casting the right one)
+*Correction per Skatha: a "runeweave combo" is just the **name** of a spell — each spell is identified
+by a two-rune label (e.g. "air + life"); it is **not** fusing two elements. So the teaching goal is:
+learn **which combo-name maps to which spell and what that spell does**, then pick the correct one for
+the situation.*
+1. Cast a basic runeweave spell (learn the combo → spell → effect chain). 2. A foe only a **specific** runeweave spell can hurt — produce that spell by its combo-name. 3. Read the situation and choose the **right** runeweave from several (the core skill). 4. **Raise rune strength** to push a runeweave past a damage/effect threshold. 5. Two foes, each beaten only by a different runeweave spell. 6. Survive a burst with a defensive runeweave. 7. Chain the correct runeweaves under pressure. 8. Mock-PvP vs the Patryn's hardest matchup.
 
 **Mazoku** (astral/demonic powers, release-blast interrupt)
 1. Land a basic astral power. 2. Survive a telegraphed hit. 3. **Release blast to interrupt** a telegraphed cast. 4. Astral resource/positioning management. 5. Priority target. 6. Survive burst. 7. Combine under pressure. 8. Mock-PvP.
@@ -93,13 +103,21 @@ combine/pressure; T7-8 mock-PvP against a dummy of the class's hardest matchup.
   the "clear the basics ≈ Eval 10 / 2nd class" target so trials speed the early game without
   outpacing the endgame economy.
 
-## Open decisions for Skatha
-1. Per-class ability accuracy: confirm/adjust each class's signature mechanic + the exact spell/skill
-   names the tiers should force (I inferred from this session's code).
-2. Bespoke-per-tier vs the shared trial-engine + overlays (recommended). OK to build the engine first
-   and ship Sorcerer + Saiyan as the pilot pair, then the other three?
-3. Telegraph window length: how many ticks of warning before a wind-up resolves (reaction fairness)?
-4. Should T8 mock-PvP dummies mimic the class's *worst matchup* (most useful prep) or be generic?
+## Decisions (resolved with Skatha, 2026-06-21)
+1. **Runeweave understanding corrected.** A runeweave "combo" is just a spell's **name** (a two-rune
+   label), not elemental fusion. Patryn trials teach *which combo-name = which spell + what it does*
+   and choosing the right one. (Patryn curriculum above rewritten accordingly.)
+2. **Pilot = Sorcerer + Saiyan first**, then Fist / Patryn / Mazoku — built on the shared trial-engine
+   + per-class overlays (the recommended approach).
+3. **Telegraph window = PvP speed: react within ~1-2 seconds** (≈4-8 pulses; runs on the per-pulse
+   loop, not the combat round). Folded into the telegraph section above; it's the key tuning knob to
+   playtest.
+4. **T8 mock-PvP dummies = the class's hardest matchup** (teach players how to beat their worst
+   matchup), not generic.
+
+### Still to confirm at build time (per class, as we implement)
+- The exact spell/skill names each tier should force (Skatha is the class expert — we'll confirm the
+  precise ability names per class when we build that class, starting with Sorcerer + Saiyan).
 
 ## Sources (deep-research, adversarially verified)
 - WoW Proving Grounds — per-role objectives, tiered complexity: https://warcraft.wiki.gg/wiki/Proving_Grounds *(high)*

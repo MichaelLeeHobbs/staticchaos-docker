@@ -270,9 +270,12 @@ bool trial_ready( CHAR_DATA *ch, int req )
     case TRIAL_REQ_NONE:
       return TRUE;
 
-    /* Saiyan: powered up when the S_POWER slot is charged ( > 0 ). */
+    /* Saiyan: must be ACTIVELY powered up -- at least a third of max charge.
+     * A resting Saiyan idles with a little S_POWER, so a bare ">0" would pass
+     * without forcing a power-up; the threshold makes the tier teach the button.
+     * (Tunable: raise the fraction for a steeper requirement.) */
     case TRIAL_REQ_POWERUP:
-      return ch->pcdata->powers[S_POWER] > 0;
+      return ch->pcdata->powers[S_POWER] * 3 >= UMAX( 1, ch->pcdata->powers[S_POWER_MAX] );
 
     /* Saiyan: Ki Wall raised (proxy for the timed wall / interrupt). */
     case TRIAL_REQ_KIWALL:

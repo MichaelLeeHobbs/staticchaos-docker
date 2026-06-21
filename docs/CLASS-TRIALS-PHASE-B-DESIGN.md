@@ -1,9 +1,31 @@
 # Class Trials — Phase B: Per-Class Objectives (research-backed design)
 
-**Status:** DESIGN — reviewed by Skatha (2026-06-21); his decisions are folded in (see "Decisions"
-below). Not built yet. Supersedes the "shared level-scaled gauntlet" that ships today (Phase A).
-Grounded in a deep-research pass (sources at the bottom); where the research doesn't cover text-MUD
-specifics, that's flagged.
+**Status:** IMPLEMENTED & DEPLOYED (2026-06-21). The engine + all 5 classes' 8-tier objective tables
+are live (`src/trials.c`). Supersedes the Phase A "shared level-scaled gauntlet." Skatha's review
+decisions are folded in (see "Decisions"). Grounded in a deep-research pass (sources at the bottom).
+
+## Implementation status (what shipped)
+- **Engine:** `src/trials.c` — a data-driven `trial_table[MAX_CLASS][MAX_TRIALS]` of objective
+  descriptors + `trial_ready()` (resolves each requirement from live state) + `trial_damage_gate()`
+  (you can only damage the tier mob while in the required state) + `trial_update()` (the stateless,
+  time-synced telegraph: wind-up echo, then a scaled punish + corrective if you're not ready). Hooks:
+  `damage()` (fight.c, the gate), `second_update()` (update.c, the clock), `do_quest_trial()`
+  (quest.c, the lesson-on-entry). `trials.o` added to the Makefile.
+- **Requirement matrix (per class × tier 1-8, tunable):**
+  Saiyan: NONE, POWERUP, KIWALL, POWERUP, KIWALL, KIWALL, POWERUP, KIWALL ·
+  Sorcerer: NONE, DEFENSE, VAS GLUUDO, DEFENSE, HOLY RESIST, HOLY RESIST, DEFENSE, DEFENSE ·
+  Patryn: NONE, DEFENSES, WARD, DEFENSES, WARD, WARD, DEFENSES, WARD ·
+  Fist: NONE then FIST-KI ·  Mazoku: NONE then FOCUS.
+- **Verified live:** entry lesson, damage-gate (both directions), telegraph fire, scaled punish +
+  corrective — for Saiyan POWERUP and Sorcerer DEFENSE. Other requirements share the same
+  table-driven code path (compiled clean; not each individually driven).
+- **Known simplifications (best-judgment, tunable — owner approved "change later"):**
+  (1) "active-action" tiers from the curricula (interrupt / school-switch / runeweave-choice) currently
+  gate on the closest *persistent-state* proxy rather than detecting the exact ability use; upgrading
+  to true per-ability detection is a clean later add. (2) POWERUP requires S_POWER ≥ ⅓ of max so a
+  resting Saiyan doesn't count as powered-up. (3) The exact ability names per tier are best-judgment.
+- A `-Woverflow` truncation bug in the `IS_AFFECTED` high-bit checks (AFF_VAS_GLUUDO / AFF_HOLY_RESIST)
+  was found and fixed during the build.
 
 ## The core shift (what the research says)
 Today every tier is the **same mob scaled by level** — it tests survival, not class skill. The

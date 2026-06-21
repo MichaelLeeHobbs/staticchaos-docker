@@ -368,6 +368,12 @@ void do_runeweave( CHAR_DATA *ch, char *argument )
   { send_to_char( "There is no such spell..yet.\n\r", ch );
     return;
   }
+
+  /* Patryn defenses raised: offensive runeweave mana +15% (round up). */
+  if ( target == TAR_CHAR_OFFENSIVE
+    && IS_SET(ch->pcdata->powers[P_BITS], P_DEFENSES) )
+    cost = ( cost * 115 + 99 ) / 100;
+
   if ( ch->mana < cost )
   { send_to_char( "You don't have enough mana.\n\r", ch );
     return;

@@ -982,6 +982,13 @@ void spell_curse( int sn, int level, CHAR_DATA *ch, void *vo )
 
     if ( IS_AFFECTED(victim, AFF_CURSE) || saves_spell( level, victim ) )
 	return;
+    /* Patryn Spirit Ward: 15% chance to resist a hostile curse, draining the ward. */
+    if ( is_affected( victim, gsn_spirit_ward ) && number_percent() < 15 )
+    {
+	act( "$N's spirit ward repels your curse.", ch, NULL, victim, TO_CHAR );
+	dec_duration( victim, gsn_spirit_ward, 25 );
+	return;
+    }
     af.type      = sn;
     af.duration  = 120*level;
     af.location  = APPLY_HITROLL;
@@ -1123,6 +1130,15 @@ void spell_dispel_magic( int sn, int level, CHAR_DATA *ch, void *vo )
   }
   if ( num < 1 )
   { send_to_char( "They have no spells to dispel.\n\r", ch );
+    return;
+  }
+
+  /* Patryn Spirit Ward: 15% chance the dispel fizzles, draining the ward. */
+  if ( is_affected( victim, gsn_spirit_ward ) && number_percent() < 15 )
+  {
+    act( "Your dispel scatters against $N's spirit ward.", ch, NULL, victim, TO_CHAR );
+    act( "A dispel scatters against your spirit ward.", ch, NULL, victim, TO_VICT );
+    dec_duration( victim, gsn_spirit_ward, 25 );
     return;
   }
 

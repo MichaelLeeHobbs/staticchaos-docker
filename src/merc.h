@@ -1168,6 +1168,40 @@ struct	kill_data
 #define TRIAL_MASTER_VNUM	   2900	/* the Trial Master quest mob       */
 #define MAX_TRIALS		      8	/* eight tiers, Easy .. Extreme     */
 
+/*
+ * Class Trials -- Phase B per-class objectives (see trials.c and
+ * docs/CLASS-TRIALS-PHASE-B-DESIGN.md).
+ *
+ * A requirement names a persistent class "state" the player must hold to
+ * damage the tier mob and to weather the telegraphed punish.  gsn_* globals
+ * are runtime, so the const trial_table stores only this int and trial_ready()
+ * resolves it live.
+ */
+#define TRIAL_REQ_NONE		0	/* always satisfied (ungated tier)   */
+#define TRIAL_REQ_POWERUP	1	/* Saiyan   S_POWER > 0              */
+#define TRIAL_REQ_KIWALL	2	/* Saiyan   gsn_kiwall up           */
+#define TRIAL_REQ_DEFENSE	3	/* Sorcerer gsn_defense up          */
+#define TRIAL_REQ_VASGLUUDO	4	/* Sorcerer AFF_VAS_GLUUDO          */
+#define TRIAL_REQ_HOLYRESIST	5	/* Sorcerer AFF_HOLY_RESIST         */
+#define TRIAL_REQ_BALUSWALL	6	/* Sorcerer gsn_balus_wall (spare)  */
+#define TRIAL_REQ_FISTKI	7	/* Fist     powers[F_KI] charged    */
+#define TRIAL_REQ_DEFENSES	8	/* Patryn   P_DEFENSES bit set      */
+#define TRIAL_REQ_WARD		9	/* Patryn   any of the six wards up */
+#define TRIAL_REQ_FOCUS		10	/* Mazoku   M_FOCUS > 0             */
+
+/*
+ * One objective overlay: a requirement plus MUD-voice flavor.  lesson is shown
+ * on entry; telegraph is the per-beat wind-up echo; fail is the corrective.
+ * Table is trial_table[MAX_CLASS][MAX_TRIALS], indexed [ch->class][tier-1].
+ */
+struct trial_def
+{
+    int			req;		/* TRIAL_REQ_*                       */
+    const char *	lesson;		/* shown on entry (the objective)    */
+    const char *	telegraph;	/* the wind-up room echo (one line)  */
+    const char *	fail;		/* corrective shown when punish lands*/
+};
+
 
 
 /*
@@ -2011,6 +2045,7 @@ struct	clan_type
  */
 
 extern	const	struct	class_type	class_table	[MAX_CLASS];
+extern	const	struct	trial_def	trial_table	[MAX_CLASS][MAX_TRIALS];
 extern	const	struct	cmd_type	cmd_table	[];
 extern	const	struct	liq_type	liq_table	[LIQ_MAX];
 extern	const	struct	skill_type	skill_table	[MAX_SKILL];
@@ -2984,6 +3019,11 @@ void	affect_remove	args( ( CHAR_DATA *ch, AFFECT_DATA *paf ) );
 void	affect_strip	args( ( CHAR_DATA *ch, int sn ) );
 bool	is_same_clan	args( ( CHAR_DATA *ch, CHAR_DATA *victim ) );
 bool	is_affected	args( ( CHAR_DATA *ch, int sn ) );
+
+/* Class Trials -- Phase B (trials.c). */
+bool	trial_ready		args( ( CHAR_DATA *ch, int req ) );
+int	trial_damage_gate	args( ( CHAR_DATA *ch, CHAR_DATA *victim, int dam ) );
+void	trial_update		args( ( void ) );
 void	affect_join	args( ( CHAR_DATA *ch, AFFECT_DATA *paf ) );
 void	char_from_room	args( ( CHAR_DATA *ch ) );
 void	char_to_room	args( ( CHAR_DATA *ch, ROOM_INDEX_DATA *pRoomIndex ) );

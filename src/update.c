@@ -1489,6 +1489,9 @@ void regen_update()
       update_pos( ch );
   }
 
+  /* Class Trials (Phase B): per-second telegraph + punish clock. */
+  trial_update( );
+
   return;
 }
 

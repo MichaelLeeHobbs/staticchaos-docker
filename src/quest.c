@@ -773,7 +773,25 @@ void do_quest_trial( CHAR_DATA *ch, CHAR_DATA *mob, char *arg )
   act( "$n appears, summoned to the trial.", ch, NULL, NULL, TO_ROOM );
   do_look( ch, "auto" );
 
-  /* TODO (Phase B): per-class objective/scripted-mechanic hooks here. */
+  /*
+   * Phase B: announce this tier's per-class objective so the player knows what
+   * mechanic the encounter is forcing.  The telegraph/punish clock and the
+   * damage gate (trials.c) enforce it from here.
+   */
+  {
+    const struct trial_def *def;
+    int cls;
+
+    cls = ch->class;
+    if ( cls < 0 || cls >= MAX_CLASS )
+      cls = CLASS_NONE;
+    def = &trial_table[cls][tier-1];
+    if ( def->req != TRIAL_REQ_NONE && def->lesson[0] != '\0' )
+    {
+      send_to_char( def->lesson, ch );
+      send_to_char( "\n\r", ch );
+    }
+  }
   return;
 }
 

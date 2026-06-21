@@ -443,8 +443,13 @@ void one_hit( CHAR_DATA *ch, CHAR_DATA *victim, int dt )
       if ( ch->pcdata->powers[F_HANDS] > 0 )
 	dam += dam * ch->pcdata->powers[F_HANDS] / 33; 
 
-    if ( IS_CLASS(ch,CLASS_PATRYN) && ch->level >= 2 ) 
+    if ( IS_CLASS(ch,CLASS_PATRYN) && ch->level >= 2 )
+    {
       dam += dam * (50 + ch->pcdata->powers[P_FIRE] / 2) * (get_runes(ch,RUNE_FIRE,LEFTARM) + get_runes(ch,RUNE_FIRE,RIGHTARM)) / 100;
+      /* Patryn defenses raised: melee -10% (cost of the defensive stance). */
+      if ( IS_SET(ch->pcdata->powers[P_BITS], P_DEFENSES) )
+        dam -= dam / 10;
+    }
 
 
     if ( IS_CLASS(ch,CLASS_MAZOKU) && ch->level >= 2 )
@@ -1448,13 +1453,8 @@ void chant_damage( CHAR_DATA *ch, CHAR_DATA *victim, int dam, int dt )
                   dec_duration( victim, gsn_water_ward, 100 );
                 }
                 break;
-	      case SCHOOL_ASTRAL:
-	        if ( is_affected( victim, gsn_spirit_ward ) )
-	        {
-                  dam = UMAX( dam - 100, 1 );
-	          dec_duration( victim, gsn_spirit_ward, 100 );
-	        }
-	        break;
+	      /* Patryn Spirit Ward astral handling moved below to a
+	         percentage (-15%) reduction; see Spirit Ward block. */
 	      case 2:
 	        if ( is_affected( victim, gsn_negative_ward ) )
 	        {
@@ -1518,7 +1518,21 @@ void chant_damage( CHAR_DATA *ch, CHAR_DATA *victim, int dam, int dt )
               victim->pcdata->powers[M_CTIME] -= dam/250;
           }
 
-        }     
+          /* Patryn Spirit Ward: -15% chant/spell/astral, tunable.
+             Modeled on the Sorcerer Holy-Resist block above: keyed off
+             the chant's school so it only blunts the chant-damage schools
+             this path handles, and drains the ward on each block. */
+          if ( is_affected( victim, gsn_spirit_ward ) &&
+               ( school == SCHOOL_BLACK || school == SCHOOL_EARTH ||
+                 school == SCHOOL_WIND  || school == SCHOOL_FIRE  ||
+                 school == SCHOOL_WATER || school == SCHOOL_ASTRAL ||
+                 school == SCHOOL_WHITE ) )
+          {
+            dam -= dam * 15 / 100;
+            dec_duration( victim, gsn_spirit_ward, 25 );
+          }
+
+        }
 
     }
 

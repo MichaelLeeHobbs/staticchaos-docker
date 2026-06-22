@@ -34,7 +34,15 @@ notes are kept in the maintainers' private working notes.)
 - **Sorcerer "spells that don't work"** — the two-word/quote practice+cast parsing bug is fixed and no
   broken spell functions were found; needs specific spell names from a play-test to chase further.
 
+## Watch
+- **NPC keywords must not match player names.** `check_parse_name` rejects any login name matching a
+  live mob keyword (before the existing-player check), so a collision locks that player out. Fixed:
+  the Trial Master no longer uses the `skatha` keyword. When adding NPCs, avoid real player names as
+  keywords.
+
 ## Recently shipped (reference)
+- **Login regression fix** — removed the `skatha` keyword from the Trial Master (was blocking the
+  Skatha player's login); added a `RUNES` help entry + listed `runes`/`runeweave list` in PATRYN help.
 Class Trials Phase B (per-class objectives) · trial polish (reset-HP on entry, win-or-die confirm,
 corpse→lobby) · Hamster of Doom two-feet crafting (new `carries` mobprog ifcheck) · NPC keyword
 dialogue (v2, rotation + role/chatter) · assessment/"level" cap fix · Sorcerer `mana_gain` sleeping

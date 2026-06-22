@@ -15,8 +15,10 @@ spiritual attack.
  (*) Tattoo: tattoo elemental runes onto the body.
  (*) Erase: a difficult to erase a rune from the body.
  (*) Runetrain: train in the use of primary runes.
- (*) Runestat: examine the runes on your body.
+ (*) Runestat: examine the runes tattooed on your body.
+ (*) Runes: list every rune -- which you know, its strength, and the cost.
  (+) Runeweave: weave runes in the air to create magickal effects.
+ (+) Runeweave list: list every rune combination and its effect.
  (*) Circle: enhanced regen based on runetraining. 
  (*) Defenses: Raise or lower certain runic defenses.
  ( ) Inscribe: etch runes of power on weapons.
@@ -95,11 +97,25 @@ This provides a list of what runes are currently tattooed on your body.
 It lists them by body part, and shows both used and available slots.
 ~
 
+0 RUNES~
+Syntax: runes
+
+Lists every rune in the game and your standing with each: whether you have
+learned it, the strength of your primary runes (raised via 'runetrain'), and
+the cost to learn or train the next one.  Check this before you 'learn',
+'tattoo', or 'runeweave'.
+
+See also: RUNEWEAVE, and 'runeweave list' for every rune combination.
+~
+
 0 RUNEWEAVE RUNEWEAVING~
 Syntax: runeweave <target> <primary rune> <secondary rune>
+        runeweave list
+
+Combine two runes to cast a runeweave spell.  Each combination is its own
+named spell with its own effect -- 'runeweave list' shows every available
+combination and what it does.  Use 'runes' to see which runes you know.
 Example: runeweave fido fire death
-
-
 ~
 
 0 LEGEND~
@@ -492,7 +508,7 @@ help newbiefist, help master
 ~
 
 0 BASIC~ 
-A fist must first learn to train in their basic moves by using the ‘master’
+A fist must first learn to train in their basic moves by using the ï¿½masterï¿½
 command.  There are low damage moves, but they are necessary in order to
 execute the fist combinations.
 ~
@@ -520,7 +536,7 @@ Example: combo
 Example: combo dark
 
 Combinations are the true power of fists.  They are executed by building up
-the Fist’s ‘ki’ And then using the ‘Combo’ command.  Every ki from 10-30 has
+the Fistï¿½s ï¿½kiï¿½ And then using the ï¿½Comboï¿½ command.  Every ki from 10-30 has
 a certain move attached to it.  Not all of them are beneficial so it is wise
 to find a friend and spar them until you have tried out every combination.
 
@@ -539,10 +555,10 @@ ki, the one that is checked for combinations.
 0 BODYTRAIN BODYTRAINING~
 A Fist trains different parts of their body in order to become better fighters.
 They can train their torso, their arms, their legs, and their hands. The command
-to do this is ‘bodytrain.’  All bodyparts can be train up to 100.
+to do this is ï¿½bodytrain.ï¿½  All bodyparts can be train up to 100.
 
 Torso:  This affects toughness and regeneration
-Arms:  This affects a fist’s blocking skill
+Arms:  This affects a fistï¿½s blocking skill
 Hands: This affects damage
 Legs: This affects damage and dodge
 ~
@@ -571,14 +587,14 @@ several things a new fist must do in order to be successful.
     combinations are nearly impossible.
 2.  Each basic move has a set ki that will be added.  However to prevent the
     use of scripting and aliases this number will be modified by plus or minus
-    one.  When trying to learn a move’s ki value, try it repeatedly until you
+    one.  When trying to learn a moveï¿½s ki value, try it repeatedly until you
     see 3 different results.  The middle will be the true ki value.
     Example:  The true ki value of uppercut is two.  However there is a small
     chance of it being modified into either a one or three.
 3.  Once you have learned the true ki values for all your basic moves, it is
     smart to alias them to the numbers on your keyboard.  This can make
     combinations much easier to perform.
-4.  Every time you use the ‘combo’ command, your current ki is checked.  The
+4.  Every time you use the ï¿½comboï¿½ command, your current ki is checked.  The
     combination assigned to that ki is performed.  It is wise to get a pen and
     pencil, and try every combination from ki 10 to ki 30.
 5.  A Fist is one of the best tanks in the game.  Use this to your advantage.

@@ -84,6 +84,7 @@ Temporary Items
 /mud-redeploy.sh
 /web/deploy-web.sh
 /backup-volumes.sh
+/watchdog.sh
 /tmp/
 
 # Volume backups (if ever placed in-tree; the real backups live outside the repo)

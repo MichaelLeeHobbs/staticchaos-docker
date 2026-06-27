@@ -1454,51 +1454,65 @@ void do_inventory( CHAR_DATA *ch, char *argument )
 
 
 
-/* Compact stat tag for an APPLY_ location, or NULL for ones not worth showing
- * in the equipment summary (class/level/age/height/weight/gold/exp). #10 */
-#define EQ_APPLY_MAX 32
-char *eq_stat_short( int loc )
+/* Equipment display shows an item's *derived effect*, not the raw APPLY_ stat,
+ * because this codebase remaps stat affects in affect_modify (handler.c):
+ *   STR->+2 damroll  DEX->+2 hitroll  INT->+20 mana  WIS->-2 save
+ *   CON->+10 hp & +10 move.  So +2 STR really means +4 damroll -- show that.
+ * Display-only; keep this in sync with affect_modify. #14 */
+#define EQD_HIT  0
+#define EQD_DAM  1
+#define EQD_AC   2
+#define EQD_HP   3
+#define EQD_MANA 4
+#define EQD_MOVE 5
+#define EQD_SAVE 6
+#define EQD_MAX  7
+
+/* Fold one affect (location, modifier) into the derived-stat buckets, mirroring
+ * affect_modify so the display matches the real mechanical effect. */
+void eq_add_derived( int *d, int loc, int mod )
 {
+    if ( mod == 0 )
+	return;
     switch ( loc )
     {
-    case APPLY_STR:           return "Str";
-    case APPLY_DEX:           return "Dex";
-    case APPLY_INT:           return "Int";
-    case APPLY_WIS:           return "Wis";
-    case APPLY_CON:           return "Con";
-    case APPLY_SEX:           return "Sex";
-    case APPLY_MANA:          return "Mana";
-    case APPLY_HIT:           return "Hp";
-    case APPLY_MOVE:          return "Move";
-    case APPLY_AC:            return "AC";
-    case APPLY_HITROLL:       return "Hit";
-    case APPLY_DAMROLL:       return "Dam";
-    case APPLY_SAVING_PARA:   return "SvPara";
-    case APPLY_SAVING_ROD:    return "SvRod";
-    case APPLY_SAVING_PETRI:  return "SvPetri";
-    case APPLY_SAVING_BREATH: return "SvBreath";
-    case APPLY_SAVING_SPELL:  return "SvSpell";
-    default:                  return NULL;
+    case APPLY_STR:           d[EQD_DAM]  += 2  * mod;                        break;
+    case APPLY_DEX:           d[EQD_HIT]  += 2  * mod;                        break;
+    case APPLY_INT:           d[EQD_MANA] += 20 * mod;                        break;
+    case APPLY_WIS:           d[EQD_SAVE] += -2 * mod;                        break;
+    case APPLY_CON:           d[EQD_HP]   += 10 * mod; d[EQD_MOVE] += 10*mod; break;
+    case APPLY_MANA:          d[EQD_MANA] += mod;                             break;
+    case APPLY_HIT:           d[EQD_HP]   += mod;                             break;
+    case APPLY_MOVE:          d[EQD_MOVE] += mod;                             break;
+    case APPLY_AC:            d[EQD_AC]   += mod;                             break;
+    case APPLY_HITROLL:       d[EQD_HIT]  += mod;                             break;
+    case APPLY_DAMROLL:       d[EQD_DAM]  += mod;                             break;
+    case APPLY_SAVING_PARA:
+    case APPLY_SAVING_ROD:
+    case APPLY_SAVING_PETRI:
+    case APPLY_SAVING_BREATH:
+    case APPLY_SAVING_SPELL:  d[EQD_SAVE] += mod;                            break;
+    default:                                                                 break;
     }
 }
 
-/* Append "Tag+N"/"Tag-N" for one affect to dst, and add it into total[]. #10 */
-void eq_append_stat( char *dst, int *total, AFFECT_DATA *paf )
+/* Render the non-zero derived buckets as a compact "Tag+N Tag-N ..." string. */
+void eq_render_derived( char *dst, int *d )
 {
-    char *tag;
+    static char *tags[EQD_MAX] = { "Hit", "Dam", "AC", "Hp", "Mana", "Move", "Save" };
     char one[64];
+    int i;
 
-    if ( paf->location == APPLY_NONE || paf->modifier == 0 )
-	return;
-    if ( paf->location < 0 || paf->location >= EQ_APPLY_MAX )
-	return;
-    if ( ( tag = eq_stat_short( paf->location ) ) == NULL )
-	return;
-    total[ paf->location ] += paf->modifier;
-    if ( dst[0] != '\0' )
-	strcat( dst, " " );
-    sprintf( one, "%s%s%d", tag, paf->modifier > 0 ? "+" : "", paf->modifier );
-    strcat( dst, one );
+    dst[0] = '\0';
+    for ( i = 0; i < EQD_MAX; i++ )
+    {
+	if ( d[i] == 0 )
+	    continue;
+	if ( dst[0] != '\0' )
+	    strcat( dst, " " );
+	sprintf( one, "%s%s%d", tags[i], d[i] > 0 ? "+" : "", d[i] );
+	strcat( dst, one );
+    }
 }
 
 void do_equipment( CHAR_DATA *ch, char *argument )
@@ -1507,14 +1521,14 @@ void do_equipment( CHAR_DATA *ch, char *argument )
     char stats[MAX_STRING_LENGTH];
     OBJ_DATA *obj;
     AFFECT_DATA *paf;
-    int total[EQ_APPLY_MAX];
+    int grand[EQD_MAX];
+    int item[EQD_MAX];
     int iWear;
     int i;
     bool found;
-    bool any_total;
 
-    for ( i = 0; i < EQ_APPLY_MAX; i++ )
-	total[i] = 0;
+    for ( i = 0; i < EQD_MAX; i++ )
+	grand[i] = 0;
 
     send_to_char( "You are using:\n\r", ch );
     found = FALSE;
@@ -1528,13 +1542,17 @@ void do_equipment( CHAR_DATA *ch, char *argument )
 	{
 	    send_to_char( format_obj_to_char( obj, ch, TRUE ), ch );
 
-	    /* Compact stat tags to the right of the item; totals accumulate. */
-	    stats[0] = '\0';
+	    /* Derived effect to the right of the item; fold into the grand total. */
+	    for ( i = 0; i < EQD_MAX; i++ )
+		item[i] = 0;
 	    for ( paf = obj->pIndexData->affected; paf != NULL; paf = paf->next )
-		eq_append_stat( stats, total, paf );
+		eq_add_derived( item, paf->location, paf->modifier );
 	    for ( paf = obj->affected; paf != NULL; paf = paf->next )
-		eq_append_stat( stats, total, paf );
+		eq_add_derived( item, paf->location, paf->modifier );
+	    for ( i = 0; i < EQD_MAX; i++ )
+		grand[i] += item[i];
 
+	    eq_render_derived( stats, item );
 	    if ( stats[0] != '\0' )
 	    {
 		sprintf( buf, "  [%s]", stats );
@@ -1555,22 +1573,9 @@ void do_equipment( CHAR_DATA *ch, char *argument )
 	return;
     }
 
-    /* Total equipped stat bonuses. */
-    stats[0] = '\0';
-    any_total = FALSE;
-    for ( i = 1; i < EQ_APPLY_MAX; i++ )
-    {
-	char *tag = eq_stat_short( i );
-	if ( tag != NULL && total[i] != 0 )
-	{
-	    char one[64];
-	    sprintf( one, "%s%s%d ", tag, total[i] > 0 ? "+" : "", total[i] );
-	    strcat( stats, one );
-	    any_total = TRUE;
-	}
-    }
+    eq_render_derived( stats, grand );
     send_to_char( "\n\r", ch );
-    sprintf( buf, "Total equipped bonuses: %s\n\r", any_total ? stats : "none." );
+    sprintf( buf, "Total equipped bonuses: %s\n\r", stats[0] != '\0' ? stats : "none." );
     send_to_char( buf, ch );
 
     return;

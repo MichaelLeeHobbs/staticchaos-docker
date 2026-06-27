@@ -1408,6 +1408,12 @@ void load_shops( FILE *fp )
 	pShop->close_hour	= fread_number( fp );
 				  fread_to_eol( fp );
 	pMobIndex		= get_mob_index( pShop->keeper );
+	if ( pMobIndex == NULL )
+	{
+	    bug( "Load_shops: keeper vnum %d not found; skipping shop.",
+		 pShop->keeper );
+	    continue;
+	}
 	pMobIndex->pShop	= pShop;
 
 	if ( shop_first == NULL )
@@ -1449,12 +1455,17 @@ void load_specials( FILE *fp )
 
 	case 'M':
 	    pMobIndex		= get_mob_index	( fread_number ( fp ) );
+	    if ( pMobIndex == NULL )
+	    {
+		/* Bad mob vnum: skip. fread_to_eol below eats the spec name. */
+		bug( "Load_specials: 'M': bad mob vnum; skipping.", 0 );
+		break;
+	    }
 	    pMobIndex->spec_fun	= spec_lookup	( fread_word   ( fp ) );
 	    if ( pMobIndex->spec_fun == 0 )
-	    {
-		bug( "Load_specials: 'M': vnum %d.", pMobIndex->vnum );
-		exit( 1 );
-	    }
+		/* Unknown spec name: non-fatal -- mob just gets no special. */
+		bug( "Load_specials: 'M': vnum %d unknown spec; skipping.",
+		     pMobIndex->vnum );
 	    break;
 	}
 
@@ -2245,11 +2256,14 @@ MOB_INDEX_DATA *get_mob_index( int vnum )
 	    return pMobIndex;
     }
 
+    /* A missing mob vnum at boot used to exit(1) and crash-loop the server --
+     * e.g. a dangling reset/special/shop/mobprog reference, as happens when the
+     * periodic auto db-dump (PULSE_DB_DUMP) relocates a cross-area reset into an
+     * area that loads before the mob is defined. Log it and return NULL; the
+     * boot-time loaders skip such records, so one bad reference degrades that
+     * record instead of taking down the whole game. */
     if ( fBootDb )
-    {
 	bug( "Get_mob_index: bad vnum %d.", vnum );
-	exit( 1 );
-    }
 
     return NULL;
 }
@@ -2272,11 +2286,10 @@ OBJ_INDEX_DATA *get_obj_index( int vnum )
 	    return pObjIndex;
     }
 
+    /* Non-fatal at boot (see get_mob_index): log the dangling object vnum and
+     * return NULL rather than exit(1); boot-time loaders skip the bad record. */
     if ( fBootDb )
-    {
 	bug( "Get_obj_index: bad vnum %d.", vnum );
-	exit( 1 );
-    }
 
     return NULL;
 }
@@ -3413,8 +3426,12 @@ for (;;) switch (letter=fread_letter( fp))
    value=fread_number(fp);
    if ((iMob=get_mob_index(value))==NULL)
      {
-      bug( "Load_mobprogs: vnum %d doesnt exist", value );
-      exit( 1 );
+      /* Bad mob vnum: log and skip this prog entry instead of crashing.
+       * Consume the prog-file token + rest of line so parsing stays in sync. */
+      bug( "Load_mobprogs: vnum %d doesnt exist; skipping.", value );
+      fread_word(fp);
+      fread_to_eol(fp);
+      break;
      }
     
      if ((original=iMob->mobprogs))

@@ -1,0 +1,46 @@
+name: 🐞 Bug report
+description: Something in the game (or tools) isn't working right.
+title: "[Bug]: "
+labels: ["bug", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Sorry it broke! The more detail you give, the faster we can fix it.
+  - type: textarea
+    id: what
+    attributes:
+      label: What went wrong?
+      placeholder: Describe what happened.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: How can we make it happen again?
+      description: Step-by-step if you can — what did you do right before it broke?
+      placeholder: |
+        1. ...
+        2. ...
+        3. ...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect instead?
+    validations:
+      required: false
+  - type: input
+    id: character
+    attributes:
+      label: Your character / class (optional)
+    validations:
+      required: false
+  - type: input
+    id: when
+    attributes:
+      label: When did it happen? (optional)
+      description: A rough time ("just now", "around 8pm EST") helps us check the logs.
+    validations:
+      required: false

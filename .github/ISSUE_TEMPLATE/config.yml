@@ -1,0 +1,10 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Questions, chat, or quick help
+    url: https://github.com/MichaelLeeHobbs/staticchaos-docker#readme
+    about: >-
+      For questions or general chat, hop on Discord or check the README.
+      Use the forms below only to report a bug, request a feature, flag a
+      balance problem, or fix area content.
+# Tip: point the link above at your Discord invite for players, e.g.
+#   url: https://discord.gg/your-invite

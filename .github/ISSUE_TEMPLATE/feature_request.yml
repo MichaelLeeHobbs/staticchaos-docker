@@ -1,0 +1,45 @@
+name: ✨ Feature request
+description: Suggest a new command, ability, area, or game mechanic.
+title: "[Feature]: "
+labels: ["feature", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for the idea! Fill in what you can — even a rough idea helps.
+        Don't worry about technical details; we'll figure those out.
+  - type: textarea
+    id: what
+    attributes:
+      label: What would you like to see?
+      description: Describe the feature in your own words.
+      placeholder: e.g. "A command to see how close I am to my next class trial."
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why would this make the game better?
+      placeholder: What problem does it solve, or what would it make more fun?
+    validations:
+      required: false
+  - type: input
+    id: who
+    attributes:
+      label: Who is it for?
+      description: A class, new players, everyone, a specific area...
+    validations:
+      required: false
+  - type: input
+    id: character
+    attributes:
+      label: Your character / class (optional)
+      description: Helps us understand the context.
+    validations:
+      required: false
+  - type: textarea
+    id: extra
+    attributes:
+      label: Anything else?
+    validations:
+      required: false

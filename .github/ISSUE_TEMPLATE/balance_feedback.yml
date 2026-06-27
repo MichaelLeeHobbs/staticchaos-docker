@@ -1,0 +1,52 @@
+name: ⚖️ Balance / tuning
+description: A class, skill, or ability feels too strong, too weak, or inconsistent.
+title: "[Balance]: "
+labels: ["balance", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Balance feedback is gold — be as specific as you can.
+  - type: input
+    id: subject
+    attributes:
+      label: Which class / skill / ability?
+    validations:
+      required: true
+  - type: dropdown
+    id: direction
+    attributes:
+      label: What's the problem?
+      options:
+        - Too strong
+        - Too weak
+        - Inconsistent / unreliable
+        - Other (explain below)
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: What feels off?
+      placeholder: Describe the situation — what happens vs what you'd expect.
+    validations:
+      required: true
+  - type: textarea
+    id: desired
+    attributes:
+      label: What would feel right?
+    validations:
+      required: false
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Examples / evidence (optional)
+      description: Specific fights, numbers, who you fought, how often, etc.
+    validations:
+      required: false
+  - type: input
+    id: character
+    attributes:
+      label: Your character / class (optional)
+    validations:
+      required: false

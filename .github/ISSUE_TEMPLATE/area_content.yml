@@ -1,0 +1,40 @@
+name: 🗺️ Area / content fix
+description: A wrong exit, typo, bad description, or other area-data error.
+title: "[Content]: "
+labels: ["content", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Help us keep the world tidy. Even small fixes are welcome.
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What kind of problem?
+      options:
+        - Wrong or missing exit
+        - Typo / spelling
+        - Wrong or confusing description
+        - Item or mob problem
+        - Other
+    validations:
+      required: true
+  - type: input
+    id: where
+    attributes:
+      label: Where? (area, room name, or vnum)
+      placeholder: e.g. "Midgaard, the Temple Square" or "room 3001"
+    validations:
+      required: true
+  - type: textarea
+    id: whats_wrong
+    attributes:
+      label: What's wrong?
+    validations:
+      required: true
+  - type: textarea
+    id: should_be
+    attributes:
+      label: What should it be? (optional)
+    validations:
+      required: false

@@ -83,7 +83,12 @@ Temporary Items
 /deploy.sh
 /mud-redeploy.sh
 /web/deploy-web.sh
+/backup-volumes.sh
 /tmp/
+
+# Volume backups (if ever placed in-tree; the real backups live outside the repo)
+/backups/
+/area-backups/
 
 # Claude Code agent config / skills / transient worktrees — local only
 /.claude/

@@ -12,3 +12,7 @@ node_modules
 web/dist
 web/public
 **/*.pdf
+# host-side scripts and any volume backups must never enter the image
+backup-volumes.sh
+backups
+area-backups

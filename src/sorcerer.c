@@ -912,27 +912,43 @@ void chant_gaav_flare( int cn, int rank, CHAR_DATA *ch, void *vo )
 void chant_dynast_breath( int cn, int rank, CHAR_DATA *ch, void *vo )
 { AFFECT_DATA af;
   CHAR_DATA *victim = (CHAR_DATA *) vo;
+  bool pvp;
+  bool saved;
+  int  ac_pen;
 
   if ( is_affected( victim, skill_lookup( "dynast breath" ) ) )
-  { send_to_char( "They are already encased in ice!", ch );
+  { send_to_char( "They are already encased in ice!\n\r", ch );
     return;
   }
+
+  /* Reworked (issue #2 / docs/features/2-2026-06-27-dynast-breath-rework.md):
+   * one clean effect -- AC exposure, plus no-flee only on a failed save -- with
+   * a save and a short duration. Drops the old hitroll/damroll affects and the
+   * ~105-tick lockdown that let Sorcerer win by default. AC value is set by
+   * target type at cast (PvP = a player victim), capped in PvP. */
+  pvp   = !IS_NPC( victim );
+  saved = saves_chant( ch, victim, cn );
 
   act( "$N is encased in a pillar of ice!", ch, NULL, victim, TO_CHAR );
   act( "Ice erupts beneath your feet and encases you!", ch, NULL, victim, TO_VICT );
   act( "$N is encased in a pillar of ice!", ch, NULL, victim, TO_NOTVICT );
+
+  if ( saved )
+    ac_pen = pvp ? UMIN( rank * 2, 100 ) : rank * 3;
+  else
+    ac_pen = pvp ? UMIN( rank * 4, 200 ) : rank * 6;
+
   af.type      = skill_lookup( "dynast breath" );
-  af.duration  = dice(10,20);
+  af.duration  = saved ? ( pvp ? 1 : 2 ) : ( pvp ? 3 : 5 );
   af.location  = APPLY_AC;
-  af.modifier  = rank * 8;
-  af.bitvector = AFF_NO_FLEE;
+  af.modifier  = ac_pen;
+  af.bitvector = saved ? 0 : AFF_NO_FLEE;
   affect_to_char( victim, &af );
-  af.location  = APPLY_HITROLL;
-  af.modifier  = victim->hitroll * -2 * rank / 110;
-  affect_to_char( victim, &af );
-  af.location  = APPLY_DAMROLL;
-  af.modifier  = victim->damroll * -2 * rank / 110;
-  affect_to_char( victim, &af );
+
+  if ( saved )
+  { act( "$N twists aside, resisting the worst of the ice!", ch, NULL, victim, TO_CHAR );
+    send_to_char( "You twist aside as the ice closes in, resisting the worst of it!\n\r", victim );
+  }
   return;
 }
 

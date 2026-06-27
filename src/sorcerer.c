@@ -917,7 +917,7 @@ void chant_dynast_breath( int cn, int rank, CHAR_DATA *ch, void *vo )
   int  ac_pen;
 
   if ( is_affected( victim, skill_lookup( "dynast breath" ) ) )
-  { send_to_char( "They are already encased in ice!", ch );
+  { send_to_char( "They are already encased in ice!\n\r", ch );
     return;
   }
 
@@ -946,7 +946,9 @@ void chant_dynast_breath( int cn, int rank, CHAR_DATA *ch, void *vo )
   affect_to_char( victim, &af );
 
   if ( saved )
-    send_to_char( "You twist aside as the ice closes in, breaking free!\n\r", victim );
+  { act( "$N twists aside, resisting the worst of the ice!", ch, NULL, victim, TO_CHAR );
+    send_to_char( "You twist aside as the ice closes in, resisting the worst of it!\n\r", victim );
+  }
   return;
 }
 

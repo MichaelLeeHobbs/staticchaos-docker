@@ -796,9 +796,13 @@ void chant_blast_ash( int cn, int rank, CHAR_DATA *ch, void *vo )
     chant_damage( ch, victim, victim->hit + dice( 2, 5 ), cn );
   }
   else
-  { /* PC above 25% HP: 20% current HP + rank*20, clamped so it can't kill. */
+  { /* PC above 25% HP: 20% current HP + rank*20, clamped so it can't kill.
+     * Leave 10% headroom: chant_damage adds +10% Black-school damage to a
+     * "scorched" victim (fight.c), which would otherwise push a hit-1 clamp
+     * back over lethal and defeat this cap. (hit-1)*10/11 stays non-lethal
+     * even after that amplification. */
     int dam = victim->hit / 5 + rank * 20;
-    dam = UMIN( dam, victim->hit - 1 );
+    dam = UMIN( dam, ( victim->hit - 1 ) * 10 / 11 );
     chant_damage( ch, victim, dam, cn );
   }
   return;

@@ -26,6 +26,16 @@ services:
     stdin_open: true
     tty: true
     restart: unless-stopped
+    # Liveness = the MUD actually accepts a TCP connection on 4000 (bash /dev/tcp;
+    # the image has bash but no nc/telnet). This drives `docker ps` health and the
+    # host watchdog (backup-volumes.sh's sibling) that auto-heals a boot loop --
+    # the restart policy alone can't, since it just re-runs the same bad inputs.
+    healthcheck:
+      test: ["CMD", "bash", "-c", "exec 3<>/dev/tcp/127.0.0.1/4000"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 45s
 
 volumes:
   area:

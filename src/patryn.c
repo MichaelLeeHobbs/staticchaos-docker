@@ -629,7 +629,27 @@ void do_runeweave( CHAR_DATA *ch, char *argument )
 	      victim->pcdata->powers[F_KI]--;
 	  }
 	  else if ( IS_CLASS(victim,CLASS_SORCERER ) )
-	    lose_chant( victim );
+	  { /* Issue #3: respect Sorcerer defensive prep instead of a flat 100%
+	     * interrupt.  Defense holds the chant (strip it instead); otherwise
+	     * roll an interrupt chance reduced by the Sorcerer's resist buffs. */
+	    if ( is_affected( victim, gsn_defense ) )
+	    { affect_strip( victim, gsn_defense );
+	      act( "Your rune-wind tears away $N's Defense, but the chant holds.", ch, NULL, victim, TO_CHAR );
+	      act( "$n's rune-wind tears away your Defense, but your chant holds!", ch, NULL, victim, TO_VICT );
+	    }
+	    else
+	    { int chance = 75;
+	      if ( IS_AFFECTED( victim, AFF_HOLY_RESIST ) != 0 ) chance -= 10;
+	      if ( IS_AFFECTED( victim, AFF_VAS_GLUUDO  ) != 0 ) chance -= 10;
+	      if ( IS_AFFECTED( victim, AFF_RAYWING ) != 0
+	        || IS_AFFECTED( victim, AFF_WINDY_SHIELD ) != 0 ) chance -= 10;
+	      chance = URANGE( 45, chance, 85 );
+	      if ( number_percent() <= chance )
+	        lose_chant( victim );
+	      else
+	        act( "$N rides out the tearing wind, chant unbroken.", ch, NULL, victim, TO_CHAR );
+	    }
+	  }
 
 	  if ( is_affected(victim,gsn_kiwall) )
 	    affect_strip(victim,gsn_kiwall);

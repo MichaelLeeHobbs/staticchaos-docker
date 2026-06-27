@@ -39,6 +39,17 @@ notes are kept in the maintainers' private working notes.)
   live mob keyword (before the existing-player check), so a collision locks that player out. Fixed:
   the Trial Master no longer uses the `skatha` keyword. When adding NPCs, avoid real player names as
   keywords.
+- **No cross-area resets (mob from area A placed in a room owned by area B).** The server auto-dumps
+  the whole world every 30 min (`PULSE_DB_DUMP` -> `do_asave(NULL,"")`, update.c). OLC files each
+  reset under the area that owns the *room*, so a "place mob 2900 (trials.are) in room 3760
+  (school.are)" reset gets serialized into school.are. If that area loads before the mob's area,
+  boot dies: `load_resets` calls `get_mob_index` which `exit(1)`s on an undefined vnum during boot.
+  This crash-looped the server (June 2026). Keep a mob's reset in the mob's own area, or guarantee
+  load order in area.lst. Symptom in logs: `Get_mob_index: bad vnum <N>` with a misleading filename.
+- **Area data durability.** `/mud/area` is now a named volume (`staticchaos_area`); before that, the
+  30-min auto db-dump and in-game OLC builds lived only in the container's writable layer and were
+  one `--build`/recreate away from being lost. When wiping the volume, rebuild the image from the
+  committed `area/` first (an empty volume seeds from the image), or re-seed from a host backup.
 
 ## Recently shipped (reference)
 - **Login regression fix** — removed the `skatha` keyword from the Trial Master (was blocking the

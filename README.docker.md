@@ -76,18 +76,55 @@ Mutable game data lives in named volumes so accounts and progress survive
 
 | Volume   | Mount          | Contents                                   |
 |----------|----------------|--------------------------------------------|
+| `area`   | `/mud/area`    | World data (`.are`) + in-game OLC builds    |
 | `player` | `/mud/player`  | Player files (`/<initial>/<Name>`) + `temp`|
 | `notes`  | `/mud/notes`   | Note board data                            |
 | `finger` | `/mud/finger`  | Player "finger" info                        |
 | `log`    | `/mud/log`     | Runtime log directory                      |
 
+`area` is a volume because the server auto-dumps the **whole world** to `/mud/area` every 30 min
+(`PULSE_DB_DUMP` → `do_asave`), and in-game OLC builds write there too — without a volume those
+rewrites live only in the container's writable layer and are lost on the next rebuild/recreate.
+
 On first run Docker seeds these volumes from the image. Runtime contents (player files, notes,
 finger info, logs) are gitignored — a fresh clone ships only empty directories and no
-credentials, so the volumes start clean. To wipe all game state and start fresh:
+credentials, so the volumes start clean. **The committed `area/` is the seed for the `area`
+volume**, so on a fresh host the current world comes along; an *existing* non-empty volume is
+used as-is (never re-seeded).
+
+To wipe all game state and start fresh:
 
 ```bash
 docker compose down -v
 ```
+
+> ⚠️ Because an empty `area` volume seeds from the image, after `down -v` you must
+> `docker compose up --build` (so the image carries the committed `area/`) — or re-seed from a
+> backup (below) — or you'll boot an out-of-date world.
+
+### Backups & restore
+
+`backup-volumes.example.sh` (copy to a gitignored `backup-volumes.sh`, schedule via cron) snapshots
+every volume to rotating tarballs **outside** the build context — covering host disk loss and an
+accidental `docker compose down -v` (the volumes alone only survive container recreate). To restore
+one volume from a tarball:
+
+```bash
+# inspect a backup
+tar tzf /opt/backups/staticchaos/staticchaos_area-<stamp>.tgz | head
+
+# restore into the live volume (stop the MUD first to avoid the 30-min auto-dump
+# overwriting your restore):
+docker compose stop mud
+docker run --rm \
+  -v staticchaos_area:/dst \
+  -v /opt/backups/staticchaos:/src:ro \
+  alpine sh -c 'rm -rf /dst/* && tar xzf /src/staticchaos_area-<stamp>.tgz -C /dst'
+docker compose start mud
+```
+
+Swap the volume name / tarball for `player`, `notes`, etc. The tarballs are flat (`tar … -C /src .`),
+so they extract directly into the volume root.
 
 ## World data tooling
 

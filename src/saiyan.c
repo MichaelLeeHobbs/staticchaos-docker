@@ -1030,6 +1030,8 @@ void do_ryuken( CHAR_DATA *ch, char *argument )
 {
   int dam;
   CHAR_DATA *victim;
+  bool broke_major = FALSE;
+  bool setup       = FALSE;
 
   if ( IS_NPC(ch) )
     return;
@@ -1067,35 +1069,101 @@ void do_ryuken( CHAR_DATA *ch, char *argument )
   act( "You wind up and slam your fist into $N!", ch, NULL, victim, TO_CHAR );
   act( "$n winds up and slams $s fist into you!", ch, NULL, victim, TO_VICT );
   act( "$n winds up and slams $s fist into $N!", ch, NULL, victim, TO_NOTVICT );
+
+  /* Issue #4: +15% if the target is caught in a major setup/defense state
+   * (detected before we strip it below).  Affect checks are safe on anyone;
+   * class-indexed fields are gated by class to avoid false positives. */
+  if ( !IS_NPC(victim) )
+  { if ( is_affected(victim,gsn_defense)     || is_affected(victim,gsn_kiwall)
+      || is_affected(victim,gsn_spirit_ward) || is_affected(victim,gsn_earth_ward)
+      || is_affected(victim,gsn_flame_ward)  || is_affected(victim,gsn_wind_ward)
+      || is_affected(victim,gsn_water_ward)  || is_affected(victim,gsn_negative_ward) )
+      setup = TRUE;
+    else if ( IS_CLASS(victim,CLASS_FIST) && IS_SET(victim->pcdata->actnew,NEW_FIGUREEIGHT) )
+      setup = TRUE;
+    else if ( IS_CLASS(victim,CLASS_MAZOKU) && victim->pcdata->powers[M_CTYPE] != 0 )
+      setup = TRUE;
+    else if ( IS_CLASS(victim,CLASS_PATRYN)
+      && ( IS_SET(victim->pcdata->actnew,NEW_AIR_BLOCK)
+        || IS_SET(victim->pcdata->actnew,NEW_FIRE_BLOCK)
+        || IS_SET(victim->pcdata->actnew,NEW_NEGATIVE_BLOCK) ) )
+      setup = TRUE;
+  }
+
   if (!IS_NPC(victim))
   { if ( victim->class == CLASS_FIST )
     { if ( IS_SET(victim->pcdata->actnew,NEW_FIGUREEIGHT) )
-        REMOVE_BIT(victim->pcdata->actnew,NEW_FIGUREEIGHT);
+      { REMOVE_BIT(victim->pcdata->actnew,NEW_FIGUREEIGHT); broke_major = TRUE; }
       if ( victim->pcdata->powers[F_KI] > 0 )
-        victim->pcdata->powers[F_KI] = 0;
+      { victim->pcdata->powers[F_KI] = 0; broke_major = TRUE; }
     }
     else if ( victim->class == CLASS_SAIYAN && is_affected(victim,gsn_kiwall) )
-      affect_strip(victim,gsn_kiwall);
+    { affect_strip(victim,gsn_kiwall); broke_major = TRUE; }
     else if ( IS_CLASS(victim,CLASS_SORCERER) )
-    {
-      act( "Your dragon uppercut staggers $N!", ch, NULL, victim, TO_CHAR );
-      act( "$n's dragon uppercut disrupts your casting!", ch, NULL, victim, TO_VICT );
-      act( "$n's dragon uppercut staggers $N.", ch, NULL, victim, TO_NOTVICT );
-      lose_chant(victim);
+    { /* Defense blocks the chant-interrupt: shatter it, still deal damage. */
+      if ( is_affected(victim,gsn_defense) )
+      { affect_strip(victim,gsn_defense); broke_major = TRUE;
+        act( "Your dragon uppercut shatters $N's Defense, but the chant survives!", ch, NULL, victim, TO_CHAR );
+        act( "$n's dragon uppercut shatters your Defense, but your chant survives!", ch, NULL, victim, TO_VICT );
+      }
+      else
+      { act( "Your dragon uppercut staggers $N!", ch, NULL, victim, TO_CHAR );
+        act( "$n's dragon uppercut disrupts your casting!", ch, NULL, victim, TO_VICT );
+        act( "$n's dragon uppercut staggers $N.", ch, NULL, victim, TO_NOTVICT );
+        lose_chant(victim);
+      }
     }
-
+    else if ( IS_CLASS(victim,CLASS_PATRYN) )
+    { /* Strip one active block (Air > Fire > Negative), else drain a ward by 500. */
+      if ( IS_SET(victim->pcdata->actnew,NEW_AIR_BLOCK) )
+      { REMOVE_BIT(victim->pcdata->actnew,NEW_AIR_BLOCK); broke_major = TRUE;
+        act( "Your dragon uppercut shatters $N's air block!", ch, NULL, victim, TO_CHAR ); }
+      else if ( IS_SET(victim->pcdata->actnew,NEW_FIRE_BLOCK) )
+      { REMOVE_BIT(victim->pcdata->actnew,NEW_FIRE_BLOCK); broke_major = TRUE;
+        act( "Your dragon uppercut shatters $N's fire block!", ch, NULL, victim, TO_CHAR ); }
+      else if ( IS_SET(victim->pcdata->actnew,NEW_NEGATIVE_BLOCK) )
+      { REMOVE_BIT(victim->pcdata->actnew,NEW_NEGATIVE_BLOCK); broke_major = TRUE;
+        act( "Your dragon uppercut shatters $N's negative block!", ch, NULL, victim, TO_CHAR ); }
+      else
+      { int wg = 0;
+        if      ( is_affected(victim,gsn_spirit_ward)   ) wg = gsn_spirit_ward;
+        else if ( is_affected(victim,gsn_earth_ward)    ) wg = gsn_earth_ward;
+        else if ( is_affected(victim,gsn_flame_ward)    ) wg = gsn_flame_ward;
+        else if ( is_affected(victim,gsn_wind_ward)     ) wg = gsn_wind_ward;
+        else if ( is_affected(victim,gsn_water_ward)    ) wg = gsn_water_ward;
+        else if ( is_affected(victim,gsn_negative_ward) ) wg = gsn_negative_ward;
+        if ( wg != 0 )
+        { dec_duration( victim, wg, 500 ); broke_major = TRUE;
+          act( "Your dragon uppercut drains the power from $N's ward!", ch, NULL, victim, TO_CHAR ); }
+      }
+    }
+    else if ( IS_CLASS(victim,CLASS_MAZOKU) )
+    { /* Scatter a charging Mazoku's gathered energy. */
+      if ( victim->pcdata->powers[M_CTYPE] != 0 )
+      { victim->pcdata->powers[M_CTYPE] = 0;
+        victim->pcdata->powers[M_CTIME] = 0;
+        broke_major = TRUE;
+        act( "Your dragon uppercut scatters $N's gathered energy!", ch, NULL, victim, TO_CHAR );
+        act( "$n's dragon uppercut scatters your charge!", ch, NULL, victim, TO_VICT );
+      }
+    }
   }
-  dam = dice( ch->pcdata->body, ch->pcdata->body * 3 / 2 );
+
+  dam = dice( ch->pcdata->body, ch->pcdata->body * 2 );
+  if ( setup )
+    dam += dam * 15 / 100;
   damage( ch, victim, dam, F_UPPERCUT );
   if ( ch->fighting != NULL )
   { act( "An incandescent dragon curls up your arm and crashes into $N!", ch, NULL, victim, TO_CHAR );
     act( "An incancescent dragon spears through you!", ch, NULL, victim, TO_VICT );
     act( "An incandescent dragon spears through $N", ch, NULL, victim, TO_NOTVICT );
-    dam = dice( ch->pcdata->spirit, ch->pcdata->spirit );
+    dam = dice( ch->pcdata->spirit, ch->pcdata->spirit * 3 / 2 );
+    if ( setup )
+      dam += dam * 15 / 100;
     damage( ch, victim, dam, DAM_KIFLAME );
   }
   ch->pcdata->powers[S_POWER] -= 10000;
-  WAIT_STATE( ch, 42 );
+  WAIT_STATE( ch, broke_major ? 24 : 28 );
   return;
 }
 

@@ -22,6 +22,182 @@ he waits for release.
 25 0 -5 550d1+75 1d8+15
 25000 0
 0 0 1
+>speech_prog gate danger law guard trouble city recall~
+if rand(14)
+mpecho $I says 'Keep your weapon down unless you want the street to remember you poorly.'
+else
+if rand(17)
+mpecho $I says 'If you get lost, recall. If recall fails, you picked the wrong room or the wrong curse.'
+else
+if rand(20)
+mpecho $I says 'Gates let trouble in. I'm the part that decides how it leaves.'
+else
+if rand(25)
+mpecho $I says 'I've stood at this post so long I've named the cracks in the wall. That one's Gerald. Don't touch Gerald.'
+else
+if rand(33)
+mpecho $I says 'Crime's down this month. Mostly because the criminals keep wandering into things with teeth.'
+else
+if rand(50)
+mpecho $I says 'You look suspicious. Everyone looks suspicious. That's the job. Move along.'
+else
+mpecho $I adjusts a halberd that has clearly never needed sharpening and never will.
+endif
+endif
+endif
+endif
+endif
+endif
+~
+>speech_prog hi hello hey greetings yo sup hail howdy~
+if rand(25)
+mpecho $I says 'Hello yourself. That's the warm part of this conversation over with.'
+else
+if rand(33)
+mpecho $I says 'Greetings, stranger. You'll be a stranger right up until you owe me money or a funeral.'
+else
+if rand(50)
+mpecho $I nods the exact amount of nod required by law and no more.
+else
+mpecho $I says 'Hi. Yes. Hello. We've done the pleasant part. What do you actually want?'
+endif
+endif
+endif
+~
+>speech_prog bye later goodbye cya farewell leaving gtg~
+if rand(33)
+mpecho $I says 'Leaving already? Try to do it in one piece. It's harder than it sounds around here.'
+else
+if rand(50)
+mpecho $I says 'Goodbye. If you come back through still breathing, I'll be mildly impressed.'
+else
+mpecho $I waves you off with the energy of someone who has waved off a great many people who never returned.
+endif
+endif
+~
+>speech_prog thanks thank ty cheers appreciate grateful~
+if rand(33)
+mpecho $I says 'Thanks don't spend. But I'll allow it, just this once.'
+else
+if rand(50)
+mpecho $I says 'You're welcome. Now go be useful somewhere that isn't directly in front of me.'
+else
+mpecho $I says 'Gratitude. From an adventurer. I'll have this moment mounted on the wall.'
+endif
+endif
+~
+>speech_prog sorry oops apologies mybad pardon~
+if rand(33)
+mpecho $I says 'Sorry doesn't unbreak the vase, the window, or the previous hero. But noted.'
+else
+if rand(50)
+mpecho $I says 'Apology accepted. Reluctantly. Provisionally. Watch yourself.'
+else
+mpecho $I says 'Oh, NOW you're sorry. The dramatic timing on you people, I swear.'
+endif
+endif
+~
+>speech_prog who name you yourself are~
+if rand(33)
+mpecho $I says 'Who am I? I'm the one still standing here after watching a hundred of you not.'
+else
+if rand(50)
+mpecho $I says 'My name's my business. Yours is about to be on a gravestone if you keep wandering like that.'
+else
+mpecho $I says 'I'm nobody important. That's why I'm alive to answer you. Think about it.'
+endif
+endif
+~
+>speech_prog what huh lol lmao haha asdf blah qwerty gibberish~
+if rand(25)
+mpecho $I says 'I have no idea what that was, and I refuse to learn.'
+else
+if rand(33)
+mpecho $I says 'Was that a word? In this realm? Bold of you.'
+else
+if rand(50)
+mpecho $I stares at you the way you'd stare at a dog that started reciting poetry.
+else
+mpecho $I says 'Laugh all you want. The monsters down the road laugh too, and theirs is worse.'
+endif
+endif
+endif
+~
+>speech_prog nice cool awesome love great amazing beautiful~
+if rand(33)
+mpecho $I says 'Flattery. From a stranger covered in someone else's blood. How wholesome.'
+else
+if rand(50)
+mpecho $I says 'Yes, I am wonderful. It changes nothing about your situation, but yes.'
+else
+mpecho $I almost smiles, catches itself, and returns to a professional scowl.
+endif
+endif
+~
+>speech_prog stupid idiot ugly suck noob dumb loser trash~
+if rand(25)
+mpecho $I says 'Says the hero who's been lost in the same three rooms for ten minutes.'
+else
+if rand(33)
+mpecho $I says 'Insults? From you? That's the bravest thing you've done all day, and it's a low bar.'
+else
+if rand(50)
+mpecho $I says 'I've been called worse by better, and I outlived all of them. Care to apply?'
+else
+mpecho $I says 'Big words from a creature with a respawn timer.'
+endif
+endif
+endif
+~
+>speech_prog mud game lag link bug immortal imm code reboot copyover~
+if rand(25)
+mpecho $I says 'The immortals built this place. They also broke it, fixed it, and broke it again. We don't ask.'
+else
+if rand(33)
+mpecho $I says 'If the world freezes, that's not magic, that's lag. Stand very still and pray to the coders.'
+else
+if rand(50)
+mpecho $I says 'Found a bug? Tell an immortal. They love that. They love it SO much.'
+else
+mpecho $I glances upward as if listening to something far above the sky, then shrugs it off.
+endif
+endif
+endif
+~
+>speech_prog gold plat coin free give spare donate beg~
+if rand(33)
+mpecho $I says 'Spare gold? Adventurer, you're carrying a sword worth more than my house.'
+else
+if rand(50)
+mpecho $I says 'I don't give handouts. The monsters give handouts — handfuls, mostly your own.'
+else
+mpecho $I says 'You want free? Go to the newbie zones. Out here, everything bites back for payment.'
+endif
+endif
+~
+>speech_prog marry kiss date cute hot single~
+if rand(33)
+mpecho $I says 'I've outlived three spouses and a continent. Try someone with a shorter memory.'
+else
+if rand(50)
+mpecho $I says 'Charming. The last person who flirted with me also tried to rob me. Funny coincidence.'
+else
+mpecho $I says 'No. But I admire the confidence of a person actively on fire asking me out.'
+endif
+endif
+~
+>speech_prog kill fight attack die murder destroy~
+if rand(33)
+mpecho $I says 'Threaten me? I'm not even the scary thing in this room, and I'm definitely scarier than you.'
+else
+if rand(50)
+mpecho $I says 'Go ahead. The guards are bored, the gods are watching, and I'm insured.'
+else
+mpecho $I says 'You want a fight? The whole realm is a fight. Walk twenty feet, it'll find you.'
+endif
+endif
+~
+|
 #2301
 treant tree~
 the Old Treant~
@@ -35,6 +211,162 @@ wind pushes it back and forth.
 20 0 -3 250d1+50 3d6+5
 5000 0
 0 0 0
+>speech_prog tree treant willow forest weep nature old~
+if rand(50)
+mpecho The Old Treant creaks 'I stood before the Keep and I will stand after it. Minotaurs are a recent inconvenience.'
+else
+mpecho The Weeping Willow sheds its leaves like grief and says nothing you can use, only something you'll remember.
+endif
+~
+>speech_prog hi hello hey greetings yo sup hail howdy~
+if rand(25)
+mpecho $I says 'Hello yourself. That's the warm part of this conversation over with.'
+else
+if rand(33)
+mpecho $I says 'Greetings, stranger. You'll be a stranger right up until you owe me money or a funeral.'
+else
+if rand(50)
+mpecho $I nods the exact amount of nod required by law and no more.
+else
+mpecho $I says 'Hi. Yes. Hello. We've done the pleasant part. What do you actually want?'
+endif
+endif
+endif
+~
+>speech_prog bye later goodbye cya farewell leaving gtg~
+if rand(33)
+mpecho $I says 'Leaving already? Try to do it in one piece. It's harder than it sounds around here.'
+else
+if rand(50)
+mpecho $I says 'Goodbye. If you come back through still breathing, I'll be mildly impressed.'
+else
+mpecho $I waves you off with the energy of someone who has waved off a great many people who never returned.
+endif
+endif
+~
+>speech_prog thanks thank ty cheers appreciate grateful~
+if rand(33)
+mpecho $I says 'Thanks don't spend. But I'll allow it, just this once.'
+else
+if rand(50)
+mpecho $I says 'You're welcome. Now go be useful somewhere that isn't directly in front of me.'
+else
+mpecho $I says 'Gratitude. From an adventurer. I'll have this moment mounted on the wall.'
+endif
+endif
+~
+>speech_prog sorry oops apologies mybad pardon~
+if rand(33)
+mpecho $I says 'Sorry doesn't unbreak the vase, the window, or the previous hero. But noted.'
+else
+if rand(50)
+mpecho $I says 'Apology accepted. Reluctantly. Provisionally. Watch yourself.'
+else
+mpecho $I says 'Oh, NOW you're sorry. The dramatic timing on you people, I swear.'
+endif
+endif
+~
+>speech_prog who name you yourself are~
+if rand(33)
+mpecho $I says 'Who am I? I'm the one still standing here after watching a hundred of you not.'
+else
+if rand(50)
+mpecho $I says 'My name's my business. Yours is about to be on a gravestone if you keep wandering like that.'
+else
+mpecho $I says 'I'm nobody important. That's why I'm alive to answer you. Think about it.'
+endif
+endif
+~
+>speech_prog what huh lol lmao haha asdf blah qwerty gibberish~
+if rand(25)
+mpecho $I says 'I have no idea what that was, and I refuse to learn.'
+else
+if rand(33)
+mpecho $I says 'Was that a word? In this realm? Bold of you.'
+else
+if rand(50)
+mpecho $I stares at you the way you'd stare at a dog that started reciting poetry.
+else
+mpecho $I says 'Laugh all you want. The monsters down the road laugh too, and theirs is worse.'
+endif
+endif
+endif
+~
+>speech_prog nice cool awesome love great amazing beautiful~
+if rand(33)
+mpecho $I says 'Flattery. From a stranger covered in someone else's blood. How wholesome.'
+else
+if rand(50)
+mpecho $I says 'Yes, I am wonderful. It changes nothing about your situation, but yes.'
+else
+mpecho $I almost smiles, catches itself, and returns to a professional scowl.
+endif
+endif
+~
+>speech_prog stupid idiot ugly suck noob dumb loser trash~
+if rand(25)
+mpecho $I says 'Says the hero who's been lost in the same three rooms for ten minutes.'
+else
+if rand(33)
+mpecho $I says 'Insults? From you? That's the bravest thing you've done all day, and it's a low bar.'
+else
+if rand(50)
+mpecho $I says 'I've been called worse by better, and I outlived all of them. Care to apply?'
+else
+mpecho $I says 'Big words from a creature with a respawn timer.'
+endif
+endif
+endif
+~
+>speech_prog mud game lag link bug immortal imm code reboot copyover~
+if rand(25)
+mpecho $I says 'The immortals built this place. They also broke it, fixed it, and broke it again. We don't ask.'
+else
+if rand(33)
+mpecho $I says 'If the world freezes, that's not magic, that's lag. Stand very still and pray to the coders.'
+else
+if rand(50)
+mpecho $I says 'Found a bug? Tell an immortal. They love that. They love it SO much.'
+else
+mpecho $I glances upward as if listening to something far above the sky, then shrugs it off.
+endif
+endif
+endif
+~
+>speech_prog gold plat coin free give spare donate beg~
+if rand(33)
+mpecho $I says 'Spare gold? Adventurer, you're carrying a sword worth more than my house.'
+else
+if rand(50)
+mpecho $I says 'I don't give handouts. The monsters give handouts — handfuls, mostly your own.'
+else
+mpecho $I says 'You want free? Go to the newbie zones. Out here, everything bites back for payment.'
+endif
+endif
+~
+>speech_prog marry kiss date cute hot single~
+if rand(33)
+mpecho $I says 'I've outlived three spouses and a continent. Try someone with a shorter memory.'
+else
+if rand(50)
+mpecho $I says 'Charming. The last person who flirted with me also tried to rob me. Funny coincidence.'
+else
+mpecho $I says 'No. But I admire the confidence of a person actively on fire asking me out.'
+endif
+endif
+~
+>speech_prog kill fight attack die murder destroy~
+if rand(33)
+mpecho $I says 'Threaten me? I'm not even the scary thing in this room, and I'm definitely scarier than you.'
+else
+if rand(50)
+mpecho $I says 'Go ahead. The guards are bored, the gods are watching, and I'm insured.'
+else
+mpecho $I says 'You want a fight? The whole realm is a fight. Walk twenty feet, it'll find you.'
+endif
+endif
+~
+|
 #2302
 dweller cave~
 the Cave Dweller~
@@ -59,6 +391,155 @@ A grey toad. Its about the size of a cow. Small horns grow all over its body.
 14 6 4 150d1+35 2d8+3
 2550 0
 0 0 0
+>speech_prog hi hello hey greetings yo sup hail howdy~
+if rand(25)
+mpecho $I says 'Hello yourself. That's the warm part of this conversation over with.'
+else
+if rand(33)
+mpecho $I says 'Greetings, stranger. You'll be a stranger right up until you owe me money or a funeral.'
+else
+if rand(50)
+mpecho $I nods the exact amount of nod required by law and no more.
+else
+mpecho $I says 'Hi. Yes. Hello. We've done the pleasant part. What do you actually want?'
+endif
+endif
+endif
+~
+>speech_prog bye later goodbye cya farewell leaving gtg~
+if rand(33)
+mpecho $I says 'Leaving already? Try to do it in one piece. It's harder than it sounds around here.'
+else
+if rand(50)
+mpecho $I says 'Goodbye. If you come back through still breathing, I'll be mildly impressed.'
+else
+mpecho $I waves you off with the energy of someone who has waved off a great many people who never returned.
+endif
+endif
+~
+>speech_prog thanks thank ty cheers appreciate grateful~
+if rand(33)
+mpecho $I says 'Thanks don't spend. But I'll allow it, just this once.'
+else
+if rand(50)
+mpecho $I says 'You're welcome. Now go be useful somewhere that isn't directly in front of me.'
+else
+mpecho $I says 'Gratitude. From an adventurer. I'll have this moment mounted on the wall.'
+endif
+endif
+~
+>speech_prog sorry oops apologies mybad pardon~
+if rand(33)
+mpecho $I says 'Sorry doesn't unbreak the vase, the window, or the previous hero. But noted.'
+else
+if rand(50)
+mpecho $I says 'Apology accepted. Reluctantly. Provisionally. Watch yourself.'
+else
+mpecho $I says 'Oh, NOW you're sorry. The dramatic timing on you people, I swear.'
+endif
+endif
+~
+>speech_prog who name you yourself are~
+if rand(33)
+mpecho $I says 'Who am I? I'm the one still standing here after watching a hundred of you not.'
+else
+if rand(50)
+mpecho $I says 'My name's my business. Yours is about to be on a gravestone if you keep wandering like that.'
+else
+mpecho $I says 'I'm nobody important. That's why I'm alive to answer you. Think about it.'
+endif
+endif
+~
+>speech_prog what huh lol lmao haha asdf blah qwerty gibberish~
+if rand(25)
+mpecho $I says 'I have no idea what that was, and I refuse to learn.'
+else
+if rand(33)
+mpecho $I says 'Was that a word? In this realm? Bold of you.'
+else
+if rand(50)
+mpecho $I stares at you the way you'd stare at a dog that started reciting poetry.
+else
+mpecho $I says 'Laugh all you want. The monsters down the road laugh too, and theirs is worse.'
+endif
+endif
+endif
+~
+>speech_prog nice cool awesome love great amazing beautiful~
+if rand(33)
+mpecho $I says 'Flattery. From a stranger covered in someone else's blood. How wholesome.'
+else
+if rand(50)
+mpecho $I says 'Yes, I am wonderful. It changes nothing about your situation, but yes.'
+else
+mpecho $I almost smiles, catches itself, and returns to a professional scowl.
+endif
+endif
+~
+>speech_prog stupid idiot ugly suck noob dumb loser trash~
+if rand(25)
+mpecho $I says 'Says the hero who's been lost in the same three rooms for ten minutes.'
+else
+if rand(33)
+mpecho $I says 'Insults? From you? That's the bravest thing you've done all day, and it's a low bar.'
+else
+if rand(50)
+mpecho $I says 'I've been called worse by better, and I outlived all of them. Care to apply?'
+else
+mpecho $I says 'Big words from a creature with a respawn timer.'
+endif
+endif
+endif
+~
+>speech_prog mud game lag link bug immortal imm code reboot copyover~
+if rand(25)
+mpecho $I says 'The immortals built this place. They also broke it, fixed it, and broke it again. We don't ask.'
+else
+if rand(33)
+mpecho $I says 'If the world freezes, that's not magic, that's lag. Stand very still and pray to the coders.'
+else
+if rand(50)
+mpecho $I says 'Found a bug? Tell an immortal. They love that. They love it SO much.'
+else
+mpecho $I glances upward as if listening to something far above the sky, then shrugs it off.
+endif
+endif
+endif
+~
+>speech_prog gold plat coin free give spare donate beg~
+if rand(33)
+mpecho $I says 'Spare gold? Adventurer, you're carrying a sword worth more than my house.'
+else
+if rand(50)
+mpecho $I says 'I don't give handouts. The monsters give handouts — handfuls, mostly your own.'
+else
+mpecho $I says 'You want free? Go to the newbie zones. Out here, everything bites back for payment.'
+endif
+endif
+~
+>speech_prog marry kiss date cute hot single~
+if rand(33)
+mpecho $I says 'I've outlived three spouses and a continent. Try someone with a shorter memory.'
+else
+if rand(50)
+mpecho $I says 'Charming. The last person who flirted with me also tried to rob me. Funny coincidence.'
+else
+mpecho $I says 'No. But I admire the confidence of a person actively on fire asking me out.'
+endif
+endif
+~
+>speech_prog kill fight attack die murder destroy~
+if rand(33)
+mpecho $I says 'Threaten me? I'm not even the scary thing in this room, and I'm definitely scarier than you.'
+else
+if rand(50)
+mpecho $I says 'Go ahead. The guards are bored, the gods are watching, and I'm insured.'
+else
+mpecho $I says 'You want a fight? The whole realm is a fight. Walk twenty feet, it'll find you.'
+endif
+endif
+~
+|
 #2304
 weeping willow tree~
 the Weeping Willow~
@@ -71,6 +552,162 @@ anguish and dismay. You hear a faint sound of crying.
 25 0 -5 550d1+50 4d6+5
 20000 0
 0 0 2
+>speech_prog tree treant willow forest weep nature old~
+if rand(50)
+mpecho The Old Treant creaks 'I stood before the Keep and I will stand after it. Minotaurs are a recent inconvenience.'
+else
+mpecho The Weeping Willow sheds its leaves like grief and says nothing you can use, only something you'll remember.
+endif
+~
+>speech_prog hi hello hey greetings yo sup hail howdy~
+if rand(25)
+mpecho $I says 'Hello yourself. That's the warm part of this conversation over with.'
+else
+if rand(33)
+mpecho $I says 'Greetings, stranger. You'll be a stranger right up until you owe me money or a funeral.'
+else
+if rand(50)
+mpecho $I nods the exact amount of nod required by law and no more.
+else
+mpecho $I says 'Hi. Yes. Hello. We've done the pleasant part. What do you actually want?'
+endif
+endif
+endif
+~
+>speech_prog bye later goodbye cya farewell leaving gtg~
+if rand(33)
+mpecho $I says 'Leaving already? Try to do it in one piece. It's harder than it sounds around here.'
+else
+if rand(50)
+mpecho $I says 'Goodbye. If you come back through still breathing, I'll be mildly impressed.'
+else
+mpecho $I waves you off with the energy of someone who has waved off a great many people who never returned.
+endif
+endif
+~
+>speech_prog thanks thank ty cheers appreciate grateful~
+if rand(33)
+mpecho $I says 'Thanks don't spend. But I'll allow it, just this once.'
+else
+if rand(50)
+mpecho $I says 'You're welcome. Now go be useful somewhere that isn't directly in front of me.'
+else
+mpecho $I says 'Gratitude. From an adventurer. I'll have this moment mounted on the wall.'
+endif
+endif
+~
+>speech_prog sorry oops apologies mybad pardon~
+if rand(33)
+mpecho $I says 'Sorry doesn't unbreak the vase, the window, or the previous hero. But noted.'
+else
+if rand(50)
+mpecho $I says 'Apology accepted. Reluctantly. Provisionally. Watch yourself.'
+else
+mpecho $I says 'Oh, NOW you're sorry. The dramatic timing on you people, I swear.'
+endif
+endif
+~
+>speech_prog who name you yourself are~
+if rand(33)
+mpecho $I says 'Who am I? I'm the one still standing here after watching a hundred of you not.'
+else
+if rand(50)
+mpecho $I says 'My name's my business. Yours is about to be on a gravestone if you keep wandering like that.'
+else
+mpecho $I says 'I'm nobody important. That's why I'm alive to answer you. Think about it.'
+endif
+endif
+~
+>speech_prog what huh lol lmao haha asdf blah qwerty gibberish~
+if rand(25)
+mpecho $I says 'I have no idea what that was, and I refuse to learn.'
+else
+if rand(33)
+mpecho $I says 'Was that a word? In this realm? Bold of you.'
+else
+if rand(50)
+mpecho $I stares at you the way you'd stare at a dog that started reciting poetry.
+else
+mpecho $I says 'Laugh all you want. The monsters down the road laugh too, and theirs is worse.'
+endif
+endif
+endif
+~
+>speech_prog nice cool awesome love great amazing beautiful~
+if rand(33)
+mpecho $I says 'Flattery. From a stranger covered in someone else's blood. How wholesome.'
+else
+if rand(50)
+mpecho $I says 'Yes, I am wonderful. It changes nothing about your situation, but yes.'
+else
+mpecho $I almost smiles, catches itself, and returns to a professional scowl.
+endif
+endif
+~
+>speech_prog stupid idiot ugly suck noob dumb loser trash~
+if rand(25)
+mpecho $I says 'Says the hero who's been lost in the same three rooms for ten minutes.'
+else
+if rand(33)
+mpecho $I says 'Insults? From you? That's the bravest thing you've done all day, and it's a low bar.'
+else
+if rand(50)
+mpecho $I says 'I've been called worse by better, and I outlived all of them. Care to apply?'
+else
+mpecho $I says 'Big words from a creature with a respawn timer.'
+endif
+endif
+endif
+~
+>speech_prog mud game lag link bug immortal imm code reboot copyover~
+if rand(25)
+mpecho $I says 'The immortals built this place. They also broke it, fixed it, and broke it again. We don't ask.'
+else
+if rand(33)
+mpecho $I says 'If the world freezes, that's not magic, that's lag. Stand very still and pray to the coders.'
+else
+if rand(50)
+mpecho $I says 'Found a bug? Tell an immortal. They love that. They love it SO much.'
+else
+mpecho $I glances upward as if listening to something far above the sky, then shrugs it off.
+endif
+endif
+endif
+~
+>speech_prog gold plat coin free give spare donate beg~
+if rand(33)
+mpecho $I says 'Spare gold? Adventurer, you're carrying a sword worth more than my house.'
+else
+if rand(50)
+mpecho $I says 'I don't give handouts. The monsters give handouts — handfuls, mostly your own.'
+else
+mpecho $I says 'You want free? Go to the newbie zones. Out here, everything bites back for payment.'
+endif
+endif
+~
+>speech_prog marry kiss date cute hot single~
+if rand(33)
+mpecho $I says 'I've outlived three spouses and a continent. Try someone with a shorter memory.'
+else
+if rand(50)
+mpecho $I says 'Charming. The last person who flirted with me also tried to rob me. Funny coincidence.'
+else
+mpecho $I says 'No. But I admire the confidence of a person actively on fire asking me out.'
+endif
+endif
+~
+>speech_prog kill fight attack die murder destroy~
+if rand(33)
+mpecho $I says 'Threaten me? I'm not even the scary thing in this room, and I'm definitely scarier than you.'
+else
+if rand(50)
+mpecho $I says 'Go ahead. The guards are bored, the gods are watching, and I'm insured.'
+else
+mpecho $I says 'You want a fight? The whole realm is a fight. Walk twenty feet, it'll find you.'
+endif
+endif
+~
+|
 #2305
 mist mistling~
 the Mistling~
@@ -107,6 +744,178 @@ with its head hung low. It sees you and cringes in mortal terror.
 10 11 3 100d1+20 2d6+2
 200 0
 0 0 0
+>speech_prog help town city lost work news~
+if rand(17)
+mpecho $I says 'I just live here. The dying is done by people like you.'
+else
+if rand(20)
+mpecho $I shrugs and points vaguely at whatever is most likely to kill you.
+else
+if rand(25)
+mpecho $I says 'News? A hero came through last week. We're still cleaning up the news.'
+else
+if rand(33)
+mpecho $I says 'I'd help, but I have a job, a family, and a strong commitment to staying boring and alive.'
+else
+if rand(50)
+mpecho $I says 'You adventurers are great for the economy and terrible for the windows.'
+else
+mpecho $I eyes your blood-stained gear and very deliberately crosses to the other side of the street.
+endif
+endif
+endif
+endif
+endif
+~
+>speech_prog hi hello hey greetings yo sup hail howdy~
+if rand(25)
+mpecho $I says 'Hello yourself. That's the warm part of this conversation over with.'
+else
+if rand(33)
+mpecho $I says 'Greetings, stranger. You'll be a stranger right up until you owe me money or a funeral.'
+else
+if rand(50)
+mpecho $I nods the exact amount of nod required by law and no more.
+else
+mpecho $I says 'Hi. Yes. Hello. We've done the pleasant part. What do you actually want?'
+endif
+endif
+endif
+~
+>speech_prog bye later goodbye cya farewell leaving gtg~
+if rand(33)
+mpecho $I says 'Leaving already? Try to do it in one piece. It's harder than it sounds around here.'
+else
+if rand(50)
+mpecho $I says 'Goodbye. If you come back through still breathing, I'll be mildly impressed.'
+else
+mpecho $I waves you off with the energy of someone who has waved off a great many people who never returned.
+endif
+endif
+~
+>speech_prog thanks thank ty cheers appreciate grateful~
+if rand(33)
+mpecho $I says 'Thanks don't spend. But I'll allow it, just this once.'
+else
+if rand(50)
+mpecho $I says 'You're welcome. Now go be useful somewhere that isn't directly in front of me.'
+else
+mpecho $I says 'Gratitude. From an adventurer. I'll have this moment mounted on the wall.'
+endif
+endif
+~
+>speech_prog sorry oops apologies mybad pardon~
+if rand(33)
+mpecho $I says 'Sorry doesn't unbreak the vase, the window, or the previous hero. But noted.'
+else
+if rand(50)
+mpecho $I says 'Apology accepted. Reluctantly. Provisionally. Watch yourself.'
+else
+mpecho $I says 'Oh, NOW you're sorry. The dramatic timing on you people, I swear.'
+endif
+endif
+~
+>speech_prog who name you yourself are~
+if rand(33)
+mpecho $I says 'Who am I? I'm the one still standing here after watching a hundred of you not.'
+else
+if rand(50)
+mpecho $I says 'My name's my business. Yours is about to be on a gravestone if you keep wandering like that.'
+else
+mpecho $I says 'I'm nobody important. That's why I'm alive to answer you. Think about it.'
+endif
+endif
+~
+>speech_prog what huh lol lmao haha asdf blah qwerty gibberish~
+if rand(25)
+mpecho $I says 'I have no idea what that was, and I refuse to learn.'
+else
+if rand(33)
+mpecho $I says 'Was that a word? In this realm? Bold of you.'
+else
+if rand(50)
+mpecho $I stares at you the way you'd stare at a dog that started reciting poetry.
+else
+mpecho $I says 'Laugh all you want. The monsters down the road laugh too, and theirs is worse.'
+endif
+endif
+endif
+~
+>speech_prog nice cool awesome love great amazing beautiful~
+if rand(33)
+mpecho $I says 'Flattery. From a stranger covered in someone else's blood. How wholesome.'
+else
+if rand(50)
+mpecho $I says 'Yes, I am wonderful. It changes nothing about your situation, but yes.'
+else
+mpecho $I almost smiles, catches itself, and returns to a professional scowl.
+endif
+endif
+~
+>speech_prog stupid idiot ugly suck noob dumb loser trash~
+if rand(25)
+mpecho $I says 'Says the hero who's been lost in the same three rooms for ten minutes.'
+else
+if rand(33)
+mpecho $I says 'Insults? From you? That's the bravest thing you've done all day, and it's a low bar.'
+else
+if rand(50)
+mpecho $I says 'I've been called worse by better, and I outlived all of them. Care to apply?'
+else
+mpecho $I says 'Big words from a creature with a respawn timer.'
+endif
+endif
+endif
+~
+>speech_prog mud game lag link bug immortal imm code reboot copyover~
+if rand(25)
+mpecho $I says 'The immortals built this place. They also broke it, fixed it, and broke it again. We don't ask.'
+else
+if rand(33)
+mpecho $I says 'If the world freezes, that's not magic, that's lag. Stand very still and pray to the coders.'
+else
+if rand(50)
+mpecho $I says 'Found a bug? Tell an immortal. They love that. They love it SO much.'
+else
+mpecho $I glances upward as if listening to something far above the sky, then shrugs it off.
+endif
+endif
+endif
+~
+>speech_prog gold plat coin free give spare donate beg~
+if rand(33)
+mpecho $I says 'Spare gold? Adventurer, you're carrying a sword worth more than my house.'
+else
+if rand(50)
+mpecho $I says 'I don't give handouts. The monsters give handouts — handfuls, mostly your own.'
+else
+mpecho $I says 'You want free? Go to the newbie zones. Out here, everything bites back for payment.'
+endif
+endif
+~
+>speech_prog marry kiss date cute hot single~
+if rand(33)
+mpecho $I says 'I've outlived three spouses and a continent. Try someone with a shorter memory.'
+else
+if rand(50)
+mpecho $I says 'Charming. The last person who flirted with me also tried to rob me. Funny coincidence.'
+else
+mpecho $I says 'No. But I admire the confidence of a person actively on fire asking me out.'
+endif
+endif
+~
+>speech_prog kill fight attack die murder destroy~
+if rand(33)
+mpecho $I says 'Threaten me? I'm not even the scary thing in this room, and I'm definitely scarier than you.'
+else
+if rand(50)
+mpecho $I says 'Go ahead. The guards are bored, the gods are watching, and I'm insured.'
+else
+mpecho $I says 'You want a fight? The whole realm is a fight. Walk twenty feet, it'll find you.'
+endif
+endif
+~
+|
 #2308
 warrior ogre~
 the Ogre Warrior~
@@ -131,6 +940,34 @@ fight to the death before abandoning his post.
 19 0 2 200d1+50 3d6+5
 10000 0
 0 0 1
+>speech_prog gate danger law guard trouble city recall~
+if rand(14)
+mpecho $I says 'Keep your weapon down unless you want the street to remember you poorly.'
+else
+if rand(17)
+mpecho $I says 'If you get lost, recall. If recall fails, you picked the wrong room or the wrong curse.'
+else
+if rand(20)
+mpecho $I says 'Gates let trouble in. I'm the part that decides how it leaves.'
+else
+if rand(25)
+mpecho $I says 'I've stood at this post so long I've named the cracks in the wall. That one's Gerald. Don't touch Gerald.'
+else
+if rand(33)
+mpecho $I says 'Crime's down this month. Mostly because the criminals keep wandering into things with teeth.'
+else
+if rand(50)
+mpecho $I says 'You look suspicious. Everyone looks suspicious. That's the job. Move along.'
+else
+mpecho $I adjusts a halberd that has clearly never needed sharpening and never will.
+endif
+endif
+endif
+endif
+endif
+endif
+~
+|
 #2310
 shaman ogre~
 The Ogre Shaman~
@@ -143,6 +980,30 @@ charms and holy symbols draped about him. He looks at you and snarls.
 20 0 1 250d1+50 4d6+5
 50000 0
 0 0 1
+>speech_prog herb forest nature path woods heal hermit~
+if rand(17)
+mpecho $I says 'Herbs grow where blood has not yet ruined the soil. That narrows it down. Barely.'
+else
+if rand(20)
+mpecho $I says 'If the trees go quiet, something is hunting. Probably you.'
+else
+if rand(25)
+mpecho $I says 'I left the cities because people there talk too much. And here you are. Talking.'
+else
+if rand(33)
+mpecho $I says 'Nature is balance. The bear eats you, the worms eat the bear, I eat neither and live longer.'
+else
+if rand(50)
+mpecho $I says 'Lost? The path's right there. It's always right there. People just stop looking down.'
+else
+mpecho $I mutters to a plant, listens to its answer, and seems more satisfied with that conversation than this one.
+endif
+endif
+endif
+endif
+endif
+~
+|
 #2311
 chief chieftain ogre~
 the Ogre Chieftain~
@@ -204,6 +1065,178 @@ place to seek refuge from the cold.
 15 5 3 100d1+90 2d5+5
 10000 0
 0 0 0
+>speech_prog help town city lost work news~
+if rand(17)
+mpecho $I says 'I just live here. The dying is done by people like you.'
+else
+if rand(20)
+mpecho $I shrugs and points vaguely at whatever is most likely to kill you.
+else
+if rand(25)
+mpecho $I says 'News? A hero came through last week. We're still cleaning up the news.'
+else
+if rand(33)
+mpecho $I says 'I'd help, but I have a job, a family, and a strong commitment to staying boring and alive.'
+else
+if rand(50)
+mpecho $I says 'You adventurers are great for the economy and terrible for the windows.'
+else
+mpecho $I eyes your blood-stained gear and very deliberately crosses to the other side of the street.
+endif
+endif
+endif
+endif
+endif
+~
+>speech_prog hi hello hey greetings yo sup hail howdy~
+if rand(25)
+mpecho $I says 'Hello yourself. That's the warm part of this conversation over with.'
+else
+if rand(33)
+mpecho $I says 'Greetings, stranger. You'll be a stranger right up until you owe me money or a funeral.'
+else
+if rand(50)
+mpecho $I nods the exact amount of nod required by law and no more.
+else
+mpecho $I says 'Hi. Yes. Hello. We've done the pleasant part. What do you actually want?'
+endif
+endif
+endif
+~
+>speech_prog bye later goodbye cya farewell leaving gtg~
+if rand(33)
+mpecho $I says 'Leaving already? Try to do it in one piece. It's harder than it sounds around here.'
+else
+if rand(50)
+mpecho $I says 'Goodbye. If you come back through still breathing, I'll be mildly impressed.'
+else
+mpecho $I waves you off with the energy of someone who has waved off a great many people who never returned.
+endif
+endif
+~
+>speech_prog thanks thank ty cheers appreciate grateful~
+if rand(33)
+mpecho $I says 'Thanks don't spend. But I'll allow it, just this once.'
+else
+if rand(50)
+mpecho $I says 'You're welcome. Now go be useful somewhere that isn't directly in front of me.'
+else
+mpecho $I says 'Gratitude. From an adventurer. I'll have this moment mounted on the wall.'
+endif
+endif
+~
+>speech_prog sorry oops apologies mybad pardon~
+if rand(33)
+mpecho $I says 'Sorry doesn't unbreak the vase, the window, or the previous hero. But noted.'
+else
+if rand(50)
+mpecho $I says 'Apology accepted. Reluctantly. Provisionally. Watch yourself.'
+else
+mpecho $I says 'Oh, NOW you're sorry. The dramatic timing on you people, I swear.'
+endif
+endif
+~
+>speech_prog who name you yourself are~
+if rand(33)
+mpecho $I says 'Who am I? I'm the one still standing here after watching a hundred of you not.'
+else
+if rand(50)
+mpecho $I says 'My name's my business. Yours is about to be on a gravestone if you keep wandering like that.'
+else
+mpecho $I says 'I'm nobody important. That's why I'm alive to answer you. Think about it.'
+endif
+endif
+~
+>speech_prog what huh lol lmao haha asdf blah qwerty gibberish~
+if rand(25)
+mpecho $I says 'I have no idea what that was, and I refuse to learn.'
+else
+if rand(33)
+mpecho $I says 'Was that a word? In this realm? Bold of you.'
+else
+if rand(50)
+mpecho $I stares at you the way you'd stare at a dog that started reciting poetry.
+else
+mpecho $I says 'Laugh all you want. The monsters down the road laugh too, and theirs is worse.'
+endif
+endif
+endif
+~
+>speech_prog nice cool awesome love great amazing beautiful~
+if rand(33)
+mpecho $I says 'Flattery. From a stranger covered in someone else's blood. How wholesome.'
+else
+if rand(50)
+mpecho $I says 'Yes, I am wonderful. It changes nothing about your situation, but yes.'
+else
+mpecho $I almost smiles, catches itself, and returns to a professional scowl.
+endif
+endif
+~
+>speech_prog stupid idiot ugly suck noob dumb loser trash~
+if rand(25)
+mpecho $I says 'Says the hero who's been lost in the same three rooms for ten minutes.'
+else
+if rand(33)
+mpecho $I says 'Insults? From you? That's the bravest thing you've done all day, and it's a low bar.'
+else
+if rand(50)
+mpecho $I says 'I've been called worse by better, and I outlived all of them. Care to apply?'
+else
+mpecho $I says 'Big words from a creature with a respawn timer.'
+endif
+endif
+endif
+~
+>speech_prog mud game lag link bug immortal imm code reboot copyover~
+if rand(25)
+mpecho $I says 'The immortals built this place. They also broke it, fixed it, and broke it again. We don't ask.'
+else
+if rand(33)
+mpecho $I says 'If the world freezes, that's not magic, that's lag. Stand very still and pray to the coders.'
+else
+if rand(50)
+mpecho $I says 'Found a bug? Tell an immortal. They love that. They love it SO much.'
+else
+mpecho $I glances upward as if listening to something far above the sky, then shrugs it off.
+endif
+endif
+endif
+~
+>speech_prog gold plat coin free give spare donate beg~
+if rand(33)
+mpecho $I says 'Spare gold? Adventurer, you're carrying a sword worth more than my house.'
+else
+if rand(50)
+mpecho $I says 'I don't give handouts. The monsters give handouts — handfuls, mostly your own.'
+else
+mpecho $I says 'You want free? Go to the newbie zones. Out here, everything bites back for payment.'
+endif
+endif
+~
+>speech_prog marry kiss date cute hot single~
+if rand(33)
+mpecho $I says 'I've outlived three spouses and a continent. Try someone with a shorter memory.'
+else
+if rand(50)
+mpecho $I says 'Charming. The last person who flirted with me also tried to rob me. Funny coincidence.'
+else
+mpecho $I says 'No. But I admire the confidence of a person actively on fire asking me out.'
+endif
+endif
+~
+>speech_prog kill fight attack die murder destroy~
+if rand(33)
+mpecho $I says 'Threaten me? I'm not even the scary thing in this room, and I'm definitely scarier than you.'
+else
+if rand(50)
+mpecho $I says 'Go ahead. The guards are bored, the gods are watching, and I'm insured.'
+else
+mpecho $I says 'You want a fight? The whole realm is a fight. Walk twenty feet, it'll find you.'
+endif
+endif
+~
+|
 #2316
 guard minotaur~
 the Minotaur Guard~
@@ -216,6 +1249,34 @@ his armor.
 22 -2 0 400d1+40 4d6+5
 25000 0
 0 0 1
+>speech_prog gate danger law guard trouble city recall~
+if rand(14)
+mpecho $I says 'Keep your weapon down unless you want the street to remember you poorly.'
+else
+if rand(17)
+mpecho $I says 'If you get lost, recall. If recall fails, you picked the wrong room or the wrong curse.'
+else
+if rand(20)
+mpecho $I says 'Gates let trouble in. I'm the part that decides how it leaves.'
+else
+if rand(25)
+mpecho $I says 'I've stood at this post so long I've named the cracks in the wall. That one's Gerald. Don't touch Gerald.'
+else
+if rand(33)
+mpecho $I says 'Crime's down this month. Mostly because the criminals keep wandering into things with teeth.'
+else
+if rand(50)
+mpecho $I says 'You look suspicious. Everyone looks suspicious. That's the job. Move along.'
+else
+mpecho $I adjusts a halberd that has clearly never needed sharpening and never will.
+endif
+endif
+endif
+endif
+endif
+endif
+~
+|
 #2317
 warrior minotaur~
 the Minotaur Warrior~
@@ -240,6 +1301,155 @@ miserable standing in the driven snow and ice.
 25 -4 -5 550d1+50 5d5+5
 25000 0
 0 0 0
+>speech_prog hi hello hey greetings yo sup hail howdy~
+if rand(25)
+mpecho $I says 'Hello yourself. That's the warm part of this conversation over with.'
+else
+if rand(33)
+mpecho $I says 'Greetings, stranger. You'll be a stranger right up until you owe me money or a funeral.'
+else
+if rand(50)
+mpecho $I nods the exact amount of nod required by law and no more.
+else
+mpecho $I says 'Hi. Yes. Hello. We've done the pleasant part. What do you actually want?'
+endif
+endif
+endif
+~
+>speech_prog bye later goodbye cya farewell leaving gtg~
+if rand(33)
+mpecho $I says 'Leaving already? Try to do it in one piece. It's harder than it sounds around here.'
+else
+if rand(50)
+mpecho $I says 'Goodbye. If you come back through still breathing, I'll be mildly impressed.'
+else
+mpecho $I waves you off with the energy of someone who has waved off a great many people who never returned.
+endif
+endif
+~
+>speech_prog thanks thank ty cheers appreciate grateful~
+if rand(33)
+mpecho $I says 'Thanks don't spend. But I'll allow it, just this once.'
+else
+if rand(50)
+mpecho $I says 'You're welcome. Now go be useful somewhere that isn't directly in front of me.'
+else
+mpecho $I says 'Gratitude. From an adventurer. I'll have this moment mounted on the wall.'
+endif
+endif
+~
+>speech_prog sorry oops apologies mybad pardon~
+if rand(33)
+mpecho $I says 'Sorry doesn't unbreak the vase, the window, or the previous hero. But noted.'
+else
+if rand(50)
+mpecho $I says 'Apology accepted. Reluctantly. Provisionally. Watch yourself.'
+else
+mpecho $I says 'Oh, NOW you're sorry. The dramatic timing on you people, I swear.'
+endif
+endif
+~
+>speech_prog who name you yourself are~
+if rand(33)
+mpecho $I says 'Who am I? I'm the one still standing here after watching a hundred of you not.'
+else
+if rand(50)
+mpecho $I says 'My name's my business. Yours is about to be on a gravestone if you keep wandering like that.'
+else
+mpecho $I says 'I'm nobody important. That's why I'm alive to answer you. Think about it.'
+endif
+endif
+~
+>speech_prog what huh lol lmao haha asdf blah qwerty gibberish~
+if rand(25)
+mpecho $I says 'I have no idea what that was, and I refuse to learn.'
+else
+if rand(33)
+mpecho $I says 'Was that a word? In this realm? Bold of you.'
+else
+if rand(50)
+mpecho $I stares at you the way you'd stare at a dog that started reciting poetry.
+else
+mpecho $I says 'Laugh all you want. The monsters down the road laugh too, and theirs is worse.'
+endif
+endif
+endif
+~
+>speech_prog nice cool awesome love great amazing beautiful~
+if rand(33)
+mpecho $I says 'Flattery. From a stranger covered in someone else's blood. How wholesome.'
+else
+if rand(50)
+mpecho $I says 'Yes, I am wonderful. It changes nothing about your situation, but yes.'
+else
+mpecho $I almost smiles, catches itself, and returns to a professional scowl.
+endif
+endif
+~
+>speech_prog stupid idiot ugly suck noob dumb loser trash~
+if rand(25)
+mpecho $I says 'Says the hero who's been lost in the same three rooms for ten minutes.'
+else
+if rand(33)
+mpecho $I says 'Insults? From you? That's the bravest thing you've done all day, and it's a low bar.'
+else
+if rand(50)
+mpecho $I says 'I've been called worse by better, and I outlived all of them. Care to apply?'
+else
+mpecho $I says 'Big words from a creature with a respawn timer.'
+endif
+endif
+endif
+~
+>speech_prog mud game lag link bug immortal imm code reboot copyover~
+if rand(25)
+mpecho $I says 'The immortals built this place. They also broke it, fixed it, and broke it again. We don't ask.'
+else
+if rand(33)
+mpecho $I says 'If the world freezes, that's not magic, that's lag. Stand very still and pray to the coders.'
+else
+if rand(50)
+mpecho $I says 'Found a bug? Tell an immortal. They love that. They love it SO much.'
+else
+mpecho $I glances upward as if listening to something far above the sky, then shrugs it off.
+endif
+endif
+endif
+~
+>speech_prog gold plat coin free give spare donate beg~
+if rand(33)
+mpecho $I says 'Spare gold? Adventurer, you're carrying a sword worth more than my house.'
+else
+if rand(50)
+mpecho $I says 'I don't give handouts. The monsters give handouts — handfuls, mostly your own.'
+else
+mpecho $I says 'You want free? Go to the newbie zones. Out here, everything bites back for payment.'
+endif
+endif
+~
+>speech_prog marry kiss date cute hot single~
+if rand(33)
+mpecho $I says 'I've outlived three spouses and a continent. Try someone with a shorter memory.'
+else
+if rand(50)
+mpecho $I says 'Charming. The last person who flirted with me also tried to rob me. Funny coincidence.'
+else
+mpecho $I says 'No. But I admire the confidence of a person actively on fire asking me out.'
+endif
+endif
+~
+>speech_prog kill fight attack die murder destroy~
+if rand(33)
+mpecho $I says 'Threaten me? I'm not even the scary thing in this room, and I'm definitely scarier than you.'
+else
+if rand(50)
+mpecho $I says 'Go ahead. The guards are bored, the gods are watching, and I'm insured.'
+else
+mpecho $I says 'You want a fight? The whole realm is a fight. Walk twenty feet, it'll find you.'
+endif
+endif
+~
+|
 #2319
 minotaur high guard~
 the High Minotaur Guard~
@@ -252,6 +1462,34 @@ skilled.
 25 -4 -5 600d1+20 4d7+4
 45000 0
 0 0 1
+>speech_prog gate danger law guard trouble city recall~
+if rand(14)
+mpecho $I says 'Keep your weapon down unless you want the street to remember you poorly.'
+else
+if rand(17)
+mpecho $I says 'If you get lost, recall. If recall fails, you picked the wrong room or the wrong curse.'
+else
+if rand(20)
+mpecho $I says 'Gates let trouble in. I'm the part that decides how it leaves.'
+else
+if rand(25)
+mpecho $I says 'I've stood at this post so long I've named the cracks in the wall. That one's Gerald. Don't touch Gerald.'
+else
+if rand(33)
+mpecho $I says 'Crime's down this month. Mostly because the criminals keep wandering into things with teeth.'
+else
+if rand(50)
+mpecho $I says 'You look suspicious. Everyone looks suspicious. That's the job. Move along.'
+else
+mpecho $I adjusts a halberd that has clearly never needed sharpening and never will.
+endif
+endif
+endif
+endif
+endif
+endif
+~
+|
 #2320
 minotaur royal guard~
 the Royal Minotaur Guard~
@@ -264,6 +1502,34 @@ huge glaive. He looks quite capable of protecting the keep.
 26 -6 -7 650d1+50 5d5+4
 50000 0
 0 0 1
+>speech_prog gate danger law guard trouble city recall~
+if rand(14)
+mpecho $I says 'Keep your weapon down unless you want the street to remember you poorly.'
+else
+if rand(17)
+mpecho $I says 'If you get lost, recall. If recall fails, you picked the wrong room or the wrong curse.'
+else
+if rand(20)
+mpecho $I says 'Gates let trouble in. I'm the part that decides how it leaves.'
+else
+if rand(25)
+mpecho $I says 'I've stood at this post so long I've named the cracks in the wall. That one's Gerald. Don't touch Gerald.'
+else
+if rand(33)
+mpecho $I says 'Crime's down this month. Mostly because the criminals keep wandering into things with teeth.'
+else
+if rand(50)
+mpecho $I says 'You look suspicious. Everyone looks suspicious. That's the job. Move along.'
+else
+mpecho $I adjusts a halberd that has clearly never needed sharpening and never will.
+endif
+endif
+endif
+endif
+endif
+endif
+~
+|
 #2321
 guard minotaur elite~
 the Elite Minotaur Guard~
@@ -276,6 +1542,34 @@ furs.
 28 -8 -8 800d1+50 6d5+5
 75000 0
 0 0 1
+>speech_prog gate danger law guard trouble city recall~
+if rand(14)
+mpecho $I says 'Keep your weapon down unless you want the street to remember you poorly.'
+else
+if rand(17)
+mpecho $I says 'If you get lost, recall. If recall fails, you picked the wrong room or the wrong curse.'
+else
+if rand(20)
+mpecho $I says 'Gates let trouble in. I'm the part that decides how it leaves.'
+else
+if rand(25)
+mpecho $I says 'I've stood at this post so long I've named the cracks in the wall. That one's Gerald. Don't touch Gerald.'
+else
+if rand(33)
+mpecho $I says 'Crime's down this month. Mostly because the criminals keep wandering into things with teeth.'
+else
+if rand(50)
+mpecho $I says 'You look suspicious. Everyone looks suspicious. That's the job. Move along.'
+else
+mpecho $I adjusts a halberd that has clearly never needed sharpening and never will.
+endif
+endif
+endif
+endif
+endif
+endif
+~
+|
 #2322
 girl haremgirl harem slave~
 the Harem Girl~
@@ -288,6 +1582,181 @@ in the harem.
 2 20 10 50d1+10 3d1+5
 10 0
 0 0 1
+>speech_prog keep help escape minotaur mahntor secret~
+mpecho The harem girl cowers and whispers 'The guards rotate at the gate, not the inner halls. The inner halls never rest. Neither should you.'
+~
+>speech_prog guard boss key way exit~
+if rand(17)
+mpecho $I whispers 'The loud ones know less than the beaten ones. Watch the guards, not their mouths.'
+else
+if rand(20)
+mpecho $I whispers 'If a room hates recall, believe it. I learned that the slow way.'
+else
+if rand(25)
+mpecho $I whispers 'Free me or don't, but if you free the wrong thing, run first and apologize never.'
+else
+if rand(33)
+mpecho $I whispers 'I've counted the guard's steps for a year. He limps on the left. Make of that what you will.'
+else
+if rand(50)
+mpecho $I whispers 'They keep the real keys on the one who never speaks. Funny how that works.'
+else
+mpecho $I whispers 'Hope is a luxury down here. So is a name. Take what I tell you and go.'
+endif
+endif
+endif
+endif
+endif
+~
+>speech_prog hi hello hey greetings yo sup hail howdy~
+if rand(25)
+mpecho $I says 'Hello yourself. That's the warm part of this conversation over with.'
+else
+if rand(33)
+mpecho $I says 'Greetings, stranger. You'll be a stranger right up until you owe me money or a funeral.'
+else
+if rand(50)
+mpecho $I nods the exact amount of nod required by law and no more.
+else
+mpecho $I says 'Hi. Yes. Hello. We've done the pleasant part. What do you actually want?'
+endif
+endif
+endif
+~
+>speech_prog bye later goodbye cya farewell leaving gtg~
+if rand(33)
+mpecho $I says 'Leaving already? Try to do it in one piece. It's harder than it sounds around here.'
+else
+if rand(50)
+mpecho $I says 'Goodbye. If you come back through still breathing, I'll be mildly impressed.'
+else
+mpecho $I waves you off with the energy of someone who has waved off a great many people who never returned.
+endif
+endif
+~
+>speech_prog thanks thank ty cheers appreciate grateful~
+if rand(33)
+mpecho $I says 'Thanks don't spend. But I'll allow it, just this once.'
+else
+if rand(50)
+mpecho $I says 'You're welcome. Now go be useful somewhere that isn't directly in front of me.'
+else
+mpecho $I says 'Gratitude. From an adventurer. I'll have this moment mounted on the wall.'
+endif
+endif
+~
+>speech_prog sorry oops apologies mybad pardon~
+if rand(33)
+mpecho $I says 'Sorry doesn't unbreak the vase, the window, or the previous hero. But noted.'
+else
+if rand(50)
+mpecho $I says 'Apology accepted. Reluctantly. Provisionally. Watch yourself.'
+else
+mpecho $I says 'Oh, NOW you're sorry. The dramatic timing on you people, I swear.'
+endif
+endif
+~
+>speech_prog who name you yourself are~
+if rand(33)
+mpecho $I says 'Who am I? I'm the one still standing here after watching a hundred of you not.'
+else
+if rand(50)
+mpecho $I says 'My name's my business. Yours is about to be on a gravestone if you keep wandering like that.'
+else
+mpecho $I says 'I'm nobody important. That's why I'm alive to answer you. Think about it.'
+endif
+endif
+~
+>speech_prog what huh lol lmao haha asdf blah qwerty gibberish~
+if rand(25)
+mpecho $I says 'I have no idea what that was, and I refuse to learn.'
+else
+if rand(33)
+mpecho $I says 'Was that a word? In this realm? Bold of you.'
+else
+if rand(50)
+mpecho $I stares at you the way you'd stare at a dog that started reciting poetry.
+else
+mpecho $I says 'Laugh all you want. The monsters down the road laugh too, and theirs is worse.'
+endif
+endif
+endif
+~
+>speech_prog nice cool awesome love great amazing beautiful~
+if rand(33)
+mpecho $I says 'Flattery. From a stranger covered in someone else's blood. How wholesome.'
+else
+if rand(50)
+mpecho $I says 'Yes, I am wonderful. It changes nothing about your situation, but yes.'
+else
+mpecho $I almost smiles, catches itself, and returns to a professional scowl.
+endif
+endif
+~
+>speech_prog stupid idiot ugly suck noob dumb loser trash~
+if rand(25)
+mpecho $I says 'Says the hero who's been lost in the same three rooms for ten minutes.'
+else
+if rand(33)
+mpecho $I says 'Insults? From you? That's the bravest thing you've done all day, and it's a low bar.'
+else
+if rand(50)
+mpecho $I says 'I've been called worse by better, and I outlived all of them. Care to apply?'
+else
+mpecho $I says 'Big words from a creature with a respawn timer.'
+endif
+endif
+endif
+~
+>speech_prog mud game lag link bug immortal imm code reboot copyover~
+if rand(25)
+mpecho $I says 'The immortals built this place. They also broke it, fixed it, and broke it again. We don't ask.'
+else
+if rand(33)
+mpecho $I says 'If the world freezes, that's not magic, that's lag. Stand very still and pray to the coders.'
+else
+if rand(50)
+mpecho $I says 'Found a bug? Tell an immortal. They love that. They love it SO much.'
+else
+mpecho $I glances upward as if listening to something far above the sky, then shrugs it off.
+endif
+endif
+endif
+~
+>speech_prog gold plat coin free give spare donate beg~
+if rand(33)
+mpecho $I says 'Spare gold? Adventurer, you're carrying a sword worth more than my house.'
+else
+if rand(50)
+mpecho $I says 'I don't give handouts. The monsters give handouts — handfuls, mostly your own.'
+else
+mpecho $I says 'You want free? Go to the newbie zones. Out here, everything bites back for payment.'
+endif
+endif
+~
+>speech_prog marry kiss date cute hot single~
+if rand(33)
+mpecho $I says 'I've outlived three spouses and a continent. Try someone with a shorter memory.'
+else
+if rand(50)
+mpecho $I says 'Charming. The last person who flirted with me also tried to rob me. Funny coincidence.'
+else
+mpecho $I says 'No. But I admire the confidence of a person actively on fire asking me out.'
+endif
+endif
+~
+>speech_prog kill fight attack die murder destroy~
+if rand(33)
+mpecho $I says 'Threaten me? I'm not even the scary thing in this room, and I'm definitely scarier than you.'
+else
+if rand(50)
+mpecho $I says 'Go ahead. The guards are bored, the gods are watching, and I'm insured.'
+else
+mpecho $I says 'You want a fight? The whole realm is a fight. Walk twenty feet, it'll find you.'
+endif
+endif
+~
+|
 #2323
 butler minotaur~
 the Minotaur Butler~
@@ -299,6 +1768,158 @@ He looks quite regal and refined to be a minotaur.
 20 1 0 1d12+247 3d6+4
 5000 0
 0 0 1
+>speech_prog butler keep master order serve mahntor guest~
+mpecho The Minotaur Butler stands rigid and says 'Guests of the Keep are announced. Intruders are also announced, just more loudly and by the guards.'
+~
+>speech_prog hi hello hey greetings yo sup hail howdy~
+if rand(25)
+mpecho $I says 'Hello yourself. That's the warm part of this conversation over with.'
+else
+if rand(33)
+mpecho $I says 'Greetings, stranger. You'll be a stranger right up until you owe me money or a funeral.'
+else
+if rand(50)
+mpecho $I nods the exact amount of nod required by law and no more.
+else
+mpecho $I says 'Hi. Yes. Hello. We've done the pleasant part. What do you actually want?'
+endif
+endif
+endif
+~
+>speech_prog bye later goodbye cya farewell leaving gtg~
+if rand(33)
+mpecho $I says 'Leaving already? Try to do it in one piece. It's harder than it sounds around here.'
+else
+if rand(50)
+mpecho $I says 'Goodbye. If you come back through still breathing, I'll be mildly impressed.'
+else
+mpecho $I waves you off with the energy of someone who has waved off a great many people who never returned.
+endif
+endif
+~
+>speech_prog thanks thank ty cheers appreciate grateful~
+if rand(33)
+mpecho $I says 'Thanks don't spend. But I'll allow it, just this once.'
+else
+if rand(50)
+mpecho $I says 'You're welcome. Now go be useful somewhere that isn't directly in front of me.'
+else
+mpecho $I says 'Gratitude. From an adventurer. I'll have this moment mounted on the wall.'
+endif
+endif
+~
+>speech_prog sorry oops apologies mybad pardon~
+if rand(33)
+mpecho $I says 'Sorry doesn't unbreak the vase, the window, or the previous hero. But noted.'
+else
+if rand(50)
+mpecho $I says 'Apology accepted. Reluctantly. Provisionally. Watch yourself.'
+else
+mpecho $I says 'Oh, NOW you're sorry. The dramatic timing on you people, I swear.'
+endif
+endif
+~
+>speech_prog who name you yourself are~
+if rand(33)
+mpecho $I says 'Who am I? I'm the one still standing here after watching a hundred of you not.'
+else
+if rand(50)
+mpecho $I says 'My name's my business. Yours is about to be on a gravestone if you keep wandering like that.'
+else
+mpecho $I says 'I'm nobody important. That's why I'm alive to answer you. Think about it.'
+endif
+endif
+~
+>speech_prog what huh lol lmao haha asdf blah qwerty gibberish~
+if rand(25)
+mpecho $I says 'I have no idea what that was, and I refuse to learn.'
+else
+if rand(33)
+mpecho $I says 'Was that a word? In this realm? Bold of you.'
+else
+if rand(50)
+mpecho $I stares at you the way you'd stare at a dog that started reciting poetry.
+else
+mpecho $I says 'Laugh all you want. The monsters down the road laugh too, and theirs is worse.'
+endif
+endif
+endif
+~
+>speech_prog nice cool awesome love great amazing beautiful~
+if rand(33)
+mpecho $I says 'Flattery. From a stranger covered in someone else's blood. How wholesome.'
+else
+if rand(50)
+mpecho $I says 'Yes, I am wonderful. It changes nothing about your situation, but yes.'
+else
+mpecho $I almost smiles, catches itself, and returns to a professional scowl.
+endif
+endif
+~
+>speech_prog stupid idiot ugly suck noob dumb loser trash~
+if rand(25)
+mpecho $I says 'Says the hero who's been lost in the same three rooms for ten minutes.'
+else
+if rand(33)
+mpecho $I says 'Insults? From you? That's the bravest thing you've done all day, and it's a low bar.'
+else
+if rand(50)
+mpecho $I says 'I've been called worse by better, and I outlived all of them. Care to apply?'
+else
+mpecho $I says 'Big words from a creature with a respawn timer.'
+endif
+endif
+endif
+~
+>speech_prog mud game lag link bug immortal imm code reboot copyover~
+if rand(25)
+mpecho $I says 'The immortals built this place. They also broke it, fixed it, and broke it again. We don't ask.'
+else
+if rand(33)
+mpecho $I says 'If the world freezes, that's not magic, that's lag. Stand very still and pray to the coders.'
+else
+if rand(50)
+mpecho $I says 'Found a bug? Tell an immortal. They love that. They love it SO much.'
+else
+mpecho $I glances upward as if listening to something far above the sky, then shrugs it off.
+endif
+endif
+endif
+~
+>speech_prog gold plat coin free give spare donate beg~
+if rand(33)
+mpecho $I says 'Spare gold? Adventurer, you're carrying a sword worth more than my house.'
+else
+if rand(50)
+mpecho $I says 'I don't give handouts. The monsters give handouts — handfuls, mostly your own.'
+else
+mpecho $I says 'You want free? Go to the newbie zones. Out here, everything bites back for payment.'
+endif
+endif
+~
+>speech_prog marry kiss date cute hot single~
+if rand(33)
+mpecho $I says 'I've outlived three spouses and a continent. Try someone with a shorter memory.'
+else
+if rand(50)
+mpecho $I says 'Charming. The last person who flirted with me also tried to rob me. Funny coincidence.'
+else
+mpecho $I says 'No. But I admire the confidence of a person actively on fire asking me out.'
+endif
+endif
+~
+>speech_prog kill fight attack die murder destroy~
+if rand(33)
+mpecho $I says 'Threaten me? I'm not even the scary thing in this room, and I'm definitely scarier than you.'
+else
+if rand(50)
+mpecho $I says 'Go ahead. The guards are bored, the gods are watching, and I'm insured.'
+else
+mpecho $I says 'You want a fight? The whole realm is a fight. Walk twenty feet, it'll find you.'
+endif
+endif
+~
+|
 #2324
 keeper minotaur ring-keeper~
 the Minotaur Ring-Keeper~
@@ -311,6 +1932,158 @@ keys hanging from his belt. He wears huge, spiked brass knuckles.
 29 -9 -9 100d3+700 5d7+5
 50000 0
 0 0 1
+>speech_prog ring keeper keep treasure guard post~
+mpecho The minotaur ring-keeper says 'A named weapon is still just a weapon until someone bleeds on it. The Keep has bled on many.'
+~
+>speech_prog hi hello hey greetings yo sup hail howdy~
+if rand(25)
+mpecho $I says 'Hello yourself. That's the warm part of this conversation over with.'
+else
+if rand(33)
+mpecho $I says 'Greetings, stranger. You'll be a stranger right up until you owe me money or a funeral.'
+else
+if rand(50)
+mpecho $I nods the exact amount of nod required by law and no more.
+else
+mpecho $I says 'Hi. Yes. Hello. We've done the pleasant part. What do you actually want?'
+endif
+endif
+endif
+~
+>speech_prog bye later goodbye cya farewell leaving gtg~
+if rand(33)
+mpecho $I says 'Leaving already? Try to do it in one piece. It's harder than it sounds around here.'
+else
+if rand(50)
+mpecho $I says 'Goodbye. If you come back through still breathing, I'll be mildly impressed.'
+else
+mpecho $I waves you off with the energy of someone who has waved off a great many people who never returned.
+endif
+endif
+~
+>speech_prog thanks thank ty cheers appreciate grateful~
+if rand(33)
+mpecho $I says 'Thanks don't spend. But I'll allow it, just this once.'
+else
+if rand(50)
+mpecho $I says 'You're welcome. Now go be useful somewhere that isn't directly in front of me.'
+else
+mpecho $I says 'Gratitude. From an adventurer. I'll have this moment mounted on the wall.'
+endif
+endif
+~
+>speech_prog sorry oops apologies mybad pardon~
+if rand(33)
+mpecho $I says 'Sorry doesn't unbreak the vase, the window, or the previous hero. But noted.'
+else
+if rand(50)
+mpecho $I says 'Apology accepted. Reluctantly. Provisionally. Watch yourself.'
+else
+mpecho $I says 'Oh, NOW you're sorry. The dramatic timing on you people, I swear.'
+endif
+endif
+~
+>speech_prog who name you yourself are~
+if rand(33)
+mpecho $I says 'Who am I? I'm the one still standing here after watching a hundred of you not.'
+else
+if rand(50)
+mpecho $I says 'My name's my business. Yours is about to be on a gravestone if you keep wandering like that.'
+else
+mpecho $I says 'I'm nobody important. That's why I'm alive to answer you. Think about it.'
+endif
+endif
+~
+>speech_prog what huh lol lmao haha asdf blah qwerty gibberish~
+if rand(25)
+mpecho $I says 'I have no idea what that was, and I refuse to learn.'
+else
+if rand(33)
+mpecho $I says 'Was that a word? In this realm? Bold of you.'
+else
+if rand(50)
+mpecho $I stares at you the way you'd stare at a dog that started reciting poetry.
+else
+mpecho $I says 'Laugh all you want. The monsters down the road laugh too, and theirs is worse.'
+endif
+endif
+endif
+~
+>speech_prog nice cool awesome love great amazing beautiful~
+if rand(33)
+mpecho $I says 'Flattery. From a stranger covered in someone else's blood. How wholesome.'
+else
+if rand(50)
+mpecho $I says 'Yes, I am wonderful. It changes nothing about your situation, but yes.'
+else
+mpecho $I almost smiles, catches itself, and returns to a professional scowl.
+endif
+endif
+~
+>speech_prog stupid idiot ugly suck noob dumb loser trash~
+if rand(25)
+mpecho $I says 'Says the hero who's been lost in the same three rooms for ten minutes.'
+else
+if rand(33)
+mpecho $I says 'Insults? From you? That's the bravest thing you've done all day, and it's a low bar.'
+else
+if rand(50)
+mpecho $I says 'I've been called worse by better, and I outlived all of them. Care to apply?'
+else
+mpecho $I says 'Big words from a creature with a respawn timer.'
+endif
+endif
+endif
+~
+>speech_prog mud game lag link bug immortal imm code reboot copyover~
+if rand(25)
+mpecho $I says 'The immortals built this place. They also broke it, fixed it, and broke it again. We don't ask.'
+else
+if rand(33)
+mpecho $I says 'If the world freezes, that's not magic, that's lag. Stand very still and pray to the coders.'
+else
+if rand(50)
+mpecho $I says 'Found a bug? Tell an immortal. They love that. They love it SO much.'
+else
+mpecho $I glances upward as if listening to something far above the sky, then shrugs it off.
+endif
+endif
+endif
+~
+>speech_prog gold plat coin free give spare donate beg~
+if rand(33)
+mpecho $I says 'Spare gold? Adventurer, you're carrying a sword worth more than my house.'
+else
+if rand(50)
+mpecho $I says 'I don't give handouts. The monsters give handouts — handfuls, mostly your own.'
+else
+mpecho $I says 'You want free? Go to the newbie zones. Out here, everything bites back for payment.'
+endif
+endif
+~
+>speech_prog marry kiss date cute hot single~
+if rand(33)
+mpecho $I says 'I've outlived three spouses and a continent. Try someone with a shorter memory.'
+else
+if rand(50)
+mpecho $I says 'Charming. The last person who flirted with me also tried to rob me. Funny coincidence.'
+else
+mpecho $I says 'No. But I admire the confidence of a person actively on fire asking me out.'
+endif
+endif
+~
+>speech_prog kill fight attack die murder destroy~
+if rand(33)
+mpecho $I says 'Threaten me? I'm not even the scary thing in this room, and I'm definitely scarier than you.'
+else
+if rand(50)
+mpecho $I says 'Go ahead. The guards are bored, the gods are watching, and I'm insured.'
+else
+mpecho $I says 'You want a fight? The whole realm is a fight. Walk twenty feet, it'll find you.'
+endif
+endif
+~
+|
 #2325
 gorak minotaur warrior master~
 Gorak~
@@ -323,6 +2096,10 @@ master of the warrior guild of Mahn-Tor.
 30 -9 -10 2500d1+500 6d6+5
 100000 0
 0 0 1
+>speech_prog warrior paladin mage cleric druid ranger thief master train class~
+mpecho The minotaur master practices a killing form and does not look up. Here, each master is a class taken to its lethal conclusion.
+~
+|
 #2326
 darkoth minotaur anti-paladin master~
 Darkoth~
@@ -335,6 +2112,10 @@ chill runs down your spine. He is the master of the Mahn-Tor anti-paladins.
 30 -9 -10 2500d1+500 6d6+5
 100000 0
 0 0 1
+>speech_prog warrior paladin mage cleric druid ranger thief master train class~
+mpecho The minotaur master practices a killing form and does not look up. Here, each master is a class taken to its lethal conclusion.
+~
+|
 #2327
 tyrgoth minotaur paladin master~
 Tyrgoth~
@@ -347,6 +2128,158 @@ presence. He is the leader of the Mahn-Tor paladins.
 30 -9 -10 2500d1+500 6d6+5
 100000 0
 0 0 1
+>speech_prog warrior paladin mage cleric druid ranger thief master train class~
+mpecho The minotaur master practices a killing form and does not look up. Here, each master is a class taken to its lethal conclusion.
+~
+>speech_prog hi hello hey greetings yo sup hail howdy~
+if rand(25)
+mpecho $I says 'Hello yourself. That's the warm part of this conversation over with.'
+else
+if rand(33)
+mpecho $I says 'Greetings, stranger. You'll be a stranger right up until you owe me money or a funeral.'
+else
+if rand(50)
+mpecho $I nods the exact amount of nod required by law and no more.
+else
+mpecho $I says 'Hi. Yes. Hello. We've done the pleasant part. What do you actually want?'
+endif
+endif
+endif
+~
+>speech_prog bye later goodbye cya farewell leaving gtg~
+if rand(33)
+mpecho $I says 'Leaving already? Try to do it in one piece. It's harder than it sounds around here.'
+else
+if rand(50)
+mpecho $I says 'Goodbye. If you come back through still breathing, I'll be mildly impressed.'
+else
+mpecho $I waves you off with the energy of someone who has waved off a great many people who never returned.
+endif
+endif
+~
+>speech_prog thanks thank ty cheers appreciate grateful~
+if rand(33)
+mpecho $I says 'Thanks don't spend. But I'll allow it, just this once.'
+else
+if rand(50)
+mpecho $I says 'You're welcome. Now go be useful somewhere that isn't directly in front of me.'
+else
+mpecho $I says 'Gratitude. From an adventurer. I'll have this moment mounted on the wall.'
+endif
+endif
+~
+>speech_prog sorry oops apologies mybad pardon~
+if rand(33)
+mpecho $I says 'Sorry doesn't unbreak the vase, the window, or the previous hero. But noted.'
+else
+if rand(50)
+mpecho $I says 'Apology accepted. Reluctantly. Provisionally. Watch yourself.'
+else
+mpecho $I says 'Oh, NOW you're sorry. The dramatic timing on you people, I swear.'
+endif
+endif
+~
+>speech_prog who name you yourself are~
+if rand(33)
+mpecho $I says 'Who am I? I'm the one still standing here after watching a hundred of you not.'
+else
+if rand(50)
+mpecho $I says 'My name's my business. Yours is about to be on a gravestone if you keep wandering like that.'
+else
+mpecho $I says 'I'm nobody important. That's why I'm alive to answer you. Think about it.'
+endif
+endif
+~
+>speech_prog what huh lol lmao haha asdf blah qwerty gibberish~
+if rand(25)
+mpecho $I says 'I have no idea what that was, and I refuse to learn.'
+else
+if rand(33)
+mpecho $I says 'Was that a word? In this realm? Bold of you.'
+else
+if rand(50)
+mpecho $I stares at you the way you'd stare at a dog that started reciting poetry.
+else
+mpecho $I says 'Laugh all you want. The monsters down the road laugh too, and theirs is worse.'
+endif
+endif
+endif
+~
+>speech_prog nice cool awesome love great amazing beautiful~
+if rand(33)
+mpecho $I says 'Flattery. From a stranger covered in someone else's blood. How wholesome.'
+else
+if rand(50)
+mpecho $I says 'Yes, I am wonderful. It changes nothing about your situation, but yes.'
+else
+mpecho $I almost smiles, catches itself, and returns to a professional scowl.
+endif
+endif
+~
+>speech_prog stupid idiot ugly suck noob dumb loser trash~
+if rand(25)
+mpecho $I says 'Says the hero who's been lost in the same three rooms for ten minutes.'
+else
+if rand(33)
+mpecho $I says 'Insults? From you? That's the bravest thing you've done all day, and it's a low bar.'
+else
+if rand(50)
+mpecho $I says 'I've been called worse by better, and I outlived all of them. Care to apply?'
+else
+mpecho $I says 'Big words from a creature with a respawn timer.'
+endif
+endif
+endif
+~
+>speech_prog mud game lag link bug immortal imm code reboot copyover~
+if rand(25)
+mpecho $I says 'The immortals built this place. They also broke it, fixed it, and broke it again. We don't ask.'
+else
+if rand(33)
+mpecho $I says 'If the world freezes, that's not magic, that's lag. Stand very still and pray to the coders.'
+else
+if rand(50)
+mpecho $I says 'Found a bug? Tell an immortal. They love that. They love it SO much.'
+else
+mpecho $I glances upward as if listening to something far above the sky, then shrugs it off.
+endif
+endif
+endif
+~
+>speech_prog gold plat coin free give spare donate beg~
+if rand(33)
+mpecho $I says 'Spare gold? Adventurer, you're carrying a sword worth more than my house.'
+else
+if rand(50)
+mpecho $I says 'I don't give handouts. The monsters give handouts — handfuls, mostly your own.'
+else
+mpecho $I says 'You want free? Go to the newbie zones. Out here, everything bites back for payment.'
+endif
+endif
+~
+>speech_prog marry kiss date cute hot single~
+if rand(33)
+mpecho $I says 'I've outlived three spouses and a continent. Try someone with a shorter memory.'
+else
+if rand(50)
+mpecho $I says 'Charming. The last person who flirted with me also tried to rob me. Funny coincidence.'
+else
+mpecho $I says 'No. But I admire the confidence of a person actively on fire asking me out.'
+endif
+endif
+~
+>speech_prog kill fight attack die murder destroy~
+if rand(33)
+mpecho $I says 'Threaten me? I'm not even the scary thing in this room, and I'm definitely scarier than you.'
+else
+if rand(50)
+mpecho $I says 'Go ahead. The guards are bored, the gods are watching, and I'm insured.'
+else
+mpecho $I says 'You want a fight? The whole realm is a fight. Walk twenty feet, it'll find you.'
+endif
+endif
+~
+|
 #2328
 amyrok minotaur mage master~
 Amyrok~
@@ -360,6 +2293,10 @@ mages of Mahn-Tor.
 30 -9 -10 2500d1+500 6d6+5
 100000 0
 0 0 1
+>speech_prog warrior paladin mage cleric druid ranger thief master train class~
+mpecho The minotaur master practices a killing form and does not look up. Here, each master is a class taken to its lethal conclusion.
+~
+|
 #2329
 sumaron minotaur cleric master~
 Sumaron~
@@ -372,6 +2309,37 @@ master of all the clerics of Mahn-Tor.
 30 -9 -10 2500d1+500 6d6+5
 100000 0
 0 0 1
+>speech_prog warrior paladin mage cleric druid ranger thief master train class~
+mpecho The minotaur master practices a killing form and does not look up. Here, each master is a class taken to its lethal conclusion.
+~
+>speech_prog heal cure poison blind curse sanctuary bless recall~
+if rand(14)
+mpecho $I says 'A blessing is nice. Sanctuary is better. Not dying is best.'
+else
+if rand(17)
+mpecho $I says 'Curse locks the road home. Remove it before you start praying at the altar.'
+else
+if rand(20)
+mpecho $I says 'I mend what swords open. I cannot mend what stupidity opens. Stop testing me.'
+else
+if rand(25)
+mpecho $I says 'You again. At this rate I should just follow you around and skip the middle part.'
+else
+if rand(33)
+mpecho $I says 'Sit still. Bleeding is rude in a temple, and you're being very rude.'
+else
+if rand(50)
+mpecho $I says 'I can cure poison, blindness, and disease. I cannot cure whatever made you walk in there.'
+else
+mpecho $I says 'The gods love a trier. They love a survivor more. Try to be the second one.'
+endif
+endif
+endif
+endif
+endif
+endif
+~
+|
 #2330
 nasturn minotaur druid master~
 Nasturn~
@@ -384,6 +2352,181 @@ wears no metal of any type. He looks at you and smiles.
 30 -9 -10 2500d1+500 6d6+5
 100000 0
 0 0 1
+>speech_prog warrior paladin mage cleric druid ranger thief master train class~
+mpecho The minotaur master practices a killing form and does not look up. Here, each master is a class taken to its lethal conclusion.
+~
+>speech_prog herb forest nature path woods heal hermit~
+if rand(17)
+mpecho $I says 'Herbs grow where blood has not yet ruined the soil. That narrows it down. Barely.'
+else
+if rand(20)
+mpecho $I says 'If the trees go quiet, something is hunting. Probably you.'
+else
+if rand(25)
+mpecho $I says 'I left the cities because people there talk too much. And here you are. Talking.'
+else
+if rand(33)
+mpecho $I says 'Nature is balance. The bear eats you, the worms eat the bear, I eat neither and live longer.'
+else
+if rand(50)
+mpecho $I says 'Lost? The path's right there. It's always right there. People just stop looking down.'
+else
+mpecho $I mutters to a plant, listens to its answer, and seems more satisfied with that conversation than this one.
+endif
+endif
+endif
+endif
+endif
+~
+>speech_prog hi hello hey greetings yo sup hail howdy~
+if rand(25)
+mpecho $I says 'Hello yourself. That's the warm part of this conversation over with.'
+else
+if rand(33)
+mpecho $I says 'Greetings, stranger. You'll be a stranger right up until you owe me money or a funeral.'
+else
+if rand(50)
+mpecho $I nods the exact amount of nod required by law and no more.
+else
+mpecho $I says 'Hi. Yes. Hello. We've done the pleasant part. What do you actually want?'
+endif
+endif
+endif
+~
+>speech_prog bye later goodbye cya farewell leaving gtg~
+if rand(33)
+mpecho $I says 'Leaving already? Try to do it in one piece. It's harder than it sounds around here.'
+else
+if rand(50)
+mpecho $I says 'Goodbye. If you come back through still breathing, I'll be mildly impressed.'
+else
+mpecho $I waves you off with the energy of someone who has waved off a great many people who never returned.
+endif
+endif
+~
+>speech_prog thanks thank ty cheers appreciate grateful~
+if rand(33)
+mpecho $I says 'Thanks don't spend. But I'll allow it, just this once.'
+else
+if rand(50)
+mpecho $I says 'You're welcome. Now go be useful somewhere that isn't directly in front of me.'
+else
+mpecho $I says 'Gratitude. From an adventurer. I'll have this moment mounted on the wall.'
+endif
+endif
+~
+>speech_prog sorry oops apologies mybad pardon~
+if rand(33)
+mpecho $I says 'Sorry doesn't unbreak the vase, the window, or the previous hero. But noted.'
+else
+if rand(50)
+mpecho $I says 'Apology accepted. Reluctantly. Provisionally. Watch yourself.'
+else
+mpecho $I says 'Oh, NOW you're sorry. The dramatic timing on you people, I swear.'
+endif
+endif
+~
+>speech_prog who name you yourself are~
+if rand(33)
+mpecho $I says 'Who am I? I'm the one still standing here after watching a hundred of you not.'
+else
+if rand(50)
+mpecho $I says 'My name's my business. Yours is about to be on a gravestone if you keep wandering like that.'
+else
+mpecho $I says 'I'm nobody important. That's why I'm alive to answer you. Think about it.'
+endif
+endif
+~
+>speech_prog what huh lol lmao haha asdf blah qwerty gibberish~
+if rand(25)
+mpecho $I says 'I have no idea what that was, and I refuse to learn.'
+else
+if rand(33)
+mpecho $I says 'Was that a word? In this realm? Bold of you.'
+else
+if rand(50)
+mpecho $I stares at you the way you'd stare at a dog that started reciting poetry.
+else
+mpecho $I says 'Laugh all you want. The monsters down the road laugh too, and theirs is worse.'
+endif
+endif
+endif
+~
+>speech_prog nice cool awesome love great amazing beautiful~
+if rand(33)
+mpecho $I says 'Flattery. From a stranger covered in someone else's blood. How wholesome.'
+else
+if rand(50)
+mpecho $I says 'Yes, I am wonderful. It changes nothing about your situation, but yes.'
+else
+mpecho $I almost smiles, catches itself, and returns to a professional scowl.
+endif
+endif
+~
+>speech_prog stupid idiot ugly suck noob dumb loser trash~
+if rand(25)
+mpecho $I says 'Says the hero who's been lost in the same three rooms for ten minutes.'
+else
+if rand(33)
+mpecho $I says 'Insults? From you? That's the bravest thing you've done all day, and it's a low bar.'
+else
+if rand(50)
+mpecho $I says 'I've been called worse by better, and I outlived all of them. Care to apply?'
+else
+mpecho $I says 'Big words from a creature with a respawn timer.'
+endif
+endif
+endif
+~
+>speech_prog mud game lag link bug immortal imm code reboot copyover~
+if rand(25)
+mpecho $I says 'The immortals built this place. They also broke it, fixed it, and broke it again. We don't ask.'
+else
+if rand(33)
+mpecho $I says 'If the world freezes, that's not magic, that's lag. Stand very still and pray to the coders.'
+else
+if rand(50)
+mpecho $I says 'Found a bug? Tell an immortal. They love that. They love it SO much.'
+else
+mpecho $I glances upward as if listening to something far above the sky, then shrugs it off.
+endif
+endif
+endif
+~
+>speech_prog gold plat coin free give spare donate beg~
+if rand(33)
+mpecho $I says 'Spare gold? Adventurer, you're carrying a sword worth more than my house.'
+else
+if rand(50)
+mpecho $I says 'I don't give handouts. The monsters give handouts — handfuls, mostly your own.'
+else
+mpecho $I says 'You want free? Go to the newbie zones. Out here, everything bites back for payment.'
+endif
+endif
+~
+>speech_prog marry kiss date cute hot single~
+if rand(33)
+mpecho $I says 'I've outlived three spouses and a continent. Try someone with a shorter memory.'
+else
+if rand(50)
+mpecho $I says 'Charming. The last person who flirted with me also tried to rob me. Funny coincidence.'
+else
+mpecho $I says 'No. But I admire the confidence of a person actively on fire asking me out.'
+endif
+endif
+~
+>speech_prog kill fight attack die murder destroy~
+if rand(33)
+mpecho $I says 'Threaten me? I'm not even the scary thing in this room, and I'm definitely scarier than you.'
+else
+if rand(50)
+mpecho $I says 'Go ahead. The guards are bored, the gods are watching, and I'm insured.'
+else
+mpecho $I says 'You want a fight? The whole realm is a fight. Walk twenty feet, it'll find you.'
+endif
+endif
+~
+|
 #2331
 belrak minotaur ranger master~
 Belrak~
@@ -396,6 +2539,10 @@ compared to the normal minotaur. He looks at you with a slight smirk.
 30 -9 -10 2500d1+500 6d6+5
 100000 0
 0 0 1
+>speech_prog warrior paladin mage cleric druid ranger thief master train class~
+mpecho The minotaur master practices a killing form and does not look up. Here, each master is a class taken to its lethal conclusion.
+~
+|
 #2332
 dorgar minotaur thief master~
 Dorgar~
@@ -408,6 +2555,10 @@ appears to be quite a skilled thief.
 30 -9 -10 2500d1+500 6d6+5
 100000 0
 0 0 1
+>speech_prog warrior paladin mage cleric druid ranger thief master train class~
+mpecho The minotaur master practices a killing form and does not look up. Here, each master is a class taken to its lethal conclusion.
+~
+|
 #2333
 mahn-tor minotaur grand master~
 Mahn-Tor~
@@ -421,6 +2572,162 @@ Mahn-Tor is the leader of the minotaurs. He is awe-inspiring.
 33 -10 -10 3000d1+500 6d7+5
 100000 0
 0 0 1
+>speech_prog mahntor keep minotaur master ring sword weapon grand~
+if rand(50)
+mpecho Mahn-Tor looks down at you and says 'My masters each perfected one art. You arrived having perfected none. Bold.'
+else
+mpecho Mahn-Tor says 'The Keep keeps its best steel near its worst tempers. Mind which you reach for.'
+endif
+~
+>speech_prog hi hello hey greetings yo sup hail howdy~
+if rand(25)
+mpecho $I says 'Hello yourself. That's the warm part of this conversation over with.'
+else
+if rand(33)
+mpecho $I says 'Greetings, stranger. You'll be a stranger right up until you owe me money or a funeral.'
+else
+if rand(50)
+mpecho $I nods the exact amount of nod required by law and no more.
+else
+mpecho $I says 'Hi. Yes. Hello. We've done the pleasant part. What do you actually want?'
+endif
+endif
+endif
+~
+>speech_prog bye later goodbye cya farewell leaving gtg~
+if rand(33)
+mpecho $I says 'Leaving already? Try to do it in one piece. It's harder than it sounds around here.'
+else
+if rand(50)
+mpecho $I says 'Goodbye. If you come back through still breathing, I'll be mildly impressed.'
+else
+mpecho $I waves you off with the energy of someone who has waved off a great many people who never returned.
+endif
+endif
+~
+>speech_prog thanks thank ty cheers appreciate grateful~
+if rand(33)
+mpecho $I says 'Thanks don't spend. But I'll allow it, just this once.'
+else
+if rand(50)
+mpecho $I says 'You're welcome. Now go be useful somewhere that isn't directly in front of me.'
+else
+mpecho $I says 'Gratitude. From an adventurer. I'll have this moment mounted on the wall.'
+endif
+endif
+~
+>speech_prog sorry oops apologies mybad pardon~
+if rand(33)
+mpecho $I says 'Sorry doesn't unbreak the vase, the window, or the previous hero. But noted.'
+else
+if rand(50)
+mpecho $I says 'Apology accepted. Reluctantly. Provisionally. Watch yourself.'
+else
+mpecho $I says 'Oh, NOW you're sorry. The dramatic timing on you people, I swear.'
+endif
+endif
+~
+>speech_prog who name you yourself are~
+if rand(33)
+mpecho $I says 'Who am I? I'm the one still standing here after watching a hundred of you not.'
+else
+if rand(50)
+mpecho $I says 'My name's my business. Yours is about to be on a gravestone if you keep wandering like that.'
+else
+mpecho $I says 'I'm nobody important. That's why I'm alive to answer you. Think about it.'
+endif
+endif
+~
+>speech_prog what huh lol lmao haha asdf blah qwerty gibberish~
+if rand(25)
+mpecho $I says 'I have no idea what that was, and I refuse to learn.'
+else
+if rand(33)
+mpecho $I says 'Was that a word? In this realm? Bold of you.'
+else
+if rand(50)
+mpecho $I stares at you the way you'd stare at a dog that started reciting poetry.
+else
+mpecho $I says 'Laugh all you want. The monsters down the road laugh too, and theirs is worse.'
+endif
+endif
+endif
+~
+>speech_prog nice cool awesome love great amazing beautiful~
+if rand(33)
+mpecho $I says 'Flattery. From a stranger covered in someone else's blood. How wholesome.'
+else
+if rand(50)
+mpecho $I says 'Yes, I am wonderful. It changes nothing about your situation, but yes.'
+else
+mpecho $I almost smiles, catches itself, and returns to a professional scowl.
+endif
+endif
+~
+>speech_prog stupid idiot ugly suck noob dumb loser trash~
+if rand(25)
+mpecho $I says 'Says the hero who's been lost in the same three rooms for ten minutes.'
+else
+if rand(33)
+mpecho $I says 'Insults? From you? That's the bravest thing you've done all day, and it's a low bar.'
+else
+if rand(50)
+mpecho $I says 'I've been called worse by better, and I outlived all of them. Care to apply?'
+else
+mpecho $I says 'Big words from a creature with a respawn timer.'
+endif
+endif
+endif
+~
+>speech_prog mud game lag link bug immortal imm code reboot copyover~
+if rand(25)
+mpecho $I says 'The immortals built this place. They also broke it, fixed it, and broke it again. We don't ask.'
+else
+if rand(33)
+mpecho $I says 'If the world freezes, that's not magic, that's lag. Stand very still and pray to the coders.'
+else
+if rand(50)
+mpecho $I says 'Found a bug? Tell an immortal. They love that. They love it SO much.'
+else
+mpecho $I glances upward as if listening to something far above the sky, then shrugs it off.
+endif
+endif
+endif
+~
+>speech_prog gold plat coin free give spare donate beg~
+if rand(33)
+mpecho $I says 'Spare gold? Adventurer, you're carrying a sword worth more than my house.'
+else
+if rand(50)
+mpecho $I says 'I don't give handouts. The monsters give handouts — handfuls, mostly your own.'
+else
+mpecho $I says 'You want free? Go to the newbie zones. Out here, everything bites back for payment.'
+endif
+endif
+~
+>speech_prog marry kiss date cute hot single~
+if rand(33)
+mpecho $I says 'I've outlived three spouses and a continent. Try someone with a shorter memory.'
+else
+if rand(50)
+mpecho $I says 'Charming. The last person who flirted with me also tried to rob me. Funny coincidence.'
+else
+mpecho $I says 'No. But I admire the confidence of a person actively on fire asking me out.'
+endif
+endif
+~
+>speech_prog kill fight attack die murder destroy~
+if rand(33)
+mpecho $I says 'Threaten me? I'm not even the scary thing in this room, and I'm definitely scarier than you.'
+else
+if rand(50)
+mpecho $I says 'Go ahead. The guards are bored, the gods are watching, and I'm insured.'
+else
+mpecho $I says 'You want a fight? The whole realm is a fight. Walk twenty feet, it'll find you.'
+endif
+endif
+~
+|
 #0
 
 
@@ -3757,33 +6064,5 @@ S
 0
 
 
-
-#MOBPROGS
-M 2300 dlg_2300.prg
-M 2301 dlg_2301.prg
-M 2303 dlg_2303.prg
-M 2304 dlg_2304.prg
-M 2307 dlg_2307.prg
-M 2309 dlg_2309.prg
-M 2310 dlg_2310.prg
-M 2315 dlg_2315.prg
-M 2316 dlg_2316.prg
-M 2318 dlg_2318.prg
-M 2319 dlg_2319.prg
-M 2320 dlg_2320.prg
-M 2321 dlg_2321.prg
-M 2322 dlg_2322.prg
-M 2323 dlg_2323.prg
-M 2324 dlg_2324.prg
-M 2325 dlg_2325.prg
-M 2326 dlg_2326.prg
-M 2327 dlg_2327.prg
-M 2328 dlg_2328.prg
-M 2329 dlg_2329.prg
-M 2330 dlg_2330.prg
-M 2331 dlg_2331.prg
-M 2332 dlg_2332.prg
-M 2333 dlg_2333.prg
-S
 
 #$

@@ -29,7 +29,7 @@ A battered practice dummy stands here, swaying slightly.
 ~
 This is the first trial.  Defeat it to prove you can do more than flail.
 ~
-104 0 0 S
+105 0 0 S
 5 0 0 0d0+0 0d0+0
 0 0
 0 0 0
@@ -40,7 +40,7 @@ A trial recruit eyes you warily, fists raised.
 ~
 A slightly tougher foe for the second trial.
 ~
-104 0 0 S
+105 0 0 S
 10 0 0 0d0+0 0d0+0
 0 0
 0 0 1
@@ -51,7 +51,7 @@ A trial brawler cracks his knuckles, ready for a real fight.
 ~
 The third trial.  This one will actually hit back.
 ~
-104 0 0 S
+105 0 0 S
 20 0 0 0d0+0 0d0+0
 0 0
 0 0 1
@@ -62,7 +62,7 @@ A trial veteran circles you, looking for an opening.
 ~
 The fourth trial.  A seasoned fighter who punishes mistakes.
 ~
-104 0 0 S
+105 0 0 S
 30 0 0 0d0+0 0d0+0
 0 0
 0 0 1
@@ -73,7 +73,7 @@ A trial champion stands tall, radiating menace.
 ~
 The fifth trial.  A genuine threat to an unprepared challenger.
 ~
-104 0 0 S
+105 0 0 S
 40 0 0 0d0+0 0d0+0
 0 0
 0 0 1
@@ -84,7 +84,7 @@ A trial warlord sneers, weapons gleaming.
 ~
 The sixth trial.  Brutal and unforgiving.
 ~
-104 0 0 S
+105 0 0 S
 50 0 0 0d0+0 0d0+0
 0 0
 0 0 1
@@ -95,7 +95,7 @@ A trial destroyer towers over the arena, hungry for battle.
 ~
 The seventh trial.  Only the well-practiced survive this.
 ~
-104 0 0 S
+105 0 0 S
 65 0 0 0d0+0 0d0+0
 0 0
 0 0 1
@@ -106,7 +106,7 @@ A trial nemesis radiates overwhelming power, the final test.
 ~
 The eighth and final trial.  A true master-level challenge.
 ~
-104 0 0 S
+105 0 0 S
 85 0 0 0d0+0 0d0+0
 0 0
 0 0 1
@@ -142,51 +142,51 @@ Trial of the First Step~
 A bare stone cell, lit by a cold blue glow.  There is no exit but victory.
 Prove yourself here and you will be returned to the lobby automatically.
 ~
-0 10760 1
+0 10764 1
 S
 #2902
 Trial of the Second Step~
 A bare stone cell, lit by a cold blue glow.  The air feels heavier here.
 ~
-0 10760 1
+0 10764 1
 S
 #2903
 Trial of the Third Step~
 A bare stone cell, lit by a cold blue glow.  Old bloodstains mark the floor.
 ~
-0 10760 1
+0 10764 1
 S
 #2904
 Trial of the Fourth Step~
 A bare stone cell, lit by a cold blue glow.  The walls are scarred with
 the marks of past battles.
 ~
-0 10760 1
+0 10764 1
 S
 #2905
 Trial of the Fifth Step~
 A grim arena of black stone.  This is no longer a place for the timid.
 ~
-0 10760 1
+0 10764 1
 S
 #2906
 Trial of the Sixth Step~
 A grim arena of black stone, ringed with broken weapons.
 ~
-0 10760 1
+0 10764 1
 S
 #2907
 Trial of the Seventh Step~
 A vast, echoing chamber.  The very air seems to press down on you.
 ~
-0 10760 1
+0 10764 1
 S
 #2908
 Trial of the Final Step~
 A cathedral of war, lit by a single shaft of crimson light.  Here the
 greatest challenge awaits.  Survive, and you will have proven true mastery.
 ~
-0 10760 1
+0 10764 1
 S
 #0
 
@@ -199,7 +199,6 @@ S
 
 #RESETS
 M 0 2900 2 2900
-M 0 2900 2 3760
 M 0 2901 1 2901
 M 0 2902 1 2902
 M 0 2903 1 2903

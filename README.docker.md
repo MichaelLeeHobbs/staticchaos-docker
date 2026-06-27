@@ -126,6 +126,32 @@ docker compose start mud
 Swap the volume name / tarball for `player`, `notes`, etc. The tarballs are flat (`tar … -C /src .`),
 so they extract directly into the volume root.
 
+## Resilience / self-heal
+
+`restart: unless-stopped` only heals **transient** crashes (crash → restart → boots clean, e.g. a
+segfault mid-play; players just reconnect). It **cannot** heal a **deterministic boot failure** (bad
+data → `exit(1)` on load → restart → same exit) — that just loops forever, which is what once took
+the server down. Three layers cover both cases:
+
+1. **Boot tolerance (code).** A dangling mob/obj vnum in a reset/special/shop/mobprog is logged and
+   skipped instead of `exit(1)` (`get_mob_index`/`get_obj_index`, `src/db.c`). One bad record
+   degrades that record, not the whole game. (Room vnums stay fatal — they're structural.)
+2. **Healthcheck (compose).** A `bash /dev/tcp` connect to 4000 marks the container `healthy` /
+   `unhealthy` in `docker ps` (and feeds the watchdog). It opens+closes a socket every 30s, which the
+   MUD logs as a short-lived connection — harmless, tune `interval` if the noise bothers you.
+3. **Self-heal watchdog (host cron).** `watchdog.sh` (`/etc/cron.d/staticchaos-watchdog`, every 2 min)
+   acts only on **sustained** trouble (default 5 min — long enough to ride out a normal restart). It
+   snapshots the failed `area` volume to `area-FAILED-<stamp>.tgz` for forensics, then restores the
+   newest backup that actually boots (walking back if needed) and restarts, with a 1 h cooldown so a
+   still-broken box isn't healed in a loop (it escalates to the log instead). Log + state live in
+   `/opt/backups/staticchaos/` (`watchdog.log`, `watchdog.state`). Alerts are host-log only for now —
+   swap the `alert()` body for a webhook/email to push them.
+
+Tunables are at the top of `watchdog.sh` (`GRACE_SECS`, `COOLDOWN_SECS`, `VERIFY_WAIT`). To
+disable temporarily: `rm /etc/cron.d/staticchaos-watchdog`. Fire-drill (verify it still works):
+stop the container, truncate `school.are` in the volume, start it (it will boot-loop), then run
+`watchdog.sh` with `first_trouble` backdated past the grace window in `watchdog.state`.
+
 ## World data tooling
 
 Node scripts (in `tools/`) parse the `.are` files into navigable references under

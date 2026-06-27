@@ -1080,15 +1080,30 @@ void chant_lighting( int cn, int rank, CHAR_DATA *ch, void *vo )
   act( "A bright ball of light appears right in $N's face.", ch, NULL, victim, TO_CHAR );
   act( "A bright ball of light appears right in your face!", ch, NULL, victim, TO_VICT );
   act( "A bright ball of light appears right in $N's face.", ch, NULL, victim, TO_NOTVICT );
-  if ( saves_chant( ch, victim, cn ) || IS_SUIT(victim) || victim->level > 95 )
+  if ( IS_SUIT(victim) || victim->level > 95 )
     return;
+
+  /* #6: no longer all-or-nothing.  On a save, a brief "dazzled" hitroll
+   * penalty; on a failed save, blind (PvP capped at 2 ticks, hitroll -8). */
+  if ( saves_chant( ch, victim, cn ) )
+  { af.type      = cn;
+    af.location  = APPLY_HITROLL;
+    af.modifier  = -3;
+    af.duration  = 1;
+    af.bitvector = 0;
+    affect_to_char( victim, &af );
+    act( "$N is dazzled by the flash!", ch, NULL, victim, TO_CHAR );
+    send_to_char( "You are dazzled by the searing light!\n\r", victim );
+    return;
+  }
+
   /* refresh existing blindness on the VICTIM (the old code stripped the caster) */
   if ( is_affected( victim, skill_lookup( "blindness" ) ) )
     affect_strip( victim, skill_lookup( "blindness" ) );
   af.type      = skill_lookup( "blindness" );
   af.location  = APPLY_HITROLL;
-  af.modifier  = -4;
-  af.duration  = (victim->level < 96 ? 1+dice(5,20) : dice(5,10) );
+  af.modifier  = -8;
+  af.duration  = ( !IS_NPC(victim) ? 2 : 1+dice(5,20) );
   af.bitvector = AFF_BLIND;
   affect_to_char( victim, &af );
   act( "$N is blinded!", ch, NULL, victim, TO_CHAR );
@@ -1109,6 +1124,35 @@ void chant_dicleary( int cn, int rank, CHAR_DATA *ch, void *vo )
   victim->hit = UMIN( victim->max_hit, victim->hit + heal );
   update_pos( victim );
   victim->move = UMIN( victim->max_move, victim->move + heal );
+
+  /* #6: also cleanse ONE major debuff, gated by rank, highest priority first
+   * (curse > root > blind > poison). Healing/move above is unchanged. */
+  { int cured = 0;
+    if ( rank >= 35 )
+    { int cg = 0;
+      if      ( is_affected( victim, gsn_wind_curse  ) ) cg = gsn_wind_curse;
+      else if ( is_affected( victim, gsn_earth_curse ) ) cg = gsn_earth_curse;
+      else if ( is_affected( victim, gsn_flame_curse ) ) cg = gsn_flame_curse;
+      else if ( is_affected( victim, gsn_water_curse ) ) cg = gsn_water_curse;
+      if ( cg != 0 )
+      { affect_strip( victim, cg ); cured = 1;
+        send_to_char( "A dark curse is lifted from you.\n\r", victim ); }
+    }
+    if ( !cured && rank >= 45 && IS_AFFECTED( victim, AFF_NO_FLEE ) )
+    { AFFECT_DATA *paf;
+      for ( paf = victim->affected; paf != NULL; paf = paf->next )
+        if ( paf->bitvector & AFF_NO_FLEE )
+        { affect_remove( victim, paf ); break; }
+      cured = 1;
+      send_to_char( "You are freed from magical restraint.\n\r", victim );
+    }
+    if ( !cured && rank >= 25 && is_affected( victim, skill_lookup( "blindness" ) ) )
+    { affect_strip( victim, skill_lookup( "blindness" ) ); cured = 1;
+      send_to_char( "Your sight returns.\n\r", victim ); }
+    if ( !cured && rank >= 15 && is_affected( victim, skill_lookup( "poison" ) ) )
+    { affect_strip( victim, skill_lookup( "poison" ) ); cured = 1;
+      send_to_char( "The poison is purged from you.\n\r", victim ); }
+  }
   return;
 }
 
@@ -1124,7 +1168,7 @@ void chant_holy_bless( int cn, int rank, CHAR_DATA *ch, void *vo )
   af.type      = sn;
   af.duration  = 30 * rank + dice(1,6);
   af.location  = APPLY_HITROLL;
-  af.modifier  = UMAX(1,(rank-30)/2);
+  af.modifier  = UMAX( 2, rank / 5 );   /* #6: better early scaling -- 10->2, 25->5, 50->10 */
   af.bitvector = 0;
   affect_to_char( victim, &af );
 
@@ -1384,6 +1428,8 @@ void chant_vas_gluudo( int cn, int rank, CHAR_DATA *ch, void *vo )
 void chant_chaos_strings( int cn, int rank, CHAR_DATA *ch, void *vo )
 {
   int i=0, dam, max;
+  AFFECT_DATA af;
+  bool pvp, saved;
   CHAR_DATA *victim = (CHAR_DATA *) vo;
 
   if ( IS_NPC(victim) )
@@ -1394,6 +1440,20 @@ void chant_chaos_strings( int cn, int rank, CHAR_DATA *ch, void *vo )
   act( "You lash $N with enchanted strings!", ch, NULL, victim, TO_CHAR );
   act( "You are lashed with enchanted strings!", ch, NULL, victim, TO_VICT );
   act( "$N is lashed with enchanted strings.", ch, NULL, victim, TO_NOTVICT );
+
+  /* #6: peel -- apply the melee-suppression debuff the fight code already reads
+   * (halves Fist melee, cuts attacks ~1/3).  Applied before damage so it lands
+   * even if the victim then dies.  Damage is intentionally unchanged. */
+  pvp   = !IS_NPC(victim);
+  saved = saves_chant( ch, victim, cn );
+  if ( !is_affected( victim, skill_lookup( "chaos strings" ) ) )
+  { af.type      = skill_lookup( "chaos strings" );
+    af.location  = APPLY_NONE;
+    af.modifier  = 0;
+    af.bitvector = AFF_CHAOS_STRING;
+    af.duration  = saved ? ( pvp ? 1 : 2 ) : ( pvp ? 2 : 4 );
+    affect_to_char( victim, &af );
+  }
 
   do
   { dam = dice( 15, rank );
@@ -2023,11 +2083,36 @@ void chant_freeze_arrow( int cn, int rank, CHAR_DATA *ch, void *vo )
   chant_damage( ch, victim, dam, cn );
   return;
 } 
-void chant_dark_mist( int cn, int rank, CHAR_DATA *ch, void *vo ) 
+void chant_dark_mist( int cn, int rank, CHAR_DATA *ch, void *vo )
 {
-  send_to_char( "sorry, not implemented atm.\n\r", ch );
+  /* #6 first pass: a dark mist dims the aim of everyone hostile in the room
+   * (-10 hitroll, short duration).  NOTE: simplified -- this hits whoever is
+   * present at cast, not a persistent room field, and the ally-flee bonus and
+   * scan/ranged penalties from the full design are deferred. */
+  AFFECT_DATA af;
+  CHAR_DATA *vch, *vch_next;
+  int dur = 1 + dice( 1, 2 );
+
+  act( "A dark mist spills across the room, swallowing the edges of sight.", ch, NULL, NULL, TO_CHAR );
+  act( "A dark mist spills across the room, swallowing the edges of sight.", ch, NULL, NULL, TO_ROOM );
+
+  for ( vch = ch->in_room->people; vch != NULL; vch = vch_next )
+  {
+    vch_next = vch->next_in_room;
+    if ( vch == ch || is_same_group( ch, vch ) )
+      continue;
+    if ( is_affected( vch, cn ) )
+      continue;
+    af.type      = cn;
+    af.location  = APPLY_HITROLL;
+    af.modifier  = -10;
+    af.duration  = dur;
+    af.bitvector = 0;
+    affect_to_char( vch, &af );
+    send_to_char( "The dark mist clings to you, dimming your aim.\n\r", vch );
+  }
   return;
-} 
+}
 void chant_ly_briem( int cn, int rank, CHAR_DATA *ch, void *vo ) 
 { CHAR_DATA *victim = (CHAR_DATA *) vo;
   int chance = rank;

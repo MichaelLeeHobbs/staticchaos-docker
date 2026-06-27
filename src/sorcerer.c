@@ -785,7 +785,26 @@ void chant_blast_ash( int cn, int rank, CHAR_DATA *ch, void *vo )
   act( "$N is engulfed by dark energy!", ch, NULL, victim, TO_CHAR );
   act( "You are engulfed by dark energy!", ch, NULL, victim, TO_VICT );
   act( "$N is engulfed by dark energy!", ch, NULL, victim, TO_NOTVICT );
-  chant_damage( ch, victim, victim->hit + dice( 2, 5 ), cn );
+
+  /* PvP safety cap (issue #5): the execute deals damage equal to the target's
+   * full current HP -- a guaranteed kill from any HP, too swingy in PvP. Cap it
+   * to non-lethal above 25% HP; true execute only once the target is at/below
+   * 25%. PvE is unchanged.
+   * Spec: docs/features/5-2026-06-27-blast-ash-pvp-cap.md */
+  if ( IS_NPC( victim ) || victim->hit * 4 <= victim->max_hit )
+  { /* PvE, or a PC already at/below 25% HP: full execute. */
+    chant_damage( ch, victim, victim->hit + dice( 2, 5 ), cn );
+  }
+  else
+  { /* PC above 25% HP: 20% current HP + rank*20, clamped so it can't kill.
+     * Leave 10% headroom: chant_damage adds +10% Black-school damage to a
+     * "scorched" victim (fight.c), which would otherwise push a hit-1 clamp
+     * back over lethal and defeat this cap. (hit-1)*10/11 stays non-lethal
+     * even after that amplification. */
+    int dam = victim->hit / 5 + rank * 20;
+    dam = UMIN( dam, ( victim->hit - 1 ) * 10 / 11 );
+    chant_damage( ch, victim, dam, cn );
+  }
   return;
 }
 

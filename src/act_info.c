@@ -1454,13 +1454,67 @@ void do_inventory( CHAR_DATA *ch, char *argument )
 
 
 
+/* Compact stat tag for an APPLY_ location, or NULL for ones not worth showing
+ * in the equipment summary (class/level/age/height/weight/gold/exp). #10 */
+#define EQ_APPLY_MAX 32
+char *eq_stat_short( int loc )
+{
+    switch ( loc )
+    {
+    case APPLY_STR:           return "Str";
+    case APPLY_DEX:           return "Dex";
+    case APPLY_INT:           return "Int";
+    case APPLY_WIS:           return "Wis";
+    case APPLY_CON:           return "Con";
+    case APPLY_SEX:           return "Sex";
+    case APPLY_MANA:          return "Mana";
+    case APPLY_HIT:           return "Hp";
+    case APPLY_MOVE:          return "Move";
+    case APPLY_AC:            return "AC";
+    case APPLY_HITROLL:       return "Hit";
+    case APPLY_DAMROLL:       return "Dam";
+    case APPLY_SAVING_PARA:   return "SvPara";
+    case APPLY_SAVING_ROD:    return "SvRod";
+    case APPLY_SAVING_PETRI:  return "SvPetri";
+    case APPLY_SAVING_BREATH: return "SvBreath";
+    case APPLY_SAVING_SPELL:  return "SvSpell";
+    default:                  return NULL;
+    }
+}
+
+/* Append "Tag+N"/"Tag-N" for one affect to dst, and add it into total[]. #10 */
+void eq_append_stat( char *dst, int *total, AFFECT_DATA *paf )
+{
+    char *tag;
+    char one[64];
+
+    if ( paf->location == APPLY_NONE || paf->modifier == 0 )
+	return;
+    if ( paf->location < 0 || paf->location >= EQ_APPLY_MAX )
+	return;
+    if ( ( tag = eq_stat_short( paf->location ) ) == NULL )
+	return;
+    total[ paf->location ] += paf->modifier;
+    if ( dst[0] != '\0' )
+	strcat( dst, " " );
+    sprintf( one, "%s%s%d", tag, paf->modifier > 0 ? "+" : "", paf->modifier );
+    strcat( dst, one );
+}
+
 void do_equipment( CHAR_DATA *ch, char *argument )
 {
     char buf[MAX_STRING_LENGTH];
+    char stats[MAX_STRING_LENGTH];
     OBJ_DATA *obj;
     AFFECT_DATA *paf;
+    int total[EQ_APPLY_MAX];
     int iWear;
+    int i;
     bool found;
+    bool any_total;
+
+    for ( i = 0; i < EQ_APPLY_MAX; i++ )
+	total[i] = 0;
 
     send_to_char( "You are using:\n\r", ch );
     found = FALSE;
@@ -1473,28 +1527,20 @@ void do_equipment( CHAR_DATA *ch, char *argument )
 	if ( can_see_obj( ch, obj ) )
 	{
 	    send_to_char( format_obj_to_char( obj, ch, TRUE ), ch );
-	    send_to_char( "\n\r", ch );
 
-	    /* show what the item affects, like 'identify' does */
+	    /* Compact stat tags to the right of the item; totals accumulate. */
+	    stats[0] = '\0';
 	    for ( paf = obj->pIndexData->affected; paf != NULL; paf = paf->next )
-	    {
-		if ( paf->location != APPLY_NONE && paf->modifier != 0 )
-		{
-		    sprintf( buf, "     (affects %s by %d)\n\r",
-			affect_loc_name( paf->location ), paf->modifier );
-		    send_to_char( buf, ch );
-		}
-	    }
-
+		eq_append_stat( stats, total, paf );
 	    for ( paf = obj->affected; paf != NULL; paf = paf->next )
+		eq_append_stat( stats, total, paf );
+
+	    if ( stats[0] != '\0' )
 	    {
-		if ( paf->location != APPLY_NONE && paf->modifier != 0 )
-		{
-		    sprintf( buf, "     (affects %s by %d)\n\r",
-			affect_loc_name( paf->location ), paf->modifier );
-		    send_to_char( buf, ch );
-		}
+		sprintf( buf, "  [%s]", stats );
+		send_to_char( buf, ch );
 	    }
+	    send_to_char( "\n\r", ch );
 	}
 	else
 	{
@@ -1504,7 +1550,28 @@ void do_equipment( CHAR_DATA *ch, char *argument )
     }
 
     if ( !found )
+    {
 	send_to_char( "Nothing.\n\r", ch );
+	return;
+    }
+
+    /* Total equipped stat bonuses. */
+    stats[0] = '\0';
+    any_total = FALSE;
+    for ( i = 1; i < EQ_APPLY_MAX; i++ )
+    {
+	char *tag = eq_stat_short( i );
+	if ( tag != NULL && total[i] != 0 )
+	{
+	    char one[64];
+	    sprintf( one, "%s%s%d ", tag, total[i] > 0 ? "+" : "", total[i] );
+	    strcat( stats, one );
+	    any_total = TRUE;
+	}
+    }
+    send_to_char( "\n\r", ch );
+    sprintf( buf, "Total equipped bonuses: %s\n\r", any_total ? stats : "none." );
+    send_to_char( buf, ch );
 
     return;
 }

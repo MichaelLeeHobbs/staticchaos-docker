@@ -1541,7 +1541,6 @@ void spell_identify( int sn, int level, CHAR_DATA *ch, void *vo )
 {
     OBJ_DATA *obj = (OBJ_DATA *) vo;
     char buf[MAX_STRING_LENGTH];
-    AFFECT_DATA *paf;
 
     sprintf( buf,
 	"Object '%s' is type %s, extra flags %s.\n\rWeight is %d, value is %d, level is %d.\n\r",
@@ -1620,25 +1619,9 @@ void spell_identify( int sn, int level, CHAR_DATA *ch, void *vo )
       send_to_char( buf, ch );
     }
 
-    for ( paf = obj->pIndexData->affected; paf != NULL; paf = paf->next )
-    {
-	if ( paf->location != APPLY_NONE && paf->modifier != 0 )
-	{
-	    sprintf( buf, "Affects %s by %d.\n\r",
-		affect_loc_name( paf->location ), paf->modifier );
-	    send_to_char( buf, ch );
-	}
-    }
-
-    for ( paf = obj->affected; paf != NULL; paf = paf->next )
-    {
-	if ( paf->location != APPLY_NONE && paf->modifier != 0 )
-	{
-	    sprintf( buf, "Affects %s by %d.\n\r",
-		affect_loc_name( paf->location ), paf->modifier );
-	    send_to_char( buf, ch );
-	}
-    }
+    /* Show derived effects (e.g. +2 STR -> Dam+4), consistent with the
+     * 'equipment' command, instead of the raw APPLY_ stat names. #26 */
+    show_obj_affects( ch, obj );
 
     return;
 }

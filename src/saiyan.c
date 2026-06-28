@@ -1152,21 +1152,21 @@ void do_ryuken( CHAR_DATA *ch, char *argument )
     }
   }
 
-  dam = dice( ch->pcdata->body, ch->pcdata->body * 2 );
+  dam = dice( ch->pcdata->body, ch->pcdata->body * 3 / 2 );
   if ( setup )
-    dam += dam * 15 / 100;
+    dam += dam * 10 / 100;
   damage( ch, victim, dam, F_UPPERCUT );
   if ( ch->fighting != NULL )
   { act( "An incandescent dragon curls up your arm and crashes into $N!", ch, NULL, victim, TO_CHAR );
     act( "An incancescent dragon spears through you!", ch, NULL, victim, TO_VICT );
     act( "An incandescent dragon spears through $N", ch, NULL, victim, TO_NOTVICT );
-    dam = dice( ch->pcdata->spirit, ch->pcdata->spirit * 3 / 2 );
+    dam = dice( ch->pcdata->spirit, ch->pcdata->spirit * 5 / 4 );
     if ( setup )
-      dam += dam * 15 / 100;
+      dam += dam * 10 / 100;
     damage( ch, victim, dam, DAM_KIFLAME );
   }
   ch->pcdata->powers[S_POWER] -= 10000;
-  WAIT_STATE( ch, broke_major ? 24 : 28 );
+  WAIT_STATE( ch, broke_major ? 26 : 30 );
   return;
 }
 

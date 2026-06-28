@@ -1152,6 +1152,22 @@ void remove_rune( CHAR_DATA *ch, int type, int part )
   return;
 }
 
+/* #7: print an active ward and its remaining duration, if present. */
+void runestats_ward( CHAR_DATA *ch, int gsn, char *name )
+{
+  AFFECT_DATA *paf;
+  char buf[MAX_STRING_LENGTH];
+
+  for ( paf = ch->affected; paf != NULL; paf = paf->next )
+    if ( paf->type == gsn )
+    { /* ward "duration" is an absorption pool (mind*15), drained in big chunks
+       * per blocked hit -- it is strength, not time, so don't call it ticks. */
+      sprintf( buf, "  Active ward: %-8s (strength ~%d)\n\r", name, paf->duration );
+      send_to_char( buf, ch );
+      return;
+    }
+}
+
 void do_runestats( CHAR_DATA *ch, char *argument )
 {
   int part, rune;
@@ -1205,6 +1221,49 @@ void do_runestats( CHAR_DATA *ch, char *argument )
 	message[4][0],message[4][1],message[4][2],message[4][3],
 	message[4][4],message[4][5],message[4][6],message[4][7] );
   send_to_char( buf, ch );
+
+  /* #7: derived defensive summary -- defenses state, rune layout (and what each
+   * drives), active blocks, and active wards with remaining duration.  The exact
+   * derived magnitudes (mitigation %, parry/melee/leg bonuses) are formula-driven
+   * in fight.c and shown here as their rune inputs; exact numbers are a follow-up. */
+  { int t_earth = get_runes( ch, RUNE_EARTH, TORSO );
+    int t_fire  = get_runes( ch, RUNE_FIRE,  TORSO );
+    int t_air   = get_runes( ch, RUNE_AIR,   TORSO );
+    int t_water = get_runes( ch, RUNE_WATER, TORSO );
+    int a_fire  = get_runes( ch, RUNE_FIRE,  LEFTARM ) + get_runes( ch, RUNE_FIRE,  RIGHTARM );
+    int a_earth = get_runes( ch, RUNE_EARTH, LEFTARM ) + get_runes( ch, RUNE_EARTH, RIGHTARM );
+    int l_earth = get_runes( ch, RUNE_EARTH, LEFTLEG ) + get_runes( ch, RUNE_EARTH, RIGHTLEG );
+
+    send_to_char( "Defensive summary:\n\r", ch );
+    sprintf( buf, "  Defenses: %s\n\r",
+      IS_SET( ch->pcdata->powers[P_BITS], P_DEFENSES ) ? "raised" : "lowered" );
+    send_to_char( buf, ch );
+    sprintf( buf, "  Torso runes: Earth %d / Fire %d / Air %d / Water %d  (earth+fire drive damage mitigation)\n\r",
+      t_earth, t_fire, t_air, t_water );
+    send_to_char( buf, ch );
+    sprintf( buf, "  Arm runes:   Fire %d (melee damage) / Earth %d (parry)\n\r", a_fire, a_earth );
+    send_to_char( buf, ch );
+    sprintf( buf, "  Leg runes:   Earth %d (reduces enemy parry/dodge/block)\n\r", l_earth );
+    send_to_char( buf, ch );
+
+    if ( IS_SET( ch->pcdata->actnew, NEW_AIR_BLOCK )
+      || IS_SET( ch->pcdata->actnew, NEW_FIRE_BLOCK )
+      || IS_SET( ch->pcdata->actnew, NEW_NEGATIVE_BLOCK ) )
+    { sprintf( buf, "  Active block:%s%s%s\n\r",
+        IS_SET( ch->pcdata->actnew, NEW_AIR_BLOCK )      ? " air"      : "",
+        IS_SET( ch->pcdata->actnew, NEW_FIRE_BLOCK )     ? " fire"     : "",
+        IS_SET( ch->pcdata->actnew, NEW_NEGATIVE_BLOCK ) ? " negative" : "" );
+      send_to_char( buf, ch );
+    }
+
+    runestats_ward( ch, gsn_spirit_ward,   "spirit"   );
+    runestats_ward( ch, gsn_earth_ward,    "earth"    );
+    runestats_ward( ch, gsn_flame_ward,    "flame"    );
+    runestats_ward( ch, gsn_wind_ward,     "wind"     );
+    runestats_ward( ch, gsn_water_ward,    "water"    );
+    runestats_ward( ch, gsn_negative_ward, "negative" );
+    send_to_char( "\n\r", ch );
+  }
 
   return;
 
@@ -1420,7 +1479,8 @@ void do_defenses( CHAR_DATA *ch, char *argument )
       send_to_char( "Your defenses are already raised.\n\r", ch );
     else
     { SET_BIT(ch->pcdata->powers[P_BITS],P_DEFENSES);
-      send_to_char( "You raise your defenses.\n\r", ch );
+      send_to_char( "You raise your rune defenses, and the tattoos across your body harden with light.\n\r", ch );
+      WAIT_STATE( ch, 4 );   /* #7 */
     }
   }
   else if ( !str_prefix( arg, "lower" ) )
@@ -1429,7 +1489,8 @@ void do_defenses( CHAR_DATA *ch, char *argument )
       send_to_char( "Your defenses are already lowered.\n\r", ch );
     else
     { REMOVE_BIT(ch->pcdata->powers[P_BITS],P_DEFENSES);
-      send_to_char( "You lower your defenses.\n\r", ch );
+      send_to_char( "You lower your rune defenses, letting the power flow back into your hands.\n\r", ch );
+      WAIT_STATE( ch, 2 );   /* #7 */
     }
   }
   else

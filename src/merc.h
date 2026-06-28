@@ -2914,6 +2914,7 @@ void	wiznet		args( ( char *argument ) );
 /* act_info.c */
 void	set_title	args( ( CHAR_DATA *ch, char *title ) );
 int	assess		args( ( CHAR_DATA *ch ) );
+void	show_obj_affects	args( ( CHAR_DATA *ch, OBJ_DATA *obj ) );
 
 /* act_move.c */
 void	move_char	args( ( CHAR_DATA *ch, int door ) );

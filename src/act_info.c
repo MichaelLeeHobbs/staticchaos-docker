@@ -1515,6 +1515,33 @@ void eq_render_derived( char *dst, int *d )
     }
 }
 
+/* Walk both affect lists of an object through the derived-stat buckets and
+ * print a single "Affects: ..." line showing the real mechanical effect (the
+ * same translation 'equipment' uses).  Prints nothing if there are no derived
+ * effects.  Shared by spell_identify; display-only. #26 */
+void show_obj_affects( CHAR_DATA *ch, OBJ_DATA *obj )
+{
+    char buf[MAX_STRING_LENGTH];
+    char stats[MAX_STRING_LENGTH];
+    AFFECT_DATA *paf;
+    int d[EQD_MAX];
+    int i;
+
+    for ( i = 0; i < EQD_MAX; i++ )
+	d[i] = 0;
+    for ( paf = obj->pIndexData->affected; paf != NULL; paf = paf->next )
+	eq_add_derived( d, paf->location, paf->modifier );
+    for ( paf = obj->affected; paf != NULL; paf = paf->next )
+	eq_add_derived( d, paf->location, paf->modifier );
+
+    eq_render_derived( stats, d );
+    if ( stats[0] != '\0' )
+    {
+	sprintf( buf, "Affects: %s\n\r", stats );
+	send_to_char( buf, ch );
+    }
+}
+
 void do_equipment( CHAR_DATA *ch, char *argument )
 {
     char buf[MAX_STRING_LENGTH];

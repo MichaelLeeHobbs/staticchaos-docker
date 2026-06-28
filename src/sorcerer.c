@@ -1249,11 +1249,75 @@ void chant_flow_break( int cn, int rank, CHAR_DATA *ch, void *vo )
     send_to_char( "Your recovery is disrupted.\n\r", victim );
   }
 
-  /* Strip up to `strips` temporary affects (permanent/innate ones are left). */
+  /* #8: explicit, save-scaled interaction with Patryn defenses.  Blocks are
+   * actnew bits (the generic strip below can't reach them); wards are gsn_*_ward
+   * affects, handled here (drained or removed) -- so the generic loop skips them
+   * to avoid double-removing a ward in one cast. */
+  if ( IS_CLASS( victim, CLASS_PATRYN ) )
+  {
+    bool  saved     = saves_chant( ch, victim, cn );
+    int   blockbit  = 0;
+    int   wardgsn   = 0;
+    bool  popblock  = FALSE;
+    char *blockname = NULL;
+    char  buf[MAX_STRING_LENGTH];
+    AFFECT_DATA *wpaf;
+
+    if      ( IS_SET(victim->pcdata->actnew, NEW_AIR_BLOCK)      ) { blockbit = NEW_AIR_BLOCK;      blockname = "air"; }
+    else if ( IS_SET(victim->pcdata->actnew, NEW_FIRE_BLOCK)     ) { blockbit = NEW_FIRE_BLOCK;     blockname = "fire"; }
+    else if ( IS_SET(victim->pcdata->actnew, NEW_NEGATIVE_BLOCK) ) { blockbit = NEW_NEGATIVE_BLOCK; blockname = "negative"; }
+
+    if      ( is_affected(victim, gsn_spirit_ward)   ) wardgsn = gsn_spirit_ward;
+    else if ( is_affected(victim, gsn_earth_ward)    ) wardgsn = gsn_earth_ward;
+    else if ( is_affected(victim, gsn_flame_ward)    ) wardgsn = gsn_flame_ward;
+    else if ( is_affected(victim, gsn_wind_ward)     ) wardgsn = gsn_wind_ward;
+    else if ( is_affected(victim, gsn_water_ward)    ) wardgsn = gsn_water_ward;
+    else if ( is_affected(victim, gsn_negative_ward) ) wardgsn = gsn_negative_ward;
+
+    /* A failed save is strictly worse than a save: it removes a ward outright
+     * (and a block); a save only drains the ward -- never fully, floor 1 -- and
+     * has a 25% chance to also pop a block.  Block removal is hoisted below so
+     * both paths share one stanza. */
+    if ( !saved )
+    { popblock = ( blockbit != 0 );
+      if ( wardgsn != 0 )
+      { affect_strip( victim, wardgsn );
+        send_to_char( "Your ward unravels!\n\r", victim );
+        act( "Your Flow Break unravels $N's ward!", ch, NULL, victim, TO_CHAR );
+      }
+    }
+    else
+    { popblock = ( blockbit != 0 && number_percent() <= 25 );
+      if ( wardgsn != 0 )
+      { for ( wpaf = victim->affected; wpaf != NULL; wpaf = wpaf->next )
+          if ( wpaf->type == wardgsn )
+          { wpaf->duration = UMAX( 1, wpaf->duration - 300 ); break; }
+        act( "Your Flow Break scrapes power from $N's ward.", ch, NULL, victim, TO_CHAR );
+        send_to_char( "Your ward loses power under the Flow Break.\n\r", victim );
+      }
+    }
+
+    if ( popblock )
+    { REMOVE_BIT( victim->pcdata->actnew, blockbit );
+      sprintf( buf, "Your %s block is torn apart!\n\r", blockname );
+      send_to_char( buf, victim );
+      act( "Your Flow Break tears one of $N's rune blocks apart!", ch, NULL, victim, TO_CHAR );
+    }
+  }
+
+  /* Strip up to `strips` temporary affects (permanent/innate ones are left).
+   * Patryn wards are handled explicitly above, so skip them here (#8). */
   for ( paf = victim->affected; paf != NULL && removed < strips; paf = paf_next )
   {
     paf_next = paf->next;
     if ( paf->type == hr || paf->duration < 0 )
+      continue;
+    /* Patryn wards are handled explicitly above -- skip them here only for
+     * Patryns, so a ward lingering on a non-Patryn is still strippable. */
+    if ( IS_CLASS(victim,CLASS_PATRYN)
+      && ( paf->type == gsn_spirit_ward || paf->type == gsn_earth_ward
+        || paf->type == gsn_flame_ward  || paf->type == gsn_wind_ward
+        || paf->type == gsn_water_ward  || paf->type == gsn_negative_ward ) )
       continue;
     if ( paf->type > 0 && skill_table[paf->type].msg_off )
     { send_to_char( skill_table[paf->type].msg_off, victim );

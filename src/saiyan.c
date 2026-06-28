@@ -1088,6 +1088,8 @@ void do_ryuken( CHAR_DATA *ch, char *argument )
         || IS_SET(victim->pcdata->actnew,NEW_FIRE_BLOCK)
         || IS_SET(victim->pcdata->actnew,NEW_NEGATIVE_BLOCK) ) )
       setup = TRUE;
+    else if ( IS_CLASS(victim,CLASS_SORCERER) && victim->pcdata->chant != NULL )
+      setup = TRUE;   /* mid-chant counts as a setup state (review #4) */
   }
 
   if (!IS_NPC(victim))
@@ -1100,30 +1102,37 @@ void do_ryuken( CHAR_DATA *ch, char *argument )
     else if ( victim->class == CLASS_SAIYAN && is_affected(victim,gsn_kiwall) )
     { affect_strip(victim,gsn_kiwall); broke_major = TRUE; }
     else if ( IS_CLASS(victim,CLASS_SORCERER) )
-    { /* Defense blocks the chant-interrupt: shatter it, still deal damage. */
+    { /* Defense shatters (still take damage); without Defense, an in-progress
+       * chant is interrupted.  Breaking either is a major disruption
+       * (broke_major -> less lag, +damage).  No "casting" text when not chanting
+       * (lose_chant is a silent no-op then -- review #4). */
       if ( is_affected(victim,gsn_defense) )
       { affect_strip(victim,gsn_defense); broke_major = TRUE;
-        act( "Your dragon uppercut shatters $N's Defense, but the chant survives!", ch, NULL, victim, TO_CHAR );
-        act( "$n's dragon uppercut shatters your Defense, but your chant survives!", ch, NULL, victim, TO_VICT );
+        act( "Your dragon uppercut shatters $N's Defense barrier!", ch, NULL, victim, TO_CHAR );
+        act( "$n's dragon uppercut shatters your Defense barrier!", ch, NULL, victim, TO_VICT );
+        act( "$n's dragon uppercut shatters $N's Defense barrier.", ch, NULL, victim, TO_NOTVICT );
       }
-      else
-      { act( "Your dragon uppercut staggers $N!", ch, NULL, victim, TO_CHAR );
+      else if ( victim->pcdata->chant != NULL )
+      { lose_chant(victim); broke_major = TRUE;
+        act( "Your dragon uppercut staggers $N, disrupting the chant!", ch, NULL, victim, TO_CHAR );
         act( "$n's dragon uppercut disrupts your casting!", ch, NULL, victim, TO_VICT );
         act( "$n's dragon uppercut staggers $N.", ch, NULL, victim, TO_NOTVICT );
-        lose_chant(victim);
       }
     }
     else if ( IS_CLASS(victim,CLASS_PATRYN) )
     { /* Strip one active block (Air > Fire > Negative), else drain a ward by 500. */
       if ( IS_SET(victim->pcdata->actnew,NEW_AIR_BLOCK) )
       { REMOVE_BIT(victim->pcdata->actnew,NEW_AIR_BLOCK); broke_major = TRUE;
-        act( "Your dragon uppercut shatters $N's air block!", ch, NULL, victim, TO_CHAR ); }
+        act( "Your dragon uppercut shatters $N's air block!", ch, NULL, victim, TO_CHAR );
+        act( "$n's dragon uppercut shatters your air block!", ch, NULL, victim, TO_VICT ); }
       else if ( IS_SET(victim->pcdata->actnew,NEW_FIRE_BLOCK) )
       { REMOVE_BIT(victim->pcdata->actnew,NEW_FIRE_BLOCK); broke_major = TRUE;
-        act( "Your dragon uppercut shatters $N's fire block!", ch, NULL, victim, TO_CHAR ); }
+        act( "Your dragon uppercut shatters $N's fire block!", ch, NULL, victim, TO_CHAR );
+        act( "$n's dragon uppercut shatters your fire block!", ch, NULL, victim, TO_VICT ); }
       else if ( IS_SET(victim->pcdata->actnew,NEW_NEGATIVE_BLOCK) )
       { REMOVE_BIT(victim->pcdata->actnew,NEW_NEGATIVE_BLOCK); broke_major = TRUE;
-        act( "Your dragon uppercut shatters $N's negative block!", ch, NULL, victim, TO_CHAR ); }
+        act( "Your dragon uppercut shatters $N's negative block!", ch, NULL, victim, TO_CHAR );
+        act( "$n's dragon uppercut shatters your negative block!", ch, NULL, victim, TO_VICT ); }
       else
       { int wg = 0;
         if      ( is_affected(victim,gsn_spirit_ward)   ) wg = gsn_spirit_ward;
@@ -1134,7 +1143,8 @@ void do_ryuken( CHAR_DATA *ch, char *argument )
         else if ( is_affected(victim,gsn_negative_ward) ) wg = gsn_negative_ward;
         if ( wg != 0 )
         { dec_duration( victim, wg, 500 ); broke_major = TRUE;
-          act( "Your dragon uppercut drains the power from $N's ward!", ch, NULL, victim, TO_CHAR ); }
+          act( "Your dragon uppercut drains the power from $N's ward!", ch, NULL, victim, TO_CHAR );
+          act( "$n's dragon uppercut drains the power from your ward!", ch, NULL, victim, TO_VICT ); }
       }
     }
     else if ( IS_CLASS(victim,CLASS_MAZOKU) )
@@ -1145,6 +1155,7 @@ void do_ryuken( CHAR_DATA *ch, char *argument )
         broke_major = TRUE;
         act( "Your dragon uppercut scatters $N's gathered energy!", ch, NULL, victim, TO_CHAR );
         act( "$n's dragon uppercut scatters your charge!", ch, NULL, victim, TO_VICT );
+        act( "$n's dragon uppercut scatters $N's gathered energy.", ch, NULL, victim, TO_NOTVICT );
       }
     }
   }

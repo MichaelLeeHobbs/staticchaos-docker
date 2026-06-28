@@ -965,11 +965,10 @@ void chant_dynast_breath( int cn, int rank, CHAR_DATA *ch, void *vo )
   /* #23: Holy Bless (white-spec) ward -- 5% chance to keep the feet free of the
    * rooting ice.  Only the no-flee is shrugged off; the AC penalty still lands. */
   if ( ( af.bitvector & AFF_NO_FLEE ) != 0
-    && IS_AFFECTED( victim, AFF_HOLY_BLESS ) != 0 && number_percent() <= 5 )
-  { send_to_char( "Ceiphied's blessing keeps your feet free of the ice!\n\r", victim );
-    act( "Ceiphied's blessing frees $N's feet -- $E is not rooted!", ch, NULL, victim, TO_CHAR );
+    && holy_bless_wards( ch, victim,
+         "Ceiphied's blessing keeps your feet free of the ice!\n\r",
+         "Ceiphied's blessing frees $N's feet -- $E is not rooted!" ) )
     af.bitvector = 0;
-  }
   affect_to_char( victim, &af );
 
   if ( saved )
@@ -1110,11 +1109,10 @@ void chant_lighting( int cn, int rank, CHAR_DATA *ch, void *vo )
   }
 
   /* #23: Holy Bless (white-spec) ward -- 5% chance to shrug off the blinding flash */
-  if ( IS_AFFECTED( victim, AFF_HOLY_BLESS ) != 0 && number_percent() <= 5 )
-  { send_to_char( "Ceiphied's blessing wards off the searing light!\n\r", victim );
-    act( "Ceiphied's blessing shields $N from the blinding flash!", ch, NULL, victim, TO_CHAR );
+  if ( holy_bless_wards( ch, victim,
+         "Ceiphied's blessing wards off the searing light!\n\r",
+         "Ceiphied's blessing shields $N from the blinding flash!" ) )
     return;
-  }
 
   /* refresh existing blindness on the VICTIM (the old code stripped the caster) */
   if ( is_affected( victim, skill_lookup( "blindness" ) ) )
@@ -1201,12 +1199,31 @@ void chant_holy_bless( int cn, int rank, CHAR_DATA *ch, void *vo )
                  ? AFF_HOLY_BLESS : 0;
   affect_to_char( victim, &af );
 
+  /* Carry the ward bit on exactly ONE node (the hitroll affect above).  If both
+   * bless nodes carried it, affect_remove's per-node REMOVE_BIT would clear the
+   * aggregate flag the moment either node is stripped individually (flow_break,
+   * dispel), killing the ward while the other node still lives. */
+  af.bitvector = 0;
   af.location  = APPLY_DAMROLL;
   affect_to_char( victim, &af );
   send_to_char( "You feel Ceiphied's protection enfold you.\n\r", victim );
   if ( ch != victim )
     send_to_char( "Ok.\n\r", ch );
   return;
+}
+
+/* #23: White-specialist Holy Bless ward.  Returns TRUE (and emits the two
+ * messages) when the victim shrugs off an incoming effect, so callers can skip
+ * applying it.  Centralizes the 5% predicate + messaging shared by every
+ * curse/blind/sleep/root application site. */
+bool holy_bless_wards( CHAR_DATA *ch, CHAR_DATA *victim, char *vict_msg, char *caster_msg )
+{
+  if ( IS_AFFECTED( victim, AFF_HOLY_BLESS ) != 0 && number_percent() <= HOLY_BLESS_WARD_PCT )
+  { send_to_char( vict_msg, victim );
+    act( caster_msg, ch, NULL, victim, TO_CHAR );
+    return TRUE;
+  }
+  return FALSE;
 }
 
 /* White/Astral counter to magic stacking.  Strips 1-3 temporary affects
@@ -1373,11 +1390,10 @@ void chant_laphas_seed( int cn, int rank, CHAR_DATA *ch, void *vo )
   }
 
   /* #23: Holy Bless (white-spec) ward -- 5% chance to snap the binding energy */
-  if ( IS_AFFECTED( victim, AFF_HOLY_BLESS ) != 0 && number_percent() <= 5 )
-  { send_to_char( "Ceiphied's blessing snaps the binding energy!\n\r", victim );
-    act( "Ceiphied's blessing keeps $N free of your bands!", ch, NULL, victim, TO_CHAR );
+  if ( holy_bless_wards( ch, victim,
+         "Ceiphied's blessing snaps the binding energy!\n\r",
+         "Ceiphied's blessing keeps $N free of your bands!" ) )
     return;
-  }
 
   act( "$N is wrapped in bands of energy!", ch, NULL, victim, TO_CHAR );
   act( "You are wrapped in bands of energy!", ch, NULL, victim, TO_VICT );
@@ -1455,10 +1471,10 @@ void chant_sleeping( int cn, int rank, CHAR_DATA *ch, void *vo )
         act( "$N looks drowsy for a moment, but shakes it off.", ch,NULL,vch,TO_NOTVICT );
       }
       /* #23: Holy Bless (white-spec) ward -- 5% chance to shrug off the sleep */
-      else if ( IS_AFFECTED(vch, AFF_HOLY_BLESS) != 0 && number_percent() <= 5 )
-      { send_to_char( "Ceiphied's blessing wards off the drowsiness!\n\r", vch );
-        act( "Ceiphied's blessing keeps $N awake!", ch, NULL, vch, TO_CHAR );
-      }
+      else if ( holy_bless_wards( ch, vch,
+                  "Ceiphied's blessing wards off the drowsiness!\n\r",
+                  "Ceiphied's blessing keeps $N awake!" ) )
+      { /* warded -- messages emitted by helper */ }
       else
       { act( "$N dozes off.", ch, NULL, vch, TO_CHAR );
         act( "You feel drowsy.. zzzz...", ch, NULL, vch, TO_VICT );

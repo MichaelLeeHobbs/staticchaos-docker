@@ -424,11 +424,9 @@ void do_runeweave( CHAR_DATA *ch, char *argument )
     	  break;
     	}
     	/* #23: Holy Bless (white-spec) ward -- 5% chance to shrug off the curse */
-    	if ( IS_AFFECTED(victim, AFF_HOLY_BLESS) != 0 && number_percent() <= 5 )
-    	{ send_to_char( "Ceiphied's blessing wards it off!\n\r", victim );
-    	  act( "Ceiphied's blessing wards off your runeweave!", ch, NULL, victim, TO_CHAR );
+    	if ( holy_bless_wards( ch, victim, "Ceiphied's blessing wards it off!\n\r",
+    	       "Ceiphied's blessing wards off your runeweave!" ) )
     	  break;
-    	}
     	/* only one elemental curse at a time: strip the other three */
     	affect_strip( victim, gsn_earth_curse );
     	affect_strip( victim, gsn_flame_curse );
@@ -450,11 +448,9 @@ void do_runeweave( CHAR_DATA *ch, char *argument )
           break;
         }
         /* #23: Holy Bless (white-spec) ward -- 5% chance to shrug off the curse */
-        if ( IS_AFFECTED(victim, AFF_HOLY_BLESS) != 0 && number_percent() <= 5 )
-        { send_to_char( "Ceiphied's blessing wards it off!\n\r", victim );
-          act( "Ceiphied's blessing wards off your runeweave!", ch, NULL, victim, TO_CHAR );
+        if ( holy_bless_wards( ch, victim, "Ceiphied's blessing wards it off!\n\r",
+               "Ceiphied's blessing wards off your runeweave!" ) )
           break;
-        }
         /* only one elemental curse at a time: strip the other three */
         affect_strip( victim, gsn_wind_curse );
         affect_strip( victim, gsn_flame_curse );
@@ -476,11 +472,9 @@ void do_runeweave( CHAR_DATA *ch, char *argument )
           break;
         }
         /* #23: Holy Bless (white-spec) ward -- 5% chance to shrug off the curse */
-        if ( IS_AFFECTED(victim, AFF_HOLY_BLESS) != 0 && number_percent() <= 5 )
-        { send_to_char( "Ceiphied's blessing wards it off!\n\r", victim );
-          act( "Ceiphied's blessing wards off your runeweave!", ch, NULL, victim, TO_CHAR );
+        if ( holy_bless_wards( ch, victim, "Ceiphied's blessing wards it off!\n\r",
+               "Ceiphied's blessing wards off your runeweave!" ) )
           break;
-        }
         /* only one elemental curse at a time: strip the other three */
         affect_strip( victim, gsn_wind_curse );
         affect_strip( victim, gsn_earth_curse );
@@ -502,11 +496,9 @@ void do_runeweave( CHAR_DATA *ch, char *argument )
           break;
         }
         /* #23: Holy Bless (white-spec) ward -- 5% chance to shrug off the curse */
-        if ( IS_AFFECTED(victim, AFF_HOLY_BLESS) != 0 && number_percent() <= 5 )
-        { send_to_char( "Ceiphied's blessing wards it off!\n\r", victim );
-          act( "Ceiphied's blessing wards off your runeweave!", ch, NULL, victim, TO_CHAR );
+        if ( holy_bless_wards( ch, victim, "Ceiphied's blessing wards it off!\n\r",
+               "Ceiphied's blessing wards off your runeweave!" ) )
           break;
-        }
         /* only one elemental curse at a time: strip the other three */
         affect_strip( victim, gsn_wind_curse );
         affect_strip( victim, gsn_earth_curse );

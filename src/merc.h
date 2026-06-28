@@ -946,6 +946,7 @@ struct	kill_data
 #define	AFF_STEELY	       67108864
 #define	AFF_HENSHIN           134217728
 #define	AFF_HOLY_BLESS        268435456
+#define HOLY_BLESS_WARD_PCT   5            /* #23: white-spec bless resist % */
 
 
 
@@ -3021,6 +3022,7 @@ void	affect_remove	args( ( CHAR_DATA *ch, AFFECT_DATA *paf ) );
 void	affect_strip	args( ( CHAR_DATA *ch, int sn ) );
 bool	is_same_clan	args( ( CHAR_DATA *ch, CHAR_DATA *victim ) );
 bool	is_affected	args( ( CHAR_DATA *ch, int sn ) );
+bool	holy_bless_wards	args( ( CHAR_DATA *ch, CHAR_DATA *victim, char *vict_msg, char *caster_msg ) );
 
 /* Class Trials -- Phase B (trials.c). */
 bool	trial_ready		args( ( CHAR_DATA *ch, int req ) );

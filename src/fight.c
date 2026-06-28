@@ -937,6 +937,11 @@ int damage( CHAR_DATA *ch, CHAR_DATA *victim, int dam, int dt )
                 }
               }
             }
+    else if ( IS_AFFECTED(ch,AFF_CHAOS_STRING)
+           && (dt >= TYPE_HIT && dt < TYPE_HIT+15) )
+    {
+      dam -= dam * 15 / 100;
+    }
 
 	    if ( IS_AFFECTED(victim,AFF_HOLY_RESIST) )
 	    {

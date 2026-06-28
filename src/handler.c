@@ -1620,6 +1620,7 @@ char *affect_bit_name( int vector )
     if ( vector & AFF_HOLY_RESIST   ) strcat( buf, " holy resist"   );
     if ( vector & AFF_WINDY_SHIELD  ) strcat( buf, " windy shield"  );
     if ( vector & AFF_RAYWING       ) strcat( buf, " raywing"       );
+    if ( vector & AFF_HOLY_BLESS    ) strcat( buf, " holy bless"    );
     return ( buf[0] != '\0' ) ? buf+1 : "none";
 }
 

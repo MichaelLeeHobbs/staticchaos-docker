@@ -423,6 +423,10 @@ void do_runeweave( CHAR_DATA *ch, char *argument )
     	  stc( "They are already so cursed.\n\r", ch );
     	  break;
     	}
+    	/* #23: Holy Bless (white-spec) ward -- 5% chance to shrug off the curse */
+    	if ( holy_bless_wards( ch, victim, "Ceiphied's blessing wards it off!\n\r",
+    	       "Ceiphied's blessing wards off your runeweave!" ) )
+    	  break;
     	/* only one elemental curse at a time: strip the other three */
     	affect_strip( victim, gsn_earth_curse );
     	affect_strip( victim, gsn_flame_curse );
@@ -443,6 +447,10 @@ void do_runeweave( CHAR_DATA *ch, char *argument )
           stc( "They are already so cursed.\n\r", ch );
           break;
         }
+        /* #23: Holy Bless (white-spec) ward -- 5% chance to shrug off the curse */
+        if ( holy_bless_wards( ch, victim, "Ceiphied's blessing wards it off!\n\r",
+               "Ceiphied's blessing wards off your runeweave!" ) )
+          break;
         /* only one elemental curse at a time: strip the other three */
         affect_strip( victim, gsn_wind_curse );
         affect_strip( victim, gsn_flame_curse );
@@ -463,6 +471,10 @@ void do_runeweave( CHAR_DATA *ch, char *argument )
           stc( "They are already so cursed.\n\r", ch );
           break;
         }
+        /* #23: Holy Bless (white-spec) ward -- 5% chance to shrug off the curse */
+        if ( holy_bless_wards( ch, victim, "Ceiphied's blessing wards it off!\n\r",
+               "Ceiphied's blessing wards off your runeweave!" ) )
+          break;
         /* only one elemental curse at a time: strip the other three */
         affect_strip( victim, gsn_wind_curse );
         affect_strip( victim, gsn_earth_curse );
@@ -483,6 +495,10 @@ void do_runeweave( CHAR_DATA *ch, char *argument )
           stc( "They are already so cursed.\n\r", ch );
           break;
         }
+        /* #23: Holy Bless (white-spec) ward -- 5% chance to shrug off the curse */
+        if ( holy_bless_wards( ch, victim, "Ceiphied's blessing wards it off!\n\r",
+               "Ceiphied's blessing wards off your runeweave!" ) )
+          break;
         /* only one elemental curse at a time: strip the other three */
         affect_strip( victim, gsn_wind_curse );
         affect_strip( victim, gsn_earth_curse );

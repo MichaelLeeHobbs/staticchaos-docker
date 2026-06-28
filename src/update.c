@@ -2042,6 +2042,7 @@ void update_handler( void )
 	weather_update	( );
 	char_update	( );
 	obj_update	( );
+	dark_mist_update( );	/* #22: expire active Dark Mist room fields */
 	inf_update	( );
         save_clanboard	( );
         // save_llboards   ( (flipflop = !flipflop) );

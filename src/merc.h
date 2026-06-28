@@ -3115,6 +3115,8 @@ char *  mprog_type_to_name      args( ( int type ) );
 
 /* patryn.c */
 int	get_runes	args( ( CHAR_DATA *ch, int type, int part ) );
+int	patryn_active_block	args( ( CHAR_DATA *ch, char **name ) );
+int	patryn_active_ward	args( ( CHAR_DATA *ch ) );
 
 /* save.c */
 void	save_char_obj	args( ( CHAR_DATA *ch ) );

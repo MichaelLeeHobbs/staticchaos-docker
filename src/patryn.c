@@ -1116,6 +1116,43 @@ int get_runes( CHAR_DATA *ch, int type, int part )
 }
 
 
+/* Highest-priority active rune block (Air > Fire > Negative), or 0.  On a
+   non-zero return *name is set to "air"/"fire"/"negative"; left untouched
+   otherwise.  Single source of truth for the block-cascade order (#25). */
+int patryn_active_block( CHAR_DATA *ch, char **name )
+{
+  if ( !IS_CLASS(ch,CLASS_PATRYN) )
+    return 0;
+
+  if ( IS_SET(ch->pcdata->actnew,NEW_AIR_BLOCK) )
+  { *name = "air";      return NEW_AIR_BLOCK; }
+  if ( IS_SET(ch->pcdata->actnew,NEW_FIRE_BLOCK) )
+  { *name = "fire";     return NEW_FIRE_BLOCK; }
+  if ( IS_SET(ch->pcdata->actnew,NEW_NEGATIVE_BLOCK) )
+  { *name = "negative"; return NEW_NEGATIVE_BLOCK; }
+
+  return 0;
+}
+
+
+/* Highest-priority active ward's gsn, or 0.  Priority order:
+   Spirit > Earth > Flame > Wind > Water > Negative (#25). */
+int patryn_active_ward( CHAR_DATA *ch )
+{
+  if ( !IS_CLASS(ch,CLASS_PATRYN) )
+    return 0;
+
+  if ( is_affected(ch,gsn_spirit_ward)   ) return gsn_spirit_ward;
+  if ( is_affected(ch,gsn_earth_ward)    ) return gsn_earth_ward;
+  if ( is_affected(ch,gsn_flame_ward)    ) return gsn_flame_ward;
+  if ( is_affected(ch,gsn_wind_ward)     ) return gsn_wind_ward;
+  if ( is_affected(ch,gsn_water_ward)    ) return gsn_water_ward;
+  if ( is_affected(ch,gsn_negative_ward) ) return gsn_negative_ward;
+
+  return 0;
+}
+
+
 void add_rune( CHAR_DATA *ch, int type, int part )
 {
   int i = 0;

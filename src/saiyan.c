@@ -1120,27 +1120,19 @@ void do_ryuken( CHAR_DATA *ch, char *argument )
       }
     }
     else if ( IS_CLASS(victim,CLASS_PATRYN) )
-    { /* Strip one active block (Air > Fire > Negative), else drain a ward by 500. */
-      if ( IS_SET(victim->pcdata->actnew,NEW_AIR_BLOCK) )
-      { REMOVE_BIT(victim->pcdata->actnew,NEW_AIR_BLOCK); broke_major = TRUE;
-        act( "Your dragon uppercut shatters $N's air block!", ch, NULL, victim, TO_CHAR );
-        act( "$n's dragon uppercut shatters your air block!", ch, NULL, victim, TO_VICT ); }
-      else if ( IS_SET(victim->pcdata->actnew,NEW_FIRE_BLOCK) )
-      { REMOVE_BIT(victim->pcdata->actnew,NEW_FIRE_BLOCK); broke_major = TRUE;
-        act( "Your dragon uppercut shatters $N's fire block!", ch, NULL, victim, TO_CHAR );
-        act( "$n's dragon uppercut shatters your fire block!", ch, NULL, victim, TO_VICT ); }
-      else if ( IS_SET(victim->pcdata->actnew,NEW_NEGATIVE_BLOCK) )
-      { REMOVE_BIT(victim->pcdata->actnew,NEW_NEGATIVE_BLOCK); broke_major = TRUE;
-        act( "Your dragon uppercut shatters $N's negative block!", ch, NULL, victim, TO_CHAR );
-        act( "$n's dragon uppercut shatters your negative block!", ch, NULL, victim, TO_VICT ); }
+    { /* Strip one active block (Air > Fire > Negative), else drain a ward by 500.
+       * Priority cascades live in patryn.c (patryn_active_block/ward) -- #25. */
+      char *blockname = NULL;
+      int   blockbit  = patryn_active_block( victim, &blockname );
+      if ( blockbit != 0 )
+      { char buf[MAX_STRING_LENGTH];
+        REMOVE_BIT(victim->pcdata->actnew,blockbit); broke_major = TRUE;
+        sprintf( buf, "Your dragon uppercut shatters $N's %s block!", blockname );
+        act( buf, ch, NULL, victim, TO_CHAR );
+        sprintf( buf, "$n's dragon uppercut shatters your %s block!", blockname );
+        act( buf, ch, NULL, victim, TO_VICT ); }
       else
-      { int wg = 0;
-        if      ( is_affected(victim,gsn_spirit_ward)   ) wg = gsn_spirit_ward;
-        else if ( is_affected(victim,gsn_earth_ward)    ) wg = gsn_earth_ward;
-        else if ( is_affected(victim,gsn_flame_ward)    ) wg = gsn_flame_ward;
-        else if ( is_affected(victim,gsn_wind_ward)     ) wg = gsn_wind_ward;
-        else if ( is_affected(victim,gsn_water_ward)    ) wg = gsn_water_ward;
-        else if ( is_affected(victim,gsn_negative_ward) ) wg = gsn_negative_ward;
+      { int wg = patryn_active_ward( victim );
         if ( wg != 0 )
         { dec_duration( victim, wg, 500 ); broke_major = TRUE;
           act( "Your dragon uppercut drains the power from $N's ward!", ch, NULL, victim, TO_CHAR );

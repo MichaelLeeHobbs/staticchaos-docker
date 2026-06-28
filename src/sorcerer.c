@@ -975,7 +975,14 @@ void chant_dynast_breath( int cn, int rank, CHAR_DATA *ch, void *vo )
     ac_pen = pvp ? UMIN( rank * 4, 200 ) : rank * 6;
 
   af.type      = skill_lookup( "dynast breath" );
-  af.duration  = saved ? ( pvp ? 1 : 2 ) : ( pvp ? 3 : 5 );
+  /* #34: restore the long not-saved root (the #2 nerf to 3/5 was too harsh) --
+   * but it now lands only on a FAILED save (and is shrugged by Holy Bless, below),
+   * which is the counterplay the original ~105-tick lockdown lacked.  A save still
+   * shortens it sharply. */
+  if ( saved )
+    af.duration = pvp ? dice( 2, 10 ) : dice( 3, 10 );
+  else
+    af.duration = dice( 10, 20 );
   af.location  = APPLY_AC;
   af.modifier  = ac_pen;
   af.bitvector = saved ? 0 : AFF_NO_FLEE;

@@ -937,6 +937,10 @@ void extract_char( CHAR_DATA *ch, bool fPull )
 	return;
     }
 
+    /* Dark Mist (#22) owner safety: drop any active mist field this char owns
+       so the registry never dereferences a freed CHAR_DATA. */
+    dark_mist_owner_gone( ch );
+
     if ( fPull )
 	die_follower( ch );
 

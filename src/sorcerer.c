@@ -2153,40 +2153,139 @@ void chant_freeze_arrow( int cn, int rank, CHAR_DATA *ch, void *vo )
   chant_damage( ch, victim, dam, cn );
   return;
 } 
+/* --------------------------------------------------------------------------
+ *  Dark Mist (#22) -- active-mist room-field registry.
+ *
+ *  The engine has no room-affect list (ROOM_INDEX_DATA carries no affects), so
+ *  a persistent room effect is tracked here in a small fixed-size table.  Each
+ *  live entry pins a room, the caster who owns the field, and a tick countdown.
+ *  Effects look the room up via is_dark_misted():
+ *    - non-allies take -10 hitroll        (fight.c one_hit)
+ *    - grouped allies get +15% flee        (fight.c do_flee)
+ *    - fire damage burns it away           (fight.c damage)
+ *    - it otherwise expires on its timer   (update.c dark_mist_update)
+ *  Owner safety: the caster pointer is dropped in extract_char (handler.c) via
+ *  dark_mist_owner_gone, so the registry never dereferences a freed CHAR_DATA.
+ *  ------------------------------------------------------------------------ */
+#define MAX_DARK_MIST 16
+
+typedef struct dark_mist_entry DARK_MIST;
+struct dark_mist_entry
+{
+  ROOM_INDEX_DATA *room;
+  CHAR_DATA       *owner;
+  int              timer;
+};
+
+static DARK_MIST dark_mist_table[MAX_DARK_MIST];
+
+/* Owner of the mist in this room, or NULL if the room is not misted. */
+CHAR_DATA *is_dark_misted( ROOM_INDEX_DATA *room )
+{
+  int i;
+  if ( room == NULL )
+    return NULL;
+  for ( i = 0; i < MAX_DARK_MIST; i++ )
+    if ( dark_mist_table[i].room == room && dark_mist_table[i].timer > 0 )
+      return dark_mist_table[i].owner;
+  return NULL;
+}
+
+/* Add or refresh the mist on a room. */
+void dark_mist_add( ROOM_INDEX_DATA *room, CHAR_DATA *owner, int timer )
+{
+  int i, slot = -1;
+  if ( room == NULL )
+    return;
+  for ( i = 0; i < MAX_DARK_MIST; i++ )
+  {
+    if ( dark_mist_table[i].room == room && dark_mist_table[i].timer > 0 )
+    { /* refresh in place */
+      dark_mist_table[i].owner = owner;
+      dark_mist_table[i].timer = timer;
+      return;
+    }
+    if ( slot < 0 && dark_mist_table[i].timer <= 0 )
+      slot = i;
+  }
+  if ( slot < 0 )
+    return;  /* table full -- only a handful are ever live, so just drop it */
+  dark_mist_table[slot].room  = room;
+  dark_mist_table[slot].owner = owner;
+  dark_mist_table[slot].timer = timer;
+}
+
+/* Send a line to everyone in a room (no actor needed -- this is a room effect). */
+static void dark_mist_echo( ROOM_INDEX_DATA *room, const char *msg )
+{
+  CHAR_DATA *rch;
+  if ( room == NULL )
+    return;
+  for ( rch = room->people; rch != NULL; rch = rch->next_in_room )
+    send_to_char( msg, rch );
+}
+
+/* Fire burns the mist away with a message. */
+void dark_mist_clear( ROOM_INDEX_DATA *room )
+{
+  int i;
+  if ( room == NULL )
+    return;
+  for ( i = 0; i < MAX_DARK_MIST; i++ )
+    if ( dark_mist_table[i].room == room && dark_mist_table[i].timer > 0 )
+    {
+      dark_mist_table[i].room  = NULL;
+      dark_mist_table[i].owner = NULL;
+      dark_mist_table[i].timer = 0;
+      dark_mist_echo( room, "The dark mist burns away.\n\r" );
+      return;
+    }
+}
+
+/* Caster extracted (quit/death): drop any field they own. */
+void dark_mist_owner_gone( CHAR_DATA *ch )
+{
+  int i;
+  for ( i = 0; i < MAX_DARK_MIST; i++ )
+    if ( dark_mist_table[i].owner == ch )
+    {
+      dark_mist_table[i].room  = NULL;
+      dark_mist_table[i].owner = NULL;
+      dark_mist_table[i].timer = 0;
+    }
+}
+
+/* Tick all live fields; expire (with a message) on 0.  Once per PULSE_TICK. */
+void dark_mist_update( void )
+{
+  int i;
+  for ( i = 0; i < MAX_DARK_MIST; i++ )
+  {
+    if ( dark_mist_table[i].timer <= 0 )
+      continue;
+    if ( --dark_mist_table[i].timer <= 0 )
+    {
+      ROOM_INDEX_DATA *room = dark_mist_table[i].room;
+      dark_mist_table[i].room  = NULL;
+      dark_mist_table[i].owner = NULL;
+      dark_mist_table[i].timer = 0;
+      dark_mist_echo( room, "The dark mist thins and clears.\n\r" );
+    }
+  }
+}
+
 void chant_dark_mist( int cn, int rank, CHAR_DATA *ch, void *vo )
 {
-  /* #6 first pass: a dark mist dims the aim of hostiles in the room (-10 hitroll,
-   * short duration).  Gated like chant_sleeping -- per-target save, exempt
-   * newbies (and high-level NPCs), skip self/group -- so it can't blanket-grief
-   * bystanders.  Uses the blindness skill type (a real skill index, not cn).
-   * NOTE: simplified -- not a persistent room field; ally-flee and scan/ranged
-   * penalties from the full design are deferred. */
-  AFFECT_DATA af;
-  CHAR_DATA *vch, *vch_next;
-  int blind = skill_lookup( "blindness" );
-  int dur   = 1 + dice( 1, 2 );
-
+  /* #22: Dark Mist is a persistent room field, not a one-shot debuff.  It marks
+   * ch->in_room in the active-mist registry with ch as owner; while it lasts,
+   * non-allies in the room take -10 hitroll (fight.c) and grouped allies get
+   * +15% flee (do_flee).  Fire burns it away, else it expires on its timer.
+   * People who enter after the cast are affected -- it's a field, not a
+   * one-shot.  vo may be a target or NULL -- ignored; this is room-wide.
+   * Scan/vision/ranged penalties from the full design are deferred (phase 1). */
+  dark_mist_add( ch->in_room, ch, 5 );
   act( "A dark mist spills across the room, swallowing the edges of sight.", ch, NULL, NULL, TO_CHAR );
   act( "A dark mist spills across the room, swallowing the edges of sight.", ch, NULL, NULL, TO_ROOM );
-
-  for ( vch = ch->in_room->people; vch != NULL; vch = vch_next )
-  {
-    vch_next = vch->next_in_room;
-    if ( vch == ch || is_same_group( ch, vch ) )
-      continue;
-    if ( ( IS_NPC(vch)  && ( saves_chant(ch,vch,cn) || vch->level > 75 ) )
-      || ( !IS_NPC(vch) && ( saves_chant(ch,vch,cn) || vch->level < 2 ) ) )
-      continue;
-    if ( is_affected( vch, blind ) )
-      continue;
-    af.type      = blind;
-    af.location  = APPLY_HITROLL;
-    af.modifier  = -10;
-    af.duration  = dur;
-    af.bitvector = 0;
-    affect_to_char( vch, &af );
-    send_to_char( "The dark mist clings to you, dimming your aim.\n\r", vch );
-  }
   return;
 }
 void chant_ly_briem( int cn, int rank, CHAR_DATA *ch, void *vo ) 

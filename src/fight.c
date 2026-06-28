@@ -329,6 +329,15 @@ void one_hit( CHAR_DATA *ch, CHAR_DATA *victim, int dt )
 	chance -= chance / 4;
     */
 
+    /* Dark Mist (#22): a hostile room field dims the aim of non-allies.  Only
+       the local to-hit chance is touched -- no persistent stat change.  The
+       owner and anyone grouped with the owner are unaffected. */
+    {
+      CHAR_DATA *mist_owner = is_dark_misted( ch->in_room );
+      if ( mist_owner != NULL && !is_same_group( ch, mist_owner ) )
+        chance -= 10;
+    }
+
     /*
      * The moment of excitement!
      */
@@ -654,6 +663,12 @@ int damage( CHAR_DATA *ch, CHAR_DATA *victim, int dam, int dt )
 	if ( is_affected(victim,gsn_flame_curse)
 	  && ( dt == DAM_FIRE || dt == DAM_KIFLAME || dt == DAM_CRIMSON ) )
 	  dam += dam * 12 / 100;
+
+	/* Dark Mist (#22): fire burns the mist away.  Any fire-family hit
+	   landing in a misted room clears the field (with a room message). */
+	if ( ( dt == DAM_FIRE || dt == DAM_KIFLAME || dt == DAM_CRIMSON )
+	  && is_dark_misted( victim->in_room ) != NULL )
+	  dark_mist_clear( victim->in_room );
 
 	if ( dam < 0 )
 	    dam = 0;
@@ -3223,6 +3238,16 @@ void do_flee( CHAR_DATA *ch, char *argument )
 	   (via mod) to make escape ~10% harder.  10 tunable.                  */
 	if ( is_affected(ch,gsn_wind_curse) )
 	  mod -= 10;
+
+	/* Dark Mist (#22): the caster's allies slip away through the murk.
+	   Escape succeeds when the roll does NOT exceed (15 + mod + attackers*40),
+	   so raising the threshold via mod makes escape ~15% easier.  is_same_group
+	   counts the owner himself.                                              */
+	{
+	  CHAR_DATA *mist_owner = is_dark_misted( ch->in_room );
+	  if ( mist_owner != NULL && is_same_group( ch, mist_owner ) )
+	    mod += 15;
+	}
 
 	if ( number_percent() > (15 + mod + attackers*40 ) )
 	{ act( "You fail!", ch, NULL, victim, TO_CHAR );

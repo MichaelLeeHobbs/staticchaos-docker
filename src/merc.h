@@ -3132,6 +3132,12 @@ char	*initial	args( ( const char *str ) );
 /* sorcerer.c */
 void	chant_cast	args( ( CHAR_DATA *ch, CHANT_DATA *cha ) );
 void	lose_chant	args( ( CHAR_DATA *ch ) );
+/* Dark Mist (#22) -- active-mist room-field registry */
+CHAR_DATA *is_dark_misted	args( ( ROOM_INDEX_DATA *room ) );
+void	dark_mist_add		args( ( ROOM_INDEX_DATA *room, CHAR_DATA *owner, int timer ) );
+void	dark_mist_clear		args( ( ROOM_INDEX_DATA *room ) );
+void	dark_mist_owner_gone	args( ( CHAR_DATA *ch ) );
+void	dark_mist_update	args( ( void ) );
 
 /* special.c */
 SF *	spec_lookup	args( ( const char *name ) );

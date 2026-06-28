@@ -331,10 +331,16 @@ void one_hit( CHAR_DATA *ch, CHAR_DATA *victim, int dt )
 
     /* Dark Mist (#22): a hostile room field dims the aim of non-allies.  Only
        the local to-hit chance is touched -- no persistent stat change.  The
-       owner and anyone grouped with the owner are unaffected. */
+       owner and anyone grouped with the owner are unaffected.  A persistent
+       field has no per-hit save, so exemptions are the gate: spare newbies and
+       high-level NPCs (mirroring chant_sleeping), and never bite in a SAFE room. */
     {
       CHAR_DATA *mist_owner = is_dark_misted( ch->in_room );
-      if ( mist_owner != NULL && !is_same_group( ch, mist_owner ) )
+      if ( mist_owner != NULL
+        && !is_same_group( ch, mist_owner )
+        && !IS_SET(ch->in_room->room_flags, ROOM_SAFE)
+        && !( !IS_NPC(ch) && ch->level < 2 )
+        && !( IS_NPC(ch)  && ch->level > 75 ) )
         chance -= 10;
     }
 
@@ -664,11 +670,14 @@ int damage( CHAR_DATA *ch, CHAR_DATA *victim, int dam, int dt )
 	  && ( dt == DAM_FIRE || dt == DAM_KIFLAME || dt == DAM_CRIMSON ) )
 	  dam += dam * 12 / 100;
 
-	/* Dark Mist (#22): fire burns the mist away.  Any fire-family hit
-	   landing in a misted room clears the field (with a room message). */
-	if ( ( dt == DAM_FIRE || dt == DAM_KIFLAME || dt == DAM_CRIMSON )
-	  && is_dark_misted( victim->in_room ) != NULL )
-	  dark_mist_clear( victim->in_room );
+	/* Dark Mist (#22): fire burns the mist away -- but only an ENEMY's fire.
+	   The owner and their allies don't destroy the field they paid for. */
+	if ( dt == DAM_FIRE || dt == DAM_KIFLAME || dt == DAM_CRIMSON )
+	{
+	  CHAR_DATA *mist_owner = is_dark_misted( victim->in_room );
+	  if ( mist_owner != NULL && !is_same_group( ch, mist_owner ) )
+	    dark_mist_clear( victim->in_room );
+	}
 
 	if ( dam < 0 )
 	    dam = 0;
@@ -3171,6 +3180,7 @@ void do_flee( CHAR_DATA *ch, char *argument )
     CHAR_DATA *vch_next;
     char buf[MAX_STRING_LENGTH];
     int attackers = 0, attempt, mod = 0;
+    int mist_flee = 0;
 
     if ( ( victim = ch->fighting ) == NULL )
     {
@@ -3181,6 +3191,18 @@ void do_flee( CHAR_DATA *ch, char *argument )
     }
 
     was_in = ch->in_room;
+
+    /* Dark Mist (#22): the caster's allies slip away through the murk.  Escape
+       succeeds when the roll does NOT exceed (15 + mod + attackers*40), so a
+       higher threshold makes escape ~15% easier.  Computed ONCE here (not in
+       the retry loop) so it can't compound across attempts.  is_same_group
+       counts the owner himself. */
+    {
+      CHAR_DATA *mist_owner = is_dark_misted( ch->in_room );
+      if ( mist_owner != NULL && is_same_group( ch, mist_owner ) )
+        mist_flee = 15;
+    }
+
     for ( attempt = 0; attempt < 6; attempt++ )
     {
 	EXIT_DATA *pexit;
@@ -3239,17 +3261,7 @@ void do_flee( CHAR_DATA *ch, char *argument )
 	if ( is_affected(ch,gsn_wind_curse) )
 	  mod -= 10;
 
-	/* Dark Mist (#22): the caster's allies slip away through the murk.
-	   Escape succeeds when the roll does NOT exceed (15 + mod + attackers*40),
-	   so raising the threshold via mod makes escape ~15% easier.  is_same_group
-	   counts the owner himself.                                              */
-	{
-	  CHAR_DATA *mist_owner = is_dark_misted( ch->in_room );
-	  if ( mist_owner != NULL && is_same_group( ch, mist_owner ) )
-	    mod += 15;
-	}
-
-	if ( number_percent() > (15 + mod + attackers*40 ) )
+	if ( number_percent() > (15 + mod + mist_flee + attackers*40 ) )
 	{ act( "You fail!", ch, NULL, victim, TO_CHAR );
 	  act( "$n turns $s back in an attempt to flee.", ch, NULL, victim, TO_VICT );
 	  act( "$n turns $s back on $N in an attempt to flee.", ch, NULL, victim,TO_NOTVICT);

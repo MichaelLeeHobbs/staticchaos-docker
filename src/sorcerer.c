@@ -2179,6 +2179,27 @@ struct dark_mist_entry
 
 static DARK_MIST dark_mist_table[MAX_DARK_MIST];
 
+/* Send a line to everyone in a room (no actor needed -- this is a room effect). */
+static void dark_mist_echo( ROOM_INDEX_DATA *room, const char *msg )
+{
+  CHAR_DATA *rch;
+  if ( room == NULL )
+    return;
+  for ( rch = room->people; rch != NULL; rch = rch->next_in_room )
+    send_to_char( msg, rch );
+}
+
+/* Tear down the entry at slot i, optionally echoing a fade line to its room. */
+static void dark_mist_teardown( int i, const char *msg )
+{
+  ROOM_INDEX_DATA *room = dark_mist_table[i].room;
+  dark_mist_table[i].room  = NULL;
+  dark_mist_table[i].owner = NULL;
+  dark_mist_table[i].timer = 0;
+  if ( msg != NULL )
+    dark_mist_echo( room, msg );
+}
+
 /* Owner of the mist in this room, or NULL if the room is not misted. */
 CHAR_DATA *is_dark_misted( ROOM_INDEX_DATA *room )
 {
@@ -2191,38 +2212,33 @@ CHAR_DATA *is_dark_misted( ROOM_INDEX_DATA *room )
   return NULL;
 }
 
-/* Add or refresh the mist on a room. */
-void dark_mist_add( ROOM_INDEX_DATA *room, CHAR_DATA *owner, int timer )
+/* Add or refresh the mist on a room.  Returns FALSE (cast fails) if the room is
+ * already misted by someone who is NOT the caster and NOT in the caster's group
+ * -- an enemy can't hijack or extend the field -- or if the table is full. */
+bool dark_mist_add( ROOM_INDEX_DATA *room, CHAR_DATA *owner, int timer )
 {
   int i, slot = -1;
   if ( room == NULL )
-    return;
+    return FALSE;
   for ( i = 0; i < MAX_DARK_MIST; i++ )
   {
     if ( dark_mist_table[i].room == room && dark_mist_table[i].timer > 0 )
-    { /* refresh in place */
-      dark_mist_table[i].owner = owner;
+    { /* already misted: only the owner or an ally may refresh it (keep owner) */
+      if ( dark_mist_table[i].owner != owner
+        && !is_same_group( owner, dark_mist_table[i].owner ) )
+        return FALSE;
       dark_mist_table[i].timer = timer;
-      return;
+      return TRUE;
     }
     if ( slot < 0 && dark_mist_table[i].timer <= 0 )
       slot = i;
   }
   if ( slot < 0 )
-    return;  /* table full -- only a handful are ever live, so just drop it */
+    return FALSE;  /* table full */
   dark_mist_table[slot].room  = room;
   dark_mist_table[slot].owner = owner;
   dark_mist_table[slot].timer = timer;
-}
-
-/* Send a line to everyone in a room (no actor needed -- this is a room effect). */
-static void dark_mist_echo( ROOM_INDEX_DATA *room, const char *msg )
-{
-  CHAR_DATA *rch;
-  if ( room == NULL )
-    return;
-  for ( rch = room->people; rch != NULL; rch = rch->next_in_room )
-    send_to_char( msg, rch );
+  return TRUE;
 }
 
 /* Fire burns the mist away with a message. */
@@ -2234,25 +2250,18 @@ void dark_mist_clear( ROOM_INDEX_DATA *room )
   for ( i = 0; i < MAX_DARK_MIST; i++ )
     if ( dark_mist_table[i].room == room && dark_mist_table[i].timer > 0 )
     {
-      dark_mist_table[i].room  = NULL;
-      dark_mist_table[i].owner = NULL;
-      dark_mist_table[i].timer = 0;
-      dark_mist_echo( room, "The dark mist burns away.\n\r" );
+      dark_mist_teardown( i, "The dark mist burns away.\n\r" );
       return;
     }
 }
 
-/* Caster extracted (quit/death): drop any field they own. */
+/* Caster extracted (quit/death): drop any field they own (silently). */
 void dark_mist_owner_gone( CHAR_DATA *ch )
 {
   int i;
   for ( i = 0; i < MAX_DARK_MIST; i++ )
     if ( dark_mist_table[i].owner == ch )
-    {
-      dark_mist_table[i].room  = NULL;
-      dark_mist_table[i].owner = NULL;
-      dark_mist_table[i].timer = 0;
-    }
+      dark_mist_teardown( i, NULL );
 }
 
 /* Tick all live fields; expire (with a message) on 0.  Once per PULSE_TICK. */
@@ -2264,13 +2273,7 @@ void dark_mist_update( void )
     if ( dark_mist_table[i].timer <= 0 )
       continue;
     if ( --dark_mist_table[i].timer <= 0 )
-    {
-      ROOM_INDEX_DATA *room = dark_mist_table[i].room;
-      dark_mist_table[i].room  = NULL;
-      dark_mist_table[i].owner = NULL;
-      dark_mist_table[i].timer = 0;
-      dark_mist_echo( room, "The dark mist thins and clears.\n\r" );
-    }
+      dark_mist_teardown( i, "The dark mist thins and clears.\n\r" );
   }
 }
 
@@ -2283,7 +2286,11 @@ void chant_dark_mist( int cn, int rank, CHAR_DATA *ch, void *vo )
    * People who enter after the cast are affected -- it's a field, not a
    * one-shot.  vo may be a target or NULL -- ignored; this is room-wide.
    * Scan/vision/ranged penalties from the full design are deferred (phase 1). */
-  dark_mist_add( ch->in_room, ch, 5 );
+  if ( !dark_mist_add( ch->in_room, ch, 5 ) )
+  { /* room already owned by an enemy, or the registry is full */
+    send_to_char( "The mists refuse to gather.\n\r", ch );
+    return;
+  }
   act( "A dark mist spills across the room, swallowing the edges of sight.", ch, NULL, NULL, TO_CHAR );
   act( "A dark mist spills across the room, swallowing the edges of sight.", ch, NULL, NULL, TO_ROOM );
   return;

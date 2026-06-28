@@ -931,15 +931,16 @@ void extract_char( CHAR_DATA *ch, bool fPull )
     MPROG_ACT_LIST *actprog;
     MPROG_ACT_LIST *actprog_next;
 
+    /* Dark Mist (#22) owner safety: drop any active mist field this char owns so
+       the registry never dereferences a freed CHAR_DATA.  Must run BEFORE the
+       NULL-room guard below, or a room-less owner would leave a ghost field. */
+    dark_mist_owner_gone( ch );
+
     if ( ch->in_room == NULL )
     {
 	bug( "Extract_char: NULL.", 0 );
 	return;
     }
-
-    /* Dark Mist (#22) owner safety: drop any active mist field this char owns
-       so the registry never dereferences a freed CHAR_DATA. */
-    dark_mist_owner_gone( ch );
 
     if ( fPull )
 	die_follower( ch );

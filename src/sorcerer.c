@@ -899,6 +899,7 @@ void chant_ruby_eye_blade( int cn, int rank, CHAR_DATA *ch, void *vo )
 void chant_gaav_flare( int cn, int rank, CHAR_DATA *ch, void *vo )
 { int dam;
   bool saved;
+  bool balus_blocked = FALSE;
   CHAR_DATA *victim = (CHAR_DATA *) vo;
   act( "You launch a tremendous ball of dark flame at $N!", ch, NULL, victim, TO_CHAR );
   act( "$n launches a tremendous ball of dark flame at you!", ch, NULL, victim, TO_VICT );
@@ -907,11 +908,27 @@ void chant_gaav_flare( int cn, int rank, CHAR_DATA *ch, void *vo )
   saved = saves_chant( ch, victim, cn );
   if ( saved )
     dam -= dam/4;
+
+  /* PvP balance (#27): Balus Wall (Patryn fire+protection runeweave OR the
+     Sorcerer chant -- same gsn_balus_wall affect) partly turns Gaav Flare.
+     Gaav Flare is Black-school so it bypasses the fire-school full-absorb in
+     fight.c; here the wall instead smothers HALF the dark flame, is consumed,
+     and blocks the Scorched debuff -- it does NOT fully absorb. */
+  if ( victim != NULL && is_affected( victim, gsn_balus_wall ) )
+  { dam -= dam / 2;
+    affect_strip( victim, gsn_balus_wall );
+    balus_blocked = TRUE;
+    act( "$N's Balus Wall flares and smothers half the dark flame, then shatters!", ch, NULL, victim, TO_CHAR );
+    act( "Your Balus Wall flares and smothers half the dark flame, then shatters!", ch, NULL, victim, TO_VICT );
+    act( "$N's Balus Wall flares and smothers half the dark flame, then shatters!", ch, NULL, victim, TO_NOTVICT );
+  }
+
   chant_damage( ch, victim, dam, cn );
 
   /* PvP balance: on a FAILED save the flame leaves the target "Scorched",
-     a short Black-school vulnerability (handled in chant_damage). */
-  if ( !saved && victim != NULL && victim->position > POS_DEAD )
+     a short Black-school vulnerability (handled in chant_damage).  A Balus
+     Wall block also prevents Scorched (#27). */
+  if ( !saved && !balus_blocked && victim != NULL && victim->position > POS_DEAD )
   { int sn = skill_lookup( "scorched" );
     if ( sn > 0 && !is_affected( victim, sn ) )
     { AFFECT_DATA af;

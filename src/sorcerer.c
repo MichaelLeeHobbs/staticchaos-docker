@@ -1084,14 +1084,18 @@ void chant_lighting( int cn, int rank, CHAR_DATA *ch, void *vo )
     return;
 
   /* #6: no longer all-or-nothing.  On a save, a brief "dazzled" hitroll
-   * penalty; on a failed save, blind (PvP capped at 2 ticks, hitroll -8). */
+   * penalty; on a failed save, blind (PvP capped at 2 ticks, hitroll -8).
+   * Uses the blindness type (a real skill index, not cn) and doesn't stack. */
   if ( saves_chant( ch, victim, cn ) )
-  { af.type      = cn;
-    af.location  = APPLY_HITROLL;
-    af.modifier  = -3;
-    af.duration  = 1;
-    af.bitvector = 0;
-    affect_to_char( victim, &af );
+  { int sn = skill_lookup( "blindness" );
+    if ( !is_affected( victim, sn ) )
+    { af.type      = sn;
+      af.location  = APPLY_HITROLL;
+      af.modifier  = -3;
+      af.duration  = 1;
+      af.bitvector = 0;
+      affect_to_char( victim, &af );
+    }
     act( "$N is dazzled by the flash!", ch, NULL, victim, TO_CHAR );
     send_to_char( "You are dazzled by the searing light!\n\r", victim );
     return;
@@ -1140,11 +1144,15 @@ void chant_dicleary( int cn, int rank, CHAR_DATA *ch, void *vo )
     }
     if ( !cured && rank >= 45 && IS_AFFECTED( victim, AFF_NO_FLEE ) )
     { AFFECT_DATA *paf;
+      int rt = -1;
       for ( paf = victim->affected; paf != NULL; paf = paf->next )
         if ( paf->bitvector & AFF_NO_FLEE )
-        { affect_remove( victim, paf ); break; }
-      cured = 1;
-      send_to_char( "You are freed from magical restraint.\n\r", victim );
+        { rt = paf->type; break; }
+      /* Only cure (and message) if a backing affect actually exists; strip by
+       * type so paired affects (e.g. the laphas-seed move drain) go too. */
+      if ( rt != -1 )
+      { affect_strip( victim, rt ); cured = 1;
+        send_to_char( "You are freed from magical restraint.\n\r", victim ); }
     }
     if ( !cured && rank >= 25 && is_affected( victim, skill_lookup( "blindness" ) ) )
     { affect_strip( victim, skill_lookup( "blindness" ) ); cured = 1;
@@ -1168,7 +1176,9 @@ void chant_holy_bless( int cn, int rank, CHAR_DATA *ch, void *vo )
   af.type      = sn;
   af.duration  = 30 * rank + dice(1,6);
   af.location  = APPLY_HITROLL;
-  af.modifier  = UMAX( 2, rank / 5 );   /* #6: better early scaling -- 10->2, 25->5, 50->10 */
+  /* #6: better EARLY scaling (rank/5 -> 10->2, 25->5, 50->10) without nerfing
+   * high rank -- take the max of the new curve and the old (rank-30)/2 curve. */
+  af.modifier  = UMAX( 2, UMAX( rank / 5, (rank - 30) / 2 ) );
   af.bitvector = 0;
   affect_to_char( victim, &af );
 
@@ -1443,10 +1453,13 @@ void chant_chaos_strings( int cn, int rank, CHAR_DATA *ch, void *vo )
 
   /* #6: peel -- apply the melee-suppression debuff the fight code already reads
    * (halves Fist melee, cuts attacks ~1/3).  Applied before damage so it lands
-   * even if the victim then dies.  Damage is intentionally unchanged. */
+   * even if the victim then dies.  Damage is intentionally unchanged.  Skip in
+   * a safe room so it can't be used to debuff players where no fight can happen
+   * (chant_damage's is_safe runs later, so guard the affect ourselves). */
   pvp   = !IS_NPC(victim);
   saved = saves_chant( ch, victim, cn );
-  if ( !is_affected( victim, skill_lookup( "chaos strings" ) ) )
+  if ( !IS_SET( ch->in_room->room_flags, ROOM_SAFE )
+    && !is_affected( victim, skill_lookup( "chaos strings" ) ) )
   { af.type      = skill_lookup( "chaos strings" );
     af.location  = APPLY_NONE;
     af.modifier  = 0;
@@ -2085,13 +2098,16 @@ void chant_freeze_arrow( int cn, int rank, CHAR_DATA *ch, void *vo )
 } 
 void chant_dark_mist( int cn, int rank, CHAR_DATA *ch, void *vo )
 {
-  /* #6 first pass: a dark mist dims the aim of everyone hostile in the room
-   * (-10 hitroll, short duration).  NOTE: simplified -- this hits whoever is
-   * present at cast, not a persistent room field, and the ally-flee bonus and
-   * scan/ranged penalties from the full design are deferred. */
+  /* #6 first pass: a dark mist dims the aim of hostiles in the room (-10 hitroll,
+   * short duration).  Gated like chant_sleeping -- per-target save, exempt
+   * newbies (and high-level NPCs), skip self/group -- so it can't blanket-grief
+   * bystanders.  Uses the blindness skill type (a real skill index, not cn).
+   * NOTE: simplified -- not a persistent room field; ally-flee and scan/ranged
+   * penalties from the full design are deferred. */
   AFFECT_DATA af;
   CHAR_DATA *vch, *vch_next;
-  int dur = 1 + dice( 1, 2 );
+  int blind = skill_lookup( "blindness" );
+  int dur   = 1 + dice( 1, 2 );
 
   act( "A dark mist spills across the room, swallowing the edges of sight.", ch, NULL, NULL, TO_CHAR );
   act( "A dark mist spills across the room, swallowing the edges of sight.", ch, NULL, NULL, TO_ROOM );
@@ -2101,9 +2117,12 @@ void chant_dark_mist( int cn, int rank, CHAR_DATA *ch, void *vo )
     vch_next = vch->next_in_room;
     if ( vch == ch || is_same_group( ch, vch ) )
       continue;
-    if ( is_affected( vch, cn ) )
+    if ( ( IS_NPC(vch)  && ( saves_chant(ch,vch,cn) || vch->level > 75 ) )
+      || ( !IS_NPC(vch) && ( saves_chant(ch,vch,cn) || vch->level < 2 ) ) )
       continue;
-    af.type      = cn;
+    if ( is_affected( vch, blind ) )
+      continue;
+    af.type      = blind;
     af.location  = APPLY_HITROLL;
     af.modifier  = -10;
     af.duration  = dur;

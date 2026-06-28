@@ -1160,7 +1160,9 @@ void runestats_ward( CHAR_DATA *ch, int gsn, char *name )
 
   for ( paf = ch->affected; paf != NULL; paf = paf->next )
     if ( paf->type == gsn )
-    { sprintf( buf, "  Active ward: %-8s (%d ticks left)\n\r", name, paf->duration );
+    { /* ward "duration" is an absorption pool (mind*15), drained in big chunks
+       * per blocked hit -- it is strength, not time, so don't call it ticks. */
+      sprintf( buf, "  Active ward: %-8s (strength ~%d)\n\r", name, paf->duration );
       send_to_char( buf, ch );
       return;
     }
@@ -1228,9 +1230,9 @@ void do_runestats( CHAR_DATA *ch, char *argument )
     int t_fire  = get_runes( ch, RUNE_FIRE,  TORSO );
     int t_air   = get_runes( ch, RUNE_AIR,   TORSO );
     int t_water = get_runes( ch, RUNE_WATER, TORSO );
-    int a_fire  = get_runes( ch, RUNE_FIRE,  1 ) + get_runes( ch, RUNE_FIRE,  2 );
-    int a_earth = get_runes( ch, RUNE_EARTH, 1 ) + get_runes( ch, RUNE_EARTH, 2 );
-    int l_earth = get_runes( ch, RUNE_EARTH, 3 ) + get_runes( ch, RUNE_EARTH, 4 );
+    int a_fire  = get_runes( ch, RUNE_FIRE,  LEFTARM ) + get_runes( ch, RUNE_FIRE,  RIGHTARM );
+    int a_earth = get_runes( ch, RUNE_EARTH, LEFTARM ) + get_runes( ch, RUNE_EARTH, RIGHTARM );
+    int l_earth = get_runes( ch, RUNE_EARTH, LEFTLEG ) + get_runes( ch, RUNE_EARTH, RIGHTLEG );
 
     send_to_char( "Defensive summary:\n\r", ch );
     sprintf( buf, "  Defenses: %s\n\r",

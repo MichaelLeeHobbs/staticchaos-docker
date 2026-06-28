@@ -423,6 +423,12 @@ void do_runeweave( CHAR_DATA *ch, char *argument )
     	  stc( "They are already so cursed.\n\r", ch );
     	  break;
     	}
+    	/* #23: Holy Bless (white-spec) ward -- 5% chance to shrug off the curse */
+    	if ( IS_AFFECTED(victim, AFF_HOLY_BLESS) != 0 && number_percent() <= 5 )
+    	{ send_to_char( "Ceiphied's blessing wards it off!\n\r", victim );
+    	  act( "Ceiphied's blessing wards off your runeweave!", ch, NULL, victim, TO_CHAR );
+    	  break;
+    	}
     	/* only one elemental curse at a time: strip the other three */
     	affect_strip( victim, gsn_earth_curse );
     	affect_strip( victim, gsn_flame_curse );
@@ -441,6 +447,12 @@ void do_runeweave( CHAR_DATA *ch, char *argument )
         if ( is_affected(victim,gsn_earth_curse) )
         {
           stc( "They are already so cursed.\n\r", ch );
+          break;
+        }
+        /* #23: Holy Bless (white-spec) ward -- 5% chance to shrug off the curse */
+        if ( IS_AFFECTED(victim, AFF_HOLY_BLESS) != 0 && number_percent() <= 5 )
+        { send_to_char( "Ceiphied's blessing wards it off!\n\r", victim );
+          act( "Ceiphied's blessing wards off your runeweave!", ch, NULL, victim, TO_CHAR );
           break;
         }
         /* only one elemental curse at a time: strip the other three */
@@ -463,6 +475,12 @@ void do_runeweave( CHAR_DATA *ch, char *argument )
           stc( "They are already so cursed.\n\r", ch );
           break;
         }
+        /* #23: Holy Bless (white-spec) ward -- 5% chance to shrug off the curse */
+        if ( IS_AFFECTED(victim, AFF_HOLY_BLESS) != 0 && number_percent() <= 5 )
+        { send_to_char( "Ceiphied's blessing wards it off!\n\r", victim );
+          act( "Ceiphied's blessing wards off your runeweave!", ch, NULL, victim, TO_CHAR );
+          break;
+        }
         /* only one elemental curse at a time: strip the other three */
         affect_strip( victim, gsn_wind_curse );
         affect_strip( victim, gsn_earth_curse );
@@ -481,6 +499,12 @@ void do_runeweave( CHAR_DATA *ch, char *argument )
         if ( is_affected(victim,gsn_water_curse) )
         {
           stc( "They are already so cursed.\n\r", ch );
+          break;
+        }
+        /* #23: Holy Bless (white-spec) ward -- 5% chance to shrug off the curse */
+        if ( IS_AFFECTED(victim, AFF_HOLY_BLESS) != 0 && number_percent() <= 5 )
+        { send_to_char( "Ceiphied's blessing wards it off!\n\r", victim );
+          act( "Ceiphied's blessing wards off your runeweave!", ch, NULL, victim, TO_CHAR );
           break;
         }
         /* only one elemental curse at a time: strip the other three */

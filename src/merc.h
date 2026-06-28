@@ -945,6 +945,7 @@ struct	kill_data
 #define	AFF_WINDY_SHIELD       33554432
 #define	AFF_STEELY	       67108864
 #define	AFF_HENSHIN           134217728
+#define	AFF_HOLY_BLESS        268435456
 
 
 

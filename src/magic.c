@@ -566,6 +566,13 @@ void spell_blindness( int sn, int level, CHAR_DATA *ch, void *vo )
     if ( IS_SUIT(victim) )
       return;
 
+    /* #23: Holy Bless (white-spec) ward -- 5% chance to shrug off the blindness */
+    if ( IS_AFFECTED(victim, AFF_HOLY_BLESS) != 0 && number_percent() <= 5 )
+    { send_to_char( "Ceiphied's blessing wards off the blindness!\n\r", victim );
+      act( "Ceiphied's blessing shields $N from your spell!", ch, NULL, victim, TO_CHAR );
+      return;
+    }
+
     af.type      = sn;
     af.location  = APPLY_HITROLL;
     af.modifier  = -4;
@@ -2010,6 +2017,14 @@ void spell_sleep( int sn, int level, CHAR_DATA *ch, void *vo )
     ||   level < victim->level
     ||   saves_spell( level, victim ) )
 	return;
+
+    /* #23: Holy Bless (white-spec) ward -- 5% chance to shrug off the sleep */
+    if ( IS_AFFECTED(victim, AFF_HOLY_BLESS) != 0 && number_percent() <= 5 )
+    { send_to_char( "Ceiphied's blessing wards off the drowsiness!\n\r", victim );
+	if ( ch != victim )
+	    act( "Ceiphied's blessing keeps $N awake!", ch, NULL, victim, TO_CHAR );
+	return;
+    }
 
     af.type      = sn;
     af.duration  = 4 + 30 * level;

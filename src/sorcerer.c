@@ -962,6 +962,14 @@ void chant_dynast_breath( int cn, int rank, CHAR_DATA *ch, void *vo )
   af.location  = APPLY_AC;
   af.modifier  = ac_pen;
   af.bitvector = saved ? 0 : AFF_NO_FLEE;
+  /* #23: Holy Bless (white-spec) ward -- 5% chance to keep the feet free of the
+   * rooting ice.  Only the no-flee is shrugged off; the AC penalty still lands. */
+  if ( ( af.bitvector & AFF_NO_FLEE ) != 0
+    && IS_AFFECTED( victim, AFF_HOLY_BLESS ) != 0 && number_percent() <= 5 )
+  { send_to_char( "Ceiphied's blessing keeps your feet free of the ice!\n\r", victim );
+    act( "Ceiphied's blessing frees $N's feet -- $E is not rooted!", ch, NULL, victim, TO_CHAR );
+    af.bitvector = 0;
+  }
   affect_to_char( victim, &af );
 
   if ( saved )
@@ -1101,6 +1109,13 @@ void chant_lighting( int cn, int rank, CHAR_DATA *ch, void *vo )
     return;
   }
 
+  /* #23: Holy Bless (white-spec) ward -- 5% chance to shrug off the blinding flash */
+  if ( IS_AFFECTED( victim, AFF_HOLY_BLESS ) != 0 && number_percent() <= 5 )
+  { send_to_char( "Ceiphied's blessing wards off the searing light!\n\r", victim );
+    act( "Ceiphied's blessing shields $N from the blinding flash!", ch, NULL, victim, TO_CHAR );
+    return;
+  }
+
   /* refresh existing blindness on the VICTIM (the old code stripped the caster) */
   if ( is_affected( victim, skill_lookup( "blindness" ) ) )
     affect_strip( victim, skill_lookup( "blindness" ) );
@@ -1179,7 +1194,11 @@ void chant_holy_bless( int cn, int rank, CHAR_DATA *ch, void *vo )
   /* #6: better EARLY scaling (rank/5 -> 10->2, 25->5, 50->10) without nerfing
    * high rank -- take the max of the new curve and the old (rank-30)/2 curve. */
   af.modifier  = UMAX( 2, UMAX( rank / 5, (rank - 30) / 2 ) );
-  af.bitvector = 0;
+  /* #23: a White-specialist caster's bless also confers Ceiphied's ward -- a
+   * 5% chance to shrug off curse / blind / sleep / magical root.  Marked on the
+   * affect so it shows in affected_by and is cleared when the bless ends. */
+  af.bitvector = ( !IS_NPC(ch) && ch->pcdata->powers[SORC_SPEC] == SCHOOL_WHITE )
+                 ? AFF_HOLY_BLESS : 0;
   affect_to_char( victim, &af );
 
   af.location  = APPLY_DAMROLL;
@@ -1353,6 +1372,13 @@ void chant_laphas_seed( int cn, int rank, CHAR_DATA *ch, void *vo )
     return;
   }
 
+  /* #23: Holy Bless (white-spec) ward -- 5% chance to snap the binding energy */
+  if ( IS_AFFECTED( victim, AFF_HOLY_BLESS ) != 0 && number_percent() <= 5 )
+  { send_to_char( "Ceiphied's blessing snaps the binding energy!\n\r", victim );
+    act( "Ceiphied's blessing keeps $N free of your bands!", ch, NULL, victim, TO_CHAR );
+    return;
+  }
+
   act( "$N is wrapped in bands of energy!", ch, NULL, victim, TO_CHAR );
   act( "You are wrapped in bands of energy!", ch, NULL, victim, TO_VICT );
   act( "$N is wrapped in bands of energy.", ch, NULL, victim, TO_NOTVICT );
@@ -1427,6 +1453,11 @@ void chant_sleeping( int cn, int rank, CHAR_DATA *ch, void *vo )
       { act( "$N looks drowsy for a moment, but shakes it off.", ch, NULL, vch, TO_CHAR );
         act( "You feel drowsy for a moment, but shake it off.", ch, NULL, vch, TO_VICT );
         act( "$N looks drowsy for a moment, but shakes it off.", ch,NULL,vch,TO_NOTVICT );
+      }
+      /* #23: Holy Bless (white-spec) ward -- 5% chance to shrug off the sleep */
+      else if ( IS_AFFECTED(vch, AFF_HOLY_BLESS) != 0 && number_percent() <= 5 )
+      { send_to_char( "Ceiphied's blessing wards off the drowsiness!\n\r", vch );
+        act( "Ceiphied's blessing keeps $N awake!", ch, NULL, vch, TO_CHAR );
       }
       else
       { act( "$N dozes off.", ch, NULL, vch, TO_CHAR );

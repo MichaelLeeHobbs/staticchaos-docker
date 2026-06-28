@@ -1263,16 +1263,9 @@ void chant_flow_break( int cn, int rank, CHAR_DATA *ch, void *vo )
     char  buf[MAX_STRING_LENGTH];
     AFFECT_DATA *wpaf;
 
-    if      ( IS_SET(victim->pcdata->actnew, NEW_AIR_BLOCK)      ) { blockbit = NEW_AIR_BLOCK;      blockname = "air"; }
-    else if ( IS_SET(victim->pcdata->actnew, NEW_FIRE_BLOCK)     ) { blockbit = NEW_FIRE_BLOCK;     blockname = "fire"; }
-    else if ( IS_SET(victim->pcdata->actnew, NEW_NEGATIVE_BLOCK) ) { blockbit = NEW_NEGATIVE_BLOCK; blockname = "negative"; }
-
-    if      ( is_affected(victim, gsn_spirit_ward)   ) wardgsn = gsn_spirit_ward;
-    else if ( is_affected(victim, gsn_earth_ward)    ) wardgsn = gsn_earth_ward;
-    else if ( is_affected(victim, gsn_flame_ward)    ) wardgsn = gsn_flame_ward;
-    else if ( is_affected(victim, gsn_wind_ward)     ) wardgsn = gsn_wind_ward;
-    else if ( is_affected(victim, gsn_water_ward)    ) wardgsn = gsn_water_ward;
-    else if ( is_affected(victim, gsn_negative_ward) ) wardgsn = gsn_negative_ward;
+    /* Priority cascades live in patryn.c (patryn_active_block/ward) -- #25. */
+    blockbit = patryn_active_block( victim, &blockname );
+    wardgsn  = patryn_active_ward( victim );
 
     /* A failed save is strictly worse than a save: it removes a ward outright
      * (and a block); a save only drains the ward -- never fully, floor 1 -- and

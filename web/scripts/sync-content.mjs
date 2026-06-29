@@ -53,6 +53,7 @@ const USER_DOCS = new Set([
   'GEARING-GUIDE.md',
   'MOBILE-SUITS.md',
   'CLASS-SAIYAN.md',
+  'CLASS-SAIYAN-ABILITIES.md',
   'CLASS-FIST.md',
   'CLASS-PATRYN.md',
   'CLASS-SORCERER.md',

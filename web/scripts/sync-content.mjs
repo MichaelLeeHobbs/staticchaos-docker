@@ -55,9 +55,13 @@ const USER_DOCS = new Set([
   'CLASS-SAIYAN.md',
   'CLASS-SAIYAN-ABILITIES.md',
   'CLASS-FIST.md',
+  'CLASS-FIST-ABILITIES.md',
   'CLASS-PATRYN.md',
+  'CLASS-PATRYN-ABILITIES.md',
   'CLASS-SORCERER.md',
+  'CLASS-SORCERER-ABILITIES.md',
   'CLASS-MAZOKU.md',
+  'CLASS-MAZOKU-ABILITIES.md',
 ]);
 for (const f of ls(path.join(ROOT, 'docs'), /\.md$/)) {
   if (!USER_DOCS.has(f)) continue;

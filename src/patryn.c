@@ -574,7 +574,7 @@ void do_runeweave( CHAR_DATA *ch, char *argument )
 	if ( !IS_NPC(victim) && IS_SET(victim->pcdata->actnew,NEW_FIRE_BLOCK) )
 	{ act( "The flame lance rebounds!", ch, NULL, NULL, TO_CHAR );
 	  act( "The flame lance rebounds!", ch, NULL, NULL, TO_ROOM );
-	  dam = dice( ch->pcdata->mind / 4, ch->pcdata->powers[P_AIR] );
+	  dam = dice( ch->pcdata->mind / 4, ch->pcdata->powers[P_FIRE] );
 	  damage( ch, ch, dam, DAM_FIRE );
 	  break;
 	}

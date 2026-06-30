@@ -878,11 +878,11 @@ void do_bodytrain( CHAR_DATA *ch, char *argument )
     abil = F_HANDS;
   }
   else if ( !str_cmp( argument, "arms" ) )
-  { cost = 1500 * (ch->pcdata->powers[F_ARMS]+1) * isquare(ch->pcdata->powers[F_HANDS]+1);
+  { cost = 1500 * (ch->pcdata->powers[F_ARMS]+1) * isquare(ch->pcdata->powers[F_ARMS]+1);
     abil = F_ARMS;
   }
   else if ( !str_cmp( argument, "legs" ) )
-  { cost = 1500 * (ch->pcdata->powers[F_LEGS]+1) * isquare(ch->pcdata->powers[F_HANDS]+1);
+  { cost = 1500 * (ch->pcdata->powers[F_LEGS]+1) * isquare(ch->pcdata->powers[F_LEGS]+1);
     abil = F_LEGS;
   }
   else

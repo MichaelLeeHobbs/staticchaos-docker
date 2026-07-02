@@ -1,0 +1,132 @@
+#AREADATA
+Name        { 5 40} Fixture Test Area~
+Builders    Claude~
+VNUMs       9900 9999
+Security    1
+Recall      9900
+End
+
+
+
+#MOBILES
+#9900
+fixture keeper shopkeeper~
+the Fixture Shopkeeper~
+A shopkeeper stands here, ready to trade.
+~
+A tidy merchant who exists only to test the parser.
+~
+513 0 0 S
+25 0 0 0d0+0 0d0+0
+0 0
+8 0 1
+#9901
+fixture rat vermin~
+a fixture rat~
+A small rat scurries across the floor.
+~
+Just a rat for the bestiary parser to chew on.
+~
+64 0 0 S
+3 0 0 0d0+0 0d0+0
+0 0
+0 0 0
+#0
+
+
+
+#OBJECTS
+#9900
+sword fixture blade~
+a fixture longsword~
+A plain longsword lies here.~
+~
+5 0 8192
+0 2 4 0
+15 100 0
+#9901
+ring fixture~
+a fixture ring~
+A silver ring gleams here.~
+~
+9 64 2
+5 0 0 0
+2 500 0
+A
+13 10
+A
+18 2
+#9902
+key oak fixture~
+an oak door key~
+A small iron key lies here.~
+The key to the oak door.~
+18 0 0
+9901 0 0 0
+1 5 0
+E
+key oak~
+This iron key is worn smooth from use.
+~
+#0
+
+
+
+#ROOMDATA
+#9900
+The Testing Chamber~
+A plain room used to exercise the parser.  Doors lead in several
+directions so the exit decoder has something to chew on.
+~
+0 10752 1
+D0
+~
+~
+0 0 9901
+D1
+A heavy oak door blocks the way east.
+~
+door oak~
+3 9902 9901
+E
+plaque~
+A brass plaque reads: FIXTURE.
+~
+S
+#9901
+The Return Hall~
+A featureless hall.  From here you can go back west.
+~
+0 0 0
+D3
+~
+~
+0 0 9900
+S
+#0
+
+
+
+#SPECIALS
+S
+
+
+
+#RESETS
+M 0 9900 1 9900
+G 0 9901 0
+E 0 9902 0 16
+M 0 9901 3 9901
+O 0 9900 0 9900
+P 0 9901 0 9902
+S
+
+
+
+#SHOPS
+9900 5 9 0 0 0 120 40 8 18
+0
+
+
+
+#$

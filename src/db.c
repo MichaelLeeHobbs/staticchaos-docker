@@ -2393,6 +2393,50 @@ int fread_number( FILE *fp )
 }
 
 /*
+ * Read up to `max` whitespace-separated integers from the CURRENT line into
+ * dest[], zero-filling any slots the line doesn't supply, and never crossing the
+ * newline. For a correctly-sized row this behaves exactly like the old
+ * `for(i<max) dest[i]=fread_number(fp)` loop (the trailing newline is left
+ * pending for the next reader), so existing save files load byte-identically.
+ * The safety it adds: if a persisted array's size is ever grown, older/shorter
+ * rows load with the new slots zeroed instead of the read desyncing into the
+ * next key line and corrupting the pfile. See docs/SAVE-FORMAT.md before growing
+ * any persisted array. Two typed variants because sh_int is `short` on this
+ * build (see merc.h) and must not alias `int`.
+ */
+void fread_number_row( FILE *fp, int *dest, int max )
+{
+    int  i;
+    char c;
+
+    for ( i = 0; i < max; i++ )
+    {
+	do { c = getc( fp ); } while ( c == ' ' || c == '\t' || c == '\r' );
+	if ( c == '\n' || c == EOF ) { ungetc( c, fp ); break; }
+	ungetc( c, fp );
+	dest[i] = fread_number( fp );
+    }
+    for ( ; i < max; i++ )
+	dest[i] = 0;
+}
+
+void fread_number_row_sh( FILE *fp, sh_int *dest, int max )
+{
+    int  i;
+    char c;
+
+    for ( i = 0; i < max; i++ )
+    {
+	do { c = getc( fp ); } while ( c == ' ' || c == '\t' || c == '\r' );
+	if ( c == '\n' || c == EOF ) { ungetc( c, fp ); break; }
+	ungetc( c, fp );
+	dest[i] = fread_number( fp );
+    }
+    for ( ; i < max; i++ )
+	dest[i] = 0;
+}
+
+/*
  * Read a 64-bit number.  Same grammar as fread_number, but accumulates into
  * a long long so values past 2^31 (e.g. large exp) survive a save/load.
  */

@@ -2994,6 +2994,8 @@ RID *	get_rand_room	args( ( void ) );
 char	fread_letter	args( ( FILE *fp ) );
 int	fread_number	args( ( FILE *fp ) );
 long long fread_number_ll	args( ( FILE *fp ) );
+void	fread_number_row	args( ( FILE *fp, int *dest, int max ) );
+void	fread_number_row_sh	args( ( FILE *fp, sh_int *dest, int max ) );
 char *	fread_string	args( ( FILE *fp ) );
 void	fread_to_eol	args( ( FILE *fp ) );
 char *	fread_word	args( ( FILE *fp ) );

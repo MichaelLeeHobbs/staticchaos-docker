@@ -935,9 +935,9 @@ void do_recall( CHAR_DATA *ch, char *argument )
       return;
     }
     else
-    { if ( ( location = get_room_index( ch->pcdata->extras[6] ) ) == NULL )
+    { if ( ( location = get_room_index( ch->pcdata->extras[HOME] ) ) == NULL )
       { location = get_room_index( 806 );
-        ch->pcdata->extras[6] = 806;
+        ch->pcdata->extras[HOME] = 806;
         send_to_char( "Your home has been reset to Inner Ward.\n\r", ch );
       }
       if ( IS_SET(location->room_flags,ROOM_PRIVATE) )
@@ -1331,7 +1331,7 @@ void do_stance( CHAR_DATA *ch, char *argument )
     act( "$n slinks into the Ferret fighting stance.", ch, NULL, NULL, TO_ROOM );
     break;
   case STANCE_HAWK:
-    if ( ch->pcdata->stances[1] < 200 || ch->pcdata->stances[2] < 200 )
+    if ( ch->pcdata->stances[STANCE_LION] < 200 || ch->pcdata->stances[STANCE_LYNX] < 200 )
     { send_to_char( "You must master the Lion and Lynx stances first.\n\r", ch );
       return;
     }
@@ -1339,7 +1339,7 @@ void do_stance( CHAR_DATA *ch, char *argument )
     act( "$n dives into the Hawk fighting stance.", ch, NULL, NULL, TO_ROOM );
     break;
   case STANCE_EAGLE:
-    if ( ch->pcdata->stances[2] < 200 || ch->pcdata->stances[3] < 200 )
+    if ( ch->pcdata->stances[STANCE_LYNX] < 200 || ch->pcdata->stances[STANCE_SNAKE] < 200 )
     { send_to_char( "You must master the Lynx and Snake stances first.\n\r", ch );
       return;
     }
@@ -1347,21 +1347,21 @@ void do_stance( CHAR_DATA *ch, char *argument )
     act( "$n climbs into the Eagle fighting stance.", ch, NULL, NULL, TO_ROOM );
     break;
   case STANCE_VULTURE:
-    if ( ch->pcdata->stances[3] < 200 || ch->pcdata->stances[4] < 200 )
+    if ( ch->pcdata->stances[STANCE_SNAKE] < 200 || ch->pcdata->stances[STANCE_BADGER] < 200 )
     { send_to_char( "You must master the Snake and Badger stances first.\n\r", ch );
       return; }
     act( "You circle into the Vulture fighting stance.", ch, NULL, NULL, TO_CHAR );
     act( "$n circles into the Vulture fighting stance.", ch, NULL, NULL, TO_ROOM );
     break;
   case STANCE_SPARROW:
-    if ( ch->pcdata->stances[4] < 200 || ch->pcdata->stances[5] < 200 )
+    if ( ch->pcdata->stances[STANCE_BADGER] < 200 || ch->pcdata->stances[STANCE_FERRET] < 200 )
     { send_to_char( "You must master the Badger and Ferret stances first.\n\r", ch );
       return; }
     act( "You flitter into the Sparrow fighting stance.", ch, NULL, NULL, TO_CHAR );
     act( "$n flitters into the Sparrow fighting stance.", ch, NULL, NULL, TO_ROOM );
     break;
   case STANCE_STORK:
-    if ( ch->pcdata->stances[5] < 200 || ch->pcdata->stances[1] < 200 )
+    if ( ch->pcdata->stances[STANCE_FERRET] < 200 || ch->pcdata->stances[STANCE_LION] < 200 )
     { send_to_char( "You must master the Ferret and Lion stances first.\n\r", ch );
       return; }
     act( "You step into the Stork fighting stance.", ch, NULL, NULL, TO_CHAR );
@@ -1416,7 +1416,7 @@ void do_autostance( CHAR_DATA *ch, char *argument )
   { if ( !str_cmp( arg, stance_table[i].name ) )
     { sprintf( buf, "You now autostance to the %s stance.\n\r", stance_table[i].name );
       send_to_char( buf, ch );
-      ch->pcdata->stances[0] = i;
+      ch->pcdata->stances[STANCE_AUTOSLOT] = i;
       return;
     }
   }

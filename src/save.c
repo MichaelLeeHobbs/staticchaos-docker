@@ -315,12 +315,12 @@ void fwrite_char( CHAR_DATA *ch, FILE *fp )
 		ch->pcdata->weapons[WP_BITE],ch->pcdata->weapons[WP_PIERCE],
 		ch->pcdata->weapons[WP_BLOW] );
 	fprintf( fp, "Stances      %d %d %d %d %d %d %d %d %d %d %d\n",
-		ch->pcdata->stances[0], ch->pcdata->stances[1],
-		ch->pcdata->stances[2], ch->pcdata->stances[3],
-		ch->pcdata->stances[4], ch->pcdata->stances[5],
-		ch->pcdata->stances[6], ch->pcdata->stances[7],
-		ch->pcdata->stances[8], ch->pcdata->stances[9],
-		ch->pcdata->stances[10] );
+		ch->pcdata->stances[STANCE_AUTOSLOT], ch->pcdata->stances[STANCE_LION],
+		ch->pcdata->stances[STANCE_LYNX], ch->pcdata->stances[STANCE_SNAKE],
+		ch->pcdata->stances[STANCE_BADGER], ch->pcdata->stances[STANCE_FERRET],
+		ch->pcdata->stances[STANCE_HAWK], ch->pcdata->stances[STANCE_EAGLE],
+		ch->pcdata->stances[STANCE_VULTURE], ch->pcdata->stances[STANCE_SPARROW],
+		ch->pcdata->stances[STANCE_STORK] );
 
 	fprintf( fp, "Newstats     %d %d %d %d %d\n", ch->pcdata->body,
 		ch->pcdata->mind, ch->pcdata->spirit, ch->pcdata->will, ch->pcdata->primal );

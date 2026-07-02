@@ -2827,12 +2827,12 @@ void do_level( CHAR_DATA *ch, char *argument )
 		ch->pcdata->weapons[WP_BITE], ch->pcdata->weapons[WP_PIERCE], ch->pcdata->weapons[WP_BLOW] );
   send_to_char( buf, ch );
   sprintf( buf,  "Lion:   %3d  Lynx:   %3d  Snake:  %3d  Badger: %3d  Ferret: %3d\n\r",
-	ch->pcdata->stances[1], ch->pcdata->stances[2], ch->pcdata->stances[3],
-	ch->pcdata->stances[4], ch->pcdata->stances[5] );
+	ch->pcdata->stances[STANCE_LION], ch->pcdata->stances[STANCE_LYNX], ch->pcdata->stances[STANCE_SNAKE],
+	ch->pcdata->stances[STANCE_BADGER], ch->pcdata->stances[STANCE_FERRET] );
   send_to_char( buf, ch );
   sprintf( buf,  "Hawk:   %3d  Eagle:  %3d  Vulture:%3d  Sparrow:%3d  Stork:  %3d\n\r",
-	ch->pcdata->stances[6], ch->pcdata->stances[7], ch->pcdata->stances[8],
-	ch->pcdata->stances[9], ch->pcdata->stances[10] );
+	ch->pcdata->stances[STANCE_HAWK], ch->pcdata->stances[STANCE_EAGLE], ch->pcdata->stances[STANCE_VULTURE],
+	ch->pcdata->stances[STANCE_SPARROW], ch->pcdata->stances[STANCE_STORK] );
 
   if ( ch->class == CLASS_SAIYAN )
   { sprintf( buf2, "\n\rMax Power:   %5d  Max Strength:  %4d  Max Speed:  %4d  Max Aegis:  %4d\n\r",

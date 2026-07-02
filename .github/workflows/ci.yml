@@ -1,0 +1,91 @@
+name: CI
+
+# Gates every PR (and every push to main), then publishes the MUD image on main.
+#
+# The authoritative C gate is `docker compose build mud`: the server only
+# compiles 32-bit on Debian bullseye/gcc 10, which the Dockerfile pins. Node
+# tooling and the web app are checked in the same job so a single run tells you
+# whether the whole pipeline (area data -> world-maps -> web) is healthy.
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  build-and-check:
+    name: Build & check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+
+      # Authoritative C gate first: this is the real "does it still build" check.
+      - name: Compile the MUD (Docker build, 32-bit bullseye/gcc 10)
+        run: docker compose build mud
+
+      # Node tooling deps (repo root) power both the C lint and the data build.
+      - name: Install tooling deps
+        run: pnpm install --frozen-lockfile
+
+      - name: Lint C (fails on bare magic indices)
+        run: pnpm run lint:c
+
+      # Parse area/*.are -> world-maps/. Skips build:pdf* (needs a puppeteer
+      # Chrome we don't provision in CI).
+      - name: Build world data
+        run: pnpm run build:data
+
+      - name: Install web deps
+        working-directory: web
+        run: pnpm install --frozen-lockfile
+
+      - name: Web typecheck
+        working-directory: web
+        run: pnpm run typecheck
+
+      - name: Web build
+        working-directory: web
+        run: pnpm run build
+
+  publish-image:
+    name: Publish MUD image (GHCR)
+    # Only publish from main, and only after the gate above passes.
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    needs: build-and-check
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Log in to GHCR
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      # The image carries only the initial/seed game state baked from the repo.
+      # Runtime player data (player/notes/finger/log and the auto-dumped area)
+      # lives in named volumes at run time and is never part of the image.
+      - name: Build and push MUD image
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: ./Dockerfile
+          push: true
+          tags: |
+            ghcr.io/${{ github.repository }}/mud:latest
+            ghcr.io/${{ github.repository }}/mud:sha-${{ github.sha }}

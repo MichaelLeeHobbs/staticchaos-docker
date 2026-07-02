@@ -5,7 +5,7 @@
 > narrative version, see **[Mazoku — Player Guide](CLASS-MAZOKU.md)** (do not balance-check against
 > that doc; this one is authoritative).
 
-**Last verified against source:** commit `e5ac280`
+**Last verified against source:** commit `cefb094`
 **Primary sources:** `src/mazoku.c`, `src/fight.c`, `src/update.c`, `src/handler.c`, `src/const.c`, `src/merc.h`, `src/interp.c`, `src/act_info.c`, `src/saiyan.c`, `src/patryn.c`
 
 ## How to read this
@@ -331,7 +331,10 @@ Spike strike to the eyes that **blinds**. **Requires `M_SPIKES` active.**
 
 - **Resist check** (no blind if it passes): vs player, `victim body - 50 > number_percent()`; vs NPC,
   `victim level > number_percent() + 10`. On resist: `WAIT_STATE 8`, no effect.
-- **Blind duration:** `duration = weapons[11]/6 + 5`; but for NPCs `level >= 96`, `duration = dice(1,5)`.
+- **Blind duration:** `duration = weapons[2]/6 + 5`; but for NPCs `level >= 96`, `duration = dice(1,5)`.
+  Slot `weapons[2]` is the same slot spike melee trains (`M_SPIKES → dt = TYPE_HIT+2`), so the blind
+  lengthens with spike proficiency — mirroring rake/claws (`weapons[5]`). *(Was `weapons[11]`, a slot
+  spike use never trained — fixed in #49.)*
 - **Effect:** applies `blindness` (`AFF_BLIND`, `APPLY_HITROLL -4`) for `duration`.
 - **Lag:** `WAIT_STATE(ch, 8)`.
 
@@ -513,9 +516,10 @@ energy-attack scaling. Key driver stats: `M_MATTER` + `M_FOCUS` (melee), `M_ASTR
 - **`do_release` essense cost.** Release spends **no essense** in `do_release` (the only essense gate
   is the 250 checked by `do_charge`, and the 50/tick drained while charging in `update.c`). Confirm
   this is intended — the entire essense cost of a charged attack is the per-tick upkeep, not the shot.
-- **`do_gouge` blind duration uses `weapons[11]`.** Spikes melee maps to `weapons[2]` (dt
-  `TYPE_HIT+2`), but the gouge blind duration reads `weapons[11]/6 + 5`. Index 11 looks unrelated to
-  the spikes skill — verify which weapon-skill slot 11 actually is and whether this is intentional.
+- **~~`do_gouge` blind duration uses `weapons[11]`.~~** *(Resolved, #49.)* Gouge now reads
+  `weapons[2]` — the slot spike melee actually trains (`M_SPIKES → dt = TYPE_HIT+2`) — so the blind
+  duration scales with spike use, consistent with rake/claws (`weapons[5]`). The old `weapons[11]`
+  (rapier/stiletto/dirk in `wgen_table`) was never trained by using spikes.
 - **`do_instantiate` duplicate `boots` / fallback help text.** The `else if` chain lists `boots`
   twice and the no-match help text omits some slots vs the success list; cosmetic, but confirm every
   advertised slot is reachable (e.g. `shield`, `cloak`).

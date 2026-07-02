@@ -172,7 +172,7 @@ void multi_hit( CHAR_DATA *ch, CHAR_DATA *victim, int dt )
     if ( IS_CLASS(ch,CLASS_SORCERER) && ch->pcdata->powers[SORC_PREP] > 0 )
     {
       cn = 1; // crummy safety measure
-      for ( i = MAX_CHANT; i > 0; i-- )
+      for ( i = MAX_CHANT - 1; i >= 0; i-- )	/* issue #47: was i = MAX_CHANT -> OOB read of chant_table[MAX_CHANT]; also no longer skips index 0 */
       {
         if ( chant_table[i].school == ch->pcdata->powers[SORC_PREP] &&
              chant_table[i].rank <= ch->pcdata->powers[ch->pcdata->powers[SORC_PREP]] &&
@@ -1480,10 +1480,10 @@ void chant_damage( CHAR_DATA *ch, CHAR_DATA *victim, int dam, int dt )
             switch( school )
             {
               case SCHOOL_WIND:
-                if ( is_affected( victim, gsn_water_ward ) )
+                if ( is_affected( victim, gsn_wind_ward ) )	/* issue #48: was gsn_water_ward (copy-paste); wind school must be mitigated by the wind ward. NB: the RUNE_WATER block just below intentionally references water_ward (water runes amplify wind dmg; water ward halves the amp) -- reexamine if wind/water balance is revisited */
                 {
                   dam = UMAX( dam - 100, 1 );
-                  dec_duration( victim, gsn_water_ward, 100 );
+                  dec_duration( victim, gsn_wind_ward, 100 );
                 }
                 if ((mod = get_runes(victim,RUNE_WATER,TORSO)) > 0 )
                 {

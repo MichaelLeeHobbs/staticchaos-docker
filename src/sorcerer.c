@@ -2960,7 +2960,7 @@ void do_prepare( CHAR_DATA *ch, char *argument )
     return;
   }
 
-  for ( i = MAX_CHANT; i > 0; i-- )
+  for ( i = MAX_CHANT - 1; i > 0; i-- )	/* issue #47: was i = MAX_CHANT -> OOB read of chant_table[MAX_CHANT] on the first iteration. Only the OOB read is fixed; index-0 handling is deliberately unchanged (see issue #47 discussion) */
   {
     if ( chant_table[i].rank <= ch->pcdata->powers[school] &&
          chant_table[i].prep == TRUE &&

@@ -1119,7 +1119,7 @@ void do_gouge( CHAR_DATA *ch, char *argument )
     return;
   }
 
-  duration = ch->pcdata->weapons[11]/6 + 5;
+  duration = ch->pcdata->weapons[2]/6 + 5;	/* issue #49: was weapons[11], which spike use never trains. gouge requires spikes, and spike melee trains weapons[2] (fight.c: M_SPIKES -> dt+=2), so gouge now scales off spike proficiency -- mirroring rake/claws (weapons[5]) */
   if ( IS_NPC(victim) && victim->level >= 96 )
     duration = dice(1,5);
   af.type      = skill_lookup( "blindness" );

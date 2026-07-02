@@ -5,7 +5,7 @@
 > narrative version, see **[Patryn — Player Guide](CLASS-PATRYN.md)** (do not balance-check against
 > that doc; this one is authoritative).
 
-**Last verified against source:** commit `e5ac280`
+**Last verified against source:** commit `cefb094`
 **Primary sources:** `src/patryn.c`, `src/fight.c`, `src/saiyan.c`, `src/sorcerer.c`, `src/const.c`, `src/merc.h`, `src/interp.c`
 
 ## How to read this
@@ -270,10 +270,10 @@ the new one with `af.duration = ch->pcdata->mind * 15` (the absorption pool). Pr
 
 | Weave | Ward gsn | Primarily blunts (see §4) |
 |---|---|---|
-| air + abjuration (`16385`) | `gsn_wind_ward` | `DAM_SHOCKWAVE` (−500) |
+| air + abjuration (`16385`) | `gsn_wind_ward` | `DAM_SHOCKWAVE` (−500) / `SCHOOL_WIND` |
 | earth + abjuration (`16386`) | `gsn_earth_ward` | melee / `DAM_EMERALD` / `SCHOOL_EARTH` |
 | fire + abjuration (`16388`) | `gsn_flame_ward` | `DAM_KIFLAME`/`DAM_CRIMSON` (−400) / `SCHOOL_FIRE` |
-| water + abjuration (`16392`) | `gsn_water_ward` | `DAM_CERULEAN` (−400) / `SCHOOL_WIND`/`SCHOOL_WATER` |
+| water + abjuration (`16392`) | `gsn_water_ward` | `DAM_CERULEAN` (−400) / `SCHOOL_WATER` |
 | energy + abjuration (`16400`) | `gsn_spirit_ward` | −15% to chant/astral schools; anti-scry |
 | negative + abjuration (`16416`) | `gsn_negative_ward` | `F_DEATHTOUCH`/`DAM_OBSIDIAN` (−200) |
 
@@ -415,7 +415,7 @@ Then per chant `school`, an active ward subtracts a flat 100 (floored at 1) and 
 
 | `school` | Ward effect |
 |---|---|
-| `SCHOOL_WIND` | water_ward: `dam = UMAX(dam-100,1)`, drain 100. **Then** if water torso>0: `dam += dam*mod/6` (ward up) or `dam*mod/3` (no ward) — water torso is a *weakness* vs wind |
+| `SCHOOL_WIND` | wind_ward: `dam = UMAX(dam-100,1)`, drain 100 *(was water_ward — fixed #48)*. **Then** if water torso>0: `dam += dam*mod/6` (`gsn_water_ward` up) or `dam*mod/3` (no water ward) — water torso is a *weakness* vs wind, and this second block still keys off the *water* ward by design |
 | `SCHOOL_EARTH` | earth_ward: `dam = UMAX(dam-100,1)`, drain 100 |
 | `SCHOOL_FIRE` | flame_ward: `dam = UMAX(dam-100,1)`, drain 100 |
 | `SCHOOL_WATER` | water_ward: `dam = UMAX(dam-100,1)`, drain 100 |
@@ -476,8 +476,10 @@ Air arm-runes add one attack each per round.
   here, so absolute mitigation magnitudes depend on it.
 - **`mod`/`dice(1,20)` variance in §4.2.** Torso mitigation has a `+ dice(1,20)` term in the
   denominator, so per-hit reduction swings; the table gives the formula, not a fixed percentage.
-- **`SCHOOL_WATER` and `SCHOOL_WIND` share `gsn_water_ward` (§4.5).** Confirm this is intended (wind
-  school is blunted by the *water* ward, and water torso is a wind-school weakness) rather than a
-  mislabeled case.
+- **~~`SCHOOL_WATER` and `SCHOOL_WIND` share `gsn_water_ward` (§4.5).~~** *(Resolved, #48.)* The
+  `SCHOOL_WIND` mitigation case was a copy-paste of the water case; it now keys off `gsn_wind_ward`,
+  so each ward blunts its own school. (The *second* block under `SCHOOL_WIND` — water-torso runes
+  amplifying wind damage, halved when a *water* ward is up — intentionally still references
+  `gsn_water_ward` and was left as-is; flagged to reexamine if wind/water balance is revisited.)
 - **`case 2` school constant (§4.5).** The negative-school branch is written as bare `case 2:` with a
   comment, not a `SCHOOL_*` macro — verify `2` is indeed the negative/black school id.

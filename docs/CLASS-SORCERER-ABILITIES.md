@@ -5,7 +5,7 @@
 > narrative version, see **[Sorcerer — Player Guide](CLASS-SORCERER.md)** (do not balance-check against
 > that doc; this one is authoritative).
 
-**Last verified against source:** commit `e5ac280`
+**Last verified against source:** commit `cefb094`
 **Primary sources:** `src/sorcerer.c`, `src/fight.c` (`chant_damage`, school amps), `src/update.c`
 (`chant_update`, Mystic regen, Laguna Blade upkeep, Dragon Slave tick, Flame Breath DoT), `src/const.c`,
 `src/merc.h`
@@ -122,9 +122,12 @@ the highest-rank **prep-flagged** chant of that school you qualify for is auto-c
 spending **`cost/2` mana** (not Mystic); if mana is short, the round is skipped. Only chants with the
 table `prep = TRUE` flag are eligible (listed per school below). The chant's damage type is `1400+cn`.
 
-> ⚠️ Both `do_prepare` and `multi_hit` iterate `for (i = MAX_CHANT; i > 0; i--)`, starting at index
-> `MAX_CHANT` (81) — one past the last valid index (0–80). This is a latent off-by-one read into
-> `chant_table[81]`. Flagged, not changed (upstream).
+> ✅ *Fixed (#47).* Both `do_prepare` and `multi_hit` now iterate `for (i = MAX_CHANT - 1; i > 0; i--)`
+> — previously they started at `i = MAX_CHANT` (81), reading `chant_table[81]` one past the last valid
+> index (0–80) on the first iteration. Only the out-of-bounds read is fixed; index-0 handling is left
+> exactly as before (index 0 is still not scanned, so behavior is otherwise unchanged). Whether the
+> index-0 chant (**Balus Rod**) *should* be an eligible auto-cast pick is a separate design question,
+> deliberately not bundled into this correctness fix.
 
 ### `chant list` / `chant info <spell>`
 `do_chant` provides `chant list` (chants you currently qualify for, with school/rank/lines) and
@@ -656,8 +659,11 @@ Every offensive chant's damage passes through `chant_damage(ch, victim, dam, dt)
 - **`cost` field semantics.** Confirmed the **Mystic** cost paid by `do_chant` is the `rank` field, not
   `cost`; the `cost` field is read only by prepared auto-casts (`cost/2` mana in `multi_hit`) and the
   old commented-out mana check. No other live reader of `cost` was found — worth a second pass.
-- **`prepare`/`multi_hit` off-by-one.** Both loop `for (i = MAX_CHANT; i > 0; i--)`, reading
-  `chant_table[81]` (out of bounds, valid 0–80) on the first iteration. Latent; not changed.
+- **~~`prepare`/`multi_hit` off-by-one.~~** *(Resolved, #47.)* Both loops now run
+  `for (i = MAX_CHANT - 1; i > 0; i--)` (was `i = MAX_CHANT; i > 0`), removing the out-of-bounds
+  `chant_table[81]` read on the first iteration with no other behavior change (index 0 is still not
+  scanned, matching the prior behavior). Making the index-0 chant an eligible prep pick is a separate
+  design question, left for a future change.
 - **AoE save application.** Several AoE chants (Dynast Brass, Laguna Blast, Mega Brand, Demona Crystal)
   roll `saves_chant` against the **primary** `victim` once and apply the result to every target in the
   loop. Verify this is intended vs per-victim saves.

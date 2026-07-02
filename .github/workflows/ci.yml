@@ -77,6 +77,12 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
+      # GHCR image paths must be lowercase, but ${{ github.repository }} can
+      # contain uppercase (e.g. MichaelLeeHobbs/...). Lowercase it first.
+      - name: Compute image name
+        id: img
+        run: echo "name=ghcr.io/${GITHUB_REPOSITORY,,}/mud" >> "$GITHUB_OUTPUT"
+
       # The image carries only the initial/seed game state baked from the repo.
       # Runtime player data (player/notes/finger/log and the auto-dumped area)
       # lives in named volumes at run time and is never part of the image.
@@ -87,5 +93,5 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: |
-            ghcr.io/${{ github.repository }}/mud:latest
-            ghcr.io/${{ github.repository }}/mud:sha-${{ github.sha }}
+            ${{ steps.img.outputs.name }}:latest
+            ${{ steps.img.outputs.name }}:sha-${{ github.sha }}

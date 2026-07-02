@@ -335,19 +335,22 @@ void fwrite_char( CHAR_DATA *ch, FILE *fp )
 		ch->pcdata->kills[12],   ch->pcdata->kills[13],
 		ch->pcdata->kills[14] );
 
+	/* extras[] slots 0-2 have no names: 0/1 are dead flee-counter slots and
+	 * 2 is unassigned (see merc.h); named slots are PUSSY(3)..TIE(9). Dumped
+	 * positionally, so this row stays numeric. */
 	fprintf( fp, "Extras       %d %d %d %d %d %d %d %d %d %d\n",
 		ch->pcdata->extras[0],	ch->pcdata->extras[1],
-		ch->pcdata->extras[2],	ch->pcdata->extras[3],
-		ch->pcdata->extras[4],	ch->pcdata->extras[5],
-		ch->pcdata->extras[6],	ch->pcdata->extras[7],
-		ch->pcdata->extras[8],	ch->pcdata->extras[9] );
+		ch->pcdata->extras[2],	ch->pcdata->extras[PUSSY],
+		ch->pcdata->extras[STATUS],	ch->pcdata->extras[LEGEND],
+		ch->pcdata->extras[HOME],	ch->pcdata->extras[TIMER],
+		ch->pcdata->extras[TOKENS],	ch->pcdata->extras[TIE] );
 
 	fprintf( fp, "Extras2      %d %d %d %d %d %d %d %d %d %d\n",
-		ch->pcdata->extras2[0],		ch->pcdata->extras2[1],
-		ch->pcdata->extras2[2],         ch->pcdata->extras2[3],
-		ch->pcdata->extras2[4],         ch->pcdata->extras2[5],
-		ch->pcdata->extras2[6],         ch->pcdata->extras2[7],
-		ch->pcdata->extras2[8],         ch->pcdata->extras2[9] );
+		ch->pcdata->extras2[QUEST_TYPE],	ch->pcdata->extras2[QUEST_INFO],
+		ch->pcdata->extras2[UNIQUE_TIMER],	ch->pcdata->extras2[EVAL],
+		ch->pcdata->extras2[PKCOUNT],		ch->pcdata->extras2[BOUNTY],
+		ch->pcdata->extras2[QUEST_COMPLETED],	ch->pcdata->extras2[SQUISH],
+		ch->pcdata->extras2[GLOBALS],		ch->pcdata->extras2[EXCLANS] );
 
         fprintf( fp, "Clan         %d %d %d %d %d %d %d %d %d %d\n",
                  ch->pcdata->clan[0],         ch->pcdata->clan[1],
@@ -364,14 +367,14 @@ void fwrite_char( CHAR_DATA *ch, FILE *fp )
 		ch->pcdata->powers[8],	ch->pcdata->powers[9] );
 
 	fprintf( fp, "Suit         %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d\n",
-                ch->pcdata->suit[0],    ch->pcdata->suit[1],
-                ch->pcdata->suit[2],    ch->pcdata->suit[3],
-                ch->pcdata->suit[4],    ch->pcdata->suit[5],
-                ch->pcdata->suit[6],    ch->pcdata->suit[7],
-                ch->pcdata->suit[8],    ch->pcdata->suit[9],
-                ch->pcdata->suit[10],   ch->pcdata->suit[11],
-                ch->pcdata->suit[12],   ch->pcdata->suit[13],
-                ch->pcdata->suit[14] );
+                ch->pcdata->suit[SUIT_EQ],      ch->pcdata->suit[SUIT_COND],
+                ch->pcdata->suit[SUIT_ARMOR],   ch->pcdata->suit[SUIT_FUEL],
+                ch->pcdata->suit[SUIT_READY],   ch->pcdata->suit[SUIT_BULLETS],
+                ch->pcdata->suit[SUIT_SHELLS],  ch->pcdata->suit[SUIT_PLASMA],
+                ch->pcdata->suit[SUIT_BEAM],    ch->pcdata->suit[SUIT_NUMBER],
+                ch->pcdata->suit[SUIT_WEAPON],  ch->pcdata->suit[SUIT_COMBAT],
+                ch->pcdata->suit[SUIT_REFLEX],  ch->pcdata->suit[SUIT_AIM],
+                ch->pcdata->suit[SUIT_MISSILES] );
 
 	fprintf( fp, "Torso        %d %d %d %d %d %d %d %d %d %d %d %d %d %d %d\n",
 		ch->pcdata->runes[TORSO][0],	ch->pcdata->runes[TORSO][1],
@@ -404,9 +407,9 @@ void fwrite_char( CHAR_DATA *ch, FILE *fp )
 	fprintf( fp, "Ansi         %d\n", ch->pcdata->ansi );
 
 	fprintf( fp, "Condition    %d %d %d\n",
-	    ch->pcdata->condition[0],
-	    ch->pcdata->condition[1],
-	    ch->pcdata->condition[2] );
+	    ch->pcdata->condition[COND_DRUNK],
+	    ch->pcdata->condition[COND_FULL],
+	    ch->pcdata->condition[COND_THIRST] );
 
 	fprintf( fp, "Pagelen      %d\n",   ch->pcdata->pagelen     );
 
@@ -816,7 +819,7 @@ void fread_char( CHAR_DATA *ch, FILE *fp )
               for ( i = 0; i < 10; i++ )
                 ch->pcdata->clan[i] = fread_number( fp );
 
-              if ( clan_table[ch->pcdata->clan[0]].active == FALSE )
+              if ( clan_table[ch->pcdata->clan[CLAN]].active == FALSE )
                 for ( i = 0; i < 10; i++ )
                   ch->pcdata->clan[i] = 0;
 
@@ -826,9 +829,9 @@ void fread_char( CHAR_DATA *ch, FILE *fp )
 
 	    if ( !str_cmp( word, "Condition" ) )
 	    {
-		ch->pcdata->condition[0] = fread_number( fp );
-		ch->pcdata->condition[1] = fread_number( fp );
-		ch->pcdata->condition[2] = fread_number( fp );
+		ch->pcdata->condition[COND_DRUNK] = fread_number( fp );
+		ch->pcdata->condition[COND_FULL] = fread_number( fp );
+		ch->pcdata->condition[COND_THIRST] = fread_number( fp );
 		fMatch = TRUE;
 		break;
 	    }
@@ -872,7 +875,7 @@ void fread_char( CHAR_DATA *ch, FILE *fp )
 	        ch->pcdata->extras2[i] = fread_number( fp );
 
 	      if ( ch->pcdata->version < 3 )
-	        ch->pcdata->extras2[2] = 0;
+	        ch->pcdata->extras2[UNIQUE_TIMER] = 0;
 	      fMatch = TRUE;
 	      break;
 	    }

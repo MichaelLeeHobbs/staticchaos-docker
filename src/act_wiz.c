@@ -826,6 +826,8 @@ void do_mstat( CHAR_DATA *ch, char *argument )
     strcat( buf1, buf );
 	
     if ( !IS_NPC( victim ) )
+    /* powers[] is reinterpreted per class (the S_ F_ P_ M_ names all index it),
+     * so a class-agnostic dump has no single canonical slot name -- kept numeric. */
     { sprintf( buf, "Class Powers: %d %d %d %d %d %d %d %d %d %d\n\r",
 	victim->pcdata->powers[0], victim->pcdata->powers[1], victim->pcdata->powers[2],
 	victim->pcdata->powers[3], victim->pcdata->powers[4], victim->pcdata->powers[5],
@@ -837,18 +839,18 @@ void do_mstat( CHAR_DATA *ch, char *argument )
     if ( !IS_NPC( victim) )
     { sprintf( buf, "Extra values: %d %d %d %d %d %d %d %d %d %d\n\r",
     	victim->pcdata->extras[0], victim->pcdata->extras[1], victim->pcdata->extras[2],
-    	victim->pcdata->extras[3], victim->pcdata->extras[4], victim->pcdata->extras[5],
-    	victim->pcdata->extras[6], victim->pcdata->extras[7], victim->pcdata->extras[8],
-    	victim->pcdata->extras[9] );
+    	victim->pcdata->extras[PUSSY], victim->pcdata->extras[STATUS], victim->pcdata->extras[LEGEND],
+    	victim->pcdata->extras[HOME], victim->pcdata->extras[TIMER], victim->pcdata->extras[TOKENS],
+    	victim->pcdata->extras[TIE] );
       strcat( buf1, buf );
     }
 
     if ( !IS_NPC( victim) )
     { sprintf( buf, "Extr2 values: %d %d %d %d %d %d %d %d %d %d  Clan: %d %d\n\r",
-        victim->pcdata->extras2[0], victim->pcdata->extras2[1], victim->pcdata->extras2[2],
-        victim->pcdata->extras2[3], victim->pcdata->extras2[4], victim->pcdata->extras2[5],
-        victim->pcdata->extras2[6], victim->pcdata->extras2[7], victim->pcdata->extras2[8],
-        victim->pcdata->extras2[9], victim->pcdata->clan[0],	victim->pcdata->clan[1] );
+        victim->pcdata->extras2[QUEST_TYPE], victim->pcdata->extras2[QUEST_INFO], victim->pcdata->extras2[UNIQUE_TIMER],
+        victim->pcdata->extras2[EVAL], victim->pcdata->extras2[PKCOUNT], victim->pcdata->extras2[BOUNTY],
+        victim->pcdata->extras2[QUEST_COMPLETED], victim->pcdata->extras2[SQUISH], victim->pcdata->extras2[GLOBALS],
+        victim->pcdata->extras2[EXCLANS], victim->pcdata->clan[CLAN],	victim->pcdata->clan[CLAN_RANK] );
       strcat( buf1, buf );
     }
 

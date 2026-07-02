@@ -419,9 +419,16 @@ void one_hit( CHAR_DATA *ch, CHAR_DATA *victim, int dt )
       if ( ch->class == CLASS_FIST && dt == TYPE_HIT && ch->pcdata->powers[F_DISC] >= 2 )
         max = 500;
       chance = number_percent();
-      if ( ch->pcdata->weapons[dt-1000] < max )
-        if ( chance < UMAX( 5, 100 - ch->pcdata->weapons[dt-1000] ) )
-	  ch->pcdata->weapons[dt-1000]++;
+      /* #51/#67: only train a weapon-proficiency slot when dt is a real weapon
+         type. dt can be a prep-chant type (1400+cn -> index 400+cn) or a gsn
+         skill number (< TYPE_HIT -> negative index); either indexed weapons[]
+         (size MAX_WEAPONS) out of bounds and corrupted adjacent pcdata each swing. */
+      if ( dt >= TYPE_HIT && dt < TYPE_HIT + MAX_WEAPONS )
+      {
+        if ( ch->pcdata->weapons[dt-TYPE_HIT] < max )
+          if ( chance < UMAX( 5, 100 - ch->pcdata->weapons[dt-TYPE_HIT] ) )
+	    ch->pcdata->weapons[dt-TYPE_HIT]++;
+      }
       stance = stanced(ch);
       max = 200;
       if ( ch->class == CLASS_FIST && ch->pcdata->powers[F_DISC] >= 3 )

@@ -684,7 +684,14 @@ Every offensive chant's damage passes through `chant_damage(ch, victim, dam, dt)
   no-match `cn` defaulted to `1` (disfang, `prep = FALSE`), firing and charging mana for an unprepped
   chant; and a mana shortfall `return`ed out of `multi_hit`, costing the whole melee round. Both now
   skip the auto-cast and fall through to normal melee (`if (cn > 0 && mana >= cost/2)` gates the cast).
-  Item 3 of #51 (make index-0 Balus Rod prep-eligible) was intentionally left untouched.
+  Item 3 of #51 (make index-0 Balus Rod prep-eligible) was intentionally left untouched. See the ⚠️
+  note in §`prepare` for what the fall-through swing actually deals (full mystic damage, blockable).
+- **~~`one_hit` weapon-skill training OOB on non-weapon `dt`.~~** *(Resolved, #51/#67.)* The
+  weapon-proficiency training write `weapons[dt-1000]++` (fight.c) ran for any `dt`, so a prep-chant
+  swing (`dt = 1400+cn` → index `400+cn`) or a gsn-typed swing (`dt < TYPE_HIT` → negative index)
+  wrote out of bounds past the `MAX_WEAPONS`-element array, corrupting adjacent `pcdata` each hit. Now
+  gated to real weapon types (`TYPE_HIT <= dt < TYPE_HIT + MAX_WEAPONS`); non-weapon swings simply
+  train nothing (correct — you're casting/using a skill, not a weapon).
 - **AoE save application.** Several AoE chants (Dynast Brass, Laguna Blast, Mega Brand, Demona Crystal)
   roll `saves_chant` against the **primary** `victim` once and apply the result to every target in the
   loop. Verify this is intended vs per-victim saves.

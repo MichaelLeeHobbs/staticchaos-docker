@@ -1,0 +1,184 @@
+{
+  "id": "sample",
+  "file": "sample.are",
+  "name": "Fixture Test Area",
+  "rooms": [
+    {
+      "vnum": 9900,
+      "name": "The Testing Chamber",
+      "sector": 1,
+      "flags": 10752,
+      "exits": {
+        "N": 9901,
+        "E": 9901
+      },
+      "exitInfo": {
+        "N": {
+          "to": 9901,
+          "flags": 0,
+          "key": 0,
+          "keyword": ""
+        },
+        "E": {
+          "to": 9901,
+          "flags": 3,
+          "key": 9902,
+          "keyword": "door oak"
+        }
+      }
+    },
+    {
+      "vnum": 9901,
+      "name": "The Return Hall",
+      "sector": 0,
+      "flags": 0,
+      "exits": {
+        "W": 9900
+      },
+      "exitInfo": {
+        "W": {
+          "to": 9900,
+          "flags": 0,
+          "key": 0,
+          "keyword": ""
+        }
+      }
+    }
+  ],
+  "mobiles": [
+    {
+      "vnum": 9900,
+      "keywords": "fixture keeper shopkeeper",
+      "name": "the Fixture Shopkeeper",
+      "long": "A shopkeeper stands here, ready to trade.",
+      "desc": "A tidy merchant who exists only to test the parser.",
+      "act": 513,
+      "level": 25
+    },
+    {
+      "vnum": 9901,
+      "keywords": "fixture rat vermin",
+      "name": "a fixture rat",
+      "long": "A small rat scurries across the floor.",
+      "desc": "Just a rat for the bestiary parser to chew on.",
+      "act": 64,
+      "level": 3
+    }
+  ],
+  "objects": [
+    {
+      "vnum": 9900,
+      "keywords": "sword fixture blade",
+      "name": "a fixture longsword",
+      "desc": "A plain longsword lies here.",
+      "itemType": 5,
+      "extra": 0,
+      "wear": 8192,
+      "values": [
+        0,
+        2,
+        4,
+        0
+      ],
+      "weight": 15,
+      "cost": 100,
+      "affects": []
+    },
+    {
+      "vnum": 9901,
+      "keywords": "ring fixture",
+      "name": "a fixture ring",
+      "desc": "A silver ring gleams here.",
+      "itemType": 9,
+      "extra": 64,
+      "wear": 2,
+      "values": [
+        5,
+        0,
+        0,
+        0
+      ],
+      "weight": 2,
+      "cost": 500,
+      "affects": [
+        {
+          "loc": 13,
+          "mod": 10
+        },
+        {
+          "loc": 18,
+          "mod": 2
+        }
+      ]
+    },
+    {
+      "vnum": 9902,
+      "keywords": "key oak fixture",
+      "name": "an oak door key",
+      "desc": "A small iron key lies here.",
+      "itemType": 18,
+      "extra": 0,
+      "wear": 0,
+      "values": [
+        9901,
+        0,
+        0,
+        0
+      ],
+      "weight": 1,
+      "cost": 5,
+      "affects": []
+    }
+  ],
+  "resets": [
+    {
+      "command": "M",
+      "arg1": 9900,
+      "arg2": 1,
+      "arg3": 9900
+    },
+    {
+      "command": "G",
+      "arg1": 9901,
+      "arg2": 0,
+      "arg3": 0
+    },
+    {
+      "command": "E",
+      "arg1": 9902,
+      "arg2": 0,
+      "arg3": 16
+    },
+    {
+      "command": "M",
+      "arg1": 9901,
+      "arg2": 3,
+      "arg3": 9901
+    },
+    {
+      "command": "O",
+      "arg1": 9900,
+      "arg2": 0,
+      "arg3": 9900
+    },
+    {
+      "command": "P",
+      "arg1": 9901,
+      "arg2": 0,
+      "arg3": 9902
+    }
+  ],
+  "shops": [
+    {
+      "keeper": 9900,
+      "buyTypes": [
+        5,
+        9
+      ],
+      "profitBuy": 120,
+      "profitSell": 40,
+      "openHour": 8,
+      "closeHour": 18
+    }
+  ]
+}

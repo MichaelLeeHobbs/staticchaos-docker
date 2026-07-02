@@ -5,7 +5,7 @@
 > narrative version, see **[Sorcerer — Player Guide](CLASS-SORCERER.md)** (do not balance-check against
 > that doc; this one is authoritative).
 
-**Last verified against source:** commit `cefb094`
+**Last verified against source:** commit `59e39c5`, plus the `multi_hit` prep-fallback change from PR #67 (#51) — diff against that PR's merge commit for the `prepare` behavior described below.
 **Primary sources:** `src/sorcerer.c`, `src/fight.c` (`chant_damage`, school amps), `src/update.c`
 (`chant_update`, Mystic regen, Laguna Blade upkeep, Dragon Slave tick, Flame Breath DoT), `src/const.c`,
 `src/merc.h`
@@ -118,16 +118,32 @@ Sources: `src/sorcerer.c` (`do_chant`, `do_research`, `do_specialize`, `do_prepa
 ### `prepare` — passive melee auto-cast
 *Source: `src/sorcerer.c:do_prepare` + `src/fight.c:multi_hit`* — `prepare <school>` sets `SORC_PREP`
 to a school (`prepare none` clears it, `WAIT_STATE 4`). While set, **every melee round** (`multi_hit`)
-the highest-rank **prep-flagged** chant of that school you qualify for is auto-cast at the victim,
-spending **`cost/2` mana** (not Mystic); if mana is short, the round is skipped. Only chants with the
-table `prep = TRUE` flag are eligible (listed per school below). The chant's damage type is `1400+cn`.
+the highest-rank **prep-flagged** chant of that school you qualify for auto-casts by retyping your
+melee swings to the chant's damage type (`dt = 1400+cn`), spending **`cost/2` mana** (not Mystic).
+If you qualify for no prep chant of that school, or can't afford the `cost/2`, the auto-cast is skipped
+and `dt` stays a normal weapon type for that round (`#51`). Only chants with the table `prep = TRUE`
+flag are eligible (listed per school below).
 
-> ✅ *Fixed (#47).* Both `do_prepare` and `multi_hit` now iterate `for (i = MAX_CHANT - 1; i > 0; i--)`
+> ⚠️ **The skipped round is *not* a weak swing.** The damage roll (`one_hit`, §"Hit — Calc damage")
+> keys on `SORC_PREP > 0`, **not** on `dt`, so while a school is prepared *every* swing rolls the full
+> Sorcerer mystic formula `number_range(i·(min(mystic,i)/15), i·15)`. On a skipped round you therefore
+> deal that same full damage — just as an **ordinary blockable hit** (can be parried/dodged/blocked and
+> can miss) and with **no mana cost and no chant on-hit rider**, versus the guaranteed-hit unblockable
+> chant swing on a cast round. Net vs the old behavior: a mana-starved prep Sorcerer went from **zero**
+> damage (round aborted) to a free blockable full-mystic swing. Rare in practice (endgame mana is
+> ample) and intended per #51, but it *is* a small buff, not a no-op — flagged here for balance review.
+
+> ✅ *Fixed (#51).* A no-match or mana shortfall now skips the auto-cast and lets the round proceed as
+> ordinary melee (see the ⚠️ above for what that actually deals). Previously `cn` defaulted to `1`
+> (**disfang**, a `prep = FALSE` chant) on a no-match — firing and draining mana for a chant you never
+> prepped — and a mana shortfall `return`ed out of `multi_hit` entirely, so you dealt **no** melee that
+> round.
+>
+> ✅ *Fixed (#47).* Both `do_prepare` and `multi_hit` iterate `for (i = MAX_CHANT - 1; i > 0; i--)`
 > — previously they started at `i = MAX_CHANT` (81), reading `chant_table[81]` one past the last valid
-> index (0–80) on the first iteration. Only the out-of-bounds read is fixed; index-0 handling is left
-> exactly as before (index 0 is still not scanned, so behavior is otherwise unchanged). Whether the
-> index-0 chant (**Balus Rod**) *should* be an eligible auto-cast pick is a separate design question,
-> deliberately not bundled into this correctness fix.
+> index (0–80) on the first iteration. Only the out-of-bounds read was fixed; index-0 handling is left
+> exactly as before (index 0 is still not scanned). Whether the index-0 chant (**Balus Rod**) *should*
+> be an eligible auto-cast pick is a separate design question (`#51` item 3), deliberately deferred.
 
 ### `chant list` / `chant info <spell>`
 `do_chant` provides `chant list` (chants you currently qualify for, with school/rank/lines) and
@@ -664,6 +680,18 @@ Every offensive chant's damage passes through `chant_damage(ch, victim, dam, dt)
   `chant_table[81]` read on the first iteration with no other behavior change (index 0 is still not
   scanned, matching the prior behavior). Making the index-0 chant an eligible prep pick is a separate
   design question, left for a future change.
+- **~~prep auto-cast: disfang fallback + mana-shortfall round abort.~~** *(Resolved, #51.)* On a
+  no-match `cn` defaulted to `1` (disfang, `prep = FALSE`), firing and charging mana for an unprepped
+  chant; and a mana shortfall `return`ed out of `multi_hit`, costing the whole melee round. Both now
+  skip the auto-cast and fall through to normal melee (`if (cn > 0 && mana >= cost/2)` gates the cast).
+  Item 3 of #51 (make index-0 Balus Rod prep-eligible) was intentionally left untouched. See the ⚠️
+  note in §`prepare` for what the fall-through swing actually deals (full mystic damage, blockable).
+- **~~`one_hit` weapon-skill training OOB on non-weapon `dt`.~~** *(Resolved, #51/#67.)* The
+  weapon-proficiency training write `weapons[dt-1000]++` (fight.c) ran for any `dt`, so a prep-chant
+  swing (`dt = 1400+cn` → index `400+cn`) or a gsn-typed swing (`dt < TYPE_HIT` → negative index)
+  wrote out of bounds past the `MAX_WEAPONS`-element array, corrupting adjacent `pcdata` each hit. Now
+  gated to real weapon types (`TYPE_HIT <= dt < TYPE_HIT + MAX_WEAPONS`); non-weapon swings simply
+  train nothing (correct — you're casting/using a skill, not a weapon).
 - **AoE save application.** Several AoE chants (Dynast Brass, Laguna Blast, Mega Brand, Demona Crystal)
   roll `saves_chant` against the **primary** `victim` once and apply the result to every target in the
   loop. Verify this is intended vs per-victim saves.

@@ -811,10 +811,10 @@ void do_mstat( CHAR_DATA *ch, char *argument )
 	victim->pcdata->weapons[WP_BLOW] );
       strcat( buf1, buf );
       sprintf( buf, "Stances: %3d %3d %3d %3d %3d %3d %3d %3d %3d %3d.\n\r",
-	victim->pcdata->stances[1], victim->pcdata->stances[2],	victim->pcdata->stances[3],
-	victim->pcdata->stances[4], victim->pcdata->stances[5],	victim->pcdata->stances[6],
-	victim->pcdata->stances[7], victim->pcdata->stances[8],	victim->pcdata->stances[9],
-	victim->pcdata->stances[10] );
+	victim->pcdata->stances[STANCE_LION], victim->pcdata->stances[STANCE_LYNX],	victim->pcdata->stances[STANCE_SNAKE],
+	victim->pcdata->stances[STANCE_BADGER], victim->pcdata->stances[STANCE_FERRET],	victim->pcdata->stances[STANCE_HAWK],
+	victim->pcdata->stances[STANCE_EAGLE], victim->pcdata->stances[STANCE_VULTURE],	victim->pcdata->stances[STANCE_SPARROW],
+	victim->pcdata->stances[STANCE_STORK] );
       strcat( buf1, buf );
     }
 
@@ -2310,7 +2310,7 @@ void do_sstance( CHAR_DATA *ch, char *argument )
     {
 	if ( !str_cmp( arg3, "off" ) || !str_cmp( arg3, "none" ) || !str_cmp( arg3, "0" ) )
 	{
-	    victim->pcdata->stances[0] = 0;
+	    victim->pcdata->stances[STANCE_AUTOSLOT] = 0;
 	    send_to_char( "Autostance cleared.\n\r", ch );
 	    return;
 	}
@@ -2319,7 +2319,7 @@ void do_sstance( CHAR_DATA *ch, char *argument )
 	    send_to_char( "No such stance.\n\r", ch );
 	    return;
 	}
-	victim->pcdata->stances[0] = stance;
+	victim->pcdata->stances[STANCE_AUTOSLOT] = stance;
 	send_to_char( "Autostance set.\n\r", ch );
 	return;
     }

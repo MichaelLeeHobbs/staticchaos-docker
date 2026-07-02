@@ -36,9 +36,18 @@ const RULES = [
     hint: 'weapons[] slots are named WP_HIT..WP_BLOW in merc.h (#52). ' +
           'Computed indices (weapons[dt-TYPE_HIT], weapons[i]) are fine.',
   },
+  {
+    id: 'stances-magic-index',
+    desc: 'bare integer index into pcdata->stances[] (use a STANCE_* name)',
+    re: /stances\[\s*\d+\s*\]/g,
+    hint: 'stances[] slots are STANCE_AUTOSLOT (0) and STANCE_LION..STANCE_STORK ' +
+          '(1-10) in merc.h (#54). Computed indices (stances[stance], stances[i]) are fine.',
+  },
   // Future (enable once the target constants exist / patterns are precise):
   //  - MAX_* inclusive loop bounds -> off-by-one OOB (see #47)
   //  - per-school damage case using a mismatched gsn_*_ward (see #48)
+  // Not lintable cleanly: extras[] (slots 0-2 unnamed) and runeweave numeric
+  //  case labels (numeric case: is legitimate elsewhere) -- handled by hand.
 ];
 
 const cFiles = fs.readdirSync(SRC)

@@ -514,14 +514,14 @@ void do_runeweave( CHAR_DATA *ch, char *argument )
         affect_to_char( victim, &af );
         break;
     /* ENERGY + LIFE */
-    case 80:
+    case RUNE_ENERGY + RUNE_LIFE:
 	act( def1, ch, NULL, victim, TO_CHAR );
 	act( def2, ch, NULL, victim, TO_ROOM );
 	for ( i = 0; i < ch->pcdata->powers[P_ENERGY]; i += 33 )
 	  runecast( ch, victim, "heal" );
 	break;
     /* NEGATIVE + LIFE */
-    case 96:
+    case RUNE_NEGATIVE + RUNE_LIFE:
     	if ( !IS_NPC(victim) && IS_SET(victim->pcdata->actnew,NEW_NEGATIVE_BLOCK) )
     	{
     	  if ( victim == ch )
@@ -549,7 +549,7 @@ void do_runeweave( CHAR_DATA *ch, char *argument )
     	break;
 
     /* AIR + DEATH */
-    case 129:
+    case RUNE_AIR + RUNE_DEATH:
     	act( "A bolt of lightning leaps from your fingers toward $N!", ch, NULL, victim, TO_CHAR );
     	act( "A bolt of lightning leaps from $n's fingers toward you!", ch, NULL, victim, TO_VICT );
     	act( "A bolt of lightning leaps from $n's fingers toward $N!", ch, NULL, victim, TO_NOTVICT );
@@ -567,7 +567,7 @@ void do_runeweave( CHAR_DATA *ch, char *argument )
 	}
 	break;
     /* FIRE + DEATH */
-    case 132:
+    case RUNE_FIRE + RUNE_DEATH:
 	act( "A lance of flame streaks from your fingers toward $N!", ch, NULL, victim, TO_CHAR );
 	act( "A lance of flame streaks from $n's fingers toward you!", ch, NULL, victim, TO_VICT );
 	act( "A lance of flame streaks from $n's fingers toward $N!", ch, NULL, victim, TO_NOTVICT );
@@ -589,7 +589,7 @@ void do_runeweave( CHAR_DATA *ch, char *argument )
 	}
 	break;
     /* AIR + CREATION */
-    case 257:
+    case RUNE_AIR + RUNE_CREATION:
     	if ( IS_NPC(victim) )
     	{
     	  stc( "Nothing happens.\n\r", ch );
@@ -601,7 +601,7 @@ void do_runeweave( CHAR_DATA *ch, char *argument )
     	  SET_BIT(victim->pcdata->actnew,NEW_BALL_LIGHTNING);
     	break;
     /* WATER + CREATION */
-    case 264:
+    case RUNE_WATER + RUNE_CREATION:
         act( def1, ch, NULL, victim, TO_CHAR );
         act( def2, ch, NULL, victim, TO_ROOM );
         if ( is_affected(victim,skill_lookup("flame breath")) )
@@ -613,7 +613,7 @@ void do_runeweave( CHAR_DATA *ch, char *argument )
         }
         break;
     /* ENERGY + CREATION */
-    case 272:
+    case RUNE_ENERGY + RUNE_CREATION:
 	act( def1, ch, NULL, victim, TO_CHAR );
 	act( def2, ch, NULL, victim, TO_ROOM );
 	if ( ch->pcdata->powers[P_ENERGY] < 25 )
@@ -633,7 +633,7 @@ void do_runeweave( CHAR_DATA *ch, char *argument )
 	}
 	break;
     /* AIR + DESTRUCTION */
-    case 513:
+    case RUNE_AIR + RUNE_DESTRUCTION:
     	act( "You launch a gust of wind into $N.", ch, NULL, victim, TO_CHAR );
     	act( "$n's gust of wind slams into you!", ch, NULL, victim, TO_VICT );
     	act( "$n's gust of wind slams into $N.", ch, NULL, victim, TO_NOTVICT );
@@ -679,7 +679,7 @@ void do_runeweave( CHAR_DATA *ch, char *argument )
         }
         break;
     /* FIRE + DESTRUCTION */
-    case 516:
+    case RUNE_FIRE + RUNE_DESTRUCTION:
 	act( "Fire sprays forth from your hands, engulfing the room in flame!", ch, NULL, victim, TO_CHAR );
 	act( "The room is is engulfed in flame!", ch, NULL, victim, TO_ROOM );
 	for ( vch = char_list; vch != NULL; vch = vch_next )
@@ -707,13 +707,13 @@ void do_runeweave( CHAR_DATA *ch, char *argument )
 	}
 	break;
     /* ENERGY + DESTRUCTION */
-    case 528:
+    case RUNE_ENERGY + RUNE_DESTRUCTION:
 	runecast( ch, victim, "dispel magic" );
 	if ( victim != ch && victim->fighting == NULL )
 	  victim->fighting = ch;
 	break;
     /* NEGATIVE + DESTRUCTION */
-    case 544:
+    case RUNE_NEGATIVE + RUNE_DESTRUCTION:
     	act( "You launch a pearlescent ball of light at $N.", ch, NULL, victim, TO_CHAR );
     	act( "$n launches a pearlescent ball of light at you!", ch, NULL, victim, TO_VICT );
     	act( "$n launches a pearlescent ball of light at $N.", ch, NULL, victim, TO_NOTVICT );
@@ -728,19 +728,19 @@ void do_runeweave( CHAR_DATA *ch, char *argument )
     	victim->pcdata->powers[M_CTYPE] = 0;
 	break;
     /* AIR + PROTECTION */
-    case 1025:
+    case RUNE_AIR + RUNE_PROTECTION:
 	act( def1, ch, NULL, victim, TO_CHAR );
 	act( def2, ch, NULL, victim, TO_ROOM );
 	runecast( ch, victim, "shield" );
 	break;
     /* EARTH + PROTECTION */
-    case 1026:
+    case RUNE_EARTH + RUNE_PROTECTION:
 	act( def1, ch, NULL, victim, TO_CHAR );
 	act( def2, ch, NULL, victim, TO_ROOM );
 	runecast( ch, victim, "stone skin" );
 	break;
     /* FIRE + PROTECTION */
-    case 1028:
+    case RUNE_FIRE + RUNE_PROTECTION:
         if ( is_affected( ch, gsn_balus_wall ) )
         affect_strip( ch, gsn_balus_wall );
       
@@ -754,12 +754,12 @@ void do_runeweave( CHAR_DATA *ch, char *argument )
 	act( "A reddish shield shimmers into existance in front of $n.", ch, NULL, NULL, TO_ROOM );
 	break;
     /* WATER + PROTECTION */
-    case 1032:
+    case RUNE_WATER + RUNE_PROTECTION:
 	act( def1, ch, NULL, victim, TO_CHAR );
 	act( def2, ch, NULL, victim, TO_ROOM );
 	runecast( ch, victim, "armor" );
 	break;
-    case 1056:
+    case RUNE_NEGATIVE + RUNE_PROTECTION:
     /* NEGATIVE + PROTECTION */
     	if ( IS_NPC(victim) )
     	{ 
@@ -772,7 +772,7 @@ void do_runeweave( CHAR_DATA *ch, char *argument )
     	  SET_BIT(victim->pcdata->actnew,NEW_NEGATIVE_BLOCK);
     	break;
     /* AIR + TRANSFORMATION */
-    case 2049:
+    case RUNE_AIR + RUNE_TRANSFORMATION:
     	if ( IS_NPC(victim) )
     	{ act( "You failed.", ch, NULL, NULL, TO_CHAR );
     	  break;
@@ -785,7 +785,7 @@ void do_runeweave( CHAR_DATA *ch, char *argument )
     	}
     	SET_BIT(victim->pcdata->actnew,NEW_AIR_BLOCK);
     	break;
-    case 2052:
+    case RUNE_FIRE + RUNE_TRANSFORMATION:
         if ( IS_NPC(victim) )
         { act( "You failed.", ch, NULL, NULL, TO_CHAR );
           break;
@@ -800,7 +800,7 @@ void do_runeweave( CHAR_DATA *ch, char *argument )
         break;
 
     /* ENERGY + TRANSFORMATION */
-    case 2064:
+    case RUNE_ENERGY + RUNE_TRANSFORMATION:
         if ( IS_SET(ch->act, PLR_TRUESIGHT) )
         { send_to_char( "Your vision returns to normal.\n\r", ch );
           REMOVE_BIT(ch->act,PLR_TRUESIGHT);
@@ -811,7 +811,7 @@ void do_runeweave( CHAR_DATA *ch, char *argument )
         }
         break;
     /* NEGATIVE + TRANSFORMATION */
-    case 2080:
+    case RUNE_NEGATIVE + RUNE_TRANSFORMATION:
         if ( !IS_NPC(victim) && IS_SET(victim->pcdata->actnew,NEW_NEGATIVE_BLOCK) )
         {
           if ( victim == ch )

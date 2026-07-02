@@ -3553,14 +3553,14 @@ void stancecheck( CHAR_DATA *ch, CHAR_DATA *victim )
   int autostance;
 
   if (!IS_NPC(ch))
-  { autostance = ch->pcdata->stances[0];
+  { autostance = ch->pcdata->stances[STANCE_AUTOSLOT];
     if ( autostance > MAX_STANCES ) autostance = 0;
     if ( autostance > 0 && ch->pcdata->stances[MAX_STANCES+1] == 0 )
       do_stance( ch, stance_table[autostance].name );
   }
 
   if (!IS_NPC(victim))
-  { autostance = victim->pcdata->stances[0];
+  { autostance = victim->pcdata->stances[STANCE_AUTOSLOT];
     if ( autostance > MAX_STANCES ) autostance = 0;
     if ( autostance > 0 && victim->pcdata->stances[MAX_STANCES+1] == 0 )
       do_stance( victim, stance_table[autostance].name );

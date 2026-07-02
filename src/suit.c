@@ -160,7 +160,7 @@ void do_fly( CHAR_DATA *ch, char *argument )
   else if ( !str_prefix( arg, "down" ) )
     dir = DIR_DOWN;
   else if ( !str_prefix( arg, "home" ) )
-  { if ( ( location = get_room_index( ch->pcdata->extras[6] ) ) == NULL )
+  { if ( ( location = get_room_index( ch->pcdata->extras[HOME] ) ) == NULL )
     { send_to_char( "You are completely lost.\n\r", ch );
       return;
     }

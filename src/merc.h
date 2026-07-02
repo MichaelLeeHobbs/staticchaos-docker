@@ -156,6 +156,22 @@ typedef void CHANT_FUN	args( ( int cn, int rank, CHAR_DATA *ch, void *vo ) );
 #define WP_PIERCE		   11
 #define WP_BLOW			   12
 #define MAX_STANCES		   10
+/* Animal-stance identities. These index both stance_table[] (const.c) and the
+ * proficiency slots pcdata->stances[1..10]. Source of truth: stance_table order
+ * and sstance_lookup() (act_wiz.c). Slot 0 is special -- it is NOT a proficiency,
+ * it stores the player's chosen autostance (set in act_move do_autostance, read
+ * in fight.c) -- hence STANCE_AUTOSLOT. RENAME ONLY: persisted positionally. */
+#define STANCE_AUTOSLOT		    0	/* stances[] slot 0: chosen autostance id (not a proficiency) */
+#define STANCE_LION		    1
+#define STANCE_LYNX		    2
+#define STANCE_SNAKE		    3
+#define STANCE_BADGER		    4
+#define STANCE_FERRET		    5
+#define STANCE_HAWK		    6
+#define STANCE_EAGLE		    7
+#define STANCE_VULTURE		    8
+#define STANCE_SPARROW		    9
+#define STANCE_STORK		   10
 #define MAX_RUNESPELLS		   32
 #define	MAX_MATERIA		   16
 #define MAX_EXTRAS		   10

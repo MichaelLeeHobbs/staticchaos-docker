@@ -105,7 +105,9 @@ build deploys via its own `web/Dockerfile` / `web/docker-compose.yml` (host :80)
   produced a recurring bug class (#44/#45/#48/#49). `pcdata->weapons[]` slots are now named
   `WP_HIT`..`WP_BLOW` (`merc.h`); use the name, not the number. `pnpm lint:c` (`tools/lint-c.mjs`)
   fails on any bare `weapons[<digit>]` — run it after touching class/combat code, and add rules there
-  as more index families get named.
+  as more index families get named. CI also runs **cppcheck** on `src/` (buffer overflow, array OOB,
+  null deref, format/scanf) and fails on new findings; known-intentional idioms and the 32-bit
+  int↔pointer casts are muted in `.cppcheck-suppressions` (#62).
 
 > **Maintaining this file:** keep it lean — prune rules the model already follows; when a section is
 > only sometimes needed or keeps growing, move it to a doc or a skill and link it. Test for any line:

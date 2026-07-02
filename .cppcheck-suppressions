@@ -1,0 +1,12 @@
+# cppcheck accepted baseline for Static Chaos (issue #62).
+# High-value checks stay ACTIVE (buffer overflow, array-index OOB, error-severity
+# null deref, format/scanf issues, uninit) so new bugs fail CI. Only these
+# known-intentional idioms / heuristic noise are muted:
+uselessAssignmentPtrArg      # Merc `arg = one_argument(arg, x)` idiom: the reassigned local cursor IS used after
+nullPointerRedundantCheck    # legacy over/under-defensive null checks; not deref bugs
+AssignmentIntegerToAddress   # 32-bit int<->pointer, intentional -- this build is -m32 (see docs/TOOLCHAIN.md)
+CastIntegerToAddressAtReturn # ditto (32-bit int<->pointer)
+toomanyconfigs               # informational only
+# comm.c login/send paths: `ch` is established non-null by the loader/caller invariant
+# (file-scoped so nullPointer stays active everywhere else).
+nullPointer:src/comm.c

@@ -485,8 +485,7 @@ void boot_db( bool fCopyOver )
     if ( ( fp = fopen( path, "r" ) ) == NULL )
     { 
       bug( "Clan data load: fopen", 0 );
-      fclose( fp );
-      perror( path );
+      perror( path );	/* fp is NULL here -- do not fclose it */
     }
     else
     {
@@ -507,16 +506,14 @@ void boot_db( bool fCopyOver )
         pban->next  = ban_list;
         ban_list    = pban;
       }
+      fclose( fp );	/* close only on the success path (fp non-NULL) */
     }
-
-    fclose( fp );
 
     sprintf( path, "../area/newlock.txt" );
     if ( ( fp = fopen( path, "r" ) ) == NULL )
     {
       bug( "Newlock load: fopen", 0 );
-      fclose( fp );
-      perror( path );
+      perror( path );	/* fp is NULL here -- do not fclose it */
     }
     else
     {
@@ -537,10 +534,9 @@ void boot_db( bool fCopyOver )
         plock->next  = newlock_list;
         newlock_list    = plock;
       }
+      fclose( fp );	/* close only on the success path (fp non-NULL) */
     }
 
-    fclose( fp );
-    
     fpReserve = fopen( NULL_FILE, "r" );
 
     for ( i = 0; i <= 5; i++ )
@@ -2407,7 +2403,7 @@ int fread_number( FILE *fp )
 void fread_number_row( FILE *fp, int *dest, int max )
 {
     int  i;
-    char c;
+    int  c;	/* getc() returns int; a char would break the EOF compare */
 
     for ( i = 0; i < max; i++ )
     {
@@ -2423,7 +2419,7 @@ void fread_number_row( FILE *fp, int *dest, int max )
 void fread_number_row_sh( FILE *fp, sh_int *dest, int max )
 {
     int  i;
-    char c;
+    int  c;	/* getc() returns int; a char would break the EOF compare */
 
     for ( i = 0; i < max; i++ )
     {
@@ -3601,7 +3597,7 @@ void copyover_recover ()
 	
 	for (;;)
 	{
-		fscanf (fp, "%d %s %s\n", &desc, name, host);
+		fscanf (fp, "%d %99s %8191s\n", &desc, name, host);	/* field widths: name[100], host[MAX_STRING_LENGTH] */
 		if (desc == -1)
 			break;
 

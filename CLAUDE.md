@@ -98,6 +98,11 @@ build deploys via its own `web/Dockerfile` / `web/docker-compose.yml` (host :80)
 - **Deploy scripts** (`deploy.sh`, `mud-redeploy.sh`, `web/deploy-web.sh`) are real, host-specific,
   and gitignored; only the `*.example.sh` templates are committed. `mud-redeploy.sh` deliberately
   aborts if players are online and verifies the build before restarting.
+- **Magic indices in `src/`:** the legacy code indexes parallel arrays by bare ints; that idiom
+  produced a recurring bug class (#44/#45/#48/#49). `pcdata->weapons[]` slots are now named
+  `WP_HIT`..`WP_BLOW` (`merc.h`); use the name, not the number. `pnpm lint:c` (`tools/lint-c.mjs`)
+  fails on any bare `weapons[<digit>]` — run it after touching class/combat code, and add rules there
+  as more index families get named.
 
 > **Maintaining this file:** keep it lean — prune rules the model already follows; when a section is
 > only sometimes needed or keeps growing, move it to a doc or a skill and link it. Test for any line:

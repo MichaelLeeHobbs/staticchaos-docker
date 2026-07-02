@@ -318,10 +318,10 @@ void one_hit( CHAR_DATA *ch, CHAR_DATA *victim, int dt )
     {
 	if ( dt < TYPE_HIT )
 	  chance = dice(10,5)+50;
-	else if ( dt > TYPE_HIT+13 )
+	else if ( dt >= TYPE_HIT + MAX_WEAPONS )	/* was > TYPE_HIT+13, which let dt-TYPE_HIT reach 13 -- OOB (valid 0..12) */
 	  chance = 100;
 	else
-	  chance = URANGE( 30, ch->pcdata->weapons[dt-1000] , 95);
+	  chance = URANGE( 30, ch->pcdata->weapons[dt-TYPE_HIT] , 95);
     }
 
     /* homersexual
@@ -565,6 +565,8 @@ int damage( CHAR_DATA *ch, CHAR_DATA *victim, int dam, int dt )
     int i;
     int wardbonus;  /* item 3 buff half: +10% ward absorb when Patryn defenses raised */
 
+    if ( ch == NULL || victim == NULL )
+	return -1;
     if ( victim->position == POS_DEAD )
 	return -1;
 

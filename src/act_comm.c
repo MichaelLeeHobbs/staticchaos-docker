@@ -1351,6 +1351,7 @@ void do_gtell( CHAR_DATA *ch, char *argument )
  */
 bool is_same_group( CHAR_DATA *ach, CHAR_DATA *bch )
 {
+    if ( ach == NULL || bch == NULL ) return FALSE;
     if ( ach->leader != NULL ) ach = ach->leader;
     if ( bch->leader != NULL ) bch = bch->leader;
     return ach == bch;

@@ -40,6 +40,15 @@ jobs:
       - name: Lint C (fails on bare magic indices)
         run: pnpm run lint:c
 
+      # Static analysis for the C server. High-value checks (buffer overflow, array
+      # OOB, null deref, format/scanf) fail the build; known-intentional idioms and
+      # 32-bit int<->pointer casts are muted in .cppcheck-suppressions (see #62).
+      - name: Static analysis (cppcheck)
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq cppcheck
+          cppcheck --enable=warning,portability --inline-suppr --std=c99 -q -I src \
+            --suppressions-list=.cppcheck-suppressions --error-exitcode=1 src
+
       # Parse area/*.are -> world-maps/. Skips build:pdf* (needs a puppeteer
       # Chrome we don't provision in CI).
       - name: Build world data

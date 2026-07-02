@@ -4039,7 +4039,7 @@ void copyover()
 	// sprintf (buf, "%d", port);
 	sprintf( buf, "%d", 1984 );
 	sprintf (buf2, "%d", control);
-	sprintf( log_buf, "%s %s %s %s %s %s", EXE_FILE, "merc", buf, "copyover", buf2, (char *) NULL );
+	sprintf( log_buf, "%s %s %s %s %s", EXE_FILE, "merc", buf, "copyover", buf2 );	/* was %s + (char*)NULL: passing NULL to %s is UB */
 	log_string( log_buf );
 	execl (EXE_FILE, "merc", buf, "copyover", buf2, (char *) NULL);
 

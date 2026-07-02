@@ -15,6 +15,11 @@ SRC="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"   # repo root (this scrip
 TARBALL="$(mktemp "${TMPDIR:-/tmp}/staticchaos-web.XXXXXX.tgz")"
 trap 'rm -f "$TARBALL"' EXIT
 
+# world-maps/ is generated, not committed (#65) -- regenerate so the package ships
+# fresh game data (the web Docker build COPYs world-maps/ from this context).
+echo "==> generating world data (build:data)"
+( cd "$SRC" && pnpm run build:data )
+
 echo "==> packaging (excluding .git, node_modules, dist, pdfs)"
 tar --exclude=./.git --exclude='**/node_modules' --exclude=./node_modules \
     --exclude='./web/node_modules' --exclude='./web/dist' --exclude='**/*.pdf' \

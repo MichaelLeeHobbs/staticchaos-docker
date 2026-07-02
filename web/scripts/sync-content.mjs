@@ -35,6 +35,14 @@ reset(GMCP);
 
 // ---- data (JSON) ----
 const wm = path.join(ROOT, 'world-maps');
+// world-maps/ is generated, not committed (#65). If it's empty the site would
+// build with no game data, silently -- fail loudly with the fix instead.
+if (!fs.existsSync(path.join(wm, 'world.json'))) {
+  console.error('sync-content: world-maps/ has no data (world.json missing).');
+  console.error('Run `pnpm run build:data` from the repo root first — the world-maps/');
+  console.error('JSON/MD are build outputs and are no longer committed (issue #65).');
+  process.exit(1);
+}
 let nData = 0;
 for (const f of ls(wm, /\.json$/)) { cp(path.join(wm, f), path.join(DATA, f)); nData++; }
 

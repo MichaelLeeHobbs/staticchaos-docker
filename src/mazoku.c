@@ -1076,7 +1076,7 @@ void do_rake( CHAR_DATA *ch, char *argument )
   act( "$n rakes $s claws across $N.", ch, NULL, victim, TO_NOTVICT );
   do
   {
-    dam = dice( 5, ch->pcdata->weapons[5] );
+    dam = dice( 5, ch->pcdata->weapons[WP_CLAW] );
     if ( IS_NPC(victim) )
       dam += dam/2;
     damage( ch, victim, dam, TYPE_HIT+5 );
@@ -1119,7 +1119,7 @@ void do_gouge( CHAR_DATA *ch, char *argument )
     return;
   }
 
-  duration = ch->pcdata->weapons[2]/6 + 5;	/* issue #49: was weapons[11], which spike use never trains. gouge requires spikes, and spike melee trains weapons[2] (fight.c: M_SPIKES -> dt+=2), so gouge now scales off spike proficiency -- mirroring rake/claws (weapons[5]) */
+  duration = ch->pcdata->weapons[WP_STAB]/6 + 5;	/* issue #49: was weapons[WP_PIERCE], which spike use never trains. gouge requires spikes, and spike melee trains weapons[WP_STAB] (fight.c: M_SPIKES -> dt+=2), so gouge now scales off spike proficiency -- mirroring rake/claws (weapons[WP_CLAW]) */
   if ( IS_NPC(victim) && victim->level >= 96 )
     duration = dice(1,5);
   af.type      = skill_lookup( "blindness" );

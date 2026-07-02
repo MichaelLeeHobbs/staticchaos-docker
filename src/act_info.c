@@ -2817,14 +2817,14 @@ void do_level( CHAR_DATA *ch, char *argument )
   sprintf( buf, "\n\r`d-----------------------------------------------------------------------------`n\n\r" );
 
   sprintf( buf2, "Hit:  %3d  Slice:%3d  Stab:  %3d Slash: %3d  Whip:  %3d  Claw: %3d  Blast:%3d\n\r",
-		ch->pcdata->weapons[0], ch->pcdata->weapons[1], ch->pcdata->weapons[2],
-		ch->pcdata->weapons[3], ch->pcdata->weapons[4], ch->pcdata->weapons[5],
-		ch->pcdata->weapons[6] );
+		ch->pcdata->weapons[WP_HIT], ch->pcdata->weapons[WP_SLICE], ch->pcdata->weapons[WP_STAB],
+		ch->pcdata->weapons[WP_SLASH], ch->pcdata->weapons[WP_WHIP], ch->pcdata->weapons[WP_CLAW],
+		ch->pcdata->weapons[WP_BLAST] );
   strcat( buf, buf2 );
   send_to_char( buf, ch );
   sprintf( buf,  "Pound:%3d  Crush:%3d  Grep:  %3d Bite:  %3d  Pierce:%3d  Blow: %3d\n\r\n\r",
-		ch->pcdata->weapons[7], ch->pcdata->weapons[8], ch->pcdata->weapons[9],
-		ch->pcdata->weapons[10], ch->pcdata->weapons[11], ch->pcdata->weapons[12] );
+		ch->pcdata->weapons[WP_POUND], ch->pcdata->weapons[WP_CRUSH], ch->pcdata->weapons[WP_GREP],
+		ch->pcdata->weapons[WP_BITE], ch->pcdata->weapons[WP_PIERCE], ch->pcdata->weapons[WP_BLOW] );
   send_to_char( buf, ch );
   sprintf( buf,  "Lion:   %3d  Lynx:   %3d  Snake:  %3d  Badger: %3d  Ferret: %3d\n\r",
 	ch->pcdata->stances[1], ch->pcdata->stances[2], ch->pcdata->stances[3],
@@ -2958,7 +2958,7 @@ void do_skills( CHAR_DATA *ch, char *argument )
     send_to_char( buf, ch );
   }
   else
-  { weap = UMIN( ch->pcdata->weapons[0] / 25, 8 );
+  { weap = UMIN( ch->pcdata->weapons[WP_HIT] / 25, 8 );
     sprintf( buf, "You are %s in unarmed combat.\n\r", skill_message[weap] );
     send_to_char( buf, ch );
   }
@@ -2976,7 +2976,7 @@ void do_skills( CHAR_DATA *ch, char *argument )
       send_to_char( buf, ch );
     }
     else
-    { weap = UMIN( victim->pcdata->weapons[0] / 25, 8 );
+    { weap = UMIN( victim->pcdata->weapons[WP_HIT] / 25, 8 );
       sprintf( buf, "%s is %s in unarmed combat.\n\r", victim->name, skill_message[weap] );
       send_to_char( buf, ch );
     }

@@ -5,7 +5,7 @@
 > narrative version, see **[Sorcerer — Player Guide](CLASS-SORCERER.md)** (do not balance-check against
 > that doc; this one is authoritative).
 
-**Last verified against source:** commit `59e39c5`
+**Last verified against source:** commit `59e39c5`, plus the `multi_hit` prep-fallback change from PR #67 (#51) — diff against that PR's merge commit for the `prepare` behavior described below.
 **Primary sources:** `src/sorcerer.c`, `src/fight.c` (`chant_damage`, school amps), `src/update.c`
 (`chant_update`, Mystic regen, Laguna Blade upkeep, Dragon Slave tick, Flame Breath DoT), `src/const.c`,
 `src/merc.h`
@@ -121,13 +121,23 @@ to a school (`prepare none` clears it, `WAIT_STATE 4`). While set, **every melee
 the highest-rank **prep-flagged** chant of that school you qualify for auto-casts by retyping your
 melee swings to the chant's damage type (`dt = 1400+cn`), spending **`cost/2` mana** (not Mystic).
 If you qualify for no prep chant of that school, or can't afford the `cost/2`, the auto-cast is skipped
-and you swing **normal melee** that round (`#51`). Only chants with the table `prep = TRUE` flag are
-eligible (listed per school below).
+and `dt` stays a normal weapon type for that round (`#51`). Only chants with the table `prep = TRUE`
+flag are eligible (listed per school below).
 
-> ✅ *Fixed (#51).* A no-match or mana shortfall now skips the auto-cast and falls through to normal
-> melee. Previously `cn` defaulted to `1` (**disfang**, a `prep = FALSE` chant) on a no-match — firing
-> and draining mana for a chant you never prepped — and a mana shortfall `return`ed out of `multi_hit`
-> entirely, so you dealt **no** melee that round.
+> ⚠️ **The skipped round is *not* a weak swing.** The damage roll (`one_hit`, §"Hit — Calc damage")
+> keys on `SORC_PREP > 0`, **not** on `dt`, so while a school is prepared *every* swing rolls the full
+> Sorcerer mystic formula `number_range(i·(min(mystic,i)/15), i·15)`. On a skipped round you therefore
+> deal that same full damage — just as an **ordinary blockable hit** (can be parried/dodged/blocked and
+> can miss) and with **no mana cost and no chant on-hit rider**, versus the guaranteed-hit unblockable
+> chant swing on a cast round. Net vs the old behavior: a mana-starved prep Sorcerer went from **zero**
+> damage (round aborted) to a free blockable full-mystic swing. Rare in practice (endgame mana is
+> ample) and intended per #51, but it *is* a small buff, not a no-op — flagged here for balance review.
+
+> ✅ *Fixed (#51).* A no-match or mana shortfall now skips the auto-cast and lets the round proceed as
+> ordinary melee (see the ⚠️ above for what that actually deals). Previously `cn` defaulted to `1`
+> (**disfang**, a `prep = FALSE` chant) on a no-match — firing and draining mana for a chant you never
+> prepped — and a mana shortfall `return`ed out of `multi_hit` entirely, so you dealt **no** melee that
+> round.
 >
 > ✅ *Fixed (#47).* Both `do_prepare` and `multi_hit` iterate `for (i = MAX_CHANT - 1; i > 0; i--)`
 > — previously they started at `i = MAX_CHANT` (81), reading `chant_table[81]` one past the last valid

@@ -126,7 +126,7 @@ void do_combo( CHAR_DATA *ch, char *argument )
       break;
     case 12:
       send_to_char( "You execute the Di-Amon Mega Rotation Death.\n\r", ch );
-      dam = dice( 1, ch->pcdata->weapons[0] / 2 );
+      dam = dice( 1, ch->pcdata->weapons[WP_HIT] / 2 );
       damage( ch, victim, dam, F_SHINKICK );
       damage( ch, victim, dam, F_SHINKICK );
       break;
@@ -135,7 +135,7 @@ void do_combo( CHAR_DATA *ch, char *argument )
       act( "You launch a blazing ball of Ki at $N!", ch, NULL, victim, TO_CHAR );
       act( "$n flings a ball of blazing energy at you!", ch, NULL, victim, TO_VICT );
       act( "$n flings a ball of blazing energy at $N.", ch, NULL, victim, TO_NOTVICT);
-      dam = dice( (ch->pcdata->body / 2) , (ch->pcdata->weapons[0] / 3) );
+      dam = dice( (ch->pcdata->body / 2) , (ch->pcdata->weapons[WP_HIT] / 3) );
       damage( ch, victim, dam, DAM_KIFLAME );
       break;
     case 14:
@@ -147,7 +147,7 @@ void do_combo( CHAR_DATA *ch, char *argument )
       break;
     case 15:
       do_say( ch, "Boot to the head." );
-      dam = dice( (ch->pcdata->body/2), ch->pcdata->weapons[0] * 2 / 5  );
+      dam = dice( (ch->pcdata->body/2), ch->pcdata->weapons[WP_HIT] * 2 / 5  );
       damage( ch, victim, dam, F_JUMPKICK );
       break;
     case 16:
@@ -173,13 +173,13 @@ void do_combo( CHAR_DATA *ch, char *argument )
       act( "You pummel $N with blows as you execute the Fists of Fury.", ch, NULL, victim, TO_CHAR );
       act( "$n pummels you with a rapid series of blows!", ch, NULL, victim, TO_VICT );
       act( "$ns fists slam into $N in a flurry of blows.", ch, NULL, victim, TO_NOTVICT );
-      dam = dice( 6, ch->pcdata->weapons[0] / 4 );
+      dam = dice( 6, ch->pcdata->weapons[WP_HIT] / 4 );
       damage( ch, victim, dam, F_JAB );
-      dam = dice( 6, ch->pcdata->weapons[0] / 3 );
+      dam = dice( 6, ch->pcdata->weapons[WP_HIT] / 3 );
       damage( ch, victim, dam, F_JAB );
-      dam = dice( 6, ch->pcdata->weapons[0] / 2 );
+      dam = dice( 6, ch->pcdata->weapons[WP_HIT] / 2 );
       damage( ch, victim, dam, F_JAB );
-      dam = dice( 15, ch->pcdata->weapons[0] / 2 );
+      dam = dice( 15, ch->pcdata->weapons[WP_HIT] / 2 );
       damage( ch, victim, dam, F_UPPERCUT );
       break;
    case 20:
@@ -202,7 +202,7 @@ void do_combo( CHAR_DATA *ch, char *argument )
 	  affect_strip(victim,gsn_defense);
         if ( IS_SET(victim->pcdata->actnew,NEW_VAN_REHL) )
           REMOVE_BIT(victim->pcdata->actnew,NEW_VAN_REHL);
-        dam = dice( ch->pcdata->body/3, ch->pcdata->weapons[0] );
+        dam = dice( ch->pcdata->body/3, ch->pcdata->weapons[WP_HIT] );
         if ( IS_CLASS(victim,CLASS_FIST) )
           dam *= 3;
         damage( ch, victim, dam, F_PALMTHRUST );
@@ -217,17 +217,17 @@ void do_combo( CHAR_DATA *ch, char *argument )
       act( "You attempt to intimidate $N with a show of skill.", ch, NULL, victim, TO_CHAR );
       act( "$ns body blurs as $e executes a stunning attack routine!", ch, NULL, victim, TO_VICT );
       act( "$n executes a stunning attach routine against $N.", ch, NULL, victim, TO_NOTVICT );
-      dam = dice( 3, ch->pcdata->weapons[0] / 3 );
+      dam = dice( 3, ch->pcdata->weapons[WP_HIT] / 3 );
       damage( ch, victim, dam, F_SHINKICK );
-      dam = dice( 5, ch->pcdata->weapons[0] / 3 );
+      dam = dice( 5, ch->pcdata->weapons[WP_HIT] / 3 );
       damage( ch, victim, dam, F_JAB );
-      dam = dice( 8, ch->pcdata->weapons[0] / 3 );
+      dam = dice( 8, ch->pcdata->weapons[WP_HIT] / 3 );
       damage( ch, victim, dam, F_SPINKICK );
-      dam = dice( 10, ch->pcdata->weapons[0] / 3 );
+      dam = dice( 10, ch->pcdata->weapons[WP_HIT] / 3 );
       damage( ch, victim, dam, F_KNEE );
-      dam = dice( 12, ch->pcdata->weapons[0] / 3 );
+      dam = dice( 12, ch->pcdata->weapons[WP_HIT] / 3 );
       damage( ch, victim, dam, F_ELBOW );
-      dam = dice( 14, ch->pcdata->weapons[0] / 3 );
+      dam = dice( 14, ch->pcdata->weapons[WP_HIT] / 3 );
       damage( ch, victim, dam, F_UPPERCUT );
       break;
     case 22:
@@ -260,19 +260,19 @@ void do_combo( CHAR_DATA *ch, char *argument )
       act( "Blazing with Ki, you execute the vicious Maiden Masher attack!", ch, NULL, victim, TO_CHAR );
       act( "$n tears into you with the Maiden Masher!", ch, NULL, victim, TO_VICT );
       act( "$n tears into $N with the Maiden Masher!", ch, NULL, victim, TO_NOTVICT );
-      dam = dice( 12, ch->pcdata->weapons[0] / 2 );
+      dam = dice( 12, ch->pcdata->weapons[WP_HIT] / 2 );
       damage( ch, victim, dam, F_SPINKICK );
       dam = dice( 5, ch->pcdata->spirit );
       damage( ch, victim, dam, DAM_KIFLAME );
-      dam = dice( 14, ch->pcdata->weapons[0] / 2 );
+      dam = dice( 14, ch->pcdata->weapons[WP_HIT] / 2 );
       damage( ch, victim, dam, F_SPINKICK );
       dam = dice( 7, ch->pcdata->spirit );
       damage( ch, victim, dam, DAM_KIFLAME );
-      dam = dice( 17, ch->pcdata->weapons[0] / 2 );
+      dam = dice( 17, ch->pcdata->weapons[WP_HIT] / 2 );
       damage( ch, victim, dam, F_SPINKICK );
       dam = dice( 8, ch->pcdata->spirit );
       damage( ch, victim, dam, DAM_KIFLAME );
-      dam = dice( 19, ch->pcdata->weapons[0] / 2 );
+      dam = dice( 19, ch->pcdata->weapons[WP_HIT] / 2 );
       damage( ch, victim, dam, F_UPPERCUT );
       dam = dice( 20, ch->pcdata->spirit );
       damage( ch, victim, dam, DAM_KIFLAME );
@@ -290,11 +290,11 @@ void do_combo( CHAR_DATA *ch, char *argument )
       act( "You launch a brilliant missile of Ki at $N!", ch, NULL, victim, TO_CHAR );
       act( "$n flings a brilliant mass of energy at you!", ch, NULL, victim, TO_VICT );
       act( "$n flings a brilliant mass of energy at $N.", ch, NULL, victim, TO_NOTVICT);
-      dam = dice( 22, (ch->pcdata->body / 2) + (ch->pcdata->weapons[0] / 4) );
+      dam = dice( 22, (ch->pcdata->body / 2) + (ch->pcdata->weapons[WP_HIT] / 4) );
       damage( ch, victim, dam, DAM_KIFLAME );
-      dam = dice( 22, (ch->pcdata->body) + (ch->pcdata->weapons[0] / 4) );
+      dam = dice( 22, (ch->pcdata->body) + (ch->pcdata->weapons[WP_HIT] / 4) );
       damage( ch, victim, dam, DAM_KIFLAME );
-      dam = dice( 22, (ch->pcdata->body) + (ch->pcdata->weapons[0] / 2) );
+      dam = dice( 22, (ch->pcdata->body) + (ch->pcdata->weapons[WP_HIT] / 2) );
       damage( ch, victim, dam, DAM_KIFLAME );
       break;
     case 29:
@@ -392,7 +392,7 @@ void do_shinkick( CHAR_DATA *ch, char *argument )
     return;
   }
 
-  dam = dice( 10-ki, ch->pcdata->weapons[0] / 4 );
+  dam = dice( 10-ki, ch->pcdata->weapons[WP_HIT] / 4 );
 
   damage( ch, ch->fighting, dam, F_SHINKICK );
   num = number_percent();
@@ -430,7 +430,7 @@ void do_jab( CHAR_DATA *ch, char *argument )
     return;
   }
 
-  dam = dice( 10-ki, ch->pcdata->weapons[0] / 4 );
+  dam = dice( 10-ki, ch->pcdata->weapons[WP_HIT] / 4 );
 
   damage( ch, ch->fighting, dam, F_JAB );
   num = number_percent();
@@ -469,7 +469,7 @@ void do_spinkick( CHAR_DATA *ch, char *argument )
     return;
   }
 
-  dam = dice( 10-ki, ch->pcdata->weapons[0] / 4 );
+  dam = dice( 10-ki, ch->pcdata->weapons[WP_HIT] / 4 );
 
   damage( ch, ch->fighting, dam, F_SPINKICK );
   num = number_percent();
@@ -507,7 +507,7 @@ void do_knee( CHAR_DATA *ch, char *argument )
     return;
   }
 
-  dam = dice( 10-ki, ch->pcdata->weapons[0] / 4 );
+  dam = dice( 10-ki, ch->pcdata->weapons[WP_HIT] / 4 );
 
   damage( ch, ch->fighting, dam, F_KNEE );
   num = number_percent();
@@ -561,7 +561,7 @@ void do_elbow( CHAR_DATA *ch, char *argument )
     stc( "Not on mortals.\n\r", ch );
     return;
   }
-  dam = dice( 10-ki, ch->pcdata->weapons[0] / 4 );
+  dam = dice( 10-ki, ch->pcdata->weapons[WP_HIT] / 4 );
 
   damage( ch, victim, dam, F_ELBOW );
   num = number_percent();
@@ -616,7 +616,7 @@ void do_uppercut( CHAR_DATA *ch, char *argument )
     stc( "Not on mortals.\n\r", ch );
     return;
   }
-  dam = dice( 10-ki, ch->pcdata->weapons[0] / 4 );
+  dam = dice( 10-ki, ch->pcdata->weapons[WP_HIT] / 4 );
 
   damage( ch, victim, dam, F_UPPERCUT );
   num = number_percent();

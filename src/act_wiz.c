@@ -804,11 +804,11 @@ void do_mstat( CHAR_DATA *ch, char *argument )
 	victim->pcdata->primal );
       strcat( buf1, buf );
       sprintf( buf, "Weapons: %3d %3d %3d %3d %3d %3d %3d %3d %3d %3d %3d %3d %3d.\n\r",
-	victim->pcdata->weapons[0], victim->pcdata->weapons[1], victim->pcdata->weapons[2],
-	victim->pcdata->weapons[3], victim->pcdata->weapons[4],	victim->pcdata->weapons[5],
-	victim->pcdata->weapons[6], victim->pcdata->weapons[7],	victim->pcdata->weapons[8],
-	victim->pcdata->weapons[9], victim->pcdata->weapons[10], victim->pcdata->weapons[11],
-	victim->pcdata->weapons[12] );
+	victim->pcdata->weapons[WP_HIT], victim->pcdata->weapons[WP_SLICE], victim->pcdata->weapons[WP_STAB],
+	victim->pcdata->weapons[WP_SLASH], victim->pcdata->weapons[WP_WHIP],	victim->pcdata->weapons[WP_CLAW],
+	victim->pcdata->weapons[WP_BLAST], victim->pcdata->weapons[WP_POUND],	victim->pcdata->weapons[WP_CRUSH],
+	victim->pcdata->weapons[WP_GREP], victim->pcdata->weapons[WP_BITE], victim->pcdata->weapons[WP_PIERCE],
+	victim->pcdata->weapons[WP_BLOW] );
       strcat( buf1, buf );
       sprintf( buf, "Stances: %3d %3d %3d %3d %3d %3d %3d %3d %3d %3d.\n\r",
 	victim->pcdata->stances[1], victim->pcdata->stances[2],	victim->pcdata->stances[3],
@@ -4613,7 +4613,7 @@ void do_changeclass( CHAR_DATA *ch, char *argument )
     ch->pcdata->powers[7] = 1000;
     ch->pcdata->powers[8] = 520191;
     ch->pcdata->powers[9] = 0;
-    if ( ch->pcdata->weapons[0] > 200 )
+    if ( ch->pcdata->weapons[WP_HIT] > 200 )
     {
       for ( i = 0; i < 13; i++ )
         ch->pcdata->weapons[i] = 200;
@@ -4651,7 +4651,7 @@ void do_changeclass( CHAR_DATA *ch, char *argument )
       ch->pcdata->runes[TORSO][i] = 2;
     ch->pcdata->runes[TORSO][14] = 4;
 
-    if ( ch->pcdata->weapons[0] > 200 )
+    if ( ch->pcdata->weapons[WP_HIT] > 200 )
     {
       for ( i = 0; i < 13; i++ )
         ch->pcdata->weapons[i] = 200;
@@ -4675,7 +4675,7 @@ void do_changeclass( CHAR_DATA *ch, char *argument )
     ch->pcdata->powers[8] = 746523;
     ch->pcdata->powers[9] = 0;
 
-    ch->pcdata->weapons[0] = 500;
+    ch->pcdata->weapons[WP_HIT] = 500;
     for ( i = 1; i <= 10; i++ )
       ch->pcdata->stances[i] = 300;
 

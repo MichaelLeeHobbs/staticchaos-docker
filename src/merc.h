@@ -138,6 +138,23 @@ typedef void CHANT_FUN	args( ( int cn, int rank, CHAR_DATA *ch, void *vo ) );
 #define LEVEL_IMMORTAL		   (MAX_LEVEL - 3)
 #define L_IMM			   (MAX_LEVEL - 3)
 #define MAX_WEAPONS		   13
+/* pcdata->weapons[] proficiency slots, in save-file order. Source of truth:
+ * sweapon_lookup() in act_wiz.c and the weapon rows of 'score' in act_info.c.
+ * A weapon's slot == its damage type - TYPE_HIT (see fight.c: weapons[dt-TYPE_HIT]).
+ * RENAME ONLY -- these are persisted positionally in player files; never renumber. */
+#define WP_HIT			    0
+#define WP_SLICE		    1
+#define WP_STAB			    2
+#define WP_SLASH		    3
+#define WP_WHIP			    4
+#define WP_CLAW			    5
+#define WP_BLAST		    6
+#define WP_POUND		    7
+#define WP_CRUSH		    8
+#define WP_GREP			    9
+#define WP_BITE			   10
+#define WP_PIERCE		   11
+#define WP_BLOW			   12
 #define MAX_STANCES		   10
 #define MAX_RUNESPELLS		   32
 #define	MAX_MATERIA		   16

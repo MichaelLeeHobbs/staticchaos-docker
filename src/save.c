@@ -307,13 +307,13 @@ void fwrite_char( CHAR_DATA *ch, FILE *fp )
 	fprintf( fp, "Trials       %d\n",	ch->pcdata->trials	);
 	fprintf( fp, "Cflag        %s~\n",	ch->pcdata->cflag	);
 	fprintf( fp, "Weapons      %d %d %d %d %d %d %d %d %d %d %d %d %d\n",
-		ch->pcdata->weapons[0],	ch->pcdata->weapons[1],
-		ch->pcdata->weapons[2],	ch->pcdata->weapons[3],
-		ch->pcdata->weapons[4],	ch->pcdata->weapons[5],
-		ch->pcdata->weapons[6],	ch->pcdata->weapons[7],
-		ch->pcdata->weapons[8],	ch->pcdata->weapons[9],
-		ch->pcdata->weapons[10],ch->pcdata->weapons[11],
-		ch->pcdata->weapons[12] );
+		ch->pcdata->weapons[WP_HIT],	ch->pcdata->weapons[WP_SLICE],
+		ch->pcdata->weapons[WP_STAB],	ch->pcdata->weapons[WP_SLASH],
+		ch->pcdata->weapons[WP_WHIP],	ch->pcdata->weapons[WP_CLAW],
+		ch->pcdata->weapons[WP_BLAST],	ch->pcdata->weapons[WP_POUND],
+		ch->pcdata->weapons[WP_CRUSH],	ch->pcdata->weapons[WP_GREP],
+		ch->pcdata->weapons[WP_BITE],ch->pcdata->weapons[WP_PIERCE],
+		ch->pcdata->weapons[WP_BLOW] );
 	fprintf( fp, "Stances      %d %d %d %d %d %d %d %d %d %d %d\n",
 		ch->pcdata->stances[0], ch->pcdata->stances[1],
 		ch->pcdata->stances[2], ch->pcdata->stances[3],

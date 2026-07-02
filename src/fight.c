@@ -381,7 +381,7 @@ void one_hit( CHAR_DATA *ch, CHAR_DATA *victim, int dt )
 	}
 	else if ( wield != NULL )
 	{ if ( dt < TYPE_HIT )
-	    dam = number_range(ch->pcdata->weapons[0]/8+1,ch->pcdata->weapons[0]/5+5);
+	    dam = number_range(ch->pcdata->weapons[WP_HIT]/8+1,ch->pcdata->weapons[WP_HIT]/5+5);
 	  else
 	    dam = number_range( (ch->pcdata->weapons[dt-1000]/8)+(wield->value[1]*2),
 				(ch->pcdata->weapons[dt-1000]/5)+(wield->value[2]*2) );
@@ -394,7 +394,7 @@ void one_hit( CHAR_DATA *ch, CHAR_DATA *victim, int dt )
 	/* unarmed combat */
 	else
 	{
-	  weapon = ch->pcdata->weapons[0];
+	  weapon = ch->pcdata->weapons[WP_HIT];
 	  if ( ch->level < 2 )
 	    weapon = UMIN( 200, weapon );
 	  if ( ch->class == CLASS_FIST )
@@ -1958,9 +1958,9 @@ bool check_dodge( CHAR_DATA *ch, CHAR_DATA *victim )
     else
     {
         if ( ch->level >= 2 )
-          chance += victim->pcdata->weapons[0] / 5;
+          chance += victim->pcdata->weapons[WP_HIT] / 5;
         else
-          chance += UMIN( victim->pcdata->weapons[0], 200 ) / 5;
+          chance += UMIN( victim->pcdata->weapons[WP_HIT], 200 ) / 5;
 	if ( victim->class == CLASS_SAIYAN )
 	{
 	  chance += victim->pcdata->powers[S_SPEED] / 7;
@@ -1991,7 +1991,7 @@ bool check_dodge( CHAR_DATA *ch, CHAR_DATA *victim )
 	chance -= ch->level * 3 / 2;
     else
     {
-    	chance -= ch->pcdata->weapons[0] / 5;
+    	chance -= ch->pcdata->weapons[WP_HIT] / 5;
 	if ( ch->class == CLASS_SAIYAN )
 	{ if ( is_affected(ch,gsn_kaiouken) )
 	    chance -= ch->pcdata->powers[S_SPEED] / 10;
@@ -2072,7 +2072,7 @@ bool check_block( CHAR_DATA *ch, CHAR_DATA *victim )
   if ( get_eq_char( victim, WEAR_WIELD ) != NULL )
     return FALSE;
 
-  chance += (victim->pcdata->powers[F_ARMS] / 2) + (victim->pcdata->weapons[0] / 10);
+  chance += (victim->pcdata->powers[F_ARMS] / 2) + (victim->pcdata->weapons[WP_HIT] / 10);
 
   if ( IS_NPC(ch) )
     chance -= ch->level / 2;
@@ -3427,11 +3427,11 @@ void do_kick( CHAR_DATA *ch, char *argument )
     if ( IS_NPC(ch) )
       dam = dice( 10, ch->level );
     else if ( ch->class == CLASS_FIST && ch->level >= 2 )
-      dam = number_range( ch->pcdata->weapons[0] * 2, ch->pcdata->weapons[0] * 4 + ch->pcdata->powers[F_LEGS] * 15 );
+      dam = number_range( ch->pcdata->weapons[WP_HIT] * 2, ch->pcdata->weapons[WP_HIT] * 4 + ch->pcdata->powers[F_LEGS] * 15 );
     else if ( ch->class == CLASS_FIST )
-      dam = number_range( UMIN(ch->pcdata->weapons[0], 200), UMIN( ch->pcdata->weapons[0], 200 )*5 );
+      dam = number_range( UMIN(ch->pcdata->weapons[WP_HIT], 200), UMIN( ch->pcdata->weapons[WP_HIT], 200 )*5 );
     else
-      dam = number_range( ch->pcdata->weapons[0], ch->pcdata->weapons[0] * 5 );
+      dam = number_range( ch->pcdata->weapons[WP_HIT], ch->pcdata->weapons[WP_HIT] * 5 );
 
     if ( !IS_NPC(victim) || victim->level > 95 )
       dam /= 15;

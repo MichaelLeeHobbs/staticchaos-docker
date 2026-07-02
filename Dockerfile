@@ -5,7 +5,10 @@
 # implicit-int into hard errors. gcc 10 keeps them as warnings, so the
 # legacy Merc/Diku source compiles with only the Makefile tweaks
 # (-fcommon, -lcrypt) we made.
-FROM debian:bullseye-slim
+# Pinned by digest for reproducibility. Tag: debian:bullseye-slim.
+# Re-pin: docker pull debian:bullseye-slim && \
+#   docker inspect --format='{{index .RepoDigests 0}}' debian:bullseye-slim
+FROM debian:bullseye-slim@sha256:f18adf4e1d04b1d8ba48025b8e35003f4c748ddd3dd8e875fe4e7d9a9c0dec84
 
 # build-essential provides gcc + make. gcc-multilib + libc6-dev-i386 provide the
 # 32-bit toolchain and libs: the server is built -m32 because this code assumes

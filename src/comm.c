@@ -3246,5 +3246,6 @@ int gettimeofday( struct timeval *tp, void *tzp )
 {
     tp->tv_sec  = time( NULL );
     tp->tv_usec = 0;
+    return 0;
 }
 #endif

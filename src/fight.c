@@ -171,7 +171,7 @@ void multi_hit( CHAR_DATA *ch, CHAR_DATA *victim, int dt )
 
     if ( IS_CLASS(ch,CLASS_SORCERER) && ch->pcdata->powers[SORC_PREP] > 0 )
     {
-      cn = 1; // crummy safety measure
+      cn = 0; // 0 = no eligible prep chant found (issue #51)
       for ( i = MAX_CHANT - 1; i > 0; i-- )	/* issue #47: was i = MAX_CHANT -> OOB read of chant_table[MAX_CHANT] on the first iteration. Only the OOB read is fixed; index-0 handling is deliberately unchanged (see issue #47 discussion) */
       {
         if ( chant_table[i].school == ch->pcdata->powers[SORC_PREP] &&
@@ -183,13 +183,16 @@ void multi_hit( CHAR_DATA *ch, CHAR_DATA *victim, int dt )
         }
       }
 
-      dt = 1400 + cn;
-      if ( ch->mana >= chant_table[cn].cost / 2 )
+      /* issue #51: only auto-cast when a real prep chant was found (cn > 0) AND
+         it's affordable; otherwise skip the cast and fall through to normal melee
+         (dt stays as passed, i.e. TYPE_UNDEFINED). Previously cn defaulted to 1
+         (disfang, a non-prep chant that fired + drained mana on a no-match), and a
+         mana shortfall `return`ed out of the entire attack round. */
+      if ( cn > 0 && ch->mana >= chant_table[cn].cost / 2 )
       {
         ch->mana -= chant_table[cn].cost / 2;
+        dt = 1400 + cn;
       }
-      else
-        return;
     }
 
     if ( !IS_NPC(ch) && IS_CLASS(victim,CLASS_SAIYAN) && victim->level >= 2 )

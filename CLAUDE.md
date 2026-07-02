@@ -90,9 +90,10 @@ build deploys via its own `web/Dockerfile` / `web/docker-compose.yml` (host :80)
   added to the `USER_DOCS` set in `web/scripts/sync-content.mjs`. Internal planning docs (e.g.
   `GMCP-PLAN.md`, `*-BRAINSTORM.md`, `*-FEASIBILITY.md`) live in `docs/` but are intentionally not
   shipped — leave them out of `USER_DOCS`.
-- **Generated artifacts are committed:** `world-maps/` (JSON/MD/PDF/HTML) and `web/public/{data,docs,gmcp}`
-  are build outputs. Regenerate them with the commands above rather than hand-editing; don't edit a
-  generated file and a generator in the same change.
+- **Generated artifacts are NOT committed:** `world-maps/` (JSON/MD/PDF/HTML) and `web/public/{data,docs,gmcp}`
+  are build outputs and are gitignored (#65). Regenerate `world-maps/` with `pnpm run build:data` (JSON/MD/HTML;
+  PDFs need `build:pdf*` + a puppeteer Chrome) — the web build/deploy and CI run `build:data` first, and
+  `sync-content.mjs` fails loudly if it's missing. Never hand-edit a generated file; change the generator.
 - **Source portability is deliberate:** the server is built 32-bit (`-m32`) on Debian Bullseye/gcc 10
   on purpose (it crashes 64-bit, and newer gcc rejects the legacy C). Passwords are stored in
   plaintext, inherited from the upstream codebase — do not expose this on the public internet assuming

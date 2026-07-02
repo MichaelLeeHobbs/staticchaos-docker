@@ -816,8 +816,7 @@ void fread_char( CHAR_DATA *ch, FILE *fp )
 
             if ( !str_cmp( word, "Clan" ) )
             {
-              for ( i = 0; i < 10; i++ )
-                ch->pcdata->clan[i] = fread_number( fp );
+              fread_number_row_sh( fp, ch->pcdata->clan, 10 );
 
               if ( clan_table[ch->pcdata->clan[CLAN]].active == FALSE )
                 for ( i = 0; i < 10; i++ )
@@ -858,21 +857,19 @@ void fread_char( CHAR_DATA *ch, FILE *fp )
 	    KEY( "Exp",		ch->exp,		fread_number_ll( fp ) );
 
 	    if ( !str_cmp( word, "Extras" ) )
-	    { for ( i = 0; i < MAX_EXTRAS; i++ )
-	      {
-	        ch->pcdata->extras[i] = fread_number( fp );
-	        if ( ch->pcdata->version < 1 && i < 4 )
+	    { fread_number_row( fp, ch->pcdata->extras, MAX_EXTRAS );
+	      if ( ch->pcdata->version < 1 )
+	        for ( i = 0; i < 4; i++ )
 	          ch->pcdata->kills[i] = ch->pcdata->extras[i];
-	        if ( ch->pcdata->version < 2 && i < 4 )
+	      if ( ch->pcdata->version < 2 )
+	        for ( i = 0; i < 4; i++ )
 	          ch->pcdata->extras[i] = 0;
-	      }
 	      fMatch = TRUE;
 	      break;
 	    }
 
 	    if ( !str_cmp( word, "Extras2" ) )
-	    { for ( i = 0; i < MAX_EXTRAS; i++ )
-	        ch->pcdata->extras2[i] = fread_number( fp );
+	    { fread_number_row( fp, ch->pcdata->extras2, MAX_EXTRAS );
 
 	      if ( ch->pcdata->version < 3 )
 	        ch->pcdata->extras2[UNIQUE_TIMER] = 0;
@@ -910,8 +907,7 @@ void fread_char( CHAR_DATA *ch, FILE *fp )
 	case 'K':
 	    if ( !str_cmp( word, "Kills" ) )
 	    {
-	      for ( i = 0; i < 15; i++ )
-	        ch->pcdata->kills[i] = fread_number( fp );
+	      fread_number_row( fp, ch->pcdata->kills, 15 );
 	      fMatch = TRUE;
 	      break;
 	    }
@@ -977,8 +973,7 @@ void fread_char( CHAR_DATA *ch, FILE *fp )
 
 	   if ( !str_cmp( word, "Powers" ) )
 	   {
-	     for ( i = 0; i < 10; i++ )
-	       ch->pcdata->powers[i] = fread_number( fp );
+	     fread_number_row( fp, ch->pcdata->powers, 10 );
 	     if ( ch->class == CLASS_FIST
 	       && ch->pcdata->powers[F_LEARNED] >= 1020
 	       && ch->pcdata->powers[F_LEARNED] <= 1025 )
@@ -1065,8 +1060,7 @@ void fread_char( CHAR_DATA *ch, FILE *fp )
 
 	    if ( !str_cmp( word, "Suit" ) )
             {
-              for ( i = 0; i < 15; i++ )
-                ch->pcdata->suit[i] = fread_number( fp );
+              fread_number_row( fp, ch->pcdata->suit, 15 );
 
               /* gundams are wiped out on load */
               if ( ch->pcdata->suit[SUIT_NUMBER] >= 5 )
@@ -1095,8 +1089,7 @@ void fread_char( CHAR_DATA *ch, FILE *fp )
 
 	    if (!str_cmp( word, "Stances" ) )
 	    {
-		for ( i = 0; i <= MAX_STANCES; i++ )
-		  ch->pcdata->stances[i] = fread_number( fp );
+		fread_number_row_sh( fp, ch->pcdata->stances, MAX_STANCES + 1 );
 		fMatch = TRUE;
 		break;
 	    }
@@ -1149,8 +1142,7 @@ void fread_char( CHAR_DATA *ch, FILE *fp )
 
 	    if ( !str_cmp( word, "Weapons" ) )
             {
-	      for ( i = 0; i < MAX_WEAPONS ; i++ )
-		ch->pcdata->weapons[i] = fread_number( fp );
+	      fread_number_row_sh( fp, ch->pcdata->weapons, MAX_WEAPONS );
 	      fMatch = TRUE;
 	      break;
 	    }

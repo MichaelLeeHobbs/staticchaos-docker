@@ -1,4 +1,4 @@
-This repository is NOT being actively maintained or developed and is being kept here solely for the purpose of providing a secondary archive of it. I am not the original developer and take no credit for any of this work.
+This is an **actively developed** Docker packaging and extension of the Static Chaos MUD: a modern Docker build, a world-data tooling pipeline, a companion web app, and ongoing gameplay/balance work on the server itself. I am **not** the original developer (Nicholas "Alathon" Lennig — see the license and terms below) and claim no credit for the original game; the original license and author's terms still apply to all of it.
  
  
  # Static Chaos

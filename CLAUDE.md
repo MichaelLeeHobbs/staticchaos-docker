@@ -34,11 +34,13 @@ job is telling me what I don't know or haven't considered.
 ## Static Chaos — Dockerized
 
 A 1990s Merc/Diku-derived MUD server (Static Chaos / Chaosium, C, by Nicholas "Alathon" Lennig),
-vendored mostly unchanged and packaged to build/run in Docker on a modern host. Around the vendored
-game sits modern tooling: Node scripts that parse the game's `.are` data into navigable references,
-and a React companion website that publishes them. **This repo is an archive/hobby project — the
-original game source is not ours; treat `src/`, `area/`, and `doc/` as legacy that we adapt
-minimally, and put new work in `tools/`, `web/`, and `docs/`.**
+packaged to build/run in Docker on a modern host and **actively developed** — ongoing
+gameplay/balance work and new systems (GMCP, class trials) in `src/`, plus modern tooling around it:
+Node scripts that parse the game's `.are` data into navigable references, and a React companion
+website that publishes them. **The server in `src/`/`area/`/`doc/` is inherited C we didn't originally
+write** — change it deliberately (understand the surrounding code, keep diffs focused, gate every
+change through the Docker build — it only compiles 32-bit), but it is no longer frozen. New tooling
+and site work lives in `tools/`, `web/`, and `docs/`.
 
 ### Three subsystems (the big picture)
 
@@ -93,7 +95,7 @@ build deploys via its own `web/Dockerfile` / `web/docker-compose.yml` (host :80)
   generated file and a generator in the same change.
 - **Source portability is deliberate:** the server is built 32-bit (`-m32`) on Debian Bullseye/gcc 10
   on purpose (it crashes 64-bit, and newer gcc rejects the legacy C). Passwords are stored in
-  plaintext, faithful to the archived codebase — do not expose this on the public internet assuming
+  plaintext, inherited from the upstream codebase — do not expose this on the public internet assuming
   otherwise. The full rationale for every change is in `README.docker.md`.
 - **Deploy scripts** (`deploy.sh`, `mud-redeploy.sh`, `web/deploy-web.sh`) are real, host-specific,
   and gitignored; only the `*.example.sh` templates are committed. `mud-redeploy.sh` deliberately
@@ -115,7 +117,7 @@ subsystems parallelize cleanly, but each has a different gate (web typechecks lo
 compiles in Docker) — full procedure and per-area gates: `.claude/skills/orchestrate/`.
 
 ### Active work
-Despite the archival framing, the MUD is being extended. In-flight design/planning lives in `docs/`:
+The MUD is under active development. In-flight design/planning lives in `docs/`:
 `GMCP-PLAN.md` (GMCP telnet side-channel — Phases 0–3 implemented & deployed; `src/gmcp.c`,
 `client/*.xml` Mudlet packages), `COMPUTER-PLAYERS-FEASIBILITY.md`, and
 `SORCERER-AND-ADMIN-BRAINSTORM.md`. Read the relevant plan before touching its code.

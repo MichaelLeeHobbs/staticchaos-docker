@@ -244,8 +244,8 @@ required a handful of minimal, documented changes — each is commented in-place
      guard makes every later `#include <unistd.h>` a no-op) lets us keep the original plaintext
      behavior — so the bundled `Superuser` account still works — without the header collision.
 
-> **Security note:** passwords are stored in plaintext, faithful to how this archived codebase
-> ran on Linux. This is fine for a private/hobby server but do **not** expose it on the public
+> **Security note:** passwords are stored in plaintext, inherited from how the upstream codebase
+> ran on Linux. This is fine for a private server but do **not** expose it on the public
 > internet with that assumption. Switching to real `crypt(3)` hashing would mean removing the
 > `crypt` macro in `merc.h`, linking `-lcrypt`, and including `<crypt.h>` — at the cost of
 > invalidating the existing plaintext passwords in the bundled/old player files.

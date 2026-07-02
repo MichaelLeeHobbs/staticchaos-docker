@@ -2960,7 +2960,7 @@ void do_prepare( CHAR_DATA *ch, char *argument )
     return;
   }
 
-  for ( i = MAX_CHANT - 1; i >= 0; i-- )	/* issue #47: was i = MAX_CHANT -> OOB read of chant_table[MAX_CHANT]; also no longer skips index 0 */
+  for ( i = MAX_CHANT - 1; i > 0; i-- )	/* issue #47: was i = MAX_CHANT -> OOB read of chant_table[MAX_CHANT] on the first iteration. Only the OOB read is fixed; index-0 handling is deliberately unchanged (see issue #47 discussion) */
   {
     if ( chant_table[i].rank <= ch->pcdata->powers[school] &&
          chant_table[i].prep == TRUE &&
@@ -2970,7 +2970,7 @@ void do_prepare( CHAR_DATA *ch, char *argument )
     }
   }
 
-  if ( i < 0 )	/* issue #47: loop now bottoms out at -1 (not 0), and index 0 is a valid match */
+  if ( i <= 0 )
   {
     stc( "You know no prepareable spells from that school.\n\r", ch );
     return;

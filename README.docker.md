@@ -63,7 +63,20 @@ REMOTE=user@host ./deploy.sh
 |--------|--------------|
 | `deploy.sh` | Full stack: package the project, copy to `REMOTE_DIR` on the host, `docker compose up -d --build` (MUD + web). |
 | `mud-redeploy.sh` | MUD only, **safe**: aborts if players are online, builds (verify) *before* restarting so a bad compile never kills the running game. Use for source/area changes. |
+| `mud-deploy-image.sh` | MUD only, **image-based**: pulls the CI-published GHCR image and `up -d` via `docker-compose.image.yml` — no host build. Aborts if players are online. Use once CI is publishing images. |
 | `web/deploy-web.sh` | Web companion site only (rebuilds the `web` compose service on :80). |
+
+### Image-based deploy (`docker-compose.image.yml`)
+
+CI (`.github/workflows/ci.yml`) publishes the MUD image to GHCR on every push to
+`main`. `docker-compose.image.yml` runs that image instead of building on the host,
+so a deploy is "pull a tag + `up -d`" and a rollback is "point `MUD_IMAGE` at the
+previous tag". **Player data is safe across the swap:** the image carries only
+seed state (area seed + empty a-z player skeleton); live `player/notes/finger/log`
+and the auto-dumped area live in the named volumes, and `name: staticchaos` pins the
+compose project so those volumes resolve to the same `staticchaos_*` the build-based
+compose already uses. Cutover from build-based to image-based therefore keeps every
+character — verify once with `docker volume ls`. Rollback: `mud-deploy-image.sh <old-tag>`.
 
 All three honor `REMOTE` (SSH alias or `user@host`) and `REMOTE_DIR` env vars and derive their
 own source path, so they work from any checkout. They need `ssh`/`scp`/`tar` and key-based SSH

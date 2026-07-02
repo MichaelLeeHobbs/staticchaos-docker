@@ -93,3 +93,4 @@ Temporary Items
 
 # Claude Code agent config / skills / transient worktrees — local only
 /.claude/
+/mud-deploy-image.sh

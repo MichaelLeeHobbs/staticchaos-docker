@@ -1,0 +1,52 @@
+# Image-based production deploy (#64).
+#
+# Runs the CI-published GHCR image instead of building the server on the host.
+# Deploy becomes "pull a tag + up" (see mud-deploy-image.example.sh); rollback is
+# "point MUD_IMAGE at the previous tag + up".
+#
+# SAVE-STATE vs SEED-STATE (the important part):
+#   * The image carries only INITIAL/seed state (the area seed and the empty a-z
+#     player skeleton baked by the Dockerfile). It contains NO live player data.
+#   * Runtime state -- player/ notes/ finger/ log/ and the auto-dumped area -- lives
+#     in the named volumes below and is NEVER part of the image. Swapping image tags
+#     (upgrade or rollback) leaves those volumes untouched.
+#   * `name: staticchaos` pins the compose project so the volumes resolve to the
+#     SAME staticchaos_area / staticchaos_player / ... that the build-based
+#     docker-compose.yml already uses on the host. Cutting over from build to image
+#     therefore keeps every existing character. (Verify once with `docker volume ls`.)
+#
+# Usage (prod):
+#   MUD_IMAGE=ghcr.io/michaelleehobbs/staticchaos-docker/mud:sha-<sha> \
+#     docker compose -f docker-compose.image.yml pull
+#   ... up -d
+name: staticchaos
+
+services:
+  mud:
+    image: ${MUD_IMAGE:-ghcr.io/michaelleehobbs/staticchaos-docker/mud:latest}
+    pull_policy: always
+    container_name: staticchaos
+    ports:
+      - "${MUD_PORT:-4000}:4000"
+    volumes:
+      - area:/mud/area
+      - player:/mud/player
+      - notes:/mud/notes
+      - finger:/mud/finger
+      - log:/mud/log
+    stdin_open: true
+    tty: true
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "bash", "-c", "exec 3<>/dev/tcp/127.0.0.1/4000"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 45s
+
+volumes:
+  area:
+  player:
+  notes:
+  finger:
+  log:

@@ -43,11 +43,34 @@ const RULES = [
     hint: 'stances[] slots are STANCE_AUTOSLOT (0) and STANCE_LION..STANCE_STORK ' +
           '(1-10) in merc.h (#54). Computed indices (stances[stance], stances[i]) are fine.',
   },
+  {
+    id: 'condition-magic-index',
+    desc: 'bare integer index into pcdata->condition[] (use a COND_* name)',
+    re: /condition\[\s*\d+\s*\]/g,
+    hint: 'condition[] slots are COND_DRUNK/COND_FULL/COND_THIRST in merc.h (#58).',
+  },
+  {
+    id: 'suit-magic-index',
+    desc: 'bare integer index into pcdata->suit[] (use a SUIT_* name)',
+    re: /suit\[\s*\d+\s*\]/g,
+    hint: 'suit[] slots are SUIT_EQ..SUIT_MISSILES (0-14) in merc.h (#58).',
+  },
+  {
+    id: 'extras2-magic-index',
+    desc: 'bare integer index into pcdata->extras2[] (use its slot name)',
+    re: /extras2\[\s*\d+\s*\]/g,
+    hint: 'extras2[] slots are QUEST_TYPE..EXCLANS (0-9) in merc.h (#60).',
+  },
   // Future (enable once the target constants exist / patterns are precise):
   //  - MAX_* inclusive loop bounds -> off-by-one OOB (see #47)
   //  - per-school damage case using a mismatched gsn_*_ward (see #48)
-  // Not lintable cleanly: extras[] (slots 0-2 unnamed) and runeweave numeric
-  //  case labels (numeric case: is legitimate elsewhere) -- handled by hand.
+  // Deliberately NOT lintable (no single canonical name exists):
+  //  - powers[] : reinterpreted per class (S_*/F_*/P_*/M_* index the same slots)
+  //  - value[]  : obj value fields are polymorphic per item_type
+  //  - extras[] : slots 0-2 unnamed (dead flee slots); named sites use PUSSY..TIE
+  //  - clan[]   : slots 2-8 vestigial/unnamed; named sites use CLAN/CLAN_RANK/CLAN_TEMP
+  //  - kills[]  : slots 12-14 unnamed; named sites use PK..ESCAPECAPS
+  // and runeweave numeric case labels (numeric case: is legitimate elsewhere).
 ];
 
 const cFiles = fs.readdirSync(SRC)

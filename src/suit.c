@@ -317,15 +317,15 @@ void do_status( CHAR_DATA *ch, char *argument )
   sprintf( buf, "        Mobile Suit: %s    Condition: %s\n\r\n\r", suit_table[suit].name, con);
   send_to_char( buf, ch  );
   sprintf( buf, "                Missiles:  %4d  Armor:    %4d  Fuel: %4d\n\r", 
-  	victim->pcdata->suit[14], victim->pcdata->suit[2], victim->pcdata->suit[3] );
+  	victim->pcdata->suit[SUIT_MISSILES], victim->pcdata->suit[SUIT_ARMOR], victim->pcdata->suit[SUIT_FUEL] );
   send_to_char( buf, ch );
   sprintf( buf, "Bullets:  %4d  Shells:    %4d  Plasma:   %4d  Beam: %4d\n\r\n\r",
- 	victim->pcdata->suit[5],        victim->pcdata->suit[6],
-  	victim->pcdata->suit[7],        victim->pcdata->suit[8] );
+ 	victim->pcdata->suit[SUIT_BULLETS],     victim->pcdata->suit[SUIT_SHELLS],
+  	victim->pcdata->suit[SUIT_PLASMA],      victim->pcdata->suit[SUIT_BEAM] );
   send_to_char( buf, ch );
   sprintf( buf, "Weapon:  %5d  Combat:   %5d  Reflex:  %5d  Aim: %5d\n\r",
- 	victim->pcdata->suit[10],        victim->pcdata->suit[11],
-  	victim->pcdata->suit[12],        victim->pcdata->suit[13] );
+ 	victim->pcdata->suit[SUIT_WEAPON],       victim->pcdata->suit[SUIT_COMBAT],
+  	victim->pcdata->suit[SUIT_REFLEX],       victim->pcdata->suit[SUIT_AIM] );
   send_to_char( buf, ch );
   send_to_char( "`d------------------------------------------------------------`n\n\r", ch );
 

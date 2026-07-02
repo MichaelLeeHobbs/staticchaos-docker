@@ -256,7 +256,9 @@ struct newlock_data
 #define LASTFAIR		10
 #define	ESCAPECAPS		11
 
-/* slots for the Extras array in pcdata */
+/* slots for the Extras array in pcdata.
+ * Slots 0-2 have no names: 0 and 1 are dead flee-counter slots (repurposed then
+ * abandoned -- serialized but never read), and 2 is unassigned. Named: 3-9. */
 
 #define	PUSSY			3
 #define STATUS			4

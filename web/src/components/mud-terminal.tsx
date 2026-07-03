@@ -3,7 +3,7 @@ import { Box, Button, InputBase, Stack, Chip } from '@mui/material';
 import { Terminal } from '@xterm/xterm';
 import { FitAddon } from '@xterm/addon-fit';
 import '@xterm/xterm/css/xterm.css';
-import { MudConnection, type MudStatus } from '../lib/mud-connection';
+import { MudConnection, type MudStatus, type GmcpMessage } from '../lib/mud-connection';
 
 // The MUD (Static Chaos, a Merc derivative) does NOT echo normal input — a real
 // telnet client relies on local echo. It masks passwords by sending IAC WILL
@@ -29,7 +29,15 @@ const STATUS_COLOR: Record<MudStatus, 'default' | 'success' | 'warning' | 'error
   error: 'error',
 };
 
-export function MudTerminal() {
+export interface MudTerminalProps {
+  // Forwarded so a sibling panel can render GMCP + gray out on disconnect.
+  // Kept as optional props (rather than lifting the whole connection out) to
+  // keep this component the single owner of the MudConnection lifecycle.
+  onGmcp?: (msg: GmcpMessage) => void;
+  onStatus?: (status: MudStatus) => void;
+}
+
+export function MudTerminal({ onGmcp, onStatus }: MudTerminalProps = {}) {
   const termHostRef = useRef<HTMLDivElement | null>(null);
   const termRef = useRef<Terminal | null>(null);
   const fitRef = useRef<FitAddon | null>(null);
@@ -37,6 +45,11 @@ export function MudTerminal() {
   const inputRef = useRef<HTMLInputElement | null>(null);
   // Running tail of the current (unfinished) output line, for the password heuristic.
   const promptTailRef = useRef('');
+  // Latest forwarding callbacks, so connect() can stay stable across renders.
+  const onGmcpRef = useRef(onGmcp);
+  onGmcpRef.current = onGmcp;
+  const onStatusRef = useRef(onStatus);
+  onStatusRef.current = onStatus;
 
   const [status, setStatus] = useState<MudStatus>('disconnected');
   const [detail, setDetail] = useState<string | undefined>(undefined);
@@ -102,13 +115,13 @@ export function MudTerminal() {
       onStatus: (s, d) => {
         setStatus(s);
         setDetail(d);
+        onStatusRef.current?.(s);
         if (s === 'disconnected' || s === 'error') {
           connRef.current = null;
         }
       },
-      // GMCP hook: parsed but intentionally ignored for the MVP. This is the
-      // clean seam for a future GMCP side-panel (vitals, room, map).
-      onGmcp: () => {},
+      // GMCP hook: forwarded to the side-panel (vitals, character, room, map).
+      onGmcp: (msg) => onGmcpRef.current?.(msg),
     });
     connRef.current = conn;
     conn.connect();

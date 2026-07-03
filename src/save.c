@@ -118,7 +118,7 @@ void save_char_obj( CHAR_DATA *ch )
     fpReserve = fopen( NULL_FILE, "r" );
 
     /* file successfully written, now copy */
-    sprintf( buf, "cp -f %s %s", tempsave, strsave );
+    snprintf( buf, sizeof( buf ), "cp -f %s %s", tempsave, strsave );
     system( buf );
     return;
 }
@@ -682,7 +682,7 @@ bool load_char_obj( DESCRIPTOR_DATA *d, char *name )
 	    load_recover = NULL;
 	    fclose( fp );
 	    fpReserve = fopen( NULL_FILE, "r" );
-	    sprintf( corrupt, "%s.corrupt", strsave );
+	    snprintf( corrupt, sizeof( corrupt ), "%s.corrupt", strsave );
 	    if ( rename( strsave, corrupt ) != 0 )
 	    {
 		bug( "load_char_obj: corrupt save (quarantine failed) -- starting fresh.", 0 );

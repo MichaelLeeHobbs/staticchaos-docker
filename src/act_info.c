@@ -1537,7 +1537,7 @@ void show_obj_affects( CHAR_DATA *ch, OBJ_DATA *obj )
     eq_render_derived( stats, d );
     if ( stats[0] != '\0' )
     {
-	sprintf( buf, "Affects: %s\n\r", stats );
+	snprintf( buf, sizeof( buf ), "Affects: %s\n\r", stats );
 	send_to_char( buf, ch );
     }
 }
@@ -1582,7 +1582,7 @@ void do_equipment( CHAR_DATA *ch, char *argument )
 	    eq_render_derived( stats, item );
 	    if ( stats[0] != '\0' )
 	    {
-		sprintf( buf, "  [%s]", stats );
+		snprintf( buf, sizeof( buf ), "  [%s]", stats );
 		send_to_char( buf, ch );
 	    }
 	    send_to_char( "\n\r", ch );
@@ -1602,7 +1602,7 @@ void do_equipment( CHAR_DATA *ch, char *argument )
 
     eq_render_derived( stats, grand );
     send_to_char( "\n\r", ch );
-    sprintf( buf, "Total equipped bonuses: %s\n\r", stats[0] != '\0' ? stats : "none." );
+    snprintf( buf, sizeof( buf ), "Total equipped bonuses: %s\n\r", stats[0] != '\0' ? stats : "none." );
     send_to_char( buf, ch );
 
     return;
@@ -1731,7 +1731,7 @@ void do_where( CHAR_DATA *ch, char *argument )
 	  areaname[i-16] = ch->in_room->area->name[i];
 	areaname[i-16] = '\0';
 
-	sprintf( buf, "Players in %s:\n\r", areaname );
+	snprintf( buf, sizeof( buf ), "Players in %s:\n\r", areaname );
 	send_to_char( buf, ch );
 	found = FALSE;
 	for ( d = descriptor_list; d; d = d->next )

@@ -1776,7 +1776,7 @@ void do_suicide( CHAR_DATA *ch, char *argument )
   {
     stc( "You decide to spare your own life.\n\r", ch );
     REMOVE_BIT(ch->pcdata->actnew,NEW_SUICIDE);
-    sprintf( buf, "%s cancelled suicide, argument '%s'.\n\r", ch->name, arg );
+    snprintf( buf, sizeof( buf ), "%s cancelled suicide, argument '%s'.\n\r", ch->name, arg );
     log_string( buf );
     return;
   }
@@ -1790,9 +1790,9 @@ void do_suicide( CHAR_DATA *ch, char *argument )
   stc( ".\n\r..\n\r.....\n\r................\n\r\n\r", ch );
   do_quit( ch, "auto" );
 
-  sprintf( buf, "rm -f %s", strsave );
+  snprintf( buf, sizeof( buf ), "rm -f %s", strsave );
   system( buf );
-  sprintf( buf, "rm -f %s", strfin );
+  snprintf( buf, sizeof( buf ), "rm -f %s", strfin );
   system( buf );
 
   return;

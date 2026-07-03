@@ -1166,7 +1166,9 @@ void do_ryuken( CHAR_DATA *ch, char *argument )
     damage( ch, victim, dam, DAM_KIFLAME );
   }
   ch->pcdata->powers[S_POWER] -= 10000;
-  WAIT_STATE( ch, broke_major ? 26 : 30 );
+  /* #94: more lag so Ryuken carries real risk (was 30/26). Breaking a major
+   * setup still shaves the lag as a reward for the read. */
+  WAIT_STATE( ch, broke_major ? 32 : 36 );
   return;
 }
 

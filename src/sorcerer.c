@@ -972,7 +972,7 @@ void chant_dynast_breath( int cn, int rank, CHAR_DATA *ch, void *vo )
   if ( saved )
     ac_pen = pvp ? UMIN( rank * 2, 100 ) : rank * 3;
   else
-    ac_pen = pvp ? UMIN( rank * 4, 200 ) : rank * 6;
+    ac_pen = pvp ? UMIN( rank * 6, 300 ) : rank * 6;  /* #95: PvP cap 200->300 */
 
   af.type      = skill_lookup( "dynast breath" );
   /* #34: restore the long not-saved root (the #2 nerf to 3/5 was too harsh) --
@@ -994,6 +994,22 @@ void chant_dynast_breath( int cn, int rank, CHAR_DATA *ch, void *vo )
          "Ceiphied's blessing frees $N's feet -- $E is not rooted!" ) )
     af.bitvector = 0;
   affect_to_char( victim, &af );
+
+  /* #95: a failed save in PvP also carries a flat -15 hitroll / -15 damroll for
+   * the same duration.  Re-adds the offensive pressure the #2 rework dropped, but
+   * gated behind a FAILED save (which a save avoids entirely) rather than the old
+   * unconditional lockdown. */
+  if ( !saved && pvp )
+  { AFFECT_DATA af2;
+    af2.type      = skill_lookup( "dynast breath" );
+    af2.duration  = af.duration;
+    af2.location  = APPLY_HITROLL;
+    af2.modifier  = -15;
+    af2.bitvector = 0;
+    affect_to_char( victim, &af2 );
+    af2.location  = APPLY_DAMROLL;
+    affect_to_char( victim, &af2 );
+  }
 
   if ( saved )
   { act( "$N twists aside, resisting the worst of the ice!", ch, NULL, victim, TO_CHAR );

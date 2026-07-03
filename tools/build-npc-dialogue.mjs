@@ -31,7 +31,7 @@ import { fileURLToPath } from 'node:url';
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const AREA = path.join(ROOT, 'area');
 const MPDIR = path.join(AREA, 'MOBProgs');
-const PACK = process.argv[2] || path.join(ROOT, 'tmp', 'static_chaos_npc_keyword_dialogue_pack V4.md');
+const PACK = process.argv[2] || path.join(ROOT, 'tools', 'data', 'npc-dialogue-pack.md');
 
 const ACT_AGGRESSIVE = 32, ACT_TRAIN = 512, ACT_PRACTICE = 1024;
 const EXCLUDE = new Set([2900,2901,2902,2903,2904,2905,2906,2907,2908, 3150, 3154]); // custom mobs

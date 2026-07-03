@@ -770,15 +770,32 @@ void char_update( void )
  * This function is performance sensitive.
  */
 void obj_update( void )
-{   
+{
     OBJ_DATA *obj;
     OBJ_DATA *obj_next;
+    OBJ_DATA *reap_head = NULL;
 
+    /*
+     * #97: split into two passes so extraction can never dangle the iterator.
+     *
+     * extract_obj( container ) recursively frees the container's non-unique
+     * contents -- which are ALSO nodes on object_list.  If we extracted inside
+     * a single walk, a precomputed obj_next could point at a content that was
+     * just freed right below its container, and the next iteration would touch
+     * freed memory.
+     *
+     * Pass 1 does the timer bookkeeping only (no extraction), so obj_next never
+     * dangles, and links every expiring object onto a transient intrusive list
+     * via the reap_next field (zero allocation, cannot overflow -- it is just
+     * the objects themselves relinked).  Pass 2 walks that list and extracts,
+     * re-checking each object is still on object_list first: a container reaped
+     * earlier in pass 2 may already have freed a nested content that is also on
+     * the reap list, so we must skip such now-dead nodes.
+     */
+
+    /* Pass 1: decrement timers, collect the doomed.  No extraction here. */
     for ( obj = object_list; obj != NULL; obj = obj_next )
     {
-	CHAR_DATA *rch;
-	char *message;
-
 	obj_next = obj->next;
 
 	/*
@@ -799,6 +816,29 @@ void obj_update( void )
 	}
 
 	if ( obj->timer <= 0 || --obj->timer > 0 )
+	    continue;
+
+	/* Expired this tick: queue for extraction in pass 2. */
+	obj->reap_next = reap_head;
+	reap_head      = obj;
+    }
+
+    /* Pass 2: announce + extract.  Skip anything a prior extract already freed. */
+    for ( obj = reap_head; obj != NULL; obj = obj_next )
+    {
+	CHAR_DATA *rch;
+	char *message;
+
+	obj_next = obj->reap_next;
+
+	/*
+	 * A container reaped earlier in this pass may have destroyed this object
+	 * as one of its non-unique contents; it would then be on obj_free, not
+	 * object_list.  Reading obj->reap_next above is safe (freed nodes keep
+	 * their memory on obj_free; extract_obj only rewrites ->next), but we
+	 * must NOT extract a node that is no longer on object_list.
+	 */
+	if ( !obj_on_object_list( obj ) )
 	    continue;
 
 	switch ( obj->item_type )

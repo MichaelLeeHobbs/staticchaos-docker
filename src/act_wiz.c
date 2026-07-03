@@ -1497,14 +1497,34 @@ void do_apurge( CHAR_DATA *ch, char *argument )
     }
   }
 
-  for ( obj = object_list; obj != NULL; obj = obj_next )
+  /*
+   * #97: two passes, same reasoning as obj_update().  extract_obj( container )
+   * frees the container's non-unique contents, which are also object_list nodes,
+   * so extracting inside the walk could dangle obj_next.  Pass 1 collects the
+   * doomed objects onto a transient intrusive list (reap_next); pass 2 extracts
+   * them, re-checking each is still on object_list (a container reaped earlier
+   * may already have freed a nested content that also matched the area filter).
+   */
   {
-    obj_next = obj->next;
-    if ( obj->in_room != NULL
-      && obj->in_room->area == ch->in_room->area
-      && obj->carried_by == NULL )
+    OBJ_DATA *reap_head = NULL;
+
+    for ( obj = object_list; obj != NULL; obj = obj_next )
     {
-      extract_obj( obj );
+      obj_next = obj->next;
+      if ( obj->in_room != NULL
+	&& obj->in_room->area == ch->in_room->area
+	&& obj->carried_by == NULL )
+      {
+	obj->reap_next = reap_head;
+	reap_head      = obj;
+      }
+    }
+
+    for ( obj = reap_head; obj != NULL; obj = obj_next )
+    {
+      obj_next = obj->reap_next;
+      if ( obj_on_object_list( obj ) )
+	extract_obj( obj );
     }
   }
 

@@ -4,6 +4,13 @@ Living list of open work, decisions, and tuning. All committed code is shipped &
 below are mostly playtest tuning, verification, and optional follow-ups. (Detailed per-number tuning
 notes are kept in the maintainers' private working notes.)
 
+## Deferred features (dead-code audit flagged these as half-built — build or drop)
+- **Personal notes / mail** — `personal_message` (`src/world/board.c`) is a never-wired-up entry point
+  for a personal-notes/mail system. Decide: wire it up, or delete the stub.
+- **Web Classes page** — `build:classes` already generates `world-maps/classes.json`, but the SPA has
+  no Classes page and the `loadClasses` loader (`web/src/lib/data.ts`) + its types are unused. Decide:
+  build the page, or drop the loader.
+
 ## Awaiting playtest / tuning (live, numbers are tunable)
 - **Patryn feedback fixes (just shipped, tune from play):** earth-arm runes now buff **parry** (not
   damage; only fire arm adds damage); raised defenses also block **Astral Detect** for items the Patryn

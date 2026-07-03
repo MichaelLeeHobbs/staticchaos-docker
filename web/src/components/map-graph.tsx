@@ -23,7 +23,7 @@ export interface GraphLink extends d3.SimulationLinkDatum<GraphNode> {
   count?: number;
   oneWay?: boolean;
 }
-export interface DrawOpts {
+interface DrawOpts {
   width: number;
   height: number;
   grid?: Map<string, { x: number; y: number }> | null;
@@ -52,7 +52,7 @@ export interface GraphHandle {
 
 const trunc = (s: string) => (s.length > 16 ? `${s.slice(0, 15)}…` : s);
 
-export const GRID_SP = 160; // compass-grid cell spacing (px)
+const GRID_SP = 160; // compass-grid cell spacing (px)
 
 // --- edge-crossing count, for the multi-restart "least tangled" layout ---
 const cw = (xi: number, yi: number, xj: number, yj: number, xk: number, yk: number) =>

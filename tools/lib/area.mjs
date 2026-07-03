@@ -20,7 +20,7 @@ export const DIRS = ['N', 'E', 'S', 'W', 'U', 'D'];
 export const DIR_WORD = { N: 'north', E: 'east', S: 'south', W: 'west', U: 'up', D: 'down' };
 
 /* ---- a cursor reader mimicking Diku fread_string/fread_number ---- */
-export class Reader {
+class Reader {
   constructor(text) { this.s = text; this.i = 0; }
   eof() { return this.i >= this.s.length; }
   _skipWs() { while (this.i < this.s.length && /\s/.test(this.s[this.i])) this.i++; }
@@ -43,7 +43,7 @@ export class Reader {
 }
 
 /* ---- text helpers ---- */
-export function clean(s) {
+function clean(s) {
   return (s || '')
     .replace(/`./g, '')        // backtick colour codes
     .replace(/\{[^}]*\}/g, '') // brace colour codes
@@ -61,7 +61,7 @@ export function cell(s) {
 const SECTION_HEADERS =
   /^#(AREADATA|AREA|MOBILES|OBJECTS|MOBOLD|ROOMDATA|ROOMS|RESETS|SHOPS|SPECIALS|HELPS|SOCIALS|\$)\b/;
 
-export function sectionSlice(lines, headerNames) {
+function sectionSlice(lines, headerNames) {
   const start = lines.findIndex((l) => headerNames.some((h) => l.trim() === h));
   if (start < 0) return null;
   let end = lines.length;
@@ -250,7 +250,7 @@ export function loadAreaList(areaDir) {
 }
 
 /* ---- flag / constant decoders (from src/include/merc.h) ---- */
-export const ITEM_TYPE = {
+const ITEM_TYPE = {
   1: 'Light', 2: 'Scroll', 3: 'Wand', 4: 'Staff', 5: 'Weapon', 8: 'Treasure',
   9: 'Armor', 10: 'Potion', 12: 'Furniture', 13: 'Trash', 15: 'Container',
   17: 'Drink Con', 18: 'Key', 19: 'Food', 20: 'Money', 22: 'Boat',
@@ -284,7 +284,7 @@ export const itemTypeName = (t) => ITEM_TYPE[t] || `type${t}`;
 export const wearList = (w) => decodeBits(w, WEAR_BITS);
 export const extraList = (e) => decodeBits(e, EXTRA_BITS);
 export const actList = (a) => decodeBits(a, ACT_BITS);
-export const applyName = (loc) => APPLY[loc] || `apply${loc}`;
+const applyName = (loc) => APPLY[loc] || `apply${loc}`;
 export const affectStr = (a) => `${a.mod >= 0 ? '+' : ''}${a.mod} ${applyName(a.loc)}`;
 
 /* ------------------------------------------------------------------ */
@@ -339,7 +339,7 @@ export function resolveResets(areas) {
   return { mobSpawns, itemSources };
 }
 
-export const WEARLOC = [
+const WEARLOC = [
   'light', 'left finger', 'right finger', 'neck', 'neck', 'body', 'head', 'legs',
   'feet', 'hands', 'arms', 'shield', 'about body', 'waist', 'left wrist',
   'right wrist', 'wielded', 'held',
@@ -374,7 +374,7 @@ export function describeSource(s, idx, itemSources, depth = 0) {
 /* ------------------------------------------------------------------ */
 
 const LETTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-export function partLetter(i) {
+function partLetter(i) {
   return i < 26 ? LETTERS[i] : LETTERS[Math.floor(i / 26) - 1] + LETTERS[i % 26];
 }
 
@@ -385,7 +385,7 @@ export function partLetter(i) {
  * so parts are connected, vnum-local neighbourhoods. Parts are returned as
  * arrays of room objects, each sorted by vnum, ordered by their lowest vnum.
  */
-export function partitionArea(roomsInArea, { maxSize = 24, threshold = 30 } = {}) {
+function partitionArea(roomsInArea, { maxSize = 24, threshold = 30 } = {}) {
   if (roomsInArea.length <= threshold) return [[...roomsInArea].sort((a, b) => a.vnum - b.vnum)];
   const byVnum = new Map(roomsInArea.map((r) => [r.vnum, r]));
   const inArea = new Set(byVnum.keys());

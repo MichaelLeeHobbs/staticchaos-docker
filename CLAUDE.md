@@ -27,6 +27,11 @@ job is telling me what I don't know or haven't considered.
 - **Reuse, don't regenerate.** Check for an existing helper/command/pattern before writing a new one.
   When something recurs (~3rd time), capture it once: a command → this file, a workflow → a skill,
   repeated code → a shared module. Don't abstract a one-off; don't keep rewriting a non-trivial thing.
+- **Leave it better (opportunistic refactor).** When you're already editing a file/function, tidy what
+  you touch — run `clang-format` on it, decompose a god-function you're working in (esp. the active
+  `classes/*.c`), fix a nearby smell — without derailing into a big *unasked* refactor. Boy-scout rule,
+  scoped to the change at hand. The goal is best-practice-clean code going forward; follow standard C
+  style/idioms rather than preserving the legacy quirks of whatever you're editing.
 - **Verification is non-negotiable.** Give yourself a check you can run (test / build / lint /
   screenshot); "looks done" isn't a signal. Don't grade your own work green — prefer an external,
   objective gate.

@@ -19,6 +19,7 @@
     "lint:c": "node tools/lint-c.mjs",
     "test": "node tools/test-area-parser.mjs",
     "test:parser": "node tools/test-area-parser.mjs",
+    "test:generators": "node tools/test-generators.mjs",
     "test:smoke": "bash test/run-smoke.sh",
     "build:data": "node tools/build-world-map.mjs && node tools/build-world-graph.mjs && node tools/build-items.mjs && node tools/build-bestiary.mjs && node tools/build-spawns.mjs && node tools/build-shops.mjs && node tools/build-gearing.mjs && node tools/build-classes.mjs && node tools/build-browser.mjs && node tools/build-d3-map.mjs",
     "build:pdf": "md-to-pdf world-maps/WORLD-ATLAS.md world-maps/ITEMS.md world-maps/BESTIARY.md world-maps/SPAWNS.md world-maps/SHOPS.md world-maps/CLASSES.md docs/GEARING-GUIDE.md",

@@ -68,6 +68,12 @@ jobs:
       - name: Build world data
         run: pnpm run build:data
 
+      # Validate the generators' output contracts (shape/non-empty/required
+      # fields/uniqueness) -- catches a parser/format change silently producing
+      # malformed or empty world-maps (#70). Runs after build:data.
+      - name: Test generator output contracts
+        run: pnpm run test:generators
+
       - name: Install web deps
         working-directory: web
         run: pnpm install --frozen-lockfile

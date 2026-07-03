@@ -8,3 +8,9 @@ services:
     ports:
       - "80:80"
     restart: unless-stopped
+    # Bound the captured log so it can't fill the host disk (#84).
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "5"

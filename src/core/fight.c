@@ -3960,31 +3960,6 @@ void add_inf( CHAR_DATA *ch, CHAR_DATA *victim, int dam )
 }
 
 
-/*
- * Remove all inf records of damage from a character
- */
-void clear_inf( CHAR_DATA *ch )
-{
-  INF_DATA *inf;
-  INF_DATA *inf_last;
-
-  if ( ch == NULL || IS_NPC(ch) || ch->pcdata->inf == NULL )
-    return;
-
-  inf_last = ch->pcdata->inf;
-  for ( inf = ch->pcdata->inf; inf != NULL; inf = inf->next )
-  {
-    free_string( inf->victim );
-    inf_last = inf;
-  }
-
-  inf_last->next = inf_free;
-  inf_free = ch->pcdata->inf;
-  ch->pcdata->inf = NULL;
-
-  return;
-}
-
 void inf_update()
 {
   CHAR_DATA *vch;

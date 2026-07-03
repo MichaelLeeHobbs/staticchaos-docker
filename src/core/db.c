@@ -2677,49 +2677,6 @@ char *fread_word( FILE *fp )
     fread_fatal( );
     return NULL;
 }
-/*
- * Read one word (into static buffer).
- * Stop on '\n' and '\r'
- */
-char *fread_worda( FILE *fp )
-{
-    static char word[MAX_INPUT_LENGTH];
-    char *pword;
-    char cEnd;
-
-    do
-    {
-	cEnd = getc( fp );
-    }
-    while ( isspace( cEnd ) );
-
-    word[0] = cEnd;
-    pword   = word+1;
-    cEnd    = ' ';
-
-    do
-    { cEnd = getc( fp );
-      if ( cEnd != ' ' && cEnd != '\n' && cEnd != '\r' )
-        *pword = cEnd;
-      pword++;
-    } while ( cEnd != ' ' && cEnd != '\n' && cEnd != '\r' );
-
-    *pword = '\0';
-    while ( cEnd == '\n' || cEnd == '\r' || cEnd == ' ')
-    { cEnd = getc( fp );
-    }
-    ungetc( cEnd, fp );
-
-
-    return word;
-
-    /*
-    bug( "Fread_word: word too long.", 0 );
-    fread_fatal( );
-    return NULL;
-    */
-}
-
 
 
 /*
@@ -2981,19 +2938,6 @@ int number_percent( void )
 }
 
 
-
-/*
- * Generate a random door.
- */
-int number_door( void )
-{
-    int door;
-
-    while ( ( door = number_mm( ) & (8-1) ) > 5 )
-	;
-
-    return door;
-}
 
 
 

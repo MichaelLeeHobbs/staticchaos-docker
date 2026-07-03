@@ -83,26 +83,6 @@ int get_age( CHAR_DATA *ch )
 
 
 
-/*
- * Retrieve character's current strength.
- *
-int get_curr_str( CHAR_DATA *ch )
-{
-    int max;
-
-    if ( IS_NPC(ch) )
-	return 13;
-
-    if ( class_table[ch->class].attr_prime == APPLY_STR )
-	max = 25;
-    else
-	max = 22;
-
-    return URANGE( 3, ch->pcdata->perm_str + ch->pcdata->mod_str, max );
-}
- */
-
-
 
 /*
  * Retrieve a character's carry capacity.
@@ -1992,23 +1972,6 @@ void dec_duration( CHAR_DATA *ch, sh_int gsn, int dur )
     };
   }
   return;
-}
-
-bool is_same_clan( CHAR_DATA *ch, CHAR_DATA *victim )
-{
-  int cclan, vclan;
-
-  if ( IS_NPC(ch) )
-    cclan = ch->pIndexData->clan;
-  else
-    cclan = ch->pcdata->clan[CLAN];
-
-  if ( IS_NPC(victim) )
-    vclan = victim->pIndexData->clan;
-  else
-    vclan = victim->pcdata->clan[CLAN];
-
-  return (cclan == vclan);
 }
 
 CHAR_DATA * get_admin_char( void )

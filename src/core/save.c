@@ -52,7 +52,6 @@ void	fwrite_obj	args( ( CHAR_DATA *ch,  OBJ_DATA  *obj,
 			    FILE *fp, int iNest ) );
 void	fread_char	args( ( CHAR_DATA *ch,  FILE *fp ) );
 void	fread_obj	args( ( CHAR_DATA *ch,  FILE *fp ) );
-void	write_finger	args( ( CHAR_DATA *ch,	FILE *fp ) );
 void	fwrite_finger	args( ( CHAR_DATA *ch,	FILE *fp ) );
 void	fwrite_corpse	args( ( OBJ_DATA *obj, FILE *fp, int iNest ) );
 void	fread_corpse	args( ( FILE *fp ) );
@@ -146,43 +145,6 @@ void save_char_fin( CHAR_DATA *ch )
 
   fclose( fp );
   fpReserve = fopen( NULL_FILE, "r" );
-  return;
-}
-
-/*
- * Write the finger file.
- */
-void write_finger( CHAR_DATA *ch, FILE *fp )
-{ char timebuf[50];
-  char *point;
-  char *sex;
-
-  /* create a time string that doesn't include a next line */
-  sprintf( timebuf, (char *) ctime( &current_time) );
-  point = timebuf;
-  while( *point != '\0' )
-  { if ( *point == '\n' || *point == '\r' )
-      *point = ' ';
-    point++;
-  }
-
-  switch ( ch->sex )
-  { case 1: sex = "He"; break;
-    case 2: sex = "She"; break;
-    default: sex = "It"; break;
-  }
-
-
-  fprintf( fp, "%s~\n",	ch->name			);
-  fprintf( fp, "%s~\n",	ch->pcdata->title		);
-  fprintf( fp, "%s~\n", sex				);
-  fprintf( fp, "%s~\n", class_table[ch->class].who_name );
-  fprintf( fp, "%s~\n",	timebuf				);
-  fprintf( fp, "%d %d %d %d\n",
-  	ch->pcdata->kills[PK],	ch->pcdata->kills[PD],
-  	ch->pcdata->kills[MK],	ch->pcdata->kills[MD] );
-  fprintf( fp, "%d %d %d\n", ch->level, ch->pcdata->extras[STATUS], ch->pcdata->extras[LEGEND] );
-  fprintf( fp, "%d %d\n", ch->pcdata->clan[CLAN], ch->pcdata->clan[CLAN_RANK] );
   return;
 }
 

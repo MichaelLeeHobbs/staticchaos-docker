@@ -452,33 +452,6 @@ char * string_proper( char * argument )
     return argument;
 }
 
-
-
-int arg_count( char *argument )
-{
-    int total;
-    char *s;
-
-    total = 0;
-    s = argument;
-
-    while ( *s != '\0' )
-    {
-        if ( *s != ' ' )
-        {
-            total++;
-            while ( *s != ' ' && *s != '\0' )
-                s++;
-        }
-        else
-        {
-            s++;
-        }
-    }
-
-    return total;
-}
-
 /*
  * Returns an all-caps string.          OLC 1.1b
  */

@@ -287,16 +287,6 @@ static void show_note_to_char (CHAR_DATA *ch, NOTE_DATA *note, int num)
 	send_to_char (buf,ch);	         
 }
 
-/* Save changed boards */
-void save_notes ()
-{
-	int i;
-	 
-	for (i = 0; i < MAX_BOARD; i++)
-		if (boards[i].changed) /* only save changed boards */
-			save_board (&boards[i]);
-}
-
 /* Load a single board */
 static void load_board (BOARD_DATA *board)
 {

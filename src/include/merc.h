@@ -2769,7 +2769,6 @@ void	fread_number_row_sh	args( ( FILE *fp, sh_int *dest, int max ) );
 char *	fread_string	args( ( FILE *fp ) );
 void	fread_to_eol	args( ( FILE *fp ) );
 char *	fread_word	args( ( FILE *fp ) );
-char *	fread_worda	args( ( FILE *fp ) );
 void *	alloc_mem	args( ( int sMem ) );
 void *	alloc_perm	args( ( int sMem, int requested) );
 void	free_mem	args( ( void *pMem, int sMem ) );
@@ -2780,7 +2779,6 @@ PKILL_DATA * new_pkill	args( ( void ) );
 int	number_fuzzy	args( ( int number ) );
 int	number_range	args( ( int from, int to ) );
 int	number_percent	args( ( void ) );
-int	number_door	args( ( void ) );
 int	number_bits	args( ( int width ) );
 int	number_mm	args( ( void ) );
 int	dice		args( ( int number, int size ) );
@@ -2813,7 +2811,6 @@ void	stancecheck	args( ( CHAR_DATA *ch, CHAR_DATA *victim ) );
 void	chant_damage	args( ( CHAR_DATA *ch, CHAR_DATA *victim, int dam, int dt ) );
 void	set_fighting	args( ( CHAR_DATA *ch, CHAR_DATA *victim ) );
 void	add_inf		args( ( CHAR_DATA *ch, CHAR_DATA *victim, int dam ) );
-void	clear_inf	args( ( CHAR_DATA *ch ) );
 void	inf_update	args( ( void ) );
 int	get_inf_dam	args( ( CHAR_DATA *ch, char *name ) );
 
@@ -2827,7 +2824,6 @@ bool	is_full_name	args( ( const char *str, char *namelist ) );
 void	affect_to_char	args( ( CHAR_DATA *ch, AFFECT_DATA *paf ) );
 void	affect_remove	args( ( CHAR_DATA *ch, AFFECT_DATA *paf ) );
 void	affect_strip	args( ( CHAR_DATA *ch, int sn ) );
-bool	is_same_clan	args( ( CHAR_DATA *ch, CHAR_DATA *victim ) );
 bool	is_affected	args( ( CHAR_DATA *ch, int sn ) );
 bool	holy_bless_wards	args( ( CHAR_DATA *ch, CHAR_DATA *victim, char *vict_msg, char *caster_msg ) );
 
@@ -2894,7 +2890,6 @@ bool    IS_SWITCHED     args( ( CHAR_DATA *ch ) );
 
 /* magic.c */
 int	skill_lookup	args( ( const char *name ) );
-int	slot_lookup	args( ( int slot ) );
 bool	saves_spell	args( ( int level, CHAR_DATA *victim ) );
 void	obj_cast_spell	args( ( int sn, int level, CHAR_DATA *ch,
 				    CHAR_DATA *victim, OBJ_DATA *obj ) );
@@ -2972,7 +2967,6 @@ char *  first_arg       args( ( char *argument, char *arg_first, bool fCase ) );
 char *	string_replace	args( ( char * orig, char * old, char * new ) );	/* OLC */
 char *	string_proper	args( ( char * argument ) );	/* OLC */
 char *	string_unpad	args( ( char * argument ) );	/* OLC */
-int	arg_count	args( ( char *argument ) );	/* OLC */
 char *	all_capitalize	args( ( const char *argument ) );	/* OLC */
 
 /* olc.c */

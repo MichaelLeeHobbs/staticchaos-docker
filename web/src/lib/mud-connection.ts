@@ -34,7 +34,14 @@ const SB = 'ú';
 const SE = 'ð';
 const GMCP = 'É'; // telnet option 201
 
-const WS_URL: string = import.meta.env.VITE_MUD_WS ?? 'ws://localhost:6200';
+// WS endpoint: an explicit VITE_MUD_WS wins; otherwise on an https page (prod
+// behind the TLS reverse proxy) derive `wss://<this-host>/mud`, and fall back to
+// the local dev proxy on plain http. This means prod needs no build-time config.
+const WS_URL: string =
+  import.meta.env.VITE_MUD_WS ??
+  (typeof location !== 'undefined' && location.protocol === 'https:'
+    ? `wss://${location.host}/mud`
+    : 'ws://localhost:6200');
 const MUD_ID: string = import.meta.env.VITE_MUD_ID ?? 'staticchaos';
 
 export type MudStatus = 'connecting' | 'connected' | 'disconnected' | 'error';

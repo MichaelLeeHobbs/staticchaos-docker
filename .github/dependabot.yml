@@ -1,0 +1,40 @@
+# Automated dependency freshness (#85). Weekly PRs grouped to keep the noise low.
+# Covers the two pnpm workspaces (root tooling + web app), the GitHub Actions in
+# ci.yml, and the Docker base images (kept digest-pinned; dependabot bumps the digest).
+version: 2
+updates:
+  - package-ecosystem: "npm"          # pnpm workspaces resolve under the npm ecosystem
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 5
+    groups:
+      root-deps:
+        patterns: ["*"]
+
+  - package-ecosystem: "npm"
+    directory: "/web"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 5
+    groups:
+      web-deps:
+        patterns: ["*"]
+
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    groups:
+      actions:
+        patterns: ["*"]
+
+  - package-ecosystem: "docker"       # Dockerfile base images (digest-pinned, #63)
+    directory: "/"
+    schedule:
+      interval: "weekly"
+
+  - package-ecosystem: "docker"
+    directory: "/web"
+    schedule:
+      interval: "weekly"

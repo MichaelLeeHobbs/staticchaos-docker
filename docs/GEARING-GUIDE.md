@@ -4,7 +4,7 @@
 
 ## How gear works here (read this first)
 
-In Static Chaos, **gear only changes seven things**: max **HP**, max **mana**, max **move**, **AC**, **hitroll**, **damroll**, and **saving throws**. That is the complete list (verified in `src/handler.c` `affect_modify`).
+In Static Chaos, **gear only changes seven things**: max **HP**, max **mana**, max **move**, **AC**, **hitroll**, **damroll**, and **saving throws**. That is the complete list (verified in `src/core/handler.c` `affect_modify`).
 
 Gear **cannot** raise your class power — `body / mind / spirit / will`, your `powers[]` (school ranks, aegis, ki, forms…), or `primal`. Those come **only from training** (rage, discipline, research, forming). Item bonuses to **STR/DEX/INT/WIS/CON are disabled in code and do nothing** — ignore "+10 Str" on an item, it is a no-op.
 

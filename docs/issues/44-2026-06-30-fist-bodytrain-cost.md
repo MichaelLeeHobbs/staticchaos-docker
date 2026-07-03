@@ -11,7 +11,7 @@ reporter: code-audit (#35)
 GitHub issue: https://github.com/MichaelLeeHobbs/staticchaos-docker/issues/44
 
 ## The bug (confirmed in source)
-`do_bodytrain` (`src/fist.c`) prices each body part as
+`do_bodytrain` (`src/classes/fist.c`) prices each body part as
 `cost = 1500 * (powers[part]+1) * isquare(powers[part]+1)`. Torso and hands are correct, but **arms
 and legs use `isquare(powers[F_HANDS]+1)`** for the second factor instead of their own part — a
 copy-paste slip:

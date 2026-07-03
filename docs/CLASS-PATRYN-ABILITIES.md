@@ -6,7 +6,7 @@
 > that doc; this one is authoritative).
 
 **Last verified against source:** commit `cefb094`
-**Primary sources:** `src/patryn.c`, `src/fight.c`, `src/saiyan.c`, `src/sorcerer.c`, `src/const.c`, `src/merc.h`, `src/interp.c`
+**Primary sources:** `src/classes/patryn.c`, `src/core/fight.c`, `src/classes/saiyan.c`, `src/classes/sorcerer.c`, `src/core/const.c`, `src/include/merc.h`, `src/core/interp.c`
 
 ## How to read this
 
@@ -33,7 +33,7 @@
 
 ## Class basics
 
-Source: `src/const.c` `class_table[CLASS_PATRYN]`, `src/merc.h` (struct `class_type`).
+Source: `src/core/const.c` `class_table[CLASS_PATRYN]`, `src/include/merc.h` (struct `class_type`).
 
 | Field | Value | Notes |
 |---|---|---|
@@ -48,7 +48,7 @@ Source: `src/const.c` `class_table[CLASS_PATRYN]`, `src/merc.h` (struct `class_t
 | HP gained per level | `13` | |
 | Gains mana | `FALSE` | The `fMana` flag is FALSE, yet runeweaves cost mana — see ⚠️ Needs verification |
 
-**Power slots** (`src/merc.h`, indices into `ch->pcdata->powers[]`): `P_LEARNED` (bitfield of known
+**Power slots** (`src/include/merc.h`, indices into `ch->pcdata->powers[]`): `P_LEARNED` (bitfield of known
 runes), `P_LEARNED_NUM` (count of runes learned, drives learn cost), `P_AIR`/`P_EARTH`/`P_FIRE`/
 `P_WATER`/`P_ENERGY`/`P_NEGATIVE` (primary-rune **strengths**, 0–100), and `P_BITS` (flag field;
 the only bit is `P_DEFENSES = 1`).
@@ -57,7 +57,7 @@ the only bit is `P_DEFENSES = 1`).
 
 ## 1. The rune system
 
-### Rune types (`src/merc.h`)
+### Rune types (`src/include/merc.h`)
 
 | Rune | Bit value | Kind | Trainable strength? | Tattooable? |
 |---|---|---|---|---|
@@ -79,9 +79,9 @@ the only bit is `P_DEFENSES = 1`).
 | `RUNE_NONE` | `0` | empty slot | — | — |
 
 Knowing a rune = `IS_SET(ch->pcdata->powers[P_LEARNED], RUNE_*)`. A runeweave requires **both** its
-runes to be known (`src/patryn.c:do_runeweave`).
+runes to be known (`src/classes/patryn.c:do_runeweave`).
 
-### Body parts and rune capacity (`src/patryn.c`, `src/merc.h`)
+### Body parts and rune capacity (`src/classes/patryn.c`, `src/include/merc.h`)
 
 Tattoos live in `ch->pcdata->runes[part][slot]`. Capacity per part is `runemax[5] = { 15, 5, 5, 8, 8 }`:
 
@@ -93,13 +93,13 @@ Tattoos live in `ch->pcdata->runes[part][slot]`. Capacity per part is `runemax[5
 | Left leg | `LEFTLEG` | 3 | 8 |
 | Right leg | `RIGHTLEG` | 4 | 8 |
 
-- **`get_runes(ch, type, part)`** (`src/patryn.c`) counts runes of `type` on `part` (or any rune if
+- **`get_runes(ch, type, part)`** (`src/classes/patryn.c`) counts runes of `type` on `part` (or any rune if
   `type == RUNE_ALL`). Result is clamped `URANGE(0, num, 15)`. Returns 0 for non-Patryn/NPC or
   `part > 4 || part < 0`.
-- **`add_rune` / `remove_rune`** (`src/patryn.c`) place/clear a rune in the first matching slot; no-op
+- **`add_rune` / `remove_rune`** (`src/classes/patryn.c`) place/clear a rune in the first matching slot; no-op
   if the part is already full (`add_rune`) or the rune is absent (`remove_rune`).
 
-**Which body runes matter where** (all in `src/fight.c`, see §4):
+**Which body runes matter where** (all in `src/core/fight.c`, see §4):
 
 | Rune + location | Drives |
 |---|---|
@@ -114,16 +114,16 @@ Tattoos live in `ch->pcdata->runes[part][slot]`. Capacity per part is `runemax[5
 
 ### `P_DEFENSES` — the defensive stance
 
-Toggled by `defenses raise|lower` (`src/patryn.c:do_defenses`; stored as bit `P_DEFENSES` in
+Toggled by `defenses raise|lower` (`src/classes/patryn.c:do_defenses`; stored as bit `P_DEFENSES` in
 `powers[P_BITS]`). While raised, it changes five things across the code:
 
 | Effect | Magnitude | Source |
 |---|---|---|
-| Offensive runeweave mana cost | **+15%**, round up: `(cost*115 + 99)/100` | `src/patryn.c:do_runeweave` |
-| Patryn melee damage dealt | **−10%**: `dam -= dam/10` (after fire-arm boost) | `src/fight.c` (melee block) |
-| Torso damage mitigation | **+10%**: mitigation `* 11/10` | `src/fight.c` (victim Patryn block) |
-| Flat ward absorb | **+10%**: `wardbonus = 11` instead of `10` | `src/fight.c` (ward switch) |
-| Anti-scry (Ki Sense / Astral Detect / locate) | **enables** it (gated on `P_DEFENSES`) | `src/saiyan.c`, `src/sorcerer.c` |
+| Offensive runeweave mana cost | **+15%**, round up: `(cost*115 + 99)/100` | `src/classes/patryn.c:do_runeweave` |
+| Patryn melee damage dealt | **−10%**: `dam -= dam/10` (after fire-arm boost) | `src/core/fight.c` (melee block) |
+| Torso damage mitigation | **+10%**: mitigation `* 11/10` | `src/core/fight.c` (victim Patryn block) |
+| Flat ward absorb | **+10%**: `wardbonus = 11` instead of `10` | `src/core/fight.c` (ward switch) |
+| Anti-scry (Ki Sense / Astral Detect / locate) | **enables** it (gated on `P_DEFENSES`) | `src/classes/saiyan.c`, `src/classes/sorcerer.c` |
 
 `defenses raise` applies `WAIT_STATE(ch, 4)`; `defenses lower` applies `WAIT_STATE(ch, 2)`.
 
@@ -131,7 +131,7 @@ Toggled by `defenses raise|lower` (`src/patryn.c:do_defenses`; stored as bit `P_
 
 ## 2. Runeweave combinations
 
-*Source: `src/patryn.c:do_runeweave` (the `switch(spell)`), cost/target/wait from `cost_table[]`.*
+*Source: `src/classes/patryn.c:do_runeweave` (the `switch(spell)`), cost/target/wait from `cost_table[]`.*
 
 Syntax: `runeweave <primary> <secondary> [target]`. `runeweave list` prints the table below.
 `spell = rune1 + rune2`. Targeting/mana/lag come from the matching `cost_table[]` row; with no match
@@ -214,7 +214,7 @@ curse at a time). Each:
 - **Air + Movement (`4097`):** `runecast(ch, ch, "fly")` — always cast on self regardless of target.
 
 All `runecast`-delegated spells run at level `ch->pcdata->will` and, for offensive delegated spells,
-trigger a retaliatory `multi_hit` if the victim wasn't already fighting (`src/patryn.c:runecast`).
+trigger a retaliatory `multi_hit` if the victim wasn't already fighting (`src/classes/patryn.c:runecast`).
 
 ### 2.4 Cross-class disruption (cases 513 / 544 / 2080 / 4128)
 
@@ -250,7 +250,7 @@ trigger a retaliatory `multi_hit` if the victim wasn't already fighting (`src/pa
 ### 2.6 Blocks — `transformation` family (cases 2049 / 2052 / 1056)
 
 The three "blocks" are mutually antagonistic flags in `actnew`, priority **Air > Fire > Negative**
-(`src/patryn.c:patryn_active_block`):
+(`src/classes/patryn.c:patryn_active_block`):
 
 | Block | Flag | Bit | Set by | Strips |
 |---|---|---|---|---|
@@ -266,7 +266,7 @@ state" that a Saiyan Ryuken/Ki Wave will strip (priority Air > Fire > Negative, 
 Each ward is mutually exclusive: applying one `affect_strip`s **all six** wards first, then applies
 the new one with `af.duration = ch->pcdata->mind * 15` (the absorption pool). Priority for
 "the active ward" is **Spirit > Earth > Flame > Wind > Water > Negative**
-(`src/patryn.c:patryn_active_ward`).
+(`src/classes/patryn.c:patryn_active_ward`).
 
 | Weave | Ward gsn | Primarily blunts (see §4) |
 |---|---|---|
@@ -285,7 +285,7 @@ the new one with `af.duration = ch->pcdata->mind * 15` (the absorption pool). Pr
 
 ## 3. Commands
 
-*All Patryn commands are `level 2`, Patryn-only (`src/interp.c`).*
+*All Patryn commands are `level 2`, Patryn-only (`src/core/interp.c`).*
 
 | Command | Function | Position | Purpose |
 |---|---|---|---|
@@ -342,7 +342,7 @@ See §1 (`P_DEFENSES`). No arg → report state; `raise`/`lower` → toggle, wit
 
 ---
 
-## 4. Passive ward/block mitigation & rune combat math (always-on, `src/fight.c`)
+## 4. Passive ward/block mitigation & rune combat math (always-on, `src/core/fight.c`)
 
 These are not commands but govern most of the class's power. Line numbers are at commit `e5ac280`.
 
@@ -423,7 +423,7 @@ Then per chant `school`, an active ward subtracts a flat 100 (floored at 1) and 
 
 **Spirit ward (`fight.c:1586`):** if `gsn_spirit_ward` and `school ∈ {BLACK, EARTH, WIND, FIRE, WATER,
 ASTRAL, WHITE}`: `dam -= dam * 15/100`, drain 25. (Also: spirit ward gives 15% chance to resist a
-hostile curse and to fizzle a dispel — `src/sorcerer.c`, drain 25 each.)
+hostile curse and to fizzle a dispel — `src/classes/sorcerer.c`, drain 25 each.)
 
 ### 4.6 Parry / dodge / enemy-evasion suppression
 
@@ -450,10 +450,10 @@ Air arm-runes add one attack each per round.
 
 ### 4.8 Anti-scry (gated on `P_DEFENSES`, victim `level >= 2`)
 
-- **vs Saiyan Ki Sense — `src/saiyan.c:do_kisense`:** keyed on **fire torso** runes (`fcount`):
+- **vs Saiyan Ki Sense — `src/classes/saiyan.c:do_kisense`:** keyed on **fire torso** runes (`fcount`):
   `fcount >= 5` **or** `gsn_spirit_ward` → fully shrouded; `fcount >= 3` → location clouded; `1–2` →
   warning glow only (sense still succeeds).
-- **vs Astral Detect / chant vision / locate — `src/sorcerer.c`:** keyed on **air torso** runes
+- **vs Astral Detect / chant vision / locate — `src/classes/sorcerer.c`:** keyed on **air torso** runes
   (`acount`): `acount >= 5` **or** `gsn_spirit_ward` → fully blocked; `acount >= 3` → vision dissolves
   (no room snapshot); `1–2` → warning glow only.
 

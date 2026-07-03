@@ -2,7 +2,7 @@
  * area.mjs -- shared parser for Static Chaos / Merc-derived .are files.
  *
  * Exposes a tolerant reader plus parsers for the #ROOMDATA, #MOBILES and
- * #OBJECTS sections, matching how src/db.c loads them:
+ * #OBJECTS sections, matching how src/core/db.c loads them:
  *
  *   Room   : name~ desc~ "<area> <flags> <sector>" then D<n>/E blocks, "S".
  *   Mobile : keywords~ short~ long~ desc~ "<act> <aff> <clan> S <level> ..."
@@ -249,7 +249,7 @@ export function loadAreaList(areaDir) {
     .filter((l) => fs.existsSync(path.join(areaDir, l)));
 }
 
-/* ---- flag / constant decoders (from src/merc.h) ---- */
+/* ---- flag / constant decoders (from src/include/merc.h) ---- */
 export const ITEM_TYPE = {
   1: 'Light', 2: 'Scroll', 3: 'Wand', 4: 'Staff', 5: 'Weapon', 8: 'Treasure',
   9: 'Armor', 10: 'Potion', 12: 'Furniture', 13: 'Trash', 15: 'Container',
@@ -304,7 +304,7 @@ export function buildWorldIndex(areas) {
   return { mobs, rooms, objs };
 }
 
-/* Walk every area's #RESETS the way src/db.c reset_room() does, returning:
+/* Walk every area's #RESETS the way src/core/db.c reset_room() does, returning:
  *   mobSpawns   : Map<mobVnum, Set<roomVnum>>
  *   itemSources : Map<objVnum, Source[]>
  * where Source is one of:

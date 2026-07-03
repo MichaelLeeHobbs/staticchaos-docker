@@ -23,7 +23,7 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const AREA_DIR = path.join(ROOT, 'area');
 const OUT = path.join(ROOT, 'docs');
 
-// APPLY locations that actually do something (verified in src/handler.c affect_modify)
+// APPLY locations that actually do something (verified in src/core/handler.c affect_modify)
 const HP = 13, MANA = 12, MOVE = 14, AC = 17, HIT = 18, DAM = 19;
 const SAVES = [20, 21, 22, 23, 24];
 
@@ -93,7 +93,7 @@ function main() {
 
   // ---- how gear works ----
   out.push('## How gear works here (read this first)', '');
-  out.push('In Static Chaos, **gear only changes seven things**: max **HP**, max **mana**, max **move**, **AC**, **hitroll**, **damroll**, and **saving throws**. That is the complete list (verified in `src/handler.c` `affect_modify`).', '');
+  out.push('In Static Chaos, **gear only changes seven things**: max **HP**, max **mana**, max **move**, **AC**, **hitroll**, **damroll**, and **saving throws**. That is the complete list (verified in `src/core/handler.c` `affect_modify`).', '');
   out.push('Gear **cannot** raise your class power — `body / mind / spirit / will`, your `powers[]` (school ranks, aegis, ki, forms…), or `primal`. Those come **only from training** (rage, discipline, research, forming). Item bonuses to **STR/DEX/INT/WIS/CON are disabled in code and do nothing** — ignore "+10 Str" on an item, it is a no-op.', '');
   out.push('So there is **no class-specific armour** — everyone competes for the same pieces. What differs is *which stats your class cares about*:', '');
   out.push('| Class | Wants | Ignores |', '|---|---|---|');

@@ -1,7 +1,7 @@
 # Known asymmetric exits (the boot `Fix_exits` warnings) (#82)
 
 At boot the server logs a handful of `BUG: Fix_exits: A:d -> B:d' -> C.` lines.
-These are **not bugs** and the game world is correct. `fix_exits()` (`src/db.c`)
+These are **not bugs** and the game world is correct. `fix_exits()` (`src/core/db.c`)
 only *reports* them; it never changes an exit. The message fires when room A has an
 exit to room B, and B *also* has an exit in the reverse direction but it leads to
 some room C ≠ A — i.e. the two directions don't mirror.

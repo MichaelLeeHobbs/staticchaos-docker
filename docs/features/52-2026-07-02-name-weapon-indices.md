@@ -34,11 +34,11 @@ byte-identical after preprocessing. This is a pure readability + guard-rail chan
 ## The verified mapping (the deliverable)
 
 `weapons[]` slots, triple-confirmed against source:
-- `sweapon_lookup()` name table — `src/act_wiz.c`
-- the `score`/`level` display labels — `src/act_info.c:2820-2827`
-- `MAX_WEAPONS == 13` — `src/merc.h:140`
+- `sweapon_lookup()` name table — `src/commands/act_wiz.c`
+- the `score`/`level` display labels — `src/commands/act_info.c:2820-2827`
+- `MAX_WEAPONS == 13` — `src/include/merc.h:140`
 
-Damage-type relationship (from `src/fight.c`): a weapon's slot index equals its
+Damage-type relationship (from `src/core/fight.c`): a weapon's slot index equals its
 damage type minus `TYPE_HIT` — `weapons[dt - TYPE_HIT]`, `TYPE_HIT == 1000`. So
 `dt == TYPE_HIT + WP_x`. Mazoku confirms: claws `dt += 5` → slot 5; spikes
 `dt += 2` → slot 2 (`fight.c:300-302`).

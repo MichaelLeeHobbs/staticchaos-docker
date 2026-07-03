@@ -111,9 +111,14 @@ function checkFopen(lines, rel) {
   return n;
 }
 
-const cFiles = fs.readdirSync(SRC)
-  .filter((f) => f.endsWith('.c'))
-  .map((f) => path.join(SRC, f));
+// src/ is grouped into subdirs (core/ commands/ classes/ olc/ world/), so walk
+// recursively rather than a flat readdir.
+const walkC = (dir) =>
+  fs.readdirSync(dir, { withFileTypes: true }).flatMap((e) => {
+    const full = path.join(dir, e.name);
+    return e.isDirectory() ? walkC(full) : full.endsWith('.c') ? [full] : [];
+  });
+const cFiles = walkC(SRC);
 
 let violations = 0;
 for (const file of cFiles) {

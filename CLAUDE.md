@@ -46,12 +46,12 @@ and site work lives in `tools/`, `web/`, and `docs/`.
 
 1. **The MUD server** — `src/` (C), game data in `area/` (`.are` files + `area.lst`), runtime state
    in `player/` `notes/` `finger/` `log/`, original docs in `doc/`. Builds and runs only via Docker
-   (see below); not meant to compile natively on Windows. `src/gmcp.c` adds GMCP (telnet opt 201)
+   (see below); not meant to compile natively on Windows. `src/core/gmcp.c` adds GMCP (telnet opt 201)
    on top of the legacy line parser.
 2. **World-data tooling** — `tools/*.mjs` (Node, ESM). Parse the `.are` files into `world-maps/`
    (JSON + Markdown + PDF + standalone HTML). The shared parser is `tools/lib/area.mjs` (Reader +
-   section parsers + flag decoders) and it **must stay in sync with `src/db.c`**, which is the
-   authoritative format; `build-classes.mjs` reads `class_table`/`skill_table` from `src/const.c`.
+   section parsers + flag decoders) and it **must stay in sync with `src/core/db.c`**, which is the
+   authoritative format; `build-classes.mjs` reads `class_table`/`skill_table` from `src/core/const.c`.
 3. **Web companion site** — `web/` (Vite + React 19 + MUI + react-router + TypeScript). A static SPA
    that fetches the generated content. It does **not** read the repo directly: `web/scripts/sync-content.mjs`
    copies `world-maps/*.json` → `public/data/`, selected `docs/*.md` + `world-maps/*.md` → `public/docs/`,
@@ -82,8 +82,8 @@ build deploys via its own `web/Dockerfile` / `web/docker-compose.yml` (host :80)
 
 ### Conventions & gotchas
 
-- **`tools/` ↔ `src/` coupling:** when game data format or flag bits change in `src/db.c` /
-  `src/const.c`, update `tools/lib/area.mjs` to match — the parsers mirror the C, and drift produces
+- **`tools/` ↔ `src/` coupling:** when game data format or flag bits change in `src/core/db.c` /
+  `src/core/const.c`, update `tools/lib/area.mjs` to match — the parsers mirror the C, and drift produces
   silently wrong maps/items rather than errors. The `Fix_exits:` warnings at MUD boot are upstream
   area-data issues, not server bugs.
 - **Adding a player-facing doc to the site:** a new `docs/*.md` is published only if its filename is
@@ -121,6 +121,6 @@ compiles in Docker) — full procedure and per-area gates: `.claude/skills/orche
 
 ### Active work
 The MUD is under active development. In-flight design/planning lives in `docs/`:
-`GMCP-PLAN.md` (GMCP telnet side-channel — Phases 0–3 implemented & deployed; `src/gmcp.c`,
+`GMCP-PLAN.md` (GMCP telnet side-channel — Phases 0–3 implemented & deployed; `src/core/gmcp.c`,
 `client/*.xml` Mudlet packages), `COMPUTER-PLAYERS-FEASIBILITY.md`, and
 `SORCERER-AND-ADMIN-BRAINSTORM.md`. Read the relevant plan before touching its code.

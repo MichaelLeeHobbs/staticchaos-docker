@@ -29,7 +29,7 @@ RUN make -C src clean || true \
     && make -C src
 
 # The server saves player files to ../player/<initial>/<Name> and uses a
-# ../player/temp scratch dir (see src/save.c). fopen("w") will not create
+# ../player/temp scratch dir (see src/core/save.c). fopen("w") will not create
 # missing directories, so pre-create a-z plus temp. Also ensure a log dir.
 RUN set -eux; \
     for d in a b c d e f g h i j k l m n o p q r s t u v w x y z; do \

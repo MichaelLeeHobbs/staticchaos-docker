@@ -43,7 +43,7 @@ jobs:
       - name: Install tooling deps
         run: pnpm install --frozen-lockfile
 
-      # Parser drift guard (#57): golden test for tools/lib/area.mjs vs src/db.c.
+      # Parser drift guard (#57): golden test for tools/lib/area.mjs vs src/core/db.c.
       - name: Test area parser (drift guard)
         run: pnpm test
 
@@ -60,7 +60,7 @@ jobs:
         run: |
           docker run --rm -v "$PWD":/repo -w /repo debian:bullseye-slim sh -c \
             "apt-get update -qq && apt-get install -y -qq cppcheck && \
-             cppcheck --enable=warning,portability --inline-suppr --std=c99 -q -I src \
+             cppcheck --enable=warning,portability --inline-suppr --std=c99 -q -I src/include \
                --suppressions-list=.cppcheck-suppressions --error-exitcode=1 src"
 
       # Parse area/*.are -> world-maps/. Skips build:pdf* (needs a puppeteer

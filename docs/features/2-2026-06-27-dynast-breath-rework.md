@@ -23,7 +23,7 @@ Tone Dynast Breath down per the patch in #1 without making it useless: remove th
 hitroll/damroll suppression, add a save, cap/lower the AC penalty, shorten duration,
 and make removal clean. Numbers are the target feel; final values get a balance pass.
 
-## Current behavior (verified — `src/sorcerer.c:912 chant_dynast_breath`)
+## Current behavior (verified — `src/classes/sorcerer.c:912 chant_dynast_breath`)
 - **No save** — applies unconditionally.
 - Three affects, all under the `dynast breath` skill type:
   1. `APPLY_AC`, modifier `rank * 8` (rank 50 → **+400 AC**), bitvector `AFF_NO_FLEE`.

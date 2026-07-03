@@ -14,7 +14,7 @@ Follow-on to #52 (`weapons[]` → `WP_*`). Same bug-class prevention. All change
 behavior-preserving; **rename only, never renumber** (arrays are persisted
 positionally in player files).
 
-## 1. `do_runeweave` case labels (`src/patryn.c`)
+## 1. `do_runeweave` case labels (`src/classes/patryn.c`)
 
 `switch(spell)` where `spell` is an OR of `RUNE_*` bits. 12 cases were already in
 `case RUNE_AIR + RUNE_LIFE:` form; the other 20 were raw numbers. Converted all 20
@@ -37,7 +37,7 @@ to the existing named style. Each decode verified against the in-file
 The now-redundant `/* ELEM + CAT */` comments are left in place (harmless, zero
 diff risk).
 
-## 2. `stances[]` → `STANCE_*` (`src/merc.h` + 46 sites)
+## 2. `stances[]` → `STANCE_*` (`src/include/merc.h` + 46 sites)
 
 `stance_table` order (const.c) is the source of truth:
 

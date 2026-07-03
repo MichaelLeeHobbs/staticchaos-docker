@@ -1,7 +1,7 @@
 # Player save-file format & how to change it safely
 
 Player files (`player/<letter>/<Name>`) are plain-text key/value records written by
-`save_char_obj` and read by `fread_char` / `load_char_obj` in `src/save.c`. This
+`save_char_obj` and read by `fread_char` / `load_char_obj` in `src/core/save.c`. This
 note documents the two field styles and the **procedure for adding or changing a
 persisted field without corrupting existing player files** — the guard behind
 issues #52, #54, and #61.

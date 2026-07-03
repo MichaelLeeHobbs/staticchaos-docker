@@ -9,7 +9,7 @@ CastIntegerToAddressAtReturn # ditto (32-bit int<->pointer)
 toomanyconfigs               # informational only
 # comm.c login/send paths: `ch` is established non-null by the loader/caller invariant
 # (file-scoped so nullPointer stays active everywhere else).
-nullPointer:src/comm.c
+nullPointer:src/core/comm.c
 # memwatch.c (vendored MEMWATCH debug tool) deliberately does `*(int*)NULL` to trap
 # a debugger on detected corruption -- intentional, not a bug.
-nullPointer:src/memwatch.c
+nullPointer:src/core/memwatch.c

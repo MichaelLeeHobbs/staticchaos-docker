@@ -30,6 +30,6 @@
     "md-to-pdf": "^5.2.5"
   },
   "devDependencies": {
-    "@mermaid-js/mermaid-cli": "^11.15.0"
+    "@mermaid-js/mermaid-cli": "^11.16.0"
   }
 }

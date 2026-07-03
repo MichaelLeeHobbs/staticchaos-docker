@@ -59,42 +59,46 @@ struct cost_type
   int cost;
   int target;
   int wait;
+  char *effect;		/* one-line blurb for 'runeweave list' (#99) */
 };
 
+/* effect blurbs describe what each combo ACTUALLY does (derived from the
+   switch in do_runeweave below) and imply the target: "a foe" = offensive,
+   "(self)" = self, "a target" = defensive, "the room" = room. */
 const	struct	cost_type	cost_table	[]	=
 {
-  {	65,	300,	TAR_CHAR_OFFENSIVE,	9	},
-  {	66,	300,	TAR_CHAR_OFFENSIVE,	9	},
-  {	68,	300,	TAR_CHAR_OFFENSIVE,	9	},
-  {	72,	300,	TAR_CHAR_OFFENSIVE,	9	},
-  {	80,	750,	TAR_CHAR_DEFENSIVE,	10	},
-  {	96,	400,	TAR_CHAR_OFFENSIVE,	10	},
-  {	129,	500,	TAR_CHAR_OFFENSIVE,	10	},
-  {	132,	500,	TAR_CHAR_OFFENSIVE,	10	},
-  {	264,	250,	TAR_CHAR_DEFENSIVE,	10	},
-  {	257,	750,	TAR_CHAR_DEFENSIVE,	10	},
-  {	272,	100,	TAR_CHAR_DEFENSIVE,	10	},
-  {	513,	750,	TAR_CHAR_OFFENSIVE,	9	},
-  {	516,	400,	TAR_IGNORE,		10	},
-  {	528,	600,	TAR_CHAR_OFFENSIVE,	10	},
-  {	544,	500,	TAR_CHAR_OFFENSIVE,	10	},
-  {	1025,	200,	TAR_CHAR_SELF,		10	},
-  {	1026,	250,	TAR_CHAR_SELF,		10	},
-  {	1028,	750,	TAR_CHAR_SELF,		8	},
-  {	1032,	100,	TAR_CHAR_SELF,		10	},
-  {	1056,	250,	TAR_CHAR_DEFENSIVE,	10	},
-  {	2049,	350,	TAR_CHAR_DEFENSIVE,	10	},
-  {	2052,	350,	TAR_CHAR_DEFENSIVE,	10	},
-  {	2064,	400,	TAR_CHAR_SELF,		10	},
-  {	2080,	100,	TAR_CHAR_OFFENSIVE,	10	},
-  {	4097,	100,	TAR_CHAR_DEFENSIVE,	10	},
-  {	4128,	400,	TAR_CHAR_OFFENSIVE,	8	},
-  {	16385,	750,	TAR_CHAR_SELF,		8	},
-  {     16386,  750,    TAR_CHAR_SELF,		8	},
-  {     16388,  750,    TAR_CHAR_SELF,          8	},
-  {     16392,  750,    TAR_CHAR_SELF,          8	},
-  {     16400,  750,    TAR_CHAR_SELF,	        8	},
-  {     16416,  750,    TAR_CHAR_SELF,          8	}
+  {	65,	300,	TAR_CHAR_OFFENSIVE,	9,	"curses a foe with air (debuff)"	},
+  {	66,	300,	TAR_CHAR_OFFENSIVE,	9,	"curses a foe with earth (debuff)"	},
+  {	68,	300,	TAR_CHAR_OFFENSIVE,	9,	"curses a foe with fire (debuff)"	},
+  {	72,	300,	TAR_CHAR_OFFENSIVE,	9,	"curses a foe with water (debuff)"	},
+  {	80,	750,	TAR_CHAR_DEFENSIVE,	10,	"heals a target's wounds"		},
+  {	96,	400,	TAR_CHAR_OFFENSIVE,	10,	"drains a foe's health to you"		},
+  {	129,	500,	TAR_CHAR_OFFENSIVE,	10,	"single-target lightning damage"	},
+  {	132,	500,	TAR_CHAR_OFFENSIVE,	10,	"single-target fire damage"		},
+  {	264,	250,	TAR_CHAR_DEFENSIVE,	10,	"douses fire burning on a target"	},
+  {	257,	750,	TAR_CHAR_DEFENSIVE,	10,	"grants a target a ball-lightning shield"},
+  {	272,	100,	TAR_CHAR_DEFENSIVE,	10,	"cures wounds on a target"		},
+  {	513,	750,	TAR_CHAR_OFFENSIVE,	9,	"gust: disrupts a foe's spells/defenses"},
+  {	516,	400,	TAR_IGNORE,		10,	"fire damage to all enemies in the room"},
+  {	528,	600,	TAR_CHAR_OFFENSIVE,	10,	"dispels magic on a foe"		},
+  {	544,	500,	TAR_CHAR_OFFENSIVE,	10,	"strips a Mazoku foe's dark energy"	},
+  {	1025,	200,	TAR_CHAR_SELF,		10,	"raises a magic shield (self)"		},
+  {	1026,	250,	TAR_CHAR_SELF,		10,	"raises stone skin (self)"		},
+  {	1028,	750,	TAR_CHAR_SELF,		8,	"raises a fire shield/balus wall (self)"},
+  {	1032,	100,	TAR_CHAR_SELF,		10,	"raises armor (self)"			},
+  {	1056,	250,	TAR_CHAR_DEFENSIVE,	10,	"grants a negative-damage block"	},
+  {	2049,	350,	TAR_CHAR_DEFENSIVE,	10,	"raises an air block, rebounds lightning"},
+  {	2052,	350,	TAR_CHAR_DEFENSIVE,	10,	"raises a fire block, rebounds fire"	},
+  {	2064,	400,	TAR_CHAR_SELF,		10,	"toggles truesight (self)"		},
+  {	2080,	100,	TAR_CHAR_OFFENSIVE,	10,	"drains a foe's mana to you"		},
+  {	4097,	100,	TAR_CHAR_DEFENSIVE,	10,	"grants flight (self)"			},
+  {	4128,	400,	TAR_CHAR_OFFENSIVE,	8,	"saps a foe's movement to you"		},
+  {	16385,	750,	TAR_CHAR_SELF,		8,	"raises a wind ward (self)"		},
+  {     16386,  750,    TAR_CHAR_SELF,		8,	"raises an earth ward (self)"		},
+  {     16388,  750,    TAR_CHAR_SELF,          8,	"raises a flame ward (self)"		},
+  {     16392,  750,    TAR_CHAR_SELF,          8,	"raises a water ward (self)"		},
+  {     16400,  750,    TAR_CHAR_SELF,	        8,	"raises a spirit ward (self)"		},
+  {     16416,  750,    TAR_CHAR_SELF,          8,	"raises a negative ward (self)"		}
 };
 
 
@@ -271,8 +275,8 @@ void do_runeweave( CHAR_DATA *ch, char *argument )
     int  p, s, sp;
 
     send_to_char( "\n\rThe following runeweaves are known:\n\r", ch );
-    send_to_char( "Rune 1 + Rune 2          Mana  Target     Wait\n\r", ch );
-    send_to_char( "-------------------------------------------------\n\r", ch );
+    send_to_char( "Rune 1 + Rune 2          Mana  Effect\n\r", ch );
+    send_to_char( "------------------------------------------------------------------------\n\r", ch );
     for ( slot = 0; slot < MAX_RUNESPELLS; slot++ )
     {
       sp = cost_table[slot].spell;
@@ -284,16 +288,8 @@ void do_runeweave( CHAR_DATA *ch, char *argument )
       for ( s = 0; secondary_runes[s].name != NULL; s++ )
         if ( IS_SET( sp, secondary_runes[s].bit ) )
           strcpy( rn2, secondary_runes[s].name );
-      switch ( cost_table[slot].target )
-      {
-        case TAR_CHAR_OFFENSIVE: strcpy( def1, "offensive" ); break;
-        case TAR_CHAR_DEFENSIVE: strcpy( def1, "defensive" ); break;
-        case TAR_CHAR_SELF:      strcpy( def1, "self"      ); break;
-        case TAR_IGNORE:         strcpy( def1, "room"      ); break;
-        default:                 strcpy( def1, "-"         ); break;
-      }
-      snprintf( buf, sizeof( buf ), "%-8s + %-14s %5d  %-9s  %3d\n\r",
-        rn1, rn2, cost_table[slot].cost, def1, cost_table[slot].wait );
+      snprintf( buf, sizeof( buf ), "%-8s + %-14s %5d  %s\n\r",
+        rn1, rn2, cost_table[slot].cost, cost_table[slot].effect );
       send_to_char( buf, ch );
     }
     return;

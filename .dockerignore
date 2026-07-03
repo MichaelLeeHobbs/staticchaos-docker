@@ -17,3 +17,9 @@ backup-volumes.sh
 watchdog.sh
 backups
 area-backups
+
+# runtime area artifacts (bug log + write-temps/backups); never seed into the image
+area/bugs.txt
+area/*.new
+area/*.bak
+area/*.old

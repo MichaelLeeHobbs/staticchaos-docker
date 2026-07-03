@@ -79,6 +79,13 @@ Temporary Items
 *.bak
 *.old
 
+# Runtime area artifacts that slipped into git with the vendored import:
+# bugs.txt is the server's bug() log (append-only, grows in the area volume), and
+# clan.new/leaders.new are write-temps the game never reads (it uses clan.txt/
+# leaders.txt). Not source; regenerated at runtime.
+/area/bugs.txt
+/area/*.new
+
 # Personal deploy scripts — copy the *.example.sh templates and edit for your host
 /deploy.sh
 /mud-redeploy.sh

@@ -2542,8 +2542,10 @@ char *	crypt		args( ( const char *key, const char *salt ) );
  * linked 32-bit via -lcrypt (see src/Makefile / Dockerfile). password.c hashes
  * new passwords with yescrypt ($y$); legacy plaintext accounts are transparently
  * re-hashed on their next successful login (see password_verify / CON_GET_OLD_PASSWORD).
- * <crypt.h> declares both crypt() and crypt_gensalt(); it also drags in the
- * <unistd.h> crypt() prototype cleanly, so nothing here re-shadows crypt(). */
+ * <unistd.h> declares the POSIX calls used across the server (close/read/write/
+ * _exit); <crypt.h> declares crypt()/crypt_gensalt(). On modern libxcrypt crypt()
+ * lives only in <crypt.h> (not <unistd.h>), so the two headers coexist cleanly. */
+#include <unistd.h>
 #include <crypt.h>
 #endif
 

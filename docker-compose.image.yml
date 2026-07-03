@@ -50,6 +50,42 @@ services:
       retries: 3
       start_period: 45s
 
+  # Browser "Play Now" client bridge (github.com/maldorne/mud-web-proxy).
+  # Prod posture: bound to LOCALHOST only -- a host TLS reverse proxy
+  # (Caddy/Traefik/nginx) terminates wss and forwards to 127.0.0.1:6200.
+  # See docs/WEB-CLIENT.md. Set MUD_PROXY_ALLOWED_ORIGINS to the site origin.
+  mud-web-proxy:
+    image: ghcr.io/maldorne/mud-web-proxy:latest
+    pull_policy: always
+    container_name: mud-web-proxy
+    depends_on:
+      - mud
+    ports:
+      - "127.0.0.1:${MUD_WS_PORT:-6200}:6200"
+    environment:
+      WS_PORT: "6200"
+      TLS_ENABLED: "false"        # TLS terminated by the upstream reverse proxy
+      NODE_ENV: "production"
+      COMPRESS: "false"
+      CHAT_ENABLED: "false"
+      ENABLE_LEGACY_ROUTING: "false"
+      ALLOWED_ORIGINS: "${MUD_PROXY_ALLOWED_ORIGINS:-*}"
+      DEFAULT_ENCODING: "latin1"
+      MUD_ROUTES: |-
+        {"staticchaos": {"host": "mud", "port": 4000, "encoding": "latin1"}}
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:6200/health').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 15s
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+
 volumes:
   area:
   player:

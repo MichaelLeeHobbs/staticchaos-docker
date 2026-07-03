@@ -4,6 +4,7 @@ import { AppFooter } from './app-footer';
 
 const NAV = [
   { to: '/', label: 'Home' },
+  { to: '/play', label: 'Play Now' },
   { to: '/docs', label: 'Docs' },
   { to: '/map', label: 'World Map' },
   { to: '/browser', label: 'Browser' },

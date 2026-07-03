@@ -45,6 +45,47 @@ services:
       retries: 3
       start_period: 45s
 
+  # Browser "Play Now" client bridge: WebSocket <-> telnet proxy
+  # (github.com/maldorne/mud-web-proxy). Browsers can't open raw TCP, so the
+  # React xterm client (web/) talks wss/ws to this sidecar, which negotiates
+  # telnet/GMCP and reaches the MUD over the internal Docker network on 4000.
+  # Raw 4000 stays private; only this proxy port is published.
+  mud-web-proxy:
+    image: ghcr.io/maldorne/mud-web-proxy:latest
+    container_name: mud-web-proxy
+    depends_on:
+      - mud
+    # Dev: publish on all interfaces so a local `pnpm dev` (or telnet-in-browser
+    # test) can reach ws://localhost:6200. In prod use docker-compose.image.yml,
+    # which binds this to localhost behind a TLS reverse proxy.
+    ports:
+      - "${MUD_WS_PORT:-6200}:6200"
+    environment:
+      WS_PORT: "6200"
+      TLS_ENABLED: "false"        # TLS terminated upstream (reverse proxy) in prod
+      NODE_ENV: "production"
+      COMPRESS: "false"           # client never requests MCCP; keep plain frames
+      CHAT_ENABLED: "false"       # no in-proxy chat; avoids stray JSON to the terminal
+      ENABLE_LEGACY_ROUTING: "false"  # client may only use the named route below
+      ALLOWED_ORIGINS: "${MUD_PROXY_ALLOWED_ORIGINS:-*}"  # lock to the site origin in prod
+      DEFAULT_ENCODING: "latin1"
+      # Named route: the browser sends { connect:1, mud:"staticchaos" } and the
+      # proxy resolves host/port/encoding here (so the browser can't redirect it).
+      MUD_ROUTES: |-
+        {"staticchaos": {"host": "mud", "port": 4000, "encoding": "latin1"}}
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:6200/health').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 15s
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+
 volumes:
   area:
   player:

@@ -37,6 +37,12 @@ services:
     stdin_open: true
     tty: true
     restart: unless-stopped
+    # Bound the captured stderr log (#84): ~50MB rotated, so it can't fill the disk.
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "5"
     healthcheck:
       test: ["CMD", "bash", "-c", "exec 3<>/dev/tcp/127.0.0.1/4000"]
       interval: 30s

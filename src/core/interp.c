@@ -455,6 +455,7 @@ const	struct	cmd_type	cmd_table	[] =
     { "sset",		do_sset,	POS_DEAD,    L_DEI,  LOG_ALWAYS },
     { "sstance",	do_sstance,	POS_DEAD,    L_DEI,  LOG_ALWAYS },
     { "sweapon",	do_sweapon,	POS_DEAD,    L_DEI,  LOG_ALWAYS },
+    { "clone",		do_clone,	POS_DEAD,    L_DEI,  LOG_ALWAYS },
     { "pdelete",	do_pdelete,	POS_DEAD,    L_DEI,  LOG_ALWAYS },
     { "prename",	do_prename,	POS_DEAD,    L_DEI,  LOG_ALWAYS },
     { "tard",		do_tard,	POS_DEAD,    L_DEI,  LOG_ALWAYS },

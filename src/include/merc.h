@@ -1972,6 +1972,7 @@ DECLARE_DO_FUN(	do_clanedit	);
 DECLARE_DO_FUN(	do_clanrank	);
 DECLARE_DO_FUN(	do_clantalk	);
 DECLARE_DO_FUN( do_clearstats	);
+DECLARE_DO_FUN(	do_clone	);
 DECLARE_DO_FUN(	do_close	);
 DECLARE_DO_FUN( do_combo	);
 DECLARE_DO_FUN(	do_commands	);

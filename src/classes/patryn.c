@@ -53,6 +53,51 @@ const struct rune_name_type secondary_runes[] =
 const int primary_power[] =
 { P_AIR, P_EARTH, P_FIRE, P_WATER, P_ENERGY, P_NEGATIVE };
 
+/* Table-driven runeweave dispatch (#refactor): each rune combo's effect body
+   lives in its own static rw_* handler below, and cost_table carries a pointer
+   to it in the SAME fixed order as the {spell,cost,target,wait,effect} data.
+   A handler returns TRUE to continue into the normal post-cast bookkeeping
+   (fighting/wait/mana -- the old `break`) or FALSE to abort early with no mana
+   or wait-state spent (the old bare `return`). */
+typedef bool RW_FUN args( ( CHAR_DATA *ch, CHAR_DATA *victim ) );
+
+/* Shared "default" casting messages (were local def1/def2 in do_runeweave). */
+static char rw_def1[] = "You move your hands in mystick patterns, uttering runes under your breath.";
+static char rw_def2[] = "$n moves $s hands in a complex pattern, while muttering broken phrases.";
+
+static	bool	rw_air_life		args( ( CHAR_DATA *ch, CHAR_DATA *victim ) );
+static	bool	rw_earth_life		args( ( CHAR_DATA *ch, CHAR_DATA *victim ) );
+static	bool	rw_fire_life		args( ( CHAR_DATA *ch, CHAR_DATA *victim ) );
+static	bool	rw_water_life		args( ( CHAR_DATA *ch, CHAR_DATA *victim ) );
+static	bool	rw_energy_life		args( ( CHAR_DATA *ch, CHAR_DATA *victim ) );
+static	bool	rw_negative_life	args( ( CHAR_DATA *ch, CHAR_DATA *victim ) );
+static	bool	rw_air_death		args( ( CHAR_DATA *ch, CHAR_DATA *victim ) );
+static	bool	rw_fire_death		args( ( CHAR_DATA *ch, CHAR_DATA *victim ) );
+static	bool	rw_water_creation	args( ( CHAR_DATA *ch, CHAR_DATA *victim ) );
+static	bool	rw_air_creation		args( ( CHAR_DATA *ch, CHAR_DATA *victim ) );
+static	bool	rw_energy_creation	args( ( CHAR_DATA *ch, CHAR_DATA *victim ) );
+static	bool	rw_air_destruction	args( ( CHAR_DATA *ch, CHAR_DATA *victim ) );
+static	bool	rw_fire_destruction	args( ( CHAR_DATA *ch, CHAR_DATA *victim ) );
+static	bool	rw_energy_destruction	args( ( CHAR_DATA *ch, CHAR_DATA *victim ) );
+static	bool	rw_negative_destruction	args( ( CHAR_DATA *ch, CHAR_DATA *victim ) );
+static	bool	rw_air_protection	args( ( CHAR_DATA *ch, CHAR_DATA *victim ) );
+static	bool	rw_earth_protection	args( ( CHAR_DATA *ch, CHAR_DATA *victim ) );
+static	bool	rw_fire_protection	args( ( CHAR_DATA *ch, CHAR_DATA *victim ) );
+static	bool	rw_water_protection	args( ( CHAR_DATA *ch, CHAR_DATA *victim ) );
+static	bool	rw_negative_protection	args( ( CHAR_DATA *ch, CHAR_DATA *victim ) );
+static	bool	rw_air_transformation	args( ( CHAR_DATA *ch, CHAR_DATA *victim ) );
+static	bool	rw_fire_transformation	args( ( CHAR_DATA *ch, CHAR_DATA *victim ) );
+static	bool	rw_energy_transformation args( ( CHAR_DATA *ch, CHAR_DATA *victim ) );
+static	bool	rw_negative_transformation args( ( CHAR_DATA *ch, CHAR_DATA *victim ) );
+static	bool	rw_air_movement		args( ( CHAR_DATA *ch, CHAR_DATA *victim ) );
+static	bool	rw_negative_movement	args( ( CHAR_DATA *ch, CHAR_DATA *victim ) );
+static	bool	rw_air_abjuration	args( ( CHAR_DATA *ch, CHAR_DATA *victim ) );
+static	bool	rw_earth_abjuration	args( ( CHAR_DATA *ch, CHAR_DATA *victim ) );
+static	bool	rw_fire_abjuration	args( ( CHAR_DATA *ch, CHAR_DATA *victim ) );
+static	bool	rw_water_abjuration	args( ( CHAR_DATA *ch, CHAR_DATA *victim ) );
+static	bool	rw_energy_abjuration	args( ( CHAR_DATA *ch, CHAR_DATA *victim ) );
+static	bool	rw_negative_abjuration	args( ( CHAR_DATA *ch, CHAR_DATA *victim ) );
+
 struct cost_type
 {
   int spell;
@@ -60,6 +105,7 @@ struct cost_type
   int target;
   int wait;
   char *effect;		/* one-line blurb for 'runeweave list' (#99) */
+  RW_FUN *handler;	/* effect body for this combo (table-driven dispatch) */
 };
 
 /* effect blurbs describe what each combo ACTUALLY does (derived from the
@@ -67,38 +113,38 @@ struct cost_type
    "(self)" = self, "a target" = defensive, "the room" = room. */
 const	struct	cost_type	cost_table	[]	=
 {
-  {	65,	300,	TAR_CHAR_OFFENSIVE,	9,	"curses a foe with air (debuff)"	},
-  {	66,	300,	TAR_CHAR_OFFENSIVE,	9,	"curses a foe with earth (debuff)"	},
-  {	68,	300,	TAR_CHAR_OFFENSIVE,	9,	"curses a foe with fire (debuff)"	},
-  {	72,	300,	TAR_CHAR_OFFENSIVE,	9,	"curses a foe with water (debuff)"	},
-  {	80,	750,	TAR_CHAR_DEFENSIVE,	10,	"heals a target's wounds"		},
-  {	96,	400,	TAR_CHAR_OFFENSIVE,	10,	"drains a foe's health to you"		},
-  {	129,	500,	TAR_CHAR_OFFENSIVE,	10,	"single-target lightning damage"	},
-  {	132,	500,	TAR_CHAR_OFFENSIVE,	10,	"single-target fire damage"		},
-  {	264,	250,	TAR_CHAR_DEFENSIVE,	10,	"douses fire burning on a target"	},
-  {	257,	750,	TAR_CHAR_DEFENSIVE,	10,	"grants a target a ball-lightning shield"},
-  {	272,	100,	TAR_CHAR_DEFENSIVE,	10,	"cures wounds on a target"		},
-  {	513,	750,	TAR_CHAR_OFFENSIVE,	9,	"gust: disrupts a foe's spells/defenses"},
-  {	516,	400,	TAR_IGNORE,		10,	"fire damage to all enemies in the room"},
-  {	528,	600,	TAR_CHAR_OFFENSIVE,	10,	"dispels magic on a foe"		},
-  {	544,	500,	TAR_CHAR_OFFENSIVE,	10,	"strips a Mazoku foe's dark energy"	},
-  {	1025,	200,	TAR_CHAR_SELF,		10,	"raises a magic shield (self)"		},
-  {	1026,	250,	TAR_CHAR_SELF,		10,	"raises stone skin (self)"		},
-  {	1028,	750,	TAR_CHAR_SELF,		8,	"raises a fire shield/balus wall (self)"},
-  {	1032,	100,	TAR_CHAR_SELF,		10,	"raises armor (self)"			},
-  {	1056,	250,	TAR_CHAR_DEFENSIVE,	10,	"grants a negative-damage block"	},
-  {	2049,	350,	TAR_CHAR_DEFENSIVE,	10,	"raises an air block, rebounds lightning"},
-  {	2052,	350,	TAR_CHAR_DEFENSIVE,	10,	"raises a fire block, rebounds fire"	},
-  {	2064,	400,	TAR_CHAR_SELF,		10,	"toggles truesight (self)"		},
-  {	2080,	100,	TAR_CHAR_OFFENSIVE,	10,	"drains a foe's mana to you"		},
-  {	4097,	100,	TAR_CHAR_DEFENSIVE,	10,	"grants flight (self)"			},
-  {	4128,	400,	TAR_CHAR_OFFENSIVE,	8,	"saps a foe's movement to you"		},
-  {	16385,	750,	TAR_CHAR_SELF,		8,	"raises a wind ward (self)"		},
-  {     16386,  750,    TAR_CHAR_SELF,		8,	"raises an earth ward (self)"		},
-  {     16388,  750,    TAR_CHAR_SELF,          8,	"raises a flame ward (self)"		},
-  {     16392,  750,    TAR_CHAR_SELF,          8,	"raises a water ward (self)"		},
-  {     16400,  750,    TAR_CHAR_SELF,	        8,	"raises a spirit ward (self)"		},
-  {     16416,  750,    TAR_CHAR_SELF,          8,	"raises a negative ward (self)"		}
+  {	65,	300,	TAR_CHAR_OFFENSIVE,	9,	"curses a foe with air (debuff)",	rw_air_life		},
+  {	66,	300,	TAR_CHAR_OFFENSIVE,	9,	"curses a foe with earth (debuff)",	rw_earth_life		},
+  {	68,	300,	TAR_CHAR_OFFENSIVE,	9,	"curses a foe with fire (debuff)",	rw_fire_life		},
+  {	72,	300,	TAR_CHAR_OFFENSIVE,	9,	"curses a foe with water (debuff)",	rw_water_life		},
+  {	80,	750,	TAR_CHAR_DEFENSIVE,	10,	"heals a target's wounds",		rw_energy_life		},
+  {	96,	400,	TAR_CHAR_OFFENSIVE,	10,	"drains a foe's health to you",		rw_negative_life	},
+  {	129,	500,	TAR_CHAR_OFFENSIVE,	10,	"single-target lightning damage",	rw_air_death		},
+  {	132,	500,	TAR_CHAR_OFFENSIVE,	10,	"single-target fire damage",		rw_fire_death		},
+  {	264,	250,	TAR_CHAR_DEFENSIVE,	10,	"douses fire burning on a target",	rw_water_creation	},
+  {	257,	750,	TAR_CHAR_DEFENSIVE,	10,	"grants a target a ball-lightning shield", rw_air_creation	},
+  {	272,	100,	TAR_CHAR_DEFENSIVE,	10,	"cures wounds on a target",		rw_energy_creation	},
+  {	513,	750,	TAR_CHAR_OFFENSIVE,	9,	"gust: disrupts a foe's spells/defenses", rw_air_destruction	},
+  {	516,	400,	TAR_IGNORE,		10,	"fire damage to all enemies in the room", rw_fire_destruction	},
+  {	528,	600,	TAR_CHAR_OFFENSIVE,	10,	"dispels magic on a foe",		rw_energy_destruction	},
+  {	544,	500,	TAR_CHAR_OFFENSIVE,	10,	"strips a Mazoku foe's dark energy",	rw_negative_destruction	},
+  {	1025,	200,	TAR_CHAR_SELF,		10,	"raises a magic shield (self)",		rw_air_protection	},
+  {	1026,	250,	TAR_CHAR_SELF,		10,	"raises stone skin (self)",		rw_earth_protection	},
+  {	1028,	750,	TAR_CHAR_SELF,		8,	"raises a fire shield/balus wall (self)", rw_fire_protection	},
+  {	1032,	100,	TAR_CHAR_SELF,		10,	"raises armor (self)",			rw_water_protection	},
+  {	1056,	250,	TAR_CHAR_DEFENSIVE,	10,	"grants a negative-damage block",	rw_negative_protection	},
+  {	2049,	350,	TAR_CHAR_DEFENSIVE,	10,	"raises an air block, rebounds lightning", rw_air_transformation },
+  {	2052,	350,	TAR_CHAR_DEFENSIVE,	10,	"raises a fire block, rebounds fire",	rw_fire_transformation	},
+  {	2064,	400,	TAR_CHAR_SELF,		10,	"toggles truesight (self)",		rw_energy_transformation },
+  {	2080,	100,	TAR_CHAR_OFFENSIVE,	10,	"drains a foe's mana to you",		rw_negative_transformation },
+  {	4097,	100,	TAR_CHAR_DEFENSIVE,	10,	"grants flight (self)",			rw_air_movement		},
+  {	4128,	400,	TAR_CHAR_OFFENSIVE,	8,	"saps a foe's movement to you",		rw_negative_movement	},
+  {	16385,	750,	TAR_CHAR_SELF,		8,	"raises a wind ward (self)",		rw_air_abjuration	},
+  {     16386,  750,    TAR_CHAR_SELF,		8,	"raises an earth ward (self)",		rw_earth_abjuration	},
+  {     16388,  750,    TAR_CHAR_SELF,          8,	"raises a flame ward (self)",		rw_fire_abjuration	},
+  {     16392,  750,    TAR_CHAR_SELF,          8,	"raises a water ward (self)",		rw_water_abjuration	},
+  {     16400,  750,    TAR_CHAR_SELF,	        8,	"raises a spirit ward (self)",		rw_energy_abjuration	},
+  {     16416,  750,    TAR_CHAR_SELF,          8,	"raises a negative ward (self)",	rw_negative_abjuration	}
 };
 
 
@@ -240,19 +286,712 @@ void do_runes( CHAR_DATA *ch, char *argument )
   return;
 }
 
+static bool rw_air_life( CHAR_DATA *ch, CHAR_DATA *victim )
+{ /* case RUNE_AIR + RUNE_LIFE */
+  AFFECT_DATA af;
+
+    	if ( is_affected(victim,gsn_wind_curse) )
+    	{
+    	  stc( "They are already so cursed.\n\r", ch );
+    	  return TRUE;
+    	}
+    	/* #23: Holy Bless (white-spec) ward -- 5% chance to shrug off the curse */
+    	if ( holy_bless_wards( ch, victim, "Ceiphied's blessing wards it off!\n\r",
+    	       "Ceiphied's blessing wards off your runeweave!" ) )
+    	  return TRUE;
+    	/* only one elemental curse at a time: strip the other three */
+    	affect_strip( victim, gsn_earth_curse );
+    	affect_strip( victim, gsn_flame_curse );
+    	affect_strip( victim, gsn_water_curse );
+    	act( "A pale blue mist settles around $N.", ch, NULL, victim, TO_CHAR );
+    	act( "A pale blue mist settles around $N.", ch, NULL, victim, TO_ROOM );
+        af.type      = gsn_wind_curse;
+        af.location  = 0;
+        af.modifier  = 0;
+        /* PvP duration cap: 3 ticks vs players, Mind-scaled vs NPCs */
+        af.duration  = !IS_NPC(victim) ? 3 : ch->pcdata->mind *2/3;
+        af.bitvector = 0;
+        affect_to_char( victim, &af );
+        return TRUE;
+}
+
+static bool rw_earth_life( CHAR_DATA *ch, CHAR_DATA *victim )
+{ /* case RUNE_EARTH + RUNE_LIFE */
+  AFFECT_DATA af;
+
+        if ( is_affected(victim,gsn_earth_curse) )
+        {
+          stc( "They are already so cursed.\n\r", ch );
+          return TRUE;
+        }
+        /* #23: Holy Bless (white-spec) ward -- 5% chance to shrug off the curse */
+        if ( holy_bless_wards( ch, victim, "Ceiphied's blessing wards it off!\n\r",
+               "Ceiphied's blessing wards off your runeweave!" ) )
+          return TRUE;
+        /* only one elemental curse at a time: strip the other three */
+        affect_strip( victim, gsn_wind_curse );
+        affect_strip( victim, gsn_flame_curse );
+        affect_strip( victim, gsn_water_curse );
+        act( "A dull yellow mist settles around $N.", ch, NULL, victim, TO_CHAR );
+        act( "A dull yellow mist settles around $N.", ch, NULL, victim, TO_ROOM );
+        af.type      = gsn_earth_curse;
+        af.location  = 0;
+        af.modifier  = 0;
+        /* PvP duration cap: 3 ticks vs players, Mind-scaled vs NPCs */
+        af.duration  = !IS_NPC(victim) ? 3 : ch->pcdata->mind *2/3;
+        af.bitvector = 0;
+        affect_to_char( victim, &af );
+        return TRUE;
+}
+
+static bool rw_fire_life( CHAR_DATA *ch, CHAR_DATA *victim )
+{ /* case RUNE_FIRE + RUNE_LIFE */
+  AFFECT_DATA af;
+
+        if ( is_affected(victim,gsn_flame_curse) )
+        {
+          stc( "They are already so cursed.\n\r", ch );
+          return TRUE;
+        }
+        /* #23: Holy Bless (white-spec) ward -- 5% chance to shrug off the curse */
+        if ( holy_bless_wards( ch, victim, "Ceiphied's blessing wards it off!\n\r",
+               "Ceiphied's blessing wards off your runeweave!" ) )
+          return TRUE;
+        /* only one elemental curse at a time: strip the other three */
+        affect_strip( victim, gsn_wind_curse );
+        affect_strip( victim, gsn_earth_curse );
+        affect_strip( victim, gsn_water_curse );
+        act( "A blood red mist settles around $N.", ch, NULL, victim, TO_CHAR );
+        act( "A blood red mist settles around $N.", ch, NULL, victim, TO_ROOM );
+        af.type      = gsn_flame_curse;
+        af.location  = 0;
+        af.modifier  = 0;
+        /* PvP duration cap: 3 ticks vs players, Mind-scaled vs NPCs */
+        af.duration  = !IS_NPC(victim) ? 3 : ch->pcdata->mind *2/3;
+        af.bitvector = 0;
+        affect_to_char( victim, &af );
+        return TRUE;
+}
+
+static bool rw_water_life( CHAR_DATA *ch, CHAR_DATA *victim )
+{ /* case RUNE_WATER + RUNE_LIFE */
+  AFFECT_DATA af;
+
+        if ( is_affected(victim,gsn_water_curse) )
+        {
+          stc( "They are already so cursed.\n\r", ch );
+          return TRUE;
+        }
+        /* #23: Holy Bless (white-spec) ward -- 5% chance to shrug off the curse */
+        if ( holy_bless_wards( ch, victim, "Ceiphied's blessing wards it off!\n\r",
+               "Ceiphied's blessing wards off your runeweave!" ) )
+          return TRUE;
+        /* only one elemental curse at a time: strip the other three */
+        affect_strip( victim, gsn_wind_curse );
+        affect_strip( victim, gsn_earth_curse );
+        affect_strip( victim, gsn_flame_curse );
+        act( "A murky mist settles around $N.", ch, NULL, victim, TO_CHAR );
+        act( "A murky mist settles around $N.", ch, NULL, victim, TO_ROOM );
+        af.type      = gsn_water_curse;
+        af.location  = 0;
+        af.modifier  = 0;
+        /* PvP duration cap: 3 ticks vs players, Mind-scaled vs NPCs */
+        af.duration  = !IS_NPC(victim) ? 3 : ch->pcdata->mind *2/3;
+        af.bitvector = 0;
+        affect_to_char( victim, &af );
+        return TRUE;
+}
+
+static bool rw_energy_life( CHAR_DATA *ch, CHAR_DATA *victim )
+{ /* case RUNE_ENERGY + RUNE_LIFE */
+  int i;
+
+	act( rw_def1, ch, NULL, victim, TO_CHAR );
+	act( rw_def2, ch, NULL, victim, TO_ROOM );
+	for ( i = 0; i < ch->pcdata->powers[P_ENERGY]; i += 33 )
+	  runecast( ch, victim, "heal" );
+	return TRUE;
+}
+
+static bool rw_negative_life( CHAR_DATA *ch, CHAR_DATA *victim )
+{ /* case RUNE_NEGATIVE + RUNE_LIFE */
+  int dam = 0;
+  int i;
+
+    	if ( !IS_NPC(victim) && IS_SET(victim->pcdata->actnew,NEW_NEGATIVE_BLOCK) )
+    	{
+    	  if ( victim == ch )
+    	  {
+    	    stc( "You failed.\n\r", ch );
+    	    return FALSE;
+    	  }
+    	  act( "Dark energy streaks toward and is absorbed by $N.", ch, NULL, victim, TO_CHAR );
+    	  act( "Dark energy streaks toward and is absorbed by you!", ch, NULL, victim, TO_VICT );
+    	  act( "Dark energy streaks toward and is absorbed by $N.", ch, NULL, victim, TO_NOTVICT );
+	  victim->hit += dice( ch->pcdata->mind/8, ch->pcdata->powers[P_NEGATIVE] );
+	  victim->hit = UMIN( victim->hit, victim->max_hit );
+    	}
+    	else
+    	{
+    	  act( "Dark energy streaks from you to $N, and rebounds!", ch, NULL, victim,TO_CHAR);
+    	  act( "Dark energy streaks from $n to you, and rebounds to $m!", ch, NULL, victim, TO_VICT );
+    	  act( "Dark energy streaks from $n to $N, then rebounds.", ch, NULL, victim, TO_NOTVICT );
+    	  dam = dice( ch->pcdata->mind/4, ch->pcdata->powers[P_NEGATIVE] );
+    	  i = victim->hit;
+    	  damage( ch, victim, dam, DAM_NEGATIVE );
+    	  if ( victim != NULL && victim->hit > 0 )
+    	    ch->hit = UMIN( ch->max_hit, ch->hit + (i - victim->hit) );
+	}
+    	return TRUE;
+}
+
+static bool rw_air_death( CHAR_DATA *ch, CHAR_DATA *victim )
+{ /* case RUNE_AIR + RUNE_DEATH */
+  int dam = 0;
+
+    	act( "A bolt of lightning leaps from your fingers toward $N!", ch, NULL, victim, TO_CHAR );
+    	act( "A bolt of lightning leaps from $n's fingers toward you!", ch, NULL, victim, TO_VICT );
+    	act( "A bolt of lightning leaps from $n's fingers toward $N!", ch, NULL, victim, TO_NOTVICT );
+        if ( !IS_NPC(victim) && IS_SET(victim->pcdata->actnew,NEW_AIR_BLOCK) )
+        { act( "The lightning bolt rebounds!", ch, NULL, NULL, TO_CHAR );
+          act( "The lightning bolt rebounds!", ch, NULL, NULL, TO_ROOM );
+          dam = dice( ch->pcdata->mind / 4, ch->pcdata->powers[P_AIR] );
+	  damage( ch, ch, dam, DAM_LIGHTNING );
+          return TRUE;
+        }
+        else
+        {
+	  dam = dice( ch->pcdata->mind / 2, ch->pcdata->powers[P_AIR] );
+	  damage( ch, victim, dam, DAM_LIGHTNING );
+	}
+	return TRUE;
+}
+
+static bool rw_fire_death( CHAR_DATA *ch, CHAR_DATA *victim )
+{ /* case RUNE_FIRE + RUNE_DEATH */
+  int dam = 0;
+
+	act( "A lance of flame streaks from your fingers toward $N!", ch, NULL, victim, TO_CHAR );
+	act( "A lance of flame streaks from $n's fingers toward you!", ch, NULL, victim, TO_VICT );
+	act( "A lance of flame streaks from $n's fingers toward $N!", ch, NULL, victim, TO_NOTVICT );
+	if ( !IS_NPC(victim) && IS_SET(victim->pcdata->actnew,NEW_FIRE_BLOCK) )
+	{ act( "The flame lance rebounds!", ch, NULL, NULL, TO_CHAR );
+	  act( "The flame lance rebounds!", ch, NULL, NULL, TO_ROOM );
+	  dam = dice( ch->pcdata->mind / 4, ch->pcdata->powers[P_FIRE] );
+	  damage( ch, ch, dam, DAM_FIRE );
+	  return TRUE;
+	}
+	else
+	{ dam = dice( ch->pcdata->mind / 2, ch->pcdata->powers[P_FIRE] );
+          if ( !IS_NPC(victim) && IS_SET(victim->pcdata->actnew,NEW_VAN_REHL) )
+          { REMOVE_BIT(victim->pcdata->actnew,NEW_VAN_REHL);
+            act( "Their icy barrier melts!", ch, NULL, victim, TO_CHAR );
+            act( "Your icy barrier melts!", ch, NULL, victim, TO_VICT );
+          }
+	  damage( ch, victim, dam, DAM_FIRE );
+	}
+	return TRUE;
+}
+
+static bool rw_air_creation( CHAR_DATA *ch, CHAR_DATA *victim )
+{ /* case RUNE_AIR + RUNE_CREATION */
+    	if ( IS_NPC(victim) )
+    	{
+    	  stc( "Nothing happens.\n\r", ch );
+    	  return FALSE;
+    	}
+    	act( "Ball lightning crackles around $N.", ch, NULL, victim, TO_CHAR );
+    	act( "Ball lightning crackles around $N.", ch, NULL, victim, TO_ROOM );
+    	if ( !IS_SET(victim->pcdata->actnew,NEW_BALL_LIGHTNING) )
+    	  SET_BIT(victim->pcdata->actnew,NEW_BALL_LIGHTNING);
+    	return TRUE;
+}
+
+static bool rw_water_creation( CHAR_DATA *ch, CHAR_DATA *victim )
+{ /* case RUNE_WATER + RUNE_CREATION */
+        act( rw_def1, ch, NULL, victim, TO_CHAR );
+        act( rw_def2, ch, NULL, victim, TO_ROOM );
+        if ( is_affected(victim,skill_lookup("flame breath")) )
+        {
+          affect_strip(victim,skill_lookup("flame breath"));
+          act( "The flames are doused.", ch, NULL, victim, TO_CHAR );
+          act( "Your skin abruptly stops burning.", ch, NULL, victim, TO_VICT );
+          act( "The flames burning $N are doused.", ch, NULL, victim, TO_ROOM );
+        }
+        return TRUE;
+}
+
+static bool rw_energy_creation( CHAR_DATA *ch, CHAR_DATA *victim )
+{ /* case RUNE_ENERGY + RUNE_CREATION */
+	act( rw_def1, ch, NULL, victim, TO_CHAR );
+	act( rw_def2, ch, NULL, victim, TO_ROOM );
+	if ( ch->pcdata->powers[P_ENERGY] < 25 )
+	  runecast( ch, victim, "cure light" );
+	else if ( ch->pcdata->powers[P_ENERGY] < 50 )
+	  runecast( ch, victim, "cure serious" );
+	else if ( ch->pcdata->powers[P_ENERGY] < 75 )
+	{
+	  runecast( ch, victim, "cure critical" );
+	  runecast( ch, victim, "refresh" );
+	}
+	else
+	{
+	  runecast( ch, victim, "heal" );
+	  runecast( ch, victim, "refresh" );
+	  runecast( ch, victim, "cure poison" );
+	}
+	return TRUE;
+}
+
+static bool rw_air_destruction( CHAR_DATA *ch, CHAR_DATA *victim )
+{ /* case RUNE_AIR + RUNE_DESTRUCTION */
+    	act( "You launch a gust of wind into $N.", ch, NULL, victim, TO_CHAR );
+    	act( "$n's gust of wind slams into you!", ch, NULL, victim, TO_VICT );
+    	act( "$n's gust of wind slams into $N.", ch, NULL, victim, TO_NOTVICT );
+    	if ( !IS_NPC(victim) )
+    	{ if ( victim->class == CLASS_FIST )
+    	  { if ( IS_SET(victim->pcdata->actnew,NEW_FIGUREEIGHT) )
+	      REMOVE_BIT(victim->pcdata->actnew,NEW_FIGUREEIGHT);
+	    if ( victim->pcdata->powers[F_KI] > 0 )
+	      victim->pcdata->powers[F_KI]--;
+	  }
+	  else if ( IS_CLASS(victim,CLASS_SORCERER ) && victim->pcdata->chant != NULL )
+	  { /* Issue #3: only acts while a chant is actually in progress (the old
+	     * lose_chant was a silent no-op otherwise -- so don't strip Defense or
+	     * print "chant holds" against a Sorcerer who isn't chanting).  Defense
+	     * holds the chant (strip it instead); else roll a resist-reduced interrupt. */
+	    if ( is_affected( victim, gsn_defense ) )
+	    { affect_strip( victim, gsn_defense );
+	      act( "Your rune-wind tears away $N's Defense, but the chant holds.", ch, NULL, victim, TO_CHAR );
+	      act( "$n's rune-wind tears away your Defense, but your chant holds!", ch, NULL, victim, TO_VICT );
+	    }
+	    else
+	    { int chance = 75;
+	      if ( IS_AFFECTED( victim, AFF_HOLY_RESIST ) != 0 ) chance -= 10;
+	      if ( IS_AFFECTED( victim, AFF_VAS_GLUUDO  ) != 0 ) chance -= 10;
+	      if ( IS_AFFECTED( victim, AFF_RAYWING ) != 0
+	        || IS_AFFECTED( victim, AFF_WINDY_SHIELD ) != 0 ) chance -= 10;
+	      chance = URANGE( 45, chance, 85 );
+	      if ( number_percent() <= chance )
+	      { lose_chant( victim );
+	        act( "Your rune-wind shatters $N's gathering chant!", ch, NULL, victim, TO_CHAR );
+	        act( "$n's rune-wind shatters your gathering chant!", ch, NULL, victim, TO_VICT );
+	      }
+	      else
+	      { act( "$N rides out the tearing wind, chant unbroken.", ch, NULL, victim, TO_CHAR );
+	        act( "You ride out the tearing wind, your chant unbroken!", ch, NULL, victim, TO_VICT );
+	      }
+	    }
+	  }
+
+	  if ( is_affected(victim,gsn_kiwall) )
+	    affect_strip(victim,gsn_kiwall);
+
+        }
+        return TRUE;
+}
+
+static bool rw_fire_destruction( CHAR_DATA *ch, CHAR_DATA *victim )
+{ /* case RUNE_FIRE + RUNE_DESTRUCTION */
+  CHAR_DATA *vch;
+  CHAR_DATA *vch_next;
+  int dam = 0;
+
+	act( "Fire sprays forth from your hands, engulfing the room in flame!", ch, NULL, victim, TO_CHAR );
+	act( "The room is is engulfed in flame!", ch, NULL, victim, TO_ROOM );
+	for ( vch = char_list; vch != NULL; vch = vch_next )
+	{ vch_next = vch->next;
+	  if ( vch->in_room == NULL )
+	    continue;
+	  if ( vch->in_room == ch->in_room )
+	  { if ( vch != ch && !is_same_group( ch, vch ) )
+	    { if ( !IS_NPC(vch) && IS_SET(vch->pcdata->actnew,NEW_FIRE_BLOCK) )
+	      { act( "The flames flow around $N.", ch, NULL, vch, TO_CHAR );
+	        act( "The flames flow around you.", ch, NULL, vch, TO_VICT );
+	        act( "The flames flow around $N.", ch, NULL, vch, TO_ROOM );
+	      }
+	      else
+	      { dam = dice( ch->pcdata->mind / 4, ch->pcdata->powers[P_FIRE] );
+	        if ( !IS_NPC(vch) && IS_SET(vch->pcdata->actnew,NEW_VAN_REHL) )
+	        { REMOVE_BIT(vch->pcdata->actnew,NEW_VAN_REHL);
+	          act( "Their icy barrier melts!", ch, NULL, vch, TO_CHAR );
+	          act( "Your icy barrier melts!", ch, NULL, vch, TO_VICT );
+	        }
+	        damage( ch, vch, dam, DAM_FIRE );
+	      }
+	    }
+	  }
+	}
+	return TRUE;
+}
+
+static bool rw_energy_destruction( CHAR_DATA *ch, CHAR_DATA *victim )
+{ /* case RUNE_ENERGY + RUNE_DESTRUCTION */
+	runecast( ch, victim, "dispel magic" );
+	if ( victim != ch && victim->fighting == NULL )
+	  victim->fighting = ch;
+	return TRUE;
+}
+
+static bool rw_negative_destruction( CHAR_DATA *ch, CHAR_DATA *victim )
+{ /* case RUNE_NEGATIVE + RUNE_DESTRUCTION */
+    	act( "You launch a pearlescent ball of light at $N.", ch, NULL, victim, TO_CHAR );
+    	act( "$n launches a pearlescent ball of light at you!", ch, NULL, victim, TO_VICT );
+    	act( "$n launches a pearlescent ball of light at $N.", ch, NULL, victim, TO_NOTVICT );
+    	if ( !IS_CLASS(victim,CLASS_MAZOKU) )
+    	  return TRUE;
+    	if ( victim->pcdata->powers[M_CTIME] <= 0 )
+    	  return TRUE;
+    	act( ".. the dark energies surrounding $N are dispelled!", ch, NULL, victim, TO_CHAR );
+    	act( ".. you lose control of your dark energies!", ch, NULL, victim, TO_VICT );
+    	act( ".. the dark energies surrounding $N are dispelled!", ch, NULL, victim, TO_NOTVICT );
+    	victim->pcdata->powers[M_CTIME] = 0;
+    	victim->pcdata->powers[M_CTYPE] = 0;
+	return TRUE;
+}
+
+static bool rw_air_protection( CHAR_DATA *ch, CHAR_DATA *victim )
+{ /* case RUNE_AIR + RUNE_PROTECTION */
+	act( rw_def1, ch, NULL, victim, TO_CHAR );
+	act( rw_def2, ch, NULL, victim, TO_ROOM );
+	runecast( ch, victim, "shield" );
+	return TRUE;
+}
+
+static bool rw_earth_protection( CHAR_DATA *ch, CHAR_DATA *victim )
+{ /* case RUNE_EARTH + RUNE_PROTECTION */
+	act( rw_def1, ch, NULL, victim, TO_CHAR );
+	act( rw_def2, ch, NULL, victim, TO_ROOM );
+	runecast( ch, victim, "stone skin" );
+	return TRUE;
+}
+
+static bool rw_fire_protection( CHAR_DATA *ch, CHAR_DATA *victim )
+{ /* case RUNE_FIRE + RUNE_PROTECTION */
+  AFFECT_DATA af;
+
+        if ( is_affected( ch, gsn_balus_wall ) )
+        affect_strip( ch, gsn_balus_wall );
+      
+        af.type      = gsn_balus_wall;
+        af.duration  = 30;
+        af.location  = APPLY_NONE;
+        af.modifier  = 0;
+        af.bitvector = 0;
+        affect_to_char( ch, &af );
+	act( "A reddish shield shimmers into existance in front of you.", ch, NULL, NULL, TO_CHAR );
+	act( "A reddish shield shimmers into existance in front of $n.", ch, NULL, NULL, TO_ROOM );
+	return TRUE;
+}
+
+static bool rw_water_protection( CHAR_DATA *ch, CHAR_DATA *victim )
+{ /* case RUNE_WATER + RUNE_PROTECTION */
+	act( rw_def1, ch, NULL, victim, TO_CHAR );
+	act( rw_def2, ch, NULL, victim, TO_ROOM );
+	runecast( ch, victim, "armor" );
+	return TRUE;
+}
+
+static bool rw_negative_protection( CHAR_DATA *ch, CHAR_DATA *victim )
+{ /* case RUNE_NEGATIVE + RUNE_PROTECTION */
+    /* NEGATIVE + PROTECTION */
+    	if ( IS_NPC(victim) )
+    	{ 
+    	  stc( "All your base are belong to us.\n\r", ch );
+    	  return FALSE;
+    	}
+    	act( "A black helix swirls up around you.", victim, NULL, NULL, TO_CHAR );
+    	act( "A black helix swirls up around $n.", victim, NULL, NULL, TO_ROOM );
+    	if ( !IS_SET(victim->pcdata->actnew,NEW_NEGATIVE_BLOCK) )
+    	  SET_BIT(victim->pcdata->actnew,NEW_NEGATIVE_BLOCK);
+    	return TRUE;
+}
+
+static bool rw_air_transformation( CHAR_DATA *ch, CHAR_DATA *victim )
+{ /* case RUNE_AIR + RUNE_TRANSFORMATION */
+    	if ( IS_NPC(victim) )
+    	{ act( "You failed.", ch, NULL, NULL, TO_CHAR );
+    	  return TRUE;
+    	}
+    	act( "Inverted runes of air swirl up around you.", victim, NULL, NULL, TO_CHAR );
+    	act( "Oddly disfigured runes swirl up around $n.", victim, NULL, NULL, TO_ROOM );
+    	if ( IS_SET(victim->pcdata->actnew,NEW_FIRE_BLOCK) )
+    	{ REMOVE_BIT(victim->pcdata->actnew,NEW_FIRE_BLOCK);
+    	  act( "The inverted fire runes crumble.", ch, NULL, NULL, TO_CHAR );
+    	}
+    	SET_BIT(victim->pcdata->actnew,NEW_AIR_BLOCK);
+    	return TRUE;
+}
+
+static bool rw_fire_transformation( CHAR_DATA *ch, CHAR_DATA *victim )
+{ /* case RUNE_FIRE + RUNE_TRANSFORMATION */
+        if ( IS_NPC(victim) )
+        { act( "You failed.", ch, NULL, NULL, TO_CHAR );
+          return TRUE;
+        }
+        act( "Inverted runes of fire ignite all around you.", victim, NULL, NULL, TO_CHAR );
+        act( "Oddly disfigured runes ignite all around $n.", victim, NULL, NULL, TO_ROOM );
+        if ( IS_SET(victim->pcdata->actnew,NEW_AIR_BLOCK) )
+        { REMOVE_BIT(victim->pcdata->actnew,NEW_AIR_BLOCK);
+          act( "The inverted air runes fade away.", ch, NULL, NULL, TO_CHAR );
+        }
+        SET_BIT(victim->pcdata->actnew,NEW_FIRE_BLOCK);
+        return TRUE;
+}
+
+static bool rw_energy_transformation( CHAR_DATA *ch, CHAR_DATA *victim )
+{ /* case RUNE_ENERGY + RUNE_TRANSFORMATION */
+        if ( IS_SET(ch->act, PLR_TRUESIGHT) )
+        { send_to_char( "Your vision returns to normal.\n\r", ch );
+          REMOVE_BIT(ch->act,PLR_TRUESIGHT);
+        }
+        else
+        { send_to_char( "Your vision increases beyond mortal standards.\n\r", ch );
+          SET_BIT(ch->act,PLR_TRUESIGHT);
+        }
+        return TRUE;
+}
+
+static bool rw_negative_transformation( CHAR_DATA *ch, CHAR_DATA *victim )
+{ /* case RUNE_NEGATIVE + RUNE_TRANSFORMATION */
+  int dam = 0;
+
+        if ( !IS_NPC(victim) && IS_SET(victim->pcdata->actnew,NEW_NEGATIVE_BLOCK) )
+        {
+          if ( victim == ch )
+          {
+            stc( "You failed.\n\r", ch );
+            return FALSE;
+          }
+          act( "Dark energy streaks toward and is absorbed by $N.", ch, NULL, victim, TO_CHAR );
+          act( "Dark energy streaks toward and is absorbed by you!", ch, NULL, victim, TO_VICT );
+          act( "Dark energy streaks toward and is absorbed by $N.", ch, NULL, victim, TO_NOTVICT
+);
+          victim->mana += dice( ch->pcdata->mind/4, ch->pcdata->powers[P_NEGATIVE] );
+          victim->mana = UMIN( victim->mana, victim->max_mana );
+        }
+        else
+        {
+          act( "Dark energy streaks from you to $N, and rebounds!", ch, NULL, victim,TO_CHAR);
+          act( "Dark energy streaks from $n to you, and rebounds to $m!", ch, NULL, victim, TO_VICT );
+          act( "Dark energy streaks from $n to $N, then rebounds.", ch, NULL, victim, TO_NOTVICT );
+          dam = dice( ch->pcdata->mind/4, ch->pcdata->powers[P_NEGATIVE] );
+          if ( IS_AFFECTED(victim,AFF_HOLY_RESIST) )
+            dam -= dam * number_percent() / 100;
+          if ( victim->mana > dam )
+            victim->mana -= dam;
+          else
+          { dam = victim->mana - 1;
+            victim->mana = 1;
+          }
+          ch->mana = UMIN( ch->max_mana, ch->mana + dam/2 );
+        }
+        return TRUE;
+}
+
+static bool rw_air_movement( CHAR_DATA *ch, CHAR_DATA *victim )
+{ /* case RUNE_AIR + RUNE_MOVEMENT */
+	act( rw_def1, ch, NULL, victim, TO_CHAR );
+	act( rw_def2, ch, NULL, victim, TO_ROOM );
+	runecast( ch, ch, "fly" );
+	return TRUE;
+}
+
+static bool rw_negative_movement( CHAR_DATA *ch, CHAR_DATA *victim )
+{ /* case RUNE_NEGATIVE + RUNE_MOVEMENT */
+  int dam = 0;
+
+    	act( "A black haze surrounds you, sapping your strength!", ch, NULL, victim, TO_VICT );
+    	act( "A black haze descends upon $N", ch, NULL, victim, TO_CHAR );
+    	act( "A black haze descends upon $N", ch, NULL, victim, TO_ROOM );
+    	dam = dice( 10, 15 );
+    	victim->move = UMAX( victim->move - dam, 1 );
+    	ch->move = UMIN( ch->move + dam, ch->max_move );
+    	if ( IS_CLASS(victim, CLASS_SAIYAN) )
+    	{
+    	  victim->pcdata->powers[S_STRENGTH] = UMAX(
+    	    victim->pcdata->powers[S_STRENGTH] - dam,
+    	    victim->pcdata->powers[S_STRENGTH_MAX]/2 );
+    	  victim->pcdata->powers[S_SPEED] = UMAX(
+    	    victim->pcdata->powers[S_SPEED] - dam,
+    	    victim->pcdata->powers[S_SPEED_MAX]/2 );
+    	  victim->pcdata->powers[S_AEGIS] = UMAX(
+    	    victim->pcdata->powers[S_AEGIS] - dam,
+    	    victim->pcdata->powers[S_AEGIS_MAX]/2 );
+    	}
+    	return TRUE;
+}
+
+static bool rw_air_abjuration( CHAR_DATA *ch, CHAR_DATA *victim )
+{ /* case RUNE_AIR + RUNE_ABJURATION */
+  AFFECT_DATA af;
+
+   	act( "A dome of azure energy encases you.", ch, NULL, victim, TO_CHAR );
+   	act( "A dome of azure energy encases $n.", ch, NULL, victim, TO_ROOM );
+	if ( is_affected( ch, gsn_earth_ward ) )
+	  affect_strip( ch, gsn_earth_ward );
+	if ( is_affected( ch, gsn_wind_ward ) )
+	  affect_strip( ch, gsn_wind_ward ) ;
+	if ( is_affected( ch, gsn_flame_ward ) )
+	  affect_strip( ch, gsn_flame_ward );
+	if ( is_affected( ch, gsn_water_ward ) )
+	  affect_strip( ch, gsn_water_ward );
+	if ( is_affected( ch, gsn_spirit_ward ) )
+	  affect_strip( ch, gsn_spirit_ward );
+	if ( is_affected( ch, gsn_negative_ward ) )
+	  affect_strip( ch, gsn_negative_ward );
+	af.type      = gsn_wind_ward;
+   	af.location  = 0;
+   	af.modifier  = 0;
+   	af.duration  = ch->pcdata->mind*15;
+   	af.bitvector = 0;
+   	affect_to_char( ch, &af );
+   	return TRUE;
+}
+
+static bool rw_earth_abjuration( CHAR_DATA *ch, CHAR_DATA *victim )
+{ /* case RUNE_EARTH + RUNE_ABJURATION */
+  AFFECT_DATA af;
+
+        act( "A dome of verdant energy encases you.", ch, NULL, victim, TO_CHAR );
+        act( "A dome of verdant energy encases $n.", ch, NULL, victim, TO_ROOM );
+        if ( is_affected( ch, gsn_wind_ward ) )
+          affect_strip( ch, gsn_wind_ward );
+        if ( is_affected( ch, gsn_earth_ward ) )
+          affect_strip( ch, gsn_earth_ward );
+        if ( is_affected( ch, gsn_flame_ward ) )
+          affect_strip( ch, gsn_flame_ward );
+        if ( is_affected( ch, gsn_water_ward ) )
+          affect_strip( ch, gsn_water_ward );
+        if ( is_affected( ch, gsn_spirit_ward ) )
+          affect_strip( ch, gsn_spirit_ward );
+        if ( is_affected( ch, gsn_negative_ward ) )
+          affect_strip( ch, gsn_negative_ward );
+        af.type      = gsn_earth_ward;
+        af.location  = 0;
+        af.modifier  = 0;
+        af.duration  = ch->pcdata->mind*15;
+        af.bitvector = 0;
+        affect_to_char( victim, &af );
+        return TRUE;
+}
+
+static bool rw_fire_abjuration( CHAR_DATA *ch, CHAR_DATA *victim )
+{ /* case RUNE_FIRE + RUNE_ABJURATION */
+  AFFECT_DATA af;
+
+        act( "A dome of crimson energy encases you.", ch, NULL, victim, TO_CHAR );
+        act( "A dome of crimson energy encases $n.", ch, NULL, victim, TO_ROOM );
+        if ( is_affected( ch, gsn_earth_ward ) )
+          affect_strip( ch, gsn_earth_ward );
+        if ( is_affected( ch, gsn_wind_ward ) )
+          affect_strip( ch, gsn_wind_ward );
+        if ( is_affected( ch, gsn_flame_ward ) )
+          affect_strip( ch, gsn_flame_ward );
+        if ( is_affected( ch, gsn_water_ward ) )
+          affect_strip( ch, gsn_water_ward );
+        if ( is_affected( ch, gsn_spirit_ward ) )
+          affect_strip( ch, gsn_spirit_ward );
+        if ( is_affected( ch, gsn_negative_ward ) )
+          affect_strip( ch, gsn_negative_ward );
+        af.type      = gsn_flame_ward;
+        af.location  = 0;
+        af.modifier  = 0;
+        af.duration  = ch->pcdata->mind*15; 
+        af.bitvector = 0;
+        affect_to_char( victim, &af );
+        return TRUE;
+}
+
+static bool rw_water_abjuration( CHAR_DATA *ch, CHAR_DATA *victim )
+{ /* case RUNE_WATER + RUNE_ABJURATION */
+  AFFECT_DATA af;
+
+        act( "A dome of sea green energy encases you.", ch, NULL, victim, TO_CHAR );
+        act( "A dome of sea green energy encases $n.", ch, NULL, victim, TO_ROOM );
+        if ( is_affected( ch, gsn_earth_ward ) )
+          affect_strip( ch, gsn_earth_ward );
+        if ( is_affected( ch, gsn_flame_ward ) )
+          affect_strip( ch, gsn_flame_ward );
+        if ( is_affected( ch, gsn_wind_ward ) )
+          affect_strip( ch, gsn_wind_ward );
+        if ( is_affected( ch, gsn_water_ward ) )
+          affect_strip( ch, gsn_water_ward );
+        if ( is_affected( ch, gsn_spirit_ward ) )
+          affect_strip( ch, gsn_spirit_ward );
+        if ( is_affected( ch, gsn_negative_ward ) )
+          affect_strip( ch, gsn_negative_ward );
+        af.type      = gsn_water_ward;
+        af.location  = 0;
+        af.modifier  = 0;
+        af.duration  = ch->pcdata->mind*15;
+        af.bitvector = 0;
+        affect_to_char( victim, &af );
+        return TRUE;
+}
+
+static bool rw_energy_abjuration( CHAR_DATA *ch, CHAR_DATA *victim )
+{ /* case RUNE_ENERGY + RUNE_ABJURATION */
+  AFFECT_DATA af;
+
+        act( "A dome of pale white energy encases you.", ch, NULL, victim, TO_CHAR );
+        act( "A dome of pale white energy encases $n.", ch, NULL, victim, TO_ROOM );
+        if ( is_affected( ch, gsn_earth_ward ) )
+          affect_strip( ch, gsn_earth_ward );
+        if ( is_affected( ch, gsn_flame_ward ) )
+          affect_strip( ch, gsn_flame_ward );
+        if ( is_affected( ch, gsn_water_ward ) )
+          affect_strip( ch, gsn_water_ward );
+        if ( is_affected( ch, gsn_wind_ward ) )
+          affect_strip( ch, gsn_wind_ward );
+        if ( is_affected( ch, gsn_spirit_ward ) )
+          affect_strip( ch, gsn_spirit_ward );
+        if ( is_affected( ch, gsn_negative_ward ) )
+          affect_strip( ch, gsn_negative_ward );
+        af.type      = gsn_spirit_ward;
+        af.location  = 0;
+        af.modifier  = 0;
+        af.duration  = ch->pcdata->mind*15;
+        af.bitvector = 0;
+        affect_to_char( victim, &af );
+        return TRUE;
+}
+
+static bool rw_negative_abjuration( CHAR_DATA *ch, CHAR_DATA *victim )
+{ /* case RUNE_NEGATIVE + RUNE_ABJURATION */
+  AFFECT_DATA af;
+
+        act( "A dome of obsidian energy encases you.", ch, NULL, victim, TO_CHAR );
+        act( "A dome of obsidian energy encases $n.", ch, NULL, victim, TO_ROOM );
+        if ( is_affected( ch, gsn_earth_ward ) )
+          affect_strip( ch, gsn_earth_ward );
+        if ( is_affected( ch, gsn_flame_ward ) )
+          affect_strip( ch, gsn_flame_ward );
+        if ( is_affected( ch, gsn_water_ward ) )
+          affect_strip( ch, gsn_water_ward );
+        if ( is_affected( ch, gsn_spirit_ward ) )
+          affect_strip( ch, gsn_spirit_ward );
+        if ( is_affected( ch, gsn_wind_ward ) )
+          affect_strip( ch, gsn_wind_ward );
+        if ( is_affected( ch, gsn_negative_ward ) )
+          affect_strip( ch, gsn_negative_ward );
+        af.type      = gsn_negative_ward;
+        af.location  = 0;
+        af.modifier  = 0;
+        af.duration  = ch->pcdata->mind*15;
+        af.bitvector = 0;
+        affect_to_char( victim, &af );
+        return TRUE;
+}
+
 void do_runeweave( CHAR_DATA *ch, char *argument )
 {
   char arg1[MAX_INPUT_LENGTH];
   char arg2[MAX_INPUT_LENGTH];
   char arg3[MAX_INPUT_LENGTH];
   char buf[MAX_STRING_LENGTH];
-  char def1[MAX_STRING_LENGTH];
-  char def2[MAX_STRING_LENGTH];
   CHAR_DATA *victim = NULL;
-  CHAR_DATA *vch;
-  CHAR_DATA *vch_next;
-  AFFECT_DATA af;
-  int rune1, rune2, spell, slot, i, cost, dam=0, target = TAR_CHAR_SELF;
+  int rune1, rune2, spell, slot, cost, target = TAR_CHAR_SELF;
   bool match = FALSE;
 
 
@@ -408,598 +1147,12 @@ void do_runeweave( CHAR_DATA *ch, char *argument )
     return;
   }
 
-  sprintf( def1, "You move your hands in mystick patterns, uttering runes under your breath." );
-  sprintf( def2, "$n moves $s hands in a complex pattern, while muttering broken phrases." );
-
-  switch( spell )
-  {
-    case RUNE_AIR + RUNE_LIFE:
-    	if ( is_affected(victim,gsn_wind_curse) )
-    	{
-    	  stc( "They are already so cursed.\n\r", ch );
-    	  break;
-    	}
-    	/* #23: Holy Bless (white-spec) ward -- 5% chance to shrug off the curse */
-    	if ( holy_bless_wards( ch, victim, "Ceiphied's blessing wards it off!\n\r",
-    	       "Ceiphied's blessing wards off your runeweave!" ) )
-    	  break;
-    	/* only one elemental curse at a time: strip the other three */
-    	affect_strip( victim, gsn_earth_curse );
-    	affect_strip( victim, gsn_flame_curse );
-    	affect_strip( victim, gsn_water_curse );
-    	act( "A pale blue mist settles around $N.", ch, NULL, victim, TO_CHAR );
-    	act( "A pale blue mist settles around $N.", ch, NULL, victim, TO_ROOM );
-        af.type      = gsn_wind_curse;
-        af.location  = 0;
-        af.modifier  = 0;
-        /* PvP duration cap: 3 ticks vs players, Mind-scaled vs NPCs */
-        af.duration  = !IS_NPC(victim) ? 3 : ch->pcdata->mind *2/3;
-        af.bitvector = 0;
-        affect_to_char( victim, &af );
-        break;
-    case RUNE_EARTH + RUNE_LIFE:
-        if ( is_affected(victim,gsn_earth_curse) )
-        {
-          stc( "They are already so cursed.\n\r", ch );
-          break;
-        }
-        /* #23: Holy Bless (white-spec) ward -- 5% chance to shrug off the curse */
-        if ( holy_bless_wards( ch, victim, "Ceiphied's blessing wards it off!\n\r",
-               "Ceiphied's blessing wards off your runeweave!" ) )
-          break;
-        /* only one elemental curse at a time: strip the other three */
-        affect_strip( victim, gsn_wind_curse );
-        affect_strip( victim, gsn_flame_curse );
-        affect_strip( victim, gsn_water_curse );
-        act( "A dull yellow mist settles around $N.", ch, NULL, victim, TO_CHAR );
-        act( "A dull yellow mist settles around $N.", ch, NULL, victim, TO_ROOM );
-        af.type      = gsn_earth_curse;
-        af.location  = 0;
-        af.modifier  = 0;
-        /* PvP duration cap: 3 ticks vs players, Mind-scaled vs NPCs */
-        af.duration  = !IS_NPC(victim) ? 3 : ch->pcdata->mind *2/3;
-        af.bitvector = 0;
-        affect_to_char( victim, &af );
-        break;
-    case RUNE_FIRE + RUNE_LIFE:
-        if ( is_affected(victim,gsn_flame_curse) )
-        {
-          stc( "They are already so cursed.\n\r", ch );
-          break;
-        }
-        /* #23: Holy Bless (white-spec) ward -- 5% chance to shrug off the curse */
-        if ( holy_bless_wards( ch, victim, "Ceiphied's blessing wards it off!\n\r",
-               "Ceiphied's blessing wards off your runeweave!" ) )
-          break;
-        /* only one elemental curse at a time: strip the other three */
-        affect_strip( victim, gsn_wind_curse );
-        affect_strip( victim, gsn_earth_curse );
-        affect_strip( victim, gsn_water_curse );
-        act( "A blood red mist settles around $N.", ch, NULL, victim, TO_CHAR );
-        act( "A blood red mist settles around $N.", ch, NULL, victim, TO_ROOM );
-        af.type      = gsn_flame_curse;
-        af.location  = 0;
-        af.modifier  = 0;
-        /* PvP duration cap: 3 ticks vs players, Mind-scaled vs NPCs */
-        af.duration  = !IS_NPC(victim) ? 3 : ch->pcdata->mind *2/3;
-        af.bitvector = 0;
-        affect_to_char( victim, &af );
-        break;
-    case RUNE_WATER + RUNE_LIFE:
-        if ( is_affected(victim,gsn_water_curse) )
-        {
-          stc( "They are already so cursed.\n\r", ch );
-          break;
-        }
-        /* #23: Holy Bless (white-spec) ward -- 5% chance to shrug off the curse */
-        if ( holy_bless_wards( ch, victim, "Ceiphied's blessing wards it off!\n\r",
-               "Ceiphied's blessing wards off your runeweave!" ) )
-          break;
-        /* only one elemental curse at a time: strip the other three */
-        affect_strip( victim, gsn_wind_curse );
-        affect_strip( victim, gsn_earth_curse );
-        affect_strip( victim, gsn_flame_curse );
-        act( "A murky mist settles around $N.", ch, NULL, victim, TO_CHAR );
-        act( "A murky mist settles around $N.", ch, NULL, victim, TO_ROOM );
-        af.type      = gsn_water_curse;
-        af.location  = 0;
-        af.modifier  = 0;
-        /* PvP duration cap: 3 ticks vs players, Mind-scaled vs NPCs */
-        af.duration  = !IS_NPC(victim) ? 3 : ch->pcdata->mind *2/3;
-        af.bitvector = 0;
-        affect_to_char( victim, &af );
-        break;
-    /* ENERGY + LIFE */
-    case RUNE_ENERGY + RUNE_LIFE:
-	act( def1, ch, NULL, victim, TO_CHAR );
-	act( def2, ch, NULL, victim, TO_ROOM );
-	for ( i = 0; i < ch->pcdata->powers[P_ENERGY]; i += 33 )
-	  runecast( ch, victim, "heal" );
-	break;
-    /* NEGATIVE + LIFE */
-    case RUNE_NEGATIVE + RUNE_LIFE:
-    	if ( !IS_NPC(victim) && IS_SET(victim->pcdata->actnew,NEW_NEGATIVE_BLOCK) )
-    	{
-    	  if ( victim == ch )
-    	  {
-    	    stc( "You failed.\n\r", ch );
-    	    return;
-    	  }
-    	  act( "Dark energy streaks toward and is absorbed by $N.", ch, NULL, victim, TO_CHAR );
-    	  act( "Dark energy streaks toward and is absorbed by you!", ch, NULL, victim, TO_VICT );
-    	  act( "Dark energy streaks toward and is absorbed by $N.", ch, NULL, victim, TO_NOTVICT );
-	  victim->hit += dice( ch->pcdata->mind/8, ch->pcdata->powers[P_NEGATIVE] );
-	  victim->hit = UMIN( victim->hit, victim->max_hit );
-    	}
-    	else
-    	{
-    	  act( "Dark energy streaks from you to $N, and rebounds!", ch, NULL, victim,TO_CHAR);
-    	  act( "Dark energy streaks from $n to you, and rebounds to $m!", ch, NULL, victim, TO_VICT );
-    	  act( "Dark energy streaks from $n to $N, then rebounds.", ch, NULL, victim, TO_NOTVICT );
-    	  dam = dice( ch->pcdata->mind/4, ch->pcdata->powers[P_NEGATIVE] );
-    	  i = victim->hit;
-    	  damage( ch, victim, dam, DAM_NEGATIVE );
-    	  if ( victim != NULL && victim->hit > 0 )
-    	    ch->hit = UMIN( ch->max_hit, ch->hit + (i - victim->hit) );
-	}
-    	break;
-
-    /* AIR + DEATH */
-    case RUNE_AIR + RUNE_DEATH:
-    	act( "A bolt of lightning leaps from your fingers toward $N!", ch, NULL, victim, TO_CHAR );
-    	act( "A bolt of lightning leaps from $n's fingers toward you!", ch, NULL, victim, TO_VICT );
-    	act( "A bolt of lightning leaps from $n's fingers toward $N!", ch, NULL, victim, TO_NOTVICT );
-        if ( !IS_NPC(victim) && IS_SET(victim->pcdata->actnew,NEW_AIR_BLOCK) )
-        { act( "The lightning bolt rebounds!", ch, NULL, NULL, TO_CHAR );
-          act( "The lightning bolt rebounds!", ch, NULL, NULL, TO_ROOM );
-          dam = dice( ch->pcdata->mind / 4, ch->pcdata->powers[P_AIR] );
-	  damage( ch, ch, dam, DAM_LIGHTNING );
-          break;
-        }
-        else
-        {
-	  dam = dice( ch->pcdata->mind / 2, ch->pcdata->powers[P_AIR] );
-	  damage( ch, victim, dam, DAM_LIGHTNING );
-	}
-	break;
-    /* FIRE + DEATH */
-    case RUNE_FIRE + RUNE_DEATH:
-	act( "A lance of flame streaks from your fingers toward $N!", ch, NULL, victim, TO_CHAR );
-	act( "A lance of flame streaks from $n's fingers toward you!", ch, NULL, victim, TO_VICT );
-	act( "A lance of flame streaks from $n's fingers toward $N!", ch, NULL, victim, TO_NOTVICT );
-	if ( !IS_NPC(victim) && IS_SET(victim->pcdata->actnew,NEW_FIRE_BLOCK) )
-	{ act( "The flame lance rebounds!", ch, NULL, NULL, TO_CHAR );
-	  act( "The flame lance rebounds!", ch, NULL, NULL, TO_ROOM );
-	  dam = dice( ch->pcdata->mind / 4, ch->pcdata->powers[P_FIRE] );
-	  damage( ch, ch, dam, DAM_FIRE );
-	  break;
-	}
-	else
-	{ dam = dice( ch->pcdata->mind / 2, ch->pcdata->powers[P_FIRE] );
-          if ( !IS_NPC(victim) && IS_SET(victim->pcdata->actnew,NEW_VAN_REHL) )
-          { REMOVE_BIT(victim->pcdata->actnew,NEW_VAN_REHL);
-            act( "Their icy barrier melts!", ch, NULL, victim, TO_CHAR );
-            act( "Your icy barrier melts!", ch, NULL, victim, TO_VICT );
-          }
-	  damage( ch, victim, dam, DAM_FIRE );
-	}
-	break;
-    /* AIR + CREATION */
-    case RUNE_AIR + RUNE_CREATION:
-    	if ( IS_NPC(victim) )
-    	{
-    	  stc( "Nothing happens.\n\r", ch );
-    	  return;
-    	}
-    	act( "Ball lightning crackles around $N.", ch, NULL, victim, TO_CHAR );
-    	act( "Ball lightning crackles around $N.", ch, NULL, victim, TO_ROOM );
-    	if ( !IS_SET(victim->pcdata->actnew,NEW_BALL_LIGHTNING) )
-    	  SET_BIT(victim->pcdata->actnew,NEW_BALL_LIGHTNING);
-    	break;
-    /* WATER + CREATION */
-    case RUNE_WATER + RUNE_CREATION:
-        act( def1, ch, NULL, victim, TO_CHAR );
-        act( def2, ch, NULL, victim, TO_ROOM );
-        if ( is_affected(victim,skill_lookup("flame breath")) )
-        {
-          affect_strip(victim,skill_lookup("flame breath"));
-          act( "The flames are doused.", ch, NULL, victim, TO_CHAR );
-          act( "Your skin abruptly stops burning.", ch, NULL, victim, TO_VICT );
-          act( "The flames burning $N are doused.", ch, NULL, victim, TO_ROOM );
-        }
-        break;
-    /* ENERGY + CREATION */
-    case RUNE_ENERGY + RUNE_CREATION:
-	act( def1, ch, NULL, victim, TO_CHAR );
-	act( def2, ch, NULL, victim, TO_ROOM );
-	if ( ch->pcdata->powers[P_ENERGY] < 25 )
-	  runecast( ch, victim, "cure light" );
-	else if ( ch->pcdata->powers[P_ENERGY] < 50 )
-	  runecast( ch, victim, "cure serious" );
-	else if ( ch->pcdata->powers[P_ENERGY] < 75 )
-	{
-	  runecast( ch, victim, "cure critical" );
-	  runecast( ch, victim, "refresh" );
-	}
-	else
-	{
-	  runecast( ch, victim, "heal" );
-	  runecast( ch, victim, "refresh" );
-	  runecast( ch, victim, "cure poison" );
-	}
-	break;
-    /* AIR + DESTRUCTION */
-    case RUNE_AIR + RUNE_DESTRUCTION:
-    	act( "You launch a gust of wind into $N.", ch, NULL, victim, TO_CHAR );
-    	act( "$n's gust of wind slams into you!", ch, NULL, victim, TO_VICT );
-    	act( "$n's gust of wind slams into $N.", ch, NULL, victim, TO_NOTVICT );
-    	if ( !IS_NPC(victim) )
-    	{ if ( victim->class == CLASS_FIST )
-    	  { if ( IS_SET(victim->pcdata->actnew,NEW_FIGUREEIGHT) )
-	      REMOVE_BIT(victim->pcdata->actnew,NEW_FIGUREEIGHT);
-	    if ( victim->pcdata->powers[F_KI] > 0 )
-	      victim->pcdata->powers[F_KI]--;
-	  }
-	  else if ( IS_CLASS(victim,CLASS_SORCERER ) && victim->pcdata->chant != NULL )
-	  { /* Issue #3: only acts while a chant is actually in progress (the old
-	     * lose_chant was a silent no-op otherwise -- so don't strip Defense or
-	     * print "chant holds" against a Sorcerer who isn't chanting).  Defense
-	     * holds the chant (strip it instead); else roll a resist-reduced interrupt. */
-	    if ( is_affected( victim, gsn_defense ) )
-	    { affect_strip( victim, gsn_defense );
-	      act( "Your rune-wind tears away $N's Defense, but the chant holds.", ch, NULL, victim, TO_CHAR );
-	      act( "$n's rune-wind tears away your Defense, but your chant holds!", ch, NULL, victim, TO_VICT );
-	    }
-	    else
-	    { int chance = 75;
-	      if ( IS_AFFECTED( victim, AFF_HOLY_RESIST ) != 0 ) chance -= 10;
-	      if ( IS_AFFECTED( victim, AFF_VAS_GLUUDO  ) != 0 ) chance -= 10;
-	      if ( IS_AFFECTED( victim, AFF_RAYWING ) != 0
-	        || IS_AFFECTED( victim, AFF_WINDY_SHIELD ) != 0 ) chance -= 10;
-	      chance = URANGE( 45, chance, 85 );
-	      if ( number_percent() <= chance )
-	      { lose_chant( victim );
-	        act( "Your rune-wind shatters $N's gathering chant!", ch, NULL, victim, TO_CHAR );
-	        act( "$n's rune-wind shatters your gathering chant!", ch, NULL, victim, TO_VICT );
-	      }
-	      else
-	      { act( "$N rides out the tearing wind, chant unbroken.", ch, NULL, victim, TO_CHAR );
-	        act( "You ride out the tearing wind, your chant unbroken!", ch, NULL, victim, TO_VICT );
-	      }
-	    }
-	  }
-
-	  if ( is_affected(victim,gsn_kiwall) )
-	    affect_strip(victim,gsn_kiwall);
-
-        }
-        break;
-    /* FIRE + DESTRUCTION */
-    case RUNE_FIRE + RUNE_DESTRUCTION:
-	act( "Fire sprays forth from your hands, engulfing the room in flame!", ch, NULL, victim, TO_CHAR );
-	act( "The room is is engulfed in flame!", ch, NULL, victim, TO_ROOM );
-	for ( vch = char_list; vch != NULL; vch = vch_next )
-	{ vch_next = vch->next;
-	  if ( vch->in_room == NULL )
-	    continue;
-	  if ( vch->in_room == ch->in_room )
-	  { if ( vch != ch && !is_same_group( ch, vch ) )
-	    { if ( !IS_NPC(vch) && IS_SET(vch->pcdata->actnew,NEW_FIRE_BLOCK) )
-	      { act( "The flames flow around $N.", ch, NULL, vch, TO_CHAR );
-	        act( "The flames flow around you.", ch, NULL, vch, TO_VICT );
-	        act( "The flames flow around $N.", ch, NULL, vch, TO_ROOM );
-	      }
-	      else
-	      { dam = dice( ch->pcdata->mind / 4, ch->pcdata->powers[P_FIRE] );
-	        if ( !IS_NPC(vch) && IS_SET(vch->pcdata->actnew,NEW_VAN_REHL) )
-	        { REMOVE_BIT(vch->pcdata->actnew,NEW_VAN_REHL);
-	          act( "Their icy barrier melts!", ch, NULL, vch, TO_CHAR );
-	          act( "Your icy barrier melts!", ch, NULL, vch, TO_VICT );
-	        }
-	        damage( ch, vch, dam, DAM_FIRE );
-	      }
-	    }
-	  }
-	}
-	break;
-    /* ENERGY + DESTRUCTION */
-    case RUNE_ENERGY + RUNE_DESTRUCTION:
-	runecast( ch, victim, "dispel magic" );
-	if ( victim != ch && victim->fighting == NULL )
-	  victim->fighting = ch;
-	break;
-    /* NEGATIVE + DESTRUCTION */
-    case RUNE_NEGATIVE + RUNE_DESTRUCTION:
-    	act( "You launch a pearlescent ball of light at $N.", ch, NULL, victim, TO_CHAR );
-    	act( "$n launches a pearlescent ball of light at you!", ch, NULL, victim, TO_VICT );
-    	act( "$n launches a pearlescent ball of light at $N.", ch, NULL, victim, TO_NOTVICT );
-    	if ( !IS_CLASS(victim,CLASS_MAZOKU) )
-    	  break;
-    	if ( victim->pcdata->powers[M_CTIME] <= 0 )
-    	  break;
-    	act( ".. the dark energies surrounding $N are dispelled!", ch, NULL, victim, TO_CHAR );
-    	act( ".. you lose control of your dark energies!", ch, NULL, victim, TO_VICT );
-    	act( ".. the dark energies surrounding $N are dispelled!", ch, NULL, victim, TO_NOTVICT );
-    	victim->pcdata->powers[M_CTIME] = 0;
-    	victim->pcdata->powers[M_CTYPE] = 0;
-	break;
-    /* AIR + PROTECTION */
-    case RUNE_AIR + RUNE_PROTECTION:
-	act( def1, ch, NULL, victim, TO_CHAR );
-	act( def2, ch, NULL, victim, TO_ROOM );
-	runecast( ch, victim, "shield" );
-	break;
-    /* EARTH + PROTECTION */
-    case RUNE_EARTH + RUNE_PROTECTION:
-	act( def1, ch, NULL, victim, TO_CHAR );
-	act( def2, ch, NULL, victim, TO_ROOM );
-	runecast( ch, victim, "stone skin" );
-	break;
-    /* FIRE + PROTECTION */
-    case RUNE_FIRE + RUNE_PROTECTION:
-        if ( is_affected( ch, gsn_balus_wall ) )
-        affect_strip( ch, gsn_balus_wall );
-      
-        af.type      = gsn_balus_wall;
-        af.duration  = 30;
-        af.location  = APPLY_NONE;
-        af.modifier  = 0;
-        af.bitvector = 0;
-        affect_to_char( ch, &af );
-	act( "A reddish shield shimmers into existance in front of you.", ch, NULL, NULL, TO_CHAR );
-	act( "A reddish shield shimmers into existance in front of $n.", ch, NULL, NULL, TO_ROOM );
-	break;
-    /* WATER + PROTECTION */
-    case RUNE_WATER + RUNE_PROTECTION:
-	act( def1, ch, NULL, victim, TO_CHAR );
-	act( def2, ch, NULL, victim, TO_ROOM );
-	runecast( ch, victim, "armor" );
-	break;
-    case RUNE_NEGATIVE + RUNE_PROTECTION:
-    /* NEGATIVE + PROTECTION */
-    	if ( IS_NPC(victim) )
-    	{ 
-    	  stc( "All your base are belong to us.\n\r", ch );
-    	  return;
-    	}
-    	act( "A black helix swirls up around you.", victim, NULL, NULL, TO_CHAR );
-    	act( "A black helix swirls up around $n.", victim, NULL, NULL, TO_ROOM );
-    	if ( !IS_SET(victim->pcdata->actnew,NEW_NEGATIVE_BLOCK) )
-    	  SET_BIT(victim->pcdata->actnew,NEW_NEGATIVE_BLOCK);
-    	break;
-    /* AIR + TRANSFORMATION */
-    case RUNE_AIR + RUNE_TRANSFORMATION:
-    	if ( IS_NPC(victim) )
-    	{ act( "You failed.", ch, NULL, NULL, TO_CHAR );
-    	  break;
-    	}
-    	act( "Inverted runes of air swirl up around you.", victim, NULL, NULL, TO_CHAR );
-    	act( "Oddly disfigured runes swirl up around $n.", victim, NULL, NULL, TO_ROOM );
-    	if ( IS_SET(victim->pcdata->actnew,NEW_FIRE_BLOCK) )
-    	{ REMOVE_BIT(victim->pcdata->actnew,NEW_FIRE_BLOCK);
-    	  act( "The inverted fire runes crumble.", ch, NULL, NULL, TO_CHAR );
-    	}
-    	SET_BIT(victim->pcdata->actnew,NEW_AIR_BLOCK);
-    	break;
-    case RUNE_FIRE + RUNE_TRANSFORMATION:
-        if ( IS_NPC(victim) )
-        { act( "You failed.", ch, NULL, NULL, TO_CHAR );
-          break;
-        }
-        act( "Inverted runes of fire ignite all around you.", victim, NULL, NULL, TO_CHAR );
-        act( "Oddly disfigured runes ignite all around $n.", victim, NULL, NULL, TO_ROOM );
-        if ( IS_SET(victim->pcdata->actnew,NEW_AIR_BLOCK) )
-        { REMOVE_BIT(victim->pcdata->actnew,NEW_AIR_BLOCK);
-          act( "The inverted air runes fade away.", ch, NULL, NULL, TO_CHAR );
-        }
-        SET_BIT(victim->pcdata->actnew,NEW_FIRE_BLOCK);
-        break;
-
-    /* ENERGY + TRANSFORMATION */
-    case RUNE_ENERGY + RUNE_TRANSFORMATION:
-        if ( IS_SET(ch->act, PLR_TRUESIGHT) )
-        { send_to_char( "Your vision returns to normal.\n\r", ch );
-          REMOVE_BIT(ch->act,PLR_TRUESIGHT);
-        }
-        else
-        { send_to_char( "Your vision increases beyond mortal standards.\n\r", ch );
-          SET_BIT(ch->act,PLR_TRUESIGHT);
-        }
-        break;
-    /* NEGATIVE + TRANSFORMATION */
-    case RUNE_NEGATIVE + RUNE_TRANSFORMATION:
-        if ( !IS_NPC(victim) && IS_SET(victim->pcdata->actnew,NEW_NEGATIVE_BLOCK) )
-        {
-          if ( victim == ch )
-          {
-            stc( "You failed.\n\r", ch );
-            return;
-          }
-          act( "Dark energy streaks toward and is absorbed by $N.", ch, NULL, victim, TO_CHAR );
-          act( "Dark energy streaks toward and is absorbed by you!", ch, NULL, victim, TO_VICT );
-          act( "Dark energy streaks toward and is absorbed by $N.", ch, NULL, victim, TO_NOTVICT
-);
-          victim->mana += dice( ch->pcdata->mind/4, ch->pcdata->powers[P_NEGATIVE] );
-          victim->mana = UMIN( victim->mana, victim->max_mana );
-        }
-        else
-        {
-          act( "Dark energy streaks from you to $N, and rebounds!", ch, NULL, victim,TO_CHAR);
-          act( "Dark energy streaks from $n to you, and rebounds to $m!", ch, NULL, victim, TO_VICT );
-          act( "Dark energy streaks from $n to $N, then rebounds.", ch, NULL, victim, TO_NOTVICT );
-          dam = dice( ch->pcdata->mind/4, ch->pcdata->powers[P_NEGATIVE] );
-          if ( IS_AFFECTED(victim,AFF_HOLY_RESIST) )
-            dam -= dam * number_percent() / 100;
-          if ( victim->mana > dam )
-            victim->mana -= dam;
-          else
-          { dam = victim->mana - 1;
-            victim->mana = 1;
-          }
-          ch->mana = UMIN( ch->max_mana, ch->mana + dam/2 );
-        }
-        break;
-    case RUNE_AIR + RUNE_MOVEMENT:
-	act( def1, ch, NULL, victim, TO_CHAR );
-	act( def2, ch, NULL, victim, TO_ROOM );
-	runecast( ch, ch, "fly" );
-	break;
-    case RUNE_NEGATIVE + RUNE_MOVEMENT:
-    	act( "A black haze surrounds you, sapping your strength!", ch, NULL, victim, TO_VICT );
-    	act( "A black haze descends upon $N", ch, NULL, victim, TO_CHAR );
-    	act( "A black haze descends upon $N", ch, NULL, victim, TO_ROOM );
-    	dam = dice( 10, 15 );
-    	victim->move = UMAX( victim->move - dam, 1 );
-    	ch->move = UMIN( ch->move + dam, ch->max_move );
-    	if ( IS_CLASS(victim, CLASS_SAIYAN) )
-    	{
-    	  victim->pcdata->powers[S_STRENGTH] = UMAX(
-    	    victim->pcdata->powers[S_STRENGTH] - dam,
-    	    victim->pcdata->powers[S_STRENGTH_MAX]/2 );
-    	  victim->pcdata->powers[S_SPEED] = UMAX(
-    	    victim->pcdata->powers[S_SPEED] - dam,
-    	    victim->pcdata->powers[S_SPEED_MAX]/2 );
-    	  victim->pcdata->powers[S_AEGIS] = UMAX(
-    	    victim->pcdata->powers[S_AEGIS] - dam,
-    	    victim->pcdata->powers[S_AEGIS_MAX]/2 );
-    	}
-    	break;
-    case RUNE_AIR + RUNE_ABJURATION:
-   	act( "A dome of azure energy encases you.", ch, NULL, victim, TO_CHAR );
-   	act( "A dome of azure energy encases $n.", ch, NULL, victim, TO_ROOM );
-	if ( is_affected( ch, gsn_earth_ward ) )
-	  affect_strip( ch, gsn_earth_ward );
-	if ( is_affected( ch, gsn_wind_ward ) )
-	  affect_strip( ch, gsn_wind_ward ) ;
-	if ( is_affected( ch, gsn_flame_ward ) )
-	  affect_strip( ch, gsn_flame_ward );
-	if ( is_affected( ch, gsn_water_ward ) )
-	  affect_strip( ch, gsn_water_ward );
-	if ( is_affected( ch, gsn_spirit_ward ) )
-	  affect_strip( ch, gsn_spirit_ward );
-	if ( is_affected( ch, gsn_negative_ward ) )
-	  affect_strip( ch, gsn_negative_ward );
-	af.type      = gsn_wind_ward;
-   	af.location  = 0;
-   	af.modifier  = 0;
-   	af.duration  = ch->pcdata->mind*15;
-   	af.bitvector = 0;
-   	affect_to_char( ch, &af );
-   	break;
-    case RUNE_EARTH + RUNE_ABJURATION:
-        act( "A dome of verdant energy encases you.", ch, NULL, victim, TO_CHAR );
-        act( "A dome of verdant energy encases $n.", ch, NULL, victim, TO_ROOM );
-        if ( is_affected( ch, gsn_wind_ward ) )
-          affect_strip( ch, gsn_wind_ward );
-        if ( is_affected( ch, gsn_earth_ward ) )
-          affect_strip( ch, gsn_earth_ward );
-        if ( is_affected( ch, gsn_flame_ward ) )
-          affect_strip( ch, gsn_flame_ward );
-        if ( is_affected( ch, gsn_water_ward ) )
-          affect_strip( ch, gsn_water_ward );
-        if ( is_affected( ch, gsn_spirit_ward ) )
-          affect_strip( ch, gsn_spirit_ward );
-        if ( is_affected( ch, gsn_negative_ward ) )
-          affect_strip( ch, gsn_negative_ward );
-        af.type      = gsn_earth_ward;
-        af.location  = 0;
-        af.modifier  = 0;
-        af.duration  = ch->pcdata->mind*15;
-        af.bitvector = 0;
-        affect_to_char( victim, &af );
-        break;
-    case RUNE_FIRE + RUNE_ABJURATION:
-        act( "A dome of crimson energy encases you.", ch, NULL, victim, TO_CHAR );
-        act( "A dome of crimson energy encases $n.", ch, NULL, victim, TO_ROOM );
-        if ( is_affected( ch, gsn_earth_ward ) )
-          affect_strip( ch, gsn_earth_ward );
-        if ( is_affected( ch, gsn_wind_ward ) )
-          affect_strip( ch, gsn_wind_ward );
-        if ( is_affected( ch, gsn_flame_ward ) )
-          affect_strip( ch, gsn_flame_ward );
-        if ( is_affected( ch, gsn_water_ward ) )
-          affect_strip( ch, gsn_water_ward );
-        if ( is_affected( ch, gsn_spirit_ward ) )
-          affect_strip( ch, gsn_spirit_ward );
-        if ( is_affected( ch, gsn_negative_ward ) )
-          affect_strip( ch, gsn_negative_ward );
-        af.type      = gsn_flame_ward;
-        af.location  = 0;
-        af.modifier  = 0;
-        af.duration  = ch->pcdata->mind*15; 
-        af.bitvector = 0;
-        affect_to_char( victim, &af );
-        break;
-    case RUNE_WATER + RUNE_ABJURATION:
-        act( "A dome of sea green energy encases you.", ch, NULL, victim, TO_CHAR );
-        act( "A dome of sea green energy encases $n.", ch, NULL, victim, TO_ROOM );
-        if ( is_affected( ch, gsn_earth_ward ) )
-          affect_strip( ch, gsn_earth_ward );
-        if ( is_affected( ch, gsn_flame_ward ) )
-          affect_strip( ch, gsn_flame_ward );
-        if ( is_affected( ch, gsn_wind_ward ) )
-          affect_strip( ch, gsn_wind_ward );
-        if ( is_affected( ch, gsn_water_ward ) )
-          affect_strip( ch, gsn_water_ward );
-        if ( is_affected( ch, gsn_spirit_ward ) )
-          affect_strip( ch, gsn_spirit_ward );
-        if ( is_affected( ch, gsn_negative_ward ) )
-          affect_strip( ch, gsn_negative_ward );
-        af.type      = gsn_water_ward;
-        af.location  = 0;
-        af.modifier  = 0;
-        af.duration  = ch->pcdata->mind*15;
-        af.bitvector = 0;
-        affect_to_char( victim, &af );
-        break;
-    case RUNE_ENERGY + RUNE_ABJURATION:
-        act( "A dome of pale white energy encases you.", ch, NULL, victim, TO_CHAR );
-        act( "A dome of pale white energy encases $n.", ch, NULL, victim, TO_ROOM );
-        if ( is_affected( ch, gsn_earth_ward ) )
-          affect_strip( ch, gsn_earth_ward );
-        if ( is_affected( ch, gsn_flame_ward ) )
-          affect_strip( ch, gsn_flame_ward );
-        if ( is_affected( ch, gsn_water_ward ) )
-          affect_strip( ch, gsn_water_ward );
-        if ( is_affected( ch, gsn_wind_ward ) )
-          affect_strip( ch, gsn_wind_ward );
-        if ( is_affected( ch, gsn_spirit_ward ) )
-          affect_strip( ch, gsn_spirit_ward );
-        if ( is_affected( ch, gsn_negative_ward ) )
-          affect_strip( ch, gsn_negative_ward );
-        af.type      = gsn_spirit_ward;
-        af.location  = 0;
-        af.modifier  = 0;
-        af.duration  = ch->pcdata->mind*15;
-        af.bitvector = 0;
-        affect_to_char( victim, &af );
-        break;
-    case RUNE_NEGATIVE + RUNE_ABJURATION:
-        act( "A dome of obsidian energy encases you.", ch, NULL, victim, TO_CHAR );
-        act( "A dome of obsidian energy encases $n.", ch, NULL, victim, TO_ROOM );
-        if ( is_affected( ch, gsn_earth_ward ) )
-          affect_strip( ch, gsn_earth_ward );
-        if ( is_affected( ch, gsn_flame_ward ) )
-          affect_strip( ch, gsn_flame_ward );
-        if ( is_affected( ch, gsn_water_ward ) )
-          affect_strip( ch, gsn_water_ward );
-        if ( is_affected( ch, gsn_spirit_ward ) )
-          affect_strip( ch, gsn_spirit_ward );
-        if ( is_affected( ch, gsn_wind_ward ) )
-          affect_strip( ch, gsn_wind_ward );
-        if ( is_affected( ch, gsn_negative_ward ) )
-          affect_strip( ch, gsn_negative_ward );
-        af.type      = gsn_negative_ward;
-        af.location  = 0;
-        af.modifier  = 0;
-        af.duration  = ch->pcdata->mind*15;
-        af.bitvector = 0;
-        affect_to_char( victim, &af );
-        break;
-    default:
-	send_to_char( "Nothing happens.\n\r", ch );
-	return;
+  if ( cost_table[slot].handler == NULL )
+  { send_to_char( "Nothing happens.\n\r", ch );
+    return;
   }
+  if ( !cost_table[slot].handler( ch, victim ) )
+    return;
 
   if ( victim != NULL && target == TAR_CHAR_OFFENSIVE && victim != ch
     && victim->position >= POS_STUNNED )

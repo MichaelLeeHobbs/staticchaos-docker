@@ -193,6 +193,7 @@ int			sAllocPerm;
  * Semi-locals.
  */
 bool			fBootDb;
+jmp_buf *		load_recover = NULL;	/* active recovery point during a resumable load (#83) */
 FILE *			fpArea;
 char			strArea[MAX_INPUT_LENGTH];
 
@@ -2338,6 +2339,18 @@ char fread_letter( FILE *fp )
 
 
 /*
+ * A malformed token in a file. During a resumable load (a player file, #83) we
+ * longjmp back to the caller so one corrupt save can't crash the whole server;
+ * during boot/area loads (load_recover == NULL) we still fail fast.
+ */
+void fread_fatal( void )
+{
+    if ( load_recover != NULL )
+	longjmp( *load_recover, 1 );
+    exit( 1 );
+}
+
+/*
  * Read a number from a file.
  */
 int fread_number( FILE *fp )
@@ -2368,7 +2381,7 @@ int fread_number( FILE *fp )
     if ( !isdigit(c) )
     {
 	bug( "Fread_number: bad format.", 0 );
-	exit( 1 );
+	fread_fatal( );
     }
 
     while ( isdigit(c) )
@@ -2464,7 +2477,7 @@ long long fread_number_ll( FILE *fp )
     if ( !isdigit(c) )
     {
 	bug( "Fread_number_ll: bad format.", 0 );
-	exit( 1 );
+	fread_fatal( );
     }
 
     while ( isdigit(c) )
@@ -2503,7 +2516,7 @@ char *fread_string( FILE *fp )
     if ( plast > &string_space[MAX_STRING - MAX_STRING_LENGTH] )
     {
 	bug( "Fread_string: MAX_STRING %d exceeded.", MAX_STRING );
-	exit( 1 );
+	fread_fatal( );
     }
 
     /*
@@ -2534,7 +2547,7 @@ char *fread_string( FILE *fp )
 
 	case EOF:
 	    bug( "Fread_string: EOF", 0 );
-	    exit( 1 );
+	    fread_fatal( );
 	    break;
 
 	case '\n':
@@ -2661,7 +2674,7 @@ char *fread_word( FILE *fp )
     }
 
     bug( "Fread_word: word too long.", 0 );
-    exit( 1 );
+    fread_fatal( );
     return NULL;
 }
 /*
@@ -2702,7 +2715,7 @@ char *fread_worda( FILE *fp )
 
     /*
     bug( "Fread_word: word too long.", 0 );
-    exit( 1 );
+    fread_fatal( );
     return NULL;
     */
 }

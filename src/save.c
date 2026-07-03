@@ -571,7 +571,8 @@ bool load_char_obj( DESCRIPTOR_DATA *d, char *name )
     char strsave[MAX_INPUT_LENGTH];
     char buf [MAX_STRING_LENGTH];
     CHAR_DATA *ch;
-    FILE *fp;
+    FILE * volatile fp;		/* volatile: read in the setjmp recovery handler (#83) */
+    jmp_buf recover;
     bool found;
     int i;
 
@@ -671,6 +672,27 @@ bool load_char_obj( DESCRIPTOR_DATA *d, char *name )
 	    rgObjNest[iNest] = NULL;
 
 	found = TRUE;
+
+	/* Recover from a corrupt save instead of taking the whole server down
+	 * (#83): a bad token in the readers longjmps here. Quarantine the file
+	 * and fall back to a fresh character. */
+	if ( setjmp( recover ) != 0 )
+	{
+	    char corrupt[MAX_INPUT_LENGTH];
+	    load_recover = NULL;
+	    fclose( fp );
+	    fpReserve = fopen( NULL_FILE, "r" );
+	    sprintf( corrupt, "%s.corrupt", strsave );
+	    if ( rename( strsave, corrupt ) != 0 )
+	    {
+		bug( "load_char_obj: corrupt save (quarantine failed) -- starting fresh.", 0 );
+		return FALSE;
+	    }
+	    bug( "load_char_obj: corrupt save quarantined -- starting fresh.", 0 );
+	    return load_char_obj( d, name );	/* file is gone now -> clean new character */
+	}
+	load_recover = &recover;
+
 	for ( ; ; )
 	{
 	    char letter;
@@ -699,6 +721,7 @@ bool load_char_obj( DESCRIPTOR_DATA *d, char *name )
 		break;
 	    }
 	}
+	load_recover = NULL;
 	fclose( fp );
     }
 

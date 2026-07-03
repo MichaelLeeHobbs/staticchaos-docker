@@ -26,3 +26,6 @@ done
 
 echo "==> running smoke test"
 python3 test/mud_smoke.py "$@"
+
+echo "==> running password-hashing migration test"
+python3 test/password_migration.py "$@"

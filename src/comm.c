@@ -1791,7 +1791,7 @@ void bust_a_prompt( CHAR_DATA *ch )
             { for ( j = 16; ch->in_room->area->name[j] != '\0'; j++ )
                 areaname[j-16] = ch->in_room->area->name[j];
               areaname[j-16] = '\0';
-              sprintf( buf2, areaname );
+              sprintf( buf2, "%s", areaname );
             }
             else
                sprintf( buf2, " " );
@@ -2335,7 +2335,7 @@ void nanny( DESCRIPTOR_DATA *d, char *argument )
 
 	// to prevent duping, thanks to KaVir for this snippet
 	if ( IS_SET(ch->pcdata->actnew,NEW_DUPING) )
-        { sprintf( buf, ch->name );
+        { sprintf( buf, "%s", ch->name );
           free_char( d->character );
           d->character = NULL;
           fOld = load_char_obj( d, buf );

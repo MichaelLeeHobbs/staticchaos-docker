@@ -56,6 +56,14 @@ const RULES = [
     hint: 'suit[] slots are SUIT_EQ..SUIT_MISSILES (0-14) in merc.h (#58).',
   },
   {
+    id: 'nonliteral-format',
+    desc: 'printf-family call with a non-literal format string (format-string risk)',
+    // sprintf(dest, ident) / fprintf(fp, ident) -- format arg is a bare variable
+    // with no varargs: it is used AS the format, so a stray % in the data breaks it.
+    re: /\b(?:sprintf|fprintf|vsprintf)\s*\(\s*[A-Za-z_]\w*\s*,\s*[A-Za-z_]\w*(?:\s*->\s*\w+)?\s*\)/g,
+    hint: 'pass the value through a literal format, e.g. sprintf(buf, "%s", x) (#71).',
+  },
+  {
     id: 'extras2-magic-index',
     desc: 'bare integer index into pcdata->extras2[] (use its slot name)',
     re: /extras2\[\s*\d+\s*\]/g,

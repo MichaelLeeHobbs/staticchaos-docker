@@ -2580,6 +2580,153 @@ void do_prename( CHAR_DATA *ch, char *argument )
     return;
 }
 
+/* Immortal: clone a character into a NEW, plain-mortal player file for testing.
+ * Syntax: clone <target> <newname> <password>
+ * Duplicates the ENTIRE saved character (class/race/stats/skills/powers/gold/
+ * practices/equipment/inventory -- everything the pfile holds) but STRIPS every
+ * admin/permission attribute, so the clone logs in as an ordinary mortal (an
+ * admin cloning itself yields a non-admin clone). Reuses the game's own
+ * load/save machinery, so the new pfile is guaranteed load-correct. */
+void do_clone( CHAR_DATA *ch, char *argument )
+{
+    char arg1[MAX_INPUT_LENGTH];	/* target name                */
+    char arg2[MAX_INPUT_LENGTH];	/* new (clone) name           */
+    char arg3[MAX_INPUT_LENGTH];	/* password (case-preserved)  */
+    char strsave[MAX_INPUT_LENGTH];
+    char buf[MAX_STRING_LENGTH];
+    DESCRIPTOR_DATA cd;
+    CHAR_DATA *victim;
+    CHAR_DATA *clone;
+    char *pwdnew;
+    char *praw;
+    int newlevel;
+    int k;
+    FILE *fp;
+
+    if ( !IS_IMMORTAL(ch) )		/* defence in depth; cmd_table already gates */
+    {
+	send_to_char( "Huh?\n\r", ch );
+	return;
+    }
+
+    argument = one_argument( argument, arg1 );
+    argument = one_argument( argument, arg2 );
+    /* one_argument lowercases its token; passwords are case-sensitive, so pull
+     * the third token straight from the raw remainder (one_argument only reads
+     * the source string, never rewrites it). */
+    praw = argument;
+    for ( k = 0;
+	  *praw != '\0' && *praw != ' ' && *praw != '\t' && k < MAX_INPUT_LENGTH - 1;
+	  k++ )
+	arg3[k] = *praw++;
+    arg3[k] = '\0';
+
+    if ( arg1[0] == '\0' || arg2[0] == '\0' || arg3[0] == '\0' )
+    {
+	send_to_char( "Syntax: clone <target> <newname> <password>\n\r", ch );
+	send_to_char( "Makes a plain-mortal copy of <target> as a new character.\n\r", ch );
+	return;
+    }
+
+    if ( !str_cmp( capitalize( arg1 ), capitalize( arg2 ) ) )
+    {
+	send_to_char( "The clone needs a different name than the target.\n\r", ch );
+	return;
+    }
+
+    /* new name must pass the same rules the nanny uses at creation */
+    if ( !check_parse_name( capitalize( arg2 ) ) )
+    {
+	send_to_char( "That new name is not allowed.\n\r", ch );
+	return;
+    }
+
+    /* never clobber a live or existing player under the new name */
+    if ( get_char_world( ch, arg2 ) != NULL )
+    {
+	send_to_char( "Someone by that new name is already connected.\n\r", ch );
+	return;
+    }
+    sprintf( strsave, "%s%s/%s", PLAYER_DIR, initial( arg2 ), capitalize( arg2 ) );
+    if ( ( fp = fopen( strsave, "r" ) ) != NULL )
+    {
+	fclose( fp );
+	send_to_char( "A player file with that new name already exists -- refusing to overwrite.\n\r", ch );
+	return;
+    }
+
+    /* match the nanny's minimum so the clone can actually log in */
+    if ( strlen( arg3 ) < 5 )
+    {
+	send_to_char( "Password must be at least five characters long.\n\r", ch );
+	return;
+    }
+
+    /* If the target is online, flush its pfile first so we clone current state. */
+    if ( ( victim = get_char_world( ch, arg1 ) ) != NULL && !IS_NPC(victim) )
+	save_char_obj( victim );
+
+    /* Load the target's pfile into a throwaway in-memory char through the game's
+     * own loader -> guaranteed load-correct. A zeroed local descriptor is all
+     * load_char_obj needs: it reads d->host and sets d->character / ch->desc. */
+    memset( &cd, 0, sizeof( cd ) );
+    cd.host = "clone";
+
+    if ( !load_char_obj( &cd, arg1 ) )
+    {
+	/* No pfile for the target: the loader left a blank char attached -- free it. */
+	if ( cd.character != NULL )
+	    free_char( cd.character );
+	send_to_char( "No such target: they must be online or have a player file.\n\r", ch );
+	return;
+    }
+
+    clone = cd.character;
+    clone->desc  = NULL;		/* detach from the throwaway descriptor */
+    cd.character = NULL;
+
+    /* --- identity --- */
+    free_string( clone->name );
+    clone->name = str_dup( capitalize( arg2 ) );
+
+    /* login password (crypt() is a plaintext no-op in this build) */
+    pwdnew = crypt( arg3, clone->name );
+    free_string( clone->pcdata->pwd );
+    clone->pcdata->pwd = str_dup( pwdnew );
+
+    /* --- STRIP EVERY ADMIN / PERMISSION ATTRIBUTE (the security core) --- */
+    clone->trust            = 0;	/* explicit trust override        */
+    clone->wizbit           = 0;	/* wiz channel / who flag         */
+    clone->pcdata->security = 0;	/* OLC / builder security         */
+    /* get_trust() falls back to ch->level, so an immortal's level (>=LEVEL_IMMORTAL)
+     * would keep the clone immortal. Cap below immortal; a mortal keeps its level. */
+    clone->level = UMIN( clone->level, LEVEL_IMMORTAL - 1 );
+    /* clear imm-only act bits; keep ordinary mortal flags */
+    REMOVE_BIT( clone->act, PLR_HOLYLIGHT );
+    REMOVE_BIT( clone->act, PLR_WIZINVIS );
+    REMOVE_BIT( clone->act, PLR_LOG );
+
+    newlevel = clone->level;
+
+    /* persist the clone under its new name via the game's own saver */
+    save_char_obj( clone );
+
+    /* tear down the throwaway char (it was never in char_list or a room):
+     * extracts its objects and returns its strings/pcdata to the free lists. */
+    free_char( clone );
+
+    sprintf( buf, "%s cloned %s into new mortal character %s (level %d).",
+	ch->name, capitalize( arg1 ), capitalize( arg2 ), newlevel );
+    log_string( buf );
+    wiznet( buf );
+
+    sprintf( buf, "Created %s: a plain-mortal clone of %s (level %d; trust/wizbit/security 0). "
+	"Log in with the password you gave.\n\r",
+	capitalize( arg2 ), capitalize( arg1 ), newlevel );
+    send_to_char( buf, ch );
+    return;
+}
+
 
 
 void do_mset( CHAR_DATA *ch, char *argument )

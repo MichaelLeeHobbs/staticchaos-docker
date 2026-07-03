@@ -1206,7 +1206,13 @@ void second_update()
         if ( ch->position <= POS_RESTING )
           ch->mana += (ch->pcdata->will + ch->pcdata->mind) * 3;
         else
-          ch->mana += ch->pcdata->will + (ch->max_mana / 85);
+          /* Active (standing/fighting) passive mana regen -- runs every second.
+             Mana's main sink is 'concentrate' (100/tick).  The flat term used to
+             be the bare 'will' (caps at 100), which exactly refunded concentrate's
+             cost, so mana never visibly depleted.  Trimmed ~1/3 (will*2/3, gear
+             term /85 -> /120) so concentrate net-drains while active, yet Sorcerer
+             stays the best mana class (still far above every other class standing). */
+          ch->mana += (ch->pcdata->will * 2 / 3) + (ch->max_mana / 120);
         ch->mana = UMIN( ch->max_mana, ch->mana );
       }
     }

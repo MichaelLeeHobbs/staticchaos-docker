@@ -3221,14 +3221,21 @@ bool str_suffix( const char *astr, const char *bstr )
  */
 char *capitalize( const char *str )
 {
-    static char strcap[MAX_STRING_LENGTH];
+    /* Ring of buffers so several capitalize() results can be live at once, e.g.
+     * sprintf(buf, "%s %s", capitalize(a), capitalize(b)) -- with a single static
+     * the second call would clobber the first (#72). 4 slots covers any realistic
+     * nesting; falls back to overwriting only past that. */
+    static char strcap[4][MAX_STRING_LENGTH];
+    static int  which = 0;
+    char *cap = strcap[which];
     int i;
 
+    which = ( which + 1 ) & 3;
     for ( i = 0; str[i] != '\0'; i++ )
-	strcap[i] = LOWER(str[i]);
-    strcap[i] = '\0';
-    strcap[0] = UPPER(strcap[0]);
-    return strcap;
+	cap[i] = LOWER(str[i]);
+    cap[i] = '\0';
+    cap[0] = UPPER(cap[0]);
+    return cap;
 }
 
 

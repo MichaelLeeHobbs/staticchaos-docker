@@ -33,9 +33,19 @@ jobs:
       - name: Compile the MUD (Docker build, 32-bit bullseye/gcc 10)
         run: docker compose build mud
 
+      # Behavioural gate: boot the freshly-built image and drive a real telnet
+      # session (create char -> command -> save -> log back in). Exercises the
+      # nanny/login + save/load paths (comm.c/save.c/db.c) that unit checks miss (#69).
+      - name: Integration smoke test
+        run: bash test/run-smoke.sh
+
       # Node tooling deps (repo root) power both the C lint and the data build.
       - name: Install tooling deps
         run: pnpm install --frozen-lockfile
+
+      # Parser drift guard (#57): golden test for tools/lib/area.mjs vs src/db.c.
+      - name: Test area parser (drift guard)
+        run: pnpm test
 
       - name: Lint C (fails on bare magic indices)
         run: pnpm run lint:c

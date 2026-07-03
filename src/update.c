@@ -1837,7 +1837,7 @@ void save_wholist()
     }
     else
     {
-      fprintf( fp, startbuf );
+      fprintf( fp, "%s", startbuf );
     }
 
     fclose( fp );
@@ -1879,7 +1879,7 @@ void save_llboards( bool leader)
     }
     else
     {
-      fprintf( fp, leaders );
+      fprintf( fp, "%s", leaders );
     }
 
     fclose( fp );
@@ -1901,7 +1901,7 @@ void save_llboards( bool leader)
     }
     else
     {
-      fprintf( fp, losers );
+      fprintf( fp, "%s", losers );
     }
 
     fclose( fp );
@@ -1943,7 +1943,7 @@ void save_clanboard()
   }
   else
   {
-    fprintf( fp, buf );
+    fprintf( fp, "%s", buf );
   }
 
   fclose( fp );

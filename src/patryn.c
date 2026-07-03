@@ -292,7 +292,7 @@ void do_runeweave( CHAR_DATA *ch, char *argument )
         case TAR_IGNORE:         strcpy( def1, "room"      ); break;
         default:                 strcpy( def1, "-"         ); break;
       }
-      sprintf( buf, "%-8s + %-14s %5d  %-9s  %3d\n\r",
+      snprintf( buf, sizeof( buf ), "%-8s + %-14s %5d  %-9s  %3d\n\r",
         rn1, rn2, cost_table[slot].cost, def1, cost_table[slot].wait );
       send_to_char( buf, ch );
     }

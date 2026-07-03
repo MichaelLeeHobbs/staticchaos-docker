@@ -14,7 +14,7 @@ NOCRYPT =
 # gcc's worst-case sprintf sizing (real overflows were fixed; the rest are bounded
 # by short game data like names/area-names). Everything else is fixed in code.
 WSUPPRESS = -Wno-unused-but-set-variable -Wno-trigraphs -Wno-misleading-indentation \
-            -Wno-pointer-sign -Wno-format-overflow
+            -Wno-pointer-sign -Wno-format-truncation
 C_FLAGS = -O -Wall -fcommon -m32 $(WSUPPRESS) $(PROF) $(NOCRYPT)
 # -rdynamic exports symbol names so the SIGSEGV backtrace handler in comm.c can
 # print readable function names in crash dumps.

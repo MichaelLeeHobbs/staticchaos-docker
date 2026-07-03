@@ -255,7 +255,7 @@ static void save_board (BOARD_DATA *board)
 	fp = fopen (filename, "w");
 	if (!fp)
 	{
-		sprintf (buf, "Error writing to: %s", filename);
+		snprintf( buf, sizeof( buf ), "Error writing to: %s", filename);
 		bug (buf, 0);
 	}
 	else

@@ -1245,7 +1245,7 @@ bool change_exit( CHAR_DATA *ch, char *argument, int door )
 	}
 	
 	redit_create( ch, arg );		/* Create the room.	*/
-	sprintf( buf, "link %s", arg );
+	snprintf( buf, sizeof( buf ), "link %s", arg );
 	change_exit( ch, buf, door);		/* Create the exits.	*/
 	return TRUE;
     }

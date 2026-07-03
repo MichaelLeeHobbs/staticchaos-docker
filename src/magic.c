@@ -154,7 +154,7 @@ void say_spell( CHAR_DATA *ch, int sn )
 	    length = 1;
     }
 
-    sprintf( buf2, "$n utters the words, '%s'.", buf );
+    snprintf( buf2, sizeof( buf2 ), "$n utters the words, '%s'.", buf );
     sprintf( buf,  "$n utters the words, '%s'.", skill_table[sn].name );
 
     for ( rch = ch->in_room->people; rch; rch = rch->next_in_room )

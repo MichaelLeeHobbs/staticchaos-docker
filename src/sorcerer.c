@@ -196,7 +196,7 @@ void do_chant( CHAR_DATA *ch, char *argument )
   {
     char joined[MAX_INPUT_LENGTH];
     int amb2[MAX_CHANT], namb2, cn2;
-    sprintf( joined, "%s%s", arg1, arg2 );
+    snprintf( joined, sizeof( joined ), "%s%s", arg1, arg2 );
     cn2 = sorc_match_chant( joined, amb2, &namb2 );
     if ( cn2 >= 0 )
     {
@@ -228,7 +228,7 @@ void do_chant( CHAR_DATA *ch, char *argument )
   {
     char k1[MAX_INPUT_LENGTH], k12[MAX_INPUT_LENGTH], nk[MAX_INPUT_LENGTH], joined[MAX_INPUT_LENGTH];
     sorc_squash( k1, arg1 );
-    sprintf( joined, "%s%s", arg1, arg2 );
+    snprintf( joined, sizeof( joined ), "%s%s", arg1, arg2 );
     sorc_squash( k12, joined );
     sorc_squash( nk, chant_table[cn].name );
     if ( strlen( k12 ) > strlen( k1 ) && !str_prefix( k12, nk ) )

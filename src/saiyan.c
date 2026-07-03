@@ -572,7 +572,7 @@ void do_kisense( CHAR_DATA *ch, char *argument )
     areaname[i-16] = victim->in_room->area->name[i];
   areaname[i-16] = '\0';
 
-  sprintf( buf, "\n\rYou locate %s in the vicinity of %s.\n\r", victim->name, areaname );
+  snprintf( buf, sizeof( buf ), "\n\rYou locate %s in the vicinity of %s.\n\r", victim->name, areaname );
   send_to_char( buf, ch );
   WAIT_STATE( ch, 8 );
   return;

@@ -81,6 +81,36 @@ const RULES = [
   // and runeweave numeric case labels (numeric case: is legitimate elsewhere).
 ];
 
+/*
+ * Multiline guard (#73): a `var = fopen(...)` result must be NULL-checked before
+ * use -- an unchecked fopen crashes on a missing/unreadable file. The pinned
+ * cppcheck (2.3) does NOT catch this, so we do. We flag an fopen assignment that
+ * is neither inline-checked (`if ((fp = fopen(...)) == NULL)`) nor NULL-checked
+ * within the next few lines. NULL_FILE (/dev/null) reserve opens are exempt.
+ */
+function checkFopen(lines, rel) {
+  const assign = /\b([A-Za-z_]\w*)\s*=\s*fopen\s*\(/;
+  let n = 0;
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
+    const m = line.match(assign);
+    if (!m) continue;
+    if (/NULL_FILE/.test(line)) continue;              // /dev/null reserve FD, can't fail
+    if (/[!=]=\s*NULL|!\s*\(/.test(line)) continue;     // inline check on this line
+    const v = m[1];
+    const win = lines.slice(i, i + 4).join('\n');
+    const checked = new RegExp(
+      `${v}\\s*[!=]=\\s*NULL|NULL\\s*[!=]=\\s*${v}|!\\s*\\(?\\s*${v}\\b|if\\s*\\(\\s*${v}\\s*\\)`,
+    ).test(win);
+    if (!checked) {
+      n++;
+      console.error(`${rel}:${i + 1}: [unchecked-fopen] fopen result '${v}' not NULL-checked before use (#73)`);
+      console.error(`    ${line.trim()}   -- guard it, e.g. if ( ( ${v} = fopen(...) ) == NULL ) { ... }`);
+    }
+  }
+  return n;
+}
+
 const cFiles = fs.readdirSync(SRC)
   .filter((f) => f.endsWith('.c'))
   .map((f) => path.join(SRC, f));
@@ -100,10 +130,11 @@ for (const file of cFiles) {
       }
     }
   });
+  violations += checkFopen(lines, rel);
 }
 
 if (violations > 0) {
   console.error(`\nlint-c: ${violations} violation(s) found.`);
   process.exit(1);
 }
-console.log(`lint-c: clean (${cFiles.length} files, ${RULES.length} rule(s)).`);
+console.log(`lint-c: clean (${cFiles.length} files, ${RULES.length} pattern rule(s) + fopen guard).`);

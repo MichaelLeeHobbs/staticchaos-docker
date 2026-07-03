@@ -17,6 +17,8 @@
     "build:d3map": "node tools/build-d3-map.mjs",
     "build:dialogue": "node tools/build-npc-dialogue.mjs",
     "lint:c": "node tools/lint-c.mjs",
+    "format:c": "clang-format -i --style=file",
+    "format:c:check": "clang-format --style=file --dry-run --Werror",
     "test": "node tools/test-area-parser.mjs",
     "test:parser": "node tools/test-area-parser.mjs",
     "test:generators": "node tools/test-generators.mjs",

@@ -1,0 +1,26 @@
+# House style for NEW / changed C in this tree (clang-format auto-discovers this).
+#
+# IMPORTANT: do NOT bulk-reformat the legacy source. This 1990s Merc code predates
+# the config and its style is internally inconsistent (e.g. `if ( x )` and
+# `sprintf( x )` are spaced, but `IS_NPC(x)` is not), so a blanket run would produce
+# a massive churn diff, destroy `git blame`, and risk the trigraph text and the
+# `args(( ))` macro idioms. Run it only on files you're already editing:
+#     clang-format -i src/<subdir>/<file>.c      (or:  pnpm run format:c -- <file>)
+#
+# Tuned to the dominant observed style: 4-space indent, Allman braces, spaces inside
+# parens, pointer-right. ColumnLimit 0 disables line re-wrapping -- the single
+# biggest source of churn on legacy lines -- so edits stay local.
+BasedOnStyle: LLVM
+IndentWidth: 4
+TabWidth: 4
+UseTab: Never
+ColumnLimit: 0
+BreakBeforeBraces: Allman
+PointerAlignment: Right
+SpaceBeforeParens: ControlStatements
+SpacesInParentheses: true
+AlignAfterOpenBracket: DontAlign
+AllowShortIfStatementsOnASingleLine: false
+AllowShortFunctionsOnASingleLine: None
+SortIncludes: false
+KeepEmptyLinesAtTheStartOfBlocks: true

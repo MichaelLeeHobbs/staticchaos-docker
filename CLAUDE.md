@@ -108,6 +108,10 @@ build deploys via its own `web/Dockerfile` / `web/docker-compose.yml` (host :80)
   as more index families get named. CI also runs **cppcheck** on `src/` (buffer overflow, array OOB,
   null deref, format/scanf) and fails on new findings; known-intentional idioms and the 32-bit
   int↔pointer casts are muted in `.cppcheck-suppressions` (#62).
+- **C formatting:** `.clang-format` captures the house style (4-space, Allman, `if ( x )` spacing).
+  Use it on code you're editing — `pnpm run format:c -- <file>` — **never bulk-reformat** the legacy
+  tree: its style is internally inconsistent, so a blanket run is pure churn that destroys `git blame`
+  and risks the trigraph/`args(( ))` idioms. (Linting is separate: `lint:c` + cppcheck above.)
 
 > **Maintaining this file:** keep it lean — prune rules the model already follows; when a section is
 > only sometimes needed or keeps growing, move it to a doc or a skill and link it. Test for any line:

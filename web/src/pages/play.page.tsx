@@ -3,7 +3,7 @@ import { MudTerminal } from '../components/mud-terminal';
 
 export function PlayPage() {
   return (
-    <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '70vh' }}>
+    <Box sx={{ display: 'flex', flexDirection: 'column', flex: 1, minHeight: 0 }}>
       <Typography variant="h1" gutterBottom>
         Play Now
       </Typography>

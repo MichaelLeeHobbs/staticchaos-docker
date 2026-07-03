@@ -14,8 +14,9 @@ const NAV = [
 export function AppLayout() {
   const { pathname } = useLocation();
   const isActive = (to: string) => (to === '/' ? pathname === '/' : pathname.startsWith(to));
-  // the map wants the whole page; other pages read better in a centred column
-  const wide = pathname.startsWith('/map');
+  // the map and the play terminal want the whole page; other pages read better
+  // in a centred column
+  const wide = pathname.startsWith('/map') || pathname.startsWith('/play');
   return (
     <Box
       sx={{

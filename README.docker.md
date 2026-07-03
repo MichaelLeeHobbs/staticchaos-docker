@@ -17,6 +17,9 @@ docker compose up --build
 docker compose up --build -d
 ```
 
+> This local build is for development. **Production runs the CI-published image**, not a host
+> build — see [Deploying to a remote host](#deploying-to-a-remote-host).
+
 Then connect with any telnet/MUD client:
 
 ```bash
@@ -47,40 +50,44 @@ telnet localhost 4000
 
 ## Deploying to a remote host
 
-The repo ships **example** deploy scripts that push this project to a remote Docker host over
-SSH. They're templates — copy each to the real name (the real ones are gitignored so your
-host/paths stay out of the repo) and set your host:
+**Deploys are image-based.** CI (`.github/workflows/ci.yml`) builds the 32-bit MUD image and
+publishes it to GitHub Container Registry — `ghcr.io/michaelleehobbs/staticchaos-docker/mud`,
+tagged `latest` and `sha-<gitsha>` — on every push to `main`. Production runs that published
+image via `docker-compose.image.yml`; there is no on-host compile. So a release is *pull a tag
+and restart*, and a rollback is *restart on the previous tag*.
+
+**Standard release flow:**
+1. Merge to `main` and wait for CI to go green — the `publish-image` job pushes the image.
+2. Deploy that exact commit: `mud-deploy-image.sh sha-<gitsha>` (aborts if players are online).
+3. Rollback if needed: `mud-deploy-image.sh sha-<previous>`.
+
+**Player data is safe across an image swap.** The image carries only *seed* state (the area seed
+and the empty a–z player skeleton); live `player`/`notes`/`finger`/`log` and the auto-dumped area
+live in named volumes, and `name: staticchaos` in `docker-compose.image.yml` pins the compose
+project so those volumes resolve to the same `staticchaos_*` regardless of image tag. A harmless
+`volume ... was not created by Docker Compose` warning on deploy just confirms the existing volumes
+are being reused. (Verify once with `docker volume ls`.)
+
+The repo ships **example** deploy scripts — copy each to the real name (the real ones are gitignored
+so your host/paths stay out of the repo) and set `REMOTE` (SSH alias or `user@host`) / `REMOTE_DIR`:
 
 ```bash
-cp deploy.example.sh            deploy.sh
-cp mud-redeploy.example.sh      mud-redeploy.sh
-cp web/deploy-web.example.sh    web/deploy-web.sh
-# then either edit REMOTE in each, or pass it at runtime:
-REMOTE=user@host ./deploy.sh
+cp mud-deploy-image.example.sh  mud-deploy-image.sh   # primary MUD deploy
+cp web/deploy-web.example.sh    web/deploy-web.sh     # web companion site
+cp mud-redeploy.example.sh      mud-redeploy.sh       # host-build fallback
+cp deploy.example.sh            deploy.sh             # full-stack host build (legacy)
 ```
 
 | Script | What it does |
 |--------|--------------|
-| `deploy.sh` | Full stack: package the project, copy to `REMOTE_DIR` on the host, `docker compose up -d --build` (MUD + web). |
-| `mud-redeploy.sh` | MUD only, **safe**: aborts if players are online, builds (verify) *before* restarting so a bad compile never kills the running game. Use for source/area changes. |
-| `mud-deploy-image.sh` | MUD only, **image-based**: pulls the CI-published GHCR image and `up -d` via `docker-compose.image.yml` — no host build. Aborts if players are online. Use once CI is publishing images. |
-| `web/deploy-web.sh` | Web companion site only (rebuilds the `web` compose service on :80). |
+| `mud-deploy-image.sh` | **Primary MUD deploy.** Pull the CI-published GHCR image tag and `up -d` via `docker-compose.image.yml` — no host build. Aborts if players are online; rollback by tag. |
+| `web/deploy-web.sh` | Web companion site: regenerates `world-maps/`, packages the repo, rebuilds the `web` service on :80. |
+| `mud-redeploy.sh` | **Host-build fallback.** scp `src/` → `docker compose build mud && up -d`; aborts if players online and builds *before* restarting. Use only if GHCR is unavailable or to test an un-pushed build. |
+| `deploy.sh` | Full-stack host build (MUD + web). Legacy — prefer the image + web scripts above. |
 
-### Image-based deploy (`docker-compose.image.yml`)
-
-CI (`.github/workflows/ci.yml`) publishes the MUD image to GHCR on every push to
-`main`. `docker-compose.image.yml` runs that image instead of building on the host,
-so a deploy is "pull a tag + `up -d`" and a rollback is "point `MUD_IMAGE` at the
-previous tag". **Player data is safe across the swap:** the image carries only
-seed state (area seed + empty a-z player skeleton); live `player/notes/finger/log`
-and the auto-dumped area live in the named volumes, and `name: staticchaos` pins the
-compose project so those volumes resolve to the same `staticchaos_*` the build-based
-compose already uses. Cutover from build-based to image-based therefore keeps every
-character — verify once with `docker volume ls`. Rollback: `mud-deploy-image.sh <old-tag>`.
-
-All three honor `REMOTE` (SSH alias or `user@host`) and `REMOTE_DIR` env vars and derive their
-own source path, so they work from any checkout. They need `ssh`/`scp`/`tar` and key-based SSH
-to the host (run from WSL or Git Bash on Windows). Named volumes mean game data survives deploys.
+All honor `REMOTE`/`REMOTE_DIR` and derive their own source path, so they work from any checkout.
+They need `ssh`/`scp`/`tar` and key-based SSH to the host (run from WSL or Git Bash on Windows).
+Named volumes mean game data survives deploys.
 
 ## Data persistence
 

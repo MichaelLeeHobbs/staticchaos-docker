@@ -773,7 +773,6 @@ void obj_update( void )
 {   
     OBJ_DATA *obj;
     OBJ_DATA *obj_next;
-    char buf[MAX_INPUT_LENGTH];
 
     for ( obj = object_list; obj != NULL; obj = obj_next )
     {
@@ -804,9 +803,7 @@ void obj_update( void )
 
 	switch ( obj->item_type )
 	{
-	default:              message = "$p vanishes."; 
-	  sprintf( buf, "Fucked up item decay thing. '%s'", obj->short_descr );
-	                      bug( "Fucked up item decay thing.",0 );continue;	break;
+	default:              message = "$p vanishes.";		break;
 	case ITEM_FOUNTAIN:   message = "$p dries up.";         	break;
 	case ITEM_CORPSE_NPC: message = "$p decays into dust."; 	break;
 	case ITEM_CORPSE_PC:  message = "$p decays into dust."; 	break;

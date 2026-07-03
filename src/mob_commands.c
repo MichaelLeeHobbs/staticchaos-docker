@@ -201,8 +201,12 @@ void do_mpkill( CHAR_DATA *ch, char *argument )
 
     if ( ( victim = get_char_room( ch, arg ) ) == NULL )
     {
-	bug( "MpKill - Victim not in room from vnum %d.",
-	    ch->pIndexData->vnum );
+	/* Log where (room) and what (target) so the offending mobprog is findable. */
+	char buf[MAX_STRING_LENGTH];
+	snprintf( buf, sizeof( buf ),
+	    "MpKill - victim '%s' not in room %d, from mob vnum %d.",
+	    arg, ch->in_room != NULL ? ch->in_room->vnum : 0, ch->pIndexData->vnum );
+	bug( buf, 0 );
 	return;
     }
 

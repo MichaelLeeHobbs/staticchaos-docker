@@ -2689,10 +2689,18 @@ void do_clone( CHAR_DATA *ch, char *argument )
     free_string( clone->name );
     clone->name = str_dup( capitalize( arg2 ) );
 
-    /* login password (crypt() is a plaintext no-op in this build) */
-    pwdnew = crypt( arg3, clone->name );
+    /* login password: yescrypt-hashed (see password.c). On the (essentially
+     * never) hash failure, abort rather than leave the clone with the target's
+     * password or a plaintext one. */
+    pwdnew = password_hash( arg3 );
+    if ( pwdnew == NULL )
+    {
+	send_to_char( "Could not secure the clone's password; aborting.\n\r", ch );
+	free_char( clone );
+	return;
+    }
     free_string( clone->pcdata->pwd );
-    clone->pcdata->pwd = str_dup( pwdnew );
+    clone->pcdata->pwd = pwdnew;	/* password_hash already str_dup'd */
 
     /* --- STRIP EVERY ADMIN / PERMISSION ATTRIBUTE (the security core) --- */
     clone->trust            = 0;	/* explicit trust override        */

@@ -108,6 +108,59 @@ def rm_pfile(container, name):
             return  # docker not callable here -- skip cleanup silently
 
 
+def docker_ok(container):
+    """True if we can `docker exec` into the container (needed to inject a corrupt
+    save). False on e.g. Windows where docker isn't callable via subprocess."""
+    try:
+        return subprocess.run(["docker", "exec", container, "true"],
+                              capture_output=True, timeout=10).returncode == 0
+    except (OSError, subprocess.SubprocessError):
+        return False
+
+
+def make_char(host, port, name, pw, cls):
+    """Create a character through the nanny and leave it in-game."""
+    s = Session(host, port)
+    s.read_until(r"name", 15)
+    s.send(name); s.read_until(r"\(Y/N\)"); s.send("y")
+    s.read_until(r"password"); s.send(pw); s.read_until(r"retype"); s.send(pw)
+    s.read_until(r"sex"); s.send("M"); s.read_until(r"destin|class"); s.send(cls)
+    advance_to_game(s)
+    return s
+
+
+def corrupt_save_recovery(host, port, container, cls):
+    """#83: a corrupt save must be quarantined and the server must survive -- not
+    exit(1) and take everyone down. Creates a char, injects a bad token into its
+    save, then attempts login and asserts the server still responds and the file
+    was moved aside to <name>.corrupt."""
+    name = "Corrupt" + "".join(random.choice(string.ascii_lowercase) for _ in range(4))
+    pw = "corruptpw1"
+    pf = pfile_path(name)
+    rm_pfile(container, name)
+    # create + save + quit
+    s = make_char(host, port, name, pw, cls)
+    s.send("save"); s.read_until(r"\bOk\b", 10)
+    s.send("quit"); time.sleep(1.0); s.close()
+    # inject a bad token where fread_number expects one (the Weapons row)
+    subprocess.run(["docker", "exec", container, "sh", "-c",
+                    f"sed -i 's/^Weapons  */Weapons      notanum /' {pf}"],
+                   capture_output=True, timeout=10)
+    # log in on the corrupt save: read_until raises if the server crashed/hung
+    s2 = Session(host, port)
+    s2.read_until(r"name", 15)
+    s2.send(name)
+    s2.read_until(r"\(Y/N\)|password", 12)   # survived if we get any sane prompt
+    s2.close()
+    q = subprocess.run(["docker", "exec", container, "sh", "-c",
+                        f"test -f {pf}.corrupt && echo Y"],
+                       capture_output=True, text=True, timeout=10)
+    assert "Y" in q.stdout, "corrupt save was not quarantined (<name>.corrupt missing)"
+    rm_pfile(container, name)
+    subprocess.run(["docker", "exec", container, "sh", "-c", f"rm -f {pf}.corrupt"],
+                   capture_output=True, timeout=10)
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--host", default="127.0.0.1")
@@ -177,6 +230,13 @@ def main():
         assert args.name.lower() in out.lower(), "reloaded character lost its identity"
         s2.send("quit"); time.sleep(0.5); s2.close()
         print("[6/6] logged back in and character reloaded intact (save/load roundtrip)")
+
+        # --- corrupt-save recovery (#83): needs docker to inject the corruption ---
+        if docker_ok(args.container):
+            corrupt_save_recovery(args.host, args.port, args.container, args.charclass)
+            print("[+]   corrupt save quarantined; server survived (#83)")
+        else:
+            print("[+]   skipped corrupt-save scenario (docker not reachable here)")
 
         print("\nSMOKE TEST PASSED")
         return 0

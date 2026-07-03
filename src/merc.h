@@ -2628,6 +2628,13 @@ char *	crypt		args( ( const char *key, const char *salt ) );
 #define crypt(s1,s2) (s1)
 #endif
 
+/* Recoverable-load support (#83): a corrupt player save longjmps out of the
+ * fread_* readers instead of exit()ing the whole server. load_recover points at
+ * an active recovery jmp_buf during a resumable load (player files), else NULL
+ * (area/boot loads still fail fast, which CI's smoke test catches). */
+#include <setjmp.h>
+extern jmp_buf *	load_recover;
+
 #if	defined(macintosh)
 #define NOCRYPT
 #if	defined(unix)
@@ -2834,6 +2841,7 @@ RID *	get_room_index	args( ( int vnum ) );
 RID *	get_rand_room	args( ( void ) );
 char	fread_letter	args( ( FILE *fp ) );
 int	fread_number	args( ( FILE *fp ) );
+void	fread_fatal	args( ( void ) );	/* recover (longjmp) or exit on a bad token (#83) */
 long long fread_number_ll	args( ( FILE *fp ) );
 void	fread_number_row	args( ( FILE *fp, int *dest, int max ) );
 void	fread_number_row_sh	args( ( FILE *fp, sh_int *dest, int max ) );

@@ -13,12 +13,17 @@ FROM debian:bullseye-slim@sha256:f18adf4e1d04b1d8ba48025b8e35003f4c748ddd3dd8e87
 # build-essential provides gcc + make. gcc-multilib + libc6-dev-i386 provide the
 # 32-bit toolchain and libs: the server is built -m32 because this code assumes
 # 32-bit pointers and crashes during gameplay when built 64-bit (see src/Makefile).
-# (No libcrypt: passwords are plaintext on Linux in this codebase -- see merc.h.)
-RUN apt-get update \
+# libcrypt-dev (+ its :i386 variant) provides libxcrypt's crypt(3)/crypt_gensalt(3)
+# and the 32-bit libcrypt.so we link with -m32 -lcrypt for yescrypt password
+# hashing (see src/core/password.c). The i386 variant needs the i386 dpkg arch.
+RUN dpkg --add-architecture i386 \
+    && apt-get update \
     && apt-get install -y --no-install-recommends \
         build-essential \
         gcc-multilib \
         libc6-dev-i386 \
+        libcrypt-dev \
+        libcrypt-dev:i386 \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /mud

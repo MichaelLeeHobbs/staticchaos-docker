@@ -2538,15 +2538,13 @@ char *	crypt		args( ( const char *key, const char *salt ) );
 #endif
 
 #if	defined(linux)
-/* Static Chaos historically stored passwords in plaintext on Linux via this
- * macro (it never linked libcrypt -- see the bare Makefile and the bundled
- * player files). We keep that original behavior so existing accounts such as
- * "Superuser" still work. Modern glibc declares crypt() in <unistd.h>, which
- * would collide with the macro below; we therefore pull <unistd.h> in here
- * FIRST (its include guard turns every later "#include <unistd.h>" into a
- * no-op) and only THEN shadow crypt(). */
-#include <unistd.h>
-#define crypt(s1,s2) (s1)
+/* Password hashing uses the real crypt(3) / crypt_gensalt() from libxcrypt,
+ * linked 32-bit via -lcrypt (see src/Makefile / Dockerfile). password.c hashes
+ * new passwords with yescrypt ($y$); legacy plaintext accounts are transparently
+ * re-hashed on their next successful login (see password_verify / CON_GET_OLD_PASSWORD).
+ * <crypt.h> declares both crypt() and crypt_gensalt(); it also drags in the
+ * <unistd.h> crypt() prototype cleanly, so nothing here re-shadows crypt(). */
+#include <crypt.h>
 #endif
 
 /* Recoverable-load support (#83): a corrupt player save longjmps out of the
@@ -2557,7 +2555,6 @@ char *	crypt		args( ( const char *key, const char *salt ) );
 extern jmp_buf *	load_recover;
 
 #if	defined(macintosh)
-#define NOCRYPT
 #if	defined(unix)
 #undef	unix
 #endif
@@ -2568,7 +2565,6 @@ char *	crypt		args( ( const char *key, const char *salt ) );
 #endif
 
 #if	defined(MSDOS)
-#define NOCRYPT
 #if	defined(unix)
 #undef	unix
 #endif
@@ -2602,17 +2598,6 @@ int	ungetc		args( ( int c, FILE *stream ) );
 char *	crypt		args( ( const char *key, const char *salt ) );
 #endif
 
-
-
-/*
- * The crypt(3) function is not available on some operating systems.
- * In particular, the U.S. Government prohibits its export from the
- *   United States to foreign countries.
- * Turn on NOCRYPT to keep passwords in plain text.
- */
-#if	defined(NOCRYPT)
-#define crypt(s1, s2)	(s1)
-#endif
 
 
 
@@ -2796,6 +2781,11 @@ void	tail_chain	args( ( void ) );
 int	isquare		args( ( int num ) );
 void	memory_check	args( ( void ) );
 int	has_uniques	args( ( CHAR_DATA *ch ) );
+
+/* password.c -- yescrypt hashing + transparent on-login migration */
+char *	password_hash	args( ( const char *plain ) );
+bool	password_verify	args( ( const char *plain, const char *stored,
+				bool *needs_upgrade ) );
 
 /* fight.c */
 void	violence_update	args( ( void ) );

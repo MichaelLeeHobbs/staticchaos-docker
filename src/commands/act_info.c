@@ -2009,6 +2009,7 @@ void do_password( CHAR_DATA *ch, char *argument )
     char *pwdnew;
     char *p;
     char cEnd;
+    bool pwd_upgrade;
 
     if ( IS_NPC(ch) )
 	return;
@@ -2061,7 +2062,7 @@ void do_password( CHAR_DATA *ch, char *argument )
 	return;
     }
 
-    if ( strcmp( crypt( arg1, ch->pcdata->pwd ), ch->pcdata->pwd ) )
+    if ( !password_verify( arg1, ch->pcdata->pwd, &pwd_upgrade ) )
     {
 	WAIT_STATE( ch, 40 );
 	send_to_char( "Wrong password.  Wait 10 seconds.\n\r", ch );
@@ -2078,21 +2079,29 @@ void do_password( CHAR_DATA *ch, char *argument )
     /*
      * No tilde allowed because of player file format.
      */
-    pwdnew = crypt( arg2, ch->name );
+    pwdnew = password_hash( arg2 );
+    if ( pwdnew == NULL )
+    {
+	send_to_char( "Password could not be secured, try again.\n\r", ch );
+	return;
+    }
+
     for ( p = pwdnew; *p != '\0'; p++ )
     {
 	if ( *p == '~' )
 	{
+	    free_string( pwdnew );
 	    send_to_char(
 		"New password not acceptable, try again.\n\r", ch );
 	    return;
 	}
     }
 
-    sprintf( log_buf, "%s password changed from %s to %s.", ch->name, ch->pcdata->pwd, pwdnew );
+    /* Don't log password material (old value may be legacy plaintext). */
+    sprintf( log_buf, "%s changed password.", ch->name );
     log_string( log_buf );
     free_string( ch->pcdata->pwd );
-    ch->pcdata->pwd = str_dup( pwdnew );
+    ch->pcdata->pwd = pwdnew;	/* password_hash already str_dup'd */
     save_char_obj( ch );
     send_to_char( "Ok.\n\r", ch );
     return;

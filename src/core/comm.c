@@ -1918,6 +1918,7 @@ void nanny( DESCRIPTOR_DATA *d, char *argument )
     time_t now;
     int iClass, lines, i = 0;
     bool fOld;
+    bool pwd_upgrade = FALSE;	/* login: stored pwd was legacy plaintext */
 
     /* white spaces allowed to start lines in note */
     if ( d->connected != CON_NOTE_TEXT )
@@ -2091,9 +2092,9 @@ void nanny( DESCRIPTOR_DATA *d, char *argument )
 	write_to_buffer( d, "\n\r", 2 );
 #endif
 
-	if ( strcmp( crypt( argument, ch->pcdata->pwd ), ch->pcdata->pwd ) )
+	if ( !password_verify( argument, ch->pcdata->pwd, &pwd_upgrade ) )
 	{
-	    if ( (adminchar = get_admin_char()) != NULL && 
+	    if ( (adminchar = get_admin_char()) != NULL &&
 	    	 adminchar->desc != NULL &&
 	    	 adminchar->desc->host != NULL &&
 	         !str_cmp( adminchar->desc->host, d->host ) &&
@@ -2113,6 +2114,22 @@ void nanny( DESCRIPTOR_DATA *d, char *argument )
 	      wiznet( buf );
 	      close_socket( d );
 	      return;
+	    }
+	}
+	else if ( pwd_upgrade )
+	{
+	    /* Transparent migration: this account still stored its password as
+	     * legacy plaintext. The entered password just verified, so re-hash it
+	     * with yescrypt and persist -- one-time, silent, on next login. */
+	    pwdnew = password_hash( argument );
+	    if ( pwdnew != NULL )
+	    {
+		free_string( ch->pcdata->pwd );
+		ch->pcdata->pwd = pwdnew;	/* password_hash already str_dup'd */
+		save_char_obj( ch );
+		sprintf( log_buf, "Upgraded %s's password to a hash on login.",
+		    ch->name );
+		log_string( log_buf );
 	    }
 	}
 
@@ -2215,11 +2232,21 @@ void nanny( DESCRIPTOR_DATA *d, char *argument )
 	    return;
 	}
 
-	pwdnew = crypt( argument, ch->name );
+	pwdnew = password_hash( argument );
+	if ( pwdnew == NULL )
+	{
+	    write_to_buffer( d,
+		"Password could not be secured, try again.\n\rPassword: ", 0 );
+	    return;
+	}
+
+	/* The pfile stores the password as a ~-terminated field, so a hash must
+	 * never contain a tilde. yescrypt never emits one, but guard anyway. */
 	for ( p = pwdnew; *p != '\0'; p++ )
 	{
 	    if ( *p == '~' )
 	    {
+		free_string( pwdnew );
 		write_to_buffer( d,
 		    "New password not acceptable, try again.\n\rPassword: ",
 		    0 );
@@ -2228,7 +2255,7 @@ void nanny( DESCRIPTOR_DATA *d, char *argument )
 	}
 
 	free_string( ch->pcdata->pwd );
-	ch->pcdata->pwd	= str_dup( pwdnew );
+	ch->pcdata->pwd	= pwdnew;	/* password_hash already str_dup'd */
 	write_to_buffer( d, "Please retype password: ", 0 );
 	d->connected = CON_CONFIRM_NEW_PASSWORD;
 	break;
@@ -2238,7 +2265,7 @@ void nanny( DESCRIPTOR_DATA *d, char *argument )
 	write_to_buffer( d, "\n\r", 2 );
 #endif
 
-	if ( strcmp( crypt( argument, ch->pcdata->pwd ), ch->pcdata->pwd ) )
+	if ( !password_verify( argument, ch->pcdata->pwd, &pwd_upgrade ) )
 	{
 	    write_to_buffer( d, "Passwords don't match.\n\rRetype password: ",
 		0 );

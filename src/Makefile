@@ -1,6 +1,5 @@
 CC      = gcc
 PROF    = -g
-NOCRYPT =
 # -fcommon: this 1990s Merc code relies on tentative/common global definitions
 #   that gcc 10+ rejects under its default -fno-common (multiple-definition link
 #   errors). -fcommon restores the legacy behavior.
@@ -18,20 +17,21 @@ NOCRYPT =
 # by short game data like names/area-names). Everything else is fixed in code.
 WSUPPRESS = -Wno-unused-but-set-variable -Wno-trigraphs -Wno-misleading-indentation \
             -Wno-pointer-sign -Wno-format-truncation
-C_FLAGS = -O -Wall -fcommon -m32 -Iinclude $(WSUPPRESS) $(PROF) $(NOCRYPT)
+C_FLAGS = -O -Wall -fcommon -m32 -Iinclude $(WSUPPRESS) $(PROF)
 # -rdynamic exports symbol names so the SIGSEGV backtrace handler in comm.c can
 # print readable function names in crash dumps.
 L_FLAGS = -O -m32 -rdynamic $(PROF)
-# math routines (act_info.c, etc.) need libm. crypt() is macro'd to plaintext
-# on Linux in merc.h (original Static Chaos behavior), so no libcrypt is linked.
-LIBS    = -lm
+# math routines (act_info.c, etc.) need libm. -lcrypt links libxcrypt for the
+# real crypt(3)/crypt_gensalt(3) used by password.c (yescrypt hashing); the
+# 32-bit dev lib comes from libcrypt-dev:i386 (see Dockerfile).
+LIBS    = -lm -lcrypt
 
 # Sources are grouped into subdirs (core/ commands/ classes/ olc/ world/); headers
 # in include/. Object paths mirror the source layout. (test.c, xrand.c and
 # memwatch.c live under core/ but are intentionally NOT built -- unused/debug.)
 O_FILES = core/comm.o core/db.o core/handler.o core/interp.o core/update.o \
           core/fight.o core/save.o core/string.o core/bit.o core/mem.o \
-          core/const.o core/gmcp.o \
+          core/const.o core/gmcp.o core/password.o \
           commands/act_comm.o commands/act_info.o commands/act_move.o \
           commands/act_obj.o commands/act_wiz.o \
           classes/saiyan.o classes/fist.o classes/patryn.o classes/mazoku.o \

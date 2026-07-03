@@ -5,7 +5,7 @@
 # steps hit EPERM / disk-I/O errors on the server's storage driver. npm does plain
 # copy installs, which work here. Local dev still uses pnpm (pnpm-lock.yaml).
 
-FROM node:22-alpine AS build
+FROM node:26-alpine AS build
 WORKDIR /app/web
 
 # deps first (layer cache); package scripts call node/tsc/vite directly, not pnpm
@@ -19,7 +19,7 @@ COPY docs/ /app/docs/
 COPY client/ /app/client/
 RUN npm run build
 
-FROM node:22-alpine AS serve
+FROM node:26-alpine AS serve
 WORKDIR /app
 COPY --from=build /app/web/server.mjs ./server.mjs
 COPY --from=build /app/web/dist ./dist

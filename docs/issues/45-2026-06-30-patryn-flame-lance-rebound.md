@@ -11,7 +11,7 @@ reporter: code-audit (#35)
 GitHub issue: https://github.com/MichaelLeeHobbs/staticchaos-docker/issues/45
 
 ## The bug (confirmed in source)
-`do_runeweave` **case 132** (Fire + Death, "flame lance") in `src/patryn.c`. The normal hit rolls off
+`do_runeweave` **case 132** (Fire + Death, "flame lance") in `src/classes/patryn.c`. The normal hit rolls off
 the Fire pool, but the **rebound** branch (self-damage when the weave rebounds) rolls off **Air**:
 ```
 rebound: dam = dice( ch->pcdata->mind/4, ch->pcdata->powers[P_AIR]  ); damage( ch, ch, dam, DAM_FIRE ); // BUG

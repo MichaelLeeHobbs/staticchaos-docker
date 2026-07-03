@@ -16,17 +16,17 @@ abilities. Extract two helpers so the priority lists live in one place — no be
 Flagged by the #4 and #8 reviews; CLAUDE.md "reuse, don't regenerate (~3rd time, capture it)".
 
 ## Current duplication (verified)
-- **`do_ryuken`** (`src/saiyan.c`, #4): block cascade (Air>Fire>Negative, ~1118-1126) + ward
+- **`do_ryuken`** (`src/classes/saiyan.c`, #4): block cascade (Air>Fire>Negative, ~1118-1126) + ward
   cascade (Spirit>Earth>Flame>Wind>Water>Negative, ~1138).
-- **`chant_flow_break`** (`src/sorcerer.c`, #8): same two cascades (~1266 / ~1270).
-- **`do_runeweave` case 513** (`src/patryn.c`, #3) and others touch the block bits ad hoc.
+- **`chant_flow_break`** (`src/classes/sorcerer.c`, #8): same two cascades (~1266 / ~1270).
+- **`do_runeweave` case 513** (`src/classes/patryn.c`, #3) and others touch the block bits ad hoc.
 
 Each enumerates `NEW_AIR_BLOCK/NEW_FIRE_BLOCK/NEW_NEGATIVE_BLOCK` and the six `gsn_*_ward` by
 hand; adding/renaming a block bit or ward gsn means editing every copy (silent-drift risk, no
 compile error to catch a miss).
 
 ## Proposed design
-Add two helpers in `src/patryn.c` (Patryn domain), prototyped in `merc.h` alongside `get_runes`:
+Add two helpers in `src/classes/patryn.c` (Patryn domain), prototyped in `merc.h` alongside `get_runes`:
 
 ```c
 /* Highest-priority active rune block, or 0; sets *name to "air"/"fire"/"negative". */

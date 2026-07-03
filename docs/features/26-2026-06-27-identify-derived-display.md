@@ -16,11 +16,11 @@ GitHub issue: https://github.com/MichaelLeeHobbs/staticchaos-docker/issues/26
 Reuse the #14 translation in `identify` so item-affect output is consistent everywhere.
 
 ## Current state (verified)
-- `equipment` (`src/act_info.c`): translates affects → derived buckets via global helpers
+- `equipment` (`src/commands/act_info.c`): translates affects → derived buckets via global helpers
   `eq_add_derived` (act_info.c:1473) + `eq_render_derived` (act_info.c:1500).
-- `spell_identify` (`src/magic.c:1540`): prints raw `affect_loc_name(paf->location) ... by N`
+- `spell_identify` (`src/world/magic.c:1540`): prints raw `affect_loc_name(paf->location) ... by N`
   (lines ~1628 / ~1638, over both `pIndexData->affected` and `obj->affected`).
-- Wiz `stat` (`src/act_wiz.c:741/748`): same raw loop.
+- Wiz `stat` (`src/commands/act_wiz.c:741/748`): same raw loop.
 
 The raw `STR/DEX/INT/WIS/CON` labels don't reflect the `affect_modify` remap, so identify under-
 sells/mislabels gear the same way equipment used to.

@@ -6,7 +6,7 @@
 > that doc; this one is authoritative).
 
 **Last verified against source:** commit `d4de47d`
-**Primary sources:** `src/saiyan.c`, `src/fight.c`, `src/update.c`, `src/const.c`, `src/merc.h`, `src/interp.c`
+**Primary sources:** `src/classes/saiyan.c`, `src/core/fight.c`, `src/core/update.c`, `src/core/const.c`, `src/include/merc.h`, `src/core/interp.c`
 
 ## How to read this
 
@@ -18,13 +18,13 @@
 - **Formulas are quoted verbatim** from the source. `dice(n, size)` rolls `n` dice of `1..size`
   (mean ≈ `n*(size+1)/2`). `body` = `ch->pcdata->body`, `spirit` = `ch->pcdata->spirit`.
 - **WAIT_STATE(ch, n)** is lag in pulses (`PULSE_VIOLENCE`), the standard combat-round unit.
-- **Damage types** route through `damage()` in `src/fight.c`; `DAM_KIFLAME` and the melee `F_UPPERCUT`
+- **Damage types** route through `damage()` in `src/core/fight.c`; `DAM_KIFLAME` and the melee `F_UPPERCUT`
   type have Saiyan-specific resist/soak handling, documented under *Passive defenses* below.
 - **⚠️ Needs verification** items are collected at the bottom — don't trust those numbers blindly.
 
 ## Class basics
 
-Source: `src/const.c` `class_table[CLASS_SAIYAN]`, `src/merc.h` (struct `class_type`).
+Source: `src/core/const.c` `class_table[CLASS_SAIYAN]`, `src/include/merc.h` (struct `class_type`).
 
 | Field | Value | Notes |
 |---|---|---|
@@ -39,7 +39,7 @@ Source: `src/const.c` `class_table[CLASS_SAIYAN]`, `src/merc.h` (struct `class_t
 | HP gained per level | `10` | |
 | Gains mana | `FALSE` | Not a mana class — resource is fighting power |
 
-**Power slots** (`src/merc.h`, indices into `ch->pcdata->powers[]`): `S_POWER`/`S_POWER_MAX` (fighting
+**Power slots** (`src/include/merc.h`, indices into `ch->pcdata->powers[]`): `S_POWER`/`S_POWER_MAX` (fighting
 power pool), `S_STRENGTH`/`_MAX`, `S_SPEED`/`_MAX`, `S_AEGIS`/`_MAX` (defensive Ki), and `S_TECH`
 (bitfield of learned techniques). Techniques are bits in `S_TECH` (`S_KIBOLT=1`, `S_KIWAVE=2`,
 `S_KIBLAST=4`, … `S_KIAIHOU=262144`).
@@ -49,7 +49,7 @@ power pool), `S_STRENGTH`/`_MAX`, `S_SPEED`/`_MAX`, `S_AEGIS`/`_MAX` (defensive 
 ## 1. Power management
 
 ### Rage — `rage`
-*Source: `src/saiyan.c:do_rage` · `interp.c`: POS_FIGHTING, level 2*
+*Source: `src/classes/saiyan.c:do_rage` · `interp.c`: POS_FIGHTING, level 2*
 
 Core resource generator. Converts stamina (`move`) into fighting power and simultaneously buffs
 strength/speed/aegis. No learning required (not a technique).
@@ -64,7 +64,7 @@ strength/speed/aegis. No learning required (not a technique).
 - **Lag:** `WAIT_STATE(ch, 4)`.
 
 ### Focus — `focus <strength|speed|aegis> <amount>`
-*Source: `src/saiyan.c:do_focus` · POS_FIGHTING, level 2*
+*Source: `src/classes/saiyan.c:do_focus` · POS_FIGHTING, level 2*
 
 Redirects banked fighting power into a single attribute on demand (trades offense reserves for a
 tougher/faster fighter). Not a technique.
@@ -75,7 +75,7 @@ tougher/faster fighter). Not a technique.
 - **Lag:** `WAIT_STATE(ch, 4)`.
 
 ### Technique (learn / list) — `technique [<name>|cost|learned]`
-*Source: `src/saiyan.c:do_technique` · POS_STANDING, level 2*
+*Source: `src/classes/saiyan.c:do_technique` · POS_STANDING, level 2*
 
 The learning command. Techniques are bought **permanently** with **primal** (advancement currency)
 and stored as bits in `S_TECH`. `technique` with no arg lists them; `technique cost` prints prices;
@@ -118,7 +118,7 @@ All energy attacks deal `DAM_KIFLAME` unless noted. Damage scales off **Spirit**
 thresholds use the exact comparison shown.
 
 ### Ki Blast — `kiblast [target]`
-*Source: `src/saiyan.c:do_kiblast` · POS_FIGHTING*
+*Source: `src/classes/saiyan.c:do_kiblast` · POS_FIGHTING*
 
 - **Damage:** `dice(7, spirit*5)` — `DAM_KIFLAME`.
 - **Requires:** `S_POWER > 500` (check is `<= 500`). **Cost:** `S_POWER -= 500`.
@@ -126,14 +126,14 @@ thresholds use the exact comparison shown.
 - **Lag:** `WAIT_STATE(ch, 5)` (4 on a bad target).
 
 ### Ki Bolt — `kibolt [target]`
-*Source: `src/saiyan.c:do_kibolt` · POS_FIGHTING*
+*Source: `src/classes/saiyan.c:do_kibolt` · POS_FIGHTING*
 
 - **Damage:** `dice(spirit/7, spirit*5)` — `DAM_KIFLAME`.
 - **Requires:** `S_POWER > 2000` (check `<= 2000`). **Cost:** `S_POWER -= 2000` (deducted *before* the hit).
 - **Lag:** `WAIT_STATE(ch, 8)`.
 
 ### Ki Wave — `kiwave [target]`
-*Source: `src/saiyan.c:do_kiwave` · POS_FIGHTING*
+*Source: `src/classes/saiyan.c:do_kiwave` · POS_FIGHTING*
 
 Damage **plus** a major cross-class disruption suite.
 
@@ -151,7 +151,7 @@ Damage **plus** a major cross-class disruption suite.
   - **vs Mazoku:** if charging (`M_CTYPE != 0`), resets `M_CTYPE = 0` and `M_CTIME = 0` (loses the charge).
 
 ### Ki Bomb — `kibomb`
-*Source: `src/saiyan.c:do_kibomb` · POS_FIGHTING*
+*Source: `src/classes/saiyan.c:do_kibomb` · POS_FIGHTING*
 
 Room-wide AoE; no target argument.
 
@@ -161,7 +161,7 @@ Room-wide AoE; no target argument.
 - **Lag:** `WAIT_STATE(ch, 8)`.
 
 ### Kikouhou — `kikouhou <target>`
-*Source: `src/saiyan.c:do_kikouhou` · POS_FIGHTING*
+*Source: `src/classes/saiyan.c:do_kikouhou` · POS_FIGHTING*
 
 Long-range (area-wide) bolt that also pins a long fight timer.
 
@@ -175,7 +175,7 @@ Long-range (area-wide) bolt that also pins a long fight timer.
 - **Lag:** `WAIT_STATE(ch, 20)`.
 
 ### Masenkou Ha — `masenkouha [target]`
-*Source: `src/saiyan.c:do_masenkouha` (charge) → `src/update.c` (resolve) · POS_FIGHTING*
+*Source: `src/classes/saiyan.c:do_masenkouha` (charge) → `src/core/update.c` (resolve) · POS_FIGHTING*
 
 One-tick charged beam. The command commits & spends power; damage lands the **next** game tick.
 
@@ -188,7 +188,7 @@ One-tick charged beam. The command commits & spends power; damage lands the **ne
 - **Interruptible:** the charge state can be cleared before resolution (you are committed during the lag window).
 
 ### Kamehameha — `kamehameha [target]`
-*Source: `src/saiyan.c:do_kamehameha` (charge) → `src/update.c` (resolve) · POS_FIGHTING*
+*Source: `src/classes/saiyan.c:do_kamehameha` (charge) → `src/core/update.c` (resolve) · POS_FIGHTING*
 
 The ultimate. **Two-tick** charge: "Kame.. Hame.. Ha!!"
 
@@ -203,7 +203,7 @@ The ultimate. **Two-tick** charge: "Kame.. Hame.. Ha!!"
   `spirit*115 + dice(10, spirit)` in the comment.
 
 ### Ryuken (Dragon uppercut) — `ryuken`
-*Source: `src/saiyan.c:do_ryuken` · POS_FIGHTING*
+*Source: `src/classes/saiyan.c:do_ryuken` · POS_FIGHTING*
 
 A heavy two-part melee + Ki strike **only while fighting**, and the Saiyan's premier defense-stripper.
 
@@ -231,7 +231,7 @@ A heavy two-part melee + Ki strike **only while fighting**, and the Saiyan's pre
 - **Lag:** `WAIT_STATE(ch, broke_major ? 26 : 30)` — breaking a major state *reduces* your lag.
 
 ### Solar Flare — `solarflare <target>`
-*Source: `src/saiyan.c:do_solarflare` · POS_FIGHTING*
+*Source: `src/classes/saiyan.c:do_solarflare` · POS_FIGHTING*
 
 A blind. Not a damage move — it casts the `blind` spell.
 
@@ -244,7 +244,7 @@ A blind. Not a damage move — it casts the `blind` spell.
 - **Lag:** `WAIT_STATE(ch, 8)`.
 
 ### Big Bang Attack — `bigbang [target]`
-*Source: `src/saiyan.c:do_bigbang` · `interp.c`: POS_DEAD, level `L_SUP` (immortal/admin)*
+*Source: `src/classes/saiyan.c:do_bigbang` · `interp.c`: POS_DEAD, level `L_SUP` (immortal/admin)*
 
 Effectively an admin-tier nuke (command is gated to `L_SUP`, not normal play).
 
@@ -258,7 +258,7 @@ Effectively an admin-tier nuke (command is gated to `L_SUP`, not normal play).
 ## 3. Defensive techniques & buffs
 
 ### Ki Wall — `kiwall`
-*Source: `src/saiyan.c:do_kiwall` · POS_FIGHTING; resist handled in `src/fight.c`*
+*Source: `src/classes/saiyan.c:do_kiwall` · POS_FIGHTING; resist handled in `src/core/fight.c`*
 
 A short-duration AC buff and damage-soak (`gsn_kiwall`).
 
@@ -272,7 +272,7 @@ A short-duration AC buff and damage-soak (`gsn_kiwall`).
 - **Lag:** `WAIT_STATE(ch, 8)`.
 
 ### Kaiouken — `kaiouken`
-*Source: `src/saiyan.c:do_kaiouken` (apply) + `src/fight.c` (effects) · POS_FIGHTING*
+*Source: `src/classes/saiyan.c:do_kaiouken` (apply) + `src/core/fight.c` (effects) · POS_FIGHTING*
 
 A short, intense self-buff (`gsn_kaiouken`, `duration = 1`) that supercharges melee and evasion but
 burns stamina.
@@ -300,7 +300,7 @@ These are bought via `technique` but have **no active command**; they alter comb
 is set or trigger automatically.
 
 ### Zanzouken (after-image / extra attacks) — passive
-*Source: `src/fight.c` (number-of-attacks calc), bit `S_ZANZOUKEN`*
+*Source: `src/core/fight.c` (number-of-attacks calc), bit `S_ZANZOUKEN`*
 
 - **Effect:** in the Saiyan attack-count routine, `if IS_SET(S_TECH, S_ZANZOUKEN) atk += 2` — **+2
   attacks per round**. (Also in that routine: `S_SPEED > 50` → `atk++`; `S_SPEED >= 150` →
@@ -308,7 +308,7 @@ is set or trigger automatically.
 - No power cost, no command — purely a learned passive.
 
 ### Kiaihou (auto aegis refocus) — passive
-*Source: `src/fight.c` (~line 195), bits `S_KIAIHOU` / `NEW_KIAIHOU`*
+*Source: `src/core/fight.c` (~line 195), bits `S_KIAIHOU` / `NEW_KIAIHOU`*
 
 Auto-restores aegis when struck, if learned and the Saiyan is `level >= 2`.
 
@@ -324,13 +324,13 @@ Auto-restores aegis when struck, if learned and the Saiyan is `level >= 2`.
 ## 5. Utility
 
 ### Flight — `flight`
-*Source: `src/saiyan.c:do_flight` · POS_STANDING*
+*Source: `src/classes/saiyan.c:do_flight` · POS_STANDING*
 
 - **Effect:** casts `fly` at `level = spirit` (`skill_table[fly].spell_fun`).
 - **Requires:** `S_POWER >= 250` (check `< 250`). **Cost:** `S_POWER -= 250`. **Lag:** `WAIT_STATE(ch, 12)`.
 
 ### Shunkan Idou (instant transmission) — `shunkanidou <target>`
-*Source: `src/saiyan.c:do_shunkanidou` · POS_STANDING*
+*Source: `src/classes/saiyan.c:do_shunkanidou` · POS_STANDING*
 
 World-wide teleport to a target's room.
 
@@ -342,7 +342,7 @@ World-wide teleport to a target's room.
   `8400–8599`, `8100–8299`), you are redirected to vnum `5148` instead.
 
 ### Ki Sense — `kisense <target>`
-*Source: `src/saiyan.c:do_kisense` · POS_STANDING*
+*Source: `src/classes/saiyan.c:do_kisense` · POS_STANDING*
 
 World-wide locate: prints the target's general area. No power cost.
 
@@ -354,7 +354,7 @@ World-wide locate: prints the target's general area. No power cost.
 - **Lag:** `WAIT_STATE(ch, 8)`.
 
 ### Battlesense — `battlesense <target>`
-*Source: `src/saiyan.c:do_battlesense` · POS_FIGHTING*
+*Source: `src/classes/saiyan.c:do_battlesense` · POS_FIGHTING*
 
 In-room read: HP / mana / move / class, plus class-specific intel. No power cost.
 
@@ -365,7 +365,7 @@ In-room read: HP / mana / move / class, plus class-specific intel. No power cost
   `F_KI` readout (charging / focused / bursting); for **Mazoku**, a qualitative `M_NIHILISM` readout.
 
 ### Hawk Eyes — `hawkeyes`
-*Source: `src/saiyan.c:do_hawkeyes` · POS_STANDING*
+*Source: `src/classes/saiyan.c:do_hawkeyes` · POS_STANDING*
 
 Toggle true sight (`PLR_TRUESIGHT`).
 
@@ -375,7 +375,7 @@ Toggle true sight (`PLR_TRUESIGHT`).
 
 ---
 
-## 6. Passive defenses & damage scaling (always-on, `src/fight.c`)
+## 6. Passive defenses & damage scaling (always-on, `src/core/fight.c`)
 
 These are not commands but are essential for balance — they govern how much damage a Saiyan deals and
 absorbs based on the `S_STRENGTH`, `S_SPEED`, and `S_AEGIS` pools.

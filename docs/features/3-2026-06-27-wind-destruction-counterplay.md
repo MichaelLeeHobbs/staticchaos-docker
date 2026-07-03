@@ -17,7 +17,7 @@ anti-caster tool, but make it respect Sorcerer defensive prep: Defense blocks th
 interrupt (gets stripped instead), and without Defense it's a high-but-not-certain roll
 reduced by the Sorcerer's resist buffs.
 
-## Current behavior (verified — `src/patryn.c` case 513, AIR+DESTRUCTION)
+## Current behavior (verified — `src/classes/patryn.c` case 513, AIR+DESTRUCTION)
 vs Fist: strip Figure Eight, −1 F_KI. vs Sorcerer: **`lose_chant(victim)` unconditionally**.
 Always: strip kiwall. (Reworked only the Sorcerer branch.)
 

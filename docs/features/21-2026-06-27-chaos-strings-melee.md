@@ -20,7 +20,7 @@ weapon-melee reduction so the peel works against all melee.
 - Generic melee-damage reduction of **15%** (cautious) for `AFF_CHAOS_STRING` bearers.
 - **Either/or with Fist:** Fist keeps its existing **−50%**; do **not** stack the 15% on top.
 
-## Current behavior (verified — `src/fight.c:929`)
+## Current behavior (verified — `src/core/fight.c:929`)
 ```
 if ( IS_CLASS(ch,CLASS_FIST) )
   if ( IS_AFFECTED(ch,AFF_CHAOS_STRING) )

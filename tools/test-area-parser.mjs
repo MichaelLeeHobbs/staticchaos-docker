@@ -3,7 +3,7 @@
  * test-area-parser.mjs -- golden-output (characterization) test for the
  * hand-written .are parser in tools/lib/area.mjs.
  *
- * area.mjs mirrors the authoritative binary/text format in src/db.c. When the C
+ * area.mjs mirrors the authoritative binary/text format in src/core/db.c. When the C
  * format changes and the parser is not updated it drifts *silently* -- it keeps
  * producing output, just wrong output. There is no runtime error to catch it.
  *

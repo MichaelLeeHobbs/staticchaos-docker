@@ -1,7 +1,7 @@
 # Static Chaos — Server & Sorcerer Changes: Brainstorm
 
 > Working design doc off Skatha's notes. **Every claim below was checked against the
-> current source** (`src/sorcerer.c`, `update.c`, `interp.c`, `merc.h`). Skatha's findings
+> current source** (`src/classes/sorcerer.c`, `update.c`, `interp.c`, `merc.h`). Skatha's findings
 > are all accurate — file:line references are included so we can move straight to code.
 > Nothing here is implemented yet; this is the "think it through + keep it balanced" pass.
 

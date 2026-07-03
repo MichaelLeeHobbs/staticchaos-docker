@@ -11,7 +11,7 @@
  *           `note`/`via` text prop an AI can act on.
  *   meta  : the cost model + the RULES an agent must follow to use the graph.
  *
- * All constants below mirror the C source (src/act_move.c, src/merc.h) so the
+ * All constants below mirror the C source (src/commands/act_move.c, src/include/merc.h) so the
  * graph reflects how the engine actually moves players.
  *
  * Usage:  node tools/build-world-graph.mjs   (from the project root)
@@ -25,7 +25,7 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const AREA_DIR = path.join(ROOT, 'area');
 const OUT = path.join(ROOT, 'world-maps');
 
-/* ---- mirrored from src/act_move.c + src/merc.h ---- */
+/* ---- mirrored from src/commands/act_move.c + src/include/merc.h ---- */
 const MOVEMENT_LOSS = [1, 2, 2, 3, 4, 6, 4, 1, 6, 10, 6];   // movement_loss[SECT_MAX]
 const SECTOR_NAME = ['inside', 'city', 'field', 'forest', 'hills', 'mountain',
   'water_swim', 'water_noswim', 'unused', 'air', 'desert'];

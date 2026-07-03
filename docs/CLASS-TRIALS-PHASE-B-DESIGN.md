@@ -1,11 +1,11 @@
 # Class Trials — Phase B: Per-Class Objectives (research-backed design)
 
 **Status:** IMPLEMENTED & DEPLOYED (2026-06-21). The engine + all 5 classes' 8-tier objective tables
-are live (`src/trials.c`). Supersedes the Phase A "shared level-scaled gauntlet." Skatha's review
+are live (`src/world/trials.c`). Supersedes the Phase A "shared level-scaled gauntlet." Skatha's review
 decisions are folded in (see "Decisions"). Grounded in a deep-research pass (sources at the bottom).
 
 ## Implementation status (what shipped)
-- **Engine:** `src/trials.c` — a data-driven `trial_table[MAX_CLASS][MAX_TRIALS]` of objective
+- **Engine:** `src/world/trials.c` — a data-driven `trial_table[MAX_CLASS][MAX_TRIALS]` of objective
   descriptors + `trial_ready()` (resolves each requirement from live state) + `trial_damage_gate()`
   (you can only damage the tier mob while in the required state) + `trial_update()` (the stateless,
   time-synced telegraph: wind-up echo, then a scaled punish + corrective if you're not ready). Hooks:

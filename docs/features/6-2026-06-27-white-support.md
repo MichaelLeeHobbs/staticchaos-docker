@@ -11,7 +11,7 @@ epic: 1
 
 GitHub issue: https://github.com/MichaelLeeHobbs/staticchaos-docker/issues/6 · Epic: #1
 
-Five small White-spec spell improvements (`src/sorcerer.c`) to make White a real support
+Five small White-spec spell improvements (`src/classes/sorcerer.c`) to make White a real support
 spec without making it a 1v1 powerhouse. Display/peel/utility focused; no damage buffs.
 
 ## Implemented

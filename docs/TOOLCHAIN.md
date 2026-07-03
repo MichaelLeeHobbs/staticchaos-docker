@@ -36,7 +36,7 @@ These are the things an actual port would have to fix. Evidence is from `src/`:
   the many places that assume a specific width are only correct under the current configuration.
 
 - **Pointers/`time_t` narrowed through `int` in the save format.** Player save files are written with
-  `%d` and explicit `(int)` casts of wider values. Example: `src/save.c:264`
+  `%d` and explicit `(int)` casts of wider values. Example: `src/core/save.c:264`
   `fprintf( fp, "Note %d\n", (int)ch->last_note );` — `last_note` is a `time_t` (merc.h:1490), which is
   64-bit on a 64-bit host, so the cast truncates. Several `time_t` fields exist (`logon`, `save_time`,
   `last_note`, board `last_note[]`, `lastkill`), all persisted through the same `%d`/`fread_number`
@@ -44,7 +44,7 @@ These are the things an actual port would have to fix. Evidence is from `src/`:
   gets written, so existing player files are part of the compatibility surface.
 
 - **Bit vectors packed into `int` fields.** Flags like `act`, `affected_by` are `int` and manipulated
-  with `IS_SET`/bit macros (e.g. `src/save.c:275-278`). Any flag family that grows past 31 bits, or any
+  with `IS_SET`/bit macros (e.g. `src/core/save.c:275-278`). Any flag family that grows past 31 bits, or any
   code that conflates a flag word with a pointer, is width-sensitive.
 
 - **The general pointer-in-`int` idiom.** Casts of the form `(int)<expr>` appear across the tree

@@ -154,7 +154,7 @@ data → `exit(1)` on load → restart → same exit) — that just loops foreve
 the server down. Three layers cover both cases:
 
 1. **Boot tolerance (code).** A dangling mob/obj vnum in a reset/special/shop/mobprog is logged and
-   skipped instead of `exit(1)` (`get_mob_index`/`get_obj_index`, `src/db.c`). One bad record
+   skipped instead of `exit(1)` (`get_mob_index`/`get_obj_index`, `src/core/db.c`). One bad record
    degrades that record, not the whole game. (Room vnums stay fatal — they're structural.)
 2. **Healthcheck (compose).** A `bash /dev/tcp` connect to 4000 marks the container `healthy` /
    `unhealthy` in `docker ps` (and feeds the watchdog). It opens+closes a socket every 30s, which the
@@ -222,8 +222,8 @@ Outputs (all under `world-maps/`):
 | `world-map.html` | Interactive D3 map — area graph → drill into rooms, pan/zoom/drag, portals, detail panel (D3 vendored inline, offline) |
 
 The shared parser lives in `tools/lib/area.mjs` (Reader + section parsers + flag decoders,
-matching `src/db.c`); `build-classes.mjs` reads the `class_table`/`skill_table` from
-`src/const.c`. The PDF Chrome version (`chrome@…`) must match whatever `puppeteer-core` pins;
+matching `src/core/db.c`); `build-classes.mjs` reads the `class_table`/`skill_table` from
+`src/core/const.c`. The PDF Chrome version (`chrome@…`) must match whatever `puppeteer-core` pins;
 if `build:pdf` reports "Could not find Chrome (ver. X)", install that X.
 
 ## How it runs
@@ -247,7 +247,7 @@ required a handful of minimal, documented changes — each is commented in-place
      errors. `-fcommon` restores the legacy behavior.
    - Added `LIBS = -lm` and appended it to the link line (math routines need libm).
 
-2. **`src/comm.c`**
+2. **`src/core/comm.c`**
    - Joined a string literal that spanned three physical lines with raw (unescaped) newlines —
      invalid C — into adjacent concatenated literals (the "new character" lockout message).
    - Commented out the legacy `#if defined(linux)` hand-written prototypes for
@@ -255,7 +255,7 @@ required a handful of minimal, documented changes — each is commented in-place
      (`read`/`write` return `ssize_t` and take `void *`/`size_t`; `gettimeofday`'s second arg is
      `void *`); the correct declarations now come from the system headers.
 
-3. **`src/merc.h`**
+3. **`src/include/merc.h`**
    - In the `#if defined(linux)` block, `#include <unistd.h>` is pulled in *before* the
      `#define crypt(s1,s2) (s1)` macro. Static Chaos historically stored passwords in **plaintext
      on Linux** (it never linked libcrypt — see the bare upstream Makefile and the bundled player

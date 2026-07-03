@@ -76,7 +76,7 @@
 
 Keep it self-contained to minimise edits to the hot I/O path:
 
-- **New module:** `src/gmcp.c` + `src/gmcp.h` — all GMCP logic lives here.
+- **New module:** `src/core/gmcp.c` + `src/gmcp.h` — all GMCP logic lives here.
 - **`merc.h` / DESCRIPTOR_DATA:** add `bool gmcp;` (negotiated on), and
   `int gmcp_supports;` (bitmask of modules the client asked for; optional — we can
   send regardless at first). Optionally `char *gmcp_client;` (name from Core.Hello).
@@ -192,12 +192,12 @@ package (gauges + mapper toggle + completion) the same way they got `mpkg`.
 
 | File | Change | Phase |
 |---|---|---|
-| `src/gmcp.c`, `src/gmcp.h` | **new** — filter, `gmcp_in`, `send_gmcp`, package builders | 0+ |
-| `src/merc.h` | DESCRIPTOR_DATA `gmcp`/`gmcp_supports`; `#define TELOPT_GMCP 201`; prototypes | 0 |
-| `src/comm.c` | call `telnet_filter` in `read_from_descriptor`; `WILL 201` in `new_descriptor`; clear fields in `close_socket` | 0 |
+| `src/core/gmcp.c`, `src/gmcp.h` | **new** — filter, `gmcp_in`, `send_gmcp`, package builders | 0+ |
+| `src/include/merc.h` | DESCRIPTOR_DATA `gmcp`/`gmcp_supports`; `#define TELOPT_GMCP 201`; prototypes | 0 |
+| `src/core/comm.c` | call `telnet_filter` in `read_from_descriptor`; `WILL 201` in `new_descriptor`; clear fields in `close_socket` | 0 |
 | `src/Makefile` | add `gmcp.o` to `O_FILES` | 0 |
-| `src/update.c` | `gmcp_update_char` hook (vitals) | 1 |
-| `src/act_move.c` / `handler.c` | `Room.Info` on room change | 2 |
+| `src/core/update.c` | `gmcp_update_char` hook (vitals) | 1 |
+| `src/commands/act_move.c` / `handler.c` | `Room.Info` on room change | 2 |
 | (various) | `Char.Status`, completion lists | 3 |
 
 ## Open decisions (none blocking)

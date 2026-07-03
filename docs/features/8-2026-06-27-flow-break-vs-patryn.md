@@ -16,7 +16,7 @@ Last patch in the epic; pairs with the now-shipped counterplay (#3/#4).
 Give Sorcerer's Flow Break an explicit, prioritized interaction with Patryn defenses so it's a
 real answer to prepared wards/blocks — **save-scaled** (a save drains; a failed save removes).
 
-## Current behavior (verified — `src/sorcerer.c:1196 chant_flow_break`)
+## Current behavior (verified — `src/classes/sorcerer.c:1196 chant_flow_break`)
 Flow Break already: messages; collapses/weakens a Holy-Resist barrier; strips Vas Gluudo; shatters
 Laguna Blade; disrupts Recovery; strips up to `strips = URANGE(1, 1+rank/18, 3)` temporary affects;
 and on a **failed save** interrupts an in-progress Sorcerer chant (`saves_chant`, `pcdata->chant`).

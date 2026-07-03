@@ -6,9 +6,9 @@
 > that doc; this one is authoritative).
 
 **Last verified against source:** commit `59e39c5`, plus the `multi_hit` prep-fallback change from PR #67 (#51) — diff against that PR's merge commit for the `prepare` behavior described below.
-**Primary sources:** `src/sorcerer.c`, `src/fight.c` (`chant_damage`, school amps), `src/update.c`
-(`chant_update`, Mystic regen, Laguna Blade upkeep, Dragon Slave tick, Flame Breath DoT), `src/const.c`,
-`src/merc.h`
+**Primary sources:** `src/classes/sorcerer.c`, `src/core/fight.c` (`chant_damage`, school amps), `src/core/update.c`
+(`chant_update`, Mystic regen, Laguna Blade upkeep, Dragon Slave tick, Flame Breath DoT), `src/core/const.c`,
+`src/include/merc.h`
 
 ## How to read this
 
@@ -24,22 +24,22 @@
   directly (raw, uncapped), it is called out.
 - **Formulas are quoted verbatim.** `dice(n, size)` rolls `n` dice of `1..size` (mean ≈ `n*(size+1)/2`).
   `number_percent()` is `1..100`. `will` = `ch->pcdata->will`.
-- **All offensive damage routes through `chant_damage()` (`src/fight.c`)**, which applies school amps,
+- **All offensive damage routes through `chant_damage()` (`src/core/fight.c`)**, which applies school amps,
   per-class soaks, the "scorched" debuff, and the `dam > 30000` clamp. See *Combat math* at the bottom.
-- **Saves** use `saves_chant()` (`src/sorcerer.c`); the shared formula is in *Chant system*. "save→/2"
+- **Saves** use `saves_chant()` (`src/classes/sorcerer.c`); the shared formula is in *Chant system*. "save→/2"
   means a successful save halves damage; "save→dodge" means a save negates it entirely. Each chant's
   save behavior is given per entry.
 - **Lag / wait:** `lag` is the `WAIT_STATE` after the `chant` command (`do_chant`). `wait` is the
   per-line tick spacing of a complex (multi-line) chant (`chant_update`). `lines` = 1 is an instant
   chant (resolves the same pulse path); `lines` > 1 is an interruptible complex chant (resolves over
-  ticks). All table values are quoted from `chant_table` (`src/sorcerer.c`).
+  ticks). All table values are quoted from `chant_table` (`src/classes/sorcerer.c`).
 - **⚠️ Needs verification** items are collected at the bottom — don't trust those numbers blindly.
   Given the size of this class, that list is intentionally long; flagged items are ones not fully
   traced, not necessarily bugs.
 
 ## Class basics
 
-Source: `src/const.c` `class_table[CLASS_SORCERER]`, `src/merc.h` (struct `class_type`).
+Source: `src/core/const.c` `class_table[CLASS_SORCERER]`, `src/include/merc.h` (struct `class_type`).
 
 | Field | Value | Notes |
 |---|---|---|
@@ -58,9 +58,9 @@ Source: `src/const.c` `class_table[CLASS_SORCERER]`, `src/merc.h` (struct `class
 
 ## Chant system (mechanics every chant shares)
 
-Sources: `src/sorcerer.c` (`do_chant`, `do_research`, `do_specialize`, `do_prepare`, `do_concentrate`,
-`sorc_rank`, `saves_chant`, `chant_cast`, `lose_chant`); `src/update.c` (`chant_update`, Mystic regen);
-`src/merc.h` (`SORC_*`, `SCHOOL_*`, `MAX_CHANT`).
+Sources: `src/classes/sorcerer.c` (`do_chant`, `do_research`, `do_specialize`, `do_prepare`, `do_concentrate`,
+`sorc_rank`, `saves_chant`, `chant_cast`, `lose_chant`); `src/core/update.c` (`chant_update`, Mystic regen);
+`src/include/merc.h` (`SORC_*`, `SCHOOL_*`, `MAX_CHANT`).
 
 ### Schools & specialization
 - **Seven schools** (`merc.h`): `SCHOOL_BLACK`(2), `SCHOOL_EARTH`(3), `SCHOOL_WIND`(4), `SCHOOL_FIRE`(5),
@@ -104,7 +104,7 @@ Sources: `src/sorcerer.c` (`do_chant`, `do_research`, `do_specialize`, `do_prepa
   Sorcerer's **Diem Wing** / **Flow Break** (`sorcerer.c`), and admin `freeze`/`mppurge` (`act_wiz.c`).
 
 ### `saves_chant(ch, victim, cn)` — the universal save roll
-*Source: `src/sorcerer.c:saves_chant`* — `chance` starts at **45**, then:
+*Source: `src/classes/sorcerer.c:saves_chant`* — `chance` starts at **45**, then:
 - **NPC victim:** `+level/3`; if `level >= 102`, `+level + 50`.
 - **PC victim:** `+will/3`; **Saiyan w/ Ki Wall** `+spirit` (*except* against wall-breaking chants —
   Diem Wing / Flow Break / Bomb di Wind, via `chant_breaks_kiwall`); **Patryn** `+P_AIR/2`; **Fist**
@@ -116,7 +116,7 @@ Sources: `src/sorcerer.c` (`do_chant`, `do_research`, `do_specialize`, `do_prepa
   (`NPC level>=102`) else 75. `return number_percent() < chance`.
 
 ### `prepare` — passive melee auto-cast
-*Source: `src/sorcerer.c:do_prepare` + `src/fight.c:multi_hit`* — `prepare <school>` sets `SORC_PREP`
+*Source: `src/classes/sorcerer.c:do_prepare` + `src/core/fight.c:multi_hit`* — `prepare <school>` sets `SORC_PREP`
 to a school (`prepare none` clears it, `WAIT_STATE 4`). While set, **every melee round** (`multi_hit`)
 the highest-rank **prep-flagged** chant of that school you qualify for auto-casts by retyping your
 melee swings to the chant's damage type (`dt = 1400+cn`), spending **`cost/2` mana** (not Mystic).
@@ -646,7 +646,7 @@ drains, scry/enchant utility, the Ra-Tilt nuke. Prep-eligible: **Bram Blazer, El
 
 ---
 
-## Combat math (`src/fight.c:chant_damage`)
+## Combat math (`src/core/fight.c:chant_damage`)
 
 Every offensive chant's damage passes through `chant_damage(ch, victim, dam, dt)` where `dt = cn`
 (`rank = chant_table[dt].rank`, `school = chant_table[dt].school`). Key transforms, in order:

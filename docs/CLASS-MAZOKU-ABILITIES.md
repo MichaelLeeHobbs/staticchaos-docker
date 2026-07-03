@@ -6,7 +6,7 @@
 > that doc; this one is authoritative).
 
 **Last verified against source:** commit `cefb094`
-**Primary sources:** `src/mazoku.c`, `src/fight.c`, `src/update.c`, `src/handler.c`, `src/const.c`, `src/merc.h`, `src/interp.c`, `src/act_info.c`, `src/saiyan.c`, `src/patryn.c`
+**Primary sources:** `src/classes/mazoku.c`, `src/core/fight.c`, `src/core/update.c`, `src/core/handler.c`, `src/core/const.c`, `src/include/merc.h`, `src/core/interp.c`, `src/commands/act_info.c`, `src/classes/saiyan.c`, `src/classes/patryn.c`
 
 ## How to read this
 
@@ -24,14 +24,14 @@
   `matter = M_MATTER`, `astral = M_ASTRAL`, `focus = M_FOCUS`, `nihilism = M_NIHILISM`,
   `ego = M_EGO`, all in `ch->pcdata->powers[]`.
 - **WAIT_STATE(ch, n)** is lag in pulses (`PULSE_VIOLENCE`), the standard combat-round unit.
-- **Damage types:** Mazoku energy attacks route through `damage()` in `src/fight.c` as one of four
+- **Damage types:** Mazoku energy attacks route through `damage()` in `src/core/fight.c` as one of four
   "colors" — `DAM_CERULEAN` (1500), `DAM_OBSIDIAN` (1501), `DAM_CRIMSON` (1502), `DAM_EMERALD`
   (1503). Melee from formed arms uses `TYPE_HIT+N` (see *Arm forms*).
 - **⚠️ Needs verification** items are collected at the bottom — don't trust those numbers blindly.
 
 ## Class basics
 
-Source: `src/const.c` `class_table[CLASS_MAZOKU]`, `src/merc.h` (struct `class_type`).
+Source: `src/core/const.c` `class_table[CLASS_MAZOKU]`, `src/include/merc.h` (struct `class_type`).
 
 | Field | Value | Notes |
 |---|---|---|
@@ -46,7 +46,7 @@ Source: `src/const.c` `class_table[CLASS_MAZOKU]`, `src/merc.h` (struct `class_t
 | HP gained per level | `10` | |
 | Gains mana | `FALSE` | Not a mana class — combat resource is essense |
 
-**Power slots** (`src/merc.h`, indices into `ch->pcdata->powers[]`):
+**Power slots** (`src/include/merc.h`, indices into `ch->pcdata->powers[]`):
 
 | Slot | Index | Meaning |
 |---|---|---|
@@ -61,13 +61,13 @@ Source: `src/const.c` `class_table[CLASS_MAZOKU]`, `src/merc.h` (struct `class_t
 | `M_ASTRAL` | 8 | Astral mastery (0–100) — energy-attack damage + astral mitigation/regen |
 | `M_FOCUS` | 9 | Focus mastery (0–100) — to-hit (lowers victim evasion), teleport range |
 
-**Form / arm / part bits** (`M_SET` and `M_LEARNED` share these values, `src/merc.h`): body forms
+**Form / arm / part bits** (`M_SET` and `M_LEARNED` share these values, `src/include/merc.h`): body forms
 `M_HUMAN=1`, `M_BATTLE=2`, `M_TRUE=4`; arm forms `M_HANDS=8`, `M_CLAWS=16`, `M_SPIKES=32`,
 `M_BLADES=64`, `M_TENTACLES=128`; extra parts `M_THIRD=512`, `M_FOURTH=1024`, `M_FIFTH=2048`,
 `M_SIXTH=4096`, `M_WINGS=8192`, `M_EYES=16384`; abilities `M_TELEPORT=32768`, `M_CHARGE=65536`,
 `M_BLAST=131072`, `M_BOLT=262144`, `M_BOMB=524288`, `M_ASTRIKE=1048576`.
 
-**Score readout** (`src/act_info.c:do_score`): prints `Essense / Ego / Nihilism` and
+**Score readout** (`src/commands/act_info.c:do_score`): prints `Essense / Ego / Nihilism` and
 `Matter / Astral / Focus`.
 
 ---
@@ -75,7 +75,7 @@ Source: `src/const.c` `class_table[CLASS_MAZOKU]`, `src/merc.h` (struct `class_t
 ## 1. Resource & advancement
 
 ### Develop (learn / raise) — `develop [list|<thing>]`
-*Source: `src/mazoku.c:do_develop` · `interp.c`: POS_STANDING, level 2*
+*Source: `src/classes/mazoku.c:do_develop` · `interp.c`: POS_STANDING, level 2*
 
 The master advancement command. `develop` with no arg (or `develop list`) prints all prices.
 Three different currencies are spent depending on the target:
@@ -118,7 +118,7 @@ or `primal < cost`):
 | `astrike` | 200 | `M_ASTRIKE` |
 
 ### Essense regeneration & nihilism gain (passive)
-*Source: `src/fight.c:essense_gain`, `src/fight.c:damage`, `src/update.c` (regen tick)*
+*Source: `src/core/fight.c:essense_gain`, `src/core/fight.c:damage`, `src/core/update.c` (regen tick)*
 
 - **Essense from dealing damage** (`essense_gain`, called from `damage()`): only for a Mazoku
   attacker. If `ch == victim` (self-damage), instead `M_NIHILISM = UMIN(100, M_NIHILISM+1)`. Otherwise:
@@ -136,7 +136,7 @@ or `primal < cost`):
   down with `develop nihilism`.
 
 ### Reform (heal) — `reform`
-*Source: `src/mazoku.c:do_reform` · POS_STANDING, level 2*
+*Source: `src/classes/mazoku.c:do_reform` · POS_STANDING, level 2*
 
 Spends essense to repair HP.
 
@@ -152,7 +152,7 @@ A Mazoku is shapeless astral matter. Its **body form** (`morph`) sets its toughn
 gating; its **arm form** (`form`) sets its melee weapon. Switching forms costs essense.
 
 ### Morph (body form) — `morph <human|battle|true>`
-*Source: `src/mazoku.c:do_morph` · POS_FIGHTING, level 2*
+*Source: `src/classes/mazoku.c:do_morph` · POS_FIGHTING, level 2*
 
 Mutually exclusive body forms in `M_SET`. Blocked entirely if `M_HUMAN` arm-lock applies (see Form).
 
@@ -169,7 +169,7 @@ Mutually exclusive body forms in `M_SET`. Blocked entirely if `M_HUMAN` arm-lock
   `M_HANDS`.
 
 ### Form (arm form) — `form <hands|claws|spikes|blades|tentacles>`
-*Source: `src/mazoku.c:do_form` · POS_FIGHTING, level 2*
+*Source: `src/classes/mazoku.c:do_form` · POS_FIGHTING, level 2*
 
 Sets the active arm weapon in `M_SET` (mutually exclusive). **Blocked entirely** if `M_HUMAN` is set
 ("You wouldn't be very human with anything other than hands.").
@@ -188,7 +188,7 @@ Sets the active arm weapon in `M_SET` (mutually exclusive). **Blocked entirely**
   evasion/defense modifiers — see *Arm forms (melee)* and *Passive combat math*.
 
 ### Grow (extra parts) — `grow <third|fourth|fifth|sixth|eye|wings>`
-*Source: `src/mazoku.c:do_grow` · POS_STANDING, level 2*
+*Source: `src/classes/mazoku.c:do_grow` · POS_STANDING, level 2*
 
 Permanently manifests an extra body part into `M_SET` (extra arms add rake/parry/attacks; eyes give
 sight; wings are cosmetic/flight-adjacent).
@@ -208,7 +208,7 @@ The Mazoku's signature mechanic. You **charge** energy of a chosen color over ti
 bigger `M_CTIME` = more damage. Getting stunned, exhausted, or hit hard scatters the charge.
 
 ### Charge — `charge <obsidian|emerald|cerulean|crimson>`
-*Source: `src/mazoku.c:do_charge` · POS_FIGHTING, level 2*
+*Source: `src/classes/mazoku.c:do_charge` · POS_FIGHTING, level 2*
 
 - **Requires:** `M_CHARGE` developed; must be `POS_FIGHTING`; `M_ESSENSE >= 250`
   (fails if `M_ESSENSE < 250`). **Note:** the 250 essense is only a *gate* — `do_charge` itself does
@@ -221,7 +221,7 @@ bigger `M_CTIME` = more damage. Getting stunned, exhausted, or hit hard scatters
 - **Lag:** `WAIT_STATE(ch, 15 - (M_ASTRAL/10))` — higher astral charges faster.
 
 ### Charge ramp & upkeep (per-tick) — passive
-*Source: `src/update.c:second_update` (Mazoku charge block, `M_CTYPE != 0`)*
+*Source: `src/core/update.c:second_update` (Mazoku charge block, `M_CTYPE != 0`)*
 
 Each game tick while a charge is held:
 
@@ -238,7 +238,7 @@ tick. The release damage scales with `(M_CTIME - 5) / 5` (see Release), so the p
 multiplier is `(16 + astral/10 - 5)/5` (e.g. astral 100 → `M_CTIME` 26 → `(26-5)/5 = 4` integer).
 
 ### Release — `release <bolt|blast|bomb> [target]`
-*Source: `src/mazoku.c:do_release` · POS_FIGHTING, level 2*
+*Source: `src/classes/mazoku.c:do_release` · POS_FIGHTING, level 2*
 
 Fires the held charge. Requires a charge up (`M_CTYPE > 0` and `M_CTIME > 0`) and the matching attack
 mode developed (`M_BOLT` / `M_BLAST` / `M_BOMB`). Target is `ch->fighting` if fighting, else `arg2`
@@ -296,7 +296,7 @@ When a Mazoku is unarmed (no wielded weapon), its melee damage type and base dam
 active arm form. The arm forms also unlock dedicated special attacks (`rake`, `gouge`, `lash`).
 
 ### Arm-form melee type & base damage
-*Source: `src/fight.c:one_hit`*
+*Source: `src/core/fight.c:one_hit`*
 
 - **Damage type** (`one_hit`, ~line 296; unarmed, `dt >= TYPE_HIT`): `dt = TYPE_HIT` then
   `+5` claws, `+2` spikes, `+1` blades, `+4` tentacles (selects the weapon-skill slot
@@ -313,7 +313,7 @@ active arm form. The arm forms also unlock dedicated special attacks (`rake`, `g
 - **vs mobile suit:** `dam /= 2` (Mazoku melee is halved against suits).
 
 ### Rake — `rake`
-*Source: `src/mazoku.c:do_rake` · POS_FIGHTING, level 2*
+*Source: `src/classes/mazoku.c:do_rake` · POS_FIGHTING, level 2*
 
 Multi-hit claw flurry. **Requires `M_CLAWS` active.**
 
@@ -325,7 +325,7 @@ Multi-hit claw flurry. **Requires `M_CLAWS` active.**
 - **Lag:** `WAIT_STATE(ch, 6)`.
 
 ### Gouge — `gouge`
-*Source: `src/mazoku.c:do_gouge` · POS_FIGHTING, level 2*
+*Source: `src/classes/mazoku.c:do_gouge` · POS_FIGHTING, level 2*
 
 Spike strike to the eyes that **blinds**. **Requires `M_SPIKES` active.**
 
@@ -339,7 +339,7 @@ Spike strike to the eyes that **blinds**. **Requires `M_SPIKES` active.**
 - **Lag:** `WAIT_STATE(ch, 8)`.
 
 ### Lash — `lash`
-*Source: `src/mazoku.c:do_lash` · `interp.c`: POS_RESTING, level 2*
+*Source: `src/classes/mazoku.c:do_lash` · `interp.c`: POS_RESTING, level 2*
 
 Tentacle strike that can knock a player out of stance. **Requires `M_TENTACLES` active.** (Has a
 separate mobile-suit "heat rod" branch that fires first if the user `IS_SUIT` with a heat rod ready —
@@ -355,7 +355,7 @@ not Mazoku ability behavior.)
 ## 5. Astral abilities & utility
 
 ### Astral Strike (astrike) — `astrike`
-*Source: `src/mazoku.c:do_astrike` (arm) → `src/fight.c:multi_hit` (resolve) · POS_FIGHTING, level 2*
+*Source: `src/classes/mazoku.c:do_astrike` (arm) → `src/core/fight.c:multi_hit` (resolve) · POS_FIGHTING, level 2*
 
 Arms a phase attack: your next melee round materializes behind the target for a big bonus hit. Sets
 `M_ASTRIKE` in `M_SET`; consumed when the round resolves.
@@ -379,7 +379,7 @@ Arms a phase attack: your next melee round materializes behind the target for a 
 - **Cleared on flee/room change** (`handler.c` ~line 644): leaving combat removes `M_ASTRIKE`.
 
 ### Teleport — `teleport <target>`
-*Source: `src/mazoku.c:do_teleport` · POS_STANDING, level 2*
+*Source: `src/classes/mazoku.c:do_teleport` · POS_STANDING, level 2*
 
 Area-range teleport to an NPC's room. Drains every pool.
 
@@ -392,7 +392,7 @@ Area-range teleport to an NPC's room. Drains every pool.
 - **Lag:** `WAIT_STATE(ch, 10)`.
 
 ### Instantiate (create astral gear) — `instantiate <slot>`
-*Source: `src/mazoku.c:do_instantiate` · `interp.c`: POS_STANDING, level 2, LOG_ALWAYS*
+*Source: `src/classes/mazoku.c:do_instantiate` · `interp.c`: POS_STANDING, level 2, LOG_ALWAYS*
 
 Conjures a blank `ITEM_ASTRAL` armor piece (wearable in non-human forms; imbue to power it up).
 
@@ -402,7 +402,7 @@ Conjures a blank `ITEM_ASTRAL` armor piece (wearable in non-human forms; imbue t
 - No lag.
 
 ### Imbue (enchant astral gear) — `imbue <item>`
-*Source: `src/mazoku.c:do_imbue` · `interp.c`: POS_STANDING, level 2, LOG_ALWAYS*
+*Source: `src/classes/mazoku.c:do_imbue` · `interp.c`: POS_STANDING, level 2, LOG_ALWAYS*
 
 Pours essense into an astral item to add hit/dam.
 
@@ -417,13 +417,13 @@ Pours essense into an astral item to add hit/dam.
 
 ---
 
-## 6. Passive combat math (always-on, `src/fight.c` / `src/handler.c` / `src/update.c`)
+## 6. Passive combat math (always-on, `src/core/fight.c` / `src/core/handler.c` / `src/core/update.c`)
 
 These are not commands but govern how much damage a Mazoku deals/takes and how well it evades, based
 on form, arms, and the `M_MATTER` / `M_ASTRAL` / `M_FOCUS` / `M_NIHILISM` / `M_EGO` pools.
 
 ### Damage taken (mitigation)
-*Source: `src/fight.c:damage` (melee path ~line 1012) and `src/fight.c:chant_damage` (~line 1564)*
+*Source: `src/core/fight.c:damage` (melee path ~line 1012) and `src/core/fight.c:chant_damage` (~line 1564)*
 
 - **vs `DAM_KIFLAME`** (melee path): `dam += dam/3` first (Mazoku take **+33% from ki-flame**), then
   `dam -= dam * M_NIHILISM / 400`.
@@ -445,14 +445,14 @@ See *Arm forms (melee)* for the per-arm melee bonus and the mobile-suit halving,
 energy-attack scaling. Key driver stats: `M_MATTER` + `M_FOCUS` (melee), `M_ASTRAL` (energy).
 
 ### Extra attacks
-*Source: `src/fight.c:calc_attacks` (~line 3611)*
+*Source: `src/core/fight.c:calc_attacks` (~line 3611)*
 
 - **In `M_BATTLE` form:** `+1` attack for each grown extra arm (`M_THIRD`, `M_FOURTH`, `M_FIFTH`,
   `M_SIXTH`).
 - **Arm form:** `M_SPIKES` `+1`; `M_BLADES` `+2`; `M_TENTACLES` `+7`.
 
 ### Parry
-*Source: `src/fight.c:check_parry` (~line 1846)*
+*Source: `src/core/fight.c:check_parry` (~line 1846)*
 
 - Mazoku can parry **barehand** (the no-weapon `return FALSE` is bypassed for Mazoku, ~line 1848).
 - **As defender** (`~line 1860`): `+5` per grown extra arm (third/fourth/fifth/sixth); `M_HUMAN`
@@ -463,7 +463,7 @@ energy-attack scaling. Key driver stats: `M_MATTER` + `M_FOCUS` (melee), `M_ASTR
   `M_ASTRIKE`, defender's `chance /= 2`.
 
 ### Dodge
-*Source: `src/fight.c:check_dodge` (~line 1982)*
+*Source: `src/core/fight.c:check_dodge` (~line 1982)*
 
 - **As defender:** `M_BATTLE` `+ M_MATTER*3/4`; `M_HUMAN` `+ M_MATTER/2`.
 - **As attacker** (your dodge, `~line 2011`): `chance -= M_NIHILISM/3`; `M_CLAWS -= M_FOCUS/2`,
@@ -472,38 +472,38 @@ energy-attack scaling. Key driver stats: `M_MATTER` + `M_FOCUS` (melee), `M_ASTR
   `M_TRUE` Mazoku, else `chance -= chance/4`.
 
 ### Block (vs Fist monk block)
-*Source: `src/fight.c:check_block` (~line 2089)*
+*Source: `src/core/fight.c:check_block` (~line 2089)*
 
 - When the Mazoku is the attacker: `M_SPIKES -= M_MATTER*2/3`; `M_BLADES`/`M_CLAWS -= M_MATTER/2`; if
   `M_ASTRIKE`, defender's `chance /= 2`.
 
 ### Backstab vulnerability
-*Source: `src/fight.c:one_hit` (~line 501)*
+*Source: `src/core/fight.c:one_hit` (~line 501)*
 
 - A Mazoku victim takes `dam *= 2` from backstab (on top of the base `dice(2,4)` multiplier) when the
   attacker is **not** a Fist.
 
 ### Regeneration (per tick)
-*Source: `src/update.c:regen_update` (~line 1459, `level >= 2`)*
+*Source: `src/core/update.c:regen_update` (~line 1459, `level >= 2`)*
 
 - **`M_TRUE` form:** `hit/mana/move += 150 + dice(6, M_ASTRAL)` each (strong astral regen).
 - **Other forms:** `hit/mana/move += dice(6, 10)` each.
 - Plus the essense trickle `if (M_ESSENSE < 10000) M_ESSENSE++`.
 
 ### Senses & vision
-*Source: `src/handler.c:can_see` (~line 1433), `can_see_obj` (~line 1466), `src/act_info.c` (~line 495)*
+*Source: `src/core/handler.c:can_see` (~line 1433), `can_see_obj` (~line 1466), `src/commands/act_info.c` (~line 495)*
 
 - With `M_EYES` grown, a Mazoku can see characters and objects (true-sight equivalent) and is not
   blocked by darkness in room display.
 
 ### Ego gain
-*Source: `src/fight.c:group_gain` (~line 2562)*
+*Source: `src/core/fight.c:group_gain` (~line 2562)*
 
 - On a kill where `victim level > EVAL/2`, `M_EGO = UMIN(200, M_EGO + 1)` ("You bask in $N's dying
   agony."). Ego fuels Astral Strike and buffs parry.
 
 ### Evaluation / effective level
-*Source: `src/handler.c:eval` (~line 1745)*
+*Source: `src/core/handler.c:eval` (~line 1745)*
 
 - Mazoku EVAL: `(max_hit-2000)/3000` (counts hp twice, no secondary stat) `+ (M_MATTER+1)/20
   + (M_ASTRAL+1)/20 + (M_FOCUS+1)/20`, `+1` per developed `M_LEARNED` bit in the

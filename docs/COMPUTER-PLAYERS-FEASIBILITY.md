@@ -12,18 +12,18 @@ The headline finding is that **the engine is already most of the way there.** Th
 
 The following building blocks are already in the codebase. They are why this is a feasible feature rather than a rewrite.
 
-- **`interpret()` — the universal command dispatcher.** `src/interp.c:4111` (`void interpret( CHAR_DATA *ch, char *argument )`). Its own comment reads *"The main entry point for executing commands. Can be recursively called from 'at', 'order', 'force'."* It runs commands for **any** `CHAR_DATA`, player or NPC. Nothing in it requires a human socket. This is the single most important fact: any code that can call `interpret(bot, "command")` can drive a character.
+- **`interpret()` — the universal command dispatcher.** `src/core/interp.c:4111` (`void interpret( CHAR_DATA *ch, char *argument )`). Its own comment reads *"The main entry point for executing commands. Can be recursively called from 'at', 'order', 'force'."* It runs commands for **any** `CHAR_DATA`, player or NPC. Nothing in it requires a human socket. This is the single most important fact: any code that can call `interpret(bot, "command")` can drive a character.
 
-- **`do_switch` — proof an NPC can run the full player command set.** `src/act_wiz.c:1259`. An immortal "switches into" a mobile and then plays as it — move, kill, cast, wear, flee, recall, the lot. A computer player is exactly this, automated: code calling `interpret()` on a timer instead of a human typing into a switched session.
+- **`do_switch` — proof an NPC can run the full player command set.** `src/commands/act_wiz.c:1259`. An immortal "switches into" a mobile and then plays as it — move, kill, cast, wear, flee, recall, the lot. A computer player is exactly this, automated: code calling `interpret()` on a timer instead of a human typing into a switched session.
 
-- **`do_force` — forces a character to run a command.** `src/act_wiz.c:3248`. Another existing path that pushes a command string through `interpret()` on behalf of a target character.
+- **`do_force` — forces a character to run a command.** `src/commands/act_wiz.c:3248`. Another existing path that pushes a command string through `interpret()` on behalf of a target character.
 
 - **Mob AI infrastructure already in the world:**
-  - `mobile_update` in `src/update.c` — the per-pulse mob behavior tick.
-  - ROM-style **MobPrograms** — `src/mob_prog.c` + `src/mob_commands.c` — scripted mob behavior (triggers and reactions).
-  - **Special procedures** — `src/special.c` — hard-coded per-mob behaviors.
+  - `mobile_update` in `src/core/update.c` — the per-pulse mob behavior tick.
+  - ROM-style **MobPrograms** — `src/world/mob_prog.c` + `src/world/mob_commands.c` — scripted mob behavior (triggers and reactions).
+  - **Special procedures** — `src/world/special.c` — hard-coded per-mob behaviors.
 
-- **GMCP structured state stream.** `src/gmcp.c` already emits machine-readable JSON: `Char.Vitals`, `Char.Status`, `Room.Info` (room number/name/area/exits), `game.Commands`, `game.Chants`, `Client.GUI`. This is a major enabler for external bots — they can **read structured JSON instead of scraping ANSI text.**
+- **GMCP structured state stream.** `src/core/gmcp.c` already emits machine-readable JSON: `Char.Vitals`, `Char.Status`, `Room.Info` (room number/name/area/exits), `game.Commands`, `game.Chants`, `Client.GUI`. This is a major enabler for external bots — they can **read structured JSON instead of scraping ANSI text.**
 
 - **A world graph already exists.** `tools/build-world-map.mjs` generates a `world.json` room/exit graph used by the web map. It is reusable as a navigation substrate for bots. (See also the forthcoming `world-graph.json`, below.)
 

@@ -22,7 +22,7 @@ is already low. PvE stays as-is.
 "Blast Ash can create instant-kill behavior that is too swingy in PvP." Cap so it cannot kill
 a high-HP target; allow execute at/below 25% HP. Numbers are the target feel (balance-pass OK).
 
-## Current behavior (verified — `src/sorcerer.c:760 chant_blast_ash`)
+## Current behavior (verified — `src/classes/sorcerer.c:760 chant_blast_ash`)
 - Rolls a hit chance: `rank + will/2 (+ bonus >40)`, minus target defense
   (`-level*2/3` vs NPC, `-hit/150` vs PC; NPC level >95 → chance 0).
 - On a failed roll: resisted, no effect.

@@ -17,7 +17,7 @@ Sorcerer's chant unconditionally. Buff it overall, make the Sorcerer interrupt i
 (Defense blocks the chant-break but still takes damage), reward hitting prepared targets, and
 give it cross-class utility so it's useful outside the Sorcerer matchup.
 
-## Current behavior (verified — `src/saiyan.c:1029 do_ryuken`)
+## Current behavior (verified — `src/classes/saiyan.c:1029 do_ryuken`)
 WAIT_STATE 42; physical `dice(body, body*3/2)`, ki `dice(spirit, spirit)`; vs Fist strip
 Figure Eight + zero F_KI; vs Saiyan strip kiwall; vs Sorcerer unconditional `lose_chant`.
 

@@ -22,7 +22,7 @@ GitHub issue: https://github.com/MichaelLeeHobbs/staticchaos-docker/issues/<#>
 ## Proposed design
 <The plan: mechanics and behavior, plus which subsystems/files are touched
 (src/ C, area/ data, tools/ Node, web/ React). Note any coupling
-(e.g. tools/lib/area.mjs must mirror src/db.c).>
+(e.g. tools/lib/area.mjs must mirror src/core/db.c).>
 
 ## Acceptance criteria
 - [ ] <Observable behavior that proves it's done, and how to verify it on dev.>

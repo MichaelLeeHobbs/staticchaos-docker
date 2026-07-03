@@ -22,7 +22,7 @@ and confirm Holy Bless stays castable on allies (White Sorcerer's one ally buff)
   "can be tuned later if it becomes a problem when there are more players."
 
 ## Current state (verified)
-- `chant_holy_bless` (`src/sorcerer.c`) applies a `bless`-type affect (hit/dam) and already targets
+- `chant_holy_bless` (`src/classes/sorcerer.c`) applies a `bless`-type affect (hit/dam) and already targets
   `vo`, so it can be cast on others today — nothing to add for the ally-buff part (and no PvP
   restriction per Skatha).
 - White-specialist = `ch->pcdata->powers[SORC_SPEC] == SCHOOL_WHITE` (cf. sorcerer.c:556).
@@ -37,7 +37,7 @@ So mark it at cast and check the mark at each effect-application site:
    `bool holy_blessed_ward( CHAR_DATA *victim )` -> true if that marker is present.
 2. **Resist hook (5%)** at each place these effects are *applied*, before applying: if
    `holy_blessed_ward(victim)` and `number_percent() <= 5`, skip applying + brief message. Sites:
-   - **curse:** Patryn elemental curses in `src/patryn.c` (gsn_*_curse application).
+   - **curse:** Patryn elemental curses in `src/classes/patryn.c` (gsn_*_curse application).
    - **blind:** `chant_lighting` (sorcerer.c) and `spell_blindness` / `AFF_BLIND` application (magic.c).
    - **sleep:** `chant_sleeping` (sorcerer.c) and `spell_sleep` (magic.c).
    - **no-flee/root:** `chant_dynast_breath` and laphas (sorcerer.c) AFF_NO_FLEE application.

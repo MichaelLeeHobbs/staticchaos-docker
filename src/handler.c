@@ -828,6 +828,28 @@ void obj_from_obj( OBJ_DATA *obj )
 
 
 /*
+ * Is this obj still linked on the global object_list?
+ *
+ * Used by the two-pass reap loops (#97) so pass 2 can verify a doomed object
+ * is still alive before extracting it: an earlier container extraction in the
+ * same pass may already have freed this object (a nested non-unique content),
+ * in which case it now sits on the obj_free list, NOT object_list.  Cheap
+ * linear scan -- only called on the handful of objects that expire in a tick.
+ */
+bool obj_on_object_list( OBJ_DATA *obj )
+{
+    OBJ_DATA *o;
+
+    for ( o = object_list; o != NULL; o = o->next )
+    {
+	if ( o == obj )
+	    return TRUE;
+    }
+    return FALSE;
+}
+
+
+/*
  * Extract an obj from the world.
  */
 void extract_obj( OBJ_DATA *obj )

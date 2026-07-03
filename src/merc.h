@@ -1423,6 +1423,12 @@ struct	obj_data
     OBJ_DATA *		next_content;
     OBJ_DATA *		contains;
     OBJ_DATA *		in_obj;
+    /* Transient reap list link (#97): used ONLY within a single obj_update()/
+     * do_apurge() call to collect doomed objects in a safe walk, then extract
+     * them in a second pass.  Never persisted -- objects are saved field-by-field
+     * as text (fwrite_obj/fread_obj), so a runtime-only pointer never touches
+     * save files.  Not valid outside those two functions. */
+    OBJ_DATA *		reap_next;
     CHAR_DATA *		carried_by;
     EXTRA_DESCR_DATA *	extra_descr;
     AFFECT_DATA *	affected;
@@ -2843,6 +2849,7 @@ void	obj_to_room	args( ( OBJ_DATA *obj, ROOM_INDEX_DATA *pRoomIndex ) );
 void	obj_to_obj	args( ( OBJ_DATA *obj, OBJ_DATA *obj_to ) );
 void	obj_from_obj	args( ( OBJ_DATA *obj ) );
 void	extract_obj	args( ( OBJ_DATA *obj ) );
+bool	obj_on_object_list args( ( OBJ_DATA *obj ) );
 void	extract_char	args( ( CHAR_DATA *ch, bool fPull ) );
 CD *	get_char_room	args( ( CHAR_DATA *ch, char *argument ) );
 CD * 	get_full_char_room	args( ( CHAR_DATA *ch, char *argument ) );

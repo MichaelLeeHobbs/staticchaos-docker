@@ -346,9 +346,14 @@ void gmcp_update_all( void )
             continue;
         gmcp_update_char( d->character );        /* Char.Vitals */
         gmcp_update_status( d->character );      /* Char.Status */
-        if ( !d->gmcp_lists )                    /* command/chant lists, once */
+        if ( !d->gmcp_lists )                    /* command/chant lists + room, once */
         {
             gmcp_send_lists( d->character );
+            /* Push the current room once on entering play. char_to_room() sends
+             * Room.Info on movement/fresh-login, but a linkdead RECONNECT never
+             * calls char_to_room, so without this the client's room panel/map
+             * stays empty until the player moves. */
+            gmcp_update_room( d->character );
             d->gmcp_lists = TRUE;
         }
     }

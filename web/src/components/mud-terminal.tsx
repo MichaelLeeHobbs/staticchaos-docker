@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, useCallback } from 'react';
+import { forwardRef, useEffect, useImperativeHandle, useRef, useState, useCallback } from 'react';
 import { Box, Button, InputBase, Stack, Chip } from '@mui/material';
 import { Terminal } from '@xterm/xterm';
 import { FitAddon } from '@xterm/addon-fit';
@@ -37,7 +37,19 @@ export interface MudTerminalProps {
   onStatus?: (status: MudStatus) => void;
 }
 
-export function MudTerminal({ onGmcp, onStatus }: MudTerminalProps = {}) {
+// Imperative handle so a sibling (the GMCP panel) can inject text into the input
+// line without lifting the input state out of this component — this keeps
+// MudTerminal the sole owner of the connection lifecycle and the send path.
+export interface MudTerminalHandle {
+  // Replace the input line with `text`, focus it, and place the caret at the end
+  // (does not auto-send). Used by the command/chant chips in the side-panel.
+  insertInput: (text: string) => void;
+}
+
+export const MudTerminal = forwardRef<MudTerminalHandle, MudTerminalProps>(function MudTerminal(
+  { onGmcp, onStatus } = {},
+  ref,
+) {
   const termHostRef = useRef<HTMLDivElement | null>(null);
   const termRef = useRef<Terminal | null>(null);
   const fitRef = useRef<FitAddon | null>(null);
@@ -57,6 +69,29 @@ export function MudTerminal({ onGmcp, onStatus }: MudTerminalProps = {}) {
   const [input, setInput] = useState('');
   const historyRef = useRef<string[]>([]);
   const historyIdxRef = useRef(-1);
+
+  // Let the side-panel drop a "<command> " into the input and focus it. The
+  // caret is placed after the value updates (next frame) so it lands at the end.
+  useImperativeHandle(
+    ref,
+    () => ({
+      insertInput: (text: string) => {
+        setInput(text);
+        requestAnimationFrame(() => {
+          const el = inputRef.current;
+          if (!el) return;
+          el.focus();
+          const end = el.value.length;
+          try {
+            el.setSelectionRange(end, end);
+          } catch {
+            /* some input types don't support selection ranges */
+          }
+        });
+      },
+    }),
+    [],
+  );
 
   // Create the terminal once, on mount.
   useEffect(() => {
@@ -248,4 +283,4 @@ export function MudTerminal({ onGmcp, onStatus }: MudTerminalProps = {}) {
       </Stack>
     </Box>
   );
-}
+});

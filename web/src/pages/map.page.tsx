@@ -138,7 +138,16 @@ function buildArea(world: World, areaId: string): { nodes: GraphNode[]; links: G
   return { nodes, links };
 }
 
-export function MapPage() {
+export interface MapPageProps {
+  // When set, deep-link to this room vnum instead of reading ?room= from the URL
+  // (used when embedded in the /play full-map modal, which has no route params).
+  initialRoom?: number;
+  // Embedded in a modal (e.g. /play): route the creature/item "browse" chips
+  // through a new tab so they never unmount the host page.
+  embedded?: boolean;
+}
+
+export function MapPage({ initialRoom, embedded = false }: MapPageProps = {}) {
   const [world, setWorld] = useState<World | null>(null);
   const [err, setErr] = useState<string | null>(null);
   const [enrich, setEnrich] = useState<Enrich | null>(null);
@@ -150,6 +159,15 @@ export function MapPage() {
   const [history, setHistory] = useState<(string | null)[]>([]);
   const [searchParams] = useSearchParams();
   const routerNav = useNavigate();
+  // Navigate to another SPA route; when embedded in a modal, open a new tab so
+  // the host page (and its live MUD connection) stays mounted.
+  const openBrowser = useCallback(
+    (path: string) => {
+      if (embedded) window.open(`#${path}`, '_blank', 'noopener');
+      else routerNav(path);
+    },
+    [embedded, routerNav],
+  );
 
   const wrapRef = useRef<HTMLDivElement>(null);
   const svgRef = useRef<SVGSVGElement>(null);
@@ -390,7 +408,7 @@ export function MapPage() {
   // deep link: /map?room=<vnum> focuses a room; /map?area=<id> opens an area (once)
   useEffect(() => {
     if (!world || deepLinked.current) return;
-    const room = searchParams.get('room');
+    const room = initialRoom != null ? String(initialRoom) : searchParams.get('room');
     const area = searchParams.get('area');
     if (room && world.rooms[room]) {
       deepLinked.current = true;
@@ -399,7 +417,7 @@ export function MapPage() {
       deepLinked.current = true;
       navigate(area);
     }
-  }, [world, searchParams, navigate]);
+  }, [world, searchParams, navigate, initialRoom]);
 
   if (err) return <Alert severity="error">{err}</Alert>;
   if (!world) {
@@ -634,7 +652,7 @@ export function MapPage() {
                       key={`${m.name}-${i}`}
                       size="small"
                       clickable
-                      onClick={() => routerNav(`/browser?tab=mobs&q=${encodeURIComponent(m.name)}`)}
+                      onClick={() => openBrowser(`/browser?tab=mobs&q=${encodeURIComponent(m.name)}`)}
                       label={`${m.name}${m.level != null ? ` (L${m.level})` : ''}`}
                     />
                   ))}
@@ -653,7 +671,7 @@ export function MapPage() {
                       size="small"
                       variant="outlined"
                       clickable
-                      onClick={() => routerNav(`/browser?tab=items&q=${encodeURIComponent(n)}`)}
+                      onClick={() => openBrowser(`/browser?tab=items&q=${encodeURIComponent(n)}`)}
                       label={n}
                     />
                   ))}

@@ -143,8 +143,12 @@ function ChipRow({ names, prefix, onInsert }: { names: string[]; prefix?: string
 }
 
 // The command list can be 100+ entries, so this section is collapsible (default
-// collapsed) and, when open, offers a type-to-narrow filter over a scroll-capped
-// chip area — keeping the panel tidy.
+// collapsed) and, when open, offers a type-to-narrow filter. When expanded the
+// chip area flex-grows to absorb the panel's remaining vertical space (scrolling
+// within it) so a tall screen isn't wasted; when collapsed it's just the header.
+// We conditionally render the body rather than using <Collapse> because a
+// Collapse wrapper has auto (content-driven) height, which would defeat the
+// flex:1 fill — the toggle still shows/hides the body.
 function CommandsSection({ commands, onInsert }: { commands: string[]; onInsert?: (text: string) => void }) {
   const [open, setOpen] = useState(false);
   const [filter, setFilter] = useState('');
@@ -152,7 +156,7 @@ function CommandsSection({ commands, onInsert }: { commands: string[]; onInsert?
   const f = filter.trim().toLowerCase();
   const shown = f ? commands.filter((c) => c.toLowerCase().includes(f)) : commands;
   return (
-    <Box>
+    <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: 0, flex: open ? 1 : '0 0 auto' }}>
       <Stack direction="row" alignItems="center" justifyContent="space-between">
         <SectionTitle>Commands ({commands.length})</SectionTitle>
         <IconButton
@@ -163,26 +167,30 @@ function CommandsSection({ commands, onInsert }: { commands: string[]; onInsert?
           {open ? <ExpandLessIcon /> : <ExpandMoreIcon />}
         </IconButton>
       </Stack>
-      <Collapse in={open}>
-        <TextField
-          size="small"
-          fullWidth
-          value={filter}
-          onChange={(e) => setFilter(e.target.value)}
-          placeholder="Filter commands…"
-          autoComplete="off"
-          sx={{ mb: 1 }}
-        />
-        <Box sx={{ maxHeight: 176, overflowY: 'auto', pr: 0.5 }}>
-          {shown.length === 0 ? (
-            <Typography variant="body2" color="text.secondary">
-              No matching commands.
-            </Typography>
-          ) : (
-            <ChipRow names={shown} onInsert={onInsert} />
-          )}
-        </Box>
-      </Collapse>
+      {open && (
+        <>
+          <TextField
+            size="small"
+            fullWidth
+            value={filter}
+            onChange={(e) => setFilter(e.target.value)}
+            placeholder="Filter commands…"
+            autoComplete="off"
+            sx={{ mb: 1 }}
+          />
+          {/* flex:1 fills the leftover panel height; minHeight keeps it usable on
+              short screens; overflow scrolls within whatever height is left. */}
+          <Box sx={{ flex: 1, minHeight: 96, overflowY: 'auto', pr: 0.5 }}>
+            {shown.length === 0 ? (
+              <Typography variant="body2" color="text.secondary">
+                No matching commands.
+              </Typography>
+            ) : (
+              <ChipRow names={shown} onInsert={onInsert} />
+            )}
+          </Box>
+        </>
+      )}
     </Box>
   );
 }
@@ -197,7 +205,18 @@ export function GmcpPanel({ connection, state, onInsertCommand }: GmcpPanelProps
   const area = room?.area ?? status?.area;
 
   const body = (
-    <Stack spacing={2} sx={{ opacity: live ? 1 : 0.5, transition: 'opacity 0.2s', pointerEvents: live ? 'auto' : 'none' }}>
+    <Stack
+      spacing={2}
+      sx={{
+        // Fill the panel's height so the Commands chip list (flex:1) can grow
+        // into the leftover space; the fixed sections keep their natural height.
+        flex: 1,
+        minHeight: 0,
+        opacity: live ? 1 : 0.5,
+        transition: 'opacity 0.2s',
+        pointerEvents: live ? 'auto' : 'none',
+      }}
+    >
       {/* Vitals */}
       <Box>
         <SectionTitle>Vitals</SectionTitle>

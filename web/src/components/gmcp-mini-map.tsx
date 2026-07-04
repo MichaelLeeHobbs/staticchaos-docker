@@ -1,8 +1,15 @@
-import { useEffect, useMemo, useState } from 'react';
-import { Box, Link, Typography } from '@mui/material';
-import { useNavigate } from 'react-router-dom';
+import { lazy, Suspense, useEffect, useMemo, useState } from 'react';
+import { Box, CircularProgress, Dialog, DialogContent, DialogTitle, IconButton, Link, Typography } from '@mui/material';
+import CloseIcon from '@mui/icons-material/Close';
 import { loadWorld } from '../lib/data';
 import type { World } from '../lib/types';
+
+// The full map (d3 force-graph) is heavy; lazy-load it so it stays out of the
+// /play bundle and only loads when the player opens the modal. Rendering it in a
+// Dialog (instead of navigating to /map) keeps the /play page — and therefore
+// the MudTerminal/MudConnection — mounted, so opening the map never disconnects
+// the player.
+const MapPage = lazy(() => import('../pages/map.page').then((m) => ({ default: m.MapPage })));
 
 // Compact "you are here" mini-map for the GMCP side-panel.
 //
@@ -44,8 +51,9 @@ export interface MiniMapProps {
 }
 
 export function GmcpMiniMap({ num }: MiniMapProps) {
-  const navigate = useNavigate();
   const [world, setWorld] = useState<World | null>(worldCache);
+  // vnum to deep-link the full-map modal to; null = closed.
+  const [openVnum, setOpenVnum] = useState<number | null>(null);
 
   useEffect(() => {
     if (worldCache) return;
@@ -102,7 +110,7 @@ export function GmcpMiniMap({ num }: MiniMapProps) {
             <g
               key={`n-${n.dir}`}
               style={{ cursor: 'pointer' }}
-              onClick={() => navigate(`/map?room=${n.to}`)}
+              onClick={() => setOpenVnum(n.to)}
             >
               <title>{`${DIRW[n.dir]}: ${n.name}${n.crossArea ? ' (other area)' : ''}`}</title>
               <circle
@@ -124,7 +132,7 @@ export function GmcpMiniMap({ num }: MiniMapProps) {
         })}
 
         {/* centre (current room) */}
-        <g style={{ cursor: 'pointer' }} onClick={() => navigate(`/map?room=${view.here.vnum}`)}>
+        <g style={{ cursor: 'pointer' }} onClick={() => setOpenVnum(view.here.vnum)}>
           <title>{`${view.here.name} (#${view.here.vnum}) — open full map`}</title>
           <circle cx={CX} cy={CY} r={17} fill={CENTER_FILL} stroke="#f0d9a0" strokeWidth={2} />
           <circle cx={CX} cy={CY} r={22} fill="none" stroke={CENTER_FILL} strokeWidth={1} opacity={0.4} />
@@ -132,10 +140,38 @@ export function GmcpMiniMap({ num }: MiniMapProps) {
       </Box>
 
       <Typography variant="caption" color="text.secondary" sx={{ display: 'block', textAlign: 'center', mt: 0.5 }}>
-        <Link component="button" type="button" underline="hover" onClick={() => navigate(`/map?room=${view.here.vnum}`)}>
+        <Link component="button" type="button" underline="hover" onClick={() => setOpenVnum(view.here.vnum)}>
           Open full map
         </Link>
       </Typography>
+
+      {/* Full map in a near-fullscreen modal, deep-linked to the current room.
+          Rendered from within /play so the terminal/connection never unmount. */}
+      <Dialog
+        open={openVnum != null}
+        onClose={() => setOpenVnum(null)}
+        fullWidth
+        maxWidth={false}
+        PaperProps={{ sx: { width: '95vw', height: '92vh', maxWidth: 'none', m: 1, bgcolor: '#121217' } }}
+      >
+        <DialogTitle sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', py: 1 }}>
+          World Map
+          <IconButton onClick={() => setOpenVnum(null)} size="small" aria-label="Close map">
+            <CloseIcon />
+          </IconButton>
+        </DialogTitle>
+        <DialogContent dividers sx={{ display: 'flex', flexDirection: 'column', minHeight: 0, p: 1.5 }}>
+          <Suspense
+            fallback={
+              <Box sx={{ display: 'flex', justifyContent: 'center', py: 8 }}>
+                <CircularProgress />
+              </Box>
+            }
+          >
+            {openVnum != null && <MapPage initialRoom={openVnum} embedded />}
+          </Suspense>
+        </DialogContent>
+      </Dialog>
     </Box>
   );
 }

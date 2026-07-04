@@ -11,6 +11,10 @@ updates:
     groups:
       root-deps:
         patterns: ["*"]
+        # Keep MAJOR bumps OUT of the group -- a breaking major (e.g. MUI 6->9,
+        # xterm 5->6) shouldn't fail the whole grouped PR. Majors come as their
+        # own PRs, reviewed/migrated one at a time.
+        update-types: ["minor", "patch"]
 
   - package-ecosystem: "npm"
     directory: "/web"
@@ -20,6 +24,10 @@ updates:
     groups:
       web-deps:
         patterns: ["*"]
+        # Keep MAJOR bumps OUT of the group -- a breaking major (e.g. MUI 6->9,
+        # xterm 5->6) shouldn't fail the whole grouped PR. Majors come as their
+        # own PRs, reviewed/migrated one at a time.
+        update-types: ["minor", "patch"]
 
   - package-ecosystem: "github-actions"
     directory: "/"
@@ -28,6 +36,10 @@ updates:
     groups:
       actions:
         patterns: ["*"]
+        # Keep MAJOR bumps OUT of the group -- a breaking major (e.g. MUI 6->9,
+        # xterm 5->6) shouldn't fail the whole grouped PR. Majors come as their
+        # own PRs, reviewed/migrated one at a time.
+        update-types: ["minor", "patch"]
 
   - package-ecosystem: "docker"       # Dockerfile base images (digest-pinned, #63)
     directory: "/"

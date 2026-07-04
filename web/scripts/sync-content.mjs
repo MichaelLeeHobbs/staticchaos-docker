@@ -58,6 +58,7 @@ const docsIndex = [];
 // NOT exposed — add a file here once it's been written for players.
 const USER_DOCS = new Set([
   'GETTING-STARTED.md',
+  'HOW-TO-REPORT.md',
   'GEARING-GUIDE.md',
   'MOBILE-SUITS.md',
   'CLASS-SAIYAN.md',

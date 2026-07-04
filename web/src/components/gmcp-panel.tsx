@@ -8,6 +8,7 @@ import {
   LinearProgress,
   Paper,
   Stack,
+  TextField,
   Typography,
   useMediaQuery,
   useTheme,
@@ -55,11 +56,15 @@ export interface GmcpState {
   vitals: Vitals | null;
   status: CharStatus | null;
   room: RoomInfo | null;
+  commands: string[]; // game.Commands — the player's available command names
+  chants: string[]; // game.Chants — Sorcerer-only; empty for other classes
 }
 
 export interface GmcpPanelProps {
   connection: MudStatus;
   state: GmcpState;
+  // Inject "<text>" into the terminal input and focus it (no auto-send).
+  onInsertCommand?: (text: string) => void;
 }
 
 const DIRW: Record<string, string> = { n: 'N', e: 'E', s: 'S', w: 'W', u: 'Up', d: 'Down' };
@@ -117,13 +122,78 @@ function SectionTitle({ children }: { children: React.ReactNode }) {
   );
 }
 
-export function GmcpPanel({ connection, state }: GmcpPanelProps) {
+// A row of clickable name chips. Clicking a chip hands `prefix + name + ' '` to
+// the terminal input (e.g. "look " or "chant fireball ") so the user can add
+// args and press Enter — it never auto-sends.
+function ChipRow({ names, prefix, onInsert }: { names: string[]; prefix?: string; onInsert?: (text: string) => void }) {
+  return (
+    <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
+      {names.map((n) => (
+        <Chip
+          key={n}
+          size="small"
+          variant="outlined"
+          label={n}
+          clickable
+          onClick={() => onInsert?.(`${prefix ?? ''}${n} `)}
+        />
+      ))}
+    </Box>
+  );
+}
+
+// The command list can be 100+ entries, so this section is collapsible (default
+// collapsed) and, when open, offers a type-to-narrow filter over a scroll-capped
+// chip area — keeping the panel tidy.
+function CommandsSection({ commands, onInsert }: { commands: string[]; onInsert?: (text: string) => void }) {
+  const [open, setOpen] = useState(false);
+  const [filter, setFilter] = useState('');
+  if (commands.length === 0) return null;
+  const f = filter.trim().toLowerCase();
+  const shown = f ? commands.filter((c) => c.toLowerCase().includes(f)) : commands;
+  return (
+    <Box>
+      <Stack direction="row" alignItems="center" justifyContent="space-between">
+        <SectionTitle>Commands ({commands.length})</SectionTitle>
+        <IconButton
+          size="small"
+          onClick={() => setOpen((o) => !o)}
+          aria-label={open ? 'Collapse commands' : 'Expand commands'}
+        >
+          {open ? <ExpandLessIcon /> : <ExpandMoreIcon />}
+        </IconButton>
+      </Stack>
+      <Collapse in={open}>
+        <TextField
+          size="small"
+          fullWidth
+          value={filter}
+          onChange={(e) => setFilter(e.target.value)}
+          placeholder="Filter commands…"
+          autoComplete="off"
+          sx={{ mb: 1 }}
+        />
+        <Box sx={{ maxHeight: 176, overflowY: 'auto', pr: 0.5 }}>
+          {shown.length === 0 ? (
+            <Typography variant="body2" color="text.secondary">
+              No matching commands.
+            </Typography>
+          ) : (
+            <ChipRow names={shown} onInsert={onInsert} />
+          )}
+        </Box>
+      </Collapse>
+    </Box>
+  );
+}
+
+export function GmcpPanel({ connection, state, onInsertCommand }: GmcpPanelProps) {
   const theme = useTheme();
   const isNarrow = useMediaQuery(theme.breakpoints.down('md'));
   const [open, setOpen] = useState(true);
 
   const live = connection === 'connected';
-  const { vitals, status, room } = state;
+  const { vitals, status, room, commands, chants } = state;
   const area = room?.area ?? status?.area;
 
   const body = (
@@ -209,6 +279,25 @@ export function GmcpPanel({ connection, state }: GmcpPanelProps) {
           </Typography>
         )}
       </Box>
+
+      {/* Commands — clickable helpers; long, so collapsible + filterable. */}
+      {commands.length > 0 && (
+        <>
+          <Divider />
+          <CommandsSection commands={commands} onInsert={onInsertCommand} />
+        </>
+      )}
+
+      {/* Chants — Sorcerer-only; rendered only when the list is non-empty. */}
+      {chants.length > 0 && (
+        <>
+          <Divider />
+          <Box>
+            <SectionTitle>Chants</SectionTitle>
+            <ChipRow names={chants} prefix="chant " onInsert={onInsertCommand} />
+          </Box>
+        </>
+      )}
     </Stack>
   );
 

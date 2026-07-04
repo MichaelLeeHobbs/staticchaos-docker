@@ -1,10 +1,10 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useRef, useState } from 'react';
 import { Box, Typography, Alert } from '@mui/material';
-import { MudTerminal } from '../components/mud-terminal';
+import { MudTerminal, type MudTerminalHandle } from '../components/mud-terminal';
 import { GmcpPanel, type GmcpState, type Vitals, type CharStatus, type RoomInfo } from '../components/gmcp-panel';
 import type { GmcpMessage, MudStatus } from '../lib/mud-connection';
 
-const EMPTY: GmcpState = { vitals: null, status: null, room: null };
+const EMPTY: GmcpState = { vitals: null, status: null, room: null, commands: [], chants: [] };
 
 // Coerce a GMCP field to a number (the proxy/latin1 path can hand values back as
 // strings), tolerating missing keys.
@@ -13,9 +13,21 @@ function num(v: unknown): number {
   return Number.isNaN(n) ? 0 : n;
 }
 
+// game.Commands / game.Chants arrive as JSON arrays of name strings.
+function strArray(v: unknown): string[] {
+  return Array.isArray(v) ? v.filter((x): x is string => typeof x === 'string') : [];
+}
+
 export function PlayPage() {
   const [status, setStatus] = useState<MudStatus>('disconnected');
   const [gmcp, setGmcp] = useState<GmcpState>(EMPTY);
+  const termRef = useRef<MudTerminalHandle>(null);
+
+  // Command/chant chips inject "<command> " into the input and focus it (no
+  // auto-send — many commands take args). The terminal owns the input line.
+  const insertCommand = useCallback((text: string) => {
+    termRef.current?.insertInput(text);
+  }, []);
 
   const handleStatus = useCallback((s: MudStatus) => {
     setStatus(s);
@@ -74,6 +86,15 @@ export function PlayPage() {
         }));
         break;
       }
+      // Static, once-per-login lists. Retained across a 'connecting' blip (only
+      // wiped on a real disconnect/error, via handleStatus). game.Chants is sent
+      // only for Sorcerers; the panel hides its section when the list is empty.
+      case 'game.Commands':
+        setGmcp((g) => ({ ...g, commands: strArray(msg.data) }));
+        break;
+      case 'game.Chants':
+        setGmcp((g) => ({ ...g, chants: strArray(msg.data) }));
+        break;
       // Core.Hello / Client.GUI and any other modules are ignored.
       default:
         break;
@@ -108,11 +129,11 @@ export function PlayPage() {
         {/* Terminal fills the main area; its own ResizeObserver refits xterm when
             this box resizes (column⇄row switch, panel collapse). */}
         <Box sx={{ flex: 1, minWidth: 0, minHeight: { xs: 360, md: 0 } }}>
-          <MudTerminal onGmcp={handleGmcp} onStatus={handleStatus} />
+          <MudTerminal ref={termRef} onGmcp={handleGmcp} onStatus={handleStatus} />
         </Box>
         {/* Fixed-width panel on desktop; full-width (collapsible) on mobile. */}
         <Box sx={{ width: { xs: '100%', md: 330 }, flexShrink: 0, minHeight: 0 }}>
-          <GmcpPanel connection={status} state={gmcp} />
+          <GmcpPanel connection={status} state={gmcp} onInsertCommand={insertCommand} />
         </Box>
       </Box>
     </Box>

@@ -106,17 +106,21 @@ export function PlayPage() {
       <Typography variant="h1" gutterBottom>
         Play Now
       </Typography>
-      <Typography variant="body1" color="text.secondary" sx={{ mb: 2, maxWidth: 760 }}>
+      <Typography
+        variant="body1"
+        sx={{
+          color: "text.secondary",
+          mb: 2,
+          maxWidth: 760
+        }}>
         Play Static Chaos right here in your browser &mdash; no telnet client, no install. Hit
         <strong> Connect</strong>, then type commands in the input line below the screen. The side panel
         shows your vitals, character and a live mini-map via GMCP.
       </Typography>
-
       <Alert severity="info" sx={{ mb: 2, maxWidth: 760 }}>
         New here? Type <code>new</code> at the name prompt to create a character. Your password is
         hidden while typing at password prompts.
       </Alert>
-
       <Box
         sx={{
           flex: 1,

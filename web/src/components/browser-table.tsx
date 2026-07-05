@@ -65,7 +65,13 @@ export function BrowserTable<T>({ rows, columns }: BrowserTableProps<T>) {
             {pageRows.length === 0 && (
               <TableRow>
                 <TableCell colSpan={columns.length}>
-                  <Typography variant="body2" color="text.secondary" sx={{ py: 2, textAlign: 'center' }}>
+                  <Typography
+                    variant="body2"
+                    sx={{
+                      color: "text.secondary",
+                      py: 2,
+                      textAlign: 'center'
+                    }}>
                     No matching rows.
                   </Typography>
                 </TableCell>

@@ -29,7 +29,9 @@ export function AppFooter() {
       component="footer"
       sx={{ py: 2, mt: 4, borderTop: '1px solid', borderColor: 'divider', textAlign: 'center' }}
     >
-      <Typography variant="caption" color="text.secondary">
+      <Typography variant="caption" sx={{
+        color: "text.secondary"
+      }}>
         Static Chaos companion — static, no login
         {when ? ` · game data generated ${when}` : ''} ·{' '}
         <Link href="https://www.mudlet.org/" target="_blank" rel="noopener" color="inherit">

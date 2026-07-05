@@ -69,7 +69,9 @@ function DocsIndex() {
             </Typography>
             <Divider sx={{ mb: 1.5 }} />
             {isAtlas ? (
-              <Stack direction="row" spacing={1} useFlexGap flexWrap="wrap">
+              <Stack direction="row" spacing={1} useFlexGap sx={{
+                flexWrap: "wrap"
+              }}>
                 {items.map((entry) => (
                   <Chip
                     key={entry.file}

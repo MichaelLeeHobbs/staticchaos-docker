@@ -116,7 +116,13 @@ function ItemsTab({ active, initialQuery }: { active: boolean; initialQuery?: st
 
   return (
     <Box>
-      <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2} alignItems={{ sm: 'center' }} sx={{ mb: 2 }}>
+      <Stack
+        direction={{ xs: 'column', sm: 'row' }}
+        spacing={2}
+        sx={{
+          alignItems: { sm: 'center' },
+          mb: 2
+        }}>
         <TextField
           label="Search name / area / type"
           size="small"

@@ -3625,12 +3625,27 @@ void copyover_recover ()
 
 ROOM_INDEX_DATA *get_rand_room()
 {
-  int rand_vnum = 0;
   ROOM_INDEX_DATA *pRoom;
+  int attempts;
 
-  while ( (pRoom = get_room_index(rand_vnum)) == NULL )
-    rand_vnum = dice(1,9999);
+  /* All callers drop uniques here, so avoid rooms where a player can't reach or
+   * freely pick the item up: Limbo/proto vnums (< 100), and private/solitary/safe
+   * rooms. Bounded retry so a pathological world can't spin forever. */
+  for ( attempts = 0; attempts < 2000; attempts++ )
+  {
+    pRoom = get_room_index( dice(1,9999) );
+    if ( pRoom == NULL || pRoom->vnum < 100 )
+      continue;
+    if ( IS_SET( pRoom->room_flags, ROOM_PRIVATE )
+      || IS_SET( pRoom->room_flags, ROOM_SOLITARY )
+      || IS_SET( pRoom->room_flags, ROOM_SAFE ) )
+      continue;
+    return pRoom;
+  }
 
+  /* Fallback (effectively unreachable with thousands of rooms): any valid room. */
+  while ( ( pRoom = get_room_index( dice(1,9999) ) ) == NULL )
+    ;
   return pRoom;
 }
 
@@ -3704,39 +3719,44 @@ void memory_check()
 }
 
 /* Is at least one instance of this object vnum present anywhere in the world? */
-static bool unique_in_world( int vnum )
-{
-  OBJ_DATA *obj;
-
-  for ( obj = object_list; obj != NULL; obj = obj->next )
-  {
-    if ( obj->pIndexData != NULL && obj->pIndexData->vnum == vnum )
-      return TRUE;
-  }
-  return FALSE;
-}
-
 /*
- * (Re)spawn the unique world-drop items (#109). Called at boot and every
- * PULSE_UNIQUE_SPAWN (4h) from update_handler. Each unique is dropped in a
- * random room only if no instance already exists anywhere -- so one that was
- * lost (its holder died, or logged off where save.c strips uniques) reappears
- * within a cycle, without ever duplicating one still out in the world or held
- * by a player. The EVAL>=30 / one-at-a-time pickup gate is unchanged.
+ * (Re)spawn the unique world-drop items (#109). Called every PULSE_UNIQUE_SPAWN
+ * (4h) from update_handler, firing on the first pulse (~boot). Each unique is
+ * dropped in a random reachable room only if no instance already exists anywhere
+ * -- so one that was lost (its holder died, or logged off where save.c strips a
+ * mortal's uniques) reappears within a cycle, without ever duplicating one still
+ * in the world or carried by a player. One object_list pass covers all four. The
+ * EVAL>=30 / one-at-a-time pickup gate is unchanged.
  */
 void load_uniques()
 {
   static const int unique_vnums[] = { 30, 32, 33, 34 };
+  int n = (int)( sizeof( unique_vnums ) / sizeof( unique_vnums[0] ) );
+  bool present[ sizeof( unique_vnums ) / sizeof( unique_vnums[0] ) ];
+  OBJ_DATA *obj;
   int i;
 
-  for ( i = 0; i < (int)( sizeof( unique_vnums ) / sizeof( unique_vnums[0] ) ); i++ )
-  {
-    int vnum = unique_vnums[i];
-    OBJ_INDEX_DATA *pObjIndex = get_obj_index( vnum );
+  for ( i = 0; i < n; i++ )
+    present[i] = FALSE;
 
-    if ( pObjIndex == NULL )		/* not in the db -- skip safely */
+  /* Single pass: which uniques already exist somewhere (room, inventory, corpse)? */
+  for ( obj = object_list; obj != NULL; obj = obj->next )
+  {
+    if ( obj->pIndexData == NULL )
       continue;
-    if ( unique_in_world( vnum ) )	/* already out there -- don't dupe */
+    for ( i = 0; i < n; i++ )
+      if ( obj->pIndexData->vnum == unique_vnums[i] )
+        present[i] = TRUE;
+  }
+
+  /* Spawn the missing ones into a random reachable room. */
+  for ( i = 0; i < n; i++ )
+  {
+    OBJ_INDEX_DATA *pObjIndex;
+
+    if ( present[i] )
+      continue;
+    if ( ( pObjIndex = get_obj_index( unique_vnums[i] ) ) == NULL )
       continue;
 
     obj_to_room( create_object( pObjIndex, 0 ), get_rand_room() );

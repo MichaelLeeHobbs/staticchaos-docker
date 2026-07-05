@@ -196,6 +196,7 @@ typedef void CHANT_FUN	args( ( int cn, int rank, CHAR_DATA *ch, void *vo ) );
 /* Save the database - OLC 1.1b */
 #define PULSE_DB_DUMP		  (1800* PULSE_PER_SECOND ) /* 30 minutes  */
 #define PULSE_CORPSE_SAVE	  ( 300* PULSE_PER_SECOND ) /* 5 minutes: persist corpses */
+#define PULSE_UNIQUE_SPAWN	  (4*3600* PULSE_PER_SECOND ) /* 4 hours: (re)spawn uniques (#109) */
 
 #define	SECONDS_PER_WEEK       604800
 
@@ -2747,6 +2748,7 @@ MID *	get_mob_index	args( ( int vnum ) );
 OID *	get_obj_index	args( ( int vnum ) );
 RID *	get_room_index	args( ( int vnum ) );
 RID *	get_rand_room	args( ( void ) );
+void	load_uniques	args( ( void ) );
 char	fread_letter	args( ( FILE *fp ) );
 int	fread_number	args( ( FILE *fp ) );
 void	fread_fatal	args( ( void ) );	/* recover (longjmp) or exit on a bad token (#83) */

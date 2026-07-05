@@ -436,7 +436,11 @@ void fwrite_obj( CHAR_DATA *ch, OBJ_DATA *obj, FILE *fp, int iNest )
     ||   obj->item_type == ITEM_POTION )
         return;
 
-    if ( IS_OBJ_STAT(obj,ITEM_UNIQUE) && ch->level < LEVEL_HERO )
+    /* Unique world-drops (#109) are never persisted for mortals -- "held until
+     * you die or log off". Was < LEVEL_HERO, which let level-16 avatars keep a
+     * unique across logoff; that hid it from the respawn dedup and duplicated it
+     * on relogin. Strip for all mortals; immortals may still keep them for building. */
+    if ( IS_OBJ_STAT(obj,ITEM_UNIQUE) && ch->level < LEVEL_IMMORTAL )
     {
       if ( obj->wear_loc != -1 )
         unequip_char( ch, obj );

@@ -2035,6 +2035,7 @@ void update_handler( void )
     static  int     pulse_second;
     static int pulse_db_dump;	/* OLC 1.1b */
     static int pulse_corpse_save;	/* corpse persistence */
+    static int pulse_uniques;		/* #109: (re)spawn unique world-drops */
 
     /* OLC 1.1b */
     if ( --pulse_db_dump  <= 0 )
@@ -2049,6 +2050,14 @@ void update_handler( void )
     {
 	pulse_corpse_save = PULSE_CORPSE_SAVE;
 	save_persistent_corpses();
+    }
+
+    /* #109: (re)spawn the unique world-drops. Fires on the first pulse (~boot)
+     * and every 4h after; load_uniques() dedups so nothing is duplicated. */
+    if ( --pulse_uniques <= 0 )
+    {
+	pulse_uniques = PULSE_UNIQUE_SPAWN;
+	load_uniques();
     }
 
     if ( --pulse_area     <= 0 )

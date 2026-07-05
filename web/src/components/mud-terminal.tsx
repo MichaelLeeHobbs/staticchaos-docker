@@ -214,7 +214,14 @@ export const MudTerminal = forwardRef<MudTerminalHandle, MudTerminalProps>(funct
 
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', height: '100%', minHeight: 0 }}>
-      <Stack direction="row" spacing={1.5} alignItems="center" sx={{ mb: 1, flexWrap: 'wrap' }}>
+      <Stack
+        direction="row"
+        spacing={1.5}
+        sx={{
+          alignItems: "center",
+          mb: 1,
+          flexWrap: 'wrap'
+        }}>
         {isConnected ? (
           <Button variant="outlined" color="inherit" size="small" onClick={disconnect}>
             Disconnect
@@ -231,7 +238,6 @@ export const MudTerminal = forwardRef<MudTerminalHandle, MudTerminalProps>(funct
           </Box>
         )}
       </Stack>
-
       <Box
         sx={{
           flex: 1,
@@ -247,21 +253,19 @@ export const MudTerminal = forwardRef<MudTerminalHandle, MudTerminalProps>(funct
       >
         <Box ref={termHostRef} sx={{ height: '100%', width: '100%' }} />
       </Box>
-
       <Stack
         direction="row"
-        alignItems="center"
         spacing={1}
         sx={{
+          alignItems: "center",
           mt: 1,
           px: 1.5,
           py: 0.5,
           bgcolor: '#121217',
           border: '1px solid',
           borderColor: 'divider',
-          borderRadius: 1,
-        }}
-      >
+          borderRadius: 1
+        }}>
         <Box component="span" sx={{ color: 'primary.main', fontFamily: 'monospace' }}>
           &gt;
         </Box>

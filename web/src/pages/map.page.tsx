@@ -433,7 +433,15 @@ export function MapPage({ initialRoom, embedded = false }: MapPageProps = {}) {
 
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', flex: 1, minHeight: 0 }}>
-      <Stack direction="row" spacing={1.5} alignItems="center" sx={{ mb: 1.5, flexWrap: 'wrap', gap: 1 }}>
+      <Stack
+        direction="row"
+        spacing={1.5}
+        sx={{
+          alignItems: "center",
+          mb: 1.5,
+          flexWrap: 'wrap',
+          gap: 1
+        }}>
         <Button
           size="small"
           startIcon={<HomeIcon />}
@@ -451,7 +459,9 @@ export function MapPage({ initialRoom, embedded = false }: MapPageProps = {}) {
           Back
         </Button>
         {areaName && (
-          <Typography variant="body2" color="text.secondary">
+          <Typography variant="body2" sx={{
+            color: "text.secondary"
+          }}>
             › {areaName} <span style={{ opacity: 0.6 }}>({view})</span>
           </Typography>
         )}
@@ -473,11 +483,14 @@ export function MapPage({ initialRoom, embedded = false }: MapPageProps = {}) {
         <Stack
           direction="row"
           spacing={1}
-          alignItems="center"
-          sx={{ minWidth: 150 }}
           title="How hard the layout pushes nodes apart"
-        >
-          <Typography variant="caption" color="text.secondary">
+          sx={{
+            alignItems: "center",
+            minWidth: 150
+          }}>
+          <Typography variant="caption" sx={{
+            color: "text.secondary"
+          }}>
             Spread
           </Typography>
           <Slider
@@ -570,14 +583,18 @@ export function MapPage({ initialRoom, embedded = false }: MapPageProps = {}) {
           sx={{ width: { xs: '100%', sm: 280 } }}
         />
       </Stack>
-
-      <Typography variant="caption" color="text.secondary" sx={{ display: 'block', mb: 1 }}>
+      <Typography
+        variant="caption"
+        sx={{
+          color: "text.secondary",
+          display: 'block',
+          mb: 1
+        }}>
         {view === null
           ? `${world.areas.length} areas · blue = reachable, red = stranded · click an area to enter`
           : 'gold = recall · green ▸ = portal · amber = one-way · drag to move · Ctrl-click / Ctrl-drag to multi-select then drag the group · Re-tidy relaxes from here · layout saved in your browser'}
         {graph?.gridFellBack ? ' · ⚠ grid unsuitable for this area — showing Force' : ''}
       </Typography>
-
       <Box ref={wrapRef} sx={{ position: 'relative', flex: 1, minHeight: 0, width: '100%' }}>
         <Paper variant="outlined" sx={{ width: '100%', height: '100%', overflow: 'hidden', bgcolor: '#0c0c10' }}>
           <svg ref={svgRef} width="100%" height="100%" style={{ display: 'block' }} />
@@ -596,7 +613,12 @@ export function MapPage({ initialRoom, embedded = false }: MapPageProps = {}) {
               p: 2,
             }}
           >
-            <Stack direction="row" justifyContent="space-between" alignItems="flex-start">
+            <Stack
+              direction="row"
+              sx={{
+                justifyContent: "space-between",
+                alignItems: "flex-start"
+              }}>
               <Typography variant="h6" sx={{ pr: 1 }}>
                 {room.name || `#${selected}`}
               </Typography>
@@ -604,7 +626,9 @@ export function MapPage({ initialRoom, embedded = false }: MapPageProps = {}) {
                 <CloseIcon fontSize="small" />
               </IconButton>
             </Stack>
-            <Typography variant="caption" color="text.secondary">
+            <Typography variant="caption" sx={{
+              color: "text.secondary"
+            }}>
               room #{selected} · {room.area} · sector {room.sector}
             </Typography>
 
@@ -612,7 +636,9 @@ export function MapPage({ initialRoom, embedded = false }: MapPageProps = {}) {
               Exits
             </Typography>
             {Object.keys(room.exits).length === 0 ? (
-              <Typography variant="body2" color="text.secondary">
+              <Typography variant="body2" sx={{
+                color: "text.secondary"
+              }}>
                 none
               </Typography>
             ) : (

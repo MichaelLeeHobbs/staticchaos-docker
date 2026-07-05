@@ -79,7 +79,13 @@ function Gauge({ label, value, max, color }: { label: string; value: number; max
   const pct = hasMax ? Math.max(0, Math.min(100, (value / max) * 100)) : 0;
   return (
     <Box>
-      <Stack direction="row" justifyContent="space-between" alignItems="baseline" sx={{ mb: 0.25 }}>
+      <Stack
+        direction="row"
+        sx={{
+          justifyContent: "space-between",
+          alignItems: "baseline",
+          mb: 0.25
+        }}>
         <Typography variant="caption" sx={{ color: 'text.secondary', textTransform: 'uppercase', letterSpacing: 0.5 }}>
           {label}
         </Typography>
@@ -157,7 +163,12 @@ function CommandsSection({ commands, onInsert }: { commands: string[]; onInsert?
   const shown = f ? commands.filter((c) => c.toLowerCase().includes(f)) : commands;
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: 0, flex: open ? 1 : '0 0 auto' }}>
-      <Stack direction="row" alignItems="center" justifyContent="space-between">
+      <Stack
+        direction="row"
+        sx={{
+          alignItems: "center",
+          justifyContent: "space-between"
+        }}>
         <SectionTitle>Commands ({commands.length})</SectionTitle>
         <IconButton
           size="small"
@@ -182,7 +193,9 @@ function CommandsSection({ commands, onInsert }: { commands: string[]; onInsert?
               short screens; overflow scrolls within whatever height is left. */}
           <Box sx={{ flex: 1, minHeight: 96, overflowY: 'auto', pr: 0.5 }}>
             {shown.length === 0 ? (
-              <Typography variant="body2" color="text.secondary">
+              <Typography variant="body2" sx={{
+                color: "text.secondary"
+              }}>
                 No matching commands.
               </Typography>
             ) : (
@@ -252,7 +265,9 @@ export function GmcpPanel({ connection, state, onInsertCommand }: GmcpPanelProps
             {area ? <StatItem label="Area" value={area} /> : null}
           </Box>
         ) : (
-          <Typography variant="body2" color="text.secondary">
+          <Typography variant="body2" sx={{
+            color: "text.secondary"
+          }}>
             {live ? 'Waiting for character data…' : 'Not connected.'}
           </Typography>
         )}
@@ -269,17 +284,27 @@ export function GmcpPanel({ connection, state, onInsertCommand }: GmcpPanelProps
               <Typography variant="body2" sx={{ fontWeight: 600 }}>
                 {room.name || `#${room.num}`}
               </Typography>
-              <Typography variant="caption" color="text.secondary">
+              <Typography variant="caption" sx={{
+                color: "text.secondary"
+              }}>
                 #{room.num}
                 {room.area ? ` · ${room.area}` : ''}
               </Typography>
             </Box>
             <Box>
-              <Typography variant="caption" color="text.secondary" sx={{ display: 'block', mb: 0.5 }}>
+              <Typography
+                variant="caption"
+                sx={{
+                  color: "text.secondary",
+                  display: 'block',
+                  mb: 0.5
+                }}>
                 Exits
               </Typography>
               {Object.keys(room.exits).length === 0 ? (
-                <Typography variant="body2" color="text.secondary">
+                <Typography variant="body2" sx={{
+                  color: "text.secondary"
+                }}>
                   none
                 </Typography>
               ) : (
@@ -293,7 +318,9 @@ export function GmcpPanel({ connection, state, onInsertCommand }: GmcpPanelProps
             <GmcpMiniMap num={room.num} />
           </Stack>
         ) : (
-          <Typography variant="body2" color="text.secondary">
+          <Typography variant="body2" sx={{
+            color: "text.secondary"
+          }}>
             {live ? 'Waiting for room data…' : 'Not connected.'}
           </Typography>
         )}
@@ -334,7 +361,13 @@ export function GmcpPanel({ connection, state, onInsertCommand }: GmcpPanelProps
         overflowY: 'auto',
       }}
     >
-      <Stack direction="row" alignItems="center" justifyContent="space-between" sx={{ mb: isNarrow ? 0 : 1.5 }}>
+      <Stack
+        direction="row"
+        sx={{
+          alignItems: "center",
+          justifyContent: "space-between",
+          mb: isNarrow ? 0 : 1.5
+        }}>
         <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>
           Session
         </Typography>

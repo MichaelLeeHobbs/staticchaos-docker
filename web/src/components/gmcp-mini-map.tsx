@@ -138,13 +138,18 @@ export function GmcpMiniMap({ num }: MiniMapProps) {
           <circle cx={CX} cy={CY} r={22} fill="none" stroke={CENTER_FILL} strokeWidth={1} opacity={0.4} />
         </g>
       </Box>
-
-      <Typography variant="caption" color="text.secondary" sx={{ display: 'block', textAlign: 'center', mt: 0.5 }}>
+      <Typography
+        variant="caption"
+        sx={{
+          color: "text.secondary",
+          display: 'block',
+          textAlign: 'center',
+          mt: 0.5
+        }}>
         <Link component="button" type="button" underline="hover" onClick={() => setOpenVnum(view.here.vnum)}>
           Open full map
         </Link>
       </Typography>
-
       {/* Full map in a near-fullscreen modal, deep-linked to the current room.
           Rendered from within /play so the terminal/connection never unmount. */}
       <Dialog
@@ -152,7 +157,7 @@ export function GmcpMiniMap({ num }: MiniMapProps) {
         onClose={() => setOpenVnum(null)}
         fullWidth
         maxWidth={false}
-        PaperProps={{ sx: { width: '95vw', height: '92vh', maxWidth: 'none', m: 1, bgcolor: '#121217' } }}
+        slotProps={{ paper: { sx: { width: '95vw', height: '92vh', maxWidth: 'none', m: 1, bgcolor: '#121217' } } }}
       >
         <DialogTitle sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', py: 1 }}>
           World Map

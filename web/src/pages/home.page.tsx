@@ -7,7 +7,7 @@ import {
   CardActionArea,
   CardContent,
   Chip,
-  Grid2 as Grid,
+  Grid,
   Stack,
   Typography,
 } from '@mui/material';
@@ -86,16 +86,25 @@ export function HomePage() {
   return (
     <Box>
       <Stack spacing={1.5} sx={{ mb: 4 }}>
-        <Typography variant="h3" component="h1" fontWeight={700}>
+        <Typography variant="h3" component="h1" sx={{
+          fontWeight: 700
+        }}>
           Static Chaos Companion
         </Typography>
-        <Typography variant="h6" color="text.secondary" sx={{ maxWidth: 720 }}>
+        <Typography
+          variant="h6"
+          sx={{
+            color: "text.secondary",
+            maxWidth: 720
+          }}>
           A static, no-login companion for the Static Chaos MUD &mdash; browse
           guides, walk the world map, search the game&rsquo;s items, mobs, and
           shops, and grab Mudlet GMCP packages.
         </Typography>
         {stats && (
-          <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap>
+          <Stack direction="row" spacing={1} useFlexGap sx={{
+            flexWrap: "wrap"
+          }}>
             <Chip label={`${stats.areas} areas`} size="small" />
             <Chip label={`${stats.rooms.toLocaleString()} rooms`} size="small" />
             <Chip label={`${stats.items.toLocaleString()} items`} size="small" />
@@ -116,7 +125,6 @@ export function HomePage() {
           in-game — installing Mudlet and connecting included.
         </Alert>
       </Stack>
-
       <Grid container spacing={3}>
         {CARDS.map((card) => (
           <Grid key={card.to} size={{ xs: 12, sm: 6 }}>
@@ -130,14 +138,18 @@ export function HomePage() {
                   <Stack
                     direction="row"
                     spacing={2}
-                    alignItems="flex-start"
+                    sx={{
+                      alignItems: "flex-start"
+                    }}
                   >
                     {card.icon}
                     <Box>
                       <Typography variant="h6" component="h2" gutterBottom>
                         {card.title}
                       </Typography>
-                      <Typography variant="body2" color="text.secondary">
+                      <Typography variant="body2" sx={{
+                        color: "text.secondary"
+                      }}>
                         {card.desc}
                       </Typography>
                     </Box>

@@ -39,16 +39,30 @@ function DownloadCard({ entry }: { entry: GmcpEntry }) {
       }}
     >
       <CardContent sx={{ flexGrow: 1 }}>
-        <Stack direction="row" spacing={1} alignItems="center" sx={{ mb: 1, flexWrap: 'wrap' }}>
+        <Stack
+          direction="row"
+          spacing={1}
+          sx={{
+            alignItems: "center",
+            mb: 1,
+            flexWrap: 'wrap'
+          }}>
           <Typography variant="h6" component="div" sx={{ fontFamily: 'monospace', wordBreak: 'break-all' }}>
             {entry.file}
           </Typography>
           {recommended && <Chip label="Recommended" color="primary" size="small" />}
         </Stack>
-        <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
+        <Typography
+          variant="body2"
+          sx={{
+            color: "text.secondary",
+            mb: 1
+          }}>
           {entry.desc}
         </Typography>
-        <Typography variant="caption" color="text.disabled">
+        <Typography variant="caption" sx={{
+          color: "text.disabled"
+        }}>
           {formatBytes(entry.bytes)}
         </Typography>
       </CardContent>
@@ -105,12 +119,17 @@ export function DownloadsPage() {
       <Typography variant="h1" gutterBottom>
         Mudlet / GMCP
       </Typography>
-      <Typography variant="body1" color="text.secondary" sx={{ mb: 3, maxWidth: 720 }}>
+      <Typography
+        variant="body1"
+        sx={{
+          color: "text.secondary",
+          mb: 3,
+          maxWidth: 720
+        }}>
         These are Mudlet packages that hook into the server&rsquo;s GMCP data feed &mdash; powering live
         gauges (HP / mana / movement), the auto-mapper, and command tab-completion. Install one, log in,
         and your client lights up automatically.
       </Typography>
-
       {xmlEntries.length === 0 ? (
         <Alert severity="info" sx={{ mb: 3 }}>
           No downloadable packages are available right now.
@@ -129,7 +148,6 @@ export function DownloadsPage() {
           ))}
         </Box>
       )}
-
       <Typography variant="h2" sx={{ fontSize: '1.6rem', mb: 1 }}>
         Installation
       </Typography>

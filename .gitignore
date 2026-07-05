@@ -80,10 +80,13 @@ Temporary Items
 *.old
 
 # Runtime area artifacts that slipped into git with the vendored import:
-# bugs.txt is the server's bug() log (append-only, grows in the area volume), and
-# clan.new/leaders.new are write-temps the game never reads (it uses clan.txt/
-# leaders.txt). Not source; regenerated at runtime.
+# bugs.txt / ideas.txt / typos.txt are the append-only player-report + bug() logs
+# (they grow in the area volume, and the vendored copies carry decades of stale
+# reports from the original server). clan.new/leaders.new are write-temps the game
+# never reads (it uses clan.txt/leaders.txt). Not source; regenerated at runtime.
 /area/bugs.txt
+/area/ideas.txt
+/area/typos.txt
 /area/*.new
 
 # Personal deploy scripts — copy the *.example.sh templates and edit for your host

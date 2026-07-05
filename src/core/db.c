@@ -419,7 +419,8 @@ void boot_db( bool fCopyOver )
 	/* load_notes( ); */
 	load_boards();
 	save_boards();
-	// load_uniques();
+	/* Uniques are (re)spawned from update_handler's PULSE_UNIQUE_SPAWN timer
+	 * (fires on the first pulse), not here -- see load_uniques() (#109). */
 	MOBtrigger = TRUE;
     }
 
@@ -3702,13 +3703,44 @@ void memory_check()
   return;
 }
 
+/* Is at least one instance of this object vnum present anywhere in the world? */
+static bool unique_in_world( int vnum )
+{
+  OBJ_DATA *obj;
+
+  for ( obj = object_list; obj != NULL; obj = obj->next )
+  {
+    if ( obj->pIndexData != NULL && obj->pIndexData->vnum == vnum )
+      return TRUE;
+  }
+  return FALSE;
+}
+
+/*
+ * (Re)spawn the unique world-drop items (#109). Called at boot and every
+ * PULSE_UNIQUE_SPAWN (4h) from update_handler. Each unique is dropped in a
+ * random room only if no instance already exists anywhere -- so one that was
+ * lost (its holder died, or logged off where save.c strips uniques) reappears
+ * within a cycle, without ever duplicating one still out in the world or held
+ * by a player. The EVAL>=30 / one-at-a-time pickup gate is unchanged.
+ */
 void load_uniques()
 {
-  obj_to_room( create_object( get_obj_index( 30 ), 0 ), get_rand_room() );
-  // obj_to_room( create_object( get_obj_index( 31 ), 0 ), get_rand_room() );
-  obj_to_room( create_object( get_obj_index( 33 ), 0 ), get_rand_room() );
-  obj_to_room( create_object( get_obj_index( 34 ), 0 ), get_rand_room() );
-  obj_to_room( create_object( get_obj_index( 35 ), 0 ), get_rand_room() );
+  static const int unique_vnums[] = { 30, 32, 33, 34 };
+  int i;
+
+  for ( i = 0; i < (int)( sizeof( unique_vnums ) / sizeof( unique_vnums[0] ) ); i++ )
+  {
+    int vnum = unique_vnums[i];
+    OBJ_INDEX_DATA *pObjIndex = get_obj_index( vnum );
+
+    if ( pObjIndex == NULL )		/* not in the db -- skip safely */
+      continue;
+    if ( unique_in_world( vnum ) )	/* already out there -- don't dupe */
+      continue;
+
+    obj_to_room( create_object( pObjIndex, 0 ), get_rand_room() );
+  }
   return;
 }
 

@@ -459,7 +459,7 @@ Strike at his heart, for each drop of blood will produce a new one.`n
 90 0 0 0d0+0 0d0+0
 0 0
 0 0 0
->act_prog p begins to phase in and out of existance..~
+>act_prog p begins to phase in and out of existence..~
 mpecho A Chaodyn lunges at $n!
  mpdamage $n 10000 15000 1010
 ~

@@ -859,7 +859,7 @@ See CONFIGURE to find out which toggle is on and which is off.
 0 BLANK~
 Syntax: blank
 
-BLANK toggles existance of a blank before your prompt.
+BLANK toggles existence of a blank before your prompt.
 
 See CONFIGURE to find out which toggle is on and which is off.
 ~

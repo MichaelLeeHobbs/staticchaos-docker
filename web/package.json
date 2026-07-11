@@ -4,6 +4,9 @@
   "private": true,
   "type": "module",
   "description": "Static companion site for the Static Chaos MUD (docs, world map, data browser, GMCP files).",
+  "engines": {
+    "node": "^20.19.0 || >=22.12.0"
+  },
   "scripts": {
     "sync": "node scripts/sync-content.mjs",
     "dev": "node scripts/sync-content.mjs && vite",
@@ -33,6 +36,6 @@
     "@types/react-dom": "19.2.3",
     "@vitejs/plugin-react": "5.2.0",
     "typescript": "7.0.2",
-    "vite": "6.0.7"
+    "vite": "8.1.4"
   }
 }

@@ -558,29 +558,30 @@ static bool rw_air_destruction( CHAR_DATA *ch, CHAR_DATA *victim )
 	  else if ( IS_CLASS(victim,CLASS_SORCERER ) && victim->pcdata->chant != NULL )
 	  { /* Issue #3: only acts while a chant is actually in progress (the old
 	     * lose_chant was a silent no-op otherwise -- so don't strip Defense or
-	     * print "chant holds" against a Sorcerer who isn't chanting).  Defense
-	     * holds the chant (strip it instead); else roll a resist-reduced interrupt. */
+	     * print "chant holds" against a Sorcerer who isn't chanting).
+	     * Issue #122: Defense no longer holds the chant outright; it is torn
+	     * away and counts as one more -10 on the interrupt roll.  The roll is
+	     * clamped to [50,85], so avoidance never exceeds 50%. */
+	    int chance = 75;
 	    if ( is_affected( victim, gsn_defense ) )
 	    { affect_strip( victim, gsn_defense );
-	      act( "Your rune-wind tears away $N's Defense, but the chant holds.", ch, NULL, victim, TO_CHAR );
-	      act( "$n's rune-wind tears away your Defense, but your chant holds!", ch, NULL, victim, TO_VICT );
+	      act( "Your rune-wind tears away $N's Defense!", ch, NULL, victim, TO_CHAR );
+	      act( "$n's rune-wind tears away your Defense!", ch, NULL, victim, TO_VICT );
+	      chance -= 10;
+	    }
+	    if ( IS_AFFECTED( victim, AFF_HOLY_RESIST ) != 0 ) chance -= 10;
+	    if ( IS_AFFECTED( victim, AFF_VAS_GLUUDO  ) != 0 ) chance -= 10;
+	    if ( IS_AFFECTED( victim, AFF_RAYWING ) != 0
+	      || IS_AFFECTED( victim, AFF_WINDY_SHIELD ) != 0 ) chance -= 10;
+	    chance = URANGE( 50, chance, 85 );
+	    if ( number_percent() <= chance )
+	    { lose_chant( victim );
+	      act( "Your rune-wind shatters $N's gathering chant!", ch, NULL, victim, TO_CHAR );
+	      act( "$n's rune-wind shatters your gathering chant!", ch, NULL, victim, TO_VICT );
 	    }
 	    else
-	    { int chance = 75;
-	      if ( IS_AFFECTED( victim, AFF_HOLY_RESIST ) != 0 ) chance -= 10;
-	      if ( IS_AFFECTED( victim, AFF_VAS_GLUUDO  ) != 0 ) chance -= 10;
-	      if ( IS_AFFECTED( victim, AFF_RAYWING ) != 0
-	        || IS_AFFECTED( victim, AFF_WINDY_SHIELD ) != 0 ) chance -= 10;
-	      chance = URANGE( 45, chance, 85 );
-	      if ( number_percent() <= chance )
-	      { lose_chant( victim );
-	        act( "Your rune-wind shatters $N's gathering chant!", ch, NULL, victim, TO_CHAR );
-	        act( "$n's rune-wind shatters your gathering chant!", ch, NULL, victim, TO_VICT );
-	      }
-	      else
-	      { act( "$N rides out the tearing wind, chant unbroken.", ch, NULL, victim, TO_CHAR );
-	        act( "You ride out the tearing wind, your chant unbroken!", ch, NULL, victim, TO_VICT );
-	      }
+	    { act( "$N rides out the tearing wind, chant unbroken.", ch, NULL, victim, TO_CHAR );
+	      act( "You ride out the tearing wind, your chant unbroken!", ch, NULL, victim, TO_VICT );
 	    }
 	  }
 

@@ -684,7 +684,8 @@ void do_kiwave( CHAR_DATA *ch, char *argument )
     {
       /* PvP balance: Ki Wave used to ALWAYS break a Sorcerer's chant, which
          made casting near a Saiyan near-impossible.  Now it's a chance that
-         the Sorcerer's own defensive chants can reduce/negate.            */
+         the Sorcerer's own defensive chants can reduce -- but never below
+         50% (issue #122: avoidance is capped at 50%).                     */
       int chance = 66;              /* base chant-interrupt chance          */
 
       act( "Your Ki wave staggers $N!", ch, NULL, victim, TO_CHAR );
@@ -697,17 +698,18 @@ void do_kiwave( CHAR_DATA *ch, char *argument )
          (only "windy shield"); the -20 wind line from the spec is omitted. */
 
       if ( is_affected(victim, gsn_defense) )
-      { /* Defense fully blocks the wave, then drops -> no chant interrupt. */
+      { /* Issue #122: Defense no longer negates the interrupt outright; it is
+           consumed by the wave and counts as one more -10 on the roll. */
         affect_strip(victim, gsn_defense);
-        send_to_char( "Your Defense absorbs the wave of Ki!\n\r", victim );
+        send_to_char( "Your Defense absorbs part of the wave of Ki!\n\r", victim );
+        chance -= 10;
       }
+
+      chance = URANGE( 50, chance, 85 );
+      if ( number_percent() < chance )
+        lose_chant( victim );
       else
-      { chance = URANGE( 25, chance, 85 );
-        if ( number_percent() < chance )
-          lose_chant( victim );
-        else
-          send_to_char( "You hold your chant through the wave of Ki!\n\r", victim );
-      }
+        send_to_char( "You hold your chant through the wave of Ki!\n\r", victim );
     }
     else if ( IS_CLASS(victim,CLASS_MAZOKU) && victim->pcdata->powers[M_CTYPE] != 0 )
     {

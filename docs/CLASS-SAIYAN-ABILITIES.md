@@ -5,7 +5,7 @@
 > narrative version, see **[Saiyan — Player Guide](CLASS-SAIYAN.md)** (do not balance-check against
 > that doc; this one is authoritative).
 
-**Last verified against source:** commit `d4de47d`
+**Last verified against source:** commit `f0e24e1` (Ki Wave chant-interrupt section, #122; rest verified at `d4de47d`)
 **Primary sources:** `src/classes/saiyan.c`, `src/core/fight.c`, `src/core/update.c`, `src/core/const.c`, `src/include/merc.h`, `src/core/interp.c`
 
 ## How to read this
@@ -145,9 +145,9 @@ Damage **plus** a major cross-class disruption suite.
     `NEW_FIGUREEIGHT` (breaks the Figure-Eight rhythm).
   - **vs Saiyan:** strips the target's `gsn_kiwall` if active ("collapses your wall of Ki").
   - **vs Sorcerer:** chance to interrupt the active chant. Base interrupt chance **66%**; reduced
-    `-15` if `AFF_VAS_GLUUDO`, `-10` if `AFF_HOLY_RESIST`; clamped to `URANGE(25, chance, 85)`. If the
-    Sorcerer has `gsn_defense`, the wave is fully absorbed and Defense drops (**no** interrupt). On
-    interrupt, `lose_chant(victim)`.
+    `-15` if `AFF_VAS_GLUUDO`, `-10` if `AFF_HOLY_RESIST`, and `-10` if `gsn_defense` is up (Defense
+    is consumed — stripped — in the process); clamped to `URANGE(50, chance, 85)`, so avoidance is
+    capped at **50%** (#122). On interrupt, `lose_chant(victim)`.
   - **vs Mazoku:** if charging (`M_CTYPE != 0`), resets `M_CTYPE = 0` and `M_CTIME = 0` (loses the charge).
 
 ### Ki Bomb — `kibomb`

@@ -5,7 +5,7 @@
 > narrative version, see **[Sorcerer — Player Guide](CLASS-SORCERER.md)** (do not balance-check against
 > that doc; this one is authoritative).
 
-**Last verified against source:** commit `f0e24e1`, plus the `multi_hit` prep-fallback change from PR #67 (#51) — diff against that PR's merge commit for the `prepare` behavior described below.
+**Last verified against source:** commit `f0e24e1` (interrupt/Defense sections #122, Holy Resist dispel #123; rest verified at `59e39c5`, plus the `multi_hit` prep-fallback change from PR #67 (#51) — diff against that PR's merge commit for the `prepare` behavior described below).
 **Primary sources:** `src/classes/sorcerer.c`, `src/core/fight.c` (`chant_damage`, school amps), `src/core/update.c`
 (`chant_update`, Mystic regen, Laguna Blade upkeep, Dragon Slave tick, Flame Breath DoT), `src/core/const.c`,
 `src/include/merc.h`
@@ -102,6 +102,9 @@ Sources: `src/classes/sorcerer.c` (`do_chant`, `do_research`, `do_specialize`, `
   reduced to ≤ `POS_MORTAL`/death (`fight.c` × `chant_damage`), and by cross-class disruptors: Saiyan
   Ki Wave / Ryuken (`saiyan.c`), Fist (`fist.c`), Mazoku (`mazoku.c`), Patryn (`patryn.c`), another
   Sorcerer's **Diem Wing** / **Flow Break** (`sorcerer.c`), and admin `freeze`/`mppurge` (`act_wiz.c`).
+  The rolled interrupts (Saiyan Ki Wave, Patryn gust) clamp their chance to a **floor of 50%** —
+  defensive affects (Vas Gluudo, Holy Resist, Defense, Raywing/Windy Shield) reduce the chance but
+  avoidance is capped at 50%; Defense no longer negates the roll, it is consumed for a `-10` (#122).
 
 ### `saves_chant(ch, victim, cn)` — the universal save roll
 *Source: `src/classes/sorcerer.c:saves_chant`* — `chance` starts at **45**, then:
@@ -350,7 +353,9 @@ chants.
 
 ### Defense — `chant_defense` (emergency barrier)
 - Fails if already `gsn_defense`. Self `gsn_defense`, `duration = 2 + rank/20`. Absorbs/shrugs a hit
-  in cross-class logic; stripped by Saiyan Ki Wave/Ryuken, Diem Wing, Bomb di Wind, Patryn.
+  in cross-class logic; stripped by Saiyan Ki Wave/Ryuken, Diem Wing, Bomb di Wind, Patryn. Against
+  the Saiyan Ki Wave and Patryn gust chant-interrupt rolls it no longer grants immunity — it is
+  consumed for a `-10` to the interrupt chance (floor 50%, #122).
 
 ### Chaotic Disintegrate — `chant_chaotic_disintegrate`
 - **Damage loop:** `dam = dice(rank, rank)`, `dam += dam/2 * i`; repeat while

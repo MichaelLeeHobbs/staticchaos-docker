@@ -5,7 +5,7 @@
 > narrative version, see **[Patryn — Player Guide](CLASS-PATRYN.md)** (do not balance-check against
 > that doc; this one is authoritative).
 
-**Last verified against source:** commit `cefb094`
+**Last verified against source:** commit `f0e24e1` (gust chant-interrupt section, #122; rest verified at `cefb094`)
 **Primary sources:** `src/classes/patryn.c`, `src/core/fight.c`, `src/classes/saiyan.c`, `src/classes/sorcerer.c`, `src/core/const.c`, `src/include/merc.h`, `src/core/interp.c`
 
 ## How to read this
@@ -220,10 +220,11 @@ trigger a retaliatory `multi_hit` if the victim wasn't already fighting (`src/cl
 
 - **Air + Destruction (`513`) — gust of wind:** PC-target disruption (mirrors the Saiyan Ki Wave suite):
   - **vs Fist:** clears `NEW_FIGUREEIGHT`; decrements `F_KI` (if `> 0`).
-  - **vs Sorcerer (only if `chant != NULL`):** if `gsn_defense` is up, strips Defense but the chant
-    holds. Otherwise rolls a resist-reduced interrupt: `chance = 75`, `-10` each for `AFF_HOLY_RESIST`,
-    `AFF_VAS_GLUUDO`, and (`AFF_RAYWING` **or** `AFF_WINDY_SHIELD`); clamped `URANGE(45, chance, 85)`;
-    on `number_percent() <= chance` → `lose_chant(victim)`.
+  - **vs Sorcerer (only if `chant != NULL`):** rolls a resist-reduced interrupt: `chance = 75`; if
+    `gsn_defense` is up it is torn away (stripped) and counts as `-10`; `-10` each for
+    `AFF_HOLY_RESIST`, `AFF_VAS_GLUUDO`, and (`AFF_RAYWING` **or** `AFF_WINDY_SHIELD`); clamped
+    `URANGE(50, chance, 85)`; on `number_percent() <= chance` → `lose_chant(victim)`. Defense no
+    longer holds the chant outright — avoidance is capped at **50%** (#122).
   - **vs Saiyan:** strips `gsn_kiwall` if present.
 - **Negative + Destruction (`544`) — pearlescent light:** only affects Mazoku; if `M_CTIME > 0`,
   resets `M_CTIME = 0` and `M_CTYPE = 0` (scatters the charge).

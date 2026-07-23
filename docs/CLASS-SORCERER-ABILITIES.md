@@ -5,7 +5,7 @@
 > narrative version, see **[Sorcerer — Player Guide](CLASS-SORCERER.md)** (do not balance-check against
 > that doc; this one is authoritative).
 
-**Last verified against source:** commit `f0e24e1` (interrupt/Defense sections #122, Holy Resist dispel #123; rest verified at `59e39c5`, plus the `multi_hit` prep-fallback change from PR #67 (#51) — diff against that PR's merge commit for the `prepare` behavior described below).
+**Last verified against source:** commit `f0e24e1` (interrupt/Defense sections #122, Holy Resist dispel #123, Chaos Strings / Vas Gluudo #124; rest verified at `59e39c5`, plus the `multi_hit` prep-fallback change from PR #67 (#51) — diff against that PR's merge commit for the `prepare` behavior described below).
 **Primary sources:** `src/classes/sorcerer.c`, `src/core/fight.c` (`chant_damage`, school amps), `src/core/update.c`
 (`chant_update`, Mystic regen, Laguna Blade upkeep, Dragon Slave tick, Flame Breath DoT), `src/core/const.c`,
 `src/include/merc.h`
@@ -334,9 +334,22 @@ chants.
 ### Vas Gluudo — `chant_vas_gluudo` (self shield)
 - Self `AFF_VAS_GLUUDO`, `APPLY_AC modifier = -rank`, `duration = 30*rank + dice(1,6)`. Grants **+10**
   to `saves_chant` and **−15** to Saiyan Ki-Wave interrupt chance. Torn down by Flow Break.
+- **Damage soak (`fight.c` `damage()`):**
+  - **Energy** (`DAM_KIFLAME`, `DAM_SHOCKWAVE`): `dam -= dam * (SCHOOL_WHITE-20)/35` — rank-scaled;
+    this is the path ki-flame Fist components (Hadouken/Gadouken/Shinkyuu Hadouken, Maiden Masher
+    flames) take.
+  - **Beams** (`DAM_BEAMRIFLE`/`DAM_BEAMSABRE`/`DAM_BEAMSWORD`): `dam -= dam * (SCHOOL_WHITE-10)/60`;
+    `DAM_SHOCKSHIELD`: `dam -= dam * (SCHOOL_WHITE-20)/60`.
+  - **Physical −10%:** melee weapon hits (`TYPE_HIT..TYPE_HIT+14`) **and all fist physical specials**
+    (`F_SHINKICK..F_JUMPKICK` — shin kick, jab, spin kick, knee, elbow, uppercut, stomp, jump kick —
+    plus `F_PALMTHRUST`; this also covers Boot to the Head, Fists of Fury, the six-strike combo, and
+    the physical components of Instant Hell Murder / Maiden Masher, which reuse those types).
+    `F_DEATHTOUCH` (Dim-Mak) is deliberately **excluded**.
+  - **Projectiles** (`DAM_BULLETS`/`DAM_SHELLS`/`DAM_MISSILES`): −15%.
 
 ### Chaos Strings — `chant_chaos_strings` (#6 peel)
-- **Debuff (unless `ROOM_SAFE`):** `AFF_CHAOS_STRING` (fight code halves Fist melee, cuts ~1/3 attacks),
+- **Debuff (unless `ROOM_SAFE`):** `AFF_CHAOS_STRING` (fight code halves Fist melee; `calc_attacks`
+  cuts attacks to 2/3, floor 1 — applies to **both NPC and player** attackers, after class bonuses),
   `duration = saved ? (PvP 1 / PvE 2) : (PvP 2 / PvE 4)`.
 - **Damage loop:** `dam = dice(15, rank)`, `dam += dam/2 * i`; repeat while
   `number_percent() > (30 - rank/2)` and `i < max` (NPC 6 / PC 4). (Save affects only the debuff

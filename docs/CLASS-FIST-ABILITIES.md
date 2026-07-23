@@ -5,7 +5,7 @@
 > narrative version, see **[Fist — Player Guide](CLASS-FIST.md)** (do not balance-check against
 > that doc; this one is authoritative).
 
-**Last verified against source:** commit `e5ac280`
+**Last verified against source:** commit `f0e24e1`
 **Primary sources:** `src/classes/fist.c`, `src/core/fight.c`, `src/core/update.c`, `src/core/handler.c`, `src/core/const.c`, `src/include/merc.h`, `src/core/interp.c`
 
 ## How to read this
@@ -286,7 +286,7 @@ A toggled offense aura (`NEW_PHOENIX_AURA`).
 - **Side effect on basic strikes:** while active, the Ki-nudge adds `F_KI` to the random roll
   (`num += F_KI`), suppressing further Ki swings (see §2).
 
-### Dim-Mak — `dim-mak <target>`
+### Dim-Mak — `dim-mak [target]`
 *Source: `src/classes/fist.c:do_dim_mak` · `interp.c`: POS_FIGHTING, level 2*
 
 The Fist's premier nuke; scales off **player-kill count**, and Ki *reduces* its stamina cost.
@@ -299,7 +299,8 @@ The Fist's premier nuke; scales off **player-kill count**, and Ki *reduces* its 
   - **vs Mazoku:** `dam *= 2` if `M_TRUE`; `dam *= 5` if `M_ASTRIKE` (multiplicative, so both → ×10),
     and a landed `M_ASTRIKE` strike is then stripped.
   - **vs Sorcerer:** `number_percent() < 60` → `lose_chant(victim)` (interrupts the chant).
-- **Targeting:** `get_char_room`; requires an argument ("Poison who?").
+- **Targeting:** with no argument, defaults to the current opponent (`ch->fighting`), like the other
+  fist attacks; with an argument, `get_char_room`. "Poison who?" only when idle with no argument.
 - **Cost applied:** `move -= movecost`, `F_KI -= kicost`. **Lag:** `WAIT_STATE(ch, 10)`.
 
 ---

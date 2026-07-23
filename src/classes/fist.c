@@ -1133,11 +1133,14 @@ void do_dim_mak( CHAR_DATA *ch, char *argument )
   argument = one_argument( argument, arg );
   if ( arg[0] == '\0' )
   {
-    stc( "Poison who?\n\r", ch );
-    return;
+    if ( ch->fighting == NULL )
+    {
+      stc( "Poison who?\n\r", ch );
+      return;
+    }
+    victim = ch->fighting;
   }
-
-  if ( (victim = get_char_room(ch,arg)) == NULL )
+  else if ( (victim = get_char_room(ch,arg)) == NULL )
   {
     stc( "They aren't here.\n\r", ch );
     WAIT_STATE( ch, 4 );

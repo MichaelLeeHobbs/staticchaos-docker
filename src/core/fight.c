@@ -1003,8 +1003,7 @@ int damage( CHAR_DATA *ch, CHAR_DATA *victim, int dam, int dt )
             }
 
 	    if ( IS_AFFECTED(victim,AFF_VAS_GLUUDO) )
-	    { if  ( dt == DAM_KIFLAME || (dt >= 130 && dt < 140)
-	         || dt == DAM_SHOCKWAVE )
+	    { if  ( dt == DAM_KIFLAME || dt == DAM_SHOCKWAVE )
 	        dam -= dam * (victim->pcdata->powers[SCHOOL_WHITE]-20) / 35;
 	      if ( dt == DAM_BEAMRIFLE || dt == DAM_BEAMSABRE || dt == DAM_BEAMSWORD )
 	        dam -= dam * (victim->pcdata->powers[SCHOOL_WHITE] - 10) / 60;
@@ -1012,9 +1011,14 @@ int damage( CHAR_DATA *ch, CHAR_DATA *victim, int dam, int dt )
 	        dam -= dam * (victim->pcdata->powers[SCHOOL_WHITE]-20) / 60;
 
 	      /* PvP balance: Vas Gluudo also soaks straight physical attacks.
-	         Melee weapon hits (TYPE_HIT..TYPE_HIT+14) -10%; projectile/shell
-	         mobile-suit fire -15% (distinguished via dt).                   */
-	      if ( dt >= TYPE_HIT && dt < TYPE_HIT + 15 )
+	         Melee weapon hits (TYPE_HIT..TYPE_HIT+14) and fist physical
+	         specials (F_SHINKICK..F_JUMPKICK, F_PALMTHRUST — not
+	         F_DEATHTOUCH) -10%; projectile/shell mobile-suit fire -15%
+	         (distinguished via dt). Ki-flame fist components arrive as
+	         DAM_KIFLAME and keep the rank-scaled energy reduction above. */
+	      if ( ( dt >= TYPE_HIT && dt < TYPE_HIT + 15 )
+	        || ( dt >= F_SHINKICK && dt <= F_JUMPKICK )
+	        || dt == F_PALMTHRUST )
 	        dam -= dam * 10 / 100;
 	      else if ( dt == DAM_BULLETS || dt == DAM_SHELLS || dt == DAM_MISSILES )
 	        dam -= dam * 15 / 100;
@@ -3640,6 +3644,9 @@ int calc_attacks( CHAR_DATA *ch, CHAR_DATA *victim )
   }
 
   if ( IS_AFFECTED(victim,AFF_RAYWING) )
+    atk = UMAX( 1, atk * 2 / 3 );
+
+  if ( IS_AFFECTED(ch,AFF_CHAOS_STRING) )
     atk = UMAX( 1, atk * 2 / 3 );
 
   return atk;

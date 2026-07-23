@@ -5,7 +5,7 @@
 > narrative version, see **[Sorcerer — Player Guide](CLASS-SORCERER.md)** (do not balance-check against
 > that doc; this one is authoritative).
 
-**Last verified against source:** commit `59e39c5`, plus the `multi_hit` prep-fallback change from PR #67 (#51) — diff against that PR's merge commit for the `prepare` behavior described below.
+**Last verified against source:** commit `f0e24e1`, plus the `multi_hit` prep-fallback change from PR #67 (#51) — diff against that PR's merge commit for the `prepare` behavior described below.
 **Primary sources:** `src/classes/sorcerer.c`, `src/core/fight.c` (`chant_damage`, school amps), `src/core/update.c`
 (`chant_update`, Mystic regen, Laguna Blade upkeep, Dragon Slave tick, Flame Breath DoT), `src/core/const.c`,
 `src/include/merc.h`
@@ -343,6 +343,10 @@ chants.
 - Self `AFF_HOLY_RESIST`, `APPLY_AC modifier = -3*(rank-15)`, `duration = 30*rank + dice(1,6)`.
 - **Effects (`chant_damage`, victim is this Sorcerer):** `dam -= dam*2*(SCHOOL_WHITE-20)/100`; plus
   Black/Astral/White chant damage `-15%` (or `-20%` if White-spec). Also `+sorc_rank(WHITE)` to saves.
+- **vs `dispel magic` (#123):** the barrier absorbs the dispel and **collapses immediately** — one
+  cast strips Holy Resist, but that cast is consumed by the barrier (it strips nothing else that
+  cast; the next dispel hits the normal random-strip roll). (Previously each dispel only chipped
+  `duration -= 300`, ~5-6 casts to break.)
 
 ### Defense — `chant_defense` (emergency barrier)
 - Fails if already `gsn_defense`. Self `gsn_defense`, `duration = 2 + rank/20`. Absorbs/shrugs a hit

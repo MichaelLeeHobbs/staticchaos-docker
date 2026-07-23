@@ -1124,25 +1124,15 @@ void spell_dispel_magic( int sn, int level, CHAR_DATA *ch, void *vo )
 
   num = dice( 1, num );
 
-  /* If the target has holy resist up */
-  if ( is_affected(victim,hr) )
+  /* If the target has holy resist up, the barrier absorbs the dispel
+     and collapses: one cast strips it, but is consumed doing so (#123). */
+  if ( is_affected( victim, hr ) )
   {
-    for ( paf = victim->affected; paf->type != hr; paf = paf->next )
-      ;
-
-    paf->duration = UMAX(0,paf->duration - 300); 
-    if ( paf->duration > 0 )
-    {
-      act( ".. but is absorbed by $N's barrier.", ch, NULL, victim, TO_CHAR );
-      act( ".. but is absorbed by your barrier.", ch, NULL, victim, TO_VICT );
-      act( ".. but is absorbed by $N's barrier.", ch, NULL, victim, TO_NOTVICT );
-    }
-    else
-    {
-      act( ".. and collapses $S barrier!", ch, NULL, victim, TO_CHAR );
-      act( ".. and collapses your barrier!", ch, NULL, victim, TO_VICT );
-      act( ".. and collapses $S barrier!", ch, NULL, victim, TO_NOTVICT );
-    }
+    affect_strip( victim, hr );
+    act( ".. and collapses $S barrier!", ch, NULL, victim, TO_CHAR );
+    act( ".. and collapses your barrier!", ch, NULL, victim, TO_VICT );
+    act( ".. and collapses $S barrier!", ch, NULL, victim, TO_NOTVICT );
+    return;
   }
   else  /* otherwise.. */
   {

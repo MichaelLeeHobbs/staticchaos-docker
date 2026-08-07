@@ -8,7 +8,7 @@
 # Pinned by digest for reproducibility. Tag: debian:bullseye-slim.
 # Re-pin: docker pull debian:bullseye-slim && \
 #   docker inspect --format='{{index .RepoDigests 0}}' debian:bullseye-slim
-FROM debian:bullseye-slim@sha256:cba95a21c96c1f5fc2470081829363eed57706634f7dc26e8c6712934303d57a
+FROM debian:bullseye-slim@sha256:f313b4bd62667092a59b3a664d7d3ab8b5e65f41675f48e81455a15dc5abe792
 
 # build-essential provides gcc + make. gcc-multilib + libc6-dev-i386 provide the
 # 32-bit toolchain and libs: the server is built -m32 because this code assumes
